@@ -61,4 +61,6 @@ Acceptance: incremental signal beyond baselines, encoder/prover robustness, audi
 
 ## Scope and risks
 
-This first delivery completes checkpoints 1–2 and leaves qualification and formal-proof work as explicit future gates. It requires no GPU, model download, paid API, or long-running search. Defaults are development smoke settings. Pairwise metrics need O(n²) memory; projections and permutations have explicit budgets. Synthetic success would validate measurement behavior only, not H1–H4. No thresholds are tuned after observing results and presented as preregistered.
+Execution continues through the research plan; checkpoints are progress records, not stopping points. Checkpoints 1–2 established the foundation. Continue calibration, held-out qualification, corpus construction, representations, controlled experiments, and interpretation subject to the scientific gates. A failed gate calls for documented diagnosis and redesign or a justified negative conclusion, not silently advancing to an invalid experiment.
+
+The local machine has four CPU threads, about 8 GiB RAM, and initially 12 GiB free disk. Use bounded CPU experiments and pinned lightweight tools first; do not launch paid compute without authorization. Defaults are development smoke settings. Pairwise metrics need O(n²) memory; projections and permutations have explicit budgets. Synthetic success would validate measurement behavior only, not H1–H4. No thresholds are tuned after observing results and presented as preregistered.
