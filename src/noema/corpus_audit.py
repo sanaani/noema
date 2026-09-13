@@ -119,11 +119,11 @@ def audit(manifest, directory):
     return report, frozen
 
 
-def main():
+def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--corpus", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
     manifest = json.loads(args.corpus.read_text())
     report, frozen = audit(manifest, args.corpus.parent)
     args.output.mkdir(parents=True, exist_ok=False)

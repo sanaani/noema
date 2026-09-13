@@ -311,6 +311,16 @@ def run(
         "corpus_sha256": actual["corpus_sha256"],
         "split_freeze_sha256": digest(freeze.read_text()),
         "encoder_manifest": encoders["minilm"].manifest,
+        "representation_contract": {
+            "input": "one formal state, binder names and declaration order removed",
+            "theorem_labels_proof_ids_edges_neighbors_in_encoder_input": False,
+            "training_on_evaluation_corpus": False,
+            "calibration_on_evaluation_corpus": False,
+            "general_text_pretraining_contamination": "not exhaustively auditable",
+            "validated_mathematical_neural_encoder": False,
+            "syntax": {"dimension": 256, "features": "signed SHA-256 token 1-3 grams"},
+            "truth": {"dimension": 256, "formula": "(2*context_satisfied+goal_satisfied)/48"},
+        },
         "encoder_dependencies": {
             k: importlib.metadata.version(k) for k in ("onnxruntime", "tokenizers")
         },
@@ -403,10 +413,18 @@ def run(
     result["bh_family"] = [
         f"{r['encoder']}/{r['view']}/{r['direction']}" for r in result["comparisons"]
     ]
+    result["gate"] = feasibility_gate(result["comparisons"])
+    temporary = output / "report.tmp"
+    temporary.write_text(json.dumps(result, indent=2, allow_nan=False))
+    (output / "report.md").write_text(markdown(result))
+    temporary.replace(output / "report.json")
+    (output / "FAILED").unlink(missing_ok=True)
+    return result
+
+
+def feasibility_gate(comparisons):
     primary = {
-        r["view"]: r
-        for r in result["comparisons"]
-        if r["encoder"] == "minilm" and r["direction"] == "cross"
+        r["view"]: r for r in comparisons if r["encoder"] == "minilm" and r["direction"] == "cross"
     }
     reasons = []
     if set(primary) != {"full", "goal"}:
@@ -422,15 +440,12 @@ def run(
             for side in ("anchor", "gallery")
         ):
             reasons.append("a primary representation collapses")
-    result["gate"] = {
+    return {
         "status": "failed" if reasons else "feasibility_pass",
         "reasons": reasons,
         "intersection_search": "ineligible_single_domain_population",
         "scope": "generated Horn logic with a general-text encoder only",
     }
-    (output / "report.json").write_text(json.dumps(result, indent=2, allow_nan=False))
-    (output / "report.md").write_text(markdown(result))
-    return result
 
 
 def markdown(result: dict[str, Any]) -> str:
@@ -546,13 +561,13 @@ def markdown(result: dict[str, Any]) -> str:
     return "\n".join(lines)
 
 
-def main() -> None:
+def main(argv: list[str] | None = None) -> None:
     parser = argparse.ArgumentParser(description="Run controlled formal feasibility analysis")
     parser.add_argument("--corpus", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--freeze", type=Path, required=True)
     parser.add_argument("--resume", action="store_true")
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
     manifest = json.loads(args.corpus.read_text())
     try:
         run(

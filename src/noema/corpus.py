@@ -254,17 +254,19 @@ def collect(
             f"{len(batch)} scripts checked, {len(manifest['failures'])} failures",
             flush=True,
         )
-    (output / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False))
+    temporary = output / "manifest.tmp"
+    temporary.write_text(json.dumps(manifest, ensure_ascii=False))
+    temporary.replace(output / "manifest.json")
     return manifest
 
 
-def main() -> None:
+def main(argv: list[str] | None = None) -> None:
     parser = argparse.ArgumentParser(description="Build the verified Horn feasibility corpus")
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--theorems", type=int, default=24)
     parser.add_argument("--proofs", type=int, default=64)
     parser.add_argument("--resume", action="store_true", help="resume an incomplete checkpoint")
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
     root = Path(__file__).resolve().parents[2]
     collect(
         root=root,

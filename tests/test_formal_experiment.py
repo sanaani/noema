@@ -32,3 +32,30 @@ def test_duplicate_proofs_fail_before_embedding():
     }
     with pytest.raises(ValueError, match="shared proof"):
         proof_groups({"proofs": [proof, {**proof, "generator": "forward"}]})
+
+
+def test_gate_requires_both_controls_incremental_signal_and_no_collapse():
+    from noema.formal_experiment import feasibility_gate
+
+    rows = [
+        {
+            "encoder": "minilm",
+            "direction": "cross",
+            "view": view,
+            "q_value": 0.05,
+            "gain_over_centroid": 0.05,
+            "mean_unique_vectors_per_anchor": 2,
+            "mean_unique_vectors_per_gallery": 2,
+        }
+        for view in ("full", "goal")
+    ]
+    assert feasibility_gate(rows)["status"] == "feasibility_pass"
+    assert feasibility_gate(rows[:1])["status"] == "failed"
+    rows[1]["gain_over_centroid"] = 0.049
+    assert feasibility_gate(rows)["status"] == "failed"
+    rows[1]["gain_over_centroid"] = 0.05
+    rows[1]["mean_unique_vectors_per_gallery"] = 1
+    assert feasibility_gate(rows)["status"] == "failed"
+    rows[1]["mean_unique_vectors_per_gallery"] = 2
+    rows[0]["q_value"] = 0.051
+    assert feasibility_gate(rows)["status"] == "failed"
