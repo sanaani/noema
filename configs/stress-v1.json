@@ -1,0 +1,10 @@
+{
+  "seed": 570901,
+  "repeats": 100,
+  "permutations": 999,
+  "n": 128,
+  "dimension": 64,
+  "noise": 0.02,
+  "projections": 128,
+  "alpha": 0.05
+}
