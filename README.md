@@ -6,6 +6,8 @@ The starting point is the [original research plan](docs/latent_geometry_mathemat
 
 The first implementation provides the Phase 0 synthetic measurement pipeline. No formal proofs have been collected and no mathematical hypothesis has been confirmed.
 
+See the [checkpoint results](docs/checkpoint-2-results.md) and [reference experiment](results/reference-smoke/report.md) for the completed implementation and its current limits.
+
 ## Run it
 
 Requires Python 3.12+; the reference environment and CI use Python 3.12.
