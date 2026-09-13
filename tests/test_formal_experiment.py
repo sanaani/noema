@@ -59,3 +59,40 @@ def test_gate_requires_both_controls_incremental_signal_and_no_collapse():
     rows[1]["mean_unique_vectors_per_gallery"] = 2
     rows[0]["q_value"] = 0.051
     assert feasibility_gate(rows)["status"] == "failed"
+
+
+def test_analysis_resume_preserves_skips_and_never_passes_an_inadequate_corpus(
+    tmp_path, monkeypatch
+):
+    import json
+
+    from noema.formal_experiment import design, run
+
+    class UnusedEncoder:
+        manifest = {"model": "fixture"}
+
+        def __init__(self, directory):
+            pass
+
+        def encode(self, states):
+            pytest.fail("ineligible comparisons must not be embedded")
+
+    monkeypatch.setattr("noema.formal_experiment.MiniLMEncoder", UnusedEncoder)
+    monkeypatch.setattr("noema.formal_experiment.importlib.metadata.version", lambda _: "fixture")
+    manifest = {"proofs": []}
+    freeze = tmp_path / "freeze.json"
+    freeze.write_text(json.dumps(design(manifest)))
+    output = tmp_path / "analysis"
+    result = run(manifest, root=tmp_path, output=output, freeze=freeze)
+    assert result["gate"]["status"] == "failed"
+    assert result["comparisons"] == []
+    assert result["skipped"]
+    with pytest.raises(ValueError, match="completed"):
+        run(manifest, root=tmp_path, output=output, freeze=freeze, resume=True)
+    (output / "report.json").unlink()
+    (output / "FAILED").write_text("interrupted")
+    resumed = run(manifest, root=tmp_path, output=output, freeze=freeze, resume=True)
+    assert resumed["skipped"] == result["skipped"]
+    assert resumed["fidelity"] == result["fidelity"]
+    assert resumed["gate"] == result["gate"]
+    assert not (output / "FAILED").exists()
