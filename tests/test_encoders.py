@@ -1,7 +1,7 @@
 import numpy as np
 import pytest
 
-from noema.encoders import SyntaxEncoder, TruthEncoder, content_view, truth_table
+from noema.encoders import MiniLMEncoder, SyntaxEncoder, TruthEncoder, content_view, truth_table
 
 
 def test_truth_semantics_and_parentheses():
@@ -36,3 +36,9 @@ def test_syntax_determinism():
     np.testing.assert_array_equal(vectors[0], vectors[2])
     assert not np.array_equal(vectors[0], vectors[1])
     np.testing.assert_allclose(np.linalg.norm(vectors, axis=1), 1)
+
+
+def test_encoder_rejects_unpinned_artifact(tmp_path):
+    (tmp_path / "model.onnx").write_bytes(b"different model")
+    with pytest.raises(ValueError, match="checksum"):
+        MiniLMEncoder(tmp_path)

@@ -140,6 +140,13 @@ class MiniLMEncoder:
     """
 
     def __init__(self, directory: Path):
+        expected = {
+            "model.onnx": "b941bf19f1f1283680f449fa6a7336bb5600bdcd5f84d10ddc5cd72218a0fd21",
+            "tokenizer.json": "be50c3628f2bf5bb5e3a7f17b1f74611b2561a3a27eeab05e5aa30f411572037",
+        }
+        for filename, checksum in expected.items():
+            if hashlib.sha256((directory / filename).read_bytes()).hexdigest() != checksum:
+                raise ValueError(f"pinned encoder checksum mismatch: {filename}")
         import onnxruntime as ort
         from tokenizers import Tokenizer
 
@@ -184,6 +191,8 @@ class MiniLMEncoder:
                     0
                 ]
                 # Exclude special tokens; retain every formal-content token once.
+                if embeddings.shape != (*ids.shape, 384):
+                    raise ValueError("unexpected encoder output shape")
                 total += embeddings[0, 1:-1].sum(axis=0)
                 count += ids.shape[1] - 2
             mean = total / count
