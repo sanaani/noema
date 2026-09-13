@@ -10,6 +10,7 @@ from dataclasses import asdict
 from pathlib import Path
 from typing import Any
 
+from noema.encoders import content_view
 from noema.proofs import backward_search, forward_search, lean_source, theorem_population
 from noema.report import provenance
 
@@ -52,6 +53,15 @@ def validate_response(response: dict[str, Any]) -> list[dict[str, Any]]:
 
 
 def verify_batch(sources: list[str], *, root: Path, timeout: int = 180) -> list[dict[str, Any]]:
+    # Bound retained Lean snapshots. Each chunk starts a new verifier process.
+    if len(sources) > 8:
+        return [
+            response
+            for start in range(0, len(sources), 8)
+            for response in verify_batch(sources[start : start + 8], root=root, timeout=timeout)
+        ]
+    if not sources:
+        return []
     binary = root / ".tools/repl/.lake/build/bin/repl"
     env = {
         **os.environ,
@@ -59,9 +69,15 @@ def verify_batch(sources: list[str], *, root: Path, timeout: int = 180) -> list[
         + os.pathsep
         + os.environ.get("PATH", ""),
     }
-    # Omitting env for EVERY command creates a fresh environment for each proof.
-    payload = "".join(
-        json.dumps({"cmd": source, "allTactics": True}) + "\n\n" for source in sources
+    # Every declaration branches from the SAME import-only snapshot, never a
+    # previous proof's environment. Loading Lean once bounds import memory/time.
+    if any(not source.startswith("import Lean\n") for source in sources):
+        raise ValueError("verified sources must start with the pinned Lean import")
+    payload = json.dumps({"cmd": "import Lean"}) + "\n\n"
+    payload += "".join(
+        json.dumps({"cmd": source.removeprefix("import Lean\n"), "env": 0, "allTactics": True})
+        + "\n\n"
+        for source in sources
     )
     completed = subprocess.run(
         [str(binary)],
@@ -79,24 +95,51 @@ def verify_batch(sources: list[str], *, root: Path, timeout: int = 180) -> list[
         response, end = decoder.raw_decode(remainder)
         responses.append(response)
         remainder = remainder[end:].lstrip()
-    if len(responses) != len(sources):
+    if len(responses) != len(sources) + 1:
         raise ValueError("verifier response count does not match proof count")
+    initial = responses.pop(0)
+    if initial.get("env") != 0 or initial.get("error") or initial.get("messages"):
+        raise ValueError(f"invalid import-only verifier environment: {initial}")
     return responses
 
 
 def collect(
-    *, root: Path, output: Path, count: int = 24, per_generator: int = 32, seed: int = 91827
+    *,
+    root: Path,
+    output: Path,
+    count: int = 24,
+    per_generator: int = 64,
+    seed: int = 91827,
+    resume: bool = False,
 ) -> dict[str, Any]:
     if count < 1 or per_generator < 2:
         raise ValueError("require at least one theorem and two proofs per generator")
-    output.mkdir(parents=True, exist_ok=False)
-    (output / "proofs").mkdir()
+    lean_version = subprocess.check_output(
+        [str(root / ".tools/lean-4.33.1-linux/bin/lean"), "--version"], text=True
+    ).strip()
+    repl_revision = subprocess.check_output(
+        ["git", "-C", str(root / ".tools/repl"), "rev-parse", "HEAD"], text=True
+    ).strip()
+    if (
+        "version 4.33.1," not in lean_version
+        or repl_revision != "bbeedf38e0898869fc3b7c009e1ea877b46204e4"
+    ):
+        raise ValueError("verifier toolchain does not match the pinned corpus protocol")
+    if not resume:
+        output.mkdir(parents=True, exist_ok=False)
+        (output / "proofs").mkdir()
     manifest: dict[str, Any] = {
         "schema_version": 1,
         "population": "acyclic_propositional_horn_v1",
         "seed": seed,
         "lean": "4.33.1",
+        "lean_version": lean_version,
         "repl_revision": "bbeedf38e0898869fc3b7c009e1ea877b46204e4",
+        "verification_budget": {
+            "max_heartbeats": 200000,
+            "batch_size": 8,
+            "batch_timeout_seconds": 180,
+        },
         "requested_theorems": count,
         "requested_proofs_per_generator": per_generator,
         "provenance": provenance(),
@@ -104,7 +147,27 @@ def collect(
         "proofs": [],
         "failures": [],
     }
+    if resume:
+        if (output / "manifest.json").exists():
+            raise ValueError("completed corpus cannot be resumed or overwritten")
+        previous = json.loads((output / "checkpoint.json").read_text())
+        for key in (
+            "seed",
+            "requested_theorems",
+            "requested_proofs_per_generator",
+            "lean_version",
+            "repl_revision",
+        ):
+            if previous[key] != manifest[key]:
+                raise ValueError(f"resume configuration mismatch: {key}")
+        for proof in previous["proofs"]:
+            if digest((output / proof["source"]).read_text()) != proof["source_sha256"]:
+                raise ValueError("checkpoint proof source checksum mismatch")
+        manifest = previous
+        manifest.setdefault("resumptions", []).append(provenance())
     for index, theorem in enumerate(theorem_population(count, seed=seed)):
+        if index < len(manifest["theorems"]):
+            continue
         candidates = {
             "backward": backward_search(theorem, seed=seed + index, attempts=per_generator * 8),
             "forward": forward_search(theorem, seed=seed + index + 100000, width=per_generator * 2),
@@ -132,7 +195,8 @@ def collect(
             responses = verify_batch([source for _, _, source in batch], root=root)
         except (ValueError, OSError, subprocess.SubprocessError) as error:
             manifest["failures"].append({"theorem_id": theorem.theorem_id, "error": str(error)})
-            continue
+            responses = []
+            batch = []
         sequences: set[str] = set()
         for (generator, proof, source), response in zip(batch, responses, strict=True):
             try:
@@ -159,7 +223,7 @@ def collect(
                             "raw": tactic["goals"],
                         }
                     )
-            sequence_id = digest(json.dumps([s["content_sha256"] for s in states]))
+            sequence_id = digest(json.dumps([content_view(s["content"]) for s in states]))
             duplicate_sequence = sequence_id in sequences
             sequences.add(sequence_id)
             proof_id = proof.identity()
@@ -182,7 +246,9 @@ def collect(
                 }
             )
         # Incremental recovery artifact; final manifest only appears after the full run.
-        (output / "checkpoint.json").write_text(json.dumps(manifest, ensure_ascii=False))
+        temporary = output / "checkpoint.tmp"
+        temporary.write_text(json.dumps(manifest, ensure_ascii=False))
+        temporary.replace(output / "checkpoint.json")
         print(
             f"Corpus {index + 1}/{count}: {theorem.theorem_id}, "
             f"{len(batch)} scripts checked, {len(manifest['failures'])} failures",
@@ -196,10 +262,17 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Build the verified Horn feasibility corpus")
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--theorems", type=int, default=24)
-    parser.add_argument("--proofs", type=int, default=32)
+    parser.add_argument("--proofs", type=int, default=64)
+    parser.add_argument("--resume", action="store_true", help="resume an incomplete checkpoint")
     args = parser.parse_args()
     root = Path(__file__).resolve().parents[2]
-    collect(root=root, output=args.output, count=args.theorems, per_generator=args.proofs)
+    collect(
+        root=root,
+        output=args.output,
+        count=args.theorems,
+        per_generator=args.proofs,
+        resume=args.resume,
+    )
 
 
 if __name__ == "__main__":

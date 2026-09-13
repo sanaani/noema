@@ -24,3 +24,16 @@ def test_both_generators_checked_by_lean_and_invalid_proof_rejected():
     assert len(validate_response(good_forward)) > 3
     with pytest.raises(ValueError):
         validate_response(invalid)
+
+
+def test_declarations_cannot_reference_previously_verified_proofs():
+    responses = verify_batch(
+        [
+            "import Lean\ntheorem previous : True := True.intro",
+            "import Lean\ntheorem specimen : True := previous\n#print axioms specimen",
+        ],
+        root=ROOT,
+    )
+    assert not responses[0].get("messages")
+    with pytest.raises(ValueError, match="Lean rejected"):
+        validate_response(responses[1])
