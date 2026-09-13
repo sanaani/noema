@@ -8,7 +8,7 @@ Use generated propositional Horn entailments with eight proposition atoms, two i
 
 Implement two independent search algorithms over the same rules: goal-directed recursive backward chaining and breadth-first forward saturation. Their outputs are ordinary Lean proof scripts, with explicitly represented intermediate goals/facts. These are substantially different search strategies within a small shared logic, not two large general-purpose learned provers. Report that limitation and do not extrapolate across mathematical domains.
 
-Theorems and search seeds are deterministic. Include all attempted theorem IDs and report failures, budgets, proof counts, and state counts. Model inputs contain formal states only. Initial theorem-goal states and empty terminal states are excluded; any later state text exactly duplicating the initial state is also excluded.
+Theorems and search seeds are deterministic. The collection fixes 24 premise networks, seed 91827, and up to 64 proofs from each generator. The final goal is `(p4 ∧ p5) ∧ (p6 ∧ p7)` so both searches must establish four distinct consequences. This supplies at least four forward intermediate fact states without inserting artificial padding. Include all attempted theorem IDs and report failures, budgets, proof counts, and state counts. Model inputs contain formal states only. Initial theorem-goal states and empty terminal states are excluded; any later state text exactly duplicating the initial state is also excluded.
 
 ## Diversity and splitting (fixed before geometry)
 

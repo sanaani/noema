@@ -72,7 +72,7 @@ def theorem_population(count: int, *, seed: int = 91827) -> list[Theorem]:
             selected = rng.sample(candidates, min(3, len(candidates)))
             for antecedent in selected:
                 rules.append(Rule(f"h{len(rules) + 2}", antecedent, destination))
-        population.append(Theorem(f"horn_{index:03d}", 8, (0, 1), tuple(rules), ((5, 6), 7)))
+        population.append(Theorem(f"horn_{index:03d}", 8, (0, 1), tuple(rules), ((4, 5), (6, 7))))
     return population
 
 
