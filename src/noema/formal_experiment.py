@@ -11,6 +11,15 @@ import numpy as np
 from scipy.spatial.distance import cdist
 
 from noema.corpus import digest
+from noema.diagnostics import (
+    cluster_intervals,
+    control_distances,
+    edge_auc,
+    encoder_audit,
+    proof_edges,
+    stricter_groups,
+    trajectory_vector,
+)
 from noema.encoders import MiniLMEncoder, SyntaxEncoder, TruthEncoder, content_view
 from noema.metrics import mmd_squared
 from noema.report import provenance
@@ -19,8 +28,8 @@ from noema.statistics import benjamini_hochberg
 SEED = 316842
 
 
-def ordered(items, *, key: str, salt: str):
-    return sorted(items, key=lambda item: digest(f"{SEED}:{salt}:{item[key]}"))
+def ordered(items, *, key: str, salt: str, seed: int = SEED):
+    return sorted(items, key=lambda item: digest(f"{seed}:{salt}:{item[key]}"))
 
 
 def proof_groups(manifest: dict[str, Any]) -> dict:
@@ -38,16 +47,18 @@ def proof_groups(manifest: dict[str, Any]) -> dict:
     return groups
 
 
-def select_groups(groups: dict, direction: str) -> tuple[list[str], list, list]:
+def select_groups(
+    groups: dict, direction: str, *, seed: int = SEED
+) -> tuple[list[str], list, list]:
     theorem_ids, anchors, galleries = [], [], []
     for theorem in sorted(groups):
         if direction == "cross":
-            a = ordered(groups[theorem]["backward"], key="proof_id", salt=theorem)
-            b = ordered(groups[theorem]["forward"], key="proof_id", salt=theorem)
+            a = ordered(groups[theorem]["backward"], key="proof_id", salt=theorem, seed=seed)
+            b = ordered(groups[theorem]["forward"], key="proof_id", salt=theorem, seed=seed)
             if min(len(a), len(b)) < 32:
                 continue
         else:
-            proofs = ordered(groups[theorem][direction], key="proof_id", salt=theorem)
+            proofs = ordered(groups[theorem][direction], key="proof_id", salt=theorem, seed=seed)
             if len(proofs) < 64:
                 continue
             a, b = proofs[:32], proofs[32:]
@@ -57,14 +68,18 @@ def select_groups(groups: dict, direction: str) -> tuple[list[str], list, list]:
     return theorem_ids, anchors, galleries
 
 
-def sampled_texts(proofs: list, view: str) -> list[str]:
+def sampled_states(proofs: list, *, seed: int = SEED) -> list[dict]:
     texts = []
     for proof in proofs:
         candidates = sorted(proof["states"], key=lambda s: (s["content_sha256"], s["step"]))
-        rng = np.random.default_rng(int(digest(f"{SEED}:{proof['proof_id']}")[:16], 16))
+        rng = np.random.default_rng(int(digest(f"{seed}:{proof['proof_id']}")[:16], 16))
         for index in rng.choice(len(candidates), 4, replace=False):
-            texts.append(content_view(candidates[index]["content"], view))
+            texts.append({"proof_id": proof["proof_id"], **candidates[index]})
     return texts
+
+
+def sampled_texts(proofs: list, view: str, *, seed: int = SEED) -> list[str]:
+    return [content_view(s["content"], view) for s in sampled_states(proofs, seed=seed)]
 
 
 def ranking(distance: np.ndarray) -> dict[str, Any]:
@@ -121,7 +136,149 @@ def encode_lookup(encoder, texts: list[str], cache: dict[str, np.ndarray]):
             print(f"Encoded {start + len(batch)}/{len(pending)} new unique states", flush=True)
 
 
-def run(manifest: dict[str, Any], *, root: Path, output: Path) -> dict[str, Any]:
+def design(manifest):
+    groups = proof_groups(manifest)
+    selections = []
+    settings = [("primary", direction, SEED) for direction in ("cross", "backward", "forward")]
+    settings += [("primary", "cross", seed) for seed in (316843, 316844)]
+    settings += [(policy, "cross", SEED) for policy in ("premise_set", "tactic_histogram")]
+    for policy, direction, seed in settings:
+        population = groups if policy == "primary" else stricter_groups(groups, policy)
+        ids, anchors, galleries = select_groups(population, direction, seed=seed)
+        selections.append(
+            {
+                "policy": policy,
+                "direction": direction,
+                "seed": seed,
+                "theorem_ids": ids,
+                "eligibility": {
+                    t: {g: len(p) for g, p in v.items()} for t, v in population.items()
+                },
+                "splits": {
+                    theorem: {
+                        side: {
+                            "proof_ids": [p["proof_id"] for p in proofs],
+                            "states": [
+                                {k: s[k] for k in ("proof_id", "step", "content_sha256")}
+                                for s in sampled_states(proofs, seed=seed)
+                            ],
+                        }
+                        for side, proofs in (("anchor", a), ("gallery", b))
+                    }
+                    for theorem, a, b in zip(ids, anchors, galleries, strict=True)
+                },
+            }
+        )
+    return {"corpus_sha256": digest(json.dumps(manifest, sort_keys=True)), "selections": selections}
+
+
+def evaluate(encoder, cache, manifest, selection):
+    ids = selection["theorem_ids"]
+    lookup = {(p["theorem_id"], p["proof_id"]): p for p in manifest["proofs"]}
+    anchors, galleries = [
+        [[lookup[t, pid] for pid in selection["splits"][t][side]["proof_ids"]] for t in ids]
+        for side in ("anchor", "gallery")
+    ]
+    view, seed = selection["view"], selection["seed"]
+    anchor_texts = [sampled_texts(p, view, seed=seed) for p in anchors]
+    gallery_texts = [sampled_texts(p, view, seed=seed) for p in galleries]
+    statements = [content_view(p[0]["initial_state"], view) for p in anchors]
+    # The trajectory baseline uses the same first proof as the single-proof baseline,
+    # with its retained order available only to this external baseline.
+    trajectories = [
+        [content_view(s["content"], view) for s in p[0]["states"]] for p in anchors + galleries
+    ]
+    all_texts = [t for cloud in anchor_texts + gallery_texts + trajectories for t in cloud]
+    encode_lookup(encoder, all_texts + statements, cache)
+    a, b = [
+        [np.array([cache[t] for t in cloud]) for cloud in texts]
+        for texts in (anchor_texts, gallery_texts)
+    ]
+    distance = distance_matrix(a, b)
+    centroid = cdist(np.array([x.mean(axis=0) for x in a]), np.array([x.mean(axis=0) for x in b]))
+    single = distance_matrix([x[:4] for x in a], [x[:4] for x in b])
+    statement_vectors = np.array([cache[t] for t in statements])
+    statement_distances = cdist(statement_vectors, statement_vectors)
+    trajectory_vectors = np.array(
+        [trajectory_vector(np.array([cache[t] for t in cloud])) for cloud in trajectories]
+    )
+    theorems = {t["theorem_id"]: t for t in manifest["theorems"]}
+    controls = control_distances([theorems[t] for t in ids], anchors, galleries)
+    controls["trajectory"] = cdist(trajectory_vectors[: len(ids)], trajectory_vectors[len(ids) :])
+    cloud_rank, centroid_rank = ranking(distance), ranking(centroid)
+    return {
+        **{k: selection[k] for k in ("policy", "direction", "seed", "theorem_ids", "view")},
+        "cloud_size": 128,
+        "proofs_per_cloud": 32,
+        "dimension": a[0].shape[1],
+        "cloud_ranking": cloud_rank,
+        "centroid_ranking": centroid_rank,
+        "single_proof_ranking": ranking(single),
+        "statement_ranking": ranking(statement_distances),
+        "gain_over_centroid": cloud_rank["pairwise_win_rate"] - centroid_rank["pairwise_win_rate"],
+        "mmd_squared": distance.tolist(),
+        "centroid_distances": centroid.tolist(),
+        "single_proof_mmd_squared": single.tolist(),
+        "statement_distances": statement_distances.tolist(),
+        "controls": {
+            k: {"ranking": ranking(v), "distances": v.tolist()} for k, v in controls.items()
+        },
+        "uncertainty": cluster_intervals(distance, centroid),
+        "mean_unique_vectors_per_anchor": float(np.mean([len(np.unique(x, axis=0)) for x in a])),
+        "mean_unique_vectors_per_gallery": float(np.mean([len(np.unique(x, axis=0)) for x in b])),
+        "anchor_representation": encoder_audit(a),
+        "gallery_representation": encoder_audit(b),
+    }
+
+
+def fidelity(encoder, cache, groups, view):
+    records, skipped = [], []
+    for theorem, generators in sorted(groups.items()):
+        for generator, proofs in sorted(generators.items()):
+            if not proofs:
+                continue
+            proof = ordered(proofs, key="proof_id", salt=theorem)[0]
+            try:
+                edges = proof_edges(proof)
+            except ValueError as error:
+                skipped.append(
+                    {"theorem_id": theorem, "generator": generator, "reason": str(error)}
+                )
+                continue
+            texts = [content_view(s["content"], view) for s in proof["states"]]
+            encode_lookup(encoder, texts, cache)
+            records.append(
+                {
+                    "theorem_id": theorem,
+                    "generator": generator,
+                    "proof_id": proof["proof_id"],
+                    **edge_auc(
+                        np.array([cache[t] for t in texts]),
+                        [s["step"] for s in proof["states"]],
+                        edges,
+                    ),
+                }
+            )
+    summary = {}
+    for generator in ("backward", "forward"):
+        aucs = [r["auc"] for r in records if r["generator"] == generator and r["auc"] is not None]
+        summary[generator] = {
+            "theorems": len(aucs),
+            "mean_auc": float(np.mean(aucs)) if aucs else None,
+        }
+    return {
+        "summary": summary,
+        "records": records,
+        "skipped": skipped,
+        "scope": "generated operational dependency graph; undirected within-proof edge ranking",
+    }
+
+
+def run(manifest: dict[str, Any], *, root: Path, output: Path, freeze: Path) -> dict[str, Any]:
+    frozen = json.loads(freeze.read_text())
+    actual = design(manifest)
+    if actual != frozen:
+        raise ValueError("corpus or splits do not match the pre-embedding freeze")
     output.mkdir(parents=True, exist_ok=False)
     groups = proof_groups(manifest)
     encoders = {
@@ -130,92 +287,60 @@ def run(manifest: dict[str, Any], *, root: Path, output: Path) -> dict[str, Any]
         "minilm": MiniLMEncoder(root / ".tools/minilm"),
     }
     result: dict[str, Any] = {
-        "schema_version": 1,
+        "schema_version": 2,
         "seed": SEED,
         "provenance": provenance(),
-        "corpus_sha256": digest(json.dumps(manifest, sort_keys=True)),
+        "corpus_sha256": actual["corpus_sha256"],
+        "split_freeze_sha256": digest(freeze.read_text()),
         "encoder_manifest": encoders["minilm"].manifest,
         "encoder_dependencies": {
             k: importlib.metadata.version(k) for k in ("onnxruntime", "tokenizers")
         },
         "eligibility": {t: {g: len(p) for g, p in v.items()} for t, v in groups.items()},
         "comparisons": [],
+        "sensitivities": [],
         "skipped": [],
+        "fidelity": [],
     }
     for name, encoder in encoders.items():
         cache = {}
         for view in ("full", "goal"):
-            for direction in ("cross", "backward", "forward"):
-                theorem_ids, anchor_proofs, gallery_proofs = select_groups(groups, direction)
-                if len(theorem_ids) < 12:
+            for selection in actual["selections"]:
+                primary = selection["policy"] == "primary" and selection["seed"] == SEED
+                if len(selection["theorem_ids"]) < 12:
                     result["skipped"].append(
                         {
                             "encoder": name,
                             "view": view,
-                            "direction": direction,
-                            "theorems": len(theorem_ids),
+                            **{k: selection[k] for k in ("policy", "direction", "seed")},
+                            "theorems": len(selection["theorem_ids"]),
                             "reason": "fewer than 12 eligible theorems",
                         }
                     )
                     continue
-                anchor_texts = [sampled_texts(proofs, view) for proofs in anchor_proofs]
-                gallery_texts = [sampled_texts(proofs, view) for proofs in gallery_proofs]
-                statement_texts = [content_view(p[0]["initial_state"], view) for p in anchor_proofs]
-                all_texts = [text for cloud in anchor_texts + gallery_texts for text in cloud]
-                encode_lookup(encoder, all_texts + statement_texts, cache)
-                a = [np.asarray([cache[text] for text in texts]) for texts in anchor_texts]
-                b = [np.asarray([cache[text] for text in texts]) for texts in gallery_texts]
-                distance = distance_matrix(a, b)
-                centroid = cdist(
-                    np.array([x.mean(axis=0) for x in a]), np.array([x.mean(axis=0) for x in b])
-                )
-                single = distance_matrix([x[:4] for x in a], [x[:4] for x in b])
-                statements = np.array([cache[t] for t in statement_texts])
-                statement_distances = cdist(statements, statements)
-                cloud_ranking = ranking(distance)
-                centroid_ranking = ranking(centroid)
-                entry = {
-                    "encoder": name,
-                    "view": view,
-                    "direction": direction,
-                    "theorem_ids": theorem_ids,
-                    "cloud_size": 128,
-                    "proofs_per_cloud": 32,
-                    "dimension": a[0].shape[1],
-                    "cloud_ranking": cloud_ranking,
-                    "centroid_ranking": centroid_ranking,
-                    "single_proof_ranking": ranking(single),
-                    "statement_ranking": ranking(statement_distances),
-                    "gain_over_centroid": cloud_ranking["pairwise_win_rate"]
-                    - centroid_ranking["pairwise_win_rate"],
-                    "p_value": theorem_permutation_test(distance),
-                    "mmd_squared": distance.tolist(),
-                    "centroid_distances": centroid.tolist(),
-                    "single_proof_mmd_squared": single.tolist(),
-                    "statement_distances": statement_distances.tolist(),
-                    "mean_unique_vectors_per_anchor": float(
-                        np.mean([len(np.unique(x, axis=0)) for x in a])
-                    ),
-                    "mean_unique_vectors_per_gallery": float(
-                        np.mean([len(np.unique(x, axis=0)) for x in b])
-                    ),
-                    "splits": {
-                        t: {
-                            "anchor": [p["proof_id"] for p in ap],
-                            "gallery": [p["proof_id"] for p in bp],
-                        }
-                        for t, ap, bp in zip(
-                            theorem_ids, anchor_proofs, gallery_proofs, strict=True
-                        )
-                    },
-                }
-                result["comparisons"].append(entry)
+                entry = evaluate(encoder, cache, manifest, {**selection, "view": view})
+                entry["encoder"] = name
+                if primary:
+                    entry["p_value"] = theorem_permutation_test(np.array(entry["mmd_squared"]))
+                result["comparisons" if primary else "sensitivities"].append(entry)
                 print(
-                    f"{name}/{view}/{direction}: {len(theorem_ids)} theorems, "
-                    f"cloud win rate {cloud_ranking['pairwise_win_rate']:.3f}",
+                    f"{name}/{view}/{selection['direction']}/{selection['policy']}/"
+                    f"{selection['seed']}: "
+                    f"{len(selection['theorem_ids'])} theorems, "
+                    f"cloud win rate {entry['cloud_ranking']['pairwise_win_rate']:.3f}",
                     flush=True,
                 )
-                (output / "checkpoint.json").write_text(json.dumps(result))
+                temporary = output / "checkpoint.tmp"
+                temporary.write_text(json.dumps(result, allow_nan=False))
+                temporary.replace(output / "checkpoint.json")
+            result["fidelity"].append(
+                {"encoder": name, "view": view, **fidelity(encoder, cache, groups, view)}
+            )
+        np.savez_compressed(
+            output / f"{name}-embeddings.npz",
+            texts=np.array(list(cache)),
+            vectors=np.array(list(cache.values())),
+        )
     for row, q in zip(
         result["comparisons"],
         benjamini_hochberg([r["p_value"] for r in result["comparisons"]]),
@@ -223,6 +348,9 @@ def run(manifest: dict[str, Any], *, root: Path, output: Path) -> dict[str, Any]
     ):
         row["q_value"] = q
     result["bh_family_size"] = len(result["comparisons"])
+    result["bh_family"] = [
+        f"{r['encoder']}/{r['view']}/{r['direction']}" for r in result["comparisons"]
+    ]
     primary = {
         r["view"]: r
         for r in result["comparisons"]
@@ -236,12 +364,16 @@ def run(manifest: dict[str, Any], *, root: Path, output: Path) -> dict[str, Any]
             reasons.append("cross-generator association does not survive all required controls")
         if primary["goal"]["gain_over_centroid"] < 0.05:
             reasons.append("cloud geometry does not add the required information beyond centroids")
-        if any(r["mean_unique_vectors_per_gallery"] <= 1 for r in primary.values()):
-            reasons.append("a primary gallery representation collapses")
+        if any(
+            r[f"mean_unique_vectors_per_{side}"] <= 1
+            for r in primary.values()
+            for side in ("anchor", "gallery")
+        ):
+            reasons.append("a primary representation collapses")
     result["gate"] = {
         "status": "failed" if reasons else "feasibility_pass",
         "reasons": reasons,
-        "intersection_search": "not_authorized_by_evidence",
+        "intersection_search": "ineligible_single_domain_population",
         "scope": "generated Horn logic with a general-text encoder only",
     }
     (output / "report.json").write_text(json.dumps(result, indent=2, allow_nan=False))
@@ -298,6 +430,67 @@ def markdown(result: dict[str, Any]) -> str:
             "",
         ]
     )
+    lines.extend(
+        [
+            "## Theorem-level uncertainty",
+            "",
+            "Exploratory 95% paired theorem-cluster percentile intervals, conditional on "
+            "the observed proof samples. Both matrix axes are resampled jointly. "
+            "These intervals are not simultaneous or population-wide guarantees.",
+            "",
+            "| Encoder | View | Split | Cloud win (95% CI) | Gain over centroid (95% CI) |",
+            "|---|---|---|---|---|",
+        ]
+    )
+    for row in result["comparisons"]:
+        statistics = row["uncertainty"]["statistics"]
+        cells = []
+        for key in ("pairwise_win_rate", "gain_over_centroid"):
+            value = statistics[key]
+            low, high = value["percentile_95"]
+            cells.append(f"{value['estimate']:.3f} ({low:.3f}, {high:.3f})")
+        lines.append(
+            f"| {row['encoder']} | {row['view']} | {row['direction']} | " + " | ".join(cells) + " |"
+        )
+    lines.extend(
+        [
+            "",
+            "## Sampling and diversity sensitivity",
+            "",
+            "Descriptive repeats; no additional p-values or threshold changes.",
+            "",
+            "| Encoder | View | Policy | Seed | Cloud win | Centroid win |",
+            "|---|---|---|---:|---:|---:|",
+        ]
+    )
+    for row in result["sensitivities"]:
+        lines.append(
+            f"| {row['encoder']} | {row['view']} | {row['policy']} | {row['seed']} | "
+            f"{row['cloud_ranking']['pairwise_win_rate']:.3f} | "
+            f"{row['centroid_ranking']['pairwise_win_rate']:.3f} |"
+        )
+    lines.extend(
+        [
+            "",
+            "## Operational graph fidelity",
+            "",
+            "Edge-versus-nonedge distance AUC within one proof per theorem/generator; "
+            "chance is 0.5. The backward tree and forward derived-fact graph differ. "
+            "These are external validation targets, not encoder inputs.",
+            "",
+            "| Encoder | View | Generator | Theorems | Mean AUC |",
+            "|---|---|---|---:|---:|",
+        ]
+    )
+    for row in result["fidelity"]:
+        for generator, summary in row["summary"].items():
+            auc = summary["mean_auc"]
+            value = f"{auc:.3f}" if auc is not None else "unavailable"
+            lines.append(
+                f"| {row['encoder']} | {row['view']} | {generator} | "
+                f"{summary['theorems']} | {value} |"
+            )
+    lines.append("")
     return "\n".join(lines)
 
 
@@ -305,9 +498,10 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Run controlled formal feasibility analysis")
     parser.add_argument("--corpus", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--freeze", type=Path, required=True)
     args = parser.parse_args()
     manifest = json.loads(args.corpus.read_text())
-    run(manifest, root=Path(__file__).resolve().parents[2], output=args.output)
+    run(manifest, root=Path(__file__).resolve().parents[2], output=args.output, freeze=args.freeze)
 
 
 if __name__ == "__main__":

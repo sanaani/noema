@@ -1,8 +1,10 @@
+import json
 from pathlib import Path
 
 import pytest
 
-from noema.corpus import validate_response, verify_batch
+from noema.corpus import collect, validate_response, verify_batch
+from noema.corpus_audit import audit
 from noema.proofs import backward_search, forward_search, lean_source, theorem_population
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -37,3 +39,26 @@ def test_declarations_cannot_reference_previously_verified_proofs():
     assert not responses[0].get("messages")
     with pytest.raises(ValueError, match="Lean rejected"):
         validate_response(responses[1])
+
+
+def test_corpus_audit_and_checkpoint_recovery(tmp_path, monkeypatch):
+    output = tmp_path / "corpus"
+    manifest = collect(root=ROOT, output=output, count=1, per_generator=2)
+    report, _ = audit(manifest, output)
+    assert report["verified_proofs"] == 4
+    assert report["failures"] == []
+    with pytest.raises(ValueError, match="completed"):
+        collect(root=ROOT, output=output, count=1, per_generator=2, resume=True)
+    (output / "manifest.json").unlink()
+
+    def unexpected_verification(*args, **kwargs):
+        pytest.fail("completed checkpoint theorem should not be verified twice")
+
+    monkeypatch.setattr("noema.corpus.verify_batch", unexpected_verification)
+    with pytest.raises(ValueError, match="configuration mismatch"):
+        collect(root=ROOT, output=output, count=2, per_generator=2, resume=True)
+    resumed = collect(root=ROOT, output=output, count=1, per_generator=2, resume=True)
+    assert resumed["proofs"] == json.loads(json.dumps(manifest["proofs"]))
+    manifest["proofs"][0]["states"][0]["content"] = "corrupted"
+    with pytest.raises(ValueError, match="retained states"):
+        audit(manifest, output)
