@@ -1,0 +1,9 @@
+# Phase 0 protocol v2: resolve null-calibration precision
+
+Protocol v1 **failed** and remains failed. Of six null strata, Gaussian d=64 had 16/200 rejections (95% Wilson interval approximately [0.050,0.126]) and ring d=256 had 15/200 ([0.046,0.120]). Their upper bounds exceeded 0.10. Every alternative stratum passed its power criterion. No metric, bandwidth, significance threshold, or original result is being changed.
+
+These outcomes do not establish whether type-I error exceeds the allowed rate: both confidence intervals also include rates near nominal 0.05. Before constructing the formal corpus, run a new, separately seeded precision study with **1,000 trials per null stratum**, 200 per alternative/exploratory stratum, and the same 999 permutations. `configs/qualification-v2.json` fixes seed 927046118 before execution. Every one of the original target strata is retained.
+
+All measurement definitions, target distributions, alpha 0.05, multiplicity family, and per-stratum Wilson thresholds from [protocol v1](protocol-v1.md) remain unchanged. The implementation change permits a larger null replication budget only. This is a new preregistered replication prompted by an inconclusive calibration bound, not an extension that reclassifies the v1 outcome. Do not combine seeds selectively or report only the better run. If v2 fails, report that outcome and investigate metric/test correctness or the operating assumptions before any further qualification attempt. The purpose is precision, not repeated attempts until success.
+
+Review both runs together. A v2 pass qualifies only the previously restricted low-noise synthetic regime; v1 failure and all high-noise calibration failures remain explicit limitations. Formal proof-state inference still needs clustered sampling and encoder-specific validation.

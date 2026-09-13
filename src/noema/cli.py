@@ -7,6 +7,7 @@ from pathlib import Path
 
 from noema.experiment import Config, run
 from noema.report import markdown, provenance
+from noema.synthetic import SCENARIOS
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -23,13 +24,13 @@ def main(argv: list[str] | None = None) -> int:
     except (OSError, ValueError, TypeError) as error:
         print(f"noema: {error}", file=sys.stderr)
         return 2
-    count = (
-        len(config.sample_sizes)
-        * len(config.dimensions)
-        * len(config.noise_levels)
-        * config.repeats
-        * 7
+    repeats = sum(
+        config.null_repeats
+        if config.null_repeats is not None and kind == "null"
+        else config.repeats
+        for _, _, kind in SCENARIOS.values()
     )
+    count = len(config.sample_sizes) * len(config.dimensions) * len(config.noise_levels) * repeats
     print(f"Running {count} comparisons; configuration {config.digest()[:12]}", flush=True)
     try:
         metadata = provenance()

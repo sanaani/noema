@@ -44,7 +44,8 @@ def markdown(result: dict[str, Any]) -> str:
         "",
         f"Configuration SHA-256: `{result['config_sha256']}`",
         "",
-        f"Seed {config['seed']}; {config['repeats']} trials per stratum; "
+        f"Seed {config['seed']}; {config['repeats']} trials per alternative/exploratory stratum; "
+        f"{config.get('null_repeats') or config['repeats']} trials per null stratum; "
         f"{config['permutations']} permutations; alpha {config['alpha']}.",
         "",
         f"Primary test: pooled-bandwidth MMD². BH family: {len(result['trials'])} tests.",

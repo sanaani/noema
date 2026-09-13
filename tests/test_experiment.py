@@ -112,3 +112,12 @@ def test_bad_cli_config_does_not_reserve_output(tmp_path):
     output = tmp_path / "result"
     assert main(["synthetic", "--config", str(config_file), "--output", str(output)]) == 2
     assert not output.exists()
+
+
+def test_distinct_null_budget_and_family_size():
+    config = Config(
+        sample_sizes=(8,), dimensions=(2,), repeats=2, null_repeats=5, permutations=9, projections=4
+    )
+    result = run(config)
+    assert result["inference"]["family_size"] == 20
+    assert all(row["trials"] == (5 if row["kind"] == "null" else 2) for row in result["summary"])

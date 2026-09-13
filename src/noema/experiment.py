@@ -21,12 +21,17 @@ class Config:
     dimensions: tuple[int, ...] = (2, 64)
     noise_levels: tuple[float, ...] = (0.05,)
     repeats: int = 12
+    null_repeats: int | None = None
     permutations: int = 199
     projections: int = 64
     alpha: float = 0.05
     mode: str = "smoke"
 
     def __post_init__(self) -> None:
+        if self.null_repeats is not None and (
+            type(self.null_repeats) is not int or self.null_repeats < 1
+        ):
+            raise ValueError("null_repeats must be a positive integer or null")
         for name, minimum in (("seed", 0), ("repeats", 1), ("permutations", 1), ("projections", 1)):
             value = getattr(self, name)
             if type(value) is not int or value < minimum:
@@ -155,13 +160,19 @@ def qualification_gate(config: Config, summary: list[dict[str, Any]]) -> dict[st
 
 def run(config: Config) -> dict[str, Any]:
     rows = []
-    for n, dimension, noise, scenario, trial in itertools.product(
-        config.sample_sizes,
-        config.dimensions,
-        config.noise_levels,
-        SCENARIOS,
-        range(config.repeats),
-    ):
+    strata = itertools.product(
+        config.sample_sizes, config.dimensions, config.noise_levels, SCENARIOS
+    )
+    trials = (
+        (*stratum, trial)
+        for stratum in strata
+        for trial in range(
+            config.null_repeats
+            if config.null_repeats is not None and SCENARIOS[stratum[3]][2] == "null"
+            else config.repeats
+        )
+    )
+    for n, dimension, noise, scenario, trial in trials:
         data_seed, permutation_seed, projection_seed = trial_seeds(
             config, scenario, n, dimension, noise, trial
         )
