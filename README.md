@@ -4,9 +4,9 @@ Exploring whether the unordered states encountered across alternative proofs for
 
 The starting point is the [original research plan](docs/latent_geometry_mathematical_theorems_research_plan.md), preserved byte for byte. The [implementation plan](docs/implementation-plan.md) defines the engineering checkpoints and scientific gates.
 
-The first implementation provides the Phase 0 synthetic measurement pipeline. No formal proofs have been collected and no mathematical hypothesis has been confirmed.
+The implementation and bounded study are complete. The corpus contains 3,072 Lean-verified proofs across 24 generated Horn theorems, from backward and forward proof searches. The formal feasibility gate **failed**: full-context text matching did not improve on centroids, and the required goal-only cross-generator control collapsed to chance. This does not globally refute theorem geometry.
 
-See the [checkpoint results](docs/checkpoint-2-results.md) and [reference experiment](results/reference-smoke/report.md) for the completed implementation and its current limits.
+Read the [final research status](docs/final-research-status.md), [formal results](results/formal-v1/report.md), and [complete reproduction guide](docs/reproduction.md). The original [checkpoint 2 report](docs/checkpoint-2-results.md) remains a historical foundation record.
 
 ## Run it
 
@@ -32,7 +32,7 @@ OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 noema synthetic \
   --config configs/pilot.json --output outputs/my-pilot
 ```
 
-The pilot makes 2,520 comparisons and costs substantially more than the smoke run. Both are development runs and deliberately report `not_qualified`. The [implementation plan](docs/implementation-plan.md) specifies the qualification thresholds and later corpus/encoder work.
+The pilot makes 2,520 comparisons and costs substantially more than the smoke run. Both are development runs and deliberately report `not_qualified`. The separately seeded v2 qualification passed only the restricted low-noise regime; see the [qualification review](docs/phase-0-review.md). The noisy pilot and failed v1 qualification remain part of the evidence.
 
 ## Measurements
 
@@ -44,7 +44,7 @@ The pilot makes 2,520 comparisons and costs substantially more than the smoke ru
 | Symmetric radius coverage | Local proximity diagnostic; larger means more coverage |
 | Centroid distance | Baseline exposing information lost by collapsing a cloud to its mean |
 
-MMD uses the nonnegative biased estimator and a bandwidth computed without labels from the pooled points. Only MMD receives a significance test. P-values include the Monte Carlo correction and undergo Benjamini–Hochberg adjustment across every primary comparison in a run. Synthetic trials use independent random streams. Real proof states require cluster-aware inference because states within one proof are correlated.
+MMD uses the nonnegative biased estimator and a bandwidth computed without labels from the pooled points. Only MMD receives a significance test. P-values include the Monte Carlo correction and undergo Benjamini–Hochberg adjustment across every primary comparison in a run. Synthetic trials use independent random streams. Formal comparisons use whole-theorem label permutations and theorem-cluster uncertainty because states within one proof are correlated.
 
 The implementation of projected transport uses sorted, equal-weight samples, consistent with the [SciPy definition of 1D Wasserstein-1](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.wasserstein_distance.html). Explicit random generators follow [NumPy's Generator interface](https://numpy.org/doc/stable/reference/random/generator.html).
 
@@ -58,4 +58,27 @@ OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m pytest
 
 Tests cover analytic metric values, invariance to input order and shared translations, isometric embeddings, degeneracy, exact/permutation reference calculations, null calibration, detection power, multiple-testing adjustment, reproducibility, invalid input, and CLI overwrite protection. GitHub Actions runs these checks and the smoke experiment.
 
-Source lives in `src/noema/`; configurations in `configs/`; scientific and engineering decisions in `docs/`. Bulk data and local run outputs stay outside Git. The numerical API accepts finite point matrices and does not accept theorem identity, proof order, or graph edges. Future proof provenance and encoder integration remain separate checkpoints.
+Source lives in `src/noema/`; configurations in `configs/`; scientific and engineering decisions in `docs/`. Bulk data and local run outputs stay outside Git. The numerical API accepts finite point matrices and does not accept theorem identity, proof order, or graph edges. Proof provenance remains in external audit records. Syntax, exact truth-table, and pinned pretrained text encoders consume only normalized state content. The formal run also includes proof-sampling sensitivity, stricter diversity policies, baselines and graph-fidelity diagnostics.
+
+## Reproduce the formal study
+
+After installing the additional encoder dependencies and bootstrapping the pinned
+tools as described in the [reproduction guide](docs/reproduction.md):
+
+```bash
+noema corpus --output outputs/my-corpus --theorems 24 --proofs 64
+noema audit --corpus outputs/my-corpus/manifest.json --output outputs/my-audit
+# Freeze/review the actual sampling assignments before computing embeddings.
+noema formal --corpus outputs/my-corpus/manifest.json \
+  --freeze outputs/my-audit/splits.json --output outputs/my-formal
+```
+
+Corpus and formal analysis support `--resume` for incomplete checkpoints and
+refuse to overwrite completed results. The checksummed corpus and all three
+embedding caches are committed under `results/corpus-v1/` and `results/formal-v1/`.
+The reproduction guide also shows how to use these archives without recollecting
+proofs or recomputing embeddings.
+
+The research plan's scientific stopping rule applies: no cross-theorem overlap
+mining or mathematical discovery interpretation follows this failed feasibility
+gate. Cross-domain H3/H4 remain untested in this single-domain population.

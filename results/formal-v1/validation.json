@@ -1,0 +1,18 @@
+{
+  "local_tests": {
+    "passed": 68,
+    "failed": 0,
+    "skipped": 0,
+    "log": "....................................................................     [100%]\n68 passed in 11.99s"
+  },
+  "lint": "passed",
+  "format": "passed",
+  "primary_cached_vector_reproduction": {
+    "comparisons": 12,
+    "status": "exact_match",
+    "log": "Reproduced syntax/full/cross\nReproduced syntax/full/backward\nReproduced syntax/goal/cross\nReproduced syntax/goal/backward\nReproduced truth/full/cross\nReproduced truth/full/backward\nReproduced truth/goal/cross\nReproduced truth/goal/backward\nReproduced minilm/full/cross\nReproduced minilm/full/backward\nReproduced minilm/goal/cross\nReproduced minilm/goal/backward\nAll 12 primary comparisons, uncertainty intervals, baselines, permutation p-values, BH correction, and gate reproduced exactly."
+  },
+  "scope": "Fresh-process recomputation with the same implementation and archived inputs; not an independent statistical replication.",
+  "archived_corpus_audit": "passed; regenerated split freeze is byte-identical",
+  "analysis_source_fingerprints": "all match"
+}

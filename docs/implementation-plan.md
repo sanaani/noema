@@ -64,3 +64,21 @@ Acceptance: incremental signal beyond baselines, encoder/prover robustness, audi
 Execution continues through the research plan; checkpoints are progress records, not stopping points. Checkpoints 1–2 established the foundation. Continue calibration, held-out qualification, corpus construction, representations, controlled experiments, and interpretation subject to the scientific gates. A failed gate calls for documented diagnosis and redesign or a justified negative conclusion, not silently advancing to an invalid experiment.
 
 The local machine has four CPU threads, about 8 GiB RAM, and initially 12 GiB free disk. Use bounded CPU experiments and pinned lightweight tools first; do not launch paid compute without authorization. Defaults are development smoke settings. Pairwise metrics need O(n²) memory; projections and permutations have explicit budgets. Synthetic success would validate measurement behavior only, not H1–H4. No thresholds are tuned after observing results and presented as preregistered.
+
+## Completion record — 2026-09-13
+
+The recovered execution is complete through the plan's scientific stopping rules.
+Checkpoints 1–4 are implemented and evidenced for the explicitly bounded study.
+Checkpoint 5's controlled analysis ran and failed its frozen feasibility gate.
+Checkpoint 6's baseline comparisons, sensitivity analyses and operational graph
+fidelity ran; the resulting negative evidence closes the conditional intersection
+phase without candidate mining. H3/H4 across mathematical domains remain untested,
+not falsified, because the corpus is single-domain and the upstream gate failed.
+This is a terminal negative/inconclusive result for this design rather than an
+unfinished positive-discovery implementation or permission to bypass the gates.
+
+See [final research status](final-research-status.md) for every checkpoint and kill
+criterion, [corpus results](corpus-results.md) for the verified census, and
+[reproduction](reproduction.md) for executable commands and recovery. The original
+research document, failed prior experiments, metric freeze and preregistered
+thresholds remain preserved. Proof navigation remains a separate future project.
