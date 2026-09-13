@@ -38,6 +38,8 @@ def cluster_intervals(distance, centroid, *, seed=316842, repeats=2000):
     denominators = pairs.sum(axis=(1, 2))
     pairs = pairs[denominators > 0]
     denominators = denominators[denominators > 0]
+    if not len(pairs):
+        raise ValueError("no nondegenerate theorem bootstrap draws")
     mask = ~np.eye(n, dtype=bool)
     return {
         "unit": "theorem; both axes resampled jointly, conditional on observed proofs",
@@ -118,12 +120,29 @@ def control_distances(theorems, anchors, galleries):
         return row / max(row.sum(), 1)
 
     n = len(theorems)
+    networks = [
+        {repr((rule["antecedent"], rule["consequent"])) for rule in theorem["rules"]}
+        for theorem in theorems
+    ]
+    hypotheses = np.array(
+        [
+            [
+                len(t["facts"]),
+                sum(isinstance(r["antecedent"], (list, tuple)) for r in t["rules"]),
+                sum(isinstance(r["antecedent"], int) for r in t["rules"]),
+            ]
+            for t in theorems
+        ],
+        dtype=float,
+    )
     return {
         "used_premise_jaccard": jaccard_matrix(a, b),
+        "available_premise_network_jaccard": jaccard_matrix(networks, networks),
+        "hypothesis_structure": cdist(hypotheses, hypotheses),
         "tactic_histogram": cdist(
             np.array([hist(p) for p in anchors]), np.array([hist(p) for p in galleries])
         ),
-        "definition_file_domain_hypothesis_structure": np.zeros((n, n)),
+        "definition_file_domain": np.zeros((n, n)),
     }
 
 

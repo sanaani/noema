@@ -42,3 +42,33 @@ def test_encoder_rejects_unpinned_artifact(tmp_path):
     (tmp_path / "model.onnx").write_bytes(b"different model")
     with pytest.raises(ValueError, match="checksum"):
         MiniLMEncoder(tmp_path)
+
+
+def test_long_state_pooling_retains_all_content_tokens_with_correct_weights():
+    from types import SimpleNamespace
+
+    class Session:
+        calls = []
+
+        def get_inputs(self):
+            return [SimpleNamespace(name="input_ids")]
+
+        def run(self, _, feed):
+            ids = feed["input_ids"]
+            self.calls.append(ids.copy())
+            output = np.zeros((*ids.shape, 384))
+            output[..., 0] = ids
+            output[..., 1] = ids**2
+            return [output]
+
+    encoder = object.__new__(MiniLMEncoder)
+    tokens = list(range(1, 601))
+    encoder.tokenizer = SimpleNamespace(encode=lambda *a, **kw: SimpleNamespace(ids=tokens))
+    encoder.session = Session()
+    result = encoder.encode(["a long formal state"])[0]
+    expected = np.zeros(384)
+    expected[:2] = [np.mean(tokens), np.mean(np.asarray(tokens) ** 2)]
+    expected /= np.linalg.norm(expected)
+    np.testing.assert_allclose(result, expected)
+    assert [call.shape[1] - 2 for call in encoder.session.calls] == [254, 254, 92]
+    assert [token for call in encoder.session.calls for token in call[0, 1:-1]] == tokens

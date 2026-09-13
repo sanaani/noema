@@ -274,12 +274,30 @@ def fidelity(encoder, cache, groups, view):
     }
 
 
-def run(manifest: dict[str, Any], *, root: Path, output: Path, freeze: Path) -> dict[str, Any]:
+def save_checkpoint(output, result, name, cache):
+    temporary = output / f"{name}-embeddings.tmp"
+    with temporary.open("wb") as stream:
+        np.savez_compressed(
+            stream, texts=np.array(list(cache)), vectors=np.array(list(cache.values()))
+        )
+    temporary.replace(output / f"{name}-embeddings.npz")
+    temporary = output / "checkpoint.tmp"
+    temporary.write_text(json.dumps(result, allow_nan=False))
+    temporary.replace(output / "checkpoint.json")
+
+
+def run(
+    manifest: dict[str, Any], *, root: Path, output: Path, freeze: Path, resume: bool = False
+) -> dict[str, Any]:
     frozen = json.loads(freeze.read_text())
     actual = design(manifest)
     if actual != frozen:
         raise ValueError("corpus or splits do not match the pre-embedding freeze")
-    output.mkdir(parents=True, exist_ok=False)
+    if resume:
+        if (output / "report.json").exists():
+            raise ValueError("completed analysis cannot be resumed or overwritten")
+    else:
+        output.mkdir(parents=True, exist_ok=False)
     groups = proof_groups(manifest)
     encoders = {
         "syntax": SyntaxEncoder(),
@@ -301,11 +319,50 @@ def run(manifest: dict[str, Any], *, root: Path, output: Path, freeze: Path) -> 
         "sensitivities": [],
         "skipped": [],
         "fidelity": [],
+        "analysis_source_sha256": {
+            name: digest((Path(__file__).parent / name).read_text())
+            for name in (
+                "formal_experiment.py",
+                "diagnostics.py",
+                "encoders.py",
+                "metrics.py",
+                "clouds.py",
+                "statistics.py",
+            )
+        },
     }
+    if resume:
+        previous = json.loads((output / "checkpoint.json").read_text())
+        for key in (
+            "corpus_sha256",
+            "split_freeze_sha256",
+            "encoder_manifest",
+            "encoder_dependencies",
+            "analysis_source_sha256",
+        ):
+            if previous[key] != result[key]:
+                raise ValueError(f"analysis resume mismatch: {key}")
+        result = previous
+        result.setdefault("resumptions", []).append(provenance())
     for name, encoder in encoders.items():
         cache = {}
+        if resume and (output / f"{name}-embeddings.npz").exists():
+            with np.load(output / f"{name}-embeddings.npz", allow_pickle=False) as saved:
+                if not np.isfinite(saved["vectors"]).all():
+                    raise ValueError("nonfinite embedding cache")
+                cache.update(zip(saved["texts"].tolist(), saved["vectors"], strict=True))
         for view in ("full", "goal"):
             for selection in actual["selections"]:
+                signature = {
+                    "encoder": name,
+                    "view": view,
+                    **{k: selection[k] for k in ("policy", "direction", "seed")},
+                }
+                if any(
+                    all(row[k] == v for k, v in signature.items())
+                    for row in result["comparisons"] + result["sensitivities"] + result["skipped"]
+                ):
+                    continue
                 primary = selection["policy"] == "primary" and selection["seed"] == SEED
                 if len(selection["theorem_ids"]) < 12:
                     result["skipped"].append(
@@ -330,17 +387,12 @@ def run(manifest: dict[str, Any], *, root: Path, output: Path, freeze: Path) -> 
                     f"cloud win rate {entry['cloud_ranking']['pairwise_win_rate']:.3f}",
                     flush=True,
                 )
-                temporary = output / "checkpoint.tmp"
-                temporary.write_text(json.dumps(result, allow_nan=False))
-                temporary.replace(output / "checkpoint.json")
-            result["fidelity"].append(
-                {"encoder": name, "view": view, **fidelity(encoder, cache, groups, view)}
-            )
-        np.savez_compressed(
-            output / f"{name}-embeddings.npz",
-            texts=np.array(list(cache)),
-            vectors=np.array(list(cache.values())),
-        )
+                save_checkpoint(output, result, name, cache)
+            if not any(r["encoder"] == name and r["view"] == view for r in result["fidelity"]):
+                result["fidelity"].append(
+                    {"encoder": name, "view": view, **fidelity(encoder, cache, groups, view)}
+                )
+            save_checkpoint(output, result, name, cache)
     for row, q in zip(
         result["comparisons"],
         benjamini_hochberg([r["p_value"] for r in result["comparisons"]]),
@@ -499,9 +551,23 @@ def main() -> None:
     parser.add_argument("--corpus", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--freeze", type=Path, required=True)
+    parser.add_argument("--resume", action="store_true")
     args = parser.parse_args()
     manifest = json.loads(args.corpus.read_text())
-    run(manifest, root=Path(__file__).resolve().parents[2], output=args.output, freeze=args.freeze)
+    try:
+        run(
+            manifest,
+            root=Path(__file__).resolve().parents[2],
+            output=args.output,
+            freeze=args.freeze,
+            resume=args.resume,
+        )
+    except Exception:
+        if args.output.exists() and not (args.output / "report.json").exists():
+            (args.output / "FAILED").write_text(
+                "Analysis interrupted or failed; see terminal log.\n"
+            )
+        raise
 
 
 if __name__ == "__main__":
