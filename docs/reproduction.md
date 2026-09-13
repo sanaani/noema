@@ -112,3 +112,20 @@ bash scripts/archive-study.sh outputs/my-corpus outputs/my-audit results/my-corp
 ```
 
 All archive contents have deterministic compression metadata and SHA-256 checksums.
+
+To independently recompute primary statistics using the saved embedding caches:
+
+```bash
+python scripts/verify-formal-result.py \
+  --corpus outputs/archived-corpus/manifest.json \
+  --freeze outputs/reference-splits.json \
+  --report results/formal-v1/report.json.gz \
+  --embeddings results/formal-v1
+```
+
+This check reconstructs every primary cloud from the frozen proof/state
+assignments, recomputes baseline matrices and uncertainty intervals, repeats the
+whole-theorem permutation tests and BH correction, and checks the gate. It uses
+cached vectors and therefore checks analysis reproducibility without rerunning
+model inference. The separate real-model integration test checks the pinned
+CPU encoder, normalization and repeatability.
