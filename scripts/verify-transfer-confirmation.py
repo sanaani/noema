@@ -133,6 +133,8 @@ def main():
         print(json.dumps(result, indent=2))
         return
     report = read(run / "report.json")
+    assert report["matching"] == matching
+    assert report["unique_inputs"] == assignment["unique_inputs"]
     assert (
         report["freeze"]
         == read(run / "run-freeze.json")
@@ -185,6 +187,9 @@ def main():
     )
     caches = {}
     for name, dimension in (("syntax", 256), ("minilm", 384), ("reprover", 1472)):
+        assert read(run / f"vectors/{name}-manifest.json") == read(
+            Path("results/strategy-transfer-v2/headroom/vectors") / f"{name}-manifest.json"
+        )
         with np.load(run / f"vectors/{name}-embeddings.npz", allow_pickle=False) as saved:
             texts, vectors = saved["texts"].tolist(), saved["vectors"]
             assert len(texts) == len(set(texts)) == assignment["unique_inputs"]
@@ -206,7 +211,11 @@ def main():
             "primary_pass": report["inference"]["primary_pass"],
         }
     )
-    assert all(b["upper_95"] < 0.90 for b in baselines.values()) == report["headroom_pass"]
+    screen = read(run / "headroom-report.json")
+    compare_archive(baselines, screen["baselines"])
+    failures = [name for name, b in baselines.items() if b["upper_95"] >= 0.90]
+    assert failures == screen["failing_baselines"]
+    assert (not failures) == screen["headroom_pass"] == report["headroom_pass"]
     supplement_path = archive / "supplemental-baselines.json"
     if supplement_path.exists():
         supplement = read(supplement_path)
