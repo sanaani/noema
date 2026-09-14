@@ -36,6 +36,14 @@ has no validated recorded states, so 255 objects are nonempty. The input-identit
 printed local-goal displays, and missing internal mathematical context has not
 been restored merely by storing separate vector rows.
 
+The subsequent [assumption audit](../../docs/assumption-audit-v1.md) identifies
+exact script copies, incomplete observation granularity, unvalidated geometric
+meaning and one theorem with inconsistent assumptions. The explorer includes
+per-theorem audit notes. Its coordinates and every state record are unchanged.
+To regenerate the annotated explorer, supply
+`--annotations results/assumption-audit-v1/theorem-annotations.json` to
+`scripts/render-state-record-viewer.py` alongside `--records`.
+
 Verify and analyze from the repository root:
 
 ```sh

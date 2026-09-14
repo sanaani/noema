@@ -73,6 +73,14 @@ def test_projection_does_not_decide_original_intersection():
     assert hull_relation(a[:, :2], b[:, :2])["relation"] == "intersect"
 
 
+@pytest.mark.parametrize("gap", [5e-10, 1e-10, 1e-11])
+def test_negative_solver_weights_cannot_extend_a_hull_across_a_gap(gap):
+    # Previously accepted [-gap, 1 + gap] as intersection weights with
+    # exactly zero residual. Those weights generate a point outside [0, 1].
+    result = hull_relation(np.array([[0.0], [1.0]]), np.array([[1.0 + gap]]))
+    assert result["relation"] != "intersect"
+
+
 def test_more_than_eight_vertices_and_permutation_invariance():
     a = np.eye(32)
     b = np.ones((1, 32)) / 32

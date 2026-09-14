@@ -12,12 +12,18 @@ import time
 from pathlib import Path
 
 from noema.state_objects import atomic_json, fingerprint
-from noema.state_replay import request, responses
+from noema.state_replay import VALIDATION_POLICY, request, responses, target_axioms
 
 
 def replay(record, args):
     target = args.output / (record["id"] + ".json")
-    request_parts = [record["id"], record["body"], args.environment_id]
+    request_parts = [
+        record["id"],
+        record["theorem_id"],
+        record["body"],
+        args.environment_id,
+        VALIDATION_POLICY,
+    ]
     if args.kernel_recheck:
         request_parts.append("kernel-recheck-v2")
     request_hash = fingerprint(request_parts)
@@ -56,6 +62,7 @@ run_elab do
         "request_hash": request_hash,
         "environment": args.environment_id,
         "body_sha256": hashlib.sha256(record["body"].encode()).hexdigest(),
+        "validation_policy": VALIDATION_POLICY,
         "states": [],
         "trace_complete": False,
     }
@@ -98,12 +105,8 @@ run_elab do
         ]
         messages = response.get("messages", [])
         errors = [m for m in messages if m.get("severity") == "error"]
-        axiom_messages = [
-            m["data"]
-            for m in messages
-            if "depends on axioms" in m.get("data", "")
-            or "does not depend on any axioms" in m.get("data", "")
-        ]
+        axiom_check = target_axioms(messages, name)
+        result["axiom_check"] = axiom_check
         kernel_rechecked = any("NOEMA_KERNEL_RECHECK_OK" in m.get("data", "") for m in messages)
         allowed_redundant_errors = (
             args.kernel_recheck
@@ -118,8 +121,7 @@ run_elab do
             and "message" not in response
             and (not errors or allowed_redundant_errors)
             and not response.get("sorries")
-            and bool(axiom_messages)
-            and not any("sorryAx" in m for m in axiom_messages)
+            and axiom_check["accepted"]
             and (not args.kernel_recheck or kernel_rechecked)
         )
         result["verified"] = verified

@@ -8,6 +8,7 @@ import json
 from pathlib import Path
 
 from noema.state_objects import atomic_json, fingerprint
+from noema.state_replay import validate_replay_identity
 
 
 def save_gzip(path, value):
@@ -39,13 +40,7 @@ def main():
             if pid not in records:
                 raise ValueError("unregistered proof in replay directory")
             proof = records[pid]
-            if replay["theorem_id"] != proof["theorem_id"]:
-                raise ValueError("theorem identity changed during replay")
-            if (
-                proof.get("body")
-                and replay.get("body_sha256") != hashlib.sha256(proof["body"].encode()).hexdigest()
-            ):
-                raise ValueError("replayed proof source does not match inventory")
+            validate_replay_identity(proof, replay)
             attempts.setdefault(pid, []).append((root.name, path, replay))
     for pid, proof in records.items():
         publisher_states = proof["states"]

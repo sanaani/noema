@@ -1,5 +1,11 @@
 # Implementation plan
 
+**Historical plan.** The user's corrected [State-object specification](current-state-object-spec.md)
+supersedes the sampling, representation and prediction objectives below. In
+particular, do not resume fixed proof/state sampling or shared text-vector caches.
+Use every acquired state as a separate record and vector row. Read the
+[assumption audit](assumption-audit-v1.md) before interpreting earlier results.
+
 ## Research contract
 
 The supplied research plan is the project specification. Preserve its original bytes, including formatting defects; amend interpretations here. Its literature and novelty claims are research inputs, not independently verified findings.

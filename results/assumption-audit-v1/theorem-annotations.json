@@ -1,0 +1,3336 @@
+{
+  "source_corpus_sha256": "af5f40d7679f80021760e0bb369a983da06c4222303f6b5a9ebdce37f754ebc5",
+  "flags_describe_unestablished_claims_not_exclusion_rules": true,
+  "theorems": [
+    {
+      "theorem_id": "mathlib:IsCoveringMap.const_of_comp",
+      "proof_records": 3,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Submodule.span_preimage_le",
+      "proof_records": 3,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:schnirelmannDensity_setOf_mod_eq_one",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:IsDedekindDomain.HeightOneSpectrum.IntValuation.le_max_iff_min_le",
+      "proof_records": 2,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "equivalent/renamed declaration mapping in Mathlib4.19 remains unverified",
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Associates.out_dvd_iff",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:PadicInt.modPart_nonneg",
+      "proof_records": 3,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "mathlib:MeasureTheory.snorm_mono",
+      "proof_records": 2,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "equivalent/renamed declaration mapping in Mathlib4.19 remains unverified",
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:FractionalIdeal.canonicalEquiv_mk0",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:openEmbedding_iff_embedding_open",
+      "proof_records": 2,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "equivalent/renamed declaration mapping in Mathlib4.19 remains unverified",
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:ENNReal.tsum_sigma",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:norm_sub_mul_self_real",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:AlgebraicGeometry.Scheme.ofRestrict_appLE",
+      "proof_records": 2,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:continuous_of_discreteTopology",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:harmonic_succ",
+      "proof_records": 3,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:MulEquiv.trans_apply",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:ProbabilityTheory.measure_zero_or_one_of_measurableSet_limsup_atTop",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:RingHom.expChar",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Complex.cos_eq_cos_iff",
+      "proof_records": 3,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:cauchy_iff'",
+      "proof_records": 3,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:List.rotate_replicate",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "mathlib:Fin.prod_univ_two'",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:one_le_bit1",
+      "proof_records": 1,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "equivalent/renamed declaration mapping in Mathlib4.19 remains unverified"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:grade_ne_grade_iff",
+      "proof_records": 3,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Ideal.IsHomogeneous.iSup",
+      "proof_records": 3,
+      "distinct_source_scripts": 3,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Set.equitableOn_iff_exists_image_subset_icc",
+      "proof_records": 3,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:LocallyConstant.ker_comapₗ",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:pure_id'_seq",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:DirectSum.decomposeLinearEquiv_apply",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:ciInf_pos",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Real.Angle.coe_nat_mul_eq_nsmul",
+      "proof_records": 1,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "equivalent/renamed declaration mapping in Mathlib4.19 remains unverified"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:BundledCorePresheafOfModules.restrictionApp_toPresheafOfModules",
+      "proof_records": 1,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "equivalent/renamed declaration mapping in Mathlib4.19 remains unverified"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:IsometryEquiv.coe_toRealLinearIsometryEquivOfMapZero_symm",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:HasStrictFDerivAt.tendsto_implicitFunction",
+      "proof_records": 3,
+      "distinct_source_scripts": 3,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Filter.atTop_le_cofinite",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Nat.WithBot.add_eq_three_iff",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:MeasureTheory.AECover.biInter_Ici_aecover",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:intervalIntegral.derivWithin_integral_of_tendsto_ae_left",
+      "proof_records": 3,
+      "distinct_source_scripts": 3,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:MeasureTheory.Lp.simpleFunc.denseRange",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Group.fg_iff'",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:LinearMap.BilinForm.IsSymm.sub",
+      "proof_records": 2,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:MeasureTheory.Measure.restrict_union",
+      "proof_records": 3,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:CategoryTheory.Functor.lanUnit_app_whiskerLeft_lanAdjunction_counit_app",
+      "proof_records": 2,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Antitone.strictAnti_of_injective",
+      "proof_records": 3,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:union_lowerBounds_subset_lowerBounds_inter",
+      "proof_records": 3,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:mem_map_indicator_ae_iff_mem_map_restrict_ae_of_zero_mem",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:deriv.scomp_of_eq",
+      "proof_records": 2,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:DFinsupp.coe_zsmul",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Polynomial.smeval_X_pow_mul",
+      "proof_records": 3,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Real.surjOn_logb",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:tendstoUniformlyOn_empty",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Nat.mod_two_of_bodd",
+      "proof_records": 3,
+      "distinct_source_scripts": 3,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Filter.disjoint_comap_iff",
+      "proof_records": 3,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:CliffordAlgebra.star_ι",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Multiset.bind_congr",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Equicontinuous.comp",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Polynomial.smeval_nat_cast",
+      "proof_records": 1,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "equivalent/renamed declaration mapping in Mathlib4.19 remains unverified"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:CochainComplex.HomComplex.Cochain.leftShift_v",
+      "proof_records": 3,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:RingHom.ker_equiv",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:ContinuousWithinAt.union",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Matrix.SpecialLinearGroup.SL2_inv_expl",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Nat.cast_dvd_cast",
+      "proof_records": 2,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:PowerSeries.trunc_X_of",
+      "proof_records": 3,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:cfc_one",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:nonPrincipals_eq_empty_iff",
+      "proof_records": 3,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:IsLowerSet.null_frontier",
+      "proof_records": 2,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Complex.nndist_of_re_eq",
+      "proof_records": 3,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Algebra.adjoin_nat",
+      "proof_records": 3,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:CategoryTheory.Grothendieck.id_fiber'",
+      "proof_records": 2,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "equivalent/renamed declaration mapping in Mathlib4.19 remains unverified",
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:ProbabilityTheory.kernel.coe_finset_sum",
+      "proof_records": 2,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "equivalent/renamed declaration mapping in Mathlib4.19 remains unverified",
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Quaternion.normSq_rat_cast",
+      "proof_records": 1,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "equivalent/renamed declaration mapping in Mathlib4.19 remains unverified"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:DFinsupp.prod_comm",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Turing.PartrecToTM2.codeSupp_zero",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Cardinal.mk_coe_finset",
+      "proof_records": 3,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:CategoryTheory.MorphismProperty.Q_inverts",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:LinearIsometryEquiv.coe_coe",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Set.OrdConnected.image_real_toNNReal",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Matrix.updateRow_eq_self",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Dense.borel_eq_generateFrom_Ioc_mem",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Complex.eventually_eq_of_isLocalMax_norm",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:IsLocalMin.neg",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Filter.tendsto_iSup_iSup",
+      "proof_records": 3,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:SzemerediRegularity.add_div_le_sum_sq_div_card",
+      "proof_records": 3,
+      "distinct_source_scripts": 3,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:MvPolynomial.eval_pow",
+      "proof_records": 3,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:DifferentiableAt.inverse",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:LinearMap.tailing_disjoint_tunnel_succ",
+      "proof_records": 2,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "equivalent/renamed declaration mapping in Mathlib4.19 remains unverified",
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:CategoryTheory.NatTrans.mono_of_mono_app",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:StarSubalgebra.embedding_inclusion",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Subgroup.commutator_comm_le",
+      "proof_records": 3,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Multiset.union_le_union_left",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:LinearIsometryEquiv.coe_prodAssoc",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Filter.hasBasis_coclosedCompact",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Multiset.map_cons",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Submonoid.LocalizationMap.lift_eq",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:QuaternionAlgebra.eq_re_iff_mem_range_coe",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Continuous.intervalIntegrable",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:MeasurableEmbedding.integrableAtFilter_iff_comap",
+      "proof_records": 3,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:abs_mul_self",
+      "proof_records": 3,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Cardinal.one_toNat",
+      "proof_records": 3,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:EqvGen.is_equivalence",
+      "proof_records": 2,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "equivalent/renamed declaration mapping in Mathlib4.19 remains unverified",
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Option.map₂_assoc",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Interval.coe_subset_coe",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:LSeries.norm_term_le",
+      "proof_records": 3,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:IsFractional.map",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:CategoryTheory.Cat.associator_inv_app",
+      "proof_records": 2,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "mathlib:FreimanHom.cancel_left_on",
+      "proof_records": 1,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "equivalent/renamed declaration mapping in Mathlib4.19 remains unverified"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:hasSum_nat_add_iff'",
+      "proof_records": 2,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:normal_of_eq_cosets",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:LowerSet.coe_div",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:WithZeroTopology.nhds_eq_update",
+      "proof_records": 3,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:contDiffAt_inner",
+      "proof_records": 3,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:LinearMap.map_finsupp_total",
+      "proof_records": 2,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "equivalent/renamed declaration mapping in Mathlib4.19 remains unverified",
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:BoxIntegral.Box.volume_apply",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:TopCat.Presheaf.app_injective_of_stalkFunctor_map_injective",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:MeasureTheory.Submartingale.bddAbove_iff_exists_tendsto",
+      "proof_records": 3,
+      "distinct_source_scripts": 3,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Set.image_update_uIcc_left",
+      "proof_records": 3,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Finsupp.update_erase_eq_update",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:AffineIsometryEquiv.pointReflection_toAffineEquiv",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Quaternion.algebraMap_def",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:IsLocalization.submonoid_map_le_is_unit",
+      "proof_records": 3,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:smul_pi",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:RingCon.coe_iInf",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Finset.abs_sum_of_nonneg",
+      "proof_records": 3,
+      "distinct_source_scripts": 3,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Basis.toLin_toMatrix",
+      "proof_records": 3,
+      "distinct_source_scripts": 3,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Set.mem_ordConnectedComponent_trans",
+      "proof_records": 3,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Complex.sinh_three_mul",
+      "proof_records": 3,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:CategoryTheory.Limits.pullbackZeroZeroIso_hom_snd",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:UpperHalfPlane.smulAux'_im",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:MulAction.orbit.coe_smul",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_7315",
+      "proof_records": 4,
+      "distinct_source_scripts": 3,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_50503",
+      "proof_records": 2,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_2359",
+      "proof_records": 32,
+      "distinct_source_scripts": 31,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_35455",
+      "proof_records": 2,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_48561",
+      "proof_records": 2,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_61458",
+      "proof_records": 6,
+      "distinct_source_scripts": 5,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_18941",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_16688",
+      "proof_records": 18,
+      "distinct_source_scripts": 17,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_53782",
+      "proof_records": 13,
+      "distinct_source_scripts": 12,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_25569",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_30348",
+      "proof_records": 15,
+      "distinct_source_scripts": 14,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_37581",
+      "proof_records": 29,
+      "distinct_source_scripts": 27,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_23477",
+      "proof_records": 2,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_653",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_45636",
+      "proof_records": 2,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_75019",
+      "proof_records": 29,
+      "distinct_source_scripts": 28,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_8794",
+      "proof_records": 7,
+      "distinct_source_scripts": 6,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_5257",
+      "proof_records": 26,
+      "distinct_source_scripts": 25,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "inconsistent; Lean-checked counterexample",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_3304",
+      "proof_records": 2,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_40119",
+      "proof_records": 2,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_279",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_14325",
+      "proof_records": 2,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_56282",
+      "proof_records": 22,
+      "distinct_source_scripts": 21,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_8931",
+      "proof_records": 2,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_33165",
+      "proof_records": 10,
+      "distinct_source_scripts": 9,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_11296",
+      "proof_records": 2,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_35251",
+      "proof_records": 4,
+      "distinct_source_scripts": 3,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_34313",
+      "proof_records": 2,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_13957",
+      "proof_records": 2,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_29384",
+      "proof_records": 2,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_9114",
+      "proof_records": 34,
+      "distinct_source_scripts": 33,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_31098",
+      "proof_records": 2,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_302",
+      "proof_records": 18,
+      "distinct_source_scripts": 17,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_33506",
+      "proof_records": 2,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_47346",
+      "proof_records": 2,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_37974",
+      "proof_records": 24,
+      "distinct_source_scripts": 23,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_34729",
+      "proof_records": 2,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_8142",
+      "proof_records": 2,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_77403",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_32186",
+      "proof_records": 24,
+      "distinct_source_scripts": 23,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_18711",
+      "proof_records": 2,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_14571",
+      "proof_records": 2,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_12680",
+      "proof_records": 2,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_35434",
+      "proof_records": 2,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_18964",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_42272",
+      "proof_records": 37,
+      "distinct_source_scripts": 36,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_52262",
+      "proof_records": 2,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_13782",
+      "proof_records": 8,
+      "distinct_source_scripts": 7,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_23949",
+      "proof_records": 12,
+      "distinct_source_scripts": 10,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_45403",
+      "proof_records": 1,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_17723",
+      "proof_records": 18,
+      "distinct_source_scripts": 18,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_48984",
+      "proof_records": 34,
+      "distinct_source_scripts": 33,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_39182",
+      "proof_records": 3,
+      "distinct_source_scripts": 3,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_61933",
+      "proof_records": 2,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_18245",
+      "proof_records": 2,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_3393",
+      "proof_records": 2,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_14827",
+      "proof_records": 2,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_8439",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_22155",
+      "proof_records": 14,
+      "distinct_source_scripts": 13,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_11487",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_39621",
+      "proof_records": 2,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_55131",
+      "proof_records": 7,
+      "distinct_source_scripts": 6,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_21633",
+      "proof_records": 2,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_38211",
+      "proof_records": 2,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_8986",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_68017",
+      "proof_records": 2,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_490",
+      "proof_records": 28,
+      "distinct_source_scripts": 27,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_9279",
+      "proof_records": 2,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_6635",
+      "proof_records": 23,
+      "distinct_source_scripts": 22,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_2592",
+      "proof_records": 2,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_43717",
+      "proof_records": 1,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_53725",
+      "proof_records": 7,
+      "distinct_source_scripts": 6,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_69123",
+      "proof_records": 2,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_3237",
+      "proof_records": 2,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_55402",
+      "proof_records": 2,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_28686",
+      "proof_records": 2,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_65975",
+      "proof_records": 11,
+      "distinct_source_scripts": 10,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_23440",
+      "proof_records": 2,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_63727",
+      "proof_records": 5,
+      "distinct_source_scripts": 4,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_32182",
+      "proof_records": 2,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_29897",
+      "proof_records": 2,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_9657",
+      "proof_records": 6,
+      "distinct_source_scripts": 5,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_55002",
+      "proof_records": 7,
+      "distinct_source_scripts": 6,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_18414",
+      "proof_records": 15,
+      "distinct_source_scripts": 14,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_7742",
+      "proof_records": 2,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_14058",
+      "proof_records": 2,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_3429",
+      "proof_records": 9,
+      "distinct_source_scripts": 9,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_50024",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_67559",
+      "proof_records": 2,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_2450",
+      "proof_records": 2,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_1986",
+      "proof_records": 30,
+      "distinct_source_scripts": 29,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_23627",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_63366",
+      "proof_records": 26,
+      "distinct_source_scripts": 25,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_18240",
+      "proof_records": 2,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_74969",
+      "proof_records": 28,
+      "distinct_source_scripts": 27,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_2800",
+      "proof_records": 8,
+      "distinct_source_scripts": 7,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_24730",
+      "proof_records": 3,
+      "distinct_source_scripts": 3,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_23187",
+      "proof_records": 2,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_52061",
+      "proof_records": 2,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_36306",
+      "proof_records": 2,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_8638",
+      "proof_records": 7,
+      "distinct_source_scripts": 6,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_40576",
+      "proof_records": 2,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_65508",
+      "proof_records": 26,
+      "distinct_source_scripts": 25,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_39161",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_19034",
+      "proof_records": 2,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_42412",
+      "proof_records": 1,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_27848",
+      "proof_records": 2,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_51915",
+      "proof_records": 2,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_14210",
+      "proof_records": 2,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_27005",
+      "proof_records": 5,
+      "distinct_source_scripts": 4,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_25087",
+      "proof_records": 2,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_44565",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_26291",
+      "proof_records": 2,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_56422",
+      "proof_records": 2,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_56877",
+      "proof_records": 2,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_19088",
+      "proof_records": 2,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_66130",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_38894",
+      "proof_records": 2,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_36821",
+      "proof_records": 20,
+      "distinct_source_scripts": 19,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_38962",
+      "proof_records": 37,
+      "distinct_source_scripts": 35,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_42242",
+      "proof_records": 2,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_62717",
+      "proof_records": 2,
+      "distinct_source_scripts": 1,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_78448",
+      "proof_records": 3,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_57368",
+      "proof_records": 12,
+      "distinct_source_scripts": 11,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_36979",
+      "proof_records": 2,
+      "distinct_source_scripts": 2,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_5091",
+      "proof_records": 24,
+      "distinct_source_scripts": 23,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_16073",
+      "proof_records": 20,
+      "distinct_source_scripts": 19,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_24728",
+      "proof_records": 4,
+      "distinct_source_scripts": 3,
+      "independent_proof_count_verified": false,
+      "all_known_proofs_acquired_verified": false,
+      "semantic_state_identity_verified": false,
+      "internal_state_capture_complete_verified": false,
+      "mathematical_faithfulness_of_geometry_verified": false,
+      "assumption_consistency": "not established by this audit",
+      "existing_coverage_gaps": []
+    }
+  ]
+}

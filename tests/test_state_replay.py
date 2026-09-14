@@ -6,7 +6,7 @@ import numpy as np
 import pytest
 
 from noema.state_objects import assemble_object, hull_relation, state_id
-from noema.state_replay import request, responses
+from noema.state_replay import request, responses, target_axioms, validate_replay_identity
 
 
 def test_astral_math_symbols_and_large_states_survive_repl_transport():
@@ -91,3 +91,82 @@ def test_mathlib_observer_retains_all_selected_tactics_and_term_boundaries():
     record["raw_record"] = {"start": [3, 1], "end": [3, 31]}
     kept, granularity = module.selected_nodes(record, source, nodes)
     assert len(kept) == 1 and "proof-term" in granularity
+
+
+def test_axiom_report_must_belong_to_exact_target_and_use_declared_basis():
+    unrelated = [{"data": "'Other.target' does not depend on any axioms"}]
+    assert not target_axioms(unrelated, "target")["accepted"]
+    messages = unrelated + [{"data": "'target' depends on axioms: [propext, Quot.sound]"}]
+    assert target_axioms(messages, "target")["accepted"]
+    for axiom in ("sorryAx", "unproved_claim"):
+        check = target_axioms([{"data": f"'target' depends on axioms: [{axiom}]"}], "target")
+        assert not check["accepted"]
+        assert check["outside_foundational_basis"] == [axiom]
+    assert target_axioms([{"data": "'target' does not depend on any axioms"}], "target")["accepted"]
+
+
+@pytest.mark.parametrize(
+    "field", ["proof_id", "theorem_id", "body_sha256", "environment", "source_artifact"]
+)
+def test_replay_identity_rejects_changed_checkpoint(field):
+    import hashlib
+
+    record = {
+        "id": "p",
+        "theorem_id": "mathlib:T",
+        "body": "proof",
+        "source_artifact": {"filename": "f.lean", "sha256": "whole-file-sha"},
+    }
+    checkpoint = {
+        "proof_id": "p",
+        "theorem_id": "mathlib:T",
+        "body_sha256": hashlib.sha256(b"proof").hexdigest(),
+        "environment": "lean-a",
+        "source_artifact": record["source_artifact"],
+    }
+    validate_replay_identity(record, checkpoint, "lean-a")
+    checkpoint[field] = "changed"
+    with pytest.raises(ValueError, match=field):
+        validate_replay_identity(record, checkpoint, "lean-a")
+
+
+def test_mathlib_worker_validates_existing_checkpoint_before_returning(tmp_path):
+    import hashlib
+    from types import SimpleNamespace
+
+    from noema.state_replay import VALIDATION_POLICY
+
+    spec = importlib.util.spec_from_file_location(
+        "mathlib_cache_test", Path(__file__).parents[1] / "scripts/replay-state-object-mathlib.py"
+    )
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    source = b"theorem T : True := True.intro\n"
+    (tmp_path / "f.lean").write_bytes(source)
+    record = {
+        "id": "p",
+        "theorem_id": "mathlib:T",
+        "body": source.decode(),
+        "source_artifact": {"filename": "f.lean", "sha256": hashlib.sha256(source).hexdigest()},
+    }
+    checkpoint = {
+        "proof_id": "p",
+        "theorem_id": "mathlib:T",
+        "body_sha256": hashlib.sha256(source).hexdigest(),
+        "source_artifact": record["source_artifact"],
+        "environment": "lean-a",
+        "validation_policy": VALIDATION_POLICY,
+        "status": "complete",
+    }
+    path = tmp_path / "p.json"
+    path.write_text(json.dumps(checkpoint))
+    args = SimpleNamespace(proof_sources=tmp_path, output=tmp_path, environment_id="lean-a")
+    assert module.run_file([record], args) == ["complete"]
+    args.environment_id = "lean-b"
+    with pytest.raises(ValueError, match="environment"):
+        module.run_file([record], args)
+    args.environment_id = "lean-a"
+    checkpoint.pop("validation_policy")
+    path.write_text(json.dumps(checkpoint))
+    with pytest.raises(ValueError, match="predates"):
+        module.run_file([record], args)

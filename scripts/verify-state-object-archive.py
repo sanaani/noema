@@ -82,8 +82,9 @@ def main():
             assert np.linalg.norm(vectors[s] - vectors[t]) > 0
         elif relation in ("nontrivial_intersection", "intersect") and "alpha" in extent:
             alpha, beta = np.array(extent["alpha"]), np.array(extent["beta"])
-            assert min(alpha.min(), beta.min()) >= -1e-10
-            assert abs(alpha.sum() - 1) < 1e-8 and abs(beta.sum() - 1) < 1e-8
+            assert min(alpha.min(), beta.min()) >= 0
+            assert abs(alpha.sum() - 1) <= 32 * np.finfo(float).eps
+            assert abs(beta.sum() - 1) <= 32 * np.finfo(float).eps
             assert np.linalg.norm(alpha @ a - beta @ b) < 1e-12
         elif relation == "disjoint":
             normal = np.array(result["normal"])

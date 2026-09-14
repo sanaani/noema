@@ -1,0 +1,9 @@
+{
+  "fixture": "Vacuous.lean",
+  "fixture_sha256": "3812fd7d3d20951b6df10cfc811c2d215ef1cde5a406895c65f56ccfd06645fc",
+  "lean_version": "Lean (version 4.9.0, x86_64-unknown-linux-gnu, commit 8f9843a4a5fe, Release)",
+  "lean_binary_sha256": "c2059c8da4034467e5f391cfd07b81c4a7b32a7e04ff7e50c7c385993cd77010",
+  "returncode": 0,
+  "stdout": "'noema_selected_assumptions_inconsistent' depends on axioms: [propext, Quot.sound]\n",
+  "stderr": ""
+}

@@ -29,6 +29,13 @@ unreported exclusion rule. Computational staging is not scientific subsampling.
 The first corrected draw is 256 theorem identities across Mathlib and Lean
 Workbook; its pinned source inventory and acquisition status are recorded in
 [state-object-implementation-v1.md](state-object-implementation-v1.md).
+This is a bounded pilot, not an established adequate or representative sample of
+mathematics. The 128-per-family size was a convenience choice. Future draws require
+an explicit count and documented purpose; do not silently reuse that default.
+Count source proof records separately from distinct scripts and independent
+mathematical proofs. Preserve copies and provenance without treating copies as
+independent evidence. Source validity does not establish consistent assumptions
+or faithfulness to an informal problem; record these as separate checks.
 
 ## Candidate object algorithm
 
@@ -37,6 +44,11 @@ Workbook; its pinned source inventory and acquisition status are recorded in
    including local contexts and outstanding goals. Preserve initial and terminal
    records and any extraction failures explicitly. Tactic-level extraction does
    not expose every internal operation of an automated tactic; report that limit.
+   A successful replay plus an empty local goal list is only an operational
+   extraction check. It does not establish complete internal state capture. Keep
+   tactic-level observations, proof-term boundaries and publisher-only traces
+   distinguishable. Validate checkpoint target, source and declared environment
+   before reuse, and require an exact-target axiom report with a declared basis.
 2. Preserve separate provenance-based identities for every recorded state. A hash
    of printed text identifies an encoder input, not a mathematical state. The
    [input-identity audit](state-input-identity-audit-v1.md) demonstrated this
@@ -71,6 +83,10 @@ The convex hull is the current candidate to investigate, not an established best
 definition. Normalized embeddings and sparse sampling impose important limits
 on containment and rank; see the literature review. Do not change normalization,
 project away dimensions, or omit inconvenient states solely to induce overlap.
+Embedding quality for retrieval does not validate convex geometry as mathematical
+meaning. No claim of mathematical topology, semantic overlap or sufficient coverage
+follows merely from a successful numerical run. See the
+[assumption audit](assumption-audit-v1.md) for tested defects and remaining unknowns.
 
 ## Existing work and remaining work
 

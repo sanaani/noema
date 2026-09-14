@@ -61,7 +61,12 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--sources", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
-    parser.add_argument("--per-family", type=int, default=128)
+    parser.add_argument(
+        "--per-family",
+        type=int,
+        required=True,
+        help="Explicit pilot size per source family; does not establish representativeness",
+    )
     parser.add_argument("--seed", type=int, default=914202621)
     args = parser.parse_args()
     if (args.output / "sample.json").exists():

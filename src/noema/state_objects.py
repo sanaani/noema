@@ -49,7 +49,11 @@ def sample_theorems(inventory, count, seed):
 
 
 def assemble_object(theorem, proof_records, embedding_lookup, encoder_id):
-    """Return full provenance and coverage, never label a partial hull complete."""
+    """Historical text-cache reconstruction only, retained for archive verification.
+
+    Current acquisitions must use state_records.assemble_record_object, which
+    preserves one physical vector row per recorded state without deduplication.
+    """
     expected = set(theorem["proof_ids"])
     if len(expected) != len(theorem["proof_ids"]):
         raise ValueError("duplicate proof identity in inventory")
@@ -167,9 +171,11 @@ def hull_relation(a, b, tolerance=1e-8):
         )
         if (
             residual <= min(tolerance, roundoff)
-            and min(alpha.min(), beta.min()) >= -tolerance
-            and abs(alpha.sum() - 1) <= tolerance
-            and abs(beta.sum() - 1) <= tolerance
+            # A negative weight extrapolates outside the hull, even if the
+            # solver accepts it within its feasibility tolerance.
+            and min(alpha.min(), beta.min()) >= 0
+            and abs(alpha.sum() - 1) <= 32 * np.finfo(float).eps
+            and abs(beta.sum() - 1) <= 32 * np.finfo(float).eps
         ):
             return {
                 "relation": "intersect",
@@ -302,7 +308,9 @@ def hull_contact_extent(a, b, shared_point, tolerance=1e-8):
         if (
             residual <= min(tolerance, roundoff)
             and distance > tolerance
-            and min(alpha.min(), beta.min()) >= -roundoff
+            and min(alpha.min(), beta.min()) >= 0
+            and abs(alpha.sum() - 1) <= 32 * np.finfo(float).eps
+            and abs(beta.sum() - 1) <= 32 * np.finfo(float).eps
         ):
             return {
                 "relation": "nontrivial_intersection",

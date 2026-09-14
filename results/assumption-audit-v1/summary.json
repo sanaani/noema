@@ -1,0 +1,156 @@
+{
+  "schema": "noema-assumption-audit-v1",
+  "source_sha256": {
+    "corpus.json.gz": "af5f40d7679f80021760e0bb369a983da06c4222303f6b5a9ebdce37f754ebc5",
+    "inventory.json.gz": "d9e25426cbdc9494b855fe68876230eed07ca6e0e8aac9fb92d4a837d008c750",
+    "replay-records.tar.gz": "d25191eac68a660fe7c2235f6788ee85748cd83837a481f5fc9e8b1e9a75b114",
+    "pair-results.json.gz": "a237a4ecd5618fd67f4380016b9ef6058dfe559408631c1861f16d9286c81b82"
+  },
+  "selected_theorem_ids": 256,
+  "population_by_family": {
+    "mathlib": 123667,
+    "workbook": 30766
+  },
+  "sample_by_family": {
+    "mathlib": 128,
+    "workbook": 128
+  },
+  "proof_records": 1337,
+  "distinct_scripts_within_theorem": 1093,
+  "additional_exact_script_copies": 244,
+  "independent_mathematical_proof_count": "not established",
+  "state_records": 26820,
+  "traces_by_observation_granularity": {
+    "publisher": 266,
+    "all original tactic nodes, before/after": 963,
+    "outermost original proof-term obligation/completion boundaries; no tactic nodes": 171,
+    "every original tactic node, before and after": 183
+  },
+  "operationally_complete_proof_records": 1313,
+  "records_without_operationally_complete_trace": 24,
+  "no_goals_state_records": 8909,
+  "encoder_inputs_above_1024_bytes_plus_eos": {
+    "records": 199,
+    "distinct_texts": 79,
+    "maximum_length": 17339,
+    "interpretation": "length diagnostic only; semantic adequacy not validated"
+  },
+  "audited_replay_attempts": 1429,
+  "historically_verified_attempts": 1317,
+  "identity_failures": [],
+  "target_axiom_check_failures": [],
+  "axiom_counts_in_verified_attempts": {
+    "Classical.choice": 1073,
+    "Quot.sound": 1161,
+    "propext": 1271
+  },
+  "source_pair_relations": {
+    "point_contact": 32384,
+    "unobserved_object": 255,
+    "nontrivial_intersection": 1
+  },
+  "known_inconsistent_assumptions": {
+    "theorem_id": "workbook:lean_workbook_plus_5257",
+    "proof_ids": [
+      "052243b902fa1857af6c89536bf2fbbe8c1a3b49cb768d8a170308d9964734f7",
+      "07ef9ef0b4bc1a6609bee4d93df4402607ff043b1e135bd53edee5e379583b6f",
+      "0c2faa4309f2f4c60601e0ab640edc462729d25417811befd401fa19e5143431",
+      "0ecca4ff544ac34d6a94761f4e81d7a78b24c4046f507b7bfce0f6b4e666a44d",
+      "1cef6a78cb7f19eaaff3219fa480eadf67c1eb045eaac64ce51c1bdd7d6cd12e",
+      "1cf526edadbd637df6ea175ed8d4e2ee9bb0fbfa081f7fdceda0b93e0a504a94",
+      "2de70af2d0e4c270098f6e99e7fb2a04c5d0d2015d934d4e321b689891a7d116",
+      "358ad2619d6e10cc941437b7e2ab4c5e2dec4c4cd4f70bcac39611ccb15e0157",
+      "4f199b0be353f7fed68646cceaf5eeb811a002b147ff2f6a81b7ae8836480d40",
+      "57bed19f714e248ea1571b756dbe2faf0f6c3e8f5af769ada114d1d9799288f1",
+      "677c20afc7337d18d07427cb25e67f1b85588b2d66d9cef227ac4382dbd7a839",
+      "67f1358f8aa951c6b764e5a48c781fe7b622a2dc875c7625f0fc4e286f8febdd",
+      "7a58c32a2baa24d9f4910f90b13012d2ca822c17b1ffc024fb509909f7666ea4",
+      "7f9a9cf32206fedd2c99e0528b2b19a8f7e2d40f6cb86e7c5fce56c73d5ed4f7",
+      "8dabb3f7b033020b2d0032a11e89aed425151714ee7384d3c4921dc8b9e48270",
+      "8eb4710f59f3594a502549c829f0118b2a9878fe622d7cfa46c68c164fd0c532",
+      "919bfd8db6a642e5c424396dc63a644a17bddf04929f636fe393c7b30cf55993",
+      "91bbac799b8b4cda15e9500f3b5a72bd7eaa273da6b89f117f9b6e01a95ab5fd",
+      "92fe5c41843987c1fc13a4d975ab4820db2900eb1965394f7b852c5b4c0b3093",
+      "99dbba496d113bc5eae73a5ed12b2d8cb10c36026b28fe5d87cc95916005c8d3",
+      "a36db06249b8b563f67b2852cb01d7416fdc4ed0793279d1a13eaa838c6faf2e",
+      "aaf3e64ef72b05877631663fa5ef59cafeb403f14824f7e3fd38c87a6e7aff4f",
+      "ad18f6b56fe7e5d00a4314ad2caf39db847aa652df444a19899de69a0ac5dfb2",
+      "d584a754840cc8d9efc8b09fcec002b695f1742240cfaebd82291ee7f6a4069e",
+      "f1b4ae4f0ce9b9f02dd6335ee20904abbf43b51c0960635099c92e17497a7128",
+      "f6184a9ab73d609a6d36f5e4427ab66c7756a213df65fd560e6a0e98cfdd184d"
+    ],
+    "proof_records": 26,
+    "state_records": 313,
+    "all_records_retained": true,
+    "exhaustive_consistency_audit": false,
+    "diagnostic_fixture": "Vacuous.lean"
+  },
+  "negative_weight_regressions": [
+    {
+      "a": [
+        [
+          0.0
+        ],
+        [
+          1.0
+        ]
+      ],
+      "b": [
+        [
+          1.0000000005
+        ]
+      ],
+      "gap": 5e-10,
+      "relation_after_fix": {
+        "relation": "unresolved",
+        "intersection_solver_status": 0,
+        "separator_solver_status": 0,
+        "tolerance": 1e-08
+      }
+    },
+    {
+      "a": [
+        [
+          0.0
+        ],
+        [
+          1.0
+        ]
+      ],
+      "b": [
+        [
+          1.0000000001
+        ]
+      ],
+      "gap": 1e-10,
+      "relation_after_fix": {
+        "relation": "unresolved",
+        "intersection_solver_status": 0,
+        "separator_solver_status": 0,
+        "tolerance": 1e-08
+      }
+    },
+    {
+      "a": [
+        [
+          0.0
+        ],
+        [
+          1.0
+        ]
+      ],
+      "b": [
+        [
+          1.00000000001
+        ]
+      ],
+      "gap": 1e-11,
+      "relation_after_fix": {
+        "relation": "unresolved",
+        "intersection_solver_status": 0,
+        "separator_solver_status": 0,
+        "tolerance": 1e-08
+      }
+    }
+  ]
+}

@@ -1,5 +1,14 @@
 # Recovery checkpoint: convex hull investigation
 
+**Current recovery entry (September 14, 2026):** all 26,820 recorded states now
+have separate physical vector rows in `results/state-object-records-v1/`, pushed
+in commit `8c42e6d`; CI run `34907220974` passed. No deduplication is permitted.
+The subsequent [assumption audit](assumption-audit-v1.md) qualifies source coverage,
+proof diversity, state capture and geometry interpretation, with archived evidence
+in `results/assumption-audit-v1/`. Numerical and checkpoint validation defects are
+fixed in source. No new encoder run or paid resource is required to recover this
+work. The original source corpus and original coordinates remain unchanged.
+
 **Latest scope correction:** read [the current specification](current-state-object-spec.md)
 before resuming. The user explicitly rejected the proposed audit of eight-state
 objects as a substitute for their objective. Sample theorems, then include every

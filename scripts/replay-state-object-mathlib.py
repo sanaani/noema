@@ -13,7 +13,13 @@ from collections import defaultdict
 from pathlib import Path
 
 from noema.state_objects import atomic_json, fingerprint
-from noema.state_replay import request, responses
+from noema.state_replay import (
+    VALIDATION_POLICY,
+    request,
+    responses,
+    target_axioms,
+    validate_replay_identity,
+)
 
 TERM = "[original proof-term boundary]"
 
@@ -68,8 +74,18 @@ def run_file(records, args):
         [records[0]["source_artifact"]["sha256"], args.environment_id, [r["id"] for r in records]]
     )
     checkpoints = [args.output / (r["id"] + ".json") for r in records]
+    cached = []
+    for record, path in zip(records, checkpoints, strict=True):
+        if path.exists():
+            previous = json.loads(path.read_text())
+            validate_replay_identity(record, previous, args.environment_id)
+            if previous.get("validation_policy") != VALIDATION_POLICY:
+                raise ValueError(
+                    "checkpoint predates current validation; use a new output directory"
+                )
+            cached.append(previous)
     if all(p.exists() for p in checkpoints):
-        return [json.loads(p.read_text())["status"] for p in checkpoints]
+        return [previous["status"] for previous in cached]
     byte_ranges = []
     source_lines = source.splitlines(keepends=True)
     for record in records:
@@ -133,18 +149,8 @@ def run_file(records, args):
     statuses = []
     for record, target in zip(records, checkpoints, strict=True):
         name = record["theorem_id"].split(":", 1)[1]
-        axioms = [
-            m["data"]
-            for m in messages
-            if name in m.get("data", "")
-            and (
-                "depends on axioms" in m.get("data", "")
-                or "does not depend on any axioms" in m.get("data", "")
-            )
-        ]
-        verified = (
-            not failure and not errors and bool(axioms) and not any("sorryAx" in m for m in axioms)
-        )
+        axiom_check = target_axioms(messages, name)
+        verified = not failure and not errors and axiom_check["accepted"]
         nodes, granularity = selected_nodes(record, source, response.get("tactics", []))
         begin, end = declaration_span(record, source)
         boundary_errors = [
@@ -191,6 +197,8 @@ def run_file(records, args):
                 "source_artifact": record["source_artifact"],
                 "environment": args.environment_id,
                 "body_sha256": hashlib.sha256(record["body"].encode()).hexdigest(),
+                "validation_policy": VALIDATION_POLICY,
+                "axiom_check": axiom_check,
                 "states": states,
                 "verified": verified,
                 "trace_complete": complete,

@@ -15,9 +15,16 @@ from noema.state_records import load_record_archive
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--records", type=Path, required=True)
+    parser.add_argument("--annotations", type=Path)
     args = parser.parse_args()
     root = args.records
-    _, records, vectors = load_record_archive(root)
+    manifest, records, vectors = load_record_archive(root)
+    annotations = {}
+    if args.annotations:
+        audit = json.loads(args.annotations.read_text())
+        if audit["source_corpus_sha256"] != manifest["source_corpus_sha256"]:
+            raise ValueError("annotations belong to a different source corpus")
+        annotations = {row["theorem_id"]: row for row in audit["theorems"]}
     objects = json.loads((root / "objects.json").read_text())
     origin = vectors.mean(axis=0)
     covariance = np.zeros((vectors.shape[1], vectors.shape[1]))
@@ -74,6 +81,7 @@ def main():
                 "points": [index[rid] for rid in o["vector_record_ids"]],
                 "occurrences": o["record_count"],
                 "complete": o["inventory_complete"],
+                "audit": annotations.get(o["theorem_id"]),
             }
             for o in objects
         ],
