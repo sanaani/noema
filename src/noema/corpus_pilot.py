@@ -64,8 +64,14 @@ def census(manifest):
     return {"summary": summaries, "proofs": metadata}
 
 
-def candidate_record(theorem, proof, generator):
-    script = backward_script(proof) if generator == "backward" else forward_script(proof, theorem)
+def candidate_record(theorem, proof, generator, *, replay="native"):
+    if replay not in ("native", "canonical_backward"):
+        raise ValueError("unknown proof replay")
+    script = (
+        backward_script(proof)
+        if generator == "backward" or replay == "canonical_backward"
+        else forward_script(proof, theorem)
+    )
     # Each emitted line corresponds to one tactic record; verified against v1 below.
     length = len(script.splitlines())
     # Forward retained contexts contain only the sequence of derived fact types.
@@ -73,7 +79,7 @@ def candidate_record(theorem, proof, generator):
     # must still be deduplicated after Lean validation.
     signature = (
         digest(json.dumps(re.findall(r"have f\d+ : (p\d+) :=", script)))
-        if generator == "forward"
+        if generator == "forward" and replay == "native"
         else proof.identity()
     )
     return {
@@ -132,7 +138,9 @@ def run(config, manifest, output):
             for proof in sorted(proofs, key=lambda p: p.identity()):
                 if proof.identity() in shared:
                     continue
-                record = candidate_record(theorem, proof, generator)
+                record = candidate_record(
+                    theorem, proof, generator, replay=config.get("replay", "native")
+                )
                 if record["predicted_sequence"] not in seen:
                     seen.add(record["predicted_sequence"])
                     kept.append(record)
