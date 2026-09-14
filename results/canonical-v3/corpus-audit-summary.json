@@ -1,0 +1,20 @@
+{
+  "proofs": 1864,
+  "proof_counts": {
+    "backward": 985,
+    "forward": 879
+  },
+  "retained_states": 60501,
+  "states_by_generator": {
+    "backward": 30731,
+    "forward": 29770
+  },
+  "theorems": 12,
+  "failures": [],
+  "replay": "canonical_backward",
+  "toolchain": {
+    "lean_version": "Lean (version 4.33.1, x86_64-unknown-linux-gnu, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+    "repl_revision": "bbeedf38e0898869fc3b7c009e1ea877b46204e4"
+  },
+  "seed": 132671
+}
