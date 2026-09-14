@@ -229,7 +229,9 @@ def collect(plan, *, root, output, resume=False):
             f"{len(result['failures'])} failures",
             flush=True,
         )
-    (output / "manifest.json").write_text(json.dumps(result))
+    temporary = output / "manifest.tmp"
+    temporary.write_text(json.dumps(result))
+    temporary.replace(output / "manifest.json")
     return result
 
 
