@@ -26,4 +26,6 @@ jobs:
       - run: ruff check .
       - run: ruff format --check .
       - run: python -m pytest
+      - run: python scripts/verify-strategy-headroom.py
+      - run: python scripts/verify-adversarial-result.py
       - run: noema synthetic --config configs/smoke.json --output outputs/ci-smoke

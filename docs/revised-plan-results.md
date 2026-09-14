@@ -1,6 +1,15 @@
 # Revised-plan result: reproducible clouds, no demonstrated added information
 
-**The revised continuation is complete through its scientific stopping rules.**
+**Historical canonical-v3 result; interpretation corrected 2026-09-14.** The
+user identified the saturated-baseline task-design failure. The subsequent
+[adversarial analysis](adversarial-centroid-results-v1.md) verifies an invariant
+premise-text shortcut and logically equivalent contexts. The failed gate is not
+a hypothesis-level negative result. A separately
+[preregistered strategy-transfer test](strategy-transfer-protocol-v1.md) now
+screens premise-matched distinct-theorem comparisons with a Lean-trained encoder.
+The measurements below and the prohibition on old-corpus pair mining remain intact.
+
+The canonical-v3 continuation completed its then-applicable scientific gates.
 There was enough encouragement in the original full-text association to proceed.
 The new study qualifies a proof-cluster sampling budget, fixes a replay-granularity
 confound, verifies a fresh corpus, matches proof lengths and state depths, and
@@ -8,10 +17,10 @@ runs the controlled experiment. Same-theorem association survives. The frozen
 added-information gate fails, closing conditional intersection discovery under
 the supplied plan's criterion 4.
 
-This is a positive reproducibility result for a restricted operational proof
-population and an inconclusive/negative result for the proposed advantage of
-clouds over simpler representations. It neither establishes nor globally refutes
-latent mathematical motifs or cross-domain theorem geometry.
+This establishes reproducible association for a restricted operational proof
+population. Its saturated cheap controls prevent an informative test of the
+proposed cloud advantage. It neither establishes nor refutes latent mathematical
+motifs or cross-domain theorem geometry.
 
 ## What changed after the Downloads plan
 

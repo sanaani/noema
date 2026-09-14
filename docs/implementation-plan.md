@@ -105,3 +105,28 @@ unestablished, and cross-domain H3/H4 remain untested. No failed overlap p-value
 or mathematical motif is claimed. See the [current final result](revised-plan-results.md)
 and [reproduction guide](reproduction-v3.md). All 80 local tests pass; every field
 of all 18 comparisons reproduces exactly from the archived corpus and vectors.
+
+
+## User-directed task-design continuation — 2026-09-14
+
+The user corrected the interpretation of the canonical study: the saturated
+statement/premise controls made its added-information gate uninformative. That
+instruction supersedes the hypothesis-level negative language in the historical
+completion records above, while preserving their measurements and the ban on
+old-corpus pair mining.
+
+The continuation implements a preregistered adversarial diagnosis, 12 Lean
+context-equivalence certificates, all context-swap controls, a new finite
+associativity strategy-transfer population, exactly matched premise overlap,
+a pinned Lean-trained ReProver arm, nine cheap headroom controls, paired power
+simulations, and an archive-only reproduction path. The structural control's
+upper accuracy bound exceeds .90; no confirmation budget through 256 triplets
+meets the registered joint-power requirement. Both upstream gates therefore
+close this bounded candidate before cloud scoring or held-out acquisition.
+
+The diagnostic and small screen are complete. Conditional sampling qualification
+and confirmation are not opened, and Phase 5 is explicitly outside this user
+continuation. This is a documented task/budget outcome, not a cloud-hypothesis
+failure. See the [current result](strategy-transfer-results-v1.md) and
+[reproduction guide](reproduction-strategy-transfer-v1.md). Earlier research
+sources, source freezes, failed gates and data are retained.

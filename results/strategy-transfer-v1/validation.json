@@ -1,0 +1,8 @@
+{
+  "all_baseline_fields_exact": true,
+  "triplets": 32,
+  "distinct_endpoint_pairs": 96,
+  "explicit_strategy_replays": 1363,
+  "recorded_lean_states_matched": 120,
+  "headroom_pass": false
+}

@@ -1,0 +1,7 @@
+{
+  "same_seed_reproduction_exact": true,
+  "archives": 6,
+  "paired_comparisons": 540000,
+  "qualification": null,
+  "note": "Recomputation, not an independent statistical replication."
+}

@@ -4,21 +4,32 @@ Exploring whether the unordered states encountered across alternative proofs for
 
 The starting point is the [original research plan](docs/latent_geometry_mathematical_theorems_research_plan.md), preserved byte for byte. The [implementation plan](docs/implementation-plan.md) defines the engineering checkpoints and scientific gates.
 
-The [revised research plan](docs/research-plan-v2.md) has been executed through
-its scientific stopping rules. The continuation added clustered power curves,
-independent qualification, a fresh 1,864-proof Lean corpus, and exact proof-length/
-state-depth matching. Text and syntax clouds achieve 100% matched pairwise wins;
-the exact truth-table representation achieves 93.2%. Text centroids, single
-proofs, statements and premise overlap also achieve 100%, so the frozen
-added-information gate fails and conditional intersection discovery is closed.
+The latest continuation addresses a task-design failure in the earlier study.
+An [adversarial analysis](docs/adversarial-centroid-results-v1.md) verifies that
+invariant premise text is sufficient for the old centroid's perfect score;
+all 12 contexts are also constructively equivalent in Lean. That ceiling was
+not an informative test of cloud added information.
 
-Read the **[current research result](docs/revised-plan-results.md)**,
-[full comparison table](results/canonical-v3/report.md),
+A new [preregistered strategy-transfer screen](docs/strategy-transfer-protocol-v1.md)
+uses distinct associativity theorems, exactly matched premise overlap, independent
+symbolic transfer labels, and a pinned Lean-trained ReProver encoder alongside
+MiniLM and syntax. Its structural statement baseline scores 87.5%, with a 95.6%
+upper confidence bound, so the required headroom is not established. The
+ReProver centroid scores 81.3%, with a 91.5% upper bound, also missing the gate. The bounded
+confirmation design also fails its power requirement. Cloud added information
+remains untested; no Phase 5 or full mathlib acquisition follows from this run.
+
+Read the **[current result](docs/strategy-transfer-results-v1.md)** and
+[reproduction guide](docs/reproduction-strategy-transfer-v1.md). All 88 local
+tests pass. The archive verifiers reconstruct every field of the nine headroom
+baselines and 18 context interventions without downloading model weights.
+
+The [canonical-v3 report](docs/revised-plan-results.md), its
+[comparison table](results/canonical-v3/report.md),
 [power study](docs/cluster-power-results.md), and
-[reproduction guide](docs/reproduction-v3.md). All 80 local tests pass, including
-Lean and the pinned CPU encoder. All 18 comparisons reproduce exactly from the
-archived corpus and vectors. This restricted result does not globally refute
-mathematical theorem geometry.
+[reproduction guide](docs/reproduction-v3.md) remain historical evidence. That
+study verified 1,864 proofs and 60,501 states with exact length/depth matching;
+its measurements are preserved and its saturated-task interpretation corrected.
 
 The first study's 3,072 verified proofs and unmatched outcomes remain intact in
 the [historical report](docs/final-research-status.md). The original

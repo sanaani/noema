@@ -1,0 +1,84 @@
+{
+  "seed": 914202603,
+  "rows": [
+    {
+      "n": 64,
+      "alternative": false,
+      "successes": 0,
+      "trials": 10000,
+      "rate": 0.0,
+      "wilson_95": [
+        0.0,
+        0.00038399837067659573
+      ]
+    },
+    {
+      "n": 64,
+      "alternative": true,
+      "successes": 1198,
+      "trials": 10000,
+      "rate": 0.1198,
+      "wilson_95": [
+        0.11358100130889932,
+        0.12631099105216315
+      ]
+    },
+    {
+      "n": 128,
+      "alternative": false,
+      "successes": 0,
+      "trials": 10000,
+      "rate": 0.0,
+      "wilson_95": [
+        0.0,
+        0.00038399837067659573
+      ]
+    },
+    {
+      "n": 128,
+      "alternative": true,
+      "successes": 4172,
+      "trials": 10000,
+      "rate": 0.4172,
+      "wilson_95": [
+        0.4075690846686404,
+        0.4268945054615436
+      ]
+    },
+    {
+      "n": 256,
+      "alternative": false,
+      "successes": 0,
+      "trials": 10000,
+      "rate": 0.0,
+      "wilson_95": [
+        0.0,
+        0.00038399837067659573
+      ]
+    },
+    {
+      "n": 256,
+      "alternative": true,
+      "successes": 6101,
+      "trials": 10000,
+      "rate": 0.6101,
+      "wilson_95": [
+        0.6005001829734111,
+        0.6196152605853658
+      ]
+    }
+  ],
+  "qualified_n": null,
+  "provenance": {
+    "generated_at": "2026-09-14T11:12:13.385830+00:00",
+    "python": "3.12.3",
+    "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.39",
+    "dependencies": {
+      "noema-geometry": "0.1.0",
+      "numpy": "2.5.3",
+      "scipy": "1.18.1"
+    },
+    "git_revision": "8cdd31d506499d589ad0fde159f4b7bf62840982",
+    "git_dirty": false
+  }
+}
