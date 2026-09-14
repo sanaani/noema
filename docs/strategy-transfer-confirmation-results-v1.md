@@ -99,3 +99,13 @@ A second full deterministic population search reproduces the frozen 512-triplet
 assignment exactly, followed by successful reconstruction of all selected banks,
 transfer labels and recorded Lean states. This is computational reproduction,
 not an independent statistical replication.
+
+On the two-physical-core reference host, a short scheduling check counted 40
+completed embeddings in 120 seconds with both encoder processes active, versus
+80 in 120 seconds with one active. Counts are checkpointed in groups of 20, so
+these are approximate execution measurements, not statistical model results.
+The remaining ReProver work is therefore queued one shard at a time. Both shards
+retain the original two-thread encoder setting, singleton batches, inputs and
+weights; this changes scheduling only. The second shard resumes automatically
+when the first completes, and also resumes if the scheduling controller fails.
+Two additional recovery/foreign-PID tests pass alongside the 99-test local suite.

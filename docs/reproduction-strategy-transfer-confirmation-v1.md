@@ -114,3 +114,20 @@ this takes several minutes and more memory. The faster selected-bank audit is
 already independent of the assignment generator's bank records. Across platforms,
 tiny float differences use the same reported 1e-12 archive tolerance, with exact
 discrete outcomes and decisions. This does not change the experimental tie rule.
+
+
+## Reference-host scheduling
+
+The reference host has two physical CPU cores. A two-minute-per-condition timing
+check favored one active ReProver process over two simultaneous processes. The
+recorded run therefore queued its encoder shards sequentially after the initial
+parallel portion. The frozen encoder still uses its original two threads; no
+model parameter, input, pooling step or statistical rule changed.
+
+The sequential reproduction path is appropriate on similar hardware. Sharded
+encoding can also be reproduced by running shard 0 and then shard 1 before merge.
+For already running workers, `scripts/serialize-confirmation-encoding.py` takes
+the run path plus their current `--active-pid` and `--waiting-pid`; it verifies
+that both are this run's encoder processes before pausing the second and resumes
+it automatically after the first completes. Do not reuse process IDs after a
+reboot. The scheduling record and throughput check are retained with the archive.
