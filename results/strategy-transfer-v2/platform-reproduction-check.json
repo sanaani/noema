@@ -1,0 +1,48 @@
+{
+  "all_baseline_fields_exact": false,
+  "numerical_comparison": {
+    "all_fields_exact": false,
+    "atol": 1e-12,
+    "rtol": 1e-12,
+    "floating_differences": 106,
+    "maximum_absolute_error": 1.1102230246251565e-16,
+    "examples": [
+      {
+        "path": "root.syntax_statement.distances[2][1]",
+        "actual": 0.6990534268190888,
+        "expected": 0.6990534268190889,
+        "absolute_error": 1.1102230246251565e-16
+      },
+      {
+        "path": "root.syntax_statement.distances[5][1]",
+        "actual": 0.2560019361726226,
+        "expected": 0.2560019361726227,
+        "absolute_error": 5.551115123125783e-17
+      },
+      {
+        "path": "root.syntax_statement.distances[9][1]",
+        "actual": 0.6535177767562036,
+        "expected": 0.6535177767562035,
+        "absolute_error": 1.1102230246251565e-16
+      },
+      {
+        "path": "root.syntax_statement.distances[13][0]",
+        "actual": 0.25259117955293353,
+        "expected": 0.2525911795529335,
+        "absolute_error": 5.551115123125783e-17
+      },
+      {
+        "path": "root.syntax_statement.distances[15][1]",
+        "actual": 0.6438707699033771,
+        "expected": 0.6438707699033772,
+        "absolute_error": 1.1102230246251565e-16
+      }
+    ]
+  },
+  "triplets": 32,
+  "distinct_endpoint_pairs": 96,
+  "explicit_strategy_replays": 1363,
+  "recorded_lean_states_matched": 120,
+  "headroom_pass": false,
+  "scope": "Ancillary v1 reproduction using OPENBLAS_CORETYPE=NEHALEM; source thresholds and outcomes unchanged."
+}
