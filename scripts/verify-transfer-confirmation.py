@@ -13,6 +13,12 @@ import numpy as np
 
 from noema.archive_validation import compare_archive
 from noema.associahedron import apply_step, context, lean_source, neighbors, replay, state, trees
+from noema.confirmation_baselines import (
+    SUPPLEMENT,
+    supplemental_gains,
+    supplemental_hashes,
+    supplemental_scores,
+)
 from noema.corpus import digest, validate_response
 from noema.reprover import byte_ids
 from noema.strategy_transfer import parse_goal, tuple_tree, unpack_record
@@ -201,6 +207,18 @@ def main():
         }
     )
     assert all(b["upper_95"] < 0.90 for b in baselines.values()) == report["headroom_pass"]
+    supplement_path = archive / "supplemental-baselines.json"
+    if supplement_path.exists():
+        supplement = read(supplement_path)
+        assert supplement["source_hashes"] == supplemental_hashes()
+        assert supplement["supplement_sha256"] == digest(SUPPLEMENT.read_text())
+        assert supplement["plan_sha256"] == digest(plan_text)
+        assert supplement["primary_report_sha256"] == digest((run / "report.json").read_text())
+        scores = supplemental_scores(plan, caches)
+        result["supplemental_scores_numerics"] = compare_archive(scores, supplement["scores"])
+        result["supplemental_gains_numerics"] = compare_archive(
+            supplemental_gains(clouds["reprover"]["outcomes"], scores), supplement["gains"]
+        )
     print(json.dumps(result, indent=2))
 
 
