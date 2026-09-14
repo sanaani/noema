@@ -57,3 +57,34 @@ If acquisition cannot meet the qualified envelope, or these tests fail, report
 the bounded negative/inconclusive result and close the conditional discovery
 phase under the supplied plan's stopping criteria. This is the only replay
 redesign in this continuation; no sequence of post-result representation searches.
+
+## Acquisition freeze
+
+The completed power grid and independent replication select **energy distance,
+m=32, n=4**, under the stated fallback rule. MMD's promising structural power
+does not override its failed first-stage null precision guard. The qualified
+structural alternative is full-strength Gaussian versus symmetric mixture;
+ring/disk is unqualified. Control encoders remain diagnostics of representation
+sensitivity; this envelope is not a claim of sufficient power for every actual
+state distribution.
+
+The canonical pilot has capacity 134 proofs per generator on a common
+12-theorem subset, or 63 proofs per side with disjoint within-prover splits.
+Choose the subset maximizing the latter capacity; ties remain lexicographic.
+Allocate 32 proofs per side by round-robin over available lengths, respecting
+each length's capacity. Within each length use proof-hash order, with the first
+quota assigned to side A and the next quota to side B. All theorem/prover/side
+groups have exactly the same length allocation and four raw-depth positions.
+
+The unmatched secondary sample is the first 32 distinct proof identities per
+generator in hash order from the unrestricted candidate bank, on the same
+selected 12 theorems. It uses the same four relative-depth positions without
+length matching. Verify the union of matched and unmatched selections: **1,864
+scripts**, with every exact identity frozen in
+`results/canonical-v3/acquisition-plan.json.gz`. The theorem seed is fresh; this
+is still a restricted Horn population, not a cross-domain mathematical library.
+
+After Lean validation, freeze every actual retained state and sample. Reject
+shared proof identities, duplicate normalized state sequences, mismatched depth
+histograms or missing required state positions before any embedding. No failed
+verification is counted as an accepted proof. Per-batch checkpoints allow recovery.

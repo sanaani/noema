@@ -33,13 +33,18 @@ def maximum_common_support(rows, *, minimum_theorems):
     lengths = [length for length, keep in zip(lengths, active, strict=True) if keep]
     choices = itertools.combinations(range(len(rows)), minimum_theorems)
     best, best_within, best_choice, allocation, examined = -1, 0, None, None, 0
+    within_choice, within_allocation = None, None
     while chunk := list(itertools.islice(choices, 4096)):
         minima = counts[np.array(chunk)].min(axis=1)
         scores = minima.sum(axis=1)
         index = int(np.argmax(scores))
         if int(scores[index]) > best:
             best, best_choice, allocation = int(scores[index]), chunk[index], minima[index]
-        best_within = max(best_within, int((minima // 2).sum(axis=1).max()))
+        within_scores = (minima // 2).sum(axis=1)
+        within_index = int(np.argmax(within_scores))
+        if within_choice is None or int(within_scores[within_index]) > best_within:
+            best_within = int(within_scores[within_index])
+            within_choice, within_allocation = chunk[within_index], minima[within_index] // 2
         examined += len(chunk)
     return {
         "maximum_proofs_per_generator": best,
@@ -50,6 +55,10 @@ def maximum_common_support(rows, *, minimum_theorems):
         },
         "subsets_examined": examined,
         "expected_subsets": math.comb(len(rows), minimum_theorems),
+        "within_theorem_ids": [rows[i]["theorem_id"] for i in within_choice],
+        "within_length_allocation_per_side": {
+            str(length): int(n) for length, n in zip(lengths, within_allocation, strict=True) if n
+        },
     }
 
 
