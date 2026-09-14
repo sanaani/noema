@@ -88,3 +88,27 @@ After Lean validation, freeze every actual retained state and sample. Reject
 shared proof identities, duplicate normalized state sequences, mismatched depth
 histograms or missing required state positions before any embedding. No failed
 verification is counted as an accepted proof. Per-batch checkpoints allow recovery.
+
+## Analysis supplement, frozen before embeddings
+
+Use 9,999 whole-theorem label permutations and 2,000 paired theorem bootstrap
+draws, seed 416842. The nine matched full-content tests (three encoders by
+cross/backward/forward comparison) form one primary BH family. Syntax and exact
+truth-table encoders are representation controls, not independently trained
+neural replications. Report all primary outcomes, including negative ones.
+
+Secondary diagnostics use the unrestricted matched-count sample above, goal-only
+cross-prover content, and the unused B-side cross-prover split. The last provides
+a prespecified proof-split sensitivity on the same theorem population. Secondary
+p-values are descriptive and cannot open an additional discovery family.
+
+Apply the existing stricter premise-set and tactic-histogram diversity rules to
+the entire verified bank before geometry. Recompute exact common-length capacity
+and repeat matched cross-prover comparisons when 12 theorems retain m=32 each.
+Otherwise report the coverage failure; do not lower the required proof count.
+Graph fidelity is omitted here under the revised plan's optional, non-gating rule.
+
+The advancement flag opens further control and cross-training checks only. It
+does not itself authorize an intersection claim or replace the frozen held-out
+pair universe and complete-family FDR requirements. A failed added-information
+gate closes that conditional phase even when same-theorem matching is strong.
