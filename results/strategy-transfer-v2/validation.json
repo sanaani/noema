@@ -1,0 +1,35 @@
+{
+  "matching": {
+    "triplets": 64,
+    "distinct_endpoint_pairs": 192,
+    "distinct_programs": 1640,
+    "cross_triplet_program_overlap": 0,
+    "source_and_target_clade_matching": "exact"
+  },
+  "explicit_transfer_replays": 3204,
+  "recorded_lean_states": 120,
+  "encoder_token_lengths": [
+    266
+  ],
+  "headroom_numerics": {
+    "all_fields_exact": true,
+    "atol": 1e-12,
+    "rtol": 1e-12,
+    "floating_differences": 0,
+    "maximum_absolute_error": 0.0,
+    "examples": []
+  },
+  "headroom_pass": true,
+  "power_qualified_n": 512,
+  "initial_geometry_numerics": {
+    "all_fields_exact": true,
+    "atol": 1e-12,
+    "rtol": 1e-12,
+    "floating_differences": 0,
+    "maximum_absolute_error": 0.0,
+    "examples": []
+  },
+  "stability_qualified_draws": 0,
+  "resampling_scores_reproduced": 100,
+  "maximum_geometry_float_error": 0.0
+}

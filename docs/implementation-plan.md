@@ -130,3 +130,33 @@ continuation. This is a documented task/budget outcome, not a cloud-hypothesis
 failure. See the [current result](strategy-transfer-results-v1.md) and
 [reproduction guide](reproduction-strategy-transfer-v1.md). Earlier research
 sources, source freezes, failed gates and data are retained.
+
+
+## Structurally matched continuation — 2026-09-14
+
+The user's instruction to keep going opened a separately preregistered fresh
+candidate. V2 uses eight-leaf associativity theorems, exact source and target
+clade matching, matched premise overlap, and no theorem-pair or proof-program
+reuse across triplets. All nine controls pass headroom on 64 triplets. The
+registered power extension qualifies 512 triplets at a lower power bound .8324.
+
+This opens the cloud test, which is now complete for syntax, MiniLM and the
+Lean-trained ReProver, including all 100 registered proof-resampling draws.
+ReProver energy scores .65625 on the initial sample versus centroid .609375,
+but 0/100 draws achieves the required .10 gain over every control (80 needed).
+The mean gain over its same-sample centroid is .011875. This is a failed
+conditional added-information gate with demonstrated headroom, not another
+ceiling or budget failure. It closes this operational candidate before nine-leaf
+confirmation; broader hypotheses and smaller possible effects remain unresolved.
+
+The [completed report](strategy-transfer-results-v2.md) and
+[reproduction guide](reproduction-strategy-transfer-v2.md) contain the scope,
+commands, source freezes, restart behavior and complete archived evidence.
+All 93 local tests pass. No previous candidate was rescored or mined, no metric
+was substituted after results, and Phase 5 remains unopened.
+
+
+The user subsequently rejected the 10-point threshold as arbitrary and explicitly
+instructed continuation. That direction supersedes the stopping decision above.
+Preserve all measured v2 outcomes and its original protocol, while preparing a
+fresh confirmation with no minimum gain requirement and explicit uncertainty.

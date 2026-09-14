@@ -1,4 +1,16 @@
-# Structurally matched strategy transfer: execution record
+# Structurally matched strategy transfer: completed result
+
+**Subsequent user instruction:** the user rejected the 10-percentage-point
+requirement as arbitrary and directed continuation after these results. The
+original gate outcome below is retained as history; it no longer determines
+whether work continues. A separately preregistered confirmation will test for
+positive added information and estimate its size without that minimum margin.
+
+**The harder task passes headroom and power, but fails the registered cloud
+added-information stability gate: 0 of 100 draws qualify, versus 80 required.**
+The initial ReProver cloud score is 65.6%, compared with its centroid at 60.9%.
+Across proof resampling, its average advantage over that centroid is only
+1.19 percentage points. This closes the operational candidate before confirmation.
 
 The user authorized continuing after v1's task and budget failures. This fresh
 experiment directly addresses both: source and target statement similarity are
@@ -74,8 +86,8 @@ a real cloud effect.
 
 ## Measured headroom and conditional outcome
 
-**Headroom passes for all nine controls.** The conditional geometry test is
-now open; its results will be added after the registered run.
+**Headroom passes for all nine controls.** Both upstream gates therefore opened
+the conditional geometry test, which has now completed.
 
 | Control | Correct / 64 | Accuracy | Upper 95% | Overlap 0 | Overlap 1 |
 |---|---:|---:|---:|---:|---:|
@@ -96,7 +108,63 @@ upper bound .7119. All baseline bounds are below the unchanged .90 threshold.
 
 ![Headroom on exactly matched source and target structure](../results/strategy-transfer-v2/figures/headroom.png)
 
-<!-- Conditional geometry outcome will be inserted after the frozen run. -->
+## Cloud added information and proof resampling
+
+All 342 additional state embeddings completed, yielding 1,441 unique inputs per
+encoder. The original 1,099 cached vectors are preserved exactly. The energy
+comparison uses eight state points per theorem: four distinct proofs, each
+contributing positions 1 and 3. All three encoders use the same sampled proofs.
+
+| Encoder | Frozen energy accuracy | Statement accuracy | Centroid accuracy | Resampled energy mean | Resampled energy range |
+|---|---:|---:|---:|---:|---:|
+| syntax | 0.4219 | 0.4844 | 0.4688 | 0.4194 | [0.3281, 0.4844] |
+| minilm | 0.4844 | 0.5312 | 0.4688 | 0.5372 | [0.4531, 0.6250] |
+| reprover | 0.6562 | 0.5938 | 0.6094 | 0.6386 | [0.5938, 0.7344] |
+
+On the initial frozen sample, ReProver energy is correct on 42/64 triplets,
+versus 38/64 for its statement and 39/64 for its centroid. The gains are 6.25
+and 4.69 percentage points respectively, below the registered 10-point target.
+The ReProver energy scores in premise-overlap strata 0 and 1 are .7188 and .5938.
+These are descriptive results from development, not independent significance tests.
+
+Each of the 100 registered draws resamples four distinct proofs from every
+frozen theorem and recomputes all centroids on that same sample. The table
+below reports ReProver energy minus each control; ranges describe these fixed
+draws and are not confidence intervals.
+
+| Control | Mean gain | Gain range | Draws with gain ≥ .10 |
+|---|---:|---:|---:|
+| token bag | 0.1073 | [0.0625, 0.2031] | 54/100 |
+| used premise | 0.1073 | [0.0625, 0.2031] | 54/100 |
+| statement structure | 0.1073 | [0.0625, 0.2031] | 54/100 |
+| syntax statement | 0.1542 | [0.1094, 0.2500] | 100/100 |
+| syntax centroid | 0.1717 | [0.0938, 0.2656] | 99/100 |
+| minilm statement | 0.1073 | [0.0625, 0.2031] | 54/100 |
+| minilm centroid | 0.1089 | [0.0156, 0.2656] | 56/100 |
+| reprover statement | 0.0448 | [0.0000, 0.1406] | 1/100 |
+| reprover centroid | 0.0119 | [-0.0312, 0.0781] | 0/100 |
+
+**Zero draws beat all nine controls by at least .10; at least 80 were required.**
+The ReProver centroid alone prevents qualification in every draw: the cloud
+advantage ranges from −3.13 to +7.81 percentage points and averages +1.19.
+The centroid is recomputed each time, so this comparison does not give clouds
+new proof samples while leaving their main control fixed.
+
+![Minimum cloud gain over the nine controls across proof samples](../results/strategy-transfer-v2/figures/stability.png)
+
+This result provides a direct conditional test of added information after
+establishing headroom. It is evidence against a stable 10-point advantage for
+unordered energy with this encoder and four-proof/two-state budget on this
+population. It does not establish that the true effect is zero, exclude smaller
+gains, or refute proof-state geometry across mathematics. The slight initial
+advantage does not satisfy the continuation rule.
+
+The registered stopping rule therefore closes this candidate. The power-qualified
+512-triplet nine-leaf confirmation is not acquired, and no metric substitution,
+replacement-pair search, Phase 5, or full mathlib acquisition follows. The earlier
+v1 clouds remain unscored. Any further redesign would be a separately disclosed
+experiment, not a continuation selected from these outcomes.
+
 
 ## Reproduction and scope
 
@@ -119,3 +187,8 @@ old archived distances by at most 1.11e-16 without changing any predictions or
 decisions. Archive verification now reports float drift with tight 1e-12
 absolute/relative bounds; discrete outcomes remain exact. This changes neither
 the experiment's tie threshold nor its decision rules.
+
+All 93 local tests pass. The archive verifier reconstructs the assignments,
+3,204 explicit transfer replays, 120 recorded Lean states, nine headroom scores,
+all 100 proof-resampling comparisons, and both gate decisions. Source hashes,
+encoder manifests, raw scores, vectors and SHA256 checksums accompany the result.

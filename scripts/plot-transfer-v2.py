@@ -91,6 +91,7 @@ def main():
             edgecolor="white",
         )
         ax.set_xlim(min(min(gains), 0.10) - 0.05, max(max(gains), 0.10) + 0.05)
+        ax.set_ylim(0, ax.get_ylim()[1] * 1.18)
         ax.axvline(
             0.10, color="#ad4713", linestyle="--", label="Required gain in at least 80/100 draws"
         )

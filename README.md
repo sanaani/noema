@@ -10,19 +10,25 @@ invariant premise text is sufficient for the old centroid's perfect score;
 all 12 contexts are also constructively equivalent in Lean. That ceiling was
 not an informative test of cloud added information.
 
-A new [preregistered strategy-transfer screen](docs/strategy-transfer-protocol-v1.md)
-uses distinct associativity theorems, exactly matched premise overlap, independent
-symbolic transfer labels, and a pinned Lean-trained ReProver encoder alongside
-MiniLM and syntax. Its structural statement baseline scores 87.5%, with a 95.6%
-upper confidence bound, so the required headroom is not established. The
-ReProver centroid scores 81.3%, with a 91.5% upper bound, also missing the gate. The bounded
-confirmation design also fails its power requirement. Cloud added information
-remains untested; no Phase 5 or full mathlib acquisition follows from this run.
+The first strategy-transfer screen failed its task and budget gates. A fresh
+[structurally matched experiment](docs/strategy-transfer-protocol-v2.md) now passes
+both: all nine baseline upper accuracy bounds are below 71.2%, and simulated
+power qualifies a 512-triplet confirmation budget. Premise overlap and both
+source and target statement-structure distances are matched exactly by design.
 
-Read the **[current result](docs/strategy-transfer-results-v1.md)** and
-[reproduction guide](docs/reproduction-strategy-transfer-v1.md). All 88 local
-tests pass. The archive verifiers reconstruct every field of the nine headroom
-baselines and 18 context interventions without downloading model weights.
+The Lean-trained ReProver cloud scores 65.6% on 64 development triplets, versus
+60.9% for its centroid. However, **0 of 100 proof-resampling draws** achieves the
+required 10-point gain over every control; at least 80 were required. The average
+gain over the resampled ReProver centroid is only 1.19 points. This fails the
+original continuation rule. The user has since removed the 10-point requirement:
+a fresh confirmation is now being prepared to estimate the effect and test for
+positive added information. The broader hypothesis remains unresolved.
+
+Read the **[current result](docs/strategy-transfer-results-v2.md)** and
+[reproduction guide](docs/reproduction-strategy-transfer-v2.md). All 93 local
+tests pass. Archived vectors reproduce the full development comparison without
+model downloads. The [first screen](docs/strategy-transfer-results-v1.md) remains
+closed with its clouds unscored. No Phase 5 or full mathlib acquisition was opened.
 
 The [canonical-v3 report](docs/revised-plan-results.md), its
 [comparison table](results/canonical-v3/report.md),

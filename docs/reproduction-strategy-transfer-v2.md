@@ -68,6 +68,12 @@ same proof sample. This is a conditional development feasibility test, not an
 independent replication. Confirmation is allowed only by the protocol's further
 stability gate; no automatic Phase 5 or mathlib acquisition occurs.
 
+The recorded run completed all 100 draws and failed this gate (0 qualified,
+80 required), so nine-leaf confirmation was not opened. Geometry used the same
+six frozen source files and completed at clean revision `f1cf916`; `a73aef2`
+archived the passing headroom and power before geometry began. Changes between
+those revisions strengthen archive validation only.
+
 ## Archive-only verification
 
 ```bash
