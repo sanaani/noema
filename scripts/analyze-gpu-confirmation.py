@@ -8,7 +8,11 @@ from pathlib import Path
 import numpy as np
 
 from noema.archive_validation import compare_archive
-from noema.confirmation_baselines import supplemental_gains, supplemental_hashes, supplemental_scores
+from noema.confirmation_baselines import (
+    supplemental_gains,
+    supplemental_hashes,
+    supplemental_scores,
+)
 from noema.corpus import digest
 from noema.report import provenance
 from noema.strategy_transfer import member_texts
