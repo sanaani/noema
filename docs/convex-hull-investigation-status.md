@@ -6,7 +6,10 @@ objects as a substitute for their objective. Sample theorems, then include every
 known proof and every extractable intermediate state for each selected theorem.
 Investigate geometry and mathematical relationships; no model training or
 prediction task is the current goal. The earlier proposed eight-state audit below
-is historical and superseded. A new source/coverage inventory is still required.
+is historical and superseded. The corrected inventory, acquisition and all-pairs geometry pass are now complete,
+with explicit coverage gaps. See [the current results](state-object-implementation-v1.md)
+and [durable archive](../results/state-object-v1/README.md). The sections below
+preserve the earlier checkpoint history.
 
 Updated 2026-09-14. The user authorized a small investigation of the "rubber band"
 definition of a State object: the convex hull of embedded proof states. They

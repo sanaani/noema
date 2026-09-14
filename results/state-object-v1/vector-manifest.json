@@ -1,0 +1,35 @@
+{
+  "encoder": {
+    "model": "kaiyuy/ct2-leandojo-lean4-retriever-byt5-small",
+    "revision": "8612469b496b72bdb2f0d6ccd5316c100200581e",
+    "checksums": {
+      "model.bin": "311e636b7479e97236de85f5271f2b045e1e40a1de5a431df03b050b2176f827",
+      "config.json": "d3b27bd603df8fb368c641042d2f280d6821066a433f497aa24a2758cc49497c",
+      "vocabulary.json": "60259dce54d4677a043dbadcedb27916fa934567c01a796124dec71bf23a3e09"
+    },
+    "ctranslate2": "4.8.2",
+    "numpy": "2.5.3",
+    "compute_type": "int8_float32",
+    "device": "cuda",
+    "gpu_model": "NVIDIA L40S",
+    "dimension": 1472,
+    "tokenization": "all UTF-8 bytes +3, append EOS=1; no truncation or length cap",
+    "pooling": "singleton; nonpadding mean including EOS in float64; L2 normalize",
+    "state_serialization": "source goal/context text; provenance records source extractor",
+    "encoder_script_sha256": "6210ab5f221b67ddbdf67e36e84da03715b34ec666e76cb461a5132f1eed4e8f",
+    "encoder_id": "2967cc1b345131ff06cdfc1ef6a9e6f20cd6e021d92956c95582c4c0027d4fcc"
+  },
+  "chunks": [
+    {
+      "filename": "vectors-000.npz",
+      "sha256": "904fb66ec7395575fa360b0a09f49f1fbe2ddac10be986bc15b24ad1f8d05de4",
+      "rows": 2000
+    },
+    {
+      "filename": "vectors-001.npz",
+      "sha256": "a09b34ab2c670b55ab0bcbae863a59158ed9a2a99d6a37b6f6b3b27061af219b",
+      "rows": 1659
+    }
+  ],
+  "missing_state_ids": []
+}

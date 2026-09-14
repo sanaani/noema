@@ -23,7 +23,7 @@ if ! test -d "$root/mathlib/.git"; then
   git -C "$root/mathlib" checkout --detach FETCH_HEAD
 fi
 test "$(git -C "$root/mathlib" rev-parse HEAD)" = "$mathlib_revision"
-(cd "$root/mathlib" && lake exe cache get)
+(cd "$root/mathlib" && lake exe cache get && lake build Mathlib)
 if ! test -d "$root/repl/.git"; then
   git init "$root/repl"
   git -C "$root/repl" remote add origin https://github.com/leanprover-community/repl

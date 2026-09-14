@@ -1,0 +1,2191 @@
+{
+  "incomplete_proofs": [
+    {
+      "id": "05db7caea4edec2fd2db616734956c0cda11c2cb5c7cf58a7b365a995d015509",
+      "theorem_id": "workbook:lean_workbook_plus_24728",
+      "source": "banach1729--goedel-workbook-lean427--data--manifest.json",
+      "attempts": [
+        {
+          "directory": "replays427",
+          "environment": "lean4.27.0-mathlib-a3a10db-repl-0e9e6e2-all-original-before-after",
+          "filename": "05db7caea4edec2fd2db616734956c0cda11c2cb5c7cf58a7b365a995d015509.json",
+          "independent_kernel_recheck": false,
+          "sha256": "ca939fe787a6190b87c53f6b662b8be78f3bd21f34cafddd9ff22e458cd6bb97",
+          "source_compile_clean": null,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "retries",
+          "environment": "lean4.27.0-mathlib-a3a10db-repl-0e9e6e2-all-original-before-after",
+          "filename": "05db7caea4edec2fd2db616734956c0cda11c2cb5c7cf58a7b365a995d015509.json",
+          "independent_kernel_recheck": false,
+          "sha256": "693b34c6a55e8bbac9b4eeedb8cd77bd0b1b100f4dccc5fb1c21b5e0c4f2a583",
+          "source_compile_clean": null,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "replays427audit2",
+          "environment": "lean4.27.0-mathlib-a3a10db-kernel-audit-v2",
+          "filename": "05db7caea4edec2fd2db616734956c0cda11c2cb5c7cf58a7b365a995d015509.json",
+          "independent_kernel_recheck": true,
+          "sha256": "f981cf754157748c67ffa6e8a4e9812f8939eb64939c632337e6bdca835db9eb",
+          "source_compile_clean": false,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        }
+      ],
+      "state_attribution_gap": null
+    },
+    {
+      "id": "14a3cf7eb43499f48d28af17b712b3f7fc09abb88288089254dd8a87536c13fd",
+      "theorem_id": "workbook:lean_workbook_23477",
+      "source": "Goedel-LM--Lean-workbook-proofs--data--train-00000-of-00001.parquet",
+      "attempts": [
+        {
+          "directory": "replays49",
+          "environment": "lean4.9.0-mathlib-f0957a7-repl-d920817-all-original-before-after",
+          "filename": "14a3cf7eb43499f48d28af17b712b3f7fc09abb88288089254dd8a87536c13fd.json",
+          "independent_kernel_recheck": false,
+          "sha256": "d51fdc167333162cff8ecba26619bce7b12ee49b954dc640c6eca2d66d54e9fa",
+          "source_compile_clean": null,
+          "status": "timeout",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "replays48",
+          "environment": "lean4.8.0-rc1-mathlib-db65174-repl-439687b-all-original-before-after",
+          "filename": "14a3cf7eb43499f48d28af17b712b3f7fc09abb88288089254dd8a87536c13fd.json",
+          "independent_kernel_recheck": false,
+          "sha256": "4201c64f6676ffb4f4e125a154d1c70ff6f0187898169d7e28be1181aa29ca5d",
+          "source_compile_clean": null,
+          "status": "timeout",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "retries",
+          "environment": "lean4.8.0-rc1-mathlib-db65174-kernel-audit",
+          "filename": "14a3cf7eb43499f48d28af17b712b3f7fc09abb88288089254dd8a87536c13fd.json",
+          "independent_kernel_recheck": false,
+          "sha256": "599f20162a12042ba3ed9a4e4130baab9a5ec8271b89e458468de30298fd9422",
+          "source_compile_clean": null,
+          "status": "timeout",
+          "trace_complete": false,
+          "verified": false
+        }
+      ],
+      "state_attribution_gap": null
+    },
+    {
+      "id": "1d55c669ad2503636f8946fa284ea984d50ed52c0b3acb5f48ddaf5160fc0eca",
+      "theorem_id": "workbook:lean_workbook_plus_23440",
+      "source": "Goedel-LM--Lean-workbook-proofs--data--train-00000-of-00001.parquet",
+      "attempts": [
+        {
+          "directory": "replays49",
+          "environment": "lean4.9.0-mathlib-f0957a7-repl-d920817-all-original-before-after",
+          "filename": "1d55c669ad2503636f8946fa284ea984d50ed52c0b3acb5f48ddaf5160fc0eca.json",
+          "independent_kernel_recheck": false,
+          "sha256": "db0509e24a6a8b1b4b9373d1bc9cb1429b9c5f0e3fff82de17208760501c0b30",
+          "source_compile_clean": null,
+          "status": "timeout",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "replays48",
+          "environment": "lean4.8.0-rc1-mathlib-db65174-repl-439687b-all-original-before-after",
+          "filename": "1d55c669ad2503636f8946fa284ea984d50ed52c0b3acb5f48ddaf5160fc0eca.json",
+          "independent_kernel_recheck": false,
+          "sha256": "221df22edf0f88eb730ace7d093039fe6c5aec1628f3ab41c94b5fe9e7c074d1",
+          "source_compile_clean": null,
+          "status": "timeout",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "retries",
+          "environment": "lean4.8.0-rc1-mathlib-db65174-kernel-audit",
+          "filename": "1d55c669ad2503636f8946fa284ea984d50ed52c0b3acb5f48ddaf5160fc0eca.json",
+          "independent_kernel_recheck": false,
+          "sha256": "49555ac5e09d17ff1b6d173778751874ae9d090569ea29524fccd52b44abadde",
+          "source_compile_clean": null,
+          "status": "timeout",
+          "trace_complete": false,
+          "verified": false
+        }
+      ],
+      "state_attribution_gap": null
+    },
+    {
+      "id": "238c892ae3ec5067b2ccea92a1439f006b71ffe433cfc4129afce4e79c9fb847",
+      "theorem_id": "workbook:lean_workbook_16688",
+      "source": "banach1729--goedel-workbook-lean427--data--manifest.json",
+      "attempts": [
+        {
+          "directory": "replays427",
+          "environment": "lean4.27.0-mathlib-a3a10db-repl-0e9e6e2-all-original-before-after",
+          "filename": "238c892ae3ec5067b2ccea92a1439f006b71ffe433cfc4129afce4e79c9fb847.json",
+          "independent_kernel_recheck": false,
+          "sha256": "98ef778d0f92e020ee822207366fa417014b1eeb82ab4dbc0a9a0da24877b14d",
+          "source_compile_clean": null,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "retries",
+          "environment": "lean4.27.0-mathlib-a3a10db-repl-0e9e6e2-all-original-before-after",
+          "filename": "238c892ae3ec5067b2ccea92a1439f006b71ffe433cfc4129afce4e79c9fb847.json",
+          "independent_kernel_recheck": false,
+          "sha256": "1179db641af527cb3d8a849db886ce5be550b671b597c50414576bc73d8bbcbc",
+          "source_compile_clean": null,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "replays427audit2",
+          "environment": "lean4.27.0-mathlib-a3a10db-kernel-audit-v2",
+          "filename": "238c892ae3ec5067b2ccea92a1439f006b71ffe433cfc4129afce4e79c9fb847.json",
+          "independent_kernel_recheck": true,
+          "sha256": "917b07e535e1ec681bdae0653116f746e7921099ebc483deac10741a477d43be",
+          "source_compile_clean": false,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        }
+      ],
+      "state_attribution_gap": null
+    },
+    {
+      "id": "2505a5fc9826d4627b74f004323f492bcf4d9a124552cb1a23c75977da6fa283",
+      "theorem_id": "workbook:lean_workbook_plus_55131",
+      "source": "banach1729--goedel-workbook-lean427--data--manifest.json",
+      "attempts": [
+        {
+          "directory": "replays427",
+          "environment": "lean4.27.0-mathlib-a3a10db-repl-0e9e6e2-all-original-before-after",
+          "filename": "2505a5fc9826d4627b74f004323f492bcf4d9a124552cb1a23c75977da6fa283.json",
+          "independent_kernel_recheck": false,
+          "sha256": "b0192e83cfd14abb15675370a73114652093c8e5b123bba0da2ee003db202e0c",
+          "source_compile_clean": null,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "retries",
+          "environment": "lean4.27.0-mathlib-a3a10db-repl-0e9e6e2-all-original-before-after",
+          "filename": "2505a5fc9826d4627b74f004323f492bcf4d9a124552cb1a23c75977da6fa283.json",
+          "independent_kernel_recheck": false,
+          "sha256": "f0c7101bb2e7b4e7b81d34a3fab55cbf907241796930b86d811c2f5e10d3cef3",
+          "source_compile_clean": null,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "replays427audit2",
+          "environment": "lean4.27.0-mathlib-a3a10db-kernel-audit-v2",
+          "filename": "2505a5fc9826d4627b74f004323f492bcf4d9a124552cb1a23c75977da6fa283.json",
+          "independent_kernel_recheck": true,
+          "sha256": "8d20153f5e81153fd1f18b99a887d6941e52ac7624f1a015416f0edd42dbd1de",
+          "source_compile_clean": false,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        }
+      ],
+      "state_attribution_gap": null
+    },
+    {
+      "id": "2b18f58f0a15655e42dc3155fd6b02d1c4dfdf5dfe04771d6665f95ee9999df0",
+      "theorem_id": "workbook:lean_workbook_14210",
+      "source": "Goedel-LM--Lean-workbook-proofs--data--train-00000-of-00001.parquet",
+      "attempts": [
+        {
+          "directory": "replays49",
+          "environment": "lean4.9.0-mathlib-f0957a7-repl-d920817-all-original-before-after",
+          "filename": "2b18f58f0a15655e42dc3155fd6b02d1c4dfdf5dfe04771d6665f95ee9999df0.json",
+          "independent_kernel_recheck": false,
+          "sha256": "ca0eeb7c7dbc88a7d651412156a795223eb64aa62d59647595dd6d7ebc0564a1",
+          "source_compile_clean": null,
+          "status": "timeout",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "replays48",
+          "environment": "lean4.8.0-rc1-mathlib-db65174-repl-439687b-all-original-before-after",
+          "filename": "2b18f58f0a15655e42dc3155fd6b02d1c4dfdf5dfe04771d6665f95ee9999df0.json",
+          "independent_kernel_recheck": false,
+          "sha256": "e759963aa247cbcc7f5de22f8899e23e04f8d14db1d263d9f91e1e9e835e1710",
+          "source_compile_clean": null,
+          "status": "timeout",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "retries",
+          "environment": "lean4.8.0-rc1-mathlib-db65174-kernel-audit",
+          "filename": "2b18f58f0a15655e42dc3155fd6b02d1c4dfdf5dfe04771d6665f95ee9999df0.json",
+          "independent_kernel_recheck": false,
+          "sha256": "fe27e734b0c549013582e4019182b403ef8c0871ead9d7b239a0dcb99c2b7417",
+          "source_compile_clean": null,
+          "status": "timeout",
+          "trace_complete": false,
+          "verified": false
+        }
+      ],
+      "state_attribution_gap": null
+    },
+    {
+      "id": "2e3bbf8e20ba8b75e0b46cfbf4f3db4cc387ef829df068cd76ab5ac7a1de20e9",
+      "theorem_id": "workbook:lean_workbook_25087",
+      "source": "banach1729--goedel-workbook-lean427--data--manifest.json",
+      "attempts": [
+        {
+          "directory": "replays427",
+          "environment": "lean4.27.0-mathlib-a3a10db-repl-0e9e6e2-all-original-before-after",
+          "filename": "2e3bbf8e20ba8b75e0b46cfbf4f3db4cc387ef829df068cd76ab5ac7a1de20e9.json",
+          "independent_kernel_recheck": false,
+          "sha256": "616e4b1db17c3da79165dab72aafc6b2764d5304210533a9fe8da8f2ba957916",
+          "source_compile_clean": null,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "retries",
+          "environment": "lean4.27.0-mathlib-a3a10db-repl-0e9e6e2-all-original-before-after",
+          "filename": "2e3bbf8e20ba8b75e0b46cfbf4f3db4cc387ef829df068cd76ab5ac7a1de20e9.json",
+          "independent_kernel_recheck": false,
+          "sha256": "4a6d76318947a293e4fd5bb5676efcfb837e8b92f0675b4cc907a0b22bb059fd",
+          "source_compile_clean": null,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "replays427audit2",
+          "environment": "lean4.27.0-mathlib-a3a10db-kernel-audit-v2",
+          "filename": "2e3bbf8e20ba8b75e0b46cfbf4f3db4cc387ef829df068cd76ab5ac7a1de20e9.json",
+          "independent_kernel_recheck": true,
+          "sha256": "cc72c1d228e13c717946329e8baa0768eec900c00d04cf4d536f0776ff695e7b",
+          "source_compile_clean": false,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        }
+      ],
+      "state_attribution_gap": null
+    },
+    {
+      "id": "3fa646d7967a541e1c45588aed103ac18794f0a92cb5c89ca2868f0a746a7438",
+      "theorem_id": "workbook:lean_workbook_18414",
+      "source": "internlm--Lean-Workbook--lean_workbook.json",
+      "attempts": [
+        {
+          "directory": "replays49",
+          "environment": "lean4.9.0-mathlib-f0957a7-repl-d920817-all-original-before-after",
+          "filename": "3fa646d7967a541e1c45588aed103ac18794f0a92cb5c89ca2868f0a746a7438.json",
+          "independent_kernel_recheck": false,
+          "sha256": "082ffe7c68ce2e8ec7345c7d96d38db6be76e137ad6b9f0742eb71851b0e2a0e",
+          "source_compile_clean": null,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "replays48",
+          "environment": "lean4.8.0-rc1-mathlib-db65174-repl-439687b-all-original-before-after",
+          "filename": "3fa646d7967a541e1c45588aed103ac18794f0a92cb5c89ca2868f0a746a7438.json",
+          "independent_kernel_recheck": false,
+          "sha256": "3e4b56d61e89dc1eaed191ea46b26c6a8e4796dc8c891e59a8432ba94a8db05f",
+          "source_compile_clean": null,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "retries",
+          "environment": "lean4.8.0-rc1-mathlib-db65174-kernel-audit",
+          "filename": "3fa646d7967a541e1c45588aed103ac18794f0a92cb5c89ca2868f0a746a7438.json",
+          "independent_kernel_recheck": false,
+          "sha256": "532abe6854d231e3079fc7e90283ded7a0c06700b3930b616fb0b2cd580f476b",
+          "source_compile_clean": false,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "replays49audit",
+          "environment": "lean4.9.0-mathlib-f0957a7-kernel-audit",
+          "filename": "3fa646d7967a541e1c45588aed103ac18794f0a92cb5c89ca2868f0a746a7438.json",
+          "independent_kernel_recheck": false,
+          "sha256": "d6110886a42aeb64822f3304cab5daf794621ec1f3d84450bc3dd45accfe89e0",
+          "source_compile_clean": false,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "replays49audit2",
+          "environment": "lean4.9.0-mathlib-f0957a7-kernel-audit-v2",
+          "filename": "3fa646d7967a541e1c45588aed103ac18794f0a92cb5c89ca2868f0a746a7438.json",
+          "independent_kernel_recheck": true,
+          "sha256": "b4f25273c0baf4ada199b1e2ac16c85fc669fe45adc74f72ee8373739863306a",
+          "source_compile_clean": false,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "replays48audit2",
+          "environment": "lean4.8.0-rc1-mathlib-db65174-kernel-audit-v2",
+          "filename": "3fa646d7967a541e1c45588aed103ac18794f0a92cb5c89ca2868f0a746a7438.json",
+          "independent_kernel_recheck": true,
+          "sha256": "d2c52277ab9db1a89df4975425a5c5b8033277cce559779a13f59524ee61df93",
+          "source_compile_clean": false,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        }
+      ],
+      "state_attribution_gap": null
+    },
+    {
+      "id": "5613ffb13fdd53b5367deef4c6cae4ed1a8fffda6d15770d24b65177e40c8c9b",
+      "theorem_id": "workbook:lean_workbook_53782",
+      "source": "banach1729--goedel-workbook-lean427--data--manifest.json",
+      "attempts": [
+        {
+          "directory": "replays427",
+          "environment": "lean4.27.0-mathlib-a3a10db-repl-0e9e6e2-all-original-before-after",
+          "filename": "5613ffb13fdd53b5367deef4c6cae4ed1a8fffda6d15770d24b65177e40c8c9b.json",
+          "independent_kernel_recheck": false,
+          "sha256": "e7d65535815ca093497e20f6d9548e1fd4d8c0866cea8b788c13a5e2c50e4af2",
+          "source_compile_clean": null,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "retries",
+          "environment": "lean4.27.0-mathlib-a3a10db-repl-0e9e6e2-all-original-before-after",
+          "filename": "5613ffb13fdd53b5367deef4c6cae4ed1a8fffda6d15770d24b65177e40c8c9b.json",
+          "independent_kernel_recheck": false,
+          "sha256": "a08a5cd87dceb7b8a4fe92a55dc9f402354c9c3b37de9f06313b945809927a13",
+          "source_compile_clean": null,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "replays427audit2",
+          "environment": "lean4.27.0-mathlib-a3a10db-kernel-audit-v2",
+          "filename": "5613ffb13fdd53b5367deef4c6cae4ed1a8fffda6d15770d24b65177e40c8c9b.json",
+          "independent_kernel_recheck": true,
+          "sha256": "dc3c18111e3d188c4a4aef01babf3657bca2e554c1a16b0fee0155f7bdecf078",
+          "source_compile_clean": false,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        }
+      ],
+      "state_attribution_gap": null
+    },
+    {
+      "id": "78776dc0e7d183a1da0d5fcf321370b018203a032679a8847336e3d9028fcc87",
+      "theorem_id": "workbook:lean_workbook_plus_8931",
+      "source": "Goedel-LM--Lean-workbook-proofs--data--train-00000-of-00001.parquet",
+      "attempts": [
+        {
+          "directory": "replays49",
+          "environment": "lean4.9.0-mathlib-f0957a7-repl-d920817-all-original-before-after",
+          "filename": "78776dc0e7d183a1da0d5fcf321370b018203a032679a8847336e3d9028fcc87.json",
+          "independent_kernel_recheck": false,
+          "sha256": "b57e1f1f0c3aec2ad9f7fbc9a1035843b715cb011256650dd5d16486479c36ec",
+          "source_compile_clean": null,
+          "status": "timeout",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "replays48",
+          "environment": "lean4.8.0-rc1-mathlib-db65174-repl-439687b-all-original-before-after",
+          "filename": "78776dc0e7d183a1da0d5fcf321370b018203a032679a8847336e3d9028fcc87.json",
+          "independent_kernel_recheck": false,
+          "sha256": "d3e3cbb7fdab53f828fb7612b8e1c3912971b37f216e88f2a79c56b54168a0bd",
+          "source_compile_clean": null,
+          "status": "timeout",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "retries",
+          "environment": "lean4.8.0-rc1-mathlib-db65174-kernel-audit",
+          "filename": "78776dc0e7d183a1da0d5fcf321370b018203a032679a8847336e3d9028fcc87.json",
+          "independent_kernel_recheck": false,
+          "sha256": "1b6a6daeecd0e2eb54075052b593d2b633a5442eecee925d1f83c3d9f4a9fbd7",
+          "source_compile_clean": null,
+          "status": "timeout",
+          "trace_complete": false,
+          "verified": false
+        }
+      ],
+      "state_attribution_gap": null
+    },
+    {
+      "id": "7b26e9c3733bcf7dcadad3a49ddaff5bfb14b90c3d32464d217c0c6c0dd51226",
+      "theorem_id": "workbook:lean_workbook_55402",
+      "source": "Goedel-LM--Lean-workbook-proofs--data--train-00000-of-00001.parquet",
+      "attempts": [
+        {
+          "directory": "replays49",
+          "environment": "lean4.9.0-mathlib-f0957a7-repl-d920817-all-original-before-after",
+          "filename": "7b26e9c3733bcf7dcadad3a49ddaff5bfb14b90c3d32464d217c0c6c0dd51226.json",
+          "independent_kernel_recheck": false,
+          "sha256": "768d6124018e5f7e6008cf35c0c2e18d7cfc2ce523c845e9230b68dc6aff0568",
+          "source_compile_clean": null,
+          "status": "timeout",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "replays48",
+          "environment": "lean4.8.0-rc1-mathlib-db65174-repl-439687b-all-original-before-after",
+          "filename": "7b26e9c3733bcf7dcadad3a49ddaff5bfb14b90c3d32464d217c0c6c0dd51226.json",
+          "independent_kernel_recheck": false,
+          "sha256": "d7a57a3945f06149ca9fc3cdf136ff94652d2c64c6c2796743d106c425e9f087",
+          "source_compile_clean": null,
+          "status": "timeout",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "retries",
+          "environment": "lean4.8.0-rc1-mathlib-db65174-kernel-audit",
+          "filename": "7b26e9c3733bcf7dcadad3a49ddaff5bfb14b90c3d32464d217c0c6c0dd51226.json",
+          "independent_kernel_recheck": false,
+          "sha256": "171bb69d26f7b8d59028f01078ac328425b503ed4d3af0d31ce9eb0ae071e123",
+          "source_compile_clean": null,
+          "status": "timeout",
+          "trace_complete": false,
+          "verified": false
+        }
+      ],
+      "state_attribution_gap": null
+    },
+    {
+      "id": "7c52bcad19f6728f02b82c5325913c10a551d77ee98989998a4a1e886216efc2",
+      "theorem_id": "workbook:lean_workbook_21633",
+      "source": "banach1729--goedel-workbook-lean427--data--manifest.json",
+      "attempts": [
+        {
+          "directory": "replays427",
+          "environment": "lean4.27.0-mathlib-a3a10db-repl-0e9e6e2-all-original-before-after",
+          "filename": "7c52bcad19f6728f02b82c5325913c10a551d77ee98989998a4a1e886216efc2.json",
+          "independent_kernel_recheck": false,
+          "sha256": "16056fe2b8a3167349f6e4ee406aa9fdd036ce34134fba077e613f64c3e1a7ad",
+          "source_compile_clean": null,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "retries",
+          "environment": "lean4.27.0-mathlib-a3a10db-repl-0e9e6e2-all-original-before-after",
+          "filename": "7c52bcad19f6728f02b82c5325913c10a551d77ee98989998a4a1e886216efc2.json",
+          "independent_kernel_recheck": false,
+          "sha256": "4cf011393f48a7ccb28f9baabda082630592e0db4859315aa9aa546224363f7a",
+          "source_compile_clean": null,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "replays427audit2",
+          "environment": "lean4.27.0-mathlib-a3a10db-kernel-audit-v2",
+          "filename": "7c52bcad19f6728f02b82c5325913c10a551d77ee98989998a4a1e886216efc2.json",
+          "independent_kernel_recheck": true,
+          "sha256": "0824c47f4a942cec0f6bfa3193b07256cd5c3683646c3ca28216c6e52aab97dc",
+          "source_compile_clean": false,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        }
+      ],
+      "state_attribution_gap": null
+    },
+    {
+      "id": "8a7051e9dcf334fca7fd89985166cc4c46209372709fa988523afcb96e74660b",
+      "theorem_id": "workbook:lean_workbook_52061",
+      "source": "internlm--Lean-Workbook--lean_workbook.json",
+      "attempts": [
+        {
+          "directory": "replays49",
+          "environment": "lean4.9.0-mathlib-f0957a7-repl-d920817-all-original-before-after",
+          "filename": "8a7051e9dcf334fca7fd89985166cc4c46209372709fa988523afcb96e74660b.json",
+          "independent_kernel_recheck": false,
+          "sha256": "eea2ee022d82094ef41ee34e9f28658bb17cf9a3cdd417dfaedfd4298590a83e",
+          "source_compile_clean": null,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "replays48",
+          "environment": "lean4.8.0-rc1-mathlib-db65174-repl-439687b-all-original-before-after",
+          "filename": "8a7051e9dcf334fca7fd89985166cc4c46209372709fa988523afcb96e74660b.json",
+          "independent_kernel_recheck": false,
+          "sha256": "1a723d8781f60d9446cf6b416d759f81fd32c55cef276c2d1003c27bead4ebdc",
+          "source_compile_clean": null,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "retries",
+          "environment": "lean4.8.0-rc1-mathlib-db65174-kernel-audit",
+          "filename": "8a7051e9dcf334fca7fd89985166cc4c46209372709fa988523afcb96e74660b.json",
+          "independent_kernel_recheck": false,
+          "sha256": "1e656b53e33ce9120134d44c43c633ba8be455e72260d840479ee81e0d4a3380",
+          "source_compile_clean": false,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "replays49audit",
+          "environment": "lean4.9.0-mathlib-f0957a7-kernel-audit",
+          "filename": "8a7051e9dcf334fca7fd89985166cc4c46209372709fa988523afcb96e74660b.json",
+          "independent_kernel_recheck": false,
+          "sha256": "6c18679973a612c9d9a15d90e1faeb81230945f78ec25f83faa05cc5104511dd",
+          "source_compile_clean": false,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "replays49audit2",
+          "environment": "lean4.9.0-mathlib-f0957a7-kernel-audit-v2",
+          "filename": "8a7051e9dcf334fca7fd89985166cc4c46209372709fa988523afcb96e74660b.json",
+          "independent_kernel_recheck": true,
+          "sha256": "8ceeb8713164a70a3a50a9cf3368e5a9a6383894e107ec72bc7d8506b17daccd",
+          "source_compile_clean": false,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "replays48audit2",
+          "environment": "lean4.8.0-rc1-mathlib-db65174-kernel-audit-v2",
+          "filename": "8a7051e9dcf334fca7fd89985166cc4c46209372709fa988523afcb96e74660b.json",
+          "independent_kernel_recheck": true,
+          "sha256": "80e7244d663a4cd3d3ee7c9d8290043315b48857932fa9bf6f2a73b27f81abf9",
+          "source_compile_clean": false,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        }
+      ],
+      "state_attribution_gap": null
+    },
+    {
+      "id": "997466b8948ec2f783b421022ed8c43154e176f2dcf07a3e15959c77c7934e09",
+      "theorem_id": "workbook:lean_workbook_plus_48561",
+      "source": "banach1729--goedel-workbook-lean427--data--manifest.json",
+      "attempts": [
+        {
+          "directory": "replays427",
+          "environment": "lean4.27.0-mathlib-a3a10db-repl-0e9e6e2-all-original-before-after",
+          "filename": "997466b8948ec2f783b421022ed8c43154e176f2dcf07a3e15959c77c7934e09.json",
+          "independent_kernel_recheck": false,
+          "sha256": "dc4239221cdceffe4d3ada1f6a0a054a5e1870bffebb5acd0218d86762b37aa8",
+          "source_compile_clean": null,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "retries",
+          "environment": "lean4.27.0-mathlib-a3a10db-repl-0e9e6e2-all-original-before-after",
+          "filename": "997466b8948ec2f783b421022ed8c43154e176f2dcf07a3e15959c77c7934e09.json",
+          "independent_kernel_recheck": false,
+          "sha256": "8d0ac77c58cb03b3f83fd0948868c6378e4b7de66221c2ca91fe0d73b6416d9c",
+          "source_compile_clean": null,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "replays427audit2",
+          "environment": "lean4.27.0-mathlib-a3a10db-kernel-audit-v2",
+          "filename": "997466b8948ec2f783b421022ed8c43154e176f2dcf07a3e15959c77c7934e09.json",
+          "independent_kernel_recheck": true,
+          "sha256": "a3501ca3eb850be9362a62ac4e7562fcb067e139e4fcbc8f502e235bdf8b93a3",
+          "source_compile_clean": false,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        }
+      ],
+      "state_attribution_gap": null
+    },
+    {
+      "id": "997b08d318ecc60e8cb364a356a16da43472c79031bc04cd9c64cccb6dc1461e",
+      "theorem_id": "workbook:lean_workbook_plus_18240",
+      "source": "banach1729--goedel-workbook-lean427--data--manifest.json",
+      "attempts": [
+        {
+          "directory": "replays427",
+          "environment": "lean4.27.0-mathlib-a3a10db-repl-0e9e6e2-all-original-before-after",
+          "filename": "997b08d318ecc60e8cb364a356a16da43472c79031bc04cd9c64cccb6dc1461e.json",
+          "independent_kernel_recheck": false,
+          "sha256": "691d6fe68e5e17d514ba8590806b2ed1657787851f920f5141cd4c88a9db11b7",
+          "source_compile_clean": null,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "retries",
+          "environment": "lean4.27.0-mathlib-a3a10db-repl-0e9e6e2-all-original-before-after",
+          "filename": "997b08d318ecc60e8cb364a356a16da43472c79031bc04cd9c64cccb6dc1461e.json",
+          "independent_kernel_recheck": false,
+          "sha256": "1b2cbb5fc9d3960b3176adc4d136cdeabfb18f23f66ce56b714d7ee80f957e8d",
+          "source_compile_clean": null,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "replays427audit2",
+          "environment": "lean4.27.0-mathlib-a3a10db-kernel-audit-v2",
+          "filename": "997b08d318ecc60e8cb364a356a16da43472c79031bc04cd9c64cccb6dc1461e.json",
+          "independent_kernel_recheck": true,
+          "sha256": "578247eae02231105e8eea1ca87daa1a6012352aa93cc4e7a2ab465b7b52207a",
+          "source_compile_clean": false,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        }
+      ],
+      "state_attribution_gap": null
+    },
+    {
+      "id": "9b13c19ba180d5c49c59be3644cea928189e8bac0ed69fcd4c64c47a6449e306",
+      "theorem_id": "workbook:lean_workbook_plus_48984",
+      "source": "internlm--Lean-Workbook--lean_workbook.json",
+      "attempts": [
+        {
+          "directory": "replays49",
+          "environment": "lean4.9.0-mathlib-f0957a7-repl-d920817-all-original-before-after",
+          "filename": "9b13c19ba180d5c49c59be3644cea928189e8bac0ed69fcd4c64c47a6449e306.json",
+          "independent_kernel_recheck": false,
+          "sha256": "e902efe9a28ba3379fcd54e204bccb59c8cefb974ba4da0b782cd1a518d58a5d",
+          "source_compile_clean": null,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "replays48",
+          "environment": "lean4.8.0-rc1-mathlib-db65174-repl-439687b-all-original-before-after",
+          "filename": "9b13c19ba180d5c49c59be3644cea928189e8bac0ed69fcd4c64c47a6449e306.json",
+          "independent_kernel_recheck": false,
+          "sha256": "1e241fedd8f6a73654e138dcfa57fa1f387c4d60ad903bd98228b9703b59bc05",
+          "source_compile_clean": null,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "retries",
+          "environment": "lean4.8.0-rc1-mathlib-db65174-kernel-audit",
+          "filename": "9b13c19ba180d5c49c59be3644cea928189e8bac0ed69fcd4c64c47a6449e306.json",
+          "independent_kernel_recheck": false,
+          "sha256": "8082592c6923bd33879aeb3f4c00a22fd09db262375c963adcab10be7ff7be9d",
+          "source_compile_clean": false,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "replays49audit",
+          "environment": "lean4.9.0-mathlib-f0957a7-kernel-audit",
+          "filename": "9b13c19ba180d5c49c59be3644cea928189e8bac0ed69fcd4c64c47a6449e306.json",
+          "independent_kernel_recheck": false,
+          "sha256": "959c7be84b2d2f0c8983353559eb48339136d6435a3bcb068c127270d358eed3",
+          "source_compile_clean": false,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "replays49audit2",
+          "environment": "lean4.9.0-mathlib-f0957a7-kernel-audit-v2",
+          "filename": "9b13c19ba180d5c49c59be3644cea928189e8bac0ed69fcd4c64c47a6449e306.json",
+          "independent_kernel_recheck": true,
+          "sha256": "5c8967be122cba8ec13ffc5f342f5916d744a057df7922e508724756d6a0f0a9",
+          "source_compile_clean": false,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "replays48audit2",
+          "environment": "lean4.8.0-rc1-mathlib-db65174-kernel-audit-v2",
+          "filename": "9b13c19ba180d5c49c59be3644cea928189e8bac0ed69fcd4c64c47a6449e306.json",
+          "independent_kernel_recheck": true,
+          "sha256": "9782c26d1811f4a585d6abe934583ab83e1239b280333f5605c4cfdfd3adbe59",
+          "source_compile_clean": false,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        }
+      ],
+      "state_attribution_gap": null
+    },
+    {
+      "id": "b0c4afddde747843f193a7f172688fde6867e64fb2f027d4743474e54e58d6a2",
+      "theorem_id": "workbook:lean_workbook_plus_29384",
+      "source": "Goedel-LM--Lean-workbook-proofs--data--train-00000-of-00001.parquet",
+      "attempts": [
+        {
+          "directory": "replays49",
+          "environment": "lean4.9.0-mathlib-f0957a7-repl-d920817-all-original-before-after",
+          "filename": "b0c4afddde747843f193a7f172688fde6867e64fb2f027d4743474e54e58d6a2.json",
+          "independent_kernel_recheck": false,
+          "sha256": "08be4c672dc994452d6a798be3b23aaa968e3a5a8a5ef5d890621f6ba20447e2",
+          "source_compile_clean": null,
+          "status": "timeout",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "replays48",
+          "environment": "lean4.8.0-rc1-mathlib-db65174-repl-439687b-all-original-before-after",
+          "filename": "b0c4afddde747843f193a7f172688fde6867e64fb2f027d4743474e54e58d6a2.json",
+          "independent_kernel_recheck": false,
+          "sha256": "41a1eb6ad0c6a7904433410f084c7c59983b737c404d1a76aad2c81e743c4c33",
+          "source_compile_clean": null,
+          "status": "timeout",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "retries",
+          "environment": "lean4.8.0-rc1-mathlib-db65174-kernel-audit",
+          "filename": "b0c4afddde747843f193a7f172688fde6867e64fb2f027d4743474e54e58d6a2.json",
+          "independent_kernel_recheck": false,
+          "sha256": "464450220812b39c3aff41a502817bcd0204e3eccfc2245426966c439bf54ce9",
+          "source_compile_clean": null,
+          "status": "timeout",
+          "trace_complete": false,
+          "verified": false
+        }
+      ],
+      "state_attribution_gap": null
+    },
+    {
+      "id": "c1df00558e1b763ba8f4d999cf8392b297545ad980fb85bb57b0cb676f7c094e",
+      "theorem_id": "workbook:lean_workbook_50503",
+      "source": "banach1729--goedel-workbook-lean427--data--manifest.json",
+      "attempts": [
+        {
+          "directory": "replays427",
+          "environment": "lean4.27.0-mathlib-a3a10db-repl-0e9e6e2-all-original-before-after",
+          "filename": "c1df00558e1b763ba8f4d999cf8392b297545ad980fb85bb57b0cb676f7c094e.json",
+          "independent_kernel_recheck": false,
+          "sha256": "a0a436436ebbcb71c6313e09f003813ac76c1a062228c9ef585f1a457f14a10d",
+          "source_compile_clean": null,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "retries",
+          "environment": "lean4.27.0-mathlib-a3a10db-repl-0e9e6e2-all-original-before-after",
+          "filename": "c1df00558e1b763ba8f4d999cf8392b297545ad980fb85bb57b0cb676f7c094e.json",
+          "independent_kernel_recheck": false,
+          "sha256": "c2a4fadd77f9445e81958540b6cf3255293f4fbdaaabae245892ba38b49f2c90",
+          "source_compile_clean": null,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "replays427audit2",
+          "environment": "lean4.27.0-mathlib-a3a10db-kernel-audit-v2",
+          "filename": "c1df00558e1b763ba8f4d999cf8392b297545ad980fb85bb57b0cb676f7c094e.json",
+          "independent_kernel_recheck": true,
+          "sha256": "d98b75689cc021997e46fb8239a6c5145b5cf4f5c7da06d178faa8125435e732",
+          "source_compile_clean": false,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        }
+      ],
+      "state_attribution_gap": null
+    },
+    {
+      "id": "c373613b715ab94e1e37b41679ab63401b8607c1692771868427e4d70c337e96",
+      "theorem_id": "workbook:lean_workbook_52061",
+      "source": "internlm--Lean-Workbook--lean_workbook.json",
+      "attempts": [
+        {
+          "directory": "replays49",
+          "environment": "lean4.9.0-mathlib-f0957a7-repl-d920817-all-original-before-after",
+          "filename": "c373613b715ab94e1e37b41679ab63401b8607c1692771868427e4d70c337e96.json",
+          "independent_kernel_recheck": false,
+          "sha256": "f0675d9ea8962e89d738a93dc5b3aee428021fea7fdf1738020e031702d1a4ad",
+          "source_compile_clean": null,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "replays48",
+          "environment": "lean4.8.0-rc1-mathlib-db65174-repl-439687b-all-original-before-after",
+          "filename": "c373613b715ab94e1e37b41679ab63401b8607c1692771868427e4d70c337e96.json",
+          "independent_kernel_recheck": false,
+          "sha256": "9bb07290949cec387c07921c25f8d6556860e22b77c7d964683e757dcb285c68",
+          "source_compile_clean": null,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "retries",
+          "environment": "lean4.8.0-rc1-mathlib-db65174-kernel-audit",
+          "filename": "c373613b715ab94e1e37b41679ab63401b8607c1692771868427e4d70c337e96.json",
+          "independent_kernel_recheck": false,
+          "sha256": "652438c18e43392c662018b7862af6e9df845e5f9d1f6724ade33576dbf122ac",
+          "source_compile_clean": false,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "replays49audit",
+          "environment": "lean4.9.0-mathlib-f0957a7-kernel-audit",
+          "filename": "c373613b715ab94e1e37b41679ab63401b8607c1692771868427e4d70c337e96.json",
+          "independent_kernel_recheck": false,
+          "sha256": "3ab59604983052041d0a0217f66e9151f59d13a4ff2a011610a92513b69ba0be",
+          "source_compile_clean": false,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "replays49audit2",
+          "environment": "lean4.9.0-mathlib-f0957a7-kernel-audit-v2",
+          "filename": "c373613b715ab94e1e37b41679ab63401b8607c1692771868427e4d70c337e96.json",
+          "independent_kernel_recheck": true,
+          "sha256": "52652376242961854c197f8a581d686e7b34c27db1149be8c823a369c0bb0492",
+          "source_compile_clean": false,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "replays48audit2",
+          "environment": "lean4.8.0-rc1-mathlib-db65174-kernel-audit-v2",
+          "filename": "c373613b715ab94e1e37b41679ab63401b8607c1692771868427e4d70c337e96.json",
+          "independent_kernel_recheck": true,
+          "sha256": "5873b802caeaf6c4a24d7691fce9bce21d00c668126174df188aa32466befc6e",
+          "source_compile_clean": false,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        }
+      ],
+      "state_attribution_gap": null
+    },
+    {
+      "id": "cd28e06fa8570dce36295ac257fb56edaa1c90ec7190f73647416288464a7d46",
+      "theorem_id": "workbook:lean_workbook_35455",
+      "source": "banach1729--goedel-workbook-lean427--data--manifest.json",
+      "attempts": [
+        {
+          "directory": "replays427",
+          "environment": "lean4.27.0-mathlib-a3a10db-repl-0e9e6e2-all-original-before-after",
+          "filename": "cd28e06fa8570dce36295ac257fb56edaa1c90ec7190f73647416288464a7d46.json",
+          "independent_kernel_recheck": false,
+          "sha256": "184337a41d46135e371d0a07792b140ddf685fc80981a4ddd99b13187a9fa3c5",
+          "source_compile_clean": null,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "retries",
+          "environment": "lean4.27.0-mathlib-a3a10db-repl-0e9e6e2-all-original-before-after",
+          "filename": "cd28e06fa8570dce36295ac257fb56edaa1c90ec7190f73647416288464a7d46.json",
+          "independent_kernel_recheck": false,
+          "sha256": "c1288654209cbfbfc6b30e245c95b24a240b0fc6e2135cfd2f320e880fe6aa4d",
+          "source_compile_clean": null,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "replays427audit2",
+          "environment": "lean4.27.0-mathlib-a3a10db-kernel-audit-v2",
+          "filename": "cd28e06fa8570dce36295ac257fb56edaa1c90ec7190f73647416288464a7d46.json",
+          "independent_kernel_recheck": true,
+          "sha256": "3932ce32968a1494fb7681332e3b13ff814830b3112d08d536e5e8edfa5c8da1",
+          "source_compile_clean": false,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        }
+      ],
+      "state_attribution_gap": null
+    },
+    {
+      "id": "d46ca6b8ab1dcff40079b1775344809da67612081ba1c485d509598ba9d4fac0",
+      "theorem_id": "workbook:lean_workbook_56877",
+      "source": "banach1729--goedel-workbook-lean427--data--manifest.json",
+      "attempts": [
+        {
+          "directory": "replays427",
+          "environment": "lean4.27.0-mathlib-a3a10db-repl-0e9e6e2-all-original-before-after",
+          "filename": "d46ca6b8ab1dcff40079b1775344809da67612081ba1c485d509598ba9d4fac0.json",
+          "independent_kernel_recheck": false,
+          "sha256": "81240e4307d709eb07ab10cc35d3e416f5f55f27ecbac9959940cf52c4328b31",
+          "source_compile_clean": null,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "retries",
+          "environment": "lean4.27.0-mathlib-a3a10db-repl-0e9e6e2-all-original-before-after",
+          "filename": "d46ca6b8ab1dcff40079b1775344809da67612081ba1c485d509598ba9d4fac0.json",
+          "independent_kernel_recheck": false,
+          "sha256": "b546956c868e70017d21b1c0a7a8969627704f8966a202b5e04bdbbd0e1321a2",
+          "source_compile_clean": null,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "replays427audit2",
+          "environment": "lean4.27.0-mathlib-a3a10db-kernel-audit-v2",
+          "filename": "d46ca6b8ab1dcff40079b1775344809da67612081ba1c485d509598ba9d4fac0.json",
+          "independent_kernel_recheck": true,
+          "sha256": "9024c4586cd0186ab7b036babe47a554fbf2bc15aca04102b8d9e158843a9342",
+          "source_compile_clean": false,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        }
+      ],
+      "state_attribution_gap": null
+    },
+    {
+      "id": "f18ebea6c6af9a9f777ae573460e1837a6d8168ee4073508575dd5f7184f7dc4",
+      "theorem_id": "workbook:lean_workbook_18414",
+      "source": "internlm--Lean-Workbook--lean_workbook.json",
+      "attempts": [
+        {
+          "directory": "replays49",
+          "environment": "lean4.9.0-mathlib-f0957a7-repl-d920817-all-original-before-after",
+          "filename": "f18ebea6c6af9a9f777ae573460e1837a6d8168ee4073508575dd5f7184f7dc4.json",
+          "independent_kernel_recheck": false,
+          "sha256": "0b750421c8841768833c29d7e31f441586622021609fd90bf0c52576a305ed29",
+          "source_compile_clean": null,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "replays48",
+          "environment": "lean4.8.0-rc1-mathlib-db65174-repl-439687b-all-original-before-after",
+          "filename": "f18ebea6c6af9a9f777ae573460e1837a6d8168ee4073508575dd5f7184f7dc4.json",
+          "independent_kernel_recheck": false,
+          "sha256": "cacb637357d473b9e8506410b5153c6d3f288e220247725ef51c1f08a2b42a0c",
+          "source_compile_clean": null,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "retries",
+          "environment": "lean4.8.0-rc1-mathlib-db65174-kernel-audit",
+          "filename": "f18ebea6c6af9a9f777ae573460e1837a6d8168ee4073508575dd5f7184f7dc4.json",
+          "independent_kernel_recheck": false,
+          "sha256": "ba36d059603acc28396326fa569d8576b3f12839b1e1f7223cf45dc1a2f83ec5",
+          "source_compile_clean": false,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "replays49audit",
+          "environment": "lean4.9.0-mathlib-f0957a7-kernel-audit",
+          "filename": "f18ebea6c6af9a9f777ae573460e1837a6d8168ee4073508575dd5f7184f7dc4.json",
+          "independent_kernel_recheck": false,
+          "sha256": "66f7c03bbb8633f77d48bb426a9e432aaffbda5024fb0d5b75e54651bea8a0e9",
+          "source_compile_clean": false,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "replays49audit2",
+          "environment": "lean4.9.0-mathlib-f0957a7-kernel-audit-v2",
+          "filename": "f18ebea6c6af9a9f777ae573460e1837a6d8168ee4073508575dd5f7184f7dc4.json",
+          "independent_kernel_recheck": true,
+          "sha256": "3dea145975789bcdccf6fbcfe4ca40cc4fb590633cd740d70d16c6f98f65172b",
+          "source_compile_clean": false,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        },
+        {
+          "directory": "replays48audit2",
+          "environment": "lean4.8.0-rc1-mathlib-db65174-kernel-audit-v2",
+          "filename": "f18ebea6c6af9a9f777ae573460e1837a6d8168ee4073508575dd5f7184f7dc4.json",
+          "independent_kernel_recheck": true,
+          "sha256": "3e276357e35dea40998fe9b1be25b70fa9e47c769833079b17921cd18a87b768",
+          "source_compile_clean": false,
+          "status": "replay_failed",
+          "trace_complete": false,
+          "verified": false
+        }
+      ],
+      "state_attribution_gap": null
+    },
+    {
+      "id": "d812cb8712d7e9436515e02551b56dc790394650580a15d68891f06c89bc011b",
+      "theorem_id": "mathlib:StarSubalgebra.embedding_inclusion",
+      "source": "mathlib419-kernel-inventory",
+      "attempts": [],
+      "state_attribution_gap": "generated/aliased proof: source range is not a directly named declaration"
+    },
+    {
+      "id": "bbf82e6a885ed2b4013f242de00a5cf8871a291fb464e1ffbd95f29d4e2079fd",
+      "theorem_id": "mathlib:hasSum_nat_add_iff'",
+      "source": "mathlib419-kernel-inventory",
+      "attempts": [],
+      "state_attribution_gap": "generated/aliased proof: source range is not a directly named declaration"
+    }
+  ],
+  "theorem_gaps": [
+    {
+      "theorem_id": "mathlib:IsCoveringMap.const_of_comp",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Submodule.span_preimage_le",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:schnirelmannDensity_setOf_mod_eq_one",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:IsDedekindDomain.HeightOneSpectrum.IntValuation.le_max_iff_min_le",
+      "gaps": [
+        "equivalent/renamed declaration mapping in Mathlib4.19 remains unverified",
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Associates.out_dvd_iff",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:MeasureTheory.snorm_mono",
+      "gaps": [
+        "equivalent/renamed declaration mapping in Mathlib4.19 remains unverified",
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:FractionalIdeal.canonicalEquiv_mk0",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:openEmbedding_iff_embedding_open",
+      "gaps": [
+        "equivalent/renamed declaration mapping in Mathlib4.19 remains unverified",
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:ENNReal.tsum_sigma",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:norm_sub_mul_self_real",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:AlgebraicGeometry.Scheme.ofRestrict_appLE",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:continuous_of_discreteTopology",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:harmonic_succ",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:MulEquiv.trans_apply",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:ProbabilityTheory.measure_zero_or_one_of_measurableSet_limsup_atTop",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:RingHom.expChar",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Complex.cos_eq_cos_iff",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:cauchy_iff'",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Fin.prod_univ_two'",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:one_le_bit1",
+      "gaps": [
+        "equivalent/renamed declaration mapping in Mathlib4.19 remains unverified"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:grade_ne_grade_iff",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Ideal.IsHomogeneous.iSup",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Set.equitableOn_iff_exists_image_subset_icc",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:LocallyConstant.ker_comap\u2097",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:pure_id'_seq",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:DirectSum.decomposeLinearEquiv_apply",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:ciInf_pos",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Real.Angle.coe_nat_mul_eq_nsmul",
+      "gaps": [
+        "equivalent/renamed declaration mapping in Mathlib4.19 remains unverified"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:BundledCorePresheafOfModules.restrictionApp_toPresheafOfModules",
+      "gaps": [
+        "equivalent/renamed declaration mapping in Mathlib4.19 remains unverified"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:IsometryEquiv.coe_toRealLinearIsometryEquivOfMapZero_symm",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:HasStrictFDerivAt.tendsto_implicitFunction",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Filter.atTop_le_cofinite",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Nat.WithBot.add_eq_three_iff",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:MeasureTheory.AECover.biInter_Ici_aecover",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:intervalIntegral.derivWithin_integral_of_tendsto_ae_left",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:MeasureTheory.Lp.simpleFunc.denseRange",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Group.fg_iff'",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:LinearMap.BilinForm.IsSymm.sub",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:MeasureTheory.Measure.restrict_union",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:CategoryTheory.Functor.lanUnit_app_whiskerLeft_lanAdjunction_counit_app",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Antitone.strictAnti_of_injective",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:union_lowerBounds_subset_lowerBounds_inter",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:mem_map_indicator_ae_iff_mem_map_restrict_ae_of_zero_mem",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:deriv.scomp_of_eq",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:DFinsupp.coe_zsmul",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Polynomial.smeval_X_pow_mul",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Real.surjOn_logb",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:tendstoUniformlyOn_empty",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Nat.mod_two_of_bodd",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Filter.disjoint_comap_iff",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:CliffordAlgebra.star_\u03b9",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Multiset.bind_congr",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Equicontinuous.comp",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Polynomial.smeval_nat_cast",
+      "gaps": [
+        "equivalent/renamed declaration mapping in Mathlib4.19 remains unverified"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:CochainComplex.HomComplex.Cochain.leftShift_v",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:RingHom.ker_equiv",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:ContinuousWithinAt.union",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Matrix.SpecialLinearGroup.SL2_inv_expl",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Nat.cast_dvd_cast",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:PowerSeries.trunc_X_of",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:cfc_one",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:nonPrincipals_eq_empty_iff",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:IsLowerSet.null_frontier",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Complex.nndist_of_re_eq",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Algebra.adjoin_nat",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:CategoryTheory.Grothendieck.id_fiber'",
+      "gaps": [
+        "equivalent/renamed declaration mapping in Mathlib4.19 remains unverified",
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:ProbabilityTheory.kernel.coe_finset_sum",
+      "gaps": [
+        "equivalent/renamed declaration mapping in Mathlib4.19 remains unverified",
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Quaternion.normSq_rat_cast",
+      "gaps": [
+        "equivalent/renamed declaration mapping in Mathlib4.19 remains unverified"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:DFinsupp.prod_comm",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Turing.PartrecToTM2.codeSupp_zero",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Cardinal.mk_coe_finset",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:CategoryTheory.MorphismProperty.Q_inverts",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:LinearIsometryEquiv.coe_coe",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Set.OrdConnected.image_real_toNNReal",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Matrix.updateRow_eq_self",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Dense.borel_eq_generateFrom_Ioc_mem",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Complex.eventually_eq_of_isLocalMax_norm",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:IsLocalMin.neg",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Filter.tendsto_iSup_iSup",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:SzemerediRegularity.add_div_le_sum_sq_div_card",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:MvPolynomial.eval_pow",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:DifferentiableAt.inverse",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:LinearMap.tailing_disjoint_tunnel_succ",
+      "gaps": [
+        "equivalent/renamed declaration mapping in Mathlib4.19 remains unverified",
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:CategoryTheory.NatTrans.mono_of_mono_app",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:StarSubalgebra.embedding_inclusion",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Subgroup.commutator_comm_le",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Multiset.union_le_union_left",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:LinearIsometryEquiv.coe_prodAssoc",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Filter.hasBasis_coclosedCompact",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Multiset.map_cons",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Submonoid.LocalizationMap.lift_eq",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:QuaternionAlgebra.eq_re_iff_mem_range_coe",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Continuous.intervalIntegrable",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:MeasurableEmbedding.integrableAtFilter_iff_comap",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:abs_mul_self",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Cardinal.one_toNat",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:EqvGen.is_equivalence",
+      "gaps": [
+        "equivalent/renamed declaration mapping in Mathlib4.19 remains unverified",
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Option.map\u2082_assoc",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Interval.coe_subset_coe",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:LSeries.norm_term_le",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:IsFractional.map",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:FreimanHom.cancel_left_on",
+      "gaps": [
+        "equivalent/renamed declaration mapping in Mathlib4.19 remains unverified"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:hasSum_nat_add_iff'",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:normal_of_eq_cosets",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:LowerSet.coe_div",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:WithZeroTopology.nhds_eq_update",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:contDiffAt_inner",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:LinearMap.map_finsupp_total",
+      "gaps": [
+        "equivalent/renamed declaration mapping in Mathlib4.19 remains unverified",
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:BoxIntegral.Box.volume_apply",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:TopCat.Presheaf.app_injective_of_stalkFunctor_map_injective",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:MeasureTheory.Submartingale.bddAbove_iff_exists_tendsto",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Set.image_update_uIcc_left",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Finsupp.update_erase_eq_update",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:AffineIsometryEquiv.pointReflection_toAffineEquiv",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Quaternion.algebraMap_def",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:IsLocalization.submonoid_map_le_is_unit",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:smul_pi",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:RingCon.coe_iInf",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Finset.abs_sum_of_nonneg",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Basis.toLin_toMatrix",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Set.mem_ordConnectedComponent_trans",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:Complex.sinh_three_mul",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:CategoryTheory.Limits.pullbackZeroZeroIso_hom_snd",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:UpperHalfPlane.smulAux'_im",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    },
+    {
+      "theorem_id": "mathlib:MulAction.orbit.coe_smul",
+      "gaps": [
+        "elaborated expressions differ across versions; equivalence not established"
+      ]
+    }
+  ],
+  "rejected_associations": [
+    {
+      "assigned_theorem": "mathlib:BoxIntegral.Box.volume_apply",
+      "proof_id": "b0f7c8ff3d35d1c7e2a1fdd088523c39dc44e4a04c21bc4dee335453887e561b",
+      "reason": "publisher span does not match kernel-resolved selected declaration",
+      "record": {
+        "body": "theorem volume_apply {E : Type*} [NormedAddCommGroup E] [NormedSpace \u211d E] (I : Box \u03b9) (x : E) :\n    BoxAdditiveMap.volume I x = (\u220f j, (I.upper j - I.lower j)) \u2022 x := by\n  rw [BoxAdditiveMap.volume, toSMul_apply]\n  exact congr_arg\u2082 (\u00b7 \u2022 \u00b7) I.volume_apply rfl",
+        "file_path": "Mathlib/Analysis/BoxIntegral/Partition/Measure.lean",
+        "id": "b0f7c8ff3d35d1c7e2a1fdd088523c39dc44e4a04c21bc4dee335453887e561b",
+        "mapping": "unique selected declaration short-name match in same file, character span verified",
+        "publisher_factorized_states": [
+          {
+            "by_block": 0,
+            "kind": "factorized_state_before",
+            "node_id": "node_5878721643",
+            "raw_state": {
+              "goals": [
+                {
+                  "hypotheses": [
+                    {
+                      "type": "Type u_1",
+                      "user_name": "\u03b9"
+                    },
+                    {
+                      "type": "Fintype \u03b9",
+                      "user_name": "inst\u271d\u00b2"
+                    },
+                    {
+                      "type": "Type u_2",
+                      "user_name": "E"
+                    },
+                    {
+                      "type": "NormedAddCommGroup E",
+                      "user_name": "inst\u271d\u00b9"
+                    },
+                    {
+                      "type": "NormedSpace \u211d E",
+                      "user_name": "inst\u271d"
+                    },
+                    {
+                      "type": "Box \u03b9",
+                      "user_name": "I"
+                    },
+                    {
+                      "type": "E",
+                      "user_name": "x"
+                    }
+                  ],
+                  "type": "(BoxAdditiveMap.volume I) x = (\u220f j, (I.upper j - I.lower j)) \u2022 x"
+                }
+              ]
+            },
+            "tactic": "rw [BoxAdditiveMap.volume]",
+            "text": "\u03b9 : Type u_1\ninst\u271d\u00b2 : Fintype \u03b9\nE : Type u_2\ninst\u271d\u00b9 : NormedAddCommGroup E\ninst\u271d : NormedSpace \u211d E\nI : Box \u03b9\nx : E\n\u22a2 (BoxAdditiveMap.volume I) x = (\u220f j, (I.upper j - I.lower j)) \u2022 x"
+          },
+          {
+            "by_block": 0,
+            "kind": "factorized_state_before",
+            "node_id": "node_8452322684",
+            "raw_state": {
+              "goals": [
+                {
+                  "hypotheses": [
+                    {
+                      "type": "Type u_1",
+                      "user_name": "\u03b9"
+                    },
+                    {
+                      "type": "Fintype \u03b9",
+                      "user_name": "inst\u271d\u00b2"
+                    },
+                    {
+                      "type": "Type u_2",
+                      "user_name": "E"
+                    },
+                    {
+                      "type": "NormedAddCommGroup E",
+                      "user_name": "inst\u271d\u00b9"
+                    },
+                    {
+                      "type": "NormedSpace \u211d E",
+                      "user_name": "inst\u271d"
+                    },
+                    {
+                      "type": "Box \u03b9",
+                      "user_name": "I"
+                    },
+                    {
+                      "type": "E",
+                      "user_name": "x"
+                    }
+                  ],
+                  "type": "(volume.toBoxAdditive.toSMul I) x = (\u220f j, (I.upper j - I.lower j)) \u2022 x"
+                }
+              ]
+            },
+            "tactic": "rw [toSMul_apply]",
+            "text": "\u03b9 : Type u_1\ninst\u271d\u00b2 : Fintype \u03b9\nE : Type u_2\ninst\u271d\u00b9 : NormedAddCommGroup E\ninst\u271d : NormedSpace \u211d E\nI : Box \u03b9\nx : E\n\u22a2 (volume.toBoxAdditive.toSMul I) x = (\u220f j, (I.upper j - I.lower j)) \u2022 x"
+          },
+          {
+            "by_block": 0,
+            "kind": "factorized_state_before",
+            "node_id": "node_9048743457",
+            "raw_state": {
+              "goals": [
+                {
+                  "hypotheses": [
+                    {
+                      "type": "Type u_1",
+                      "user_name": "\u03b9"
+                    },
+                    {
+                      "type": "Fintype \u03b9",
+                      "user_name": "inst\u271d\u00b2"
+                    },
+                    {
+                      "type": "Type u_2",
+                      "user_name": "E"
+                    },
+                    {
+                      "type": "NormedAddCommGroup E",
+                      "user_name": "inst\u271d\u00b9"
+                    },
+                    {
+                      "type": "NormedSpace \u211d E",
+                      "user_name": "inst\u271d"
+                    },
+                    {
+                      "type": "Box \u03b9",
+                      "user_name": "I"
+                    },
+                    {
+                      "type": "E",
+                      "user_name": "x"
+                    }
+                  ],
+                  "type": "volume.toBoxAdditive I \u2022 x = (\u220f j, (I.upper j - I.lower j)) \u2022 x"
+                }
+              ]
+            },
+            "tactic": "exact congr_arg\u2082 (\u00b7 \u2022 \u00b7) I.volume_apply rfl",
+            "text": "\u03b9 : Type u_1\ninst\u271d\u00b2 : Fintype \u03b9\nE : Type u_2\ninst\u271d\u00b9 : NormedAddCommGroup E\ninst\u271d : NormedSpace \u211d E\nI : Box \u03b9\nx : E\n\u22a2 volume.toBoxAdditive I \u2022 x = (\u220f j, (I.upper j - I.lower j)) \u2022 x"
+          }
+        ],
+        "raw_record": {
+          "by_blocks": [
+            {
+              "span": {
+                "finish": 4329,
+                "start": 4243
+              },
+              "tree": {
+                "nodes": [
+                  {
+                    "id": "node_5878721643",
+                    "proof_depth": 3,
+                    "proof_size": 3,
+                    "state": {
+                      "goals": [
+                        {
+                          "hypotheses": [
+                            {
+                              "type": "Type u_1",
+                              "user_name": "\u03b9"
+                            },
+                            {
+                              "type": "Fintype \u03b9",
+                              "user_name": "inst\u271d\u00b2"
+                            },
+                            {
+                              "type": "Type u_2",
+                              "user_name": "E"
+                            },
+                            {
+                              "type": "NormedAddCommGroup E",
+                              "user_name": "inst\u271d\u00b9"
+                            },
+                            {
+                              "type": "NormedSpace \u211d E",
+                              "user_name": "inst\u271d"
+                            },
+                            {
+                              "type": "Box \u03b9",
+                              "user_name": "I"
+                            },
+                            {
+                              "type": "E",
+                              "user_name": "x"
+                            }
+                          ],
+                          "type": "(BoxAdditiveMap.volume I) x = (\u220f j, (I.upper j - I.lower j)) \u2022 x"
+                        }
+                      ]
+                    },
+                    "tactic": {
+                      "children": [
+                        "node_8452322684"
+                      ],
+                      "parent": "node_5878721643",
+                      "span": {
+                        "finish": 4269,
+                        "start": 4243
+                      },
+                      "tactic_depends_on": [],
+                      "tactic_string": "rw [BoxAdditiveMap.volume]"
+                    }
+                  },
+                  {
+                    "id": "node_8452322684",
+                    "proof_depth": 2,
+                    "proof_size": 2,
+                    "state": {
+                      "goals": [
+                        {
+                          "hypotheses": [
+                            {
+                              "type": "Type u_1",
+                              "user_name": "\u03b9"
+                            },
+                            {
+                              "type": "Fintype \u03b9",
+                              "user_name": "inst\u271d\u00b2"
+                            },
+                            {
+                              "type": "Type u_2",
+                              "user_name": "E"
+                            },
+                            {
+                              "type": "NormedAddCommGroup E",
+                              "user_name": "inst\u271d\u00b9"
+                            },
+                            {
+                              "type": "NormedSpace \u211d E",
+                              "user_name": "inst\u271d"
+                            },
+                            {
+                              "type": "Box \u03b9",
+                              "user_name": "I"
+                            },
+                            {
+                              "type": "E",
+                              "user_name": "x"
+                            }
+                          ],
+                          "type": "(volume.toBoxAdditive.toSMul I) x = (\u220f j, (I.upper j - I.lower j)) \u2022 x"
+                        }
+                      ]
+                    },
+                    "tactic": {
+                      "children": [
+                        "node_9048743457"
+                      ],
+                      "parent": "node_8452322684",
+                      "span": {
+                        "finish": 4283,
+                        "start": 4270
+                      },
+                      "tactic_depends_on": [],
+                      "tactic_string": "rw [toSMul_apply]"
+                    }
+                  },
+                  {
+                    "id": "node_9048743457",
+                    "proof_depth": 1,
+                    "proof_size": 1,
+                    "state": {
+                      "goals": [
+                        {
+                          "hypotheses": [
+                            {
+                              "type": "Type u_1",
+                              "user_name": "\u03b9"
+                            },
+                            {
+                              "type": "Fintype \u03b9",
+                              "user_name": "inst\u271d\u00b2"
+                            },
+                            {
+                              "type": "Type u_2",
+                              "user_name": "E"
+                            },
+                            {
+                              "type": "NormedAddCommGroup E",
+                              "user_name": "inst\u271d\u00b9"
+                            },
+                            {
+                              "type": "NormedSpace \u211d E",
+                              "user_name": "inst\u271d"
+                            },
+                            {
+                              "type": "Box \u03b9",
+                              "user_name": "I"
+                            },
+                            {
+                              "type": "E",
+                              "user_name": "x"
+                            }
+                          ],
+                          "type": "volume.toBoxAdditive I \u2022 x = (\u220f j, (I.upper j - I.lower j)) \u2022 x"
+                        }
+                      ]
+                    },
+                    "tactic": {
+                      "children": [],
+                      "parent": "node_9048743457",
+                      "span": {
+                        "finish": 4329,
+                        "start": 4286
+                      },
+                      "tactic_depends_on": [],
+                      "tactic_string": "exact congr_arg\u2082 (\u00b7 \u2022 \u00b7) I.volume_apply rfl"
+                    }
+                  }
+                ],
+                "root_id": "node_5878721643"
+              }
+            }
+          ],
+          "context": [
+            "open Set",
+            "open scoped ENNReal BoxIntegral",
+            "open BoxIntegral BoxIntegral.Box",
+            "open MeasureTheory"
+          ],
+          "span": {
+            "finish": 4329,
+            "start": 4072
+          }
+        },
+        "source": "ufal--leantree--leantree_mathlib.jsonl",
+        "source_artifact": {
+          "bytes": 4545,
+          "filename": "dc47aab06d085c0b83097e03e176f0111d1921dd06596501df5e8df0f78771d7.lean",
+          "sha256": "8b3cc70f13ebf92a7ced8354a107db24225fa5005966748ea596c43f549e27ea",
+          "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/c44e0c8ee63ca166450922a373c7409c5d26b00b/Mathlib/Analysis/BoxIntegral/Partition/Measure.lean"
+        },
+        "state_attribution_gap": "publisher span does not match kernel-resolved selected declaration",
+        "statement_identity": "cross-version elaborated type audit pending",
+        "states": [],
+        "theorem_id": "mathlib:BoxIntegral.Box.volume_apply",
+        "trace_complete": false,
+        "tree_errors": [],
+        "verification": "publisher factorized proof tree; after-state and original-goal-context coverage unverified"
+      }
+    }
+  ]
+}

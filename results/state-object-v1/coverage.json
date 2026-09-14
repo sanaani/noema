@@ -1,0 +1,12 @@
+{
+  "theorems": 256,
+  "proof_records": 1337,
+  "proofs_with_states": 1313,
+  "complete_proof_traces": 1313,
+  "incomplete_proof_traces": 24,
+  "state_occurrences": 26820,
+  "unique_state_texts": 3659,
+  "attempts": 1429,
+  "failed_attempts": 112,
+  "global_proof_completeness": "not established"
+}

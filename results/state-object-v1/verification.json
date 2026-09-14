@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "objects": 256,
+  "proof_records_retained": 1337,
+  "all_occurrences_retained": true,
+  "vector_hashes_checked": 3659,
+  "all_pair_certificates_rechecked": {
+    "point_contact": 32384,
+    "unobserved_object": 255,
+    "nontrivial_intersection": 1
+  },
+  "formal_exact_arithmetic_certification": false
+}

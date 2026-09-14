@@ -85,8 +85,8 @@ Archived proof extraction, verification, encoder adapters, vectors and recovery
 infrastructure can be reused where compatible. The present corpus must not be
 represented as meeting this specification. The next preparation is the theorem
 and proof-source inventory, followed by theorem sampling and complete acquisition
-against that inventory. The corrected theorem draw and acquisition are now being executed under this
-specification; see the implementation record above. No model is being trained.
+against that inventory. The corrected implementation and first acquisition are complete, with explicit
+proof and identity gaps; see the implementation record above. No model was trained.
 
 References: [literature review](state-object-convex-hull-literature-review.md),
 [durable recovery checkpoint](convex-hull-investigation-status.md).

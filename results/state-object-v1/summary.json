@@ -1,0 +1,22 @@
+{
+  "theorems": 256,
+  "observed_objects": 255,
+  "inventory_complete_objects": 111,
+  "proof_coverage_complete_objects": 234,
+  "proof_records": 1337,
+  "state_occurrences": 26820,
+  "unique_valid_state_texts": 3659,
+  "encoded_valid_state_texts": 3659,
+  "missing_vectors": 0,
+  "pair_count": 32640,
+  "pair_relations": {
+    "point_contact": 32384,
+    "unobserved_object": 255,
+    "nontrivial_intersection": 1
+  },
+  "objects_containing_terminal": 255,
+  "largest_object_vectors": 273,
+  "largest_proof_inventory": 37,
+  "largest_affine_dimension": 272,
+  "global_proof_completeness": "not established"
+}

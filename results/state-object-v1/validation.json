@@ -1,0 +1,11 @@
+{
+  "browser_checks": [
+    "rendered 256 theorem choices",
+    "shared-segment selection",
+    "state-point click displays full text",
+    "missing-state theorem",
+    "same-theorem selection"
+  ],
+  "test_suite": "122 passed",
+  "lint_and_format": "passed"
+}

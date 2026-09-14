@@ -92,6 +92,8 @@ def assemble_object(theorem, proof_records, embedding_lookup, encoder_id):
         "definition": "convex hull of all acquired state vectors",
         "encoder_id": encoder_id,
         "inventory_complete": complete,
+        "proof_coverage_complete": bool(expected)
+        and not (missing_proofs or incomplete_proofs or missing_states),
         "global_proof_completeness": "not established",
         "known_proofs": len(expected),
         "acquired_proofs": len(records),
@@ -160,8 +162,11 @@ def hull_relation(a, b, tolerance=1e-8):
     if result.success:
         alpha, beta = result.x[:n], result.x[n:]
         residual = float(np.linalg.norm(alpha @ a - beta @ b))
+        roundoff = (
+            32 * np.finfo(float).eps * max(1.0, np.linalg.norm(alpha @ a), np.linalg.norm(beta @ b))
+        )
         if (
-            residual <= tolerance
+            residual <= min(tolerance, roundoff)
             and min(alpha.min(), beta.min()) >= -tolerance
             and abs(alpha.sum() - 1) <= tolerance
             and abs(beta.sum() - 1) <= tolerance
@@ -169,6 +174,8 @@ def hull_relation(a, b, tolerance=1e-8):
             return {
                 "relation": "intersect",
                 "kind": "convex_combination",
+                "certificate": "numerical witness checked at floating-point roundoff scale",
+                "roundoff_bound": float(roundoff),
                 "alpha": alpha.tolist(),
                 "beta": beta.tolist(),
                 "residual": residual,
@@ -208,4 +215,108 @@ def hull_relation(a, b, tolerance=1e-8):
         "intersection_solver_status": int(result.status),
         "separator_solver_status": int(separator.status),
         "tolerance": tolerance,
+    }
+
+
+def hull_contact_extent(a, b, shared_point, tolerance=1e-8):
+    """Distinguish sole-point contact from a larger intersection, keeping both hulls.
+
+    A separating plane through the shared point can certify that it is the only
+    intersection. Otherwise a barycentric witness can certify another point.
+    No state is removed from either object and no neighborhood radius is added.
+    """
+    a, b, p = np.asarray(a, float), np.asarray(b, float), np.asarray(shared_point, float)
+    if a.ndim != 2 or b.ndim != 2 or a.shape[1:] != p.shape or b.shape[1:] != p.shape:
+        raise ValueError("incompatible point arrays")
+    if not all(np.isfinite(v).all() for v in (a, b, p)):
+        raise ValueError("nonfinite coordinates")
+    same_a, same_b = np.all(a == p, axis=1), np.all(b == p, axis=1)
+    if not same_a.any() or not same_b.any():
+        raise ValueError("the supplied point must generate both hulls")
+    ia, ib = np.flatnonzero(~same_a), np.flatnonzero(~same_b)
+    if not len(ia) or not len(ib):
+        return {"relation": "point_contact", "certificate": "one hull is the shared point"}
+    da, db = a[ia] - p, b[ib] - p
+    centered = np.vstack([da, db])
+    u, singular, basis = np.linalg.svd(centered, full_matrices=False)
+    projected = centered @ basis.T
+    pa, pb = projected[: len(ia)], projected[len(ia) :]
+    dim = projected.shape[1]
+    options = {"primal_feasibility_tolerance": 1e-9, "dual_feasibility_tolerance": 1e-9}
+    sep = linprog(
+        np.r_[np.zeros(dim), -1.0],
+        A_ub=np.vstack([np.c_[-pa, np.ones(len(pa))], np.c_[pb, np.ones(len(pb))]]),
+        b_ub=np.zeros(len(centered)),
+        bounds=[(-1, 1)] * dim + [(0, None)],
+        method="highs",
+        options=options,
+    )
+    if sep.success:
+        normal = sep.x[:dim] @ basis
+        norm = np.linalg.norm(normal)
+        if norm:
+            normal /= norm
+            # Compress the normal into generating-point coefficients. Dropped
+            # numerical null directions are allowed only for this storage step:
+            # the reconstructed certificate is independently checked below.
+            keep = singular > np.finfo(float).eps * max(centered.shape) * singular[0]
+            coefficients = u[:, keep] @ ((basis[keep] @ normal) / singular[keep])
+            reconstructed = coefficients @ centered
+            reconstructed_norm = np.linalg.norm(reconstructed)
+            if reconstructed_norm:
+                coefficients /= reconstructed_norm
+                reconstructed = coefficients @ centered
+                min_a = float(np.min(da @ reconstructed))
+                max_b = float(np.max(db @ reconstructed))
+                if min_a > tolerance and max_b < -tolerance:
+                    wa, wb = np.zeros(len(a)), np.zeros(len(b))
+                    wa[ia], wb[ib] = coefficients[: len(ia)], coefficients[len(ia) :]
+                    return {
+                        "relation": "point_contact",
+                        "certificate": "checked strict separating plane through shared point",
+                        "normal_coefficients_a": wa.tolist(),
+                        "normal_coefficients_b": wb.tolist(),
+                        "min_a_minus_shared": min_a,
+                        "max_b_minus_shared": max_b,
+                        "margin": min(min_a, -max_b),
+                    }
+    n, m = len(ia), len(ib)
+    fit = linprog(
+        -np.ones(n + m),
+        A_eq=np.c_[pa.T, -pb.T],
+        b_eq=np.zeros(dim),
+        A_ub=np.vstack([np.r_[np.ones(n), np.zeros(m)], np.r_[np.zeros(n), np.ones(m)]]),
+        b_ub=np.ones(2),
+        method="highs",
+        options=options,
+    )
+    if fit.success:
+        alpha, beta = np.zeros(len(a)), np.zeros(len(b))
+        alpha[ia], beta[ib] = fit.x[:n], fit.x[n:]
+        alpha[np.flatnonzero(same_a)[0]] = 1 - alpha.sum()
+        beta[np.flatnonzero(same_b)[0]] = 1 - beta.sum()
+        qa, qb = alpha @ a, beta @ b
+        residual = float(np.linalg.norm(qa - qb))
+        distance = float(np.linalg.norm(qa - p))
+        roundoff = 32 * np.finfo(float).eps * max(1.0, np.linalg.norm(qa), np.linalg.norm(qb))
+        if (
+            residual <= min(tolerance, roundoff)
+            and distance > tolerance
+            and min(alpha.min(), beta.min()) >= -roundoff
+        ):
+            return {
+                "relation": "nontrivial_intersection",
+                "certificate": (
+                    "another checked common point; segment to shared point lies in both hulls"
+                ),
+                "alpha": alpha.tolist(),
+                "beta": beta.tolist(),
+                "residual": residual,
+                "distance_from_shared_point": distance,
+            }
+    return {
+        "relation": "contact_extent_unresolved",
+        "known_contact": True,
+        "separator_status": int(sep.status),
+        "intersection_status": int(fit.status),
     }

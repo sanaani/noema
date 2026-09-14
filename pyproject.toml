@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "noema-geometry"
 version = "0.1.0"
-description = "Auditable synthetic and Lean proof-cloud geometry experiments"
+description = "Auditable Lean theorem State object geometry experiments"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = ["numpy>=2.0,<3", "scipy>=1.14,<2"]
@@ -25,6 +25,8 @@ addopts = "-q"
 
 [tool.ruff]
 line-length = 100
+# Preserve verbatim third-party source cards and their recorded hashes.
+extend-exclude = ["results/state-object-v1/source-manifests"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "B", "UP"]

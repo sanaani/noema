@@ -1,0 +1,29 @@
+{
+  "run_identity": "54cf864fd21d2c934d6fea8f81a19763abc56d4c5349d7d6307469a17485a066",
+  "encoder": {
+    "model": "kaiyuy/ct2-leandojo-lean4-retriever-byt5-small",
+    "revision": "8612469b496b72bdb2f0d6ccd5316c100200581e",
+    "checksums": {
+      "model.bin": "311e636b7479e97236de85f5271f2b045e1e40a1de5a431df03b050b2176f827",
+      "config.json": "d3b27bd603df8fb368c641042d2f280d6821066a433f497aa24a2758cc49497c",
+      "vocabulary.json": "60259dce54d4677a043dbadcedb27916fa934567c01a796124dec71bf23a3e09"
+    },
+    "ctranslate2": "4.8.2",
+    "numpy": "2.5.3",
+    "compute_type": "int8_float32",
+    "device": "cuda",
+    "gpu_model": "NVIDIA L40S",
+    "dimension": 1472,
+    "tokenization": "all UTF-8 bytes +3, append EOS=1; no truncation or length cap",
+    "pooling": "singleton; nonpadding mean including EOS in float64; L2 normalize",
+    "state_serialization": "source goal/context text; provenance records source extractor",
+    "encoder_script_sha256": "6210ab5f221b67ddbdf67e36e84da03715b34ec666e76cb461a5132f1eed4e8f",
+    "encoder_id": "2967cc1b345131ff06cdfc1ef6a9e6f20cd6e021d92956c95582c4c0027d4fcc"
+  },
+  "object_definition": "convex hull of all valid acquired states; initial and terminal states retained",
+  "theorem_count": 256,
+  "pair_sampling": null,
+  "neighborhood_radius": null,
+  "centroid_defines_object": false,
+  "all_known_proofs_globally": "not established"
+}

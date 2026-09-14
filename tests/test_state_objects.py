@@ -79,3 +79,26 @@ def test_more_than_eight_vertices_and_permutation_invariance():
     for points in (a, a[::-1], np.repeat(a, 2, axis=0)):
         assert hull_relation(points, b)["relation"] == "intersect"
     assert hull_relation(a[:-1], b)["relation"] == "disjoint"
+
+
+def test_contact_extent_keeps_shared_point_and_certifies_only_contact():
+    from noema.state_objects import hull_contact_extent
+
+    a = np.array([[0.0, 0], [1, 0], [0, 1]])
+    b = np.array([[0.0, 0], [-1, 0], [0, -1]])
+    r = hull_contact_extent(a, b, a[0])
+    assert r["relation"] == "point_contact"
+    normal = np.array(r["normal_coefficients_a"]) @ a + np.array(r["normal_coefficients_b"]) @ b
+    assert np.min(a[1:] @ normal) > 0 > np.max(b[1:] @ normal)
+    assert hull_relation(a, b)["relation"] == "intersect"
+
+
+def test_contact_extent_finds_a_segment_without_shared_nonterminal_vertices():
+    from noema.state_objects import hull_contact_extent
+
+    a = np.array([[0.0, 0], [2, 0], [0, 2]])
+    b = np.array([[0.0, 0], [1, 1], [3, 0]])
+    r = hull_contact_extent(a, b, a[0])
+    assert r["relation"] == "nontrivial_intersection"
+    assert np.allclose(np.array(r["alpha"]) @ a, np.array(r["beta"]) @ b)
+    assert r["distance_from_shared_point"] > 0

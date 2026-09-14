@@ -1,0 +1,27 @@
+{
+  "region": "us-east-2",
+  "instance_id": "i-05e2d0adb2b55eaa5",
+  "started_utc": "2026-09-14T20:17:05+00:00",
+  "resize_start_utc": "2026-09-14T21:04:16+00:00",
+  "cleanup_verified_utc": "2026-09-14T21:59:54.550575+00:00",
+  "initial_instance": "g5.xlarge",
+  "final_instance": "g6e.4xlarge",
+  "hourly_usd": {
+    "g5.xlarge": 1.006,
+    "g6e.4xlarge": 3.00424
+  },
+  "budget_usd": 5,
+  "conservative_compute_estimate_usd": 3.577,
+  "conservative_total_estimate_usd": 3.68,
+  "estimate_is_billed_actual": false,
+  "estimate_assumption": "Bills every second through verified cleanup, including shutdown/stop time; adds $0.10 allowance for small temporary storage and transfer. Actual invoice not available.",
+  "instance_terminated": true,
+  "temporary_security_group_removed": true,
+  "temporary_key_pair_removed": true,
+  "temporary_ebs_volume_removed": true,
+  "local_private_key_removed": true,
+  "remote_artifacts_sha256_verified_before_termination": true,
+  "guest_absolute_deadline_utc": "2026-09-14T22:07:05+00:00",
+  "termination_requested_utc": "2026-09-14T21:53:12+00:00",
+  "termination_note": "Normal shutdown took several minutes. A force/skip-OS request returned already terminated; no data remained only on the host."
+}

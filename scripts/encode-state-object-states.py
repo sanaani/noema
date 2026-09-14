@@ -8,6 +8,7 @@ import argparse
 import gzip
 import hashlib
 import json
+import subprocess
 import time
 from pathlib import Path
 
@@ -19,6 +20,7 @@ from noema.state_objects import atomic_json, fingerprint, state_id
 
 def gather(selected, replay_roots):
     texts = {}
+    registered = {p["id"] for p in selected["proofs"]}
     for record in selected["proofs"]:
         for state in record["states"]:
             texts[state_id(state["text"])] = state["text"]
@@ -28,7 +30,7 @@ def gather(selected, replay_roots):
                 continue
             replay = json.loads(path.read_text())
             # Failed proof attempts are archived but do not define a proved theorem object.
-            if replay.get("verified"):
+            if replay.get("verified") and replay["proof_id"] in registered:
                 for state in replay["states"]:
                     texts[state_id(state["text"])] = state["text"]
     return texts
@@ -61,6 +63,9 @@ def main():
         "numpy": np.__version__,
         "compute_type": model.compute_type,
         "device": "cuda",
+        "gpu_model": subprocess.check_output(
+            ["nvidia-smi", "--query-gpu=name", "--format=csv,noheader"], text=True
+        ).strip(),
         "dimension": 1472,
         "tokenization": "all UTF-8 bytes +3, append EOS=1; no truncation or length cap",
         "pooling": "singleton; nonpadding mean including EOS in float64; L2 normalize",
@@ -70,9 +75,22 @@ def main():
     manifest["encoder_id"] = fingerprint(manifest)
     args.output.mkdir(parents=True, exist_ok=True)
     manifest_path = args.output / "encoder.json"
-    if manifest_path.exists() and json.loads(manifest_path.read_text()) != manifest:
-        raise ValueError("incompatible encoder cache")
-    atomic_json(manifest_path, manifest)
+    if manifest_path.exists():
+        previous = json.loads(manifest_path.read_text())
+        runtime_keys = set(manifest) - {"encoder_script_sha256", "encoder_id"}
+        if any(previous.get(key) != manifest[key] for key in runtime_keys):
+            raise ValueError("incompatible encoder cache")
+        # Formatting or observer changes do not change the fixed coordinate space.
+        # Preserve its existing identity and retain the new implementation hash.
+        invocation = {
+            "encoder_id": previous["encoder_id"],
+            "script_sha256": manifest["encoder_script_sha256"],
+            "started_unix": time.time(),
+        }
+        manifest = previous
+        atomic_json(args.output / ("invocation-" + str(time.time_ns()) + ".json"), invocation)
+    else:
+        atomic_json(manifest_path, manifest)
     for folder in ("vectors", "failures", "texts"):
         (args.output / folder).mkdir(exist_ok=True)
     deadline = time.monotonic() + args.watch_seconds
@@ -84,7 +102,16 @@ def main():
         for sid, text in sorted(texts.items(), key=lambda item: (len(item[1].encode()), item[0])):
             target = args.output / "vectors" / (sid + ".npy")
             failure = args.output / "failures" / (sid + ".json")
-            if target.exists() or failure.exists():
+            if target.exists():
+                existing = np.load(target, allow_pickle=False)
+                if (
+                    existing.shape != (1472,)
+                    or not np.isfinite(existing).all()
+                    or abs(np.linalg.norm(existing) - 1) > 1e-10
+                ):
+                    raise ValueError(f"invalid existing vector checkpoint: {target}")
+                continue
+            if failure.exists():
                 continue
             atomic_json(args.output / "texts" / (sid + ".json"), {"state_id": sid, "text": text})
             ids = [value + 3 for value in text.encode("utf-8")] + [1]

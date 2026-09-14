@@ -31,4 +31,6 @@ jobs:
       - run: python scripts/verify-transfer-v2.py
       - run: python scripts/verify-transfer-confirmation.py
       - run: python scripts/verify-gpu-execution.py
+      - run: cd results/state-object-v1 && sha256sum -c SHA256SUMS
+      - run: python scripts/verify-state-object-archive.py --corpus results/state-object-v1/corpus.json.gz --analysis results/state-object-v1
       - run: noema synthetic --config configs/smoke.json --output outputs/ci-smoke

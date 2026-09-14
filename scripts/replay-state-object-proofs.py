@@ -12,11 +12,15 @@ import time
 from pathlib import Path
 
 from noema.state_objects import atomic_json, fingerprint
+from noema.state_replay import request, responses
 
 
 def replay(record, args):
     target = args.output / (record["id"] + ".json")
-    request_hash = fingerprint([record["id"], record["body"], args.environment_id])
+    request_parts = [record["id"], record["body"], args.environment_id]
+    if args.kernel_recheck:
+        request_parts.append("kernel-recheck-v2")
+    request_hash = fingerprint(request_parts)
     if target.exists():
         existing = json.loads(target.read_text())
         if existing["request_hash"] != request_hash:
@@ -25,6 +29,24 @@ def replay(record, args):
     source = record["body"]
     name = record["theorem_id"].split(":", 1)[1]
     source += f"\n#print axioms {name}\n"
+    if args.kernel_recheck:
+        audit_name = "NoemaRecheck_" + record["id"][:24]
+        source += f"""
+open Lean Elab in
+run_elab do
+  let ci ← getConstInfo ``{name}
+  match ci with
+  | .thmInfo ti =>
+    let copy : Declaration := .thmDecl {{
+      name := `{audit_name}
+      levelParams := ti.levelParams
+      type := ti.type
+      value := ti.value }}
+    addDecl copy
+    logInfo "NOEMA_KERNEL_RECHECK_OK"
+  | _ => throwError "Expected theorem constant for independent kernel recheck"
+"""
+
     command = [str(args.lean_bin / "lake"), "env", str(args.repl)]
     env = dict(os.environ, PATH=str(args.lean_bin) + ":" + os.environ["PATH"])
     started = time.time()
@@ -50,21 +72,15 @@ def replay(record, args):
         )
         try:
             stdout, stderr = proc.communicate(
-                json.dumps({"cmd": source, "allTactics": True}) + "\n\n",
+                request(source),
                 timeout=args.timeout,
             )
         except subprocess.TimeoutExpired:
             os.killpg(proc.pid, signal.SIGKILL)
             proc.communicate()
             raise
-        replies = []
-        remaining = stdout.strip()
         result["raw_stdout"] = stdout
-        decoder = json.JSONDecoder()
-        while remaining:
-            reply, end = decoder.raw_decode(remaining)
-            replies.append(reply)
-            remaining = remaining[end:].strip()
+        replies = responses(stdout)
         result.update(returncode=proc.returncode, stderr=stderr, responses=replies)
         response = replies[-1] if replies else {}
         result["states"] = [
@@ -88,14 +104,23 @@ def replay(record, args):
             if "depends on axioms" in m.get("data", "")
             or "does not depend on any axioms" in m.get("data", "")
         ]
+        kernel_rechecked = any("NOEMA_KERNEL_RECHECK_OK" in m.get("data", "") for m in messages)
+        allowed_redundant_errors = (
+            args.kernel_recheck
+            and kernel_rechecked
+            and all(m.get("data", "").strip() == "no goals to be solved" for m in errors)
+        )
+        result["independent_kernel_recheck"] = kernel_rechecked
+        result["source_compile_clean"] = not errors
         verified = (
             proc.returncode == 0
             and bool(response)
             and "message" not in response
-            and not errors
+            and (not errors or allowed_redundant_errors)
             and not response.get("sorries")
             and bool(axiom_messages)
             and not any("sorryAx" in m for m in axiom_messages)
+            and (not args.kernel_recheck or kernel_rechecked)
         )
         result["verified"] = verified
         result["trace_complete"] = (
@@ -127,6 +152,9 @@ def main():
     parser.add_argument("--mathlib", type=Path, required=True)
     parser.add_argument("--repl", type=Path, required=True)
     parser.add_argument("--environment-id", required=True)
+    parser.add_argument("--kernel-recheck", action="store_true")
+    parser.add_argument("--retry-status", nargs="*", default=[])
+    parser.add_argument("--retry-from", type=Path, nargs="*", default=[])
     parser.add_argument("--source-prefix", nargs="*", default=[])
     parser.add_argument("--workers", type=int, default=2)
     parser.add_argument("--timeout", type=int, default=90)
@@ -140,6 +168,19 @@ def main():
         and p["theorem_id"].startswith("workbook:")
         and (not args.source_prefix or p["source"].startswith(tuple(args.source_prefix)))
     ]
+    if args.retry_from:
+        failed = set()
+        complete = set()
+        for root in args.retry_from:
+            for path in root.glob("*.json"):
+                if path.name.startswith("replay-"):
+                    continue
+                attempt = json.loads(path.read_text())
+                if attempt.get("trace_complete"):
+                    complete.add(attempt["proof_id"])
+                elif not args.retry_status or attempt["status"] in args.retry_status:
+                    failed.add(attempt["proof_id"])
+        pending = [p for p in pending if p["id"] in failed - complete]
     atomic_json(
         args.output / "replay-manifest.json",
         {
