@@ -1,0 +1,3 @@
+# Install after requirements.lock and requirements-encoders.lock.
+# Author-export weights are pinned separately in noema.reprover.
+ctranslate2==4.8.2

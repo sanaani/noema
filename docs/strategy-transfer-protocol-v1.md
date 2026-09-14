@@ -28,7 +28,9 @@ Thus used-premise Jaccard is exactly 1 or exactly 0 for BOTH candidate compariso
 and available-premise overlap is always 1. Both relationship labels occur in both
 overlap strata. Transfer permits uniform operation/variable substitution.
 Independently permute the common variable names in each theorem. Leaf count,
-vocabulary, token bag and proof length are matched within each triplet. Structural
+vocabulary and proof length are matched within each triplet. Token-bag distances
+from the anchor are equal for the two candidates (the f/g arm can change the
+anchor-to-candidate bag itself). Structural
 statement features may still predict transfer; the headroom gate tests that risk.
 
 Select triplets by seeded random order, using only the symbolic eligibility rule
@@ -103,3 +105,8 @@ Proofs/states are not independent trials. Archive source, assignments, states,
 vectors, oracle checks and reproducible scoring. Any positive conclusion is
 restricted to this synthetic strategy-transfer relation and sampling budget.
 Phase 5 and full mathlib acquisition remain outside this continuation.
+
+Premeasurement clarification: Lean pretty-prints typed forall binders with
+parentheses; remove only those binder parentheses when auditing contexts.
+The token-bag requirement is equal candidate distances, not identical f/g bags.
+Neither clarification changes assignments, relationship labels, or scoring.
