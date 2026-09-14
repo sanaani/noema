@@ -1,0 +1,12 @@
+{
+  "generated_at": "2026-09-14T14:06:49.255937+00:00",
+  "python": "3.12.3",
+  "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.39",
+  "dependencies": {
+    "noema-geometry": "0.1.0",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1"
+  },
+  "git_revision": "ec6dfb1d39262f45e031dc07db9aba8ea0f2059d",
+  "git_dirty": false
+}

@@ -1,0 +1,31 @@
+{
+  "provenance": {
+    "generated_at": "2026-09-14T14:13:11.359610+00:00",
+    "python": "3.12.3",
+    "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.39",
+    "dependencies": {
+      "noema-geometry": "0.1.0",
+      "numpy": "2.5.3",
+      "scipy": "1.18.1"
+    },
+    "git_revision": "1e962da5a14fc4c965b50ce2d0ea3cbd7f3cabd3",
+    "git_dirty": false
+  },
+  "worker_source_sha256": "8d233d7aba7d0cbdaae6e069685f13769404bd1f27e28644ba636982d8c07cf1",
+  "freeze": {
+    "plan_sha256": "6ff72fb2ebdb889d6ac9bcb94fe1560a5c62c6b0bddc32e0a60335db4bb7127e",
+    "source_hashes": {
+      "transfer_v2": "67c32ee1811178f2725b70d65075272a810f80c732f46cf3b5b97ceda81f8ec8",
+      "strategy_transfer": "55836d10eec8224c1cb1bbde5d4c3e1a4b663655c293bf44aefd26746f73d1c1",
+      "associahedron": "df3bdea125d986636c5c5d7056e9f5369ea7cd2bd0099196987b4b354652d236",
+      "metrics": "a0af03d89810f673ed6a58a12b41548f1679df56025a9ccfca19c70948960ad3",
+      "encoders": "f18073b945e55eeb9070865736b452afa10285dca68a6443b5ceee54d3d3c52a",
+      "reprover": "b7fb9e6cb7ad3905bcac28430f50fb3683f297da260cd3bda1577133ff65c339",
+      "transfer_confirmation": "2010ba176d9828dcf77be759ec296f03c6c43812aaedc3894fd769bba03b1c4d",
+      "corpus": "35e4a6202ee7e9b5af8f78203fcc9c60fd4737c41bd4010467e5f9457d683145"
+    },
+    "protocol_sha256": "e5bb1a8f2d41531aded6dfd81949d6254faefd4a0e0b933ba73fd17797e46283"
+  },
+  "command": "proofs",
+  "shard": 0
+}

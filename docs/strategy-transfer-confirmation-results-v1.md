@@ -1,6 +1,6 @@
 # Fresh confirmation without a minimum gain requirement
 
-**Status: acquisition in progress.** The user rejected the ten-point requirement
+**Status: all proofs verified; encoding in progress.** The user rejected the ten-point requirement
 after the development result and directed continuation. The new primary rule
 requires exact paired-test evidence of positive added information over every
 control, with no minimum gain. The completed development measurements and the
@@ -29,8 +29,10 @@ development structural motif or evidence across mathematical domains.
 
 An independent indexed, depth-limited graph enumeration reconstructs all 1,536
 complete shortest-proof banks exactly. Literal replay validates 28,053 directed
-program-transfer attempts. The full Lean acquisition must verify all 6,144 sampled
-proofs and 30,720 intermediate states before encoding the 8,500 unique inputs.
+program-transfer attempts. The full Lean acquisition has verified all 6,144 sampled
+proofs and 30,720 intermediate states. Every context and intermediate goal
+matches the symbolic construction, with no transitive axioms or placeholders.
+Encoding of the 8,500 unique inputs has now begun.
 
 ## Sensitivity to smaller effects
 
