@@ -5,7 +5,11 @@ Exploring whether the unordered states encountered across alternative proofs for
 The starting point is the [original research plan](docs/latent_geometry_mathematical_theorems_research_plan.md), preserved byte for byte. The [implementation plan](docs/implementation-plan.md) defines the engineering checkpoints and scientific gates.
 
 The current focus is the **occupied region** of states across proofs and how
-different theorem State objects intersect and connect. The
+different theorem State objects intersect and connect. An
+[input-identity audit](docs/state-input-identity-audit-v1.md) found that identical
+printed goals can conceal different underlying states. Existing geometry therefore
+remains a measurement of printed local-goal displays, with semantic identity
+unverified. The
 [convex-hull literature review](docs/state-object-convex-hull-literature-review.md)
 examines the rubber-band definition. The
 [corrected implementation](docs/state-object-implementation-v1.md) now samples

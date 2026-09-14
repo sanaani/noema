@@ -1,0 +1,128 @@
+[
+  {
+    "proof_id": "2969b5deb499b9b3d8e1ba6eccaef923439e92d42d04af05bf7321a7c1e3c4c7",
+    "theorem_id": "workbook:lean_workbook_5091",
+    "source": "internlm--Lean-Workbook--lean_workbook.json",
+    "body": "import Mathlib\nimport Aesop\nopen BigOperators Real Nat Topology Rat\ntheorem lean_workbook_5091 (a b c : ℝ) : 8 * (a + b + c) ^ 2 ≥ 6 * (a ^ 2 + b ^ 2 + c ^ 2) + 18 * (a * b + b * c + c * a)  :=  by\n  have : 0 ≤ (a - b)^2 + (b - c)^2 + (c - a)^2 := by nlinarith\n  linarith\n",
+    "observations": [
+      {
+        "endPos": {
+          "column": 52,
+          "line": 5
+        },
+        "environment": "lean4.9.0-mathlib-f0957a7-repl-d920817-all-original-before-after",
+        "kind": "state_before",
+        "pos": {
+          "column": 50,
+          "line": 5
+        },
+        "tactic": "<failed to pretty print>",
+        "tactic_index": 5,
+        "text": "a b c : ℝ ⊢ 0 ≤ (a - b) ^ 2 + (b - c) ^ 2 + (c - a) ^ 2",
+        "trace_event": 10,
+        "trace_id": "737022536e9b4c11b371519c79a4e7e96ba9cf7507d6808bb1bf7d1ee7887c50"
+      },
+      {
+        "endPos": {
+          "column": 62,
+          "line": 5
+        },
+        "environment": "lean4.9.0-mathlib-f0957a7-repl-d920817-all-original-before-after",
+        "kind": "state_before",
+        "pos": {
+          "column": 53,
+          "line": 5
+        },
+        "tactic": "nlinarith",
+        "tactic_index": 6,
+        "text": "a b c : ℝ ⊢ 0 ≤ (a - b) ^ 2 + (b - c) ^ 2 + (c - a) ^ 2",
+        "trace_event": 12,
+        "trace_id": "737022536e9b4c11b371519c79a4e7e96ba9cf7507d6808bb1bf7d1ee7887c50"
+      }
+    ]
+  },
+  {
+    "proof_id": "8b843779651347925b98fa5893df5704801429512ab336802cc6c7ea5e93ba5f",
+    "theorem_id": "workbook:lean_workbook_plus_9114",
+    "source": "internlm--Lean-Workbook--lean_workbook.json",
+    "body": "import Mathlib\nimport Aesop\nopen BigOperators Real Nat Topology Rat\ntheorem lean_workbook_plus_9114 (a b c : ℝ) : (a + b + c) ^ 2 ≥ 3 * (a * b + b * c + c * a)   :=  by\n  have h : 0 ≤ (a - b)^2 + (b - c)^2 + (c - a)^2 := by nlinarith\n  linarith\n",
+    "observations": [
+      {
+        "endPos": {
+          "column": 54,
+          "line": 5
+        },
+        "environment": "lean4.9.0-mathlib-f0957a7-repl-d920817-all-original-before-after",
+        "kind": "state_before",
+        "pos": {
+          "column": 52,
+          "line": 5
+        },
+        "tactic": "<failed to pretty print>",
+        "tactic_index": 5,
+        "text": "a b c : ℝ ⊢ 0 ≤ (a - b) ^ 2 + (b - c) ^ 2 + (c - a) ^ 2",
+        "trace_event": 10,
+        "trace_id": "d7a6e388e637fbee3b2232f87d97ff4c73649bef9f84bda800e2629ede1d2ba2"
+      },
+      {
+        "endPos": {
+          "column": 64,
+          "line": 5
+        },
+        "environment": "lean4.9.0-mathlib-f0957a7-repl-d920817-all-original-before-after",
+        "kind": "state_before",
+        "pos": {
+          "column": 55,
+          "line": 5
+        },
+        "tactic": "nlinarith",
+        "tactic_index": 6,
+        "text": "a b c : ℝ ⊢ 0 ≤ (a - b) ^ 2 + (b - c) ^ 2 + (c - a) ^ 2",
+        "trace_event": 12,
+        "trace_id": "d7a6e388e637fbee3b2232f87d97ff4c73649bef9f84bda800e2629ede1d2ba2"
+      }
+    ]
+  },
+  {
+    "proof_id": "96f4d23c20c9e603d83c71c996ad5d8f66523ad45baa26abdbe7c22b1f4bdae8",
+    "theorem_id": "workbook:lean_workbook_5091",
+    "source": "internlm--Lean-Workbook--lean_workbook.json",
+    "body": "import Mathlib\nimport Aesop\nopen BigOperators Real Nat Topology Rat\ntheorem lean_workbook_5091 (a b c : ℝ) : 8 * (a + b + c) ^ 2 ≥ 6 * (a ^ 2 + b ^ 2 + c ^ 2) + 18 * (a * b + b * c + c * a)  :=  by\n  have : 0 ≤ (a - b) ^ 2 + (b - c) ^ 2 + (c - a) ^ 2 := by nlinarith\n  linarith\n",
+    "observations": [
+      {
+        "endPos": {
+          "column": 58,
+          "line": 5
+        },
+        "environment": "lean4.9.0-mathlib-f0957a7-repl-d920817-all-original-before-after",
+        "kind": "state_before",
+        "pos": {
+          "column": 56,
+          "line": 5
+        },
+        "tactic": "<failed to pretty print>",
+        "tactic_index": 5,
+        "text": "a b c : ℝ ⊢ 0 ≤ (a - b) ^ 2 + (b - c) ^ 2 + (c - a) ^ 2",
+        "trace_event": 10,
+        "trace_id": "5d4714ee14f84a5a530661933b0463404784d91fd6c67f3e7db3da77d25947a8"
+      },
+      {
+        "endPos": {
+          "column": 68,
+          "line": 5
+        },
+        "environment": "lean4.9.0-mathlib-f0957a7-repl-d920817-all-original-before-after",
+        "kind": "state_before",
+        "pos": {
+          "column": 59,
+          "line": 5
+        },
+        "tactic": "nlinarith",
+        "tactic_index": 6,
+        "text": "a b c : ℝ ⊢ 0 ≤ (a - b) ^ 2 + (b - c) ^ 2 + (c - a) ^ 2",
+        "trace_event": 12,
+        "trace_id": "5d4714ee14f84a5a530661933b0463404784d91fd6c67f3e7db3da77d25947a8"
+      }
+    ]
+  }
+]

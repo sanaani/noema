@@ -1,0 +1,13 @@
+{
+  "download_url": "https://github.com/leanprover/lean4/releases/download/v4.9.0/lean-4.9.0-linux.tar.zst",
+  "archive_sha256": "60047efb365dd75c3fade9b54539909479ca35886f0b4c86c1c2d2dfe90342ba",
+  "lean_executable_sha256": "c2059c8da4034467e5f391cfd07b81c4a7b32a7e04ff7e50c7c385993cd77010",
+  "version": "Lean (version 4.9.0, x86_64-unknown-linux-gnu, commit 8f9843a4a5fe, Release)",
+  "gpu_used": false,
+  "mathlib_used_for_counterexamples": false,
+  "source_files": {
+    "src/lean/Lean/Meta/PPGoal.lean": "c4615ea4be047708bf0ada5bbbdb992fba95d8b0ccf87c2e09a1988367de437b",
+    "src/lean/Lean/PrettyPrinter/Delaborator/Options.lean": "3540f4aa8b9ce8317af70a61b6d57e94fd03160313ebd96f87387a963d5c4d0b",
+    "src/lean/Lean/Elab/InfoTree/Main.lean": "45dcdc124feb4b19895e595742b94e0a3ce46ef5c63243211e24a6e1be05efc8"
+  }
+}

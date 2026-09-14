@@ -1,0 +1,80 @@
+{
+  "verdict": "printed_text_is_not_a_validated_mathematical_state_identity",
+  "record_count": 26820,
+  "unique_record_ids": 26820,
+  "unique_input_texts": 3659,
+  "repeated_input_groups": 2768,
+  "terminal_text_records": 8909,
+  "empty_active_goals_does_not_establish_whole_proof_completion": true,
+  "text_reuse_accounting": [
+    {
+      "stage": "recorded_states",
+      "count": 26820
+    },
+    {
+      "stage": "distinct_text_within_each_trace",
+      "count": 7557
+    },
+    {
+      "stage": "distinct_text_within_each_proof_record",
+      "count": 7022
+    },
+    {
+      "stage": "distinct_text_within_each_theorem",
+      "count": 3914
+    },
+    {
+      "stage": "distinct_text_globally",
+      "count": 3659
+    }
+  ],
+  "successive_text_reuse_reductions": [
+    {
+      "from": "recorded_states",
+      "to": "distinct_text_within_each_trace",
+      "fewer_entries": 19263
+    },
+    {
+      "from": "distinct_text_within_each_trace",
+      "to": "distinct_text_within_each_proof_record",
+      "fewer_entries": 535
+    },
+    {
+      "from": "distinct_text_within_each_proof_record",
+      "to": "distinct_text_within_each_theorem",
+      "fewer_entries": 3108
+    },
+    {
+      "from": "distinct_text_within_each_theorem",
+      "to": "distinct_text_globally",
+      "fewer_entries": 255
+    }
+  ],
+  "reduction_counts_are_not_counts_of_proven_semantic_duplicates": true,
+  "elided_unique_inputs": 33,
+  "elided_records": 128,
+  "elision_affected_theorems": [
+    "mathlib:AlgebraicGeometry.Scheme.ofRestrict_appLE",
+    "mathlib:CochainComplex.HomComplex.Cochain.leftShift_v",
+    "mathlib:LinearIsometryEquiv.coe_coe",
+    "mathlib:Matrix.SpecialLinearGroup.SL2_inv_expl",
+    "mathlib:TopCat.Presheaf.app_injective_of_stalkFunctor_map_injective"
+  ],
+  "nonterminal_inputs_across_theorems": 1,
+  "nonterminal_inputs_across_environment_labels": 744,
+  "nonterminal_inputs_with_multiple_theorem_expression_variants": 264,
+  "kernel_goal_expression_records": 0,
+  "known_semantically_incorrect_merge_count": null,
+  "unknown_count_reason": "Archive retains printed goals and provenance, not internal goal/context/environment snapshots.",
+  "hiding_may_be_proof_irrelevant": true,
+  "environment_labels_are_not_certified_environment_fingerprints": true,
+  "kind_counts": {
+    "state_before": 13535,
+    "state_after": 13285
+  },
+  "unique_coordinate_arrays": 3659,
+  "expanded_vector_references": 26820,
+  "all_expanded_generating_sets_match_archived_objects": true,
+  "cache_sha256_checks_pass": true,
+  "point_contact_pairs_with_only_terminal_shared_text": 32384
+}

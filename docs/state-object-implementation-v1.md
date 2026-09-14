@@ -1,5 +1,12 @@
 # Corrected State-object implementation and first acquisition
 
+> **Interpretation corrected after the input-identity audit:** the coordinates
+> represent printed local-goal displays, not verified complete mathematical state
+> identities. Identical displays can hide different underlying information;
+> `no goals` can describe a finished subtask while other proof work remains.
+> See [the audit and controlled Lean counterexamples](state-input-identity-audit-v1.md).
+> The numerical archive below is preserved; its semantic interpretation is provisional.
+
 The corrected implementation is complete, and the first acquisition and geometry
 pass ran on September 14, 2026. It samples **theorems**, includes every proof record
 found in the enumerated sources for each selected identity, and retains every

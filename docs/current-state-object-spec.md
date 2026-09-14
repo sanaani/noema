@@ -37,7 +37,13 @@ Workbook; its pinned source inventory and acquisition status are recorded in
    including local contexts and outstanding goals. Preserve initial and terminal
    records and any extraction failures explicitly. Tactic-level extraction does
    not expose every internal operation of an automated tactic; report that limit.
-2. Encode each state with the same fixed encoder and serialization. Preserve the
+2. Preserve separate provenance-based identities for every recorded state. A hash
+   of printed text identifies an encoder input, not a mathematical state. The
+   [input-identity audit](state-input-identity-audit-v1.md) demonstrated this
+   distinction in Lean4.9. Capture structured goal/context/environment information
+   and distinguish local focused obligations from complete proof states before
+   asserting semantic identity from a new acquisition.
+   Encode each state with the same fixed encoder and serialization. Preserve the
    original state text and its theorem/proof associations. Cache repeated identical
    inputs without losing their occurrence records. Do not mix coordinate spaces
    from different encoders or silently substitute truncated states.
