@@ -1,5 +1,13 @@
 # Recovery checkpoint: convex hull investigation
 
+**Latest scope correction:** read [the current specification](current-state-object-spec.md)
+before resuming. The user explicitly rejected the proposed audit of eight-state
+objects as a substitute for their objective. Sample theorems, then include every
+known proof and every extractable intermediate state for each selected theorem.
+Investigate geometry and mathematical relationships; no model training or
+prediction task is the current goal. The earlier proposed eight-state audit below
+is historical and superseded. A new source/coverage inventory is still required.
+
 Updated 2026-09-14. The user authorized a small investigation of the "rubber band"
 definition of a State object: the convex hull of embedded proof states. They
 also explicitly requested crash recovery and preservation of completed compute.
