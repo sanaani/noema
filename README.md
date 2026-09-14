@@ -4,7 +4,16 @@ Exploring whether the unordered states encountered across alternative proofs for
 
 The starting point is the [original research plan](docs/latent_geometry_mathematical_theorems_research_plan.md), preserved byte for byte. The [implementation plan](docs/implementation-plan.md) defines the engineering checkpoints and scientific gates.
 
-The latest continuation addresses a task-design failure in the earlier study.
+The current focus is the **occupied region** of states across proofs and how
+different theorem State objects intersect and connect. The
+[convex-hull literature review](docs/state-object-convex-hull-literature-review.md)
+examines the rubber-band definition and proposes a small geometry audit. That
+audit has not started. The earlier eight-vector energy-distance experiment did
+not construct an occupied region or test its topology; its results do not settle
+this objective. Completed compute and the corrected scope are documented in the
+[recovery checkpoint](docs/convex-hull-investigation-status.md).
+
+The completed strategy-transfer continuation addressed a task-design failure in the earlier study.
 An [adversarial analysis](docs/adversarial-centroid-results-v1.md) verifies that
 invariant premise text is sufficient for the old centroid's perfect score;
 all 12 contexts are also constructively equivalent in Lean. That ceiling was
@@ -23,9 +32,9 @@ no minimum-gain requirement. All 6,144 sampled proofs and 30,720 intermediate
 states passed Lean verification.
 
 The **[completed 512-triplet study](docs/gpu-execution-results-v1.md)** has baseline
-headroom, but shows no State object added-information advantage: ReProver State object accuracy
+headroom, but shows no advantage for its sampled-state energy-distance predictor: its accuracy
 is **53.91%**, versus **54.49%** for its centroid (paired gain **-0.59 points**,
-marginal bootstrap 95% interval **[-2.54, +1.37]**). None of the three State object arms
+marginal bootstrap 95% interval **[-2.54, +1.37]**). None of the three sampled-state arms
 exceeds its corresponding centroid. Tactic histograms and complete-program
 comparisons score 82.03% and 92.19%; the latter sees more proof information.
 

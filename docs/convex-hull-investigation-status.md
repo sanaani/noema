@@ -61,15 +61,29 @@ after collecting states from many more proofs. Each convex hull is connected and
 has no holes by construction; this definition can test between-object overlap,
 but cannot discover internal holes or disconnected components of one object.
 
-Current work: a cited literature review in
-`docs/state-object-convex-hull-literature-review.md` (being prepared), covering
+Completed: a cited literature review in
+`docs/state-object-convex-hull-literature-review.md`, covering
 conceptual spaces, formal-proof representations, convex geometric semantics,
 convex separation and the nerve theorem. Preserve historical protocols and
 numerical arrays. Do not silently resume the previously proposed experiment
-before completing and reporting this review.
+before reporting this review. The proposed geometry audit remains unimplemented
+and unrun; no new encoding, hull analysis or paid compute occurred.
+
+The review contains 17 references, including the original plan's mathematical
+representation papers, conceptual spaces, convex ontology semantics, SVM convex
+separation, the nerve theorem, and a June 2026 axiom-dependence preprint. It
+includes elementary derivations of the sparse-sample dimension bound, normalized
+unit-vector containment obstruction, projection asymmetry, and monotone hull
+growth. These are mathematical deductions, not new measured corpus results.
+
+The main README and the strategy-transfer report now explicitly distinguish the
+previous finite-sample predictor from the intended occupied-region objective.
+Historical protocols, archived scores and embeddings remain unchanged.
 
 Recovery verified directly: `git ls-remote origin refs/heads/main` returned the
 completed-work commit above, and the 92 MiB GPU archive's SHA256 matched the
 recorded value. The checkpoint below supplements the older local note at
 `outputs/ACTIVE_CONFIRMATION.md`; this document takes precedence on scope and
-terminology.
+terminology. The first recovery-note commit, `59d5e85`, was pushed and its CI run
+`34889214311` passed. The literature review and scope clarification are the next
+documentation checkpoint.

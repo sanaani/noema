@@ -1,5 +1,14 @@
 # Strategy-transfer result: no demonstrated State object advantage
 
+Scope clarification, September 14, 2026: the experiment below compared finite
+samples of eight state vectors using energy distance. It did not construct an
+occupied region or test intersections or topology. The intended State object is
+such a region across alternative proofs. Accordingly, the numerical result is
+about the sampled-state transfer predictor, not a test of that region-based
+objective. The historical terminology and numerical account below are retained;
+the [convex-hull literature review](state-object-convex-hull-literature-review.md)
+sets out the corrected question. No convex-hull experiment has been run.
+
 The completed 512-triplet study does not show added information from the
 ReProver State object over the registered cheap controls. State object accuracy is
 276/512 (53.91%), versus 279/512 (54.49%) for its centroid. The paired difference
