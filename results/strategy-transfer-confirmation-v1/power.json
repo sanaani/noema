@@ -1,0 +1,461 @@
+{
+  "provenance": {
+    "generated_at": "2026-09-14T14:05:21.828909+00:00",
+    "python": "3.12.3",
+    "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.39",
+    "dependencies": {
+      "noema-geometry": "0.1.0",
+      "numpy": "2.5.3",
+      "scipy": "1.18.1"
+    },
+    "git_revision": "30337a32bfca896b34f0c5d6e75587872a047f4d",
+    "git_dirty": false
+  },
+  "source_hashes": {
+    "transfer_v2": "67c32ee1811178f2725b70d65075272a810f80c732f46cf3b5b97ceda81f8ec8",
+    "strategy_transfer": "55836d10eec8224c1cb1bbde5d4c3e1a4b663655c293bf44aefd26746f73d1c1",
+    "associahedron": "df3bdea125d986636c5c5d7056e9f5369ea7cd2bd0099196987b4b354652d236",
+    "metrics": "a0af03d89810f673ed6a58a12b41548f1679df56025a9ccfca19c70948960ad3",
+    "encoders": "f18073b945e55eeb9070865736b452afa10285dca68a6443b5ceee54d3d3c52a",
+    "reprover": "b7fb9e6cb7ad3905bcac28430f50fb3683f297da260cd3bda1577133ff65c339",
+    "transfer_confirmation": "2010ba176d9828dcf77be759ec296f03c6c43812aaedc3894fd769bba03b1c4d",
+    "corpus": "35e4a6202ee7e9b5af8f78203fcc9c60fd4737c41bd4010467e5f9457d683145"
+  },
+  "method": "exact conditional binomial rejection averaged over discordant count",
+  "interpretation": "individual paired-test power, not joint nine-control power",
+  "acquisition_n": 512,
+  "rows": [
+    {
+      "n": 512,
+      "gain": 0.0,
+      "discordance": 0.05,
+      "power": 0.033982451501215274
+    },
+    {
+      "n": 512,
+      "gain": 0.0,
+      "discordance": 0.1,
+      "power": 0.0378279107644386
+    },
+    {
+      "n": 512,
+      "gain": 0.0,
+      "discordance": 0.2,
+      "power": 0.040475075101432736
+    },
+    {
+      "n": 512,
+      "gain": 0.0,
+      "discordance": 0.35,
+      "power": 0.04299091447338883
+    },
+    {
+      "n": 512,
+      "gain": 0.01,
+      "discordance": 0.05,
+      "power": 0.20707485484895952
+    },
+    {
+      "n": 512,
+      "gain": 0.01,
+      "discordance": 0.1,
+      "power": 0.14386554090905157
+    },
+    {
+      "n": 512,
+      "gain": 0.01,
+      "discordance": 0.2,
+      "power": 0.10746334810414696
+    },
+    {
+      "n": 512,
+      "gain": 0.01,
+      "discordance": 0.35,
+      "power": 0.0909448783443931
+    },
+    {
+      "n": 512,
+      "gain": 0.012,
+      "discordance": 0.05,
+      "power": 0.2703109202024563
+    },
+    {
+      "n": 512,
+      "gain": 0.012,
+      "discordance": 0.1,
+      "power": 0.17882055851008677
+    },
+    {
+      "n": 512,
+      "gain": 0.012,
+      "discordance": 0.2,
+      "power": 0.12734749722662458
+    },
+    {
+      "n": 512,
+      "gain": 0.012,
+      "discordance": 0.35,
+      "power": 0.10410035057614278
+    },
+    {
+      "n": 512,
+      "gain": 0.02,
+      "discordance": 0.05,
+      "power": 0.5900054242695123
+    },
+    {
+      "n": 512,
+      "gain": 0.02,
+      "discordance": 0.1,
+      "power": 0.3656680925281883
+    },
+    {
+      "n": 512,
+      "gain": 0.02,
+      "discordance": 0.2,
+      "power": 0.2314935977054428
+    },
+    {
+      "n": 512,
+      "gain": 0.02,
+      "discordance": 0.35,
+      "power": 0.17038693587774723
+    },
+    {
+      "n": 512,
+      "gain": 0.03,
+      "discordance": 0.05,
+      "power": 0.912943597295875
+    },
+    {
+      "n": 512,
+      "gain": 0.03,
+      "discordance": 0.1,
+      "power": 0.6515015256921315
+    },
+    {
+      "n": 512,
+      "gain": 0.03,
+      "discordance": 0.2,
+      "power": 0.41081410626868076
+    },
+    {
+      "n": 512,
+      "gain": 0.03,
+      "discordance": 0.35,
+      "power": 0.28444001865672264
+    },
+    {
+      "n": 512,
+      "gain": 0.05,
+      "discordance": 0.05,
+      "power": 0.999999900363876
+    },
+    {
+      "n": 512,
+      "gain": 0.05,
+      "discordance": 0.1,
+      "power": 0.9730705003818065
+    },
+    {
+      "n": 512,
+      "gain": 0.05,
+      "discordance": 0.2,
+      "power": 0.7891137643630466
+    },
+    {
+      "n": 512,
+      "gain": 0.05,
+      "discordance": 0.35,
+      "power": 0.5789892456333882
+    },
+    {
+      "n": 1024,
+      "gain": 0.0,
+      "discordance": 0.05,
+      "power": 0.03782491822084665
+    },
+    {
+      "n": 1024,
+      "gain": 0.0,
+      "discordance": 0.1,
+      "power": 0.04047046404435824
+    },
+    {
+      "n": 1024,
+      "gain": 0.0,
+      "discordance": 0.2,
+      "power": 0.04331296154361247
+    },
+    {
+      "n": 1024,
+      "gain": 0.0,
+      "discordance": 0.35,
+      "power": 0.044714429054864085
+    },
+    {
+      "n": 1024,
+      "gain": 0.01,
+      "discordance": 0.05,
+      "power": 0.3656231069072812
+    },
+    {
+      "n": 1024,
+      "gain": 0.01,
+      "discordance": 0.1,
+      "power": 0.2314732563301159
+    },
+    {
+      "n": 1024,
+      "gain": 0.01,
+      "discordance": 0.2,
+      "power": 0.15903430715225986
+    },
+    {
+      "n": 1024,
+      "gain": 0.01,
+      "discordance": 0.35,
+      "power": 0.12347447482492288
+    },
+    {
+      "n": 1024,
+      "gain": 0.012,
+      "discordance": 0.05,
+      "power": 0.47908602413746687
+    },
+    {
+      "n": 1024,
+      "gain": 0.012,
+      "discordance": 0.1,
+      "power": 0.297718065142754
+    },
+    {
+      "n": 1024,
+      "gain": 0.012,
+      "discordance": 0.2,
+      "power": 0.1961976088547348
+    },
+    {
+      "n": 1024,
+      "gain": 0.012,
+      "discordance": 0.35,
+      "power": 0.14694415691248547
+    },
+    {
+      "n": 1024,
+      "gain": 0.02,
+      "discordance": 0.05,
+      "power": 0.8731293793541646
+    },
+    {
+      "n": 1024,
+      "gain": 0.02,
+      "discordance": 0.1,
+      "power": 0.6125898497999072
+    },
+    {
+      "n": 1024,
+      "gain": 0.02,
+      "discordance": 0.2,
+      "power": 0.38906762481852053
+    },
+    {
+      "n": 1024,
+      "gain": 0.02,
+      "discordance": 0.35,
+      "power": 0.2687033457616308
+    },
+    {
+      "n": 1024,
+      "gain": 0.03,
+      "discordance": 0.05,
+      "power": 0.9970392591111912
+    },
+    {
+      "n": 1024,
+      "gain": 0.03,
+      "discordance": 0.1,
+      "power": 0.9072999988353916
+    },
+    {
+      "n": 1024,
+      "gain": 0.03,
+      "discordance": 0.2,
+      "power": 0.6693923143866758
+    },
+    {
+      "n": 1024,
+      "gain": 0.03,
+      "discordance": 0.35,
+      "power": 0.470183064527282
+    },
+    {
+      "n": 1024,
+      "gain": 0.05,
+      "discordance": 0.05,
+      "power": 1.0000000000000009
+    },
+    {
+      "n": 1024,
+      "gain": 0.05,
+      "discordance": 0.1,
+      "power": 0.9997707744853277
+    },
+    {
+      "n": 1024,
+      "gain": 0.05,
+      "discordance": 0.2,
+      "power": 0.9709648192492831
+    },
+    {
+      "n": 1024,
+      "gain": 0.05,
+      "discordance": 0.35,
+      "power": 0.8445940578399953
+    },
+    {
+      "n": 2048,
+      "gain": 0.0,
+      "discordance": 0.05,
+      "power": 0.040468342227563486
+    },
+    {
+      "n": 2048,
+      "gain": 0.0,
+      "discordance": 0.1,
+      "power": 0.04331359364058959
+    },
+    {
+      "n": 2048,
+      "gain": 0.0,
+      "discordance": 0.2,
+      "power": 0.0451908031233318
+    },
+    {
+      "n": 2048,
+      "gain": 0.0,
+      "discordance": 0.35,
+      "power": 0.04629871308497453
+    },
+    {
+      "n": 2048,
+      "gain": 0.01,
+      "discordance": 0.05,
+      "power": 0.6125012673799194
+    },
+    {
+      "n": 2048,
+      "gain": 0.01,
+      "discordance": 0.1,
+      "power": 0.3890506751344982
+    },
+    {
+      "n": 2048,
+      "gain": 0.01,
+      "discordance": 0.2,
+      "power": 0.24774038975922202
+    },
+    {
+      "n": 2048,
+      "gain": 0.01,
+      "discordance": 0.35,
+      "power": 0.1795596721857085
+    },
+    {
+      "n": 2048,
+      "gain": 0.012,
+      "discordance": 0.05,
+      "power": 0.7574622327526932
+    },
+    {
+      "n": 2048,
+      "gain": 0.012,
+      "discordance": 0.1,
+      "power": 0.5022556510742124
+    },
+    {
+      "n": 2048,
+      "gain": 0.012,
+      "discordance": 0.2,
+      "power": 0.3159498738509331
+    },
+    {
+      "n": 2048,
+      "gain": 0.012,
+      "discordance": 0.35,
+      "power": 0.2224247821032624
+    },
+    {
+      "n": 2048,
+      "gain": 0.02,
+      "discordance": 0.05,
+      "power": 0.9915533002874193
+    },
+    {
+      "n": 2048,
+      "gain": 0.02,
+      "discordance": 0.1,
+      "power": 0.8774811145397522
+    },
+    {
+      "n": 2048,
+      "gain": 0.02,
+      "discordance": 0.2,
+      "power": 0.6302471255577273
+    },
+    {
+      "n": 2048,
+      "gain": 0.02,
+      "discordance": 0.35,
+      "power": 0.4397417295093686
+    },
+    {
+      "n": 2048,
+      "gain": 0.03,
+      "discordance": 0.05,
+      "power": 0.9999984893170597
+    },
+    {
+      "n": 2048,
+      "gain": 0.03,
+      "discordance": 0.1,
+      "power": 0.9957642446978056
+    },
+    {
+      "n": 2048,
+      "gain": 0.03,
+      "discordance": 0.2,
+      "power": 0.9117045481746819
+    },
+    {
+      "n": 2048,
+      "gain": 0.03,
+      "discordance": 0.35,
+      "power": 0.7307379055863048
+    },
+    {
+      "n": 2048,
+      "gain": 0.05,
+      "discordance": 0.05,
+      "power": 1.0
+    },
+    {
+      "n": 2048,
+      "gain": 0.05,
+      "discordance": 0.1,
+      "power": 0.9999999946934123
+    },
+    {
+      "n": 2048,
+      "gain": 0.05,
+      "discordance": 0.2,
+      "power": 0.9996787154489852
+    },
+    {
+      "n": 2048,
+      "gain": 0.05,
+      "discordance": 0.35,
+      "power": 0.9844088532921976
+    }
+  ]
+}
