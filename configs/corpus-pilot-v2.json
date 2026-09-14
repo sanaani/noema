@@ -1,0 +1,8 @@
+{
+  "seed": 91827,
+  "theorems": 24,
+  "backward_attempts": 8192,
+  "forward_width": 512,
+  "minimum_theorems": 12,
+  "purpose": "nongeometric common-support and candidate-yield assessment; no accepted proofs"
+}
