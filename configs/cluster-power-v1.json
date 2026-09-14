@@ -1,0 +1,11 @@
+{
+  "seed": 728195,
+  "proof_counts": [8, 16, 32, 64],
+  "states_per_proof": [2, 4],
+  "dimensions": [256, 384],
+  "noise_levels": [0.02, 0.15],
+  "effects": [0.5, 1.0],
+  "repeats": 100,
+  "permutations": 999,
+  "within_proof_noise": 0.10
+}
