@@ -53,6 +53,14 @@ the development mean of 1.19 points. Neither a nonsignificant outcome nor the
 original larger-effect power analysis would establish absence of a small gain.
 Effect estimates and marginal triplet-bootstrap intervals are required outputs.
 
+![Exact power for smaller effects](../results/strategy-transfer-confirmation-v1/figures/small-effect-power.png)
+
+"Exact" refers to the conditional binomial calculation. Inferential interpretation
+still assumes triplets act as independent sampling units. Program disjointness
+removes direct reuse within confirmation, but does not establish independence of
+all shared structural features. Bootstrap intervals share this sampling-unit
+assumption and describe the bounded synthetic task.
+
 ## Acquisition and reproducibility
 
 The initial sequential acquisition was paused using its successful triplet

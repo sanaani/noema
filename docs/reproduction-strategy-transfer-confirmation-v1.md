@@ -43,6 +43,18 @@ python scripts/confirmation-acquisition-worker.py proofs \
 The two workers own disjoint even/odd triplets. Repeat a command after an
 interruption; completed proof checkpoints are retained. Once both finish:
 
+The remaining stages can be automated while those workers run:
+
+```bash
+python scripts/finish-confirmation-acquisition.py \
+  --plan outputs/my-confirmation-plan.json --run outputs/my-confirmation
+```
+
+This waits for both proof-completion records, validates the full proof summary,
+runs the two encoder workers, merges complete caches and resumes the frozen
+analysis. Its separate encoder logs are written beside the run directory.
+The equivalent manual steps follow, beginning after both proof workers finish:
+
 ```bash
 python scripts/confirmation-acquisition-worker.py proof-summary \
   --plan outputs/my-confirmation-plan.json --run outputs/my-confirmation
