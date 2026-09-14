@@ -30,8 +30,8 @@ def main():
     ax.invert_yaxis()
     ax.axvline(0, color="#ad4713", linestyle="--", linewidth=1)
     ax.set(
-        xlabel="ReProver cloud minus control accuracy (percentage points)",
-        title="GPU check: 512 triplets, paired gains and marginal 95% intervals",
+        xlabel="ReProver State object minus control accuracy (percentage points)",
+        title="Strategy transfer: 512 triplets, paired gains and marginal 95% intervals",
     )
     ax.grid(axis="x", alpha=0.2)
     fig.tight_layout()

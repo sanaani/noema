@@ -8,7 +8,7 @@ The latest continuation addresses a task-design failure in the earlier study.
 An [adversarial analysis](docs/adversarial-centroid-results-v1.md) verifies that
 invariant premise text is sufficient for the old centroid's perfect score;
 all 12 contexts are also constructively equivalent in Lean. That ceiling was
-not an informative test of cloud added information.
+not an informative test of State object added information.
 
 The first strategy-transfer screen failed its task and budget gates. A fresh
 [structurally matched experiment](docs/strategy-transfer-protocol-v2.md) now passes
@@ -16,16 +16,16 @@ both: all nine baseline upper accuracy bounds are below 71.2%, and simulated
 power qualifies a 512-triplet confirmation budget. Premise overlap and both
 source and target statement-structure distances are matched exactly by design.
 
-The eight-leaf development cloud initially exceeded its centroid, but failed the
+The eight-leaf development State object initially exceeded its centroid, but failed the
 original ten-point continuation rule. The user removed that arbitrary margin,
 and a fresh 512-triplet, nine-leaf study was acquired with exact matching and
 no minimum-gain requirement. All 6,144 sampled proofs and 30,720 intermediate
 states passed Lean verification.
 
 The **[completed 512-triplet study](docs/gpu-execution-results-v1.md)** has baseline
-headroom, but shows no cloud added-information advantage: ReProver cloud accuracy
+headroom, but shows no State object added-information advantage: ReProver State object accuracy
 is **53.91%**, versus **54.49%** for its centroid (paired gain **-0.59 points**,
-marginal bootstrap 95% interval **[-2.54, +1.37]**). None of the three cloud arms
+marginal bootstrap 95% interval **[-2.54, +1.37]**). None of the three State object arms
 exceeds its corresponding centroid. Tactic histograms and complete-program
 comparisons score 82.03% and 92.19%; the latter sees more proof information.
 
@@ -40,7 +40,7 @@ The [GPU archive](results/gpu-execution-check-v1/README.md) reproduces every sco
 paired test, interval and supplemental control without a GPU or model download.
 The earlier 99-test suite, two scheduler tests and three new device tests pass.
 The [development result](docs/strategy-transfer-results-v2.md) remains intact;
-the [first screen](docs/strategy-transfer-results-v1.md) stays closed with clouds
+the [first screen](docs/strategy-transfer-results-v1.md) stays closed with State objects
 unscored. No old-corpus pair mining, Phase 5, or full mathlib acquisition occurred.
 The broader conjecture remains unresolved.
 
@@ -70,7 +70,7 @@ OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 noema synthetic \
 
 Each run creates `report.json` with all trial statistics and provenance, and `report.md` with readable tables. The output directory must be new. The seed controls every sample, projection, and permutation; timestamps and platform metadata naturally differ across reruns. Dependency pins make the reference environment reproducible. BLAS thread limits avoid overhead on these small matrix operations.
 
-The smoke configuration runs 336 comparisons across seven scenarios, two sample sizes, and two dimensions. It checks independent same-shape samples, partial overlap, separated populations, multimodality, holes, and branches. Each comparison uses equal-size clouds. A shared isometric map embeds the two latent dimensions into the ambient space; noise is added per ambient coordinate. This is a controlled low-intrinsic-dimensional benchmark, not a model of all proof-state distributions.
+The smoke configuration runs 336 comparisons across seven scenarios, two sample sizes, and two dimensions. It checks independent same-shape samples, partial overlap, separated populations, multimodality, holes, and branches. Each comparison uses equal-size State objects. A shared isometric map embeds the two latent dimensions into the ambient space; noise is added per ambient coordinate. This is a controlled low-intrinsic-dimensional benchmark, not a model of all proof-state distributions.
 
 For a larger exploratory sweep across dimensions and noise levels:
 
@@ -89,7 +89,7 @@ The pilot makes 2,520 comparisons and costs substantially more than the smoke ru
 | Energy V-statistic | Qualified primary metric for the revised matched experiment |
 | Sliced Wasserstein-1 | Average exact transport along random 1D projections |
 | Symmetric radius coverage | Local proximity diagnostic; larger means more coverage |
-| Centroid distance | Baseline exposing information lost by collapsing a cloud to its mean |
+| Centroid distance | Baseline exposing information lost by collapsing a State object to its mean |
 
 MMD uses the nonnegative biased estimator and a bandwidth computed without labels from the pooled points. The original study tests MMD; the revised proof-cluster calibration tests MMD and energy, and its frozen formal continuation selects energy. P-values include the Monte Carlo correction and undergo Benjamini–Hochberg adjustment across each complete primary family. The new synthetic calibration permutes whole proof blocks. Formal comparisons use whole-theorem label permutations and theorem-cluster uncertainty because states within one proof are correlated.
 

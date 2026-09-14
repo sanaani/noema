@@ -1,30 +1,43 @@
-# Strategy-transfer result: no demonstrated cloud advantage
+# Strategy-transfer result: no demonstrated State object advantage
 
 The completed 512-triplet study does not show added information from the
-ReProver proof cloud over the registered cheap controls. Cloud accuracy is
+ReProver State object over the registered cheap controls. State object accuracy is
 276/512 (53.91%), versus 279/512 (54.49%) for its centroid. The paired difference
 is -0.59 percentage points, with a marginal bootstrap 95% interval of
 [-2.54, +1.37] points. No ten-point improvement requirement is applied.
+
+Here the **State object** is the proposed theorem-level representation \(X_T\):
+an unordered collection of embedded proof states. This implementation samples
+two states from each of four proofs. Each ReProver state vector has 1,472
+numerical coordinates, giving a State object of eight such vectors per theorem.
+
+Accuracy refers to a specific prediction. Each trial supplies an anchor theorem
+A and two candidate theorems, B and C. Comparing their State objects with energy
+distance selects the candidate expected to have the better verified mutual
+proof-strategy transfer relationship with A. The State object comparison selects
+the correct candidate in 276 of the 512 trials. The centroid comparison averages
+the same eight elements before selecting a candidate and succeeds in 279 trials.
 
 All nine cheap controls have meaningful headroom: the largest one-sided exact
 95% upper accuracy bound is 63.76%, well below the .90 diagnostic ceiling.
 This result therefore avoids the earlier saturated-baseline failure. It is
 limited evidence about this synthetic transfer task, encoder and eight-point
-sampling budget, not a rejection of the broader theorem-cloud conjecture.
+sampling budget, not a rejection of the broader State object conjecture.
 
 ## Population and controls
 
 The 512 frozen nine-leaf associativity triplets contain 1,536 theorem endpoint
 pairs. All 6,144 sampled proofs and 30,720 intermediate states passed Lean
 verification. The shortest-proof banks, literal transfer labels and complete
-deterministic assignment search were independently reproduced. Positive candidates permit at least .75 mutual shortest-program transfer;
+deterministic assignment search were independently reproduced. Positive candidates
+permit at least .75 mutual shortest-program transfer;
 negative candidates permit none. Source-clade overlap, target-clade overlap and
 used-premise overlap match exactly within every triplet. Endpoint pairs and proof
 programs are disjoint across confirmation triplets. There are 272 program
 patterns shared with the eight-leaf development set, so this is a held-out
 population within one synthetic family, not independence from all earlier motifs.
 
-Each theorem cloud contains two sampled intermediate states from each of four
+Each theorem State object contains two sampled intermediate states from each of four
 verified proofs, with proof identity and order discarded for energy distance.
 All 8,500 distinct ReProver input texts were encoded uniformly on CUDA; no CPU
 ReProver vectors were mixed in. The syntax and MiniLM arms use their completed
@@ -37,7 +50,7 @@ triplet-bootstrap resamples descriptively to the GPU run. The single original
 claim requires superiority over all nine controls; none of these components
 passes at .05. Intervals are marginal, not simultaneous.
 
-| Control | Accuracy | Cloud minus control (points) | Marginal 95% interval | One-sided p |
+| Control | Accuracy | State object minus control (points) | Marginal 95% interval | One-sided p |
 |---|---:|---:|---:|---:|
 | token bag | 51.76% | +2.15 | [-3.91, +8.01] | 0.2580 |
 | used premise | 51.76% | +2.15 | [-3.91, +8.01] | 0.2580 |
@@ -51,15 +64,15 @@ passes at .05. Intervals are marginal, not simultaneous.
 
 ![GPU paired gains](../results/gpu-execution-check-v1/figures/paired-gains.png)
 
-The centroid comparison has 11 cloud-only successes and 14 centroid-only
+The centroid comparison has 11 successes unique to the State object comparison and 14 centroid-only
 successes; the two representations agree on 487/512 triplets. This explains the
 small observed gain and narrow paired interval relative to less correlated
 controls. A nonsignificant result does not establish exact equality, and the
 interval still allows a gain near one point. The fixed sample size was not
 expanded after results, and the removed ten-point gate was not restored.
 
-Syntax cloud accuracy is 49.41%; MiniLM cloud accuracy is 57.03%. Their own
-centroids score 52.34% and 58.59%, respectively. None of the three cloud scores
+Syntax State object accuracy is 49.41%; MiniLM State object accuracy is 57.03%. Their own
+centroids score 52.34% and 58.59%, respectively. None of the three State object scores
 exceeds its corresponding centroid score in this completed run.
 
 ## Original-plan proof controls
@@ -70,18 +83,18 @@ strata, ties, gains and intervals. Selected comparisons are:
 
 | Representation | Accuracy |
 |---|---:|
-| ReProver cloud | 53.91% |
+| ReProver State object | 53.91% |
 | ReProver first sampled proof mean | 55.86% |
 | ReProver means retaining sampled state positions | 55.66% |
 | Tactic-component histogram | 82.03% |
 | Sampled complete-program overlap | 92.19% |
 
 The complete-program comparison sees all five proof steps and their order,
-whereas the cloud sees only two states per proof. The tactic histogram also summarizes complete proof scripts. Both controls
-therefore have more proof evidence than the sampled state cloud, and their
+whereas the State object sees only two states per proof. The tactic histogram also summarizes complete proof scripts. Both controls
+therefore have more proof evidence than the sampled State object, and their
 advantages are not information-matched comparisons. They nevertheless demonstrate
 that proof evidence can predict this task substantially better than these
-encoded state clouds. They do not identify which representation or sampling
+encoded State objects. They do not identify which representation or sampling
 change would recover that information. No comparator was selected after results
 as a new primary gate.
 
@@ -135,4 +148,4 @@ After its complete result was available, the user cancelled the remaining CPU
 encoding at 7,270/8,500 cached inputs. No partial CPU outcome was scored. These
 records are preserved as execution history; finishing a CPU duplicate is not a
 condition for using the complete experimental results reported here. CPU versus
-GPU is a reproducibility detail, not a separate hypothesis about theorem clouds.
+GPU is a reproducibility detail, not a separate hypothesis about State objects.

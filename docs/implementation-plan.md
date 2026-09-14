@@ -176,7 +176,7 @@ All 8,500 GPU inputs completed in 54.19 seconds, with identical frozen assignmen
 weights, singleton batches, tokenization, pooling and analysis rules. No CPU
 ReProver vectors were mixed into that arm.
 
-The complete GPU cloud scores 53.91%, versus its centroid54.49%; paired gain is
+The complete GPU State object scores 53.91%, versus its centroid54.49%; paired gain is
 -0.59 points with marginal 95% bootstrap interval [-2.54,+1.37]. All nine cheap
 controls pass headroom; no paired superiority component passes. Tactic and
 complete-program controls score 82.03% and 92.19%, with the latter explicitly

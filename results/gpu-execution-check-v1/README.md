@@ -1,6 +1,6 @@
 # Complete GPU execution check
 
-The 512-triplet strategy-transfer study is complete. ReProver cloud
+The 512-triplet strategy-transfer study is complete. ReProver State object
 accuracy is 53.91%, centroid54.49%; paired gain -0.59 points, marginal bootstrap
 95% interval [-2.54,+1.37] points. All cheap-control headroom diagnostics pass;
 none of the nine paired superiority comparisons passes. See the complete
@@ -14,8 +14,8 @@ assignment and completed syntax/MiniLM vectors are shared from
 Files:
 - `inputs.json`: every input string, source hashes and provenance; no task labels.
 - `run/`: all 8,500 GPU vectors, device manifest and acquisition completion record.
-- `headroom.json`: cheap-control diagnostic saved before GPU cloud scoring.
-- `report.json`: all three cloud arms, nine controls, paired comparisons and
+- `headroom.json`: cheap-control diagnostic saved before GPU State object scoring.
+- `report.json`: all three State object arms, nine controls, paired comparisons and
   original-plan proof controls. CPU syntax/MiniLM and GPU ReProver are explicit.
 - `validation.json`, `full-validation.json`: numerical and source/input reproduction.
 - `acquisition.log`: complete GPU acquisition progress and manifest.
@@ -40,5 +40,5 @@ python scripts/encode-reprover-gpu.py \
 
 The output directory must be new. Retain singleton batches and the frozen
 int8_float32 configuration. Do not treat CPU and GPU output caches as identical.
-The cloud/centroid inference code is the original frozen implementation; the
+The State object/centroid inference code is the original frozen implementation; the
 hardware check adds no minimum-gain threshold or alternative success route.
