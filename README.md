@@ -7,8 +7,9 @@ The starting point is the [original research plan](docs/latent_geometry_mathemat
 The current focus is the **occupied region** of states across proofs and how
 different theorem State objects intersect and connect. The
 [convex-hull literature review](docs/state-object-convex-hull-literature-review.md)
-examines the rubber-band definition and proposes a small geometry audit. That
-audit has not started. The earlier eight-vector energy-distance experiment did
+examines the rubber-band definition. The
+[corrected implementation](docs/state-object-implementation-v1.md) now samples
+256 real theorem identities and acquires their full inventoried proof collections. The earlier eight-vector energy-distance experiment did
 not construct an occupied region or test its topology; its results do not settle
 this objective. Completed compute and the corrected scope are documented in the
 [recovery checkpoint](docs/convex-hull-investigation-status.md).

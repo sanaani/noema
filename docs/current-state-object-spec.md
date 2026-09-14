@@ -26,7 +26,9 @@ before comparable formal states are available.
 
 Do not use proof length, a shortest-proof restriction, or ease of encoding as an
 unreported exclusion rule. Computational staging is not scientific subsampling.
-No specific new theorem count or final source inventory has yet been established.
+The first corrected draw is 256 theorem identities across Mathlib and Lean
+Workbook; its pinned source inventory and acquisition status are recorded in
+[state-object-implementation-v1.md](state-object-implementation-v1.md).
 
 ## Candidate object algorithm
 
@@ -83,8 +85,8 @@ Archived proof extraction, verification, encoder adapters, vectors and recovery
 infrastructure can be reused where compatible. The present corpus must not be
 represented as meeting this specification. The next preparation is the theorem
 and proof-source inventory, followed by theorem sampling and complete acquisition
-against that inventory. No new theorem draw, proof acquisition, model training,
-or convex-hull experiment has been performed under this specification.
+against that inventory. The corrected theorem draw and acquisition are now being executed under this
+specification; see the implementation record above. No model is being trained.
 
 References: [literature review](state-object-convex-hull-literature-review.md),
 [durable recovery checkpoint](convex-hull-investigation-status.md).
