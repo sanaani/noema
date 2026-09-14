@@ -30,6 +30,10 @@ def test_replication_cannot_promote_a_failed_calibration_metric():
     assert choose_regime(energy, both)["metric"] == "energy_statistic"
     with pytest.raises(ValueError, match="no independently"):
         choose_regime(report("mmd_squared"), energy)
+    other_family = report("energy_statistic")
+    other_family["envelopes"][1]["family"] = "ring_disk"
+    with pytest.raises(ValueError, match="no independently"):
+        choose_regime(energy, other_family)
     assert quotas({"20": 1, "24": 4}, 4) == {"20": 1, "24": 3}
 
 

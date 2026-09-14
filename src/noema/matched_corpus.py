@@ -31,12 +31,15 @@ def choose_regime(calibration, replication):
                 ):
                     families[row["family"]] = {(x["m"], x["n"]) for x in row["eligible_regimes"]}
             eligible.append(
-                families.get("separated", set())
-                & (families.get("gaussian_mixture", set()) | families.get("ring_disk", set()))
+                {
+                    (m, n, family)
+                    for family in ("gaussian_mixture", "ring_disk")
+                    for m, n in families.get("separated", set()) & families.get(family, set())
+                }
             )
         common = eligible[0] & eligible[1]
         if common:
-            m, n = min(common, key=lambda x: (x[0] * x[1], x[0]))
+            m, n, _ = min(common, key=lambda x: (x[0] * x[1], x[0], x[2]))
             return {"metric": metric, "m": m, "n": n, "d": 384, "noise": 0.02}
     raise ValueError("no independently qualified structural regime")
 
