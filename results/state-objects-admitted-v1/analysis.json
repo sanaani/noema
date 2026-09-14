@@ -1,0 +1,16 @@
+{
+  "method": "independently evaluate prior planes and witnesses on all current physical rows",
+  "records_used": 16592,
+  "vector_rows_used": 16592,
+  "deduplication": false,
+  "pairs_checked": 5151,
+  "relations": {
+    "point_contact": 5150,
+    "nontrivial_intersection": 1
+  },
+  "prior_certificate_archive": "results/state-object-v1",
+  "prior_certificate_sha256": "a237a4ecd5618fd67f4380016b9ef6058dfe559408631c1861f16d9286c81b82",
+  "new_encoder_execution": false,
+  "new_optimization_run": false,
+  "semantic_identity_verified": false
+}

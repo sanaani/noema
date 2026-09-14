@@ -10,6 +10,7 @@ import numpy as np
 
 from noema.state_objects import atomic_json
 from noema.state_records import load_record_archive, state_records
+from noema.theorem_admission import load_admission
 
 
 def main():
@@ -21,6 +22,17 @@ def main():
     corpus_path = args.source / "corpus.json.gz"
     assert hashlib.sha256(corpus_path.read_bytes()).hexdigest() == manifest["source_corpus_sha256"]
     corpus = json.load(gzip.open(corpus_path))
+    if "admission" in manifest:
+        policy_path = args.records / manifest["admission"]["filename"]
+        assert (
+            hashlib.sha256(policy_path.read_bytes()).hexdigest() == manifest["admission"]["sha256"]
+        )
+        admitted = load_admission(corpus, args.records)
+        corpus = {
+            **corpus,
+            "theorems": [t for t in corpus["theorems"] if t["id"] in admitted],
+            "proofs": [p for p in corpus["proofs"] if p["theorem_id"] in admitted],
+        }
     expected = list(state_records(corpus))
     assert len(records) == len(expected) == len(matrix) == manifest["vector_rows"]
     assert matrix.dtype == np.float64 and matrix.shape[1] == manifest["dimension"]

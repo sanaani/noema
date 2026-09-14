@@ -1,0 +1,3260 @@
+{
+  "schema": "proof-backed-theorem-admission-v1",
+  "evidence": {
+    "replays": {
+      "path": "results/assumption-audit-v1/replay-checks.json",
+      "sha256": "43fd492c1bccf6b8c8dc50c54f75d72a97818415cf1231a3062434bc812b723d"
+    },
+    "contradictions": {
+      "path": "results/theorem-admission-v1/contradictions.json",
+      "sha256": "8362a11fefb5b077fcb75c790b7aefc7046dfcf30d91c022b9afebdee65445e4"
+    }
+  },
+  "source_corpus_sha256": "af5f40d7679f80021760e0bb369a983da06c4222303f6b5a9ebdce37f754ebc5",
+  "decisions": [
+    {
+      "theorem_id": "mathlib:IsCoveringMap.const_of_comp",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 6,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:Submodule.span_preimage_le",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 62,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:schnirelmannDensity_setOf_mod_eq_one",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 546,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:IsDedekindDomain.HeightOneSpectrum.IntValuation.le_max_iff_min_le",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 60,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:Associates.out_dvd_iff",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 34,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:PadicInt.modPart_nonneg",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 6,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:MeasureTheory.snorm_mono",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 4,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:FractionalIdeal.canonicalEquiv_mk0",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 34,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:openEmbedding_iff_embedding_open",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 4,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:ENNReal.tsum_sigma",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 6,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:norm_sub_mul_self_real",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 44,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:AlgebraicGeometry.Scheme.ofRestrict_appLE",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 42,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:continuous_of_discreteTopology",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 6,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:harmonic_succ",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 6,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:MulEquiv.trans_apply",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 6,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:ProbabilityTheory.measure_zero_or_one_of_measurableSet_limsup_atTop",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 34,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:RingHom.expChar",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 128,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:Complex.cos_eq_cos_iff",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 370,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:cauchy_iff'",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 6,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:List.rotate_replicate",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 52,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:Fin.prod_univ_two'",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 6,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:one_le_bit1",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 1,
+      "state_records": 24,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:grade_ne_grade_iff",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 6,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:Ideal.IsHomogeneous.iSup",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 114,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:Set.equitableOn_iff_exists_image_subset_icc",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 34,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:LocallyConstant.ker_comapₗ",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 8,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:pure_id'_seq",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 6,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:DirectSum.decomposeLinearEquiv_apply",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 6,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:ciInf_pos",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 18,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:Real.Angle.coe_nat_mul_eq_nsmul",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 1,
+      "state_records": 12,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:BundledCorePresheafOfModules.restrictionApp_toPresheafOfModules",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 1,
+      "state_records": 2,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:IsometryEquiv.coe_toRealLinearIsometryEquivOfMapZero_symm",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 12,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:HasStrictFDerivAt.tendsto_implicitFunction",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 66,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:Filter.atTop_le_cofinite",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 6,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:Nat.WithBot.add_eq_three_iff",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 242,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:MeasureTheory.AECover.biInter_Ici_aecover",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 34,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:intervalIntegral.derivWithin_integral_of_tendsto_ae_left",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 6,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:MeasureTheory.Lp.simpleFunc.denseRange",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 6,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:Group.fg_iff'",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 6,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:LinearMap.BilinForm.IsSymm.sub",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 4,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:MeasureTheory.Measure.restrict_union",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 6,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:CategoryTheory.Functor.lanUnit_app_whiskerLeft_lanAdjunction_counit_app",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 22,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:Antitone.strictAnti_of_injective",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 6,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:union_lowerBounds_subset_lowerBounds_inter",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 6,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:mem_map_indicator_ae_iff_mem_map_restrict_ae_of_zero_mem",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 190,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:deriv.scomp_of_eq",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 40,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:DFinsupp.coe_zsmul",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 6,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:Polynomial.smeval_X_pow_mul",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 128,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:Real.surjOn_logb",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 6,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:tendstoUniformlyOn_empty",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 34,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:Nat.mod_two_of_bodd",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 302,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:Filter.disjoint_comap_iff",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 64,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:CliffordAlgebra.star_ι",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 64,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:Multiset.bind_congr",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 34,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:Equicontinuous.comp",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 6,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:Polynomial.smeval_nat_cast",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 1,
+      "state_records": 44,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:CochainComplex.HomComplex.Cochain.leftShift_v",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 164,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:RingHom.ker_equiv",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 38,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:ContinuousWithinAt.union",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 6,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:Matrix.SpecialLinearGroup.SL2_inv_expl",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 82,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:Nat.cast_dvd_cast",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 4,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:PowerSeries.trunc_X_of",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 158,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:cfc_one",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 6,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:nonPrincipals_eq_empty_iff",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 34,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:IsLowerSet.null_frontier",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 102,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:Complex.nndist_of_re_eq",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 6,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:Algebra.adjoin_nat",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 6,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:CategoryTheory.Grothendieck.id_fiber'",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 36,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:ProbabilityTheory.kernel.coe_finset_sum",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 4,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:Quaternion.normSq_rat_cast",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 1,
+      "state_records": 20,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:DFinsupp.prod_comm",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 6,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:Turing.PartrecToTM2.codeSupp_zero",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 6,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:Cardinal.mk_coe_finset",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 34,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:CategoryTheory.MorphismProperty.Q_inverts",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 6,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:LinearIsometryEquiv.coe_coe",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 6,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:Set.OrdConnected.image_real_toNNReal",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 174,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:Matrix.updateRow_eq_self",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 6,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:Dense.borel_eq_generateFrom_Ioc_mem",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 34,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:Complex.eventually_eq_of_isLocalMax_norm",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 44,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:IsLocalMin.neg",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 6,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:Filter.tendsto_iSup_iSup",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 6,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:SzemerediRegularity.add_div_le_sum_sq_div_card",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 500,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:MvPolynomial.eval_pow",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 6,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:DifferentiableAt.inverse",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 6,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:LinearMap.tailing_disjoint_tunnel_succ",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 72,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:CategoryTheory.NatTrans.mono_of_mono_app",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 74,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:StarSubalgebra.embedding_inclusion",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity",
+        "missing_verified_proof_evidence",
+        "missing_inventoried_proof_trace"
+      ],
+      "unverified_proof_ids": [
+        "d812cb8712d7e9436515e02551b56dc790394650580a15d68891f06c89bc011b"
+      ],
+      "incomplete_trace_proof_ids": [
+        "d812cb8712d7e9436515e02551b56dc790394650580a15d68891f06c89bc011b"
+      ],
+      "proof_records": 3,
+      "state_records": 8,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:Subgroup.commutator_comm_le",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 6,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:Multiset.union_le_union_left",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 6,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:LinearIsometryEquiv.coe_prodAssoc",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 6,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:Filter.hasBasis_coclosedCompact",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 64,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:Multiset.map_cons",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 6,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:Submonoid.LocalizationMap.lift_eq",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 120,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:QuaternionAlgebra.eq_re_iff_mem_range_coe",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 6,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:Continuous.intervalIntegrable",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 6,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:MeasurableEmbedding.integrableAtFilter_iff_comap",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 156,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:abs_mul_self",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 52,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:Cardinal.one_toNat",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 6,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:EqvGen.is_equivalence",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 4,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:Option.map₂_assoc",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 154,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:Interval.coe_subset_coe",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 6,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:LSeries.norm_term_le",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 108,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:IsFractional.map",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 116,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:CategoryTheory.Cat.associator_inv_app",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 22,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:FreimanHom.cancel_left_on",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 1,
+      "state_records": 12,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:hasSum_nat_add_iff'",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity",
+        "missing_verified_proof_evidence",
+        "missing_inventoried_proof_trace"
+      ],
+      "unverified_proof_ids": [
+        "bbf82e6a885ed2b4013f242de00a5cf8871a291fb464e1ffbd95f29d4e2079fd"
+      ],
+      "incomplete_trace_proof_ids": [
+        "bbf82e6a885ed2b4013f242de00a5cf8871a291fb464e1ffbd95f29d4e2079fd"
+      ],
+      "proof_records": 2,
+      "state_records": 12,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:normal_of_eq_cosets",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 56,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:LowerSet.coe_div",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 6,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:WithZeroTopology.nhds_eq_update",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 62,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:contDiffAt_inner",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 6,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:LinearMap.map_finsupp_total",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 20,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:BoxIntegral.Box.volume_apply",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 60,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:TopCat.Presheaf.app_injective_of_stalkFunctor_map_injective",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 58,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:MeasureTheory.Submartingale.bddAbove_iff_exists_tendsto",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 474,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:Set.image_update_uIcc_left",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 34,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:Finsupp.update_erase_eq_update",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 52,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:AffineIsometryEquiv.pointReflection_toAffineEquiv",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 6,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:Quaternion.algebraMap_def",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 6,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:IsLocalization.submonoid_map_le_is_unit",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 44,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:smul_pi",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 6,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:RingCon.coe_iInf",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 70,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:Finset.abs_sum_of_nonneg",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 46,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:Basis.toLin_toMatrix",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 68,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:Set.mem_ordConnectedComponent_trans",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 6,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:Complex.sinh_three_mul",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 164,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:CategoryTheory.Limits.pullbackZeroZeroIso_hom_snd",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 34,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:UpperHalfPlane.smulAux'_im",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 80,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "mathlib:MulAction.orbit.coe_smul",
+      "status": "held",
+      "reasons": [
+        "unresolved_theorem_identity"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 6,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_7315",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 4,
+      "state_records": 68,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_50503",
+      "status": "held",
+      "reasons": [
+        "missing_verified_proof_evidence",
+        "missing_inventoried_proof_trace"
+      ],
+      "unverified_proof_ids": [
+        "c1df00558e1b763ba8f4d999cf8392b297545ad980fb85bb57b0cb676f7c094e"
+      ],
+      "incomplete_trace_proof_ids": [
+        "c1df00558e1b763ba8f4d999cf8392b297545ad980fb85bb57b0cb676f7c094e"
+      ],
+      "proof_records": 2,
+      "state_records": 18,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_2359",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 32,
+      "state_records": 630,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_35455",
+      "status": "held",
+      "reasons": [
+        "missing_verified_proof_evidence",
+        "missing_inventoried_proof_trace"
+      ],
+      "unverified_proof_ids": [
+        "cd28e06fa8570dce36295ac257fb56edaa1c90ec7190f73647416288464a7d46"
+      ],
+      "incomplete_trace_proof_ids": [
+        "cd28e06fa8570dce36295ac257fb56edaa1c90ec7190f73647416288464a7d46"
+      ],
+      "proof_records": 2,
+      "state_records": 94,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_48561",
+      "status": "held",
+      "reasons": [
+        "missing_verified_proof_evidence",
+        "missing_inventoried_proof_trace"
+      ],
+      "unverified_proof_ids": [
+        "997466b8948ec2f783b421022ed8c43154e176f2dcf07a3e15959c77c7934e09"
+      ],
+      "incomplete_trace_proof_ids": [
+        "997466b8948ec2f783b421022ed8c43154e176f2dcf07a3e15959c77c7934e09"
+      ],
+      "proof_records": 2,
+      "state_records": 106,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_61458",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 6,
+      "state_records": 73,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_18941",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 147,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_16688",
+      "status": "held",
+      "reasons": [
+        "missing_verified_proof_evidence",
+        "missing_inventoried_proof_trace"
+      ],
+      "unverified_proof_ids": [
+        "238c892ae3ec5067b2ccea92a1439f006b71ffe433cfc4129afce4e79c9fb847"
+      ],
+      "incomplete_trace_proof_ids": [
+        "238c892ae3ec5067b2ccea92a1439f006b71ffe433cfc4129afce4e79c9fb847"
+      ],
+      "proof_records": 18,
+      "state_records": 350,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_53782",
+      "status": "held",
+      "reasons": [
+        "missing_verified_proof_evidence",
+        "missing_inventoried_proof_trace"
+      ],
+      "unverified_proof_ids": [
+        "5613ffb13fdd53b5367deef4c6cae4ed1a8fffda6d15770d24b65177e40c8c9b"
+      ],
+      "incomplete_trace_proof_ids": [
+        "5613ffb13fdd53b5367deef4c6cae4ed1a8fffda6d15770d24b65177e40c8c9b"
+      ],
+      "proof_records": 13,
+      "state_records": 258,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_25569",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 33,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_30348",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 15,
+      "state_records": 192,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_37581",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 29,
+      "state_records": 325,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_23477",
+      "status": "held",
+      "reasons": [
+        "missing_verified_proof_evidence",
+        "missing_inventoried_proof_trace"
+      ],
+      "unverified_proof_ids": [
+        "14a3cf7eb43499f48d28af17b712b3f7fc09abb88288089254dd8a87536c13fd"
+      ],
+      "incomplete_trace_proof_ids": [
+        "14a3cf7eb43499f48d28af17b712b3f7fc09abb88288089254dd8a87536c13fd"
+      ],
+      "proof_records": 2,
+      "state_records": 463,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_653",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 50,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_45636",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 201,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_75019",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 29,
+      "state_records": 394,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_8794",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 7,
+      "state_records": 81,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_5257",
+      "status": "excluded",
+      "reasons": [
+        "inconsistent_source_assumptions"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 26,
+      "state_records": 313,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_3304",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 53,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_40119",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 26,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_279",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 37,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_14325",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 26,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_56282",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 22,
+      "state_records": 416,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_8931",
+      "status": "held",
+      "reasons": [
+        "missing_verified_proof_evidence",
+        "missing_inventoried_proof_trace"
+      ],
+      "unverified_proof_ids": [
+        "78776dc0e7d183a1da0d5fcf321370b018203a032679a8847336e3d9028fcc87"
+      ],
+      "incomplete_trace_proof_ids": [
+        "78776dc0e7d183a1da0d5fcf321370b018203a032679a8847336e3d9028fcc87"
+      ],
+      "proof_records": 2,
+      "state_records": 11,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_33165",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 10,
+      "state_records": 145,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_11296",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 68,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_35251",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 4,
+      "state_records": 90,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_34313",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 36,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_13957",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 322,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_29384",
+      "status": "held",
+      "reasons": [
+        "missing_verified_proof_evidence",
+        "missing_inventoried_proof_trace"
+      ],
+      "unverified_proof_ids": [
+        "b0c4afddde747843f193a7f172688fde6867e64fb2f027d4743474e54e58d6a2"
+      ],
+      "incomplete_trace_proof_ids": [
+        "b0c4afddde747843f193a7f172688fde6867e64fb2f027d4743474e54e58d6a2"
+      ],
+      "proof_records": 2,
+      "state_records": 10,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_9114",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 34,
+      "state_records": 450,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_31098",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 162,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_302",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 18,
+      "state_records": 211,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_33506",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 21,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_47346",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 21,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_37974",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 24,
+      "state_records": 467,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_34729",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 21,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_8142",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 21,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_77403",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 108,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_32186",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 24,
+      "state_records": 686,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_18711",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 147,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_14571",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 21,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_12680",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 153,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_35434",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 133,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_18964",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 52,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_42272",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 37,
+      "state_records": 489,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_52262",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 144,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_13782",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 8,
+      "state_records": 96,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_23949",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 12,
+      "state_records": 156,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_45403",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 1,
+      "state_records": 12,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_17723",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 18,
+      "state_records": 581,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_48984",
+      "status": "held",
+      "reasons": [
+        "missing_verified_proof_evidence",
+        "missing_inventoried_proof_trace"
+      ],
+      "unverified_proof_ids": [
+        "9b13c19ba180d5c49c59be3644cea928189e8bac0ed69fcd4c64c47a6449e306"
+      ],
+      "incomplete_trace_proof_ids": [
+        "9b13c19ba180d5c49c59be3644cea928189e8bac0ed69fcd4c64c47a6449e306"
+      ],
+      "proof_records": 34,
+      "state_records": 351,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_39182",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 190,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_61933",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 21,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_18245",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 21,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_3393",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 52,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_14827",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 26,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_8439",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 88,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_22155",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 14,
+      "state_records": 468,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_11487",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 37,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_39621",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 49,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_55131",
+      "status": "held",
+      "reasons": [
+        "missing_verified_proof_evidence",
+        "missing_inventoried_proof_trace"
+      ],
+      "unverified_proof_ids": [
+        "2505a5fc9826d4627b74f004323f492bcf4d9a124552cb1a23c75977da6fa283"
+      ],
+      "incomplete_trace_proof_ids": [
+        "2505a5fc9826d4627b74f004323f492bcf4d9a124552cb1a23c75977da6fa283"
+      ],
+      "proof_records": 7,
+      "state_records": 126,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_21633",
+      "status": "held",
+      "reasons": [
+        "missing_verified_proof_evidence",
+        "missing_inventoried_proof_trace"
+      ],
+      "unverified_proof_ids": [
+        "7c52bcad19f6728f02b82c5325913c10a551d77ee98989998a4a1e886216efc2"
+      ],
+      "incomplete_trace_proof_ids": [
+        "7c52bcad19f6728f02b82c5325913c10a551d77ee98989998a4a1e886216efc2"
+      ],
+      "proof_records": 2,
+      "state_records": 20,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_38211",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 21,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_8986",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 37,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_68017",
+      "status": "excluded",
+      "reasons": [
+        "inconsistent_source_assumptions"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 26,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_490",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 28,
+      "state_records": 556,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_9279",
+      "status": "held",
+      "reasons": [
+        "unresolved_workbook_statement_variants"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 109,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_6635",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 23,
+      "state_records": 374,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_2592",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 21,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_43717",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 1,
+      "state_records": 28,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_53725",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 7,
+      "state_records": 137,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_69123",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 165,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_3237",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 45,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_55402",
+      "status": "held",
+      "reasons": [
+        "missing_verified_proof_evidence",
+        "missing_inventoried_proof_trace"
+      ],
+      "unverified_proof_ids": [
+        "7b26e9c3733bcf7dcadad3a49ddaff5bfb14b90c3d32464d217c0c6c0dd51226"
+      ],
+      "incomplete_trace_proof_ids": [
+        "7b26e9c3733bcf7dcadad3a49ddaff5bfb14b90c3d32464d217c0c6c0dd51226"
+      ],
+      "proof_records": 2,
+      "state_records": 33,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_28686",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 33,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_65975",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 11,
+      "state_records": 148,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_23440",
+      "status": "held",
+      "reasons": [
+        "missing_verified_proof_evidence",
+        "missing_inventoried_proof_trace"
+      ],
+      "unverified_proof_ids": [
+        "1d55c669ad2503636f8946fa284ea984d50ed52c0b3acb5f48ddaf5160fc0eca"
+      ],
+      "incomplete_trace_proof_ids": [
+        "1d55c669ad2503636f8946fa284ea984d50ed52c0b3acb5f48ddaf5160fc0eca"
+      ],
+      "proof_records": 2,
+      "state_records": 122,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_63727",
+      "status": "excluded",
+      "reasons": [
+        "inconsistent_source_assumptions"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 5,
+      "state_records": 72,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_32182",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 108,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_29897",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 21,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_9657",
+      "status": "excluded",
+      "reasons": [
+        "inconsistent_source_assumptions"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 6,
+      "state_records": 79,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_55002",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 7,
+      "state_records": 111,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_18414",
+      "status": "held",
+      "reasons": [
+        "missing_verified_proof_evidence",
+        "missing_inventoried_proof_trace"
+      ],
+      "unverified_proof_ids": [
+        "3fa646d7967a541e1c45588aed103ac18794f0a92cb5c89ca2868f0a746a7438",
+        "f18ebea6c6af9a9f777ae573460e1837a6d8168ee4073508575dd5f7184f7dc4"
+      ],
+      "incomplete_trace_proof_ids": [
+        "3fa646d7967a541e1c45588aed103ac18794f0a92cb5c89ca2868f0a746a7438",
+        "f18ebea6c6af9a9f777ae573460e1837a6d8168ee4073508575dd5f7184f7dc4"
+      ],
+      "proof_records": 15,
+      "state_records": 145,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_7742",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 21,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_14058",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 103,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_3429",
+      "status": "held",
+      "reasons": [
+        "unresolved_workbook_statement_variants"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 9,
+      "state_records": 99,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_50024",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 216,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_67559",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 311,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_2450",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 68,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_1986",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 30,
+      "state_records": 813,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_23627",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 77,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_63366",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 26,
+      "state_records": 356,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_18240",
+      "status": "held",
+      "reasons": [
+        "missing_verified_proof_evidence",
+        "missing_inventoried_proof_trace"
+      ],
+      "unverified_proof_ids": [
+        "997b08d318ecc60e8cb364a356a16da43472c79031bc04cd9c64cccb6dc1461e"
+      ],
+      "incomplete_trace_proof_ids": [
+        "997b08d318ecc60e8cb364a356a16da43472c79031bc04cd9c64cccb6dc1461e"
+      ],
+      "proof_records": 2,
+      "state_records": 24,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_74969",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 28,
+      "state_records": 416,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_2800",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 8,
+      "state_records": 104,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_24730",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 215,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_23187",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 170,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_52061",
+      "status": "held",
+      "reasons": [
+        "missing_verified_proof_evidence",
+        "missing_inventoried_proof_trace"
+      ],
+      "unverified_proof_ids": [
+        "8a7051e9dcf334fca7fd89985166cc4c46209372709fa988523afcb96e74660b",
+        "c373613b715ab94e1e37b41679ab63401b8607c1692771868427e4d70c337e96"
+      ],
+      "incomplete_trace_proof_ids": [
+        "8a7051e9dcf334fca7fd89985166cc4c46209372709fa988523afcb96e74660b",
+        "c373613b715ab94e1e37b41679ab63401b8607c1692771868427e4d70c337e96"
+      ],
+      "proof_records": 2,
+      "state_records": 0,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_36306",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 26,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_8638",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 7,
+      "state_records": 229,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_40576",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 21,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_65508",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 26,
+      "state_records": 368,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_39161",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 33,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_19034",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 96,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_42412",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 1,
+      "state_records": 16,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_27848",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 26,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_51915",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 72,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_14210",
+      "status": "held",
+      "reasons": [
+        "missing_verified_proof_evidence",
+        "missing_inventoried_proof_trace"
+      ],
+      "unverified_proof_ids": [
+        "2b18f58f0a15655e42dc3155fd6b02d1c4dfdf5dfe04771d6665f95ee9999df0"
+      ],
+      "incomplete_trace_proof_ids": [
+        "2b18f58f0a15655e42dc3155fd6b02d1c4dfdf5dfe04771d6665f95ee9999df0"
+      ],
+      "proof_records": 2,
+      "state_records": 114,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_27005",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 5,
+      "state_records": 68,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_25087",
+      "status": "held",
+      "reasons": [
+        "missing_verified_proof_evidence",
+        "missing_inventoried_proof_trace"
+      ],
+      "unverified_proof_ids": [
+        "2e3bbf8e20ba8b75e0b46cfbf4f3db4cc387ef829df068cd76ab5ac7a1de20e9"
+      ],
+      "incomplete_trace_proof_ids": [
+        "2e3bbf8e20ba8b75e0b46cfbf4f3db4cc387ef829df068cd76ab5ac7a1de20e9"
+      ],
+      "proof_records": 2,
+      "state_records": 112,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_44565",
+      "status": "excluded",
+      "reasons": [
+        "inconsistent_source_assumptions"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 42,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_26291",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 100,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_56422",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 92,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_56877",
+      "status": "held",
+      "reasons": [
+        "missing_verified_proof_evidence",
+        "missing_inventoried_proof_trace"
+      ],
+      "unverified_proof_ids": [
+        "d46ca6b8ab1dcff40079b1775344809da67612081ba1c485d509598ba9d4fac0"
+      ],
+      "incomplete_trace_proof_ids": [
+        "d46ca6b8ab1dcff40079b1775344809da67612081ba1c485d509598ba9d4fac0"
+      ],
+      "proof_records": 2,
+      "state_records": 166,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_19088",
+      "status": "excluded",
+      "reasons": [
+        "inconsistent_source_assumptions"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 26,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_66130",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 96,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_38894",
+      "status": "held",
+      "reasons": [
+        "unresolved_workbook_statement_variants"
+      ],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 61,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_36821",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 20,
+      "state_records": 329,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_38962",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 37,
+      "state_records": 526,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_42242",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 26,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_62717",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 36,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_78448",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 3,
+      "state_records": 61,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_57368",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 12,
+      "state_records": 270,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_36979",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 2,
+      "state_records": 129,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_5091",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 24,
+      "state_records": 349,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_16073",
+      "status": "admitted",
+      "reasons": [],
+      "unverified_proof_ids": [],
+      "incomplete_trace_proof_ids": [],
+      "proof_records": 20,
+      "state_records": 351,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    },
+    {
+      "theorem_id": "workbook:lean_workbook_plus_24728",
+      "status": "held",
+      "reasons": [
+        "missing_verified_proof_evidence",
+        "missing_inventoried_proof_trace"
+      ],
+      "unverified_proof_ids": [
+        "05db7caea4edec2fd2db616734956c0cda11c2cb5c7cf58a7b365a995d015509"
+      ],
+      "incomplete_trace_proof_ids": [
+        "05db7caea4edec2fd2db616734956c0cda11c2cb5c7cf58a7b365a995d015509"
+      ],
+      "proof_records": 4,
+      "state_records": 34,
+      "all_known_proof_completeness_established": false,
+      "semantic_state_geometry_validated": false
+    }
+  ],
+  "whole_theorem_groups_only": true,
+  "proof_or_state_subsampling": false,
+  "encoder_semantic_validity_required_for_exploration": false,
+  "failed_consistency_screen_means_consistent": false
+}

@@ -1,5 +1,12 @@
 # Audit of unsupported assumptions
 
+**Subsequent correction:** annotation alone did not repair admission. The
+[remediation](theorem-admission-remediation-v1.md) now excludes six groups with
+Lean-verified contradictory assumptions and holds unresolved groups outside the
+active dataset. The findings below describe the original archive. Statements
+labelled “Addressed” by documentation alone do not mean their underlying scientific
+or acquisition problem has been solved; the remediation lists those as open.
+
 The problem extended beyond deduplicating states. I repeatedly treated a convenient
 measurement choice as if it fulfilled the scientific objective. This audit separates
 what the archive demonstrates, what was only assumed, and what has now been corrected.

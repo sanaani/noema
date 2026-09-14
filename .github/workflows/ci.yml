@@ -40,4 +40,9 @@ jobs:
       - run: python scripts/analyze-state-record-objects.py --records results/state-object-records-v1
       - run: cd results/assumption-audit-v1 && sha256sum -c SHA256SUMS
       - run: python scripts/audit-state-object-assumptions.py --output outputs/ci-assumption-audit
+      - run: cd results/theorem-admission-v1 && sha256sum -c SHA256SUMS
+      - run: cd results/state-objects-admitted-v1 && sha256sum -c SHA256SUMS
+      - run: python scripts/verify-theorem-admission-archive.py
+      - run: python scripts/verify-state-record-vectors.py --records results/state-objects-admitted-v1
+      - run: python scripts/analyze-state-record-objects.py --records results/state-objects-admitted-v1
       - run: noema synthetic --config configs/smoke.json --output outputs/ci-smoke

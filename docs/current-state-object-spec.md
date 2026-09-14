@@ -37,6 +37,27 @@ mathematical proofs. Preserve copies and provenance without treating copies as
 independent evidence. Source validity does not establish consistent assumptions
 or faithfulness to an informal problem; record these as separate checks.
 
+## Enforced admission to the active dataset
+
+Collection archives may contain candidate proofs and failed attempts. They are
+not automatically the active theorem set. Known contradictory assumptions exclude
+the entire theorem group. Every admitted group must have exact-target verified
+proof evidence and an operational trace for every inventoried proof record, and
+no unresolved source identity or statement-variant gap. Otherwise hold the whole
+group for repair. Do not fill a missing proof with another proof's states or admit
+only the convenient proofs of a held theorem.
+
+Preserve excluded and held data in the recovery archive. Keep all recorded states
+of every admitted theorem, one physical vector row per state, including copies.
+Admission does not establish consistency of every remaining assumption, complete
+internal state capture, independent proofs, or semantic faithfulness of an encoder.
+A failed contradiction search means unresolved, not consistent.
+
+The [enforced admission and remediation](theorem-admission-remediation-v1.md)
+supersedes the annotation-only treatment in the earlier audit. The current
+active dataset has 102 groups and 16,592 states; six groups are excluded and 148
+held. The original 256-group sample remains frozen in the recovery archive.
+
 ## Candidate object algorithm
 
 1. Preserve the full proof source and extraction provenance for every acquired
@@ -107,8 +128,10 @@ Archived proof extraction, verification, encoder adapters, vectors and recovery
 infrastructure can be reused where compatible. The present corpus must not be
 represented as meeting this specification. The next preparation is the theorem
 and proof-source inventory, followed by theorem sampling and complete acquisition
-against that inventory. The corrected implementation and first acquisition are complete, with explicit
-proof and identity gaps; see the implementation record above. No model was trained.
+against that inventory. The first acquisition exists, but does not yet meet the full
+specification. Enforced admission repairs the active set's use of known problem
+cases; missing proofs, identity evidence and full internal-state capture remain
+open. No model was trained.
 
 References: [literature review](state-object-convex-hull-literature-review.md),
 [durable recovery checkpoint](convex-hull-investigation-status.md).

@@ -1,6 +1,7 @@
 """Show every state record individually, including coincident vector rows."""
 
 import argparse
+import gzip
 import hashlib
 import json
 from pathlib import Path
@@ -10,6 +11,7 @@ from scipy.linalg import eigh
 
 from noema.state_objects import atomic_json
 from noema.state_records import load_record_archive
+from noema.theorem_admission import load_admission
 
 
 def main():
@@ -26,6 +28,11 @@ def main():
             raise ValueError("annotations belong to a different source corpus")
         annotations = {row["theorem_id"]: row for row in audit["theorems"]}
     objects = json.loads((root / "objects.json").read_text())
+    if "admission" in manifest:
+        corpus = json.load(gzip.open(Path(manifest["source_archive"]) / "corpus.json.gz"))
+        admitted = load_admission(corpus, root)
+        if {o["theorem_id"] for o in objects} != admitted:
+            raise ValueError("active explorer contains groups that failed admission")
     origin = vectors.mean(axis=0)
     covariance = np.zeros((vectors.shape[1], vectors.shape[1]))
     for start in range(0, len(vectors), 512):
@@ -93,7 +100,18 @@ def main():
     }
     template = Path(__file__).with_name("state-record-viewer.html").read_text()
     (root / "explore.html").write_text(
-        template.replace(
+        template.replace("__ROW_COUNT__", f"{len(records):,}")
+        .replace(
+            "__DATASET_STATUS__",
+            "Active dataset: only groups passing proof and source checks are shown. "
+            "Excluded and unresolved groups remain in the recovery archive."
+            if "admission" in manifest
+            else (
+                "Historical archive: includes excluded and unresolved groups; "
+                "not the active dataset."
+            ),
+        )
+        .replace(
             "/*__DATA__*/",
             json.dumps(data, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/"),
         )

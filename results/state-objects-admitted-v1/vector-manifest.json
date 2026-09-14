@@ -1,0 +1,97 @@
+{
+  "schema": "one-vector-per-state-record-v1",
+  "encoder": {
+    "model": "kaiyuy/ct2-leandojo-lean4-retriever-byt5-small",
+    "revision": "8612469b496b72bdb2f0d6ccd5316c100200581e",
+    "checksums": {
+      "model.bin": "311e636b7479e97236de85f5271f2b045e1e40a1de5a431df03b050b2176f827",
+      "config.json": "d3b27bd603df8fb368c641042d2f280d6821066a433f497aa24a2758cc49497c",
+      "vocabulary.json": "60259dce54d4677a043dbadcedb27916fa934567c01a796124dec71bf23a3e09"
+    },
+    "ctranslate2": "4.8.2",
+    "numpy": "2.5.3",
+    "compute_type": "int8_float32",
+    "device": "cuda",
+    "gpu_model": "NVIDIA L40S",
+    "dimension": 1472,
+    "tokenization": "all UTF-8 bytes +3, append EOS=1; no truncation or length cap",
+    "pooling": "singleton; nonpadding mean including EOS in float64; L2 normalize",
+    "state_serialization": "source goal/context text; provenance records source extractor",
+    "encoder_script_sha256": "6210ab5f221b67ddbdf67e36e84da03715b34ec666e76cb461a5132f1eed4e8f",
+    "encoder_id": "2967cc1b345131ff06cdfc1ef6a9e6f20cd6e021d92956c95582c4c0027d4fcc"
+  },
+  "dimension": 1472,
+  "vector_rows": 16592,
+  "state_records": 16592,
+  "deduplication": false,
+  "array_file_compression": false,
+  "storage": "uncompressed float64 NPY chunks; each record owns its own row",
+  "chunks": [
+    {
+      "filename": "vectors-000.npy",
+      "row_start": 0,
+      "rows": 2000,
+      "sha256": "898b0df9a96c16f8aef1290b7f1a5100a959a4c81a813183103a1033be058085"
+    },
+    {
+      "filename": "vectors-001.npy",
+      "row_start": 2000,
+      "rows": 2000,
+      "sha256": "66ca553509f093feacbf373d6c87ec077324d0b29c5c4a0d4ba05774f613d2ef"
+    },
+    {
+      "filename": "vectors-002.npy",
+      "row_start": 4000,
+      "rows": 2000,
+      "sha256": "caf66147fdc94d372c37f69c8cee51cc991c9664c65c3ef94bf75a7f0683ca6b"
+    },
+    {
+      "filename": "vectors-003.npy",
+      "row_start": 6000,
+      "rows": 2000,
+      "sha256": "0a612e4507766fe68440236be06ca3e2cbb9fe3ed4bb16c337aef2ccc4c84490"
+    },
+    {
+      "filename": "vectors-004.npy",
+      "row_start": 8000,
+      "rows": 2000,
+      "sha256": "02bae73924fa6f3df9fc35ab7631cc823d7bdd996ba21cef1486e1958b1d09c3"
+    },
+    {
+      "filename": "vectors-005.npy",
+      "row_start": 10000,
+      "rows": 2000,
+      "sha256": "c8e67c23b8a4cc5fdbb912959c2f447e378a9390a0229a3777cab5477a8f7742"
+    },
+    {
+      "filename": "vectors-006.npy",
+      "row_start": 12000,
+      "rows": 2000,
+      "sha256": "7280a0ce50561ba614e21029365ea91811eac5a17ae53ce603e673c4399de355"
+    },
+    {
+      "filename": "vectors-007.npy",
+      "row_start": 14000,
+      "rows": 2000,
+      "sha256": "b1454d5e5c08e650133eec3550dcf772d8833849fbd67b9dcb17433127412336"
+    },
+    {
+      "filename": "vectors-008.npy",
+      "row_start": 16000,
+      "rows": 592,
+      "sha256": "ebdfd10eb02769be0143c575848664a4b2db947c6843f3703c4735b8de7b6e30"
+    }
+  ],
+  "source_archive": "results/state-object-v1",
+  "source_corpus_sha256": "af5f40d7679f80021760e0bb369a983da06c4222303f6b5a9ebdce37f754ebc5",
+  "source_vector_manifest_sha256": "bb6f227ce85f9c2aae4d5fa0be0ea010fb610f992aaf49c17c1275fb4d1474c0",
+  "creation_method": "copy every separate state row of admitted theorem groups; no deduplication",
+  "new_encoder_execution": false,
+  "coordinates_perturbed_to_separate_identical_inputs": false,
+  "semantic_identity_verified": false,
+  "parent_record_archive": "results/state-object-records-v1",
+  "admission": {
+    "filename": "admission.json",
+    "sha256": "495a5ce2fcb05d1f9a836a07c93189c6809a47d8f113409afeb9daa7e74bd571"
+  }
+}

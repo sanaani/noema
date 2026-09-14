@@ -1,0 +1,16 @@
+{
+  "tests_passed": 148,
+  "lint": "passed",
+  "format": "passed",
+  "source_contradictions_lean_verified": 6,
+  "outer_binder_screens": 128,
+  "other_screens_status": "122 unresolved; no consistency claim",
+  "admission_and_source_evidence_verification": "passed",
+  "physical_rows_verified": 16592,
+  "active_theorems": 102,
+  "active_pair_certificates_verified": 5151,
+  "browser": "passed: excluded and held groups/states absent; each active record retained and selectable",
+  "new_encoder_execution": false,
+  "new_paid_compute": false,
+  "full_research_specification_complete": false
+}

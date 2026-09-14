@@ -1,5 +1,13 @@
 # Recovery checkpoint: convex hull investigation
 
+**Latest active dataset:** `results/state-objects-admitted-v1/` has 102 theorem
+groups and 16,592 separate physical state-vector rows. Six groups are excluded
+for contradictions proved in Lean; 148 are held for source identity or proof/trace
+gaps. Read [the remediation](theorem-admission-remediation-v1.md). The original
+26,820-row archive is preserved for recovery, not active analysis. No new GPU
+or encoder run was needed. Do not reinstate held groups by changing labels;
+resolve their evidence gaps and rebuild admission.
+
 **Current recovery entry (September 14, 2026):** all 26,820 recorded states now
 have separate physical vector rows in `results/state-object-records-v1/`, pushed
 in commit `8c42e6d`; CI run `34907220974` passed. No deduplication is permitted.

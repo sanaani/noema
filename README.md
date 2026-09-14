@@ -4,37 +4,28 @@ Exploring whether the unordered states encountered across alternative proofs for
 
 The starting point is the [original research plan](docs/latent_geometry_mathematical_theorems_research_plan.md), preserved byte for byte. The [current specification](docs/current-state-object-spec.md) governs this investigation. The original [implementation plan](docs/implementation-plan.md) is historical and superseded where it conflicts with that specification.
 
-The current representation keeps **one physical vector row per recorded state**:
-26,820 rows grouped under 256 theorem identities, with repeated coordinates retained.
-Open the [current explorer](results/state-object-records-v1/explore.html) or read
-[the record archive](results/state-object-records-v1/README.md). The prior shared
-text-vector cache is preserved only as historical source data.
+The [active dataset](results/state-objects-admitted-v1/README.md) now contains
+**102 theorem groups, 813 proof records and 16,592 separate state-vector rows**.
+Open the [active explorer](results/state-objects-admitted-v1/explore.html).
 
-The [assumption audit](docs/assumption-audit-v1.md) found unsupported inferences
-about proof diversity, complete state capture, sample adequacy and mathematical
-meaning of the geometry. It also found and fixed numerical and checkpoint-validation
-defects. One selected formal theorem has inconsistent assumptions. This remains a
-bounded acquisition pilot; neither complete known-proof coverage nor faithful
-mathematical State objects has been established. All recorded states are retained.
+An enforced admission rule excludes six theorem groups whose assumptions were
+proved contradictory in Lean, and holds 148 groups with unresolved source identity
+or inventoried proof/trace gaps. All states of every admitted theorem remain;
+there is no state deduplication or proof/state cap. The full 26,820-row
+[historical archive](results/state-object-records-v1/README.md) remains available
+for recovery and repair, but is no longer the active analysis set.
 
-The current focus is the **occupied region** of states across proofs and how
-different theorem State objects intersect and connect. An
-[input-identity audit](docs/state-input-identity-audit-v1.md) found that identical
-printed goals can conceal different underlying states. Existing geometry therefore
-remains a measurement of printed local-goal displays, with semantic identity
-unverified. The
+The [remediation report](docs/theorem-admission-remediation-v1.md) records the
+exclusions, the contradiction screen of all 128 Workbook groups, the admission
+checks and what is still open. The earlier [assumption audit](docs/assumption-audit-v1.md)
+identified defects; labelling them was not sufficient remediation.
+
+The goal remains investigation of the **occupied regions** formed by states across
+proofs. The [current specification](docs/current-state-object-spec.md) and
 [convex-hull literature review](docs/state-object-convex-hull-literature-review.md)
-examines the rubber-band definition. The
-[corrected implementation](docs/state-object-implementation-v1.md) now samples
-256 formal theorem identities. Its first acquisition retains 1,337 source proof
-records (1,093 distinct scripts) and 26,820 recorded states, each now stored with
-its own vector row. Script differences do not establish independent mathematical proofs.
-The [historical explorer](results/state-object-v1/explore.html) shows the filled
-hulls and checked relationships; [coverage gaps](results/state-object-v1/coverage-gaps.json)
-remain explicit. The earlier eight-vector energy-distance experiment did
-not construct an occupied region or test its topology; its results do not settle
-this objective. Completed compute and the corrected scope are documented in the
-[recovery checkpoint](docs/convex-hull-investigation-status.md).
+define the scope. Proof admission does not establish complete internal state capture,
+all-known-proof coverage or mathematical faithfulness of the encoder. Those remain
+open work, not problems declared fixed by documentation. No model was trained.
 
 The completed strategy-transfer continuation addressed a task-design failure in the earlier study.
 An [adversarial analysis](docs/adversarial-centroid-results-v1.md) verifies that

@@ -11,6 +11,7 @@ import numpy as np
 
 from noema.state_objects import atomic_json
 from noema.state_records import load_record_archive
+from noema.theorem_admission import load_admission
 
 
 def main():
@@ -20,6 +21,11 @@ def main():
     args = parser.parse_args()
     manifest, records, matrix = load_record_archive(args.records)
     objects = json.loads((args.records / "objects.json").read_text())
+    if "admission" in manifest:
+        corpus = json.load(gzip.open(Path(manifest["source_archive"]) / "corpus.json.gz"))
+        admitted = load_admission(corpus, args.records)
+        if {o["theorem_id"] for o in objects} != admitted:
+            raise ValueError("active objects do not match proof admission")
     old_manifest = json.loads((args.prior / "vector-manifest.json").read_text())
     if manifest["encoder"] != old_manifest["encoder"]:
         raise ValueError("certificates refer to another encoder")
@@ -43,8 +49,12 @@ def main():
     old_pairs_path = args.prior / "pair-results.json.gz"
     old_pairs = json.load(gzip.open(old_pairs_path))
     counts = Counter()
+    if set(by_id) - set(old_objects):
+        raise ValueError("theorem objects lack source certificates")
     with (args.records / "pair-results.jsonl").open("w") as output:
         for i, prior in enumerate(old_pairs):
+            if prior["a"] not in arrays or prior["b"] not in arrays:
+                continue
             a, b = arrays[prior["a"]], arrays[prior["b"]]
             extent = prior.get("extent", prior)
             relation = extent["relation"]
@@ -109,7 +119,7 @@ def main():
             "records_used": len(records),
             "vector_rows_used": len(matrix),
             "deduplication": False,
-            "pairs_checked": len(old_pairs),
+            "pairs_checked": sum(counts.values()),
             "relations": dict(counts),
             "prior_certificate_archive": str(args.prior),
             "prior_certificate_sha256": hashlib.sha256(old_pairs_path.read_bytes()).hexdigest(),
@@ -118,6 +128,8 @@ def main():
             "semantic_identity_verified": False,
         },
     )
+    if sum(counts.values()) != len(objects) * (len(objects) - 1) // 2:
+        raise ValueError("certificate coverage does not include every active pair")
     print(json.dumps(dict(counts)))
 
 

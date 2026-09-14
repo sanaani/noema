@@ -6,8 +6,9 @@
 </style>
 <main>
 <h1>State object explorer</h1>
+<p class="lead note">__DATASET_STATUS__</p>
 <p class="lead">Each object is the filled convex hull of the acquired states across its inventoried proofs. Every recorded state has its own vector row and marker. Choose two theorems, then select a state record to inspect it.</p>
-<p class="lead note">The drawing uses one common 2D projection fitted to all 26,820 vector rows. Screen overlap can differ from intersection in the original 1,472-dimensional space; the relationship below uses the original coordinates.</p>
+<p class="lead note">The drawing uses one common 2D projection fitted to all __ROW_COUNT__ vector rows. Screen overlap can differ from intersection in the original 1,472-dimensional space; the relationship below uses the original coordinates.</p>
 <p class="lead note">This is an acquisition pilot. Proof records may repeat the same script; complete known-proof coverage and mathematical meaning of the geometry remain unverified.</p>
 <div class="controls"><div class="control"><label for="a">Theorem A</label><select id="a"></select><div class="stats" id="astats"></div></div><div class="control second"><label for="b">Theorem B</label><select id="b"></select><div class="stats" id="bstats"></div></div></div>
 <div class="layout"><div class="plot"><svg id="plot" viewBox="0 0 800 500" role="img" aria-label="Projected State objects and all generating points"></svg><div class="toolbar"><div class="legend"><span><i class="dot"></i>A</span><span><i class="dot orange"></i>B</span><span><i class="dot shared"></i>Coincident coordinates</span></div><button id="download">Save SVG</button></div><p class="note" id="variance"></p></div><aside class="details"><h2>Inspect a state record</h2><label for="record">State record</label><select id="record"></select><p id="statehint">Coincident markers remain separate state records. Use the list to inspect each one.</p><pre id="state">No state selected.</pre><small id="provenance"></small></aside></div>

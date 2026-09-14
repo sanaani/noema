@@ -1,5 +1,10 @@
 # Corrected State-object implementation and first acquisition
 
+**Historical acquisition report.** The first acquisition did not meet the full
+specification. The [current admission and remediation](theorem-admission-remediation-v1.md)
+excludes known contradictory cases and holds unresolved groups. Use the active
+dataset linked there; the archive below preserves original results and provenance.
+
 > **Interpretation corrected after the input-identity audit:** the coordinates
 > represent printed local-goal displays, not verified complete mathematical state
 > identities. Identical displays can hide different underlying information;
