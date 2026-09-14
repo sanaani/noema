@@ -89,3 +89,8 @@ The original plan's single-proof and trajectory controls are also covered by a
 was frozen at `d4cf503`. These comparisons are descriptive and use the same
 frozen inputs; the complete-program comparator has more trajectory information
 than the eight-point cloud. They add no stopping criterion to the primary test.
+
+All 99 local tests pass. Independent archive reconstruction validates every
+recorded Lean source, all 6,144 axiom audits and all 30,720 contexts/goals, in
+addition to the complete proof-bank and transfer-label checks. Encoding and
+confirmation scoring are still in progress.

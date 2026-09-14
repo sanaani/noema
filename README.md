@@ -31,8 +31,8 @@ being checked in Lean before encoding. The
 [confirmation reproduction guide](docs/reproduction-strategy-transfer-confirmation-v1.md)
 includes interruption recovery and parallel acquisition.
 
-Read the **[current result](docs/strategy-transfer-results-v2.md)** and
-[reproduction guide](docs/reproduction-strategy-transfer-v2.md). All 93 local
+Read the **[completed development result](docs/strategy-transfer-results-v2.md)** and
+[reproduction guide](docs/reproduction-strategy-transfer-v2.md). All 99 local
 tests pass. Archived vectors reproduce the full development comparison without
 model downloads. The [first screen](docs/strategy-transfer-results-v1.md) remains
 closed with its clouds unscored. No Phase 5 or full mathlib acquisition was opened.

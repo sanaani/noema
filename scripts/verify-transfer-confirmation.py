@@ -129,21 +129,15 @@ def main():
         "assignments_regenerated": args.regenerate_assignments,
     }
     run = archive / "run"
-    if not (run / "report.json").exists():
+    if not (run / "lean/summary.json").exists():
         print(json.dumps(result, indent=2))
         return
-    report = read(run / "report.json")
-    assert report["matching"] == matching
-    assert report["unique_inputs"] == assignment["unique_inputs"]
-    assert (
-        report["freeze"]
-        == read(run / "run-freeze.json")
-        == {
-            "plan_sha256": digest(plan_text),
-            "source_hashes": confirmation_hashes(),
-            "protocol_sha256": digest(PROTOCOL.read_text()),
-        }
-    )
+    freeze = read(run / "run-freeze.json")
+    assert freeze == {
+        "plan_sha256": digest(plan_text),
+        "source_hashes": confirmation_hashes(),
+        "protocol_sha256": digest(PROTOCOL.read_text()),
+    }
     proof_count = state_count = 0
     for bi, block in enumerate(plan["blocks"]):
         directory = run / "lean" / f"block-{bi:04d}"
@@ -180,11 +174,16 @@ def main():
                 state_count += 1
             proof_count += 1
         assert summary["verified_proofs"] == 12 and summary["matched_intermediate_states"] == 60
-    assert (
-        report["lean"]
-        == read(run / "lean/summary.json")
-        == {"verified_proofs": proof_count, "matched_intermediate_states": state_count}
-    )
+    totals = {"verified_proofs": proof_count, "matched_intermediate_states": state_count}
+    assert read(run / "lean/summary.json") == totals
+    result.update({"verified_recorded_proofs": proof_count, "matched_recorded_states": state_count})
+    if not (run / "report.json").exists():
+        print(json.dumps(result, indent=2))
+        return
+    report = read(run / "report.json")
+    assert report["freeze"] == freeze and report["lean"] == totals
+    assert report["matching"] == matching
+    assert report["unique_inputs"] == assignment["unique_inputs"]
     caches = {}
     for name, dimension in (("syntax", 256), ("minilm", 384), ("reprover", 1472)):
         assert read(run / f"vectors/{name}-manifest.json") == read(
