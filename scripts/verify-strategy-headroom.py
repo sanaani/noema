@@ -8,6 +8,7 @@ from pathlib import Path
 
 import numpy as np
 
+from noema.archive_validation import compare_archive
 from noema.associahedron import apply_step, lean_source, population, replay, state, transfer
 from noema.corpus import digest, validate_response
 from noema.strategy_transfer import (
@@ -115,14 +116,15 @@ def main():
                 ]
                 distances.append([float(np.linalg.norm(vectors[0] - c)) for c in vectors[1:]])
             expected_baselines[f"{name}_{mode}"] = score_distances(distances, plan)
-    assert expected_baselines == report["baselines"]
+    numerical = compare_archive(expected_baselines, report["baselines"])
     failures = [k for k, v in expected_baselines.items() if v["upper_95"] >= 0.90]
     assert failures == report["failing_baselines"]
     assert report["headroom_pass"] == (not failures)
     print(
         json.dumps(
             {
-                "all_baseline_fields_exact": True,
+                "all_baseline_fields_exact": numerical["all_fields_exact"],
+                "numerical_comparison": numerical,
                 "triplets": len(plan["blocks"]),
                 "distinct_endpoint_pairs": len(identifiers),
                 "explicit_strategy_replays": replay_attempts,

@@ -23,7 +23,11 @@ strata, confidence bounds and the gate from archived vectors. It also regenerate
 the entire eligible seven-leaf population, confirms all frozen program banks,
 and explicitly replays transfer attempts in both directions. It does not need
 model weights or Lean. The checks are same-code reproduction, not independent
-statistical replication.
+statistical replication. The headroom verifier requires exact discrete outcomes
+and reports any floating-point differences. Across CPU/library implementations,
+numeric fields may differ by at most `1e-12 + 1e-12 * abs(expected)`; larger
+differences fail. This archive-verification tolerance does not change the
+experiment's fixed tie threshold, predictions, confidence rule or stored data.
 
 The second command reconstructs all 18 Horn interventions, both context-swap
 alignments and every variance field, and audits the context/goal census and
