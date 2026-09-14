@@ -41,7 +41,7 @@ python scripts/confirmation-acquisition-worker.py proofs \
 ```
 
 The two workers own disjoint even/odd triplets. Repeat a command after an
-interruption; completed proof checkpoints are retained. Once both finish:
+interruption; completed proof checkpoints are retained.
 
 The remaining stages can be automated while those workers run:
 
@@ -84,6 +84,18 @@ Any vector already present in the sequential cache must match bit for bit.
 The final frozen runner validates all checkpoints, reconstructs the baselines
 before energy scores, and computes the exact paired tests and 10,000 paired
 triplet-bootstrap intervals. No sample-size adjustment follows observed scores.
+
+After the primary run, execute the separately preregistered original-plan audit:
+
+```bash
+python -m noema.confirmation_baselines \
+  --plan outputs/my-confirmation-plan.json --run outputs/my-confirmation \
+  --output outputs/my-confirmation-supplement.json
+```
+
+This uses the existing vectors and verified sampled programs for single-proof,
+position-specific, complete-trajectory and tactic-histogram controls. It reports
+descriptive gains and paired intervals, with no additional primary gate.
 
 ## Archive-only verification
 

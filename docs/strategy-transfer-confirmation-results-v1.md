@@ -80,3 +80,10 @@ No floating-point reduction or statistical rule is changed by this scheduling.
 See the [reproduction guide](reproduction-strategy-transfer-confirmation-v1.md)
 for sequential execution, resumption and the parallel acquisition commands.
 The results section will be completed after all registered observations finish.
+
+The original plan's single-proof and trajectory controls are also covered by a
+[prospective supplement](confirmation-baseline-supplement-v1.md), committed at
+`f6c4ce6` during the Lean audit and before confirmation embeddings. Its source
+was frozen at `d4cf503`. These comparisons are descriptive and use the same
+frozen inputs; the complete-program comparator has more trajectory information
+than the eight-point cloud. They add no stopping criterion to the primary test.
