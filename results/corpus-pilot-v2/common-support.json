@@ -1,0 +1,21 @@
+{
+  "maximum_proofs_per_generator": 0,
+  "maximum_disjoint_within_prover_proofs_per_side": 0,
+  "theorem_ids": [
+    "horn_000",
+    "horn_001",
+    "horn_002",
+    "horn_003",
+    "horn_004",
+    "horn_005",
+    "horn_006",
+    "horn_007",
+    "horn_008",
+    "horn_009",
+    "horn_010",
+    "horn_011"
+  ],
+  "length_allocation": {},
+  "subsets_examined": 2704156,
+  "expected_subsets": 2704156
+}

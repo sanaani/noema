@@ -1,5 +1,10 @@
 # Final research status: bounded feasibility study
 
+Historical v1 result. The user subsequently supplied a revised research plan;
+the [continuation protocol](continuation-protocol-v2.md) and
+[clustered power study](cluster-power-results.md) supersede this document's
+whole-project completion claim. Its original measurements remain unchanged.
+
 **The implementation and gated study are complete. The formal feasibility gate
 failed.** This execution provides a verified multi-proof corpus and reproducible
 negative evidence about this particular sampling/representation design. It does
