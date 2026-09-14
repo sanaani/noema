@@ -4,7 +4,13 @@ Exploring whether the unordered states encountered across alternative proofs for
 
 The starting point is the [original research plan](docs/latent_geometry_mathematical_theorems_research_plan.md), preserved byte for byte. The [implementation plan](docs/implementation-plan.md) defines the engineering checkpoints and scientific gates.
 
-The implementation and bounded study are complete. The corpus contains 3,072 Lean-verified proofs across 24 generated Horn theorems, from backward and forward proof searches. The formal feasibility gate **failed**: full-context text matching did not improve on centroids, and the required goal-only cross-generator control collapsed to chance. This does not globally refute theorem geometry.
+The first bounded study is complete. The corpus contains 3,072 Lean-verified proofs across 24 generated Horn theorems, from backward and forward proof searches. Its formal feasibility gate **failed**: full-context text matching did not improve on centroids, and the required goal-only cross-generator control collapsed to chance. This does not globally refute theorem geometry.
+
+The user subsequently supplied a [revised research plan](docs/research-plan-v2.md).
+Its [continuation protocol](docs/continuation-protocol-v2.md) adds proof-cluster
+power envelopes and proof-length/state-depth matching. The original full-text
+signal warrants this controlled continuation; the first study's unmatched
+comparisons do not answer the revised primary question.
 
 Read the [final research status](docs/final-research-status.md), [formal results](results/formal-v1/report.md), and [complete reproduction guide](docs/reproduction.md). The original [checkpoint 2 report](docs/checkpoint-2-results.md) remains a historical foundation record.
 

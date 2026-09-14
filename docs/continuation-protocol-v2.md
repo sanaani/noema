@@ -63,6 +63,18 @@ selected power envelope. Report excluded theorems and balance diagnostics.
 Within-prover proof splits stay disjoint, and unmatched comparisons are secondary.
 A lack of feasible common support is a failed revised corpus-adequacy gate.
 
+The enlarged nongeometric pilot is fixed in `configs/corpus-pilot-v2.json`:
+8,192 backward attempts and forward width 512 on all 24 development theorems.
+Before geometric analysis, enumerate every 12-theorem subset and maximize the
+common count summed over exact proof lengths; this permits a mixture of lengths,
+not just one length. Equal optima choose lexicographic theorem order. This
+optimistic capacity excludes shared proof identities and predicted forward
+state-sequence duplicates, but still requires actual Lean acceptance and state
+deduplication. Within-prover comparisons require twice the per-side count.
+At each length choose the same n raw positions ceil(j*(L-1)/n), j=1,...,n;
+missing required states make a proof ineligible. Neither length nor position is
+an encoder feature. These selection rules use only nongeometric data.
+
 The exact new corpus/splits/matching specification must be committed before its
 geometric analysis. Tests permute complete theorem labels within the matched
 population. Full individual state content is the primary representation; v1's
