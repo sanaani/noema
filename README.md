@@ -50,7 +50,7 @@ The pilot makes 2,520 comparisons and costs substantially more than the smoke ru
 | Symmetric radius coverage | Local proximity diagnostic; larger means more coverage |
 | Centroid distance | Baseline exposing information lost by collapsing a cloud to its mean |
 
-MMD uses the nonnegative biased estimator and a bandwidth computed without labels from the pooled points. Only MMD receives a significance test. P-values include the Monte Carlo correction and undergo Benjamini–Hochberg adjustment across every primary comparison in a run. Synthetic trials use independent random streams. Formal comparisons use whole-theorem label permutations and theorem-cluster uncertainty because states within one proof are correlated.
+MMD uses the nonnegative biased estimator and a bandwidth computed without labels from the pooled points. The original study tests MMD; the revised proof-cluster calibration tests MMD and energy, and its frozen formal continuation selects energy. P-values include the Monte Carlo correction and undergo Benjamini–Hochberg adjustment across each complete primary family. The new synthetic calibration permutes whole proof blocks. Formal comparisons use whole-theorem label permutations and theorem-cluster uncertainty because states within one proof are correlated.
 
 The implementation of projected transport uses sorted, equal-weight samples, consistent with the [SciPy definition of 1D Wasserstein-1](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.wasserstein_distance.html). Explicit random generators follow [NumPy's Generator interface](https://numpy.org/doc/stable/reference/random/generator.html).
 
