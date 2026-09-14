@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "state_records": 26820,
+  "physical_vector_rows": 26820,
+  "all_metadata_retained": true,
+  "all_coordinates_match_saved_encoder_output": true,
+  "deduplication": false,
+  "theorem_groups": 256,
+  "new_encoder_execution": false
+}

@@ -37,8 +37,14 @@ for config in '410 4.10.0-rc1 leandojo-12740403 lean4.10.0-rc1-mathlib-29dcec0-r
     --mathlib "$base/.tools/$version/mathlib" --repl "$base/.tools/$version/repl/.lake/build/bin/repl" \
     --environment-id "$identity" --workers 2 --timeout 300
 done
-start encode scripts/encode-state-object-states.py --selected "$selected" \
-  --replays "$out/replays49" "$out/replays427" "$out/replays410" "$out/replays419" "$out/replays419extra" \
-  "$out/replays47" "$out/replays48" "$out/retries" "$out/replays49audit2" \
-  --output "$out/encoding-l40s" --model "$base/.tools/reprover" --watch-seconds 3800
-printf '%s\n' 'Resumed all inventoried proof replays and whole-input GPU encoding.'
+# Assemble all completed traces before encoding individual state records.
+wait
+PYTHONPATH="$base/src" "$base/.venv/bin/python" scripts/assemble-state-object-corpus.py \
+  --selected "$selected" --replays "$out/replays49" "$out/replays427" "$out/replays410" \
+  "$out/replays419" "$out/replays419extra" "$out/replays47" "$out/replays48" \
+  "$out/retries" "$out/replays49audit2" "$out/replays48audit2" "$out/replays427audit2" \
+  --output "$out/assembled-record-corpus"
+start encode-records scripts/encode-state-object-states.py \
+  --corpus "$out/assembled-record-corpus/corpus.json.gz" \
+  --output "$out/encoding-records" --model "$base/.tools/reprover"
+printf '%s\n' 'Acquisition assembled; started one-vector-per-state encoding.'

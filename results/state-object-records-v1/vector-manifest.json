@@ -1,0 +1,122 @@
+{
+  "schema": "one-vector-per-state-record-v1",
+  "encoder": {
+    "model": "kaiyuy/ct2-leandojo-lean4-retriever-byt5-small",
+    "revision": "8612469b496b72bdb2f0d6ccd5316c100200581e",
+    "checksums": {
+      "model.bin": "311e636b7479e97236de85f5271f2b045e1e40a1de5a431df03b050b2176f827",
+      "config.json": "d3b27bd603df8fb368c641042d2f280d6821066a433f497aa24a2758cc49497c",
+      "vocabulary.json": "60259dce54d4677a043dbadcedb27916fa934567c01a796124dec71bf23a3e09"
+    },
+    "ctranslate2": "4.8.2",
+    "numpy": "2.5.3",
+    "compute_type": "int8_float32",
+    "device": "cuda",
+    "gpu_model": "NVIDIA L40S",
+    "dimension": 1472,
+    "tokenization": "all UTF-8 bytes +3, append EOS=1; no truncation or length cap",
+    "pooling": "singleton; nonpadding mean including EOS in float64; L2 normalize",
+    "state_serialization": "source goal/context text; provenance records source extractor",
+    "encoder_script_sha256": "6210ab5f221b67ddbdf67e36e84da03715b34ec666e76cb461a5132f1eed4e8f",
+    "encoder_id": "2967cc1b345131ff06cdfc1ef6a9e6f20cd6e021d92956c95582c4c0027d4fcc"
+  },
+  "dimension": 1472,
+  "vector_rows": 26820,
+  "state_records": 26820,
+  "deduplication": false,
+  "array_file_compression": false,
+  "storage": "uncompressed float64 NPY chunks; each record owns its own row",
+  "chunks": [
+    {
+      "filename": "vectors-000.npy",
+      "row_start": 0,
+      "rows": 2000,
+      "sha256": "19aade991996a02c73dc88a03f672dfa168d469856e13cd547f2bb37ebbfe095"
+    },
+    {
+      "filename": "vectors-001.npy",
+      "row_start": 2000,
+      "rows": 2000,
+      "sha256": "cab3016688aa192b03089dbc23157bcbb6f35e8dee7d2fcc131981776a69d3bf"
+    },
+    {
+      "filename": "vectors-002.npy",
+      "row_start": 4000,
+      "rows": 2000,
+      "sha256": "e756d3cbecb0dfb5c93d5b44b81c6977134b99c5bb7a6c40675c0149e8a046f0"
+    },
+    {
+      "filename": "vectors-003.npy",
+      "row_start": 6000,
+      "rows": 2000,
+      "sha256": "dfe322b4b03304cc568ed67e5cacaa9cadefad864f5eb4957355c6938314d18a"
+    },
+    {
+      "filename": "vectors-004.npy",
+      "row_start": 8000,
+      "rows": 2000,
+      "sha256": "a38cfe6a214f168d3af8ad61a80ad7dcfa39883f184c28a18a3a69098c4a2a90"
+    },
+    {
+      "filename": "vectors-005.npy",
+      "row_start": 10000,
+      "rows": 2000,
+      "sha256": "6526dd4776da15042dbfaa8f91fe081cfd0c734f31d3a1886b1ba6d7404cf6fa"
+    },
+    {
+      "filename": "vectors-006.npy",
+      "row_start": 12000,
+      "rows": 2000,
+      "sha256": "9c1199e1dd22bc0a0bc1176673820a826b2ee71035b10aa21aff7012ada0a8d1"
+    },
+    {
+      "filename": "vectors-007.npy",
+      "row_start": 14000,
+      "rows": 2000,
+      "sha256": "1e0bd5a9ca098a6cf14e87437837ad1575dbf9fb2405059d3c0372fc76fedc11"
+    },
+    {
+      "filename": "vectors-008.npy",
+      "row_start": 16000,
+      "rows": 2000,
+      "sha256": "bb07583bb7da7c31c4420c5d319ddd9a812b6c8ac618ddf8fbe16dc9b1ad4f95"
+    },
+    {
+      "filename": "vectors-009.npy",
+      "row_start": 18000,
+      "rows": 2000,
+      "sha256": "95f67d8b30a3b7d20417bc5310031c15427d701440051eef4dbbb9a13d804ec4"
+    },
+    {
+      "filename": "vectors-010.npy",
+      "row_start": 20000,
+      "rows": 2000,
+      "sha256": "7bf4840267bfa839f22dac2d334279094d815310e47a2cd15397fa0f2fc7123e"
+    },
+    {
+      "filename": "vectors-011.npy",
+      "row_start": 22000,
+      "rows": 2000,
+      "sha256": "32dfb473936fdc60fbe4bdcda619ca19de41c9b3f4f35c558122db25de8edf79"
+    },
+    {
+      "filename": "vectors-012.npy",
+      "row_start": 24000,
+      "rows": 2000,
+      "sha256": "6cadaa8eec2ee1f9b6bd46781784d6c748179d24a734a38204654cf959d74c72"
+    },
+    {
+      "filename": "vectors-013.npy",
+      "row_start": 26000,
+      "rows": 820,
+      "sha256": "877a992235d142b181af219f3fbd5c71f858cc9adaf5cf4409db4954c930dfc7"
+    }
+  ],
+  "source_archive": "results/state-object-v1",
+  "source_corpus_sha256": "af5f40d7679f80021760e0bb369a983da06c4222303f6b5a9ebdce37f754ebc5",
+  "source_vector_manifest_sha256": "bb6f227ce85f9c2aae4d5fa0be0ea010fb610f992aaf49c17c1275fb4d1474c0",
+  "creation_method": "copy each recorded state's previously computed coordinates into its own physical row",
+  "new_encoder_execution": false,
+  "coordinates_perturbed_to_separate_identical_inputs": false,
+  "semantic_identity_verified": false
+}

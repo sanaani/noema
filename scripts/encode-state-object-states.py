@@ -1,7 +1,8 @@
 """Resume whole-input, fixed-encoder GPU measurement of every acquired state.
 
-There is no input truncation or point cap. Every exact text gets an atomic vector
-checkpoint. Failed inputs remain failures and prevent complete-object status.
+There is no input truncation or point cap. Every recorded state gets its own atomic vector
+checkpoint; equal input text is not deduplicated. Failed inputs remain failures
+and prevent complete-object status.
 """
 
 import argparse
@@ -15,31 +16,18 @@ from pathlib import Path
 import numpy as np
 
 from noema.reprover import CHECKSUMS, REVISION
-from noema.state_objects import atomic_json, fingerprint, state_id
+from noema.state_objects import atomic_json, fingerprint
+from noema.state_records import state_records
 
 
-def gather(selected, replay_roots):
-    texts = {}
-    registered = {p["id"] for p in selected["proofs"]}
-    for record in selected["proofs"]:
-        for state in record["states"]:
-            texts[state_id(state["text"])] = state["text"]
-    for root in replay_roots:
-        for path in root.glob("*.json"):
-            if path.name.startswith("replay-"):
-                continue
-            replay = json.loads(path.read_text())
-            # Failed proof attempts are archived but do not define a proved theorem object.
-            if replay.get("verified") and replay["proof_id"] in registered:
-                for state in replay["states"]:
-                    texts[state_id(state["text"])] = state["text"]
-    return texts
+def gather(corpus):
+    """Key inputs by their individual provenance; preserve equal text records."""
+    return {record["record_id"]: record for record in state_records(corpus)}
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--selected", type=Path, required=True)
-    parser.add_argument("--replays", type=Path, nargs="*", default=[])
+    parser.add_argument("--corpus", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--model", type=Path, required=True)
     parser.add_argument("--watch-seconds", type=int, default=0)
@@ -75,6 +63,10 @@ def main():
     manifest["encoder_id"] = fingerprint(manifest)
     args.output.mkdir(parents=True, exist_ok=True)
     manifest_path = args.output / "encoder.json"
+    storage_path = args.output / "record-storage.json"
+    if manifest_path.exists() and not storage_path.exists():
+        raise ValueError("legacy text cache cannot be used as a per-state record cache")
+    atomic_json(storage_path, {"deduplication": False, "key": "provenance record ID"})
     if manifest_path.exists():
         previous = json.loads(manifest_path.read_text())
         runtime_keys = set(manifest) - {"encoder_script_sha256", "encoder_id"}
@@ -96,13 +88,19 @@ def main():
     deadline = time.monotonic() + args.watch_seconds
     completed, failed = 0, 0
     while True:
-        selected = json.load(gzip.open(args.selected))
-        texts = gather(selected, args.replays)
+        corpus = json.load(gzip.open(args.corpus))
+        records = gather(corpus)
         # Order affects scheduling only. All inputs remain in the target inventory.
-        for sid, text in sorted(texts.items(), key=lambda item: (len(item[1].encode()), item[0])):
+        for sid, record in sorted(
+            records.items(), key=lambda item: (len(item[1]["text"].encode()), item[0])
+        ):
+            text = record["text"]
             target = args.output / "vectors" / (sid + ".npy")
             failure = args.output / "failures" / (sid + ".json")
+            sidecar = args.output / "texts" / (sid + ".json")
             if target.exists():
+                if not sidecar.exists() or json.loads(sidecar.read_text()) != record:
+                    raise ValueError("state record changed under an existing vector identity")
                 existing = np.load(target, allow_pickle=False)
                 if (
                     existing.shape != (1472,)
@@ -113,7 +111,7 @@ def main():
                 continue
             if failure.exists():
                 continue
-            atomic_json(args.output / "texts" / (sid + ".json"), {"state_id": sid, "text": text})
+            atomic_json(sidecar, record)
             ids = [value + 3 for value in text.encode("utf-8")] + [1]
             started = time.monotonic()
             try:
@@ -134,7 +132,7 @@ def main():
                 atomic_json(
                     failure,
                     {
-                        "state_id": sid,
+                        "record_id": sid,
                         "bytes_plus_eos": len(ids),
                         "error": repr(exc),
                         "encoder_id": manifest["encoder_id"],
@@ -147,7 +145,7 @@ def main():
                         {
                             "new_vectors": completed,
                             "failed": failed,
-                            "current_inventory": len(texts),
+                            "current_inventory": len(records),
                             "last_tokens": len(ids),
                             "last_seconds": time.monotonic() - started,
                         }
@@ -157,7 +155,7 @@ def main():
         atomic_json(
             args.output / "progress.json",
             {
-                "discovered_inputs": len(texts),
+                "state_records": len(records),
                 "vectors": len(list((args.output / "vectors").glob("*.npy"))),
                 "failures": len(list((args.output / "failures").glob("*.json"))),
                 "encoder_id": manifest["encoder_id"],

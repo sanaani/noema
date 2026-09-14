@@ -4,6 +4,12 @@ Exploring whether the unordered states encountered across alternative proofs for
 
 The starting point is the [original research plan](docs/latent_geometry_mathematical_theorems_research_plan.md), preserved byte for byte. The [implementation plan](docs/implementation-plan.md) defines the engineering checkpoints and scientific gates.
 
+The current representation keeps **one physical vector row per recorded state**:
+26,820 rows grouped under 256 theorem identities, with repeated coordinates retained.
+Open the [current explorer](results/state-object-records-v1/explore.html) or read
+[the record archive](results/state-object-records-v1/README.md). The prior shared
+text-vector cache is preserved only as historical source data.
+
 The current focus is the **occupied region** of states across proofs and how
 different theorem State objects intersect and connect. An
 [input-identity audit](docs/state-input-identity-audit-v1.md) found that identical
@@ -15,7 +21,7 @@ examines the rubber-band definition. The
 [corrected implementation](docs/state-object-implementation-v1.md) now samples
 256 real theorem identities. Its first acquisition retains 1,337 proof records,
 26,820 valid state occurrences and all 3,659 distinct acquired state vectors.
-The [interactive explorer](results/state-object-v1/explore.html) shows the filled
+The [historical explorer](results/state-object-v1/explore.html) shows the filled
 hulls and checked relationships; [coverage gaps](results/state-object-v1/coverage-gaps.json)
 remain explicit. The earlier eight-vector energy-distance experiment did
 not construct an occupied region or test its topology; its results do not settle

@@ -35,4 +35,7 @@ jobs:
       - run: python scripts/verify-state-object-archive.py --corpus results/state-object-v1/corpus.json.gz --analysis results/state-object-v1
       - run: cd results/state-identity-audit-v1 && sha256sum -c SHA256SUMS
       - run: python scripts/audit-state-object-inputs.py --output outputs/ci-state-input-audit
+      - run: cd results/state-object-records-v1 && sha256sum -c SHA256SUMS
+      - run: python scripts/verify-state-record-vectors.py --records results/state-object-records-v1
+      - run: python scripts/analyze-state-record-objects.py --records results/state-object-records-v1
       - run: noema synthetic --config configs/smoke.json --output outputs/ci-smoke

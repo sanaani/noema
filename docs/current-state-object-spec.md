@@ -44,16 +44,16 @@ Workbook; its pinned source inventory and acquisition status are recorded in
    and distinguish local focused obligations from complete proof states before
    asserting semantic identity from a new acquisition.
    Encode each state with the same fixed encoder and serialization. Preserve the
-   original state text and its theorem/proof associations. Cache repeated identical
-   inputs without losing their occurrence records. Do not mix coordinate spaces
+   original state text and its theorem/proof associations. Keep one independent
+   vector row for every recorded state, even when input texts or coordinates
+   repeat. Checkpoint by record identity, not by text identity. Do not mix coordinate spaces
    from different encoders or silently substitute truncated states.
 3. For theorem T, let Z_T contain every acquired state vector from all its acquired
    proofs. Define the candidate State object X_T = conv(Z_T), the convex hull.
    The hull includes its interior and boundary, not merely an ordered perimeter.
    No centroid, neighborhood radius, or proof-order edges define this object.
-4. Represent the hull implicitly by its generating vectors. Exact duplicate
-   vectors may share geometric storage because they do not change the hull;
-   retain all provenance. Do not require enumerating every high-dimensional face.
+4. Represent the hull implicitly by its generating vectors. Every recorded vector has its own stored row and provenance, including
+   repeated coordinates. Do not deduplicate those rows. Do not require enumerating every high-dimensional face.
 5. Test two hulls for intersection by solving A alpha = B beta with nonnegative
    weights summing to one separately on each side. Save verified intersection
    witnesses or separating hyperplanes. Numerical ambiguity is unresolved, not
