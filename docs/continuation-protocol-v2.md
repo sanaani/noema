@@ -93,3 +93,12 @@ pair, and correct the entire universe. Do not reinterpret a single-domain
 feasibility population as cross-domain discovery. Graph fidelity is optional and
 non-gating under the revised plan. A failed power or feasible-corpus gate closes
 this continuation with the revised plan's explicit stop/redesign outcome.
+
+## Subsequent disposition
+
+The native-replay pilot failed its common-support gate. The separately frozen
+[canonical-replay protocol](canonical-replay-protocol-v3.md) records the one
+allowed redesign on a fresh theorem seed before geometric analysis. It preserves
+the native failure, qualifies energy at 32 proofs × 4 states, and completes the
+matched study. The [final result](revised-plan-results.md) reports reproducibility
+without demonstrated added information; conditional discovery is closed.

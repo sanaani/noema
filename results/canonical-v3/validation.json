@@ -1,0 +1,7 @@
+{
+  "status": "passed",
+  "comparison_count": 18,
+  "primary_family_size": 9,
+  "exact_match_all_fields": true,
+  "scope": "same-implementation fresh-process cached-vector reproduction; not statistical replication"
+}

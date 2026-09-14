@@ -86,3 +86,22 @@ criterion, [corpus results](corpus-results.md) for the verified census, and
 [reproduction](reproduction.md) for executable commands and recovery. The original
 research document, failed prior experiments, metric freeze and preregistered
 thresholds remain preserved. Proof navigation remains a separate future project.
+
+## Revised-plan completion record — 2026-09-13
+
+The user supplied a revised source document after the first study. Its additional
+requirements are now executed: proof-cluster power curves and independent
+qualification; external length/depth metadata; a native-replay capacity audit;
+one preregistered canonical-replay redesign on a fresh theorem seed; power-derived
+acquisition; complete Lean verification; exact length/depth matching; within- and
+cross-prover comparisons; unmatched diagnostics; baseline and diversity audits;
+and archived-vector reproduction.
+
+The new corpus has 1,864 verified proofs and 60,501 retained states. All nine
+primary matched tests show association, but text clouds tie simpler baselines
+at 100% pairwise wins. The added-information gate fails, closing conditional
+intersection discovery under criterion 4. The stronger conjecture remains
+unestablished, and cross-domain H3/H4 remain untested. No failed overlap p-value
+or mathematical motif is claimed. See the [current final result](revised-plan-results.md)
+and [reproduction guide](reproduction-v3.md). All 80 local tests pass; every field
+of all 18 comparisons reproduces exactly from the archived corpus and vectors.

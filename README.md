@@ -4,15 +4,25 @@ Exploring whether the unordered states encountered across alternative proofs for
 
 The starting point is the [original research plan](docs/latent_geometry_mathematical_theorems_research_plan.md), preserved byte for byte. The [implementation plan](docs/implementation-plan.md) defines the engineering checkpoints and scientific gates.
 
-The first bounded study is complete. The corpus contains 3,072 Lean-verified proofs across 24 generated Horn theorems, from backward and forward proof searches. Its formal feasibility gate **failed**: full-context text matching did not improve on centroids, and the required goal-only cross-generator control collapsed to chance. This does not globally refute theorem geometry.
+The [revised research plan](docs/research-plan-v2.md) has been executed through
+its scientific stopping rules. The continuation added clustered power curves,
+independent qualification, a fresh 1,864-proof Lean corpus, and exact proof-length/
+state-depth matching. Text and syntax clouds achieve 100% matched pairwise wins;
+the exact truth-table representation achieves 93.2%. Text centroids, single
+proofs, statements and premise overlap also achieve 100%, so the frozen
+added-information gate fails and conditional intersection discovery is closed.
 
-The user subsequently supplied a [revised research plan](docs/research-plan-v2.md).
-Its [continuation protocol](docs/continuation-protocol-v2.md) adds proof-cluster
-power envelopes and proof-length/state-depth matching. The original full-text
-signal warrants this controlled continuation; the first study's unmatched
-comparisons do not answer the revised primary question.
+Read the **[current research result](docs/revised-plan-results.md)**,
+[full comparison table](results/canonical-v3/report.md),
+[power study](docs/cluster-power-results.md), and
+[reproduction guide](docs/reproduction-v3.md). All 80 local tests pass, including
+Lean and the pinned CPU encoder. All 18 comparisons reproduce exactly from the
+archived corpus and vectors. This restricted result does not globally refute
+mathematical theorem geometry.
 
-Read the [final research status](docs/final-research-status.md), [formal results](results/formal-v1/report.md), and [complete reproduction guide](docs/reproduction.md). The original [checkpoint 2 report](docs/checkpoint-2-results.md) remains a historical foundation record.
+The first study's 3,072 verified proofs and unmatched outcomes remain intact in
+the [historical report](docs/final-research-status.md). The original
+[checkpoint 2 report](docs/checkpoint-2-results.md) remains a foundation record.
 
 ## Run it
 
@@ -44,8 +54,8 @@ The pilot makes 2,520 comparisons and costs substantially more than the smoke ru
 
 | Measurement | Purpose |
 |---|---|
-| Gaussian MMD² | Primary distribution comparison and pooled-label permutation test |
-| Energy V-statistic | Multivariate distance-based comparison |
+| Gaussian MMD² | Original primary distribution comparison; revised power candidate |
+| Energy V-statistic | Qualified primary metric for the revised matched experiment |
 | Sliced Wasserstein-1 | Average exact transport along random 1D projections |
 | Symmetric radius coverage | Local proximity diagnostic; larger means more coverage |
 | Centroid distance | Baseline exposing information lost by collapsing a cloud to its mean |
