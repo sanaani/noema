@@ -94,3 +94,8 @@ All 99 local tests pass. Independent archive reconstruction validates every
 recorded Lean source, all 6,144 axiom audits and all 30,720 contexts/goals, in
 addition to the complete proof-bank and transfer-label checks. Encoding and
 confirmation scoring are still in progress.
+
+A second full deterministic population search reproduces the frozen 512-triplet
+assignment exactly, followed by successful reconstruction of all selected banks,
+transfer labels and recorded Lean states. This is computational reproduction,
+not an independent statistical replication.
