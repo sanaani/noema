@@ -24,6 +24,13 @@ original continuation rule. The user has since removed the 10-point requirement:
 a fresh confirmation is now being prepared to estimate the effect and test for
 positive added information. The broader hypothesis remains unresolved.
 
+The [512-triplet confirmation](docs/strategy-transfer-confirmation-results-v1.md)
+is now in acquisition under the [amended protocol](docs/strategy-transfer-confirmation-protocol-v1.md).
+Its independent proof-bank and transfer audits pass; all sampled proofs are
+being checked in Lean before encoding. The
+[confirmation reproduction guide](docs/reproduction-strategy-transfer-confirmation-v1.md)
+includes interruption recovery and parallel acquisition.
+
 Read the **[current result](docs/strategy-transfer-results-v2.md)** and
 [reproduction guide](docs/reproduction-strategy-transfer-v2.md). All 93 local
 tests pass. Archived vectors reproduce the full development comparison without
