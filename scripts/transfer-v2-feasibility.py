@@ -65,7 +65,8 @@ def main():
         "scanned": scanned,
         "seed": 914202610,
         "selected_indices_for_feasibility_only": chosen,
-        "note": "No embeddings or performance; selection uses exact source and target clade matching and disjoint program banks across triplets.",
+        "note": "No embeddings or performance; selection uses exact source and target clade "
+        "matching and disjoint program banks across triplets.",
     }
     with args.output.open("x") as stream:
         json.dump(report, stream, indent=2)
