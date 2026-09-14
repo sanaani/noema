@@ -30,4 +30,5 @@ jobs:
       - run: python scripts/verify-adversarial-result.py
       - run: python scripts/verify-transfer-v2.py
       - run: python scripts/verify-transfer-confirmation.py
+      - run: python scripts/verify-gpu-execution.py
       - run: noema synthetic --config configs/smoke.json --output outputs/ci-smoke

@@ -1,0 +1,28 @@
+{
+  "status": "cancelled_by_user",
+  "instruction": "skip the CPU work.",
+  "recorded_at": "2026-09-14T19:14:13.970414+00:00",
+  "verified_proofs": 6144,
+  "matched_intermediate_states": 30720,
+  "syntax_inputs_complete": 8500,
+  "minilm_inputs_complete": 8500,
+  "cpu_reprover_cached_inputs": 7270,
+  "cpu_reprover_target_inputs": 8500,
+  "cpu_confirmation_scored": false,
+  "checkpoints_preserved_locally": [
+    {
+      "shard": 0,
+      "cached_inputs": 4250,
+      "path": "outputs/transfer-confirmation-v1/workers/shard-0/reprover-embeddings.npz",
+      "sha256": "56c3ce8a39dfcf28d4c3005459961b1bdf47c1826cc073cdffc3c8cc8320992c"
+    },
+    {
+      "shard": 1,
+      "cached_inputs": 3020,
+      "path": "outputs/transfer-confirmation-v1/workers/shard-1/reprover-embeddings.npz",
+      "sha256": "3e92541dab4831ec791b7143886d81472659790e3102e38c6cbe0fe8bc0685ab"
+    }
+  ],
+  "completed_result": "results/gpu-execution-check-v1/report.json",
+  "gpu_designation": "prospectively secondary; not relabeled as an originally registered CPU primary result"
+}

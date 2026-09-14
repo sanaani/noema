@@ -1,5 +1,11 @@
 # Reproduce the confirmation without a minimum gain margin
 
+**Execution status:** the user cancelled CPU encoding at 7,270/8,500 cached inputs.
+The original primary CPU result is incomplete and no partial result was scored.
+The complete [GPU study](gpu-execution-results-v1.md) is archived separately.
+Commands below document reproduction or explicitly requested resumption; no CPU
+acquisition is currently running.
+
 Use the pinned Python, Lean, REPL, MiniLM and ReProver dependencies in the
 [v1 guide](reproduction-strategy-transfer-v1.md). The experimental definitions
 remain those frozen for v2; the new module supplies the amended inference and

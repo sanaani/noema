@@ -16,26 +16,33 @@ both: all nine baseline upper accuracy bounds are below 71.2%, and simulated
 power qualifies a 512-triplet confirmation budget. Premise overlap and both
 source and target statement-structure distances are matched exactly by design.
 
-The Lean-trained ReProver cloud scores 65.6% on 64 development triplets, versus
-60.9% for its centroid. However, **0 of 100 proof-resampling draws** achieves the
-required 10-point gain over every control; at least 80 were required. The average
-gain over the resampled ReProver centroid is only 1.19 points. This fails the
-original continuation rule. The user has since removed the 10-point requirement:
-a fresh confirmation is now being prepared to estimate the effect and test for
-positive added information. The broader hypothesis remains unresolved.
+The eight-leaf development cloud initially exceeded its centroid, but failed the
+original ten-point continuation rule. The user removed that arbitrary margin,
+and a fresh 512-triplet, nine-leaf study was acquired with exact matching and
+no minimum-gain requirement. All 6,144 sampled proofs and 30,720 intermediate
+states passed Lean verification.
 
-The [512-triplet confirmation](docs/strategy-transfer-confirmation-results-v1.md)
-is now in acquisition under the [amended protocol](docs/strategy-transfer-confirmation-protocol-v1.md).
-Its independent proof-bank and transfer audits pass; all sampled proofs are
-being checked in Lean before encoding. The
-[confirmation reproduction guide](docs/reproduction-strategy-transfer-confirmation-v1.md)
-includes interruption recovery and parallel acquisition.
+The **[completed 512-triplet study](docs/gpu-execution-results-v1.md)** has baseline
+headroom, but shows no cloud added-information advantage: ReProver cloud accuracy
+is **53.91%**, versus **54.49%** for its centroid (paired gain **-0.59 points**,
+marginal bootstrap 95% interval **[-2.54, +1.37]**). None of the three cloud arms
+exceeds its corresponding centroid. Tactic histograms and complete-program
+comparisons score 82.03% and 92.19%; the latter sees more proof information.
 
-Read the **[completed development result](docs/strategy-transfer-results-v2.md)** and
-[reproduction guide](docs/reproduction-strategy-transfer-v2.md). All 99 local
-tests pass. Archived vectors reproduce the full development comparison without
-model downloads. The [first screen](docs/strategy-transfer-results-v1.md) remains
-closed with its clouds unscored. No Phase 5 or full mathlib acquisition was opened.
+All 8,500 ReProver inputs were completed on the GPU using the same theorem set,
+model weights, proof sampling and analysis rules. The user stopped the remaining
+CPU encoding; its checkpoints and execution history are preserved in the
+[reproducibility notes](docs/strategy-transfer-confirmation-results-v1.md).
+No duplicate CPU result is needed for the completed study. The temporary GPU
+instance and its temporary AWS resources have been removed.
+
+The [GPU archive](results/gpu-execution-check-v1/README.md) reproduces every score,
+paired test, interval and supplemental control without a GPU or model download.
+The earlier 99-test suite, two scheduler tests and three new device tests pass.
+The [development result](docs/strategy-transfer-results-v2.md) remains intact;
+the [first screen](docs/strategy-transfer-results-v1.md) stays closed with clouds
+unscored. No old-corpus pair mining, Phase 5, or full mathlib acquisition occurred.
+The broader conjecture remains unresolved.
 
 The [canonical-v3 report](docs/revised-plan-results.md), its
 [comparison table](results/canonical-v3/report.md),
@@ -98,7 +105,7 @@ OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m pytest
 
 Tests cover analytic metric values, invariance to input order and shared translations, isometric embeddings, degeneracy, exact/permutation reference calculations, null calibration, detection power, multiple-testing adjustment, reproducibility, invalid input, and CLI overwrite protection. GitHub Actions runs these checks and the smoke experiment.
 
-Source lives in `src/noema/`; configurations in `configs/`; scientific and engineering decisions in `docs/`. Bulk data and local run outputs stay outside Git. The numerical API accepts finite point matrices and does not accept theorem identity, proof order, or graph edges. Proof provenance remains in external audit records. Syntax, exact truth-table, and pinned pretrained text encoders consume only normalized state content. The formal run also includes proof-sampling sensitivity, stricter diversity policies, baselines and graph-fidelity diagnostics.
+Source lives in `src/noema/`; configurations in `configs/`; scientific and engineering decisions in `docs/`. Model weights and transient run outputs stay outside Git; selected numerical evidence is archived. The numerical API accepts finite point matrices and does not accept theorem identity, proof order, or graph edges. Proof provenance remains in external audit records. Syntax, exact truth-table, and pinned pretrained text encoders consume only normalized state content. The formal run also includes proof-sampling sensitivity, stricter diversity policies, baselines and graph-fidelity diagnostics.
 
 ## Reproduce the formal study
 
@@ -119,6 +126,6 @@ embedding caches are committed under `results/corpus-v1/` and `results/formal-v1
 The reproduction guide also shows how to use these archives without recollecting
 proofs or recomputing embeddings.
 
-The research plan's scientific stopping rule applies: no cross-theorem overlap
-mining or mathematical discovery interpretation follows this failed feasibility
-gate. Cross-domain H3/H4 remain untested in this single-domain population.
+The completed added-information test supplies no positive evidence for opening
+cross-theorem overlap mining or making mathematical-discovery claims. Cross-domain
+H3/H4 remain untested in this single-domain population.

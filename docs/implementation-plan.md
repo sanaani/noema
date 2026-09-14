@@ -160,3 +160,39 @@ The user subsequently rejected the 10-point threshold as arbitrary and explicitl
 instructed continuation. That direction supersedes the stopping decision above.
 Preserve all measured v2 outcomes and its original protocol, while preparing a
 fresh confirmation with no minimum gain requirement and explicit uncertainty.
+
+## Completed GPU study and user cancellation of CPU encoding — 2026-09-14
+
+The threshold-free nine-leaf continuation acquired all 512 triplets and verified
+6,144 Lean proofs and 30,720 intermediate states. A deterministic repeat search
+reproduced the complete assignment; all shortest-proof banks and transfer labels
+passed independent checks. Syntax and MiniLM finished all 8,500 inputs.
+
+The user approved a temporary GPU instance. A label-blind development benchmark
+found approximately 168 texts/sec but CPU/GPU vector differences beyond rounding.
+The GPU supplement was committed at `2c2e357` before confirmation GPU embeddings
+or scores. It designated a separate hardware check and retained the CPU primary.
+All 8,500 GPU inputs completed in 54.19 seconds, with identical frozen assignments,
+weights, singleton batches, tokenization, pooling and analysis rules. No CPU
+ReProver vectors were mixed into that arm.
+
+The complete GPU cloud scores 53.91%, versus its centroid54.49%; paired gain is
+-0.59 points with marginal 95% bootstrap interval [-2.54,+1.37]. All nine cheap
+controls pass headroom; no paired superiority component passes. Tactic and
+complete-program controls score 82.03% and 92.19%, with the latter explicitly
+having more proof information. There is no ten-point threshold in these results.
+This supplies no positive added-information evidence for this operational test,
+while leaving smaller possible effects and the broader conjecture unresolved.
+
+After seeing the GPU result, the user explicitly cancelled CPU work. Its encoder
+and both waiting drivers were stopped with 7,270 CPU ReProver inputs cached;
+no partial CPU result was scored. The planned CPU/GPU outcome comparison is
+cancelled, and the GPU result retains its prospectively secondary provenance.
+The full original CPU confirmation is not falsely reported as completed.
+
+The [completed GPU report](gpu-execution-results-v1.md) and archived reproduction
+commands now provide the finished numerical result. All GPU fields reproduce
+exactly, including supplemental controls. The instance, temporary security group
+and registered SSH key were removed; estimated compute cost is at most about
+USD .27, excluding small storage/network charges. No expensive acquisition or
+Phase 5 was opened, and no old population was mined for interesting pairs.

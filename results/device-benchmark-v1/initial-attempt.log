@@ -1,0 +1,54 @@
+Mon Sep 14 18:56:17 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 595.91.07              Driver Version: 595.91.07      CUDA Version: 13.2     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A10G                    On  |   00000000:00:1E.0 Off |                    0 |
+|  0%   32C    P0             60W /  300W |       0MiB /  23028MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+NEXT                            LEFT LAST PASSED UNIT               ACTIVATES
+Mon 2026-09-14 20:44:40 UTC 1h 48min -         - noema-expiry.timer noema-expiry.service
+
+1 timers listed.
+Pass --all to see loaded but inactive timers, too.
+Python 3.12.3
+Collecting numpy==2.5.3
+  Downloading numpy-2.5.3-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+Collecting ctranslate2==4.8.2
+  Downloading ctranslate2-4.8.2-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (11 kB)
+Collecting pyyaml<7,>=5.3 (from ctranslate2==4.8.2)
+  Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+Downloading numpy-2.5.3-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.7/16.7 MB 122.2 MB/s eta 0:00:00
+Downloading ctranslate2-4.8.2-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (39.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 39.6/39.6 MB 74.2 MB/s eta 0:00:00
+Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (807 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.9/807.9 kB 93.6 MB/s eta 0:00:00
+Installing collected packages: pyyaml, numpy, ctranslate2
+Successfully installed ctranslate2-4.8.2 numpy-2.5.3 pyyaml-6.0.3
+Downloaded and verified model.bin
+Downloaded and verified config.json
+Downloaded and verified vocabulary.json
+Traceback (most recent call last):
+  File "/home/ubuntu/noema/scripts/benchmark-reprover-device.py", line 127, in <module>
+    main()
+  File "/home/ubuntu/noema/scripts/benchmark-reprover-device.py", line 123, in main
+    benchmark(args.sample, args.model, args.output, args.device)
+  File "/home/ubuntu/noema/scripts/benchmark-reprover-device.py", line 73, in benchmark
+    encoder.encode(texts[:1])  # Initialization/warm-up is excluded from timing.
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/noema/src/noema/reprover.py", line 58, in encode
+    raise ValueError("unexpected ReProver output shape")
+ValueError: unexpected ReProver output shape

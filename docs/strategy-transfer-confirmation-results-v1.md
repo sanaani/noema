@@ -1,6 +1,10 @@
 # Fresh confirmation without a minimum gain requirement
 
-**Status: all proofs verified; encoding in progress.** The user rejected the ten-point requirement
+**Status: CPU encoding cancelled at the user's explicit request.** All proofs
+were verified; syntax/MiniLM encoding completed; CPU ReProver stopped at
+7,270/8,500 cached inputs. No partial CPU result was scored. The complete
+[GPU study and its provenance](gpu-execution-results-v1.md) are reported separately.
+ The user rejected the ten-point requirement
 after the development result and directed continuation. The new primary rule
 requires exact paired-test evidence of positive added information over every
 control, with no minimum gain. The completed development measurements and the
@@ -32,7 +36,8 @@ complete shortest-proof banks exactly. Literal replay validates 28,053 directed
 program-transfer attempts. The full Lean acquisition has verified all 6,144 sampled
 proofs and 30,720 intermediate states. Every context and intermediate goal
 matches the symbolic construction, with no transitive axioms or placeholders.
-Encoding of the 8,500 unique inputs has now begun.
+The population has 8,500 unique encoder inputs. The later CPU cancellation
+and complete separate GPU execution are recorded below.
 
 ## Sensitivity to smaller effects
 
@@ -81,7 +86,8 @@ No floating-point reduction or statistical rule is changed by this scheduling.
 
 See the [reproduction guide](reproduction-strategy-transfer-confirmation-v1.md)
 for sequential execution, resumption and the parallel acquisition commands.
-The results section will be completed after all registered observations finish.
+The CPU result is intentionally not completed after the user's cancellation;
+its checkpoints are preserved locally for any separately requested resumption.
 
 The original plan's single-proof and trajectory controls are also covered by a
 [prospective supplement](confirmation-baseline-supplement-v1.md), committed at
@@ -92,8 +98,8 @@ than the eight-point cloud. They add no stopping criterion to the primary test.
 
 All 99 local tests pass. Independent archive reconstruction validates every
 recorded Lean source, all 6,144 axiom audits and all 30,720 contexts/goals, in
-addition to the complete proof-bank and transfer-label checks. Encoding and
-confirmation scoring are still in progress.
+addition to the complete proof-bank and transfer-label checks. CPU encoding was subsequently stopped by user direction; no CPU confirmation
+score is reported.
 
 A second full deterministic population search reproduces the frozen 512-triplet
 assignment exactly, followed by successful reconstruction of all selected banks,
@@ -109,3 +115,19 @@ retain the original two-thread encoder setting, singleton batches, inputs and
 weights; this changes scheduling only. The second shard resumes automatically
 when the first completes, and also resumes if the scheduling controller fails.
 Two additional recovery/foreign-PID tests pass alongside the 99-test local suite.
+
+## User-directed CPU cancellation
+
+After the complete, prospectively secondary GPU result was available, the user
+explicitly instructed "skip the CPU work." The CPU encoder, acquisition driver
+and waiting artifact driver were interrupted and their exits verified. All
+7,270 completed CPU ReProver embeddings remain in local checkpoints; their
+counts and hashes are recorded in
+[`cancellation.json`](../results/strategy-transfer-confirmation-v1/cancellation.json).
+No partial-outcome analysis was performed, and no process will automatically
+resume this encoding. The planned CPU/GPU outcome comparison was cancelled.
+
+The GPU study used all 8,500 inputs and all 512 original triplets. Its full
+[report](gpu-execution-results-v1.md) preserves the secondary designation, the
+original CPU registration, the post-result cancellation timing, and the absence
+of any minimum-gain threshold. No incomplete CPU result is claimed as confirmed.
