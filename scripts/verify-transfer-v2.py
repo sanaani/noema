@@ -11,6 +11,7 @@ from noema.archive_validation import compare_archive
 from noema.associahedron import apply_step, context, lean_source, replay, state
 from noema.corpus import digest, validate_response
 from noema.reprover import byte_ids
+from noema.statistics import wilson_interval
 from noema.strategy_transfer import parse_goal, tuple_tree, unpack_record
 from noema.transfer_v2 import (
     audit_matching,
@@ -99,6 +100,13 @@ def main():
     caches = load_vectors(archive / "headroom/vectors")
     token_lengths = sorted({len(byte_ids(t)) for t in caches["reprover"]})
     screen = read(archive / "headroom/headroom-report.json")
+    headroom_freeze = read(archive / "headroom/run-freeze.json")
+    assert screen["freeze"] == headroom_freeze
+    assert headroom_freeze["plan_sha256"] == digest(plan_text)
+    assert headroom_freeze["source_hashes"] == source_hashes()
+    assert headroom_freeze["protocol_sha256"] == digest(
+        Path("docs/strategy-transfer-protocol-v2.md").read_text()
+    )
     scores = baseline_scores(plan, caches)
     numeric = compare_archive(scores, screen["baselines"])
     failures = [name for name, b in scores.items() if b["upper_95"] >= 0.90]
@@ -106,6 +114,13 @@ def main():
     assert (not failures) == screen["headroom_pass"]
     assert matching == screen["matching_audit"]
     power = read(archive / "power/report.json")
+    assert power["source_hashes"] == source_hashes()
+    assert {(r["n"], r["condition"]) for r in power["rows"]} == {
+        (n, condition)
+        for n in (256, 512, 1024)
+        for condition in ("alternative", "all_null", "one_null")
+    }
+    assert len(power["rows"]) == 9
     for row in power["rows"]:
         with np.load(
             archive / "power" / f"n{row['n']}-{row['condition']}.npz", allow_pickle=False
@@ -115,6 +130,9 @@ def main():
             passed = ((values[:, :, 0] >= 0.10 - 1e-12) & (values[:, :, 1] <= 0.05)).all(axis=0)
             np.testing.assert_array_equal(passed, saved["passed"])
             assert int(passed.sum()) == row["successes"]
+            assert row["trials"] == 10000
+            assert row["rate"] == row["successes"] / 10000
+            compare_archive(list(wilson_interval(row["successes"], 10000)), row["wilson_95"])
     qualification = [
         n
         for n in (256, 512, 1024)
@@ -140,13 +158,31 @@ def main():
     if geometry_path.exists():
         assert screen["headroom_pass"] and power["qualified_n"] is not None
         geometry = read(geometry_path)
-        caches = load_vectors(archive / "geometry/vectors")
+        assert geometry["freeze"] == read(archive / "geometry/run-freeze.json")
+        assert geometry["freeze"] == {
+            "source_hashes": source_hashes(),
+            "plan_sha256": digest(plan_text),
+            "headroom_sha256": digest((archive / "headroom/headroom-report.json").read_text()),
+            "power_sha256": digest((archive / "power/report.json").read_text()),
+        }
+        expanded = load_vectors(archive / "geometry/vectors")
+        for name, original in caches.items():
+            assert read(archive / f"headroom/vectors/{name}-manifest.json") == read(
+                archive / f"geometry/vectors/{name}-manifest.json"
+            )
+            for text, vector in original.items():
+                np.testing.assert_array_equal(vector, expanded[name][text])
+        caches = expanded
+        assert geometry["total_draws"] == len(geometry["trials"]) == 100
         result["initial_geometry_numerics"] = compare_archive(
             energy_scores(plan, caches), geometry["initial_clouds"]
         )
         comparisons = []
         successes = 0
-        for sample, expected in zip(resampled_plans(plan), geometry["trials"], strict=True):
+        for index, (sample, expected) in enumerate(
+            zip(resampled_plans(plan), geometry["trials"], strict=True)
+        ):
+            assert expected["index"] == index
             baseline = baseline_scores(sample, caches)
             clouds = energy_scores(sample, caches)
             comparisons.append(compare_archive(clouds, expected["clouds"]))
@@ -157,6 +193,7 @@ def main():
                 name: clouds["reprover"]["accuracy"] - b["accuracy"] for name, b in baseline.items()
             }
             compare_archive(gains, expected["gains"])
+            assert min(gains.values()) == expected["minimum_gain"]
             passed = min(gains.values()) >= 0.10 - 1e-12
             assert passed == expected["passed"]
             successes += passed
