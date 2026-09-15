@@ -1,0 +1,126 @@
+[
+  {
+    "endpoint_indices": [
+      2,
+      41
+    ],
+    "distance": 0.0,
+    "same_closing_tactic": false,
+    "theorem_id": "workbook:lean_workbook_plus_9114",
+    "environment": "lean4.9.0-mathlib-f0957a7-repl-d920817-all-original-before-after",
+    "endpoints": [
+      {
+        "proof_id": "016fbb3407066c9c0b5a5a7587b2a4a7eac8d01ca015d6a516bf231787f8701b",
+        "theorem_id": "workbook:lean_workbook_plus_9114",
+        "name": "lean_workbook_plus_9114",
+        "source_body_sha256": "b20e3e70cdf1b574427a07048df3148568c6f3d71b7b31c9f536046fbe05b4e2",
+        "trace_id": "f5691d5294f6119ff1a7452a5062706f032565a3cda6eda842848ab2a3ad2e06",
+        "environment": "lean4.9.0-mathlib-f0957a7-repl-d920817-all-original-before-after",
+        "before_record_id": "c70697292c2debfdcb417bfe0f8e010767a3f453b6f8ce5475835fe7e16f248b",
+        "after_record_id": "fe0403f8ef77e3f109a413a7b1259be67a7089b4ed05901a2f887cde5a1752c9",
+        "before_vector_row": 26,
+        "after_vector_row": 27,
+        "before_text": "a b c : ℝ ⊢ (a + b + c) ^ 2 ≥ 3 * (a * b + b * c + c * a)",
+        "after_text": "no goals",
+        "tactic": "linarith [sq_nonneg (a + b + c), sq_nonneg (b - c), sq_nonneg (c - a), sq_nonneg (a - b)]",
+        "pos": {
+          "column": 2,
+          "line": 5
+        },
+        "endPos": {
+          "column": 91,
+          "line": 5
+        },
+        "tactic_index": 2,
+        "source_body": "import Mathlib\nimport Aesop\nopen BigOperators Real Nat Topology Rat\ntheorem lean_workbook_plus_9114 (a b c : ℝ) : (a + b + c) ^ 2 ≥ 3 * (a * b + b * c + c * a)   :=  by\n  linarith [sq_nonneg (a + b + c), sq_nonneg (b - c), sq_nonneg (c - a), sq_nonneg (a - b)]\n"
+      },
+      {
+        "proof_id": "1097d66d7a2d0bac0750ae8d48f1cf4ed48c306c349f95b254482e1fb98013e8",
+        "theorem_id": "workbook:lean_workbook_plus_9114",
+        "name": "lean_workbook_plus_9114",
+        "source_body_sha256": "8f2a1f6fae2713bc878ea2c9a502c2f08f3d7dbaa90b6466a90969c3a811095f",
+        "trace_id": "a7b5493f3653cc03485754d801a6389cfd2a6952d99e524e40aacf5a8dedb69f",
+        "environment": "lean4.9.0-mathlib-f0957a7-repl-d920817-all-original-before-after",
+        "before_record_id": "0bb78c05f487796e7d7de751cd6ee5a0f982575f96f16f20f08cb1243bd4a6f9",
+        "after_record_id": "d8fbafe246eb981f2031bc06761fcb3ad9ae51feacf6626e31b54213ce62e6d3",
+        "before_vector_row": 824,
+        "after_vector_row": 825,
+        "before_text": "a b c : ℝ ⊢ (a + b + c) ^ 2 ≥ 3 * (a * b + b * c + c * a)",
+        "after_text": "no goals",
+        "tactic": "linarith [sq_nonneg (a - b), sq_nonneg (b - c), sq_nonneg (a - c)]",
+        "pos": {
+          "column": 2,
+          "line": 5
+        },
+        "endPos": {
+          "column": 68,
+          "line": 5
+        },
+        "tactic_index": 2,
+        "source_body": "import Mathlib\nimport Aesop\nopen BigOperators Real Nat Topology Rat\ntheorem lean_workbook_plus_9114 (a b c : ℝ) : (a + b + c) ^ 2 ≥ 3 * (a * b + b * c + c * a)   :=  by\n  linarith [sq_nonneg (a - b), sq_nonneg (b - c), sq_nonneg (a - c)]\n"
+      }
+    ]
+  },
+  {
+    "endpoint_indices": [
+      50,
+      268
+    ],
+    "distance": 1.369849762487773,
+    "same_closing_tactic": false,
+    "theorem_id": "workbook:lean_workbook_490",
+    "environment": "lean4.9.0-mathlib-f0957a7-repl-d920817-all-original-before-after",
+    "endpoints": [
+      {
+        "proof_id": "13236db8a4a08ea6011125e73a45a5dd2d0ffde68eb123de6804e447627994ec",
+        "theorem_id": "workbook:lean_workbook_490",
+        "name": "lean_workbook_490",
+        "source_body_sha256": "d6749cc34dd07c1099c979ac580702643f59aa464812c962fdd43b65dfdabdc6",
+        "trace_id": "2de06977f582a4fc2d0e4a73235f8aa53bf1c777d4e3c5689dc6aeb996fd34cf",
+        "environment": "lean4.9.0-mathlib-f0957a7-repl-d920817-all-original-before-after",
+        "before_record_id": "69bbbf279e4f0ae5b534522d2bdf49a459efe964b1937018c7f1361c294dfe07",
+        "after_record_id": "ae307f467eae1859d9a1530c35f7103e9d6b3e8535ea14764cef71914868341a",
+        "before_vector_row": 1026,
+        "after_vector_row": 1027,
+        "before_text": "c : ℕ h₁ : 3 ∣ c h₂ : 3 % 9 * (c % 9 % 9) % 9 = 0 ⊢ 3 ∣ c",
+        "after_text": "no goals",
+        "tactic": "omega",
+        "pos": {
+          "column": 2,
+          "line": 9
+        },
+        "endPos": {
+          "column": 7,
+          "line": 9
+        },
+        "tactic_index": 10,
+        "source_body": "import Mathlib\nimport Aesop\nopen BigOperators Real Nat Topology Rat\ntheorem lean_workbook_490 : 3 ∣ c → 3^2 ∣ 3*c → 3 ∣ c  :=  by\n  intro h₁ h₂\n  rw [pow_two] at h₂\n  simp [Nat.dvd_iff_mod_eq_zero, Nat.mul_mod] at h₂\n  simp [Nat.dvd_iff_mod_eq_zero, Nat.add_mod, Nat.mul_mod] at h₂\n  omega\n"
+      },
+      {
+        "proof_id": "5c4579c33bb3b1436990f892e55abc5df86d7acedc07116dc6f92565fe61b396",
+        "theorem_id": "workbook:lean_workbook_490",
+        "name": "lean_workbook_490",
+        "source_body_sha256": "146020d7e9b5ab249906ee7477a736dba6530e844da51c9fb16b862a7600fcd3",
+        "trace_id": "687be2d473adfd7c6d5ef4fba8254e601a6ba439c02e798e40443327357d6825",
+        "environment": "lean4.9.0-mathlib-f0957a7-repl-d920817-all-original-before-after",
+        "before_record_id": "35092c8f06e78990988cdcca8bb0e1151e8869e897c6a867514d767b4b0bb9d7",
+        "after_record_id": "86fe18a0c626527ed1815ffb5ae3e566e28a5045aa6f870d773cc8071828a9a6",
+        "before_vector_row": 5935,
+        "after_vector_row": 5936,
+        "before_text": "case h k l : ℕ h : 3 * (3 * k) = 3 ^ 2 * l ⊢ 3 * k = 3 * l",
+        "after_text": "no goals",
+        "tactic": "linarith",
+        "pos": {
+          "column": 2,
+          "line": 7
+        },
+        "endPos": {
+          "column": 10,
+          "line": 7
+        },
+        "tactic_index": 6,
+        "source_body": "import Mathlib\nimport Aesop\nopen BigOperators Real Nat Topology Rat\ntheorem lean_workbook_490 : 3 ∣ c → 3^2 ∣ 3*c → 3 ∣ c  :=  by\n  rintro ⟨k, rfl⟩ ⟨l, h⟩\n  use l\n  linarith\n"
+      }
+    ]
+  }
+]
