@@ -1,0 +1,141 @@
+{
+  "theorems": 102,
+  "physical_rows": 16592,
+  "source_proof_records": 813,
+  "families": {
+    "mathlib": 3,
+    "workbook": 99
+  },
+  "empty_display_rows": 5844,
+  "objects_with_empty_display": 102,
+  "diameter_witnesses_using_empty_display": 102,
+  "objects_with_all_locations_exposed": 102,
+  "objects_with_maximal_affine_rank": 102,
+  "rank_changes_at_relative_1e_8": 0,
+  "rank_changes_at_relative_1e_6": 0,
+  "objects_with_diameter_exceeding_every_source_proof": 0,
+  "distributions": {
+    "rows_used": {
+      "min": 6.0,
+      "q25": 33.75,
+      "median": 96.0,
+      "q75": 214.0,
+      "max": 813.0
+    },
+    "coordinate_locations_diagnostic": {
+      "min": 2.0,
+      "q25": 5.0,
+      "median": 13.0,
+      "q75": 24.5,
+      "max": 146.0
+    },
+    "numerical_affine_rank": {
+      "min": 1.0,
+      "q25": 4.0,
+      "median": 12.0,
+      "q75": 23.5,
+      "max": 145.0
+    },
+    "diameter": {
+      "min": 1.376599633936362,
+      "q25": 1.3996449234902681,
+      "median": 1.4093705855095524,
+      "q75": 1.4272990138473816,
+      "max": 1.4967071428730256
+    },
+    "lateral_extent_over_diameter": {
+      "min": 8.002834263196329e-16,
+      "q25": 0.476615991557935,
+      "median": 0.6788073702540525,
+      "q75": 0.7472819821618562,
+      "max": 0.8384572010162774
+    },
+    "row_spread_first_axis_fraction": {
+      "min": 0.47203615521582964,
+      "q25": 0.6876760499477778,
+      "median": 0.7859256496650562,
+      "q75": 0.9115593866866172,
+      "max": 1.0
+    },
+    "row_spread_first_two_axes_fraction": {
+      "min": 0.7143975521885433,
+      "q25": 0.8699409445771539,
+      "median": 0.9263572098862087,
+      "q75": 0.9783783766558379,
+      "max": 1.0
+    },
+    "row_spread_participation_dimension": {
+      "min": 1.0,
+      "q25": 1.1957387838816698,
+      "median": 1.5666024569091221,
+      "q75": 1.9298988466679907,
+      "max": 3.236579856084618
+    },
+    "empty_display_fraction": {
+      "min": 0.15217391304347827,
+      "q25": 0.2984649993383618,
+      "median": 0.38461538461538464,
+      "q75": 0.43243243243243246,
+      "max": 0.5855855855855856
+    },
+    "empty_vs_nonempty_between_group_spread_fraction": {
+      "min": 0.44895718611028024,
+      "q25": 0.662020699675399,
+      "median": 0.7837583370995646,
+      "q75": 0.910624622025275,
+      "max": 1.0000000000000002
+    },
+    "common_projection_within_object_spread_fraction": {
+      "min": 0.3322842402082352,
+      "q25": 0.4808935881371176,
+      "median": 0.5736294514650987,
+      "q75": 0.6964952717678538,
+      "max": 0.9128075302221259
+    }
+  },
+  "axes_for_recorded_spread": {
+    "90": {
+      "min": 1.0,
+      "q25": 1.0,
+      "median": 2.0,
+      "q75": 3.0,
+      "max": 5.0
+    },
+    "95": {
+      "min": 1.0,
+      "q25": 2.0,
+      "median": 3.0,
+      "q75": 4.0,
+      "max": 8.0
+    },
+    "99": {
+      "min": 1.0,
+      "q25": 3.0,
+      "median": 5.0,
+      "q75": 9.0,
+      "max": 25.0
+    }
+  },
+  "descriptive_spearman_no_independence_or_causality_claim": {
+    "rows_used / numerical_affine_rank": 0.8114527816830209,
+    "source_proof_records / diameter": 0.18152795379393072,
+    "nonempty_text_characters_median / diameter": -0.2924092715025193,
+    "empty_display_fraction / row_spread_first_axis_fraction": 0.7357992244090724
+  },
+  "example_selection": {
+    "minimum_diameter": "workbook:lean_workbook_plus_39161",
+    "lower_median_diameter": "workbook:lean_workbook_34729",
+    "maximum_diameter": "workbook:lean_workbook_plus_77403",
+    "largest_lateral_extent_ratio": "workbook:lean_workbook_plus_23187"
+  },
+  "pair_relations": {
+    "point_contact": 5150,
+    "nontrivial_intersection": 1
+  },
+  "semantic_geometry_validated": false,
+  "deduplication": false,
+  "source_archive": "results/state-objects-admitted-v1",
+  "source_checksums_sha256": "e2ddf38862a219ea26dd7f9cf782f358c26b4bfa6a4be4bc2ccb70ac834797e2",
+  "analysis_code_sha256": "9f0b1b74d297cee5108659b7cd545231b33f91d2698fc7a357a0685b9edde9ad",
+  "geometry_code_sha256": "06128b7749dade7829f1cb84e269e5ad1ce4a8f3582d2af4e634574b178431e6"
+}

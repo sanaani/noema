@@ -111,6 +111,12 @@ follows merely from a successful numerical run. See the
 
 ## Existing work and remaining work
 
+The [first all-object form analysis](theorem-forms-v1.md) now measures every
+admitted hull's dimension and extent and provides a full interactive atlas.
+It also quantifies empty-display and whitespace-formatting effects. These are
+descriptive results, not validation of semantic geometry. Complete structured
+state capture and stable, tested serialization remain required for that claim.
+
 Read-only audit on September 14, 2026 of the archived confirmation plan found:
 
 - 1,536 synthetic theorem entries.

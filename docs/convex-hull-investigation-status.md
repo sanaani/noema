@@ -1,5 +1,14 @@
 # Recovery checkpoint: convex hull investigation
 
+**Latest exploration:** [theorem-object forms](theorem-forms-v1.md), archived in
+`results/theorem-forms-v1/`, measures all 102 admitted hulls using all 16,592 rows.
+An interactive all-object atlas and PDF preserve every state. Every diameter
+uses the common empty-goal point. Literal whitespace variants occur in 79 objects
+and can span substantial fractions of their diameters. These are recorded-display
+forms, not established mathematical shapes. The exceptional intersection now has
+a separating-plane certificate for exactly a shared segment within numerical
+precision. Admission and source arrays are unchanged; no new encoder or GPU run.
+
 **Latest active dataset:** `results/state-objects-admitted-v1/` has 102 theorem
 groups and 16,592 separate physical state-vector rows. Six groups are excluded
 for contradictions proved in Lean; 148 are held for source identity or proof/trace

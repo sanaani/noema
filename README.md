@@ -8,6 +8,12 @@ The [active dataset](results/state-objects-admitted-v1/README.md) now contains
 **102 theorem groups, 813 proof records and 16,592 separate state-vector rows**.
 Open the [active explorer](results/state-objects-admitted-v1/explore.html).
 
+The [first form analysis](docs/theorem-forms-v1.md) constructs and measures all
+102 hulls. Its [interactive atlas](results/theorem-forms-v1/explore.html) shows
+every object and every state, with common or local display axes. All objects
+touch at the empty-goal encoding; substantial formatting sensitivity means these
+forms cannot yet be interpreted as the shapes of mathematical ideas.
+
 An enforced admission rule excludes six theorem groups whose assumptions were
 proved contradictory in Lean, and holds 148 groups with unresolved source identity
 or inventoried proof/trace gaps. All states of every admitted theorem remain;
