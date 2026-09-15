@@ -6,9 +6,14 @@ The starting point is the [original research plan](docs/latent_geometry_mathemat
 
 The [active dataset](results/state-objects-admitted-v1/README.md) now contains
 **102 theorem groups, 813 proof records and 16,592 separate state-vector rows**.
-Open the [active explorer](results/state-objects-admitted-v1/explore.html).
+Open the [current boundary explorer](results/theorem-boundaries-v2/explore.html):
+it follows every projected location with an inward-bending area objective,
+excludes generic “no goals” displays from geometry, and shows shared x–y axes,
+zero, scale and two-theorem overlays. Every original record remains accessible.
+The [earlier convex explorer](results/state-objects-admitted-v1/explore.html)
+is preserved as an archive.
 
-The [first form analysis](docs/theorem-forms-v1.md) constructs and measures all
+The [first form analysis](docs/theorem-forms-v1.md) constructed and measured all
 102 hulls. Its [interactive atlas](results/theorem-forms-v1/explore.html) shows
 every object and every state, with common or local display axes. All objects
 touch at the empty-goal encoding; substantial formatting sensitivity means these

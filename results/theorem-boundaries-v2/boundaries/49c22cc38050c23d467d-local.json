@@ -1,0 +1,125 @@
+{
+  "status": "area_local_minimum_global_unproven",
+  "global_minimum_proven": false,
+  "input_rows": 43,
+  "boundary_locations": 11,
+  "row_to_location": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    2,
+    3,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0,
+    4,
+    4,
+    5,
+    5,
+    0,
+    0,
+    0,
+    0,
+    0,
+    6,
+    6,
+    7,
+    7,
+    8,
+    9,
+    10,
+    10,
+    10,
+    10,
+    10,
+    1,
+    1
+  ],
+  "vertices": [
+    [
+      -0.31706791724929195,
+      -0.026267903774773962
+    ],
+    [
+      0.06890927718150341,
+      -0.2005602278575127
+    ],
+    [
+      0.208600616728018,
+      0.015662283239010682
+    ],
+    [
+      0.241195927006931,
+      -0.18776685642920093
+    ],
+    [
+      0.2364989763352725,
+      -0.004663801143191765
+    ],
+    [
+      0.28831254105688164,
+      -0.18791424770212128
+    ],
+    [
+      -0.2542280897133803,
+      -0.02345498478057406
+    ],
+    [
+      0.10402409111541883,
+      -0.17847289272622519
+    ],
+    [
+      0.15319619756291342,
+      0.2697222121044779
+    ],
+    [
+      0.0699770359427761,
+      -0.20293684896277683
+    ],
+    [
+      0.1300192087997542,
+      0.26238476276734524
+    ]
+  ],
+  "order": [
+    0,
+    9,
+    5,
+    7,
+    3,
+    1,
+    6,
+    4,
+    8,
+    10,
+    2
+  ],
+  "area": 0.01913091808263059,
+  "area_exact_numerator": "794667246890639460195765677338603",
+  "area_exact_denominator": "41538374868278621028243970633760768",
+  "convex_area": 0.1520243033289051,
+  "fraction_of_convex_area": 0.12584118238806055,
+  "orders_or_starts_searched": 5,
+  "accepted_improvements": 16,
+  "all_rows_on_boundary": true,
+  "no_crossings_verified": true,
+  "coordinate_predicates": "exact integer arithmetic on original binary float coordinates",
+  "records_deduplicated": false,
+  "theorem_id": "workbook:lean_workbook_27005",
+  "mode": "local",
+  "projection_rows_sha256": "c66a15994e10e0545baa74da88683ed9d1eab0cf946ba8ac6e59c61028595149",
+  "code_sha256": "1d818f7a2a08339222fbeae2bb0a695ea5f9a78de93eccc37cfc1ac046e1c7a4"
+}

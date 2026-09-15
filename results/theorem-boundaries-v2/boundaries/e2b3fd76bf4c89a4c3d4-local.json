@@ -1,0 +1,35 @@
+{
+  "status": "point",
+  "global_minimum_proven": true,
+  "input_rows": 3,
+  "boundary_locations": 1,
+  "row_to_location": [
+    0,
+    0,
+    0
+  ],
+  "vertices": [
+    [
+      -0.009405317022143459,
+      -0.012314387421718767
+    ]
+  ],
+  "order": [
+    0
+  ],
+  "area": 0.0,
+  "area_exact_numerator": "0",
+  "area_exact_denominator": "83076749736557242056487941267521536",
+  "convex_area": 0.0,
+  "fraction_of_convex_area": null,
+  "orders_or_starts_searched": 0,
+  "accepted_improvements": 0,
+  "all_rows_on_boundary": true,
+  "no_crossings_verified": true,
+  "coordinate_predicates": "exact integer arithmetic on original binary float coordinates",
+  "records_deduplicated": false,
+  "theorem_id": "mathlib:PadicInt.modPart_nonneg",
+  "mode": "local",
+  "projection_rows_sha256": "0432adb05a2a0efb27b4920d2db6a698737dee068a479ff502190becd1157de3",
+  "code_sha256": "1d818f7a2a08339222fbeae2bb0a695ea5f9a78de93eccc37cfc1ac046e1c7a4"
+}

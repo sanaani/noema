@@ -1,0 +1,104 @@
+{
+  "status": "exhaustive_minimum",
+  "global_minimum_proven": true,
+  "input_rows": 32,
+  "boundary_locations": 9,
+  "row_to_location": [
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    2,
+    2,
+    3,
+    3,
+    4,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    6,
+    6,
+    3,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    7,
+    7,
+    8,
+    8
+  ],
+  "vertices": [
+    [
+      -0.006318137443481444,
+      0.0071434132710108
+    ],
+    [
+      -0.001915144315658466,
+      0.007963541512869904
+    ],
+    [
+      -0.0077633287604068025,
+      0.005084452766479595
+    ],
+    [
+      0.020722899204072012,
+      0.03429887427247723
+    ],
+    [
+      -0.000159591158320321,
+      0.008425187966117603
+    ],
+    [
+      0.003079964274334905,
+      0.015010378471326155
+    ],
+    [
+      -0.001707797180141093,
+      0.011250132223302007
+    ],
+    [
+      -0.007732515693741044,
+      0.005209492687252376
+    ],
+    [
+      0.024288128342516754,
+      0.015408825724930474
+    ]
+  ],
+  "order": [
+    7,
+    2,
+    4,
+    8,
+    1,
+    5,
+    6,
+    3,
+    0
+  ],
+  "area": 2.73643265733712e-05,
+  "area_exact_numerator": "72746857934252231044873275417200",
+  "area_exact_denominator": "2658455991569831745807614120560689152",
+  "convex_area": 0.0003294055948672144,
+  "fraction_of_convex_area": 0.08307183302214992,
+  "orders_or_starts_searched": 20160,
+  "accepted_improvements": 0,
+  "all_rows_on_boundary": true,
+  "no_crossings_verified": true,
+  "coordinate_predicates": "exact integer arithmetic on original binary float coordinates",
+  "records_deduplicated": false,
+  "theorem_id": "mathlib:List.rotate_replicate",
+  "mode": "common",
+  "projection_rows_sha256": "984abbb61ddf871f873a098369275e01bc2832061e0d76bdfb7b80d70a0939d7",
+  "code_sha256": "1d818f7a2a08339222fbeae2bb0a695ea5f9a78de93eccc37cfc1ac046e1c7a4"
+}

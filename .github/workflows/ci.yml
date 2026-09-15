@@ -49,4 +49,6 @@ jobs:
       - run: python scripts/verify-theorem-forms.py
       - run: python scripts/audit-theorem-form-formatting.py --output outputs/ci-theorem-formatting.json
       - run: cmp results/theorem-forms-v1/formatting-sensitivity.json outputs/ci-theorem-formatting.json
+      - run: cd results/theorem-boundaries-v2 && sha256sum -c SHA256SUMS
+      - run: python scripts/verify-boundary-explorer.py
       - run: noema synthetic --config configs/smoke.json --output outputs/ci-smoke

@@ -1,0 +1,103 @@
+{
+  "status": "area_local_minimum_global_unproven",
+  "global_minimum_proven": false,
+  "input_rows": 26,
+  "boundary_locations": 10,
+  "row_to_location": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    4,
+    4,
+    4,
+    4,
+    5,
+    5,
+    6,
+    6,
+    7,
+    7,
+    8,
+    8,
+    8,
+    8,
+    8,
+    9,
+    9,
+    6,
+    6,
+    7,
+    7
+  ],
+  "vertices": [
+    [
+      -0.5560218142034339,
+      0.015161498600133045
+    ],
+    [
+      -0.647448928876116,
+      0.06434878186861451
+    ],
+    [
+      -0.6021909706077195,
+      0.08132797930885946
+    ],
+    [
+      -0.5835886300574731,
+      0.0850257300864383
+    ],
+    [
+      -0.5684647216898795,
+      -0.022883125733284305
+    ],
+    [
+      -0.6618213748249804,
+      0.03422946467622209
+    ],
+    [
+      -0.6206296734990218,
+      0.05076915161257983
+    ],
+    [
+      -0.6047566886967591,
+      0.06115952540119704
+    ],
+    [
+      -0.5704049739002564,
+      -0.3091641735487052
+    ],
+    [
+      -0.6759390228135811,
+      -0.2971152174735734
+    ]
+  ],
+  "order": [
+    0,
+    3,
+    2,
+    1,
+    5,
+    6,
+    9,
+    7,
+    4,
+    8
+  ],
+  "area": 0.007865479653374705,
+  "area_exact_numerator": "81679810590174168778761729585112",
+  "area_exact_denominator": "10384593717069655257060992658440192",
+  "convex_area": 0.039183366174747464,
+  "fraction_of_convex_area": 0.20073516956906517,
+  "orders_or_starts_searched": 4,
+  "accepted_improvements": 12,
+  "all_rows_on_boundary": true,
+  "no_crossings_verified": true,
+  "coordinate_predicates": "exact integer arithmetic on original binary float coordinates",
+  "records_deduplicated": false,
+  "theorem_id": "workbook:lean_workbook_34313",
+  "mode": "common",
+  "projection_rows_sha256": "61d60b2eb1b4620a34a28fe0426fe1ec40dc3fcc5aa57b68ec240d8ee77ee830",
+  "code_sha256": "1d818f7a2a08339222fbeae2bb0a695ea5f9a78de93eccc37cfc1ac046e1c7a4"
+}

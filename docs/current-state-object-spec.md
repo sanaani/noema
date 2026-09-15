@@ -60,6 +60,23 @@ held. The original 256-group sample remains frozen in the recovery archive.
 
 ## Candidate object algorithm
 
+**Latest boundary correction:** the user rejected the convex enclosure's empty
+area and the generic `no goals` point, requesting a boundary through inward bends
+with minimum area. The [projected boundary study](../results/theorem-boundaries-v2/README.md)
+uses all 10,748 nonempty recorded states, preserving the 5,844 empty-display records
+in the archive and inspector. It fits display axes without those empty displays.
+The 2D candidate is a simple polygon whose vertices are exactly the observed
+projected locations, minimizing area. Exact and heuristic search outcomes are
+distinguished; no radius, invented vertices or state deduplication is introduced.
+Shared x–y axes, zero and scale are the default for comparing theorems.
+
+This supersedes the convex outline as the current **display boundary**. It does
+not silently substitute a 2D polygon for a nonconvex region in 1,472 dimensions;
+the higher-dimensional nonconvex construction remains open. The convex procedure
+below documents the earlier candidate and remains the basis of archived numerical
+certificates. Its common-empty-point connectivity result does not apply to the
+new display geometry.
+
 1. Preserve the full proof source and extraction provenance for every acquired
    proof. Capture all intermediate states at the documented extraction granularity,
    including local contexts and outstanding goals. Preserve initial and terminal

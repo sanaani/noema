@@ -1,0 +1,54 @@
+{
+  "status": "collinear_boundary",
+  "global_minimum_proven": true,
+  "input_rows": 17,
+  "boundary_locations": 2,
+  "row_to_location": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "vertices": [
+    [
+      -0.04920590021016365,
+      -0.0552179494382655
+    ],
+    [
+      0.04920590021016647,
+      -0.05521794943826556
+    ]
+  ],
+  "order": [
+    0,
+    1
+  ],
+  "area": 0.0,
+  "area_exact_numerator": "0",
+  "area_exact_denominator": "41538374868278621028243970633760768",
+  "convex_area": 0.0,
+  "fraction_of_convex_area": null,
+  "orders_or_starts_searched": 0,
+  "accepted_improvements": 0,
+  "all_rows_on_boundary": true,
+  "no_crossings_verified": true,
+  "coordinate_predicates": "exact integer arithmetic on original binary float coordinates",
+  "records_deduplicated": false,
+  "theorem_id": "workbook:lean_workbook_plus_39161",
+  "mode": "local",
+  "projection_rows_sha256": "7f380ddba7bc8d0e29f3fe73c8be8a469e64c6d9c7b620e0a8534f56d6ee0847",
+  "code_sha256": "1d818f7a2a08339222fbeae2bb0a695ea5f9a78de93eccc37cfc1ac046e1c7a4"
+}

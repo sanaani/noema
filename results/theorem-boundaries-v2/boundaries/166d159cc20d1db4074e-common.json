@@ -1,0 +1,92 @@
+{
+  "status": "exhaustive_minimum",
+  "global_minimum_proven": true,
+  "input_rows": 45,
+  "boundary_locations": 4,
+  "row_to_location": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0,
+    2,
+    2,
+    2,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    3,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "vertices": [
+    [
+      0.15146228209358936,
+      -0.033392504837223815
+    ],
+    [
+      0.1146714047827018,
+      0.01904342509137188
+    ],
+    [
+      0.15630444593542892,
+      -0.1297458351287136
+    ],
+    [
+      0.14625970819252418,
+      -0.06296833791747074
+    ]
+  ],
+  "order": [
+    3,
+    1,
+    2,
+    0
+  ],
+  "area": 0.0009650487712944497,
+  "area_exact_numerator": "20043278814100266590756905652883",
+  "area_exact_denominator": "20769187434139310514121985316880384",
+  "convex_area": 0.0016455100946680744,
+  "fraction_of_convex_area": 0.5864739295258565,
+  "orders_or_starts_searched": 3,
+  "accepted_improvements": 0,
+  "all_rows_on_boundary": true,
+  "no_crossings_verified": true,
+  "coordinate_predicates": "exact integer arithmetic on original binary float coordinates",
+  "records_deduplicated": false,
+  "theorem_id": "workbook:lean_workbook_8794",
+  "mode": "common",
+  "projection_rows_sha256": "e9678a97e8ac23ff441de433153e65548aeab9806df15b1187eced2924e365ce",
+  "code_sha256": "1d818f7a2a08339222fbeae2bb0a695ea5f9a78de93eccc37cfc1ac046e1c7a4"
+}

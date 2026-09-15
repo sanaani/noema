@@ -1,0 +1,73 @@
+{
+  "status": "exhaustive_minimum",
+  "global_minimum_proven": true,
+  "input_rows": 16,
+  "boundary_locations": 6,
+  "row_to_location": [
+    0,
+    1,
+    2,
+    2,
+    2,
+    2,
+    2,
+    3,
+    3,
+    4,
+    4,
+    4,
+    4,
+    4,
+    5,
+    5
+  ],
+  "vertices": [
+    [
+      -0.17958115674917247,
+      0.42006371176327023
+    ],
+    [
+      -0.5358269827839643,
+      0.05342485903801482
+    ],
+    [
+      -0.07604594069882872,
+      0.424271676106477
+    ],
+    [
+      -0.5019902547913457,
+      0.009477801996016774
+    ],
+    [
+      0.46390113683381573,
+      0.24298843469920944
+    ],
+    [
+      0.31502220334750536,
+      -0.16290304952023454
+    ]
+  ],
+  "order": [
+    0,
+    1,
+    3,
+    5,
+    4,
+    2
+  ],
+  "area": 0.3638404061322185,
+  "area_exact_numerator": "7556669591073416437725490257901070",
+  "area_exact_denominator": "20769187434139310514121985316880384",
+  "convex_area": 0.3638404061322185,
+  "fraction_of_convex_area": 1.0,
+  "orders_or_starts_searched": 60,
+  "accepted_improvements": 0,
+  "all_rows_on_boundary": true,
+  "no_crossings_verified": true,
+  "coordinate_predicates": "exact integer arithmetic on original binary float coordinates",
+  "records_deduplicated": false,
+  "theorem_id": "workbook:lean_workbook_plus_40119",
+  "mode": "local",
+  "projection_rows_sha256": "ba1ed82a23c6490877eab75114ac0f444f4598c3968fa8d84eb6482b0f924d74",
+  "code_sha256": "1d818f7a2a08339222fbeae2bb0a695ea5f9a78de93eccc37cfc1ac046e1c7a4"
+}

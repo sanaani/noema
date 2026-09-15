@@ -1,5 +1,15 @@
 # Recovery checkpoint: convex hull investigation
 
+**Current display:** `results/theorem-boundaries-v2/explore.html` implements the
+user's inward-bending minimum-area boundary request, removing `no goals` from
+geometry while preserving every raw record. All 10,748 nonempty states are plotted;
+all 16,592 records remain inspectable. Shared axes, labeled x/y ticks and original
+zero are shown; `lean_workbook_34313` and `lean_workbook_13957` open in an overlay.
+Every projected location is a boundary vertex; global minima are proven only for
+exhaustive small or degenerate cases. Read the new results README. This is a 2D
+boundary study; higher-dimensional nonconvex regions remain undefined. Prior
+convex archives and their vectors are unchanged.
+
 **Latest exploration:** [theorem-object forms](theorem-forms-v1.md), archived in
 `results/theorem-forms-v1/`, measures all 102 admitted hulls using all 16,592 rows.
 An interactive all-object atlas and PDF preserve every state. Every diameter
