@@ -1,0 +1,68 @@
+{
+  "status": "passed",
+  "target_theorems": 4,
+  "proof_variants": 16,
+  "axiom_free_kernel_checked_declarations": 18,
+  "per_target_type_unchanged_across_all_variants": true,
+  "distinct_closing_inputs_per_target": 4,
+  "columns": [
+    {
+      "auxiliary_goal": "truth",
+      "target_count": 4,
+      "identical_before_tactic_after_inputs": true,
+      "before": [
+        "⊢ True"
+      ],
+      "tactic": "exact (True.intro)\n\n",
+      "after": "no goals",
+      "complete_contexts_identical": false
+    },
+    {
+      "auxiliary_goal": "zero_eq",
+      "target_count": 4,
+      "identical_before_tactic_after_inputs": true,
+      "before": [
+        "⊢ 0 = 0"
+      ],
+      "tactic": "exact (rfl)\n\n",
+      "after": "no goals",
+      "complete_contexts_identical": false
+    },
+    {
+      "auxiliary_goal": "forall_eq",
+      "target_count": 4,
+      "identical_before_tactic_after_inputs": true,
+      "before": [
+        "⊢ ∀ (n : Nat), n = n"
+      ],
+      "tactic": "exact (fun _ => rfl)\n\n",
+      "after": "no goals",
+      "complete_contexts_identical": false
+    },
+    {
+      "auxiliary_goal": "and_truth",
+      "target_count": 4,
+      "identical_before_tactic_after_inputs": true,
+      "before": [
+        "⊢ True ∧ True"
+      ],
+      "tactic": "exact (⟨True.intro, True.intro⟩)\n\n",
+      "after": "no goals",
+      "complete_contexts_identical": false
+    }
+  ],
+  "verdict": "NO: a last-local-transition-only embedding cannot generally provide a proof-independent, theorem-distinguishing center.",
+  "endpoint_equality_evidence": "Identical model inputs imply identical vectors for every fixed deterministic local-input encoder; no Dartmouth model execution is needed for this equality.",
+  "not_established": [
+    "Frequency or usefulness of such collisions in ordinary human proof corpora",
+    "Numeric distances between different Dartmouth transition inputs",
+    "Impossibility of theorem or whole-proof embeddings using richer inputs",
+    "Logical inequivalence of the four provable target propositions"
+  ],
+  "full_context_caveat": "Hidden theorem declaration information differs and is retained in the log. The collision applies to printed local inputs and their Delta encodings, not the complete Lean context.",
+  "source_sha256": "a497443bd69ad8307ab8585d3bab7447186b59aeab22dfa1aed32acdbaf0ca04",
+  "log_sha256": "728f944347a82d14b38b8bf06e15235cddbc0184ebb1dc48366cf850d0478761",
+  "protocol_sha256": "3cc5716d2dbfcd8bdc372c7db0b457cd3c04469ca129a5ce6d30bb390e9fd9f4",
+  "lean_version": "Lean (version 4.9.0, x86_64-unknown-linux-gnu, commit 8f9843a4a5fe, Release)",
+  "lean_binary_sha256": "c2059c8da4034467e5f391cfd07b81c4a7b32a7e04ff7e50c7c385993cd77010"
+}

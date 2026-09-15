@@ -52,4 +52,6 @@ jobs:
       - run: cd results/theorem-boundaries-v2 && sha256sum -c SHA256SUMS
       - run: python scripts/verify-boundary-explorer.py
       - run: cd results/endpoint-audit-v1 && sha256sum -c SHA256SUMS
+      - run: cd results/theorem-endpoint-assessment-v1 && sha256sum -c SHA256SUMS
+      - run: python scripts/verify-theorem-endpoint-assessment.py
       - run: noema synthetic --config configs/smoke.json --output outputs/ci-smoke
