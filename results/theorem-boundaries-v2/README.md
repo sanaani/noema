@@ -9,6 +9,40 @@ orientation, x–y axes, visible zero and scale. This view implements those chan
 The [earlier convex explorer](../theorem-forms-v1/explore.html) is preserved as an
 archive, along with every source record and original vector.
 
+## Selecting and navigating objects
+
+Use **Visible objects** to search theorem names and check or uncheck them
+individually. **Show all 102**, **Clear**, and **Show only inspected theorem**
+are shortcuts. Clicking a visible name or state changes the inspector without
+removing other objects or resetting the camera. Selecting an absent theorem adds
+it to the view. Membership changes fit the visible set and zero; **Fit / reset
+view** restores that framing after navigation. Local axes show just the inspected
+theorem, preserving the shared-view selection for your return.
+
+Drag the drawing to pan. Scroll, pinch, or use **+ / −** to zoom. Wheel and pinch
+zoom preserve the coordinate beneath the pointer or gesture center. Axes keep
+coordinate units as you move; when zero leaves the view, ticks move to the plot
+edge and the status reports that the origin is off screen. SVG export includes
+the current camera, clipping, and visibility settings.
+
+Colors are fixed per theorem: `lean_workbook_13957` is teal and
+`lean_workbook_34313` is purple. Names in the legend and state/boundary hover text
+identify objects, including when many colors look similar. The outlined ring
+marks the inspected state, not a centroid. Toggle **Show state dots** to see
+thin shaded regions without dot overlap. Hiding dots only changes their display;
+all records remain available. Showing all objects draws 102 boundaries and
+10,748 separate plotted state records, with no sampling or aggregation.
+
+To regenerate only the interface from the saved payload, without recomputing
+geometry or re-encoding states:
+
+```bash
+.venv/bin/python scripts/render-boundary-explorer.py
+```
+
+Browser navigation and selection checks are recorded in `navigation-validation.json`.
+The original geometry validation remains in `validation.json`.
+
 ## What changed
 
 - **10,748 nonempty state displays are plotted.** The 5,844 `no goals` records stay
