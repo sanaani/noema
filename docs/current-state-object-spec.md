@@ -58,9 +58,36 @@ supersedes the annotation-only treatment in the earlier audit. The current
 active dataset has 102 groups and 16,592 states; six groups are excluded and 148
 held. The original 256-group sample remains frozen in the recovery archive.
 
-## Candidate object algorithm
+## Current object: Theorem Density Object
 
-**Latest boundary correction:** the user rejected the convex enclosure's empty
+The current center is the embedding of the theorem's **initial goal and
+assumptions**, before proof steps. Every acquired nonempty proof-State occurrence
+remains a separate vector, with a ray to that center and recoverable proof order
+and provenance. The center is not a centroid or the terminal `no goals` display.
+Mass is at observed State endpoints; rays do not supply additional valid States.
+
+The user accepted cumulative mass: N_T(r) counts State occurrences within radius
+r of the center, and F_T(r) = N_T(r) / n reports their fraction. Preserve repeated
+occurrences and all full vectors; a radial curve loses directional information
+and cannot replace the complete object. Generic empty displays remain archived
+and inspectable, outside the current geometry. The theorem center is a reference,
+not an extra manufactured State occurrence.
+
+The [usefulness and next-investigation proposal](theorem-density-usefulness.md)
+defines the quantities, possible contributions, limitations, and a practical
+route toward mathematical value. Known connections and interpretable existing
+proofs are legitimate evidence; neither discovery of unknown mathematics nor
+generation of shorter proofs is an initial requirement. Direct proof routes are
+an intended use, but geometric shortness is not assumed to establish mathematical
+efficiency or valid inference. Preserve all acquired proofs while evaluating them.
+
+This definition supersedes the boundary candidates below as the current object.
+The initial-State historical pilot is complete; proof-State cumulative-mass
+usefulness remains unmeasured. This documentation update launches no experiment.
+
+## Historical boundary candidates
+
+**Previous boundary correction:** the user rejected the convex enclosure's empty
 area and the generic `no goals` point, requesting a boundary through inward bends
 with minimum area. The [projected boundary study](../results/theorem-boundaries-v2/README.md)
 uses all 10,748 nonempty recorded states, preserving the 5,844 empty-display records
@@ -117,8 +144,8 @@ new display geometry.
    alongside pictures. Label incomplete acquisition explicitly and retain all
    state vectors so other object definitions can later be investigated.
 
-The convex hull is the current candidate to investigate, not an established best
-definition. Normalized embeddings and sparse sampling impose important limits
+The convex hull was an earlier candidate, not an established best definition.
+Normalized embeddings and sparse sampling impose important limits
 on containment and rank; see the literature review. Do not change normalization,
 project away dimensions, or omit inconvenient states solely to induce overlap.
 Embedding quality for retrieval does not validate convex geometry as mathematical

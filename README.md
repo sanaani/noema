@@ -1,15 +1,24 @@
 # Noema
 
-Exploring whether the unordered states encountered across alternative proofs form reproducible theorem geometries.
+Exploring whether theorem embeddings and the distributions of States across their proofs reveal useful mathematical relationships.
 
 The starting point is the [original research plan](docs/latent_geometry_mathematical_theorems_research_plan.md), preserved byte for byte. The [current specification](docs/current-state-object-spec.md) governs this investigation. The original [implementation plan](docs/implementation-plan.md) is historical and superseded where it conflicts with that specification.
+
+**For the current research direction and an LLM handoff, start with
+[Demonstrating usefulness of Theorem Density Objects](docs/theorem-density-usefulness.md).**
+The object is centered on the theorem's initial State and retains all acquired
+nonempty proof-State occurrences, their rays, and cumulative mass. That proposal
+explains how mass could help inspect mathematical connections and existing proof
+routes, what it cannot establish, and the recommended next investigation.
+The [historical-connections pilot](results/historical-connections-v1/README.md)
+measured initial-State centers; cumulative-mass usefulness has not yet been tested.
 
 The [active dataset](results/state-objects-admitted-v1/README.md) now contains
 **102 theorem groups, 813 proof records and 16,592 separate state-vector rows**.
 Open the [current boundary explorer](results/theorem-boundaries-v2/explore.html):
 it follows every projected location with an inward-bending area objective,
 excludes generic “no goals” displays from geometry, and shows shared x–y axes,
-zero, scale and two-theorem overlays. Every original record remains accessible.
+zero, scale and individually selectable multi-object overlays. Every original record remains accessible.
 The [earlier convex explorer](results/state-objects-admitted-v1/explore.html)
 is preserved as an archive.
 
@@ -31,10 +40,10 @@ exclusions, the contradiction screen of all 128 Workbook groups, the admission
 checks and what is still open. The earlier [assumption audit](docs/assumption-audit-v1.md)
 identified defects; labelling them was not sufficient remediation.
 
-The goal remains investigation of the **occupied regions** formed by states across
-proofs. The [current specification](docs/current-state-object-spec.md) and
-[convex-hull literature review](docs/state-object-convex-hull-literature-review.md)
-define the scope. Proof admission does not establish complete internal state capture,
+The current focus is the **Theorem Density Object** and its mathematical usefulness.
+The [current specification](docs/current-state-object-spec.md) defines the scope;
+the [convex-hull literature review](docs/state-object-convex-hull-literature-review.md)
+documents the earlier boundary investigation. Proof admission does not establish complete internal state capture,
 all-known-proof coverage or mathematical faithfulness of the encoder. Those remain
 open work, not problems declared fixed by documentation. No model was trained.
 
