@@ -1,0 +1,1592 @@
+[
+  {
+    "name": "Real.sin_add",
+    "variant": "typed",
+    "text": "⊢ ∀ (x y : ℝ), Real.sin (x + y) = Real.sin x * Real.cos y + Real.cos x * Real.sin y"
+  },
+  {
+    "name": "Complex.exp_add",
+    "variant": "typed",
+    "text": "⊢ ∀ (x y : ℂ), Complex.exp (x + y) = Complex.exp x * Complex.exp y"
+  },
+  {
+    "name": "Complex.exp_mul_I",
+    "variant": "typed",
+    "text": "⊢ ∀ (x : ℂ), Complex.exp (x * Complex.I) = Complex.cos x + Complex.sin x * Complex.I"
+  },
+  {
+    "name": "Nat.Prime.sq_add_sq",
+    "variant": "typed",
+    "text": "⊢ ∀ {p : ℕ} [inst : Fact (Nat.Prime p)], p % (4 : ℕ) ≠ (3 : ℕ) → ∃ (a : ℕ) (b : ℕ), a ^ (2 : ℕ) + b ^ (2 : ℕ) = p"
+  },
+  {
+    "name": "GaussianInt.prime_iff_mod_four_eq_three_of_nat_prime",
+    "variant": "typed",
+    "text": "⊢ ∀ (p : ℕ) [inst : Fact (Nat.Prime p)], Prime (α := GaussianInt) ↑p ↔ p % (4 : ℕ) = (3 : ℕ)"
+  },
+  {
+    "name": "GaussianInt.sq_add_sq_of_nat_prime_of_not_irreducible",
+    "variant": "typed",
+    "text": "⊢ ∀ (p : ℕ) [hp : Fact (Nat.Prime p)], ¬Irreducible (α := GaussianInt) ↑p → ∃ (a : ℕ) (b : ℕ), a ^ (2 : ℕ) + b ^ (2 : ℕ) = p"
+  },
+  {
+    "name": "IntermediateField.adjoin.finrank",
+    "variant": "typed",
+    "text": "⊢ ∀ {K : Type u} [inst : Field K] {L : Type u_3} [inst_1 : Field L] [inst_2 : Algebra K L] {x : L}, IsIntegral K x → FiniteDimensional.finrank.{u_3, u} K ↥K⟮x⟯ = Polynomial.natDegree (minpoly K x)"
+  },
+  {
+    "name": "IsGalois.card_aut_eq_finrank",
+    "variant": "typed",
+    "text": "⊢ ∀ (F : Type u_1) [inst : Field F] (E : Type u_2) [inst_1 : Field E] [inst_2 : Algebra F E] [inst_3 : FiniteDimensional F E] [inst_4 : IsGalois F E], Fintype.card.{u_2} (E ≃ₐ[F] E) = FiniteDimensional.finrank F E"
+  },
+  {
+    "name": "IsGalois.IntermediateField.AdjoinSimple.card_aut_eq_finrank",
+    "variant": "typed",
+    "text": "⊢ ∀ (F : Type u_1) [inst : Field F] (E : Type u_2) [inst_1 : Field E] [inst_2 : Algebra F E] [inst_3 : FiniteDimensional F E] {α : E}, IsIntegral F α → Polynomial.Separable (minpoly F α) → Polynomial.Splits.{u_1, u_2} (L := ↥F⟮α⟯) (algebraMap F ↥F⟮α⟯) (minpoly F α) → Fintype.card.{u_2} (↥F⟮α⟯ ≃ₐ[F] ↥F⟮α⟯) = FiniteDimensional.finrank.{u_2, u_1} F ↥F⟮α⟯"
+  },
+  {
+    "name": "hasSum_zeta_two",
+    "variant": "typed",
+    "text": "⊢ HasSum (fun (n : ℕ) => (1 : ℝ) / HPow.hPow (α := ℝ) ↑n (2 : ℕ)) (Real.pi ^ (2 : ℕ) / (6 : ℝ))"
+  },
+  {
+    "name": "hasSum_fourier_series_of_summable",
+    "variant": "typed",
+    "text": "⊢ ∀ {T : ℝ} [hT : Fact ((0 : ℝ) < T)] {f : C(AddCircle T, ℂ)}, Summable (α := ℂ) (fourierCoeff (T := T) ⇑f) → HasSum (fun (i : ℤ) => HSMul.hSMul (α := ℂ) (β := C(AddCircle T, ℂ)) (fourierCoeff (T := T) (⇑f) i) (fourier i)) f"
+  },
+  {
+    "name": "hasSum_one_div_nat_pow_mul_cos",
+    "variant": "typed",
+    "text": "⊢ ∀ {k : ℕ}, k ≠ (0 : ℕ) → ∀ {x : ℝ}, x ∈ Set.Icc (0 : ℝ) (1 : ℝ) → HasSum (fun (n : ℕ) => (1 : ℝ) / HPow.hPow (α := ℝ) (↑n) ((2 : ℕ) * k) * Real.cos ((2 : ℝ) * Real.pi * ↑n * x)) ((-1 : ℝ) ^ (k + (1 : ℕ)) * ((2 : ℝ) * Real.pi) ^ ((2 : ℕ) * k) / (2 : ℝ) / ↑((2 : ℕ) * k).factorial * Polynomial.eval x (Polynomial.map (algebraMap ℚ ℝ) (Polynomial.bernoulli ((2 : ℕ) * k))))"
+  },
+  {
+    "name": "coe_convexAddSubmonoid",
+    "variant": "typed",
+    "text": "⊢ ∀ (𝕜 : Type u_1) (E : Type u_2) [inst : OrderedSemiring 𝕜] [inst_1 : AddCommMonoid E] [inst_2 : _root_.Module 𝕜 E], ↑(convexAddSubmonoid 𝕜 E) = {s : Set E | Convex 𝕜 s}"
+  },
+  {
+    "name": "sSupHom.coe_copy",
+    "variant": "typed",
+    "text": "⊢ ∀ {α : Type u_2} {β : Type u_3} [inst : SupSet α] [inst_1 : SupSet β] (f : sSupHom α β) (f' : α → β) (h : f' = ⇑f), ⇑(f.copy f' h) = f'"
+  },
+  {
+    "name": "HasCompactSupport.extend_zero",
+    "variant": "typed",
+    "text": "⊢ ∀ {α : Type u_2} {α' : Type u_3} {β : Type u_4} [inst : TopologicalSpace α] [inst_1 : TopologicalSpace α'] [inst_2 : Zero β] {f : α → β} [inst_3 : T2Space α'], HasCompactSupport f → ∀ {g : α → α'}, Continuous g → HasCompactSupport (Function.extend g f (0 : α' → β))"
+  },
+  {
+    "name": "AddSubmonoid.LocalizationMap.lift_left_inverse",
+    "variant": "typed",
+    "text": "⊢ ∀ {M : Type u_1} [inst : AddCommMonoid M] {S : AddSubmonoid M} {N : Type u_2} [inst_1 : AddCommMonoid N] {P : Type u_3} [inst_2 : AddCommMonoid P] (f : S.LocalizationMap N) {k : S.LocalizationMap P} (z : N), (k.lift ⋯) ((f.lift ⋯) z : P) = z"
+  },
+  {
+    "name": "Set.vadd_mem_vadd",
+    "variant": "typed",
+    "text": "⊢ ∀ {α : Type u_2} {β : Type u_3} [inst : VAdd α β] {s : Set α} {t : Set β} {a : α} {b : β}, a ∈ s → b ∈ t → a +ᵥ b ∈ s +ᵥ t"
+  },
+  {
+    "name": "HasSum.tsum_eq",
+    "variant": "typed",
+    "text": "⊢ ∀ {α : Type u_1} {β : Type u_2} [inst : AddCommMonoid α] [inst_1 : TopologicalSpace α] {f : β → α} {a : α} [inst_2 : T2Space α], HasSum f a → ∑' (b : β), f b = a"
+  },
+  {
+    "name": "IsNilpotent.zero",
+    "variant": "typed",
+    "text": "⊢ ∀ {R : Type u_1} [inst : MonoidWithZero R], IsNilpotent (0 : R)"
+  },
+  {
+    "name": "IsBoundedLinearMap.fderivWithin",
+    "variant": "typed",
+    "text": "⊢ ∀ {𝕜 : Type u_1} [inst : NontriviallyNormedField 𝕜] {E : Type u_2} [inst_1 : NormedAddCommGroup E] [inst_2 : NormedSpace 𝕜 E] {F : Type u_3} [inst_3 : NormedAddCommGroup F] [inst_4 : NormedSpace 𝕜 F] {f : E → F} {x : E} {s : Set E} (h : IsBoundedLinearMap 𝕜 f), UniqueDiffWithinAt 𝕜 s x → fderivWithin 𝕜 f s x = h.toContinuousLinearMap"
+  },
+  {
+    "name": "ite_eq_iff'",
+    "variant": "typed",
+    "text": "⊢ ∀ {α : Sort u_1} {P : Prop} [inst : Decidable P] {a b c : α}, (if P then a else b) = c ↔ (P → a = c) ∧ (¬P → b = c)"
+  },
+  {
+    "name": "MeasureTheory.measure_eq_top_iff_of_symmDiff",
+    "variant": "typed",
+    "text": "⊢ ∀ {α : Type u_1} {m : MeasurableSpace α} {μ : MeasureTheory.Measure α} {s t : Set α}, Ne (α := ENNReal) (μ (symmDiff s t) : ENNReal) (⊤ : ENNReal) → (Eq (α := ENNReal) (μ s : ENNReal) (⊤ : ENNReal) ↔ Eq (α := ENNReal) (μ t : ENNReal) (⊤ : ENNReal))"
+  },
+  {
+    "name": "ContinuousMap.specializes_coe",
+    "variant": "typed",
+    "text": "⊢ ∀ {X : Type u_2} {Y : Type u_3} [inst : TopologicalSpace X] [inst_1 : TopologicalSpace Y] {f g : C(X, Y)}, Specializes (X := X → Y) ⇑f ⇑g ↔ f ⤳ g"
+  },
+  {
+    "name": "StarAlgHom.coe_codRestrict",
+    "variant": "typed",
+    "text": "⊢ ∀ {R : Type u_2} {A : Type u_3} {B : Type u_4} [inst : CommSemiring R] [inst_1 : StarRing R] [inst_2 : Semiring A] [inst_3 : Algebra R A] [inst_4 : StarRing A] [inst_5 : Semiring B] [inst_6 : Algebra R B] [inst_7 : StarRing B] [inst_8 : StarModule R B] (f : A →⋆ₐ[R] B) (S : StarSubalgebra R B) (hf : ∀ (x : A), Membership.mem (α := B) (f x : B) S) (x : A), Eq.{u_4 + 1} (α := B) (↑((f.codRestrict S hf) x) : B) (f x : B)"
+  },
+  {
+    "name": "Seminorm.coe_bot",
+    "variant": "typed",
+    "text": "⊢ ∀ {𝕜 : Type u_3} {E : Type u_7} [inst : SeminormedRing 𝕜] [inst_1 : AddCommGroup E] [inst_2 : _root_.Module 𝕜 E], ⇑(⊥ : Seminorm 𝕜 E) = (0 : E → ℝ)"
+  },
+  {
+    "name": "AddCircle.exists_gcd_eq_one_of_isOfFinAddOrder",
+    "variant": "typed",
+    "text": "⊢ ∀ {𝕜 : Type u_1} [inst : LinearOrderedField 𝕜] [inst_1 : TopologicalSpace 𝕜] [inst_2 : OrderTopology 𝕜] {p : 𝕜} [hp : Fact ((0 : 𝕜) < p)] {u : AddCircle p}, IsOfFinAddOrder u → ∃ (m : ℕ), m.gcd (addOrderOf u) = (1 : ℕ) ∧ m < addOrderOf u ∧ ↑(HDiv.hDiv (α := 𝕜) ↑m ↑(addOrderOf u) * p) = u"
+  },
+  {
+    "name": "Set.OrdConnected.dual",
+    "variant": "typed",
+    "text": "⊢ ∀ {α : Type u_1} [inst : Preorder α] {s : Set α}, s.OrdConnected → Set.OrdConnected (α := αᵒᵈ) (⇑OrderDual.ofDual ⁻¹' s)"
+  },
+  {
+    "name": "Set.ite_inter_inter",
+    "variant": "typed",
+    "text": "⊢ ∀ {α : Type u} (t s₁ s₂ s₁' s₂' : Set α), t.ite (s₁ ∩ s₂) (s₁' ∩ s₂') = t.ite s₁ s₁' ∩ t.ite s₂ s₂'"
+  },
+  {
+    "name": "IsModularLattice.inf_sup_inf_assoc",
+    "variant": "typed",
+    "text": "⊢ ∀ {α : Type u_1} [inst : Lattice α] [inst_1 : IsModularLattice α] {x y z : α}, x ⊓ z ⊔ y ⊓ z = (x ⊓ z ⊔ y) ⊓ z"
+  },
+  {
+    "name": "Part.of_toOption",
+    "variant": "typed",
+    "text": "⊢ ∀ {α : Type u_1} (o : Part α) [inst : Decidable o.Dom], ↑o.toOption = o"
+  },
+  {
+    "name": "OrderAddMonoidHom.toOrderHom_injective",
+    "variant": "typed",
+    "text": "⊢ ∀ {α : Type u_2} {β : Type u_3} [inst : Preorder α] [inst_1 : Preorder β] [inst_2 : AddZeroClass α] [inst_3 : AddZeroClass β], Function.Injective (α := α →+o β) OrderAddMonoidHom.toOrderHom"
+  },
+  {
+    "name": "Asymptotics.IsEquivalent.trans_isTheta",
+    "variant": "typed",
+    "text": "⊢ ∀ {α : Type u_1} {β : Type u_2} {β₂ : Type u_3} [inst : NormedAddCommGroup β] [inst_1 : Norm β₂] {l : Filter α} {f g₁ : α → β} {g₂ : α → β₂}, Asymptotics.IsEquivalent l f g₁ → g₁ =Θ[l] g₂ → f =Θ[l] g₂"
+  },
+  {
+    "name": "Embedding.toOpenEmbedding_of_surjective",
+    "variant": "typed",
+    "text": "⊢ ∀ {X : Type u_1} {Y : Type u_2} {f : X → Y} [inst : TopologicalSpace X] [inst_1 : TopologicalSpace Y], Embedding f → Function.Surjective f → OpenEmbedding f"
+  },
+  {
+    "name": "IsSMulRegular.isLeftRegular",
+    "variant": "typed",
+    "text": "⊢ ∀ {R : Type u_1} [inst : Mul R] {a : R}, IsSMulRegular R a → IsLeftRegular a"
+  },
+  {
+    "name": "ENat.top_pow",
+    "variant": "typed",
+    "text": "⊢ ∀ {n : ℕ}, (0 : ℕ) < n → HPow.hPow (α := ℕ∞) ⊤ n = ⊤"
+  },
+  {
+    "name": "IsMulCentral.right_comm",
+    "variant": "typed",
+    "text": "⊢ ∀ {M : Type u_1} {c : M} [inst : Mul M], IsMulCentral c → ∀ (a b : M), a * b * c = a * c * b"
+  },
+  {
+    "name": "IsLowerSet.compl",
+    "variant": "typed",
+    "text": "⊢ ∀ {α : Type u_1} [inst : LE α] {s : Set α}, IsLowerSet s → IsUpperSet sᶜ"
+  },
+  {
+    "name": "OmegaCompletePartialOrder.ContinuousHom.ωSup_bind",
+    "variant": "typed",
+    "text": "⊢ ∀ {α : Type u} [inst : OmegaCompletePartialOrder α] {β γ : Type v} (c : OmegaCompletePartialOrder.Chain α) (f : OrderHom.{v, u} α (Part β)) (g : OrderHom.{v, u} α (β → Part γ)), OmegaCompletePartialOrder.ωSup (c.map (f.bind g)) = OmegaCompletePartialOrder.ωSup (c.map f) >>= OmegaCompletePartialOrder.ωSup (c.map g)"
+  },
+  {
+    "name": "Set.Equicontinuous.closure",
+    "variant": "typed",
+    "text": "⊢ ∀ {X : Type u_3} {α : Type u_7} [tX : TopologicalSpace X] [uα : UniformSpace α] {A : Set (X → α)}, A.Equicontinuous → (closure A).Equicontinuous"
+  },
+  {
+    "name": "Polynomial.card_support_binomial",
+    "variant": "typed",
+    "text": "⊢ ∀ {R : Type u} [inst : Semiring R] {k m : ℕ}, k ≠ m → ∀ {x y : R}, x ≠ (0 : R) → y ≠ (0 : R) → (HMul.hMul (α := Polynomial R) (Polynomial.C x : Polynomial R) (HPow.hPow (α := Polynomial R) Polynomial.X k) + HMul.hMul (α := Polynomial R) (Polynomial.C y : Polynomial R) (HPow.hPow (α := Polynomial R) Polynomial.X m)).support.card = (2 : ℕ)"
+  },
+  {
+    "name": "Field.FiniteDimensional.of_finite_intermediateField",
+    "variant": "typed",
+    "text": "⊢ ∀ (F : Type u_1) (E : Type u_2) [inst : Field F] [inst_1 : Field E] [inst_2 : Algebra F E] [inst_3 : Finite.{u_2 + 1} (IntermediateField F E)], FiniteDimensional F E"
+  },
+  {
+    "name": "iSup_eq_iSup_of_partialSups_eq_partialSups",
+    "variant": "typed",
+    "text": "⊢ ∀ {α : Type u_1} [inst : CompleteLattice α] {f g : ℕ → α}, partialSups f = partialSups g → Eq.{u_1 + 1} (α := α) (⨆ (n : ℕ), f n) (⨆ (n : ℕ), g n)"
+  },
+  {
+    "name": "iInf_univ",
+    "variant": "typed",
+    "text": "⊢ ∀ {α : Type u_1} {β : Type u_2} [inst : CompleteLattice α] {f : β → α}, Eq.{u_1 + 1} (α := α) (⨅ (x : β), ⨅ (_ : Membership.mem (γ := Set β) x Set.univ), f x) (⨅ (x : β), f x)"
+  },
+  {
+    "name": "TopologicalSpace.Opens.partialHomeomorphSubtypeCoe_target",
+    "variant": "typed",
+    "text": "⊢ ∀ {X : Type u_1} [inst : TopologicalSpace X] (s : TopologicalSpace.Opens X) (hs : Nonempty.{u_1 + 1} ↥s), (s.partialHomeomorphSubtypeCoe hs).target = ↑s"
+  },
+  {
+    "name": "HasDerivAt.const_smul",
+    "variant": "typed",
+    "text": "⊢ ∀ {𝕜 : Type u} [inst : NontriviallyNormedField 𝕜] {F : Type v} [inst_1 : NormedAddCommGroup F] [inst_2 : NormedSpace 𝕜 F] {f : 𝕜 → F} {f' : F} {x : 𝕜} {R : Type u_2} [inst_3 : Semiring R] [inst_4 : _root_.Module R F] [inst_5 : SMulCommClass 𝕜 R F] [inst_6 : ContinuousConstSMul R F] (c : R), HasDerivAt f f' x → HasDerivAt (fun (y : 𝕜) => c • f y) (c • f') x"
+  },
+  {
+    "name": "IntermediateField.algHomEquivAlgHomOfSplits_apply",
+    "variant": "typed",
+    "text": "⊢ ∀ {F : Type u_1} {K : Type u_2} (A : Type u_3) [inst : Field F] [inst_1 : Field K] [inst_2 : Field A] [inst_3 : Algebra F K] [inst_4 : Algebra F A] [inst_5 : Algebra.IsAlgebraic F K] (L : IntermediateField F A) (hL : ∀ (x : K), Polynomial.Splits.{u_1, u_3} (L := ↥L) (algebraMap F ↥L) (minpoly F x)) (φ₂ : AlgHom.{u_1, u_2, u_3} F K ↥L), (IntermediateField.algHomEquivAlgHomOfSplits A L hL) φ₂ = L.val.comp φ₂"
+  },
+  {
+    "name": "Odd.zpow_neg",
+    "variant": "typed",
+    "text": "⊢ ∀ {α : Type u_1} [inst : LinearOrderedField α] {a : α} {n : ℤ}, Odd n → a < (0 : α) → a ^ n < (0 : α)"
+  },
+  {
+    "name": "Equiv.Perm.sumCongr_one",
+    "variant": "typed",
+    "text": "⊢ ∀ {α : Type u_1} {β : Type u_2}, Equiv.Perm.sumCongr (1 : Equiv.Perm α) (1 : Equiv.Perm β) = (1 : Equiv.Perm (α ⊕ β))"
+  },
+  {
+    "name": "Set.liftCover_coe",
+    "variant": "typed",
+    "text": "⊢ ∀ {α : Type u_1} {ι : Sort u_3} {β : Sort u_2} {S : ι → Set α} {f : (i : ι) → ↑(S i) → β} {hf : ∀ (i j : ι) (x : α) (hxi : x ∈ S i) (hxj : x ∈ S j), f i (⟨x, hxi⟩ : { x : α // x ∈ S i }) = f j (⟨x, hxj⟩ : { x : α // x ∈ S j })} {hS : Set.iUnion S = Set.univ} {i : ι} (x : ↑(S i)), Set.liftCover S f hf hS ↑x = f i x"
+  },
+  {
+    "name": "finite_of_linearIndependent",
+    "variant": "typed",
+    "text": "⊢ ∀ {R : Type u_1} {M : Type u_2} [inst : Ring R] [inst_1 : AddCommGroup M] [inst_2 : _root_.Module R M] [inst_3 : IsNoetherian R M] [inst_4 : Nontrivial R] {s : Set M}, LinearIndependent.{u_2, u_1, u_2} (ι := { x : M // x ∈ s }) R (Subtype.val (p := fun (x : M) => x ∈ s)) → s.Finite"
+  },
+  {
+    "name": "Filter.map_one'",
+    "variant": "typed",
+    "text": "⊢ ∀ {α : Type u_2} {β : Type u_3} [inst : One α] (f : α → β), Filter.map f (1 : Filter α) = pure (f (1 : α))"
+  },
+  {
+    "name": "Relation.equivalence_join_reflTransGen",
+    "variant": "typed",
+    "text": "⊢ ∀ {α : Type u_1} {r : α → α → Prop}, (∀ (a b c : α), r a b → r a c → ∃ (d : α), Relation.ReflGen r b d ∧ Relation.ReflTransGen r c d) → Equivalence (Relation.Join (Relation.ReflTransGen r))"
+  },
+  {
+    "name": "MulOpposite.op_inj",
+    "variant": "typed",
+    "text": "⊢ ∀ {α : Type u_1} {x y : α}, MulOpposite.op x = MulOpposite.op y ↔ x = y"
+  },
+  {
+    "name": "MulChar.ringHomComp_eq_one_iff",
+    "variant": "typed",
+    "text": "⊢ ∀ {R : Type u_1} [inst : CommMonoid R] {R' : Type u_2} [inst_1 : CommRing R'] {R'' : Type u_3} [inst_2 : CommRing R''] {f : R' →+* R''}, Function.Injective.{u_2 + 1, u_3 + 1} (α := R') (β := R'') ⇑f → ∀ {χ : MulChar R R'}, χ.ringHomComp f = (1 : MulChar R R'') ↔ χ = (1 : MulChar R R')"
+  },
+  {
+    "name": "Set.Ioc_union_Ioi_eq_Ioi",
+    "variant": "typed",
+    "text": "⊢ ∀ {α : Type u_1} [inst : LinearOrder α] {a b : α}, a ≤ b → Set.Ioc a b ∪ Set.Ioi b = Set.Ioi a"
+  },
+  {
+    "name": "NNRat.commute_cast",
+    "variant": "typed",
+    "text": "⊢ ∀ {α : Type u_3} [inst : DivisionSemiring α] (a : α) (q : ℚ≥0), Commute a ↑q"
+  },
+  {
+    "name": "Polynomial.expand_mul",
+    "variant": "typed",
+    "text": "⊢ ∀ {R : Type u} [inst : CommSemiring R] (p q : ℕ) (f : Polynomial R), Eq (α := Polynomial R) ((Polynomial.expand R (p * q)) f : Polynomial R) ((Polynomial.expand R p) ((Polynomial.expand R q) f) : Polynomial R)"
+  },
+  {
+    "name": "ofLex_neg",
+    "variant": "typed",
+    "text": "⊢ ∀ {α : Type u_1} [inst : Neg α] (a : Lex α), Eq (α := α) (ofLex (-a) : α) (-ofLex a : α)"
+  },
+  {
+    "name": "Finset.card_nbij",
+    "variant": "typed",
+    "text": "⊢ ∀ {α : Type u_1} {β : Type u_2} {s : Finset α} {t : Finset β} (i : α → β), (∀ a ∈ s, i a ∈ t) → Set.InjOn i ↑s → Set.SurjOn i ↑s ↑t → s.card = t.card"
+  },
+  {
+    "name": "Urysohns.CU.left_U_subset",
+    "variant": "typed",
+    "text": "⊢ ∀ {X : Type u_1} [inst : TopologicalSpace X] {P : Set X → Prop} (c : Urysohns.CU P), c.left (P := P).U (P := P) ⊆ c.U (P := P)"
+  },
+  {
+    "name": "iSup_iSup_eq_left",
+    "variant": "typed",
+    "text": "⊢ ∀ {α : Type u_1} {β : Type u_2} [inst : CompleteLattice α] {b : β} {f : (x : β) → x = b → α}, ⨆ (x : β), ⨆ (h : x = b), f x h = f b ⋯"
+  },
+  {
+    "name": "Subgroup.tendsto_coe_cofinite_of_discrete",
+    "variant": "typed",
+    "text": "⊢ ∀ {G : Type u_1} [inst : Group G] [inst_1 : TopologicalSpace G] [inst_2 : TopologicalGroup G] [inst_3 : T2Space G] (H : Subgroup G) [inst_4 : DiscreteTopology.{u_1} ↥H], Filter.Tendsto (α := { x : G // x ∈ ↑H }) (Subtype.val (p := fun (x : G) => x ∈ ↑H)) Filter.cofinite (Filter.cocompact G)"
+  },
+  {
+    "name": "Function.Periodic.exists_mem_Ioc",
+    "variant": "typed",
+    "text": "⊢ ∀ {α : Type u_1} {β : Type u_2} {f : α → β} {c : α} [inst : LinearOrderedAddCommGroup α] [inst_1 : Archimedean α], Function.Periodic f c → (0 : α) < c → ∀ (x a : α), ∃ y ∈ Set.Ioc a (a + c), f x = f y"
+  },
+  {
+    "name": "isLUB_of_mem_closure",
+    "variant": "typed",
+    "text": "⊢ ∀ {α : Type u_1} [inst : TopologicalSpace α] [inst_1 : LinearOrder α] [inst_2 : OrderTopology α] {s : Set α} {a : α}, a ∈ upperBounds s → a ∈ closure s → IsLUB s a"
+  },
+  {
+    "name": "interior_eq_nhds",
+    "variant": "typed",
+    "text": "⊢ ∀ {X : Type u} {s : Set X} [inst : TopologicalSpace X], interior s = {x : X | nhds x ≤ Filter.principal s}"
+  },
+  {
+    "name": "IsSelfAdjoint.all",
+    "variant": "typed",
+    "text": "⊢ ∀ {R : Type u_1} [inst : Star R] [inst_1 : TrivialStar R] (r : R), IsSelfAdjoint r"
+  },
+  {
+    "name": "Complex.cosh_add",
+    "variant": "typed",
+    "text": "⊢ ∀ (x y : ℂ), Complex.cosh (x + y) = Complex.cosh x * Complex.cosh y + Complex.sinh x * Complex.sinh y"
+  },
+  {
+    "name": "IsRightRegular.pow",
+    "variant": "typed",
+    "text": "⊢ ∀ {R : Type u_1} {a : R} [inst : Monoid R] (n : ℕ), IsRightRegular a → IsRightRegular (a ^ n)"
+  },
+  {
+    "name": "Ordinal.enumOrd_def'",
+    "variant": "typed",
+    "text": "⊢ ∀ {S : Set Ordinal} (o : Ordinal.{u}), Ordinal.enumOrd S o = sInf (S ∩ Set.Ici (o.blsub fun (a : Ordinal.{u}) (x : a < o) => Ordinal.enumOrd S a))"
+  },
+  {
+    "name": "MeasurableSpace.measurableSet_enumerateCountable_countableGeneratingSet",
+    "variant": "typed",
+    "text": "⊢ ∀ (α : Type u_3) [inst : MeasurableSpace α] [inst_1 : MeasurableSpace.CountablyGenerated α] (n : ℕ), MeasurableSet.{u_3} (α := α) (Set.enumerateCountable (s := MeasurableSpace.countableGeneratingSet α) ⋯ ∅ n)"
+  },
+  {
+    "name": "Polynomial.monomial_mul_monomial",
+    "variant": "typed",
+    "text": "⊢ ∀ {R : Type u} [inst : Semiring R] (n m : ℕ) (r s : R), HMul.hMul (α := Polynomial R) (β := Polynomial R) ((Polynomial.monomial n) r : Polynomial R) ((Polynomial.monomial m) s : Polynomial R) = (Polynomial.monomial (n + m)) (r * s)"
+  },
+  {
+    "name": "IsUnit.isRegular",
+    "variant": "typed",
+    "text": "⊢ ∀ {R : Type u_1} [inst : Monoid R] {a : R}, IsUnit a → IsRegular a"
+  },
+  {
+    "name": "Monotone.map_inf",
+    "variant": "typed",
+    "text": "⊢ ∀ {α : Type u} {β : Type v} [inst : LinearOrder α] [inst_1 : SemilatticeInf β] {f : α → β}, Monotone f → ∀ (x y : α), f (x ⊓ y) = f x ⊓ f y"
+  },
+  {
+    "name": "ENNReal.le_tsum_condensed",
+    "variant": "typed",
+    "text": "⊢ ∀ {f : ℕ → ENNReal}, (∀ ⦃m n : ℕ⦄, (0 : ℕ) < m → m ≤ n → f n ≤ f m) → ∑' (k : ℕ), f k ≤ f (0 : ℕ) + ∑' (k : ℕ), (2 : ENNReal) ^ k * f ((2 : ℕ) ^ k)"
+  },
+  {
+    "name": "Submodule.span_attach_biUnion",
+    "variant": "typed",
+    "text": "⊢ ∀ {R : Type u_1} {M : Type u_4} [inst : Semiring R] [inst_1 : AddCommMonoid M] [inst_2 : _root_.Module R M] [inst_3 : DecidableEq M] {α : Type u_9} (s : Finset α) (f : { x : α // x ∈ s } → Finset M), Eq (α := Submodule R M) (Submodule.span R ↑(s.attach.biUnion f)) (⨆ (x : { x : α // x ∈ s }), Submodule.span R ↑(f x))"
+  },
+  {
+    "name": "Real.continuousAt_arcsin",
+    "variant": "typed",
+    "text": "⊢ ∀ {x : ℝ}, ContinuousAt Real.arcsin x"
+  },
+  {
+    "name": "Real.cos_add",
+    "variant": "typed",
+    "text": "⊢ ∀ (x y : ℝ), Real.cos (x + y) = Real.cos x * Real.cos y - Real.sin x * Real.sin y"
+  },
+  {
+    "name": "Real.cos_sub",
+    "variant": "typed",
+    "text": "⊢ ∀ (x y : ℝ), Real.cos (x - y) = Real.cos x * Real.cos y + Real.sin x * Real.sin y"
+  },
+  {
+    "name": "Real.sin_sub",
+    "variant": "typed",
+    "text": "⊢ ∀ (x y : ℝ), Real.sin (x - y) = Real.sin x * Real.cos y - Real.cos x * Real.sin y"
+  },
+  {
+    "name": "Real.cos_sub_cos",
+    "variant": "typed",
+    "text": "⊢ ∀ (x y : ℝ), Real.cos x - Real.cos y = (-2 : ℝ) * Real.sin ((x + y) / (2 : ℝ)) * Real.sin ((x - y) / (2 : ℝ))"
+  },
+  {
+    "name": "Complex.exp_sub",
+    "variant": "typed",
+    "text": "⊢ ∀ (x y : ℂ), Complex.exp (x - y) = Complex.exp x / Complex.exp y"
+  },
+  {
+    "name": "Complex.exp_eq_exp_iff_exp_sub_eq_one",
+    "variant": "typed",
+    "text": "⊢ ∀ {x y : ℂ}, Complex.exp x = Complex.exp y ↔ Complex.exp (x - y) = (1 : ℂ)"
+  },
+  {
+    "name": "Complex.abs_exp_eq_iff_re_eq",
+    "variant": "typed",
+    "text": "⊢ ∀ {x y : ℂ}, Eq (α := ℝ) (Complex.abs (Complex.exp x) : ℝ) (Complex.abs (Complex.exp y) : ℝ) ↔ x.re = y.re"
+  },
+  {
+    "name": "Complex.cpow_def_of_ne_zero",
+    "variant": "typed",
+    "text": "⊢ ∀ {x : ℂ}, x ≠ (0 : ℂ) → ∀ (y : ℂ), x ^ y = Complex.exp (Complex.log x * y)"
+  },
+  {
+    "name": "Nat.sq_add_sq_modEq",
+    "variant": "typed",
+    "text": "⊢ ∀ (p : ℕ) [inst : Fact (Nat.Prime p)] (x : ℕ), ∃ (a : ℕ) (b : ℕ), a ≤ p / (2 : ℕ) ∧ b ≤ p / (2 : ℕ) ∧ a ^ (2 : ℕ) + b ^ (2 : ℕ) ≡ x [MOD p]"
+  },
+  {
+    "name": "Nat.sq_add_sq_zmodEq",
+    "variant": "typed",
+    "text": "⊢ ∀ (p : ℕ) [inst : Fact (Nat.Prime p)] (x : ℤ), ∃ (a : ℕ) (b : ℕ), a ≤ p / (2 : ℕ) ∧ b ≤ p / (2 : ℕ) ∧ HPow.hPow (α := ℤ) ↑a (2 : ℕ) + HPow.hPow (α := ℤ) ↑b (2 : ℕ) ≡ x [ZMOD ↑p]"
+  },
+  {
+    "name": "ZMod.mod_four_ne_three_of_sq_eq_neg_one",
+    "variant": "typed",
+    "text": "⊢ ∀ {p : ℕ} [inst : Fact (Nat.Prime p)] {y : ZMod p}, y ^ (2 : ℕ) = (-1 : ZMod p) → p % (4 : ℕ) ≠ (3 : ℕ)"
+  },
+  {
+    "name": "ZMod.exists_sq_eq_neg_one_iff",
+    "variant": "typed",
+    "text": "⊢ ∀ {p : ℕ} [inst : Fact (Nat.Prime p)], IsSquare (-1 : ZMod p) ↔ p % (4 : ℕ) ≠ (3 : ℕ)"
+  },
+  {
+    "name": "GaussianInt.mod_four_eq_three_of_nat_prime_of_prime",
+    "variant": "typed",
+    "text": "⊢ ∀ (p : ℕ) [hp : Fact (Nat.Prime p)], Prime (α := GaussianInt) ↑p → p % (4 : ℕ) = (3 : ℕ)"
+  },
+  {
+    "name": "GaussianInt.prime_of_nat_prime_of_mod_four_eq_three",
+    "variant": "typed",
+    "text": "⊢ ∀ (p : ℕ) [hp : Fact (Nat.Prime p)], p % (4 : ℕ) = (3 : ℕ) → Prime (α := GaussianInt) ↑p"
+  },
+  {
+    "name": "minpoly.natDegree_le",
+    "variant": "typed",
+    "text": "⊢ ∀ {K : Type u} [inst : Field K] {L : Type u_3} [inst_1 : Field L] [inst_2 : Algebra K L] (x : L) [inst_3 : FiniteDimensional K L], Polynomial.natDegree (minpoly K x) ≤ FiniteDimensional.finrank K L"
+  },
+  {
+    "name": "IntermediateField.adjoin.finiteDimensional",
+    "variant": "typed",
+    "text": "⊢ ∀ {K : Type u} [inst : Field K] {L : Type u_3} [inst_1 : Field L] [inst_2 : Algebra K L] {x : L}, IsIntegral K x → FiniteDimensional.{u_3, u} K ↥K⟮x⟯"
+  },
+  {
+    "name": "minpoly.degree_le",
+    "variant": "typed",
+    "text": "⊢ ∀ {K : Type u} [inst : Field K] {L : Type u_3} [inst_1 : Field L] [inst_2 : Algebra K L] (x : L) [inst_3 : FiniteDimensional K L], Polynomial.degree (minpoly K x) ≤ ↑(FiniteDimensional.finrank K L)"
+  },
+  {
+    "name": "IntermediateField.isAlgebraic_adjoin_simple",
+    "variant": "typed",
+    "text": "⊢ ∀ {K : Type u} [inst : Field K] {L : Type u_3} [inst_1 : Field L] [inst_2 : Algebra K L] {x : L}, IsIntegral K x → Algebra.IsAlgebraic.{u, u_3} K ↥K⟮x⟯"
+  },
+  {
+    "name": "IsGalois.of_card_aut_eq_finrank",
+    "variant": "typed",
+    "text": "⊢ ∀ (F : Type u_1) [inst : Field F] (E : Type u_2) [inst_1 : Field E] [inst_2 : Algebra F E] [inst_3 : FiniteDimensional F E], Fintype.card.{u_2} (E ≃ₐ[F] E) = FiniteDimensional.finrank F E → IsGalois F E"
+  },
+  {
+    "name": "AlgHom.card",
+    "variant": "typed",
+    "text": "⊢ ∀ (F : Type u_1) (E : Type u_2) [inst : Field F] [inst_1 : Field E] [inst_2 : Algebra F E] [inst_3 : FiniteDimensional F E] [inst_4 : IsSeparable F E] (K : Type u_3) [inst_5 : Field K] [inst_6 : IsAlgClosed K] [inst_7 : Algebra F K], Fintype.card (E →ₐ[F] K) = FiniteDimensional.finrank F E"
+  },
+  {
+    "name": "IntermediateField.finrank_fixedField_eq_card",
+    "variant": "typed",
+    "text": "⊢ ∀ {F : Type u_1} [inst : Field F] {E : Type u_2} [inst_1 : Field E] [inst_2 : Algebra F E] (H : Subgroup (E ≃ₐ[F] E)) [inst_3 : FiniteDimensional F E] [inst_4 : DecidablePred fun (x : E ≃ₐ[F] E) => x ∈ H], FiniteDimensional.finrank (↥(IntermediateField.fixedField H)) E = Fintype.card.{u_2} ↥H"
+  },
+  {
+    "name": "IsGalois.card_fixingSubgroup_eq_finrank",
+    "variant": "typed",
+    "text": "⊢ ∀ {F : Type u_1} [inst : Field F] {E : Type u_2} [inst_1 : Field E] [inst_2 : Algebra F E] (K : IntermediateField F E) [inst_3 : DecidablePred fun (x : E ≃ₐ[F] E) => x ∈ K.fixingSubgroup] [inst_4 : FiniteDimensional F E] [inst_5 : IsGalois F E], Fintype.card.{u_2} ↥K.fixingSubgroup = FiniteDimensional.finrank (↥K) E"
+  },
+  {
+    "name": "hasSum_L_function_mod_four_eval_three",
+    "variant": "typed",
+    "text": "⊢ HasSum (fun (n : ℕ) => (1 : ℝ) / HPow.hPow (α := ℝ) ↑n (3 : ℕ) * Real.sin (Real.pi * ↑n / (2 : ℝ))) (Real.pi ^ (3 : ℕ) / (32 : ℝ))"
+  },
+  {
+    "name": "hasSum_geometric_two",
+    "variant": "typed",
+    "text": "⊢ HasSum (fun (n : ℕ) => (1 / 2 : ℝ) ^ n) (2 : ℝ)"
+  },
+  {
+    "name": "hasSum_zeta_four",
+    "variant": "typed",
+    "text": "⊢ HasSum (fun (n : ℕ) => (1 : ℝ) / HPow.hPow (α := ℝ) ↑n (4 : ℕ)) (Real.pi ^ (4 : ℕ) / (90 : ℝ))"
+  },
+  {
+    "name": "Real.sin_pi_div_six",
+    "variant": "typed",
+    "text": "⊢ Real.sin (Real.pi / (6 : ℝ)) = (1 / 2 : ℝ)"
+  },
+  {
+    "name": "has_pointwise_sum_fourier_series_of_summable",
+    "variant": "typed",
+    "text": "⊢ ∀ {T : ℝ} [hT : Fact ((0 : ℝ) < T)] {f : C(AddCircle T, ℂ)}, Summable (α := ℂ) (fourierCoeff (T := T) ⇑f) → ∀ (x : AddCircle T), HasSum (α := ℂ) (fun (i : ℤ) => HSMul.hSMul (α := ℂ) (β := ℂ) (fourierCoeff (T := T) (⇑f) i) ((fourier i) x : ℂ)) (f x : ℂ)"
+  },
+  {
+    "name": "hasSum_fourier_series_L2",
+    "variant": "typed",
+    "text": "⊢ ∀ {T : ℝ} [hT : Fact (0 < T)] (f : MeasureTheory.Lp ℂ 2 (@AddCircle.haarAddCircle T hT)), HasSum (fun (i : ℤ) => fourierCoeff (T := T) f i • fourierLp (T := T) 2 i) f"
+  },
+  {
+    "name": "fourierCoeff.const_mul",
+    "variant": "typed",
+    "text": "⊢ ∀ {T : ℝ} [hT : Fact ((0 : ℝ) < T)] (f : AddCircle T → ℂ) (c : ℂ) (n : ℤ), fourierCoeff (T := T) (fun (x : AddCircle T) => c * f x) n = c * fourierCoeff f n"
+  },
+  {
+    "name": "fourierCoeff_toLp",
+    "variant": "typed",
+    "text": "⊢ ∀ {T : ℝ} [hT : Fact ((0 : ℝ) < T)] (f : C(AddCircle T, ℂ)) (n : ℤ), Eq (α := ℂ) (fourierCoeff (T := T) (↑↑((ContinuousMap.toLp (2 : ENNReal) AddCircle.haarAddCircle ℂ) f)) n) (fourierCoeff (T := T) (⇑f) n)"
+  },
+  {
+    "name": "Real.sin_add",
+    "variant": "closed",
+    "text": "⊢ ∀ (x y : ℝ), Real.sin (x + y) = Real.sin x * Real.cos y + Real.cos x * Real.sin y"
+  },
+  {
+    "name": "Complex.exp_add",
+    "variant": "closed",
+    "text": "⊢ ∀ (x y : ℂ), Complex.exp (x + y) = Complex.exp x * Complex.exp y"
+  },
+  {
+    "name": "Complex.exp_mul_I",
+    "variant": "closed",
+    "text": "⊢ ∀ (x : ℂ), Complex.exp (x * Complex.I) = Complex.cos x + Complex.sin x * Complex.I"
+  },
+  {
+    "name": "Nat.Prime.sq_add_sq",
+    "variant": "closed",
+    "text": "⊢ ∀ {p : ℕ} [inst : Fact (Nat.Prime p)], p % 4 ≠ 3 → ∃ a b, a ^ 2 + b ^ 2 = p"
+  },
+  {
+    "name": "GaussianInt.prime_iff_mod_four_eq_three_of_nat_prime",
+    "variant": "closed",
+    "text": "⊢ ∀ (p : ℕ) [inst : Fact (Nat.Prime p)], Prime ↑p ↔ p % 4 = 3"
+  },
+  {
+    "name": "GaussianInt.sq_add_sq_of_nat_prime_of_not_irreducible",
+    "variant": "closed",
+    "text": "⊢ ∀ (p : ℕ) [hp : Fact (Nat.Prime p)], ¬Irreducible ↑p → ∃ a b, a ^ 2 + b ^ 2 = p"
+  },
+  {
+    "name": "IntermediateField.adjoin.finrank",
+    "variant": "closed",
+    "text": "⊢ ∀ {K : Type u} [inst : Field K] {L : Type u_3} [inst_1 : Field L] [inst_2 : Algebra K L] {x : L}, IsIntegral K x → FiniteDimensional.finrank K ↥K⟮x⟯ = (minpoly K x).natDegree"
+  },
+  {
+    "name": "IsGalois.card_aut_eq_finrank",
+    "variant": "closed",
+    "text": "⊢ ∀ (F : Type u_1) [inst : Field F] (E : Type u_2) [inst_1 : Field E] [inst_2 : Algebra F E] [inst_3 : FiniteDimensional F E] [inst_4 : IsGalois F E], Fintype.card (E ≃ₐ[F] E) = FiniteDimensional.finrank F E"
+  },
+  {
+    "name": "IsGalois.IntermediateField.AdjoinSimple.card_aut_eq_finrank",
+    "variant": "closed",
+    "text": "⊢ ∀ (F : Type u_1) [inst : Field F] (E : Type u_2) [inst_1 : Field E] [inst_2 : Algebra F E] [inst_3 : FiniteDimensional F E] {α : E}, IsIntegral F α → (minpoly F α).Separable → Polynomial.Splits (algebraMap F ↥F⟮α⟯) (minpoly F α) → Fintype.card (↥F⟮α⟯ ≃ₐ[F] ↥F⟮α⟯) = FiniteDimensional.finrank F ↥F⟮α⟯"
+  },
+  {
+    "name": "hasSum_zeta_two",
+    "variant": "closed",
+    "text": "⊢ HasSum (fun n => 1 / ↑n ^ 2) (Real.pi ^ 2 / 6)"
+  },
+  {
+    "name": "hasSum_fourier_series_of_summable",
+    "variant": "closed",
+    "text": "⊢ ∀ {T : ℝ} [hT : Fact (0 < T)] {f : C(AddCircle T, ℂ)}, Summable (fourierCoeff ⇑f) → HasSum (fun i => fourierCoeff (⇑f) i • fourier i) f"
+  },
+  {
+    "name": "hasSum_one_div_nat_pow_mul_cos",
+    "variant": "closed",
+    "text": "⊢ ∀ {k : ℕ}, k ≠ 0 → ∀ {x : ℝ}, x ∈ Set.Icc 0 1 → HasSum (fun n => 1 / ↑n ^ (2 * k) * Real.cos (2 * Real.pi * ↑n * x)) ((-1) ^ (k + 1) * (2 * Real.pi) ^ (2 * k) / 2 / ↑(2 * k).factorial * Polynomial.eval x (Polynomial.map (algebraMap ℚ ℝ) (Polynomial.bernoulli (2 * k))))"
+  },
+  {
+    "name": "coe_convexAddSubmonoid",
+    "variant": "closed",
+    "text": "⊢ ∀ (𝕜 : Type u_1) (E : Type u_2) [inst : OrderedSemiring 𝕜] [inst_1 : AddCommMonoid E] [inst_2 : _root_.Module 𝕜 E], ↑(convexAddSubmonoid 𝕜 E) = {s | Convex 𝕜 s}"
+  },
+  {
+    "name": "sSupHom.coe_copy",
+    "variant": "closed",
+    "text": "⊢ ∀ {α : Type u_2} {β : Type u_3} [inst : SupSet α] [inst_1 : SupSet β] (f : sSupHom α β) (f' : α → β) (h : f' = ⇑f), ⇑(f.copy f' h) = f'"
+  },
+  {
+    "name": "HasCompactSupport.extend_zero",
+    "variant": "closed",
+    "text": "⊢ ∀ {α : Type u_2} {α' : Type u_3} {β : Type u_4} [inst : TopologicalSpace α] [inst_1 : TopologicalSpace α'] [inst_2 : Zero β] {f : α → β} [inst_3 : T2Space α'], HasCompactSupport f → ∀ {g : α → α'}, Continuous g → HasCompactSupport (Function.extend g f 0)"
+  },
+  {
+    "name": "AddSubmonoid.LocalizationMap.lift_left_inverse",
+    "variant": "closed",
+    "text": "⊢ ∀ {M : Type u_1} [inst : AddCommMonoid M] {S : AddSubmonoid M} {N : Type u_2} [inst_1 : AddCommMonoid N] {P : Type u_3} [inst_2 : AddCommMonoid P] (f : S.LocalizationMap N) {k : S.LocalizationMap P} (z : N), (k.lift ⋯) ((f.lift ⋯) z) = z"
+  },
+  {
+    "name": "Set.vadd_mem_vadd",
+    "variant": "closed",
+    "text": "⊢ ∀ {α : Type u_2} {β : Type u_3} [inst : VAdd α β] {s : Set α} {t : Set β} {a : α} {b : β}, a ∈ s → b ∈ t → a +ᵥ b ∈ s +ᵥ t"
+  },
+  {
+    "name": "HasSum.tsum_eq",
+    "variant": "closed",
+    "text": "⊢ ∀ {α : Type u_1} {β : Type u_2} [inst : AddCommMonoid α] [inst_1 : TopologicalSpace α] {f : β → α} {a : α} [inst_2 : T2Space α], HasSum f a → ∑' (b : β), f b = a"
+  },
+  {
+    "name": "IsNilpotent.zero",
+    "variant": "closed",
+    "text": "⊢ ∀ {R : Type u_1} [inst : MonoidWithZero R], IsNilpotent 0"
+  },
+  {
+    "name": "IsBoundedLinearMap.fderivWithin",
+    "variant": "closed",
+    "text": "⊢ ∀ {𝕜 : Type u_1} [inst : NontriviallyNormedField 𝕜] {E : Type u_2} [inst_1 : NormedAddCommGroup E] [inst_2 : NormedSpace 𝕜 E] {F : Type u_3} [inst_3 : NormedAddCommGroup F] [inst_4 : NormedSpace 𝕜 F] {f : E → F} {x : E} {s : Set E} (h : IsBoundedLinearMap 𝕜 f), UniqueDiffWithinAt 𝕜 s x → fderivWithin 𝕜 f s x = h.toContinuousLinearMap"
+  },
+  {
+    "name": "ite_eq_iff'",
+    "variant": "closed",
+    "text": "⊢ ∀ {α : Sort u_1} {P : Prop} [inst : Decidable P] {a b c : α}, (if P then a else b) = c ↔ (P → a = c) ∧ (¬P → b = c)"
+  },
+  {
+    "name": "MeasureTheory.measure_eq_top_iff_of_symmDiff",
+    "variant": "closed",
+    "text": "⊢ ∀ {α : Type u_1} {m : MeasurableSpace α} {μ : MeasureTheory.Measure α} {s t : Set α}, μ (symmDiff s t) ≠ ⊤ → (μ s = ⊤ ↔ μ t = ⊤)"
+  },
+  {
+    "name": "ContinuousMap.specializes_coe",
+    "variant": "closed",
+    "text": "⊢ ∀ {X : Type u_2} {Y : Type u_3} [inst : TopologicalSpace X] [inst_1 : TopologicalSpace Y] {f g : C(X, Y)}, ⇑f ⤳ ⇑g ↔ f ⤳ g"
+  },
+  {
+    "name": "StarAlgHom.coe_codRestrict",
+    "variant": "closed",
+    "text": "⊢ ∀ {R : Type u_2} {A : Type u_3} {B : Type u_4} [inst : CommSemiring R] [inst_1 : StarRing R] [inst_2 : Semiring A] [inst_3 : Algebra R A] [inst_4 : StarRing A] [inst_5 : Semiring B] [inst_6 : Algebra R B] [inst_7 : StarRing B] [inst_8 : StarModule R B] (f : A →⋆ₐ[R] B) (S : StarSubalgebra R B) (hf : ∀ (x : A), f x ∈ S) (x : A), ↑((f.codRestrict S hf) x) = f x"
+  },
+  {
+    "name": "Seminorm.coe_bot",
+    "variant": "closed",
+    "text": "⊢ ∀ {𝕜 : Type u_3} {E : Type u_7} [inst : SeminormedRing 𝕜] [inst_1 : AddCommGroup E] [inst_2 : _root_.Module 𝕜 E], ⇑⊥ = 0"
+  },
+  {
+    "name": "AddCircle.exists_gcd_eq_one_of_isOfFinAddOrder",
+    "variant": "closed",
+    "text": "⊢ ∀ {𝕜 : Type u_1} [inst : LinearOrderedField 𝕜] [inst_1 : TopologicalSpace 𝕜] [inst_2 : OrderTopology 𝕜] {p : 𝕜} [hp : Fact (0 < p)] {u : AddCircle p}, IsOfFinAddOrder u → ∃ m, m.gcd (addOrderOf u) = 1 ∧ m < addOrderOf u ∧ ↑(↑m / ↑(addOrderOf u) * p) = u"
+  },
+  {
+    "name": "Set.OrdConnected.dual",
+    "variant": "closed",
+    "text": "⊢ ∀ {α : Type u_1} [inst : Preorder α] {s : Set α}, s.OrdConnected → (⇑OrderDual.ofDual ⁻¹' s).OrdConnected"
+  },
+  {
+    "name": "Set.ite_inter_inter",
+    "variant": "closed",
+    "text": "⊢ ∀ {α : Type u} (t s₁ s₂ s₁' s₂' : Set α), t.ite (s₁ ∩ s₂) (s₁' ∩ s₂') = t.ite s₁ s₁' ∩ t.ite s₂ s₂'"
+  },
+  {
+    "name": "IsModularLattice.inf_sup_inf_assoc",
+    "variant": "closed",
+    "text": "⊢ ∀ {α : Type u_1} [inst : Lattice α] [inst_1 : IsModularLattice α] {x y z : α}, x ⊓ z ⊔ y ⊓ z = (x ⊓ z ⊔ y) ⊓ z"
+  },
+  {
+    "name": "Part.of_toOption",
+    "variant": "closed",
+    "text": "⊢ ∀ {α : Type u_1} (o : Part α) [inst : Decidable o.Dom], ↑o.toOption = o"
+  },
+  {
+    "name": "OrderAddMonoidHom.toOrderHom_injective",
+    "variant": "closed",
+    "text": "⊢ ∀ {α : Type u_2} {β : Type u_3} [inst : Preorder α] [inst_1 : Preorder β] [inst_2 : AddZeroClass α] [inst_3 : AddZeroClass β], Function.Injective OrderAddMonoidHom.toOrderHom"
+  },
+  {
+    "name": "Asymptotics.IsEquivalent.trans_isTheta",
+    "variant": "closed",
+    "text": "⊢ ∀ {α : Type u_1} {β : Type u_2} {β₂ : Type u_3} [inst : NormedAddCommGroup β] [inst_1 : Norm β₂] {l : Filter α} {f g₁ : α → β} {g₂ : α → β₂}, Asymptotics.IsEquivalent l f g₁ → g₁ =Θ[l] g₂ → f =Θ[l] g₂"
+  },
+  {
+    "name": "Embedding.toOpenEmbedding_of_surjective",
+    "variant": "closed",
+    "text": "⊢ ∀ {X : Type u_1} {Y : Type u_2} {f : X → Y} [inst : TopologicalSpace X] [inst_1 : TopologicalSpace Y], Embedding f → Function.Surjective f → OpenEmbedding f"
+  },
+  {
+    "name": "IsSMulRegular.isLeftRegular",
+    "variant": "closed",
+    "text": "⊢ ∀ {R : Type u_1} [inst : Mul R] {a : R}, IsSMulRegular R a → IsLeftRegular a"
+  },
+  {
+    "name": "ENat.top_pow",
+    "variant": "closed",
+    "text": "⊢ ∀ {n : ℕ}, 0 < n → ⊤ ^ n = ⊤"
+  },
+  {
+    "name": "IsMulCentral.right_comm",
+    "variant": "closed",
+    "text": "⊢ ∀ {M : Type u_1} {c : M} [inst : Mul M], IsMulCentral c → ∀ (a b : M), a * b * c = a * c * b"
+  },
+  {
+    "name": "IsLowerSet.compl",
+    "variant": "closed",
+    "text": "⊢ ∀ {α : Type u_1} [inst : LE α] {s : Set α}, IsLowerSet s → IsUpperSet sᶜ"
+  },
+  {
+    "name": "OmegaCompletePartialOrder.ContinuousHom.ωSup_bind",
+    "variant": "closed",
+    "text": "⊢ ∀ {α : Type u} [inst : OmegaCompletePartialOrder α] {β γ : Type v} (c : OmegaCompletePartialOrder.Chain α) (f : α →o Part β) (g : α →o β → Part γ), OmegaCompletePartialOrder.ωSup (c.map (f.bind g)) = OmegaCompletePartialOrder.ωSup (c.map f) >>= OmegaCompletePartialOrder.ωSup (c.map g)"
+  },
+  {
+    "name": "Set.Equicontinuous.closure",
+    "variant": "closed",
+    "text": "⊢ ∀ {X : Type u_3} {α : Type u_7} [tX : TopologicalSpace X] [uα : UniformSpace α] {A : Set (X → α)}, A.Equicontinuous → (closure A).Equicontinuous"
+  },
+  {
+    "name": "Polynomial.card_support_binomial",
+    "variant": "closed",
+    "text": "⊢ ∀ {R : Type u} [inst : Semiring R] {k m : ℕ}, k ≠ m → ∀ {x y : R}, x ≠ 0 → y ≠ 0 → (Polynomial.C x * Polynomial.X ^ k + Polynomial.C y * Polynomial.X ^ m).support.card = 2"
+  },
+  {
+    "name": "Field.FiniteDimensional.of_finite_intermediateField",
+    "variant": "closed",
+    "text": "⊢ ∀ (F : Type u_1) (E : Type u_2) [inst : Field F] [inst_1 : Field E] [inst_2 : Algebra F E] [inst_3 : Finite (IntermediateField F E)], FiniteDimensional F E"
+  },
+  {
+    "name": "iSup_eq_iSup_of_partialSups_eq_partialSups",
+    "variant": "closed",
+    "text": "⊢ ∀ {α : Type u_1} [inst : CompleteLattice α] {f g : ℕ → α}, partialSups f = partialSups g → ⨆ n, f n = ⨆ n, g n"
+  },
+  {
+    "name": "iInf_univ",
+    "variant": "closed",
+    "text": "⊢ ∀ {α : Type u_1} {β : Type u_2} [inst : CompleteLattice α] {f : β → α}, ⨅ x ∈ Set.univ, f x = ⨅ x, f x"
+  },
+  {
+    "name": "TopologicalSpace.Opens.partialHomeomorphSubtypeCoe_target",
+    "variant": "closed",
+    "text": "⊢ ∀ {X : Type u_1} [inst : TopologicalSpace X] (s : TopologicalSpace.Opens X) (hs : Nonempty ↥s), (s.partialHomeomorphSubtypeCoe hs).target = ↑s"
+  },
+  {
+    "name": "HasDerivAt.const_smul",
+    "variant": "closed",
+    "text": "⊢ ∀ {𝕜 : Type u} [inst : NontriviallyNormedField 𝕜] {F : Type v} [inst_1 : NormedAddCommGroup F] [inst_2 : NormedSpace 𝕜 F] {f : 𝕜 → F} {f' : F} {x : 𝕜} {R : Type u_2} [inst_3 : Semiring R] [inst_4 : _root_.Module R F] [inst_5 : SMulCommClass 𝕜 R F] [inst_6 : ContinuousConstSMul R F] (c : R), HasDerivAt f f' x → HasDerivAt (fun y => c • f y) (c • f') x"
+  },
+  {
+    "name": "IntermediateField.algHomEquivAlgHomOfSplits_apply",
+    "variant": "closed",
+    "text": "⊢ ∀ {F : Type u_1} {K : Type u_2} (A : Type u_3) [inst : Field F] [inst_1 : Field K] [inst_2 : Field A] [inst_3 : Algebra F K] [inst_4 : Algebra F A] [inst_5 : Algebra.IsAlgebraic F K] (L : IntermediateField F A) (hL : ∀ (x : K), Polynomial.Splits (algebraMap F ↥L) (minpoly F x)) (φ₂ : K →ₐ[F] ↥L), (IntermediateField.algHomEquivAlgHomOfSplits A L hL) φ₂ = L.val.comp φ₂"
+  },
+  {
+    "name": "Odd.zpow_neg",
+    "variant": "closed",
+    "text": "⊢ ∀ {α : Type u_1} [inst : LinearOrderedField α] {a : α} {n : ℤ}, Odd n → a < 0 → a ^ n < 0"
+  },
+  {
+    "name": "Equiv.Perm.sumCongr_one",
+    "variant": "closed",
+    "text": "⊢ ∀ {α : Type u_1} {β : Type u_2}, Equiv.Perm.sumCongr 1 1 = 1"
+  },
+  {
+    "name": "Set.liftCover_coe",
+    "variant": "closed",
+    "text": "⊢ ∀ {α : Type u_1} {ι : Sort u_3} {β : Sort u_2} {S : ι → Set α} {f : (i : ι) → ↑(S i) → β} {hf : ∀ (i j : ι) (x : α) (hxi : x ∈ S i) (hxj : x ∈ S j), f i ⟨x, hxi⟩ = f j ⟨x, hxj⟩} {hS : Set.iUnion S = Set.univ} {i : ι} (x : ↑(S i)), Set.liftCover S f hf hS ↑x = f i x"
+  },
+  {
+    "name": "finite_of_linearIndependent",
+    "variant": "closed",
+    "text": "⊢ ∀ {R : Type u_1} {M : Type u_2} [inst : Ring R] [inst_1 : AddCommGroup M] [inst_2 : _root_.Module R M] [inst_3 : IsNoetherian R M] [inst_4 : Nontrivial R] {s : Set M}, LinearIndependent (ι := { x // x ∈ s }) R Subtype.val → s.Finite"
+  },
+  {
+    "name": "Filter.map_one'",
+    "variant": "closed",
+    "text": "⊢ ∀ {α : Type u_2} {β : Type u_3} [inst : One α] (f : α → β), Filter.map f 1 = pure (f 1)"
+  },
+  {
+    "name": "Relation.equivalence_join_reflTransGen",
+    "variant": "closed",
+    "text": "⊢ ∀ {α : Type u_1} {r : α → α → Prop}, (∀ (a b c : α), r a b → r a c → ∃ d, Relation.ReflGen r b d ∧ Relation.ReflTransGen r c d) → Equivalence (Relation.Join (Relation.ReflTransGen r))"
+  },
+  {
+    "name": "MulOpposite.op_inj",
+    "variant": "closed",
+    "text": "⊢ ∀ {α : Type u_1} {x y : α}, MulOpposite.op x = MulOpposite.op y ↔ x = y"
+  },
+  {
+    "name": "MulChar.ringHomComp_eq_one_iff",
+    "variant": "closed",
+    "text": "⊢ ∀ {R : Type u_1} [inst : CommMonoid R] {R' : Type u_2} [inst_1 : CommRing R'] {R'' : Type u_3} [inst_2 : CommRing R''] {f : R' →+* R''}, Function.Injective ⇑f → ∀ {χ : MulChar R R'}, χ.ringHomComp f = 1 ↔ χ = 1"
+  },
+  {
+    "name": "Set.Ioc_union_Ioi_eq_Ioi",
+    "variant": "closed",
+    "text": "⊢ ∀ {α : Type u_1} [inst : LinearOrder α] {a b : α}, a ≤ b → Set.Ioc a b ∪ Set.Ioi b = Set.Ioi a"
+  },
+  {
+    "name": "NNRat.commute_cast",
+    "variant": "closed",
+    "text": "⊢ ∀ {α : Type u_3} [inst : DivisionSemiring α] (a : α) (q : ℚ≥0), Commute a ↑q"
+  },
+  {
+    "name": "Polynomial.expand_mul",
+    "variant": "closed",
+    "text": "⊢ ∀ {R : Type u} [inst : CommSemiring R] (p q : ℕ) (f : Polynomial R), (Polynomial.expand R (p * q)) f = (Polynomial.expand R p) ((Polynomial.expand R q) f)"
+  },
+  {
+    "name": "ofLex_neg",
+    "variant": "closed",
+    "text": "⊢ ∀ {α : Type u_1} [inst : Neg α] (a : Lex α), ofLex (-a) = -ofLex a"
+  },
+  {
+    "name": "Finset.card_nbij",
+    "variant": "closed",
+    "text": "⊢ ∀ {α : Type u_1} {β : Type u_2} {s : Finset α} {t : Finset β} (i : α → β), (∀ a ∈ s, i a ∈ t) → Set.InjOn i ↑s → Set.SurjOn i ↑s ↑t → s.card = t.card"
+  },
+  {
+    "name": "Urysohns.CU.left_U_subset",
+    "variant": "closed",
+    "text": "⊢ ∀ {X : Type u_1} [inst : TopologicalSpace X] {P : Set X → Prop} (c : Urysohns.CU P), c.left.U ⊆ c.U"
+  },
+  {
+    "name": "iSup_iSup_eq_left",
+    "variant": "closed",
+    "text": "⊢ ∀ {α : Type u_1} {β : Type u_2} [inst : CompleteLattice α] {b : β} {f : (x : β) → x = b → α}, ⨆ x, ⨆ (h : x = b), f x h = f b ⋯"
+  },
+  {
+    "name": "Subgroup.tendsto_coe_cofinite_of_discrete",
+    "variant": "closed",
+    "text": "⊢ ∀ {G : Type u_1} [inst : Group G] [inst_1 : TopologicalSpace G] [inst_2 : TopologicalGroup G] [inst_3 : T2Space G] (H : Subgroup G) [inst_4 : DiscreteTopology ↥H], Filter.Tendsto Subtype.val Filter.cofinite (Filter.cocompact G)"
+  },
+  {
+    "name": "Function.Periodic.exists_mem_Ioc",
+    "variant": "closed",
+    "text": "⊢ ∀ {α : Type u_1} {β : Type u_2} {f : α → β} {c : α} [inst : LinearOrderedAddCommGroup α] [inst_1 : Archimedean α], Function.Periodic f c → 0 < c → ∀ (x a : α), ∃ y ∈ Set.Ioc a (a + c), f x = f y"
+  },
+  {
+    "name": "isLUB_of_mem_closure",
+    "variant": "closed",
+    "text": "⊢ ∀ {α : Type u_1} [inst : TopologicalSpace α] [inst_1 : LinearOrder α] [inst_2 : OrderTopology α] {s : Set α} {a : α}, a ∈ upperBounds s → a ∈ closure s → IsLUB s a"
+  },
+  {
+    "name": "interior_eq_nhds",
+    "variant": "closed",
+    "text": "⊢ ∀ {X : Type u} {s : Set X} [inst : TopologicalSpace X], interior s = {x | nhds x ≤ Filter.principal s}"
+  },
+  {
+    "name": "IsSelfAdjoint.all",
+    "variant": "closed",
+    "text": "⊢ ∀ {R : Type u_1} [inst : Star R] [inst_1 : TrivialStar R] (r : R), IsSelfAdjoint r"
+  },
+  {
+    "name": "Complex.cosh_add",
+    "variant": "closed",
+    "text": "⊢ ∀ (x y : ℂ), Complex.cosh (x + y) = Complex.cosh x * Complex.cosh y + Complex.sinh x * Complex.sinh y"
+  },
+  {
+    "name": "IsRightRegular.pow",
+    "variant": "closed",
+    "text": "⊢ ∀ {R : Type u_1} {a : R} [inst : Monoid R] (n : ℕ), IsRightRegular a → IsRightRegular (a ^ n)"
+  },
+  {
+    "name": "Ordinal.enumOrd_def'",
+    "variant": "closed",
+    "text": "⊢ ∀ {S : Set Ordinal} (o : Ordinal), Ordinal.enumOrd S o = sInf (S ∩ Set.Ici (o.blsub fun a x => Ordinal.enumOrd S a))"
+  },
+  {
+    "name": "MeasurableSpace.measurableSet_enumerateCountable_countableGeneratingSet",
+    "variant": "closed",
+    "text": "⊢ ∀ (α : Type u_3) [inst : MeasurableSpace α] [inst_1 : MeasurableSpace.CountablyGenerated α] (n : ℕ), MeasurableSet (Set.enumerateCountable ⋯ ∅ n)"
+  },
+  {
+    "name": "Polynomial.monomial_mul_monomial",
+    "variant": "closed",
+    "text": "⊢ ∀ {R : Type u} [inst : Semiring R] (n m : ℕ) (r s : R), (Polynomial.monomial n) r * (Polynomial.monomial m) s = (Polynomial.monomial (n + m)) (r * s)"
+  },
+  {
+    "name": "IsUnit.isRegular",
+    "variant": "closed",
+    "text": "⊢ ∀ {R : Type u_1} [inst : Monoid R] {a : R}, IsUnit a → IsRegular a"
+  },
+  {
+    "name": "Monotone.map_inf",
+    "variant": "closed",
+    "text": "⊢ ∀ {α : Type u} {β : Type v} [inst : LinearOrder α] [inst_1 : SemilatticeInf β] {f : α → β}, Monotone f → ∀ (x y : α), f (x ⊓ y) = f x ⊓ f y"
+  },
+  {
+    "name": "ENNReal.le_tsum_condensed",
+    "variant": "closed",
+    "text": "⊢ ∀ {f : ℕ → ENNReal}, (∀ ⦃m n : ℕ⦄, 0 < m → m ≤ n → f n ≤ f m) → ∑' (k : ℕ), f k ≤ f 0 + ∑' (k : ℕ), 2 ^ k * f (2 ^ k)"
+  },
+  {
+    "name": "Submodule.span_attach_biUnion",
+    "variant": "closed",
+    "text": "⊢ ∀ {R : Type u_1} {M : Type u_4} [inst : Semiring R] [inst_1 : AddCommMonoid M] [inst_2 : _root_.Module R M] [inst_3 : DecidableEq M] {α : Type u_9} (s : Finset α) (f : { x // x ∈ s } → Finset M), Submodule.span R ↑(s.attach.biUnion f) = ⨆ x, Submodule.span R ↑(f x)"
+  },
+  {
+    "name": "Real.continuousAt_arcsin",
+    "variant": "closed",
+    "text": "⊢ ∀ {x : ℝ}, ContinuousAt Real.arcsin x"
+  },
+  {
+    "name": "Real.cos_add",
+    "variant": "closed",
+    "text": "⊢ ∀ (x y : ℝ), Real.cos (x + y) = Real.cos x * Real.cos y - Real.sin x * Real.sin y"
+  },
+  {
+    "name": "Real.cos_sub",
+    "variant": "closed",
+    "text": "⊢ ∀ (x y : ℝ), Real.cos (x - y) = Real.cos x * Real.cos y + Real.sin x * Real.sin y"
+  },
+  {
+    "name": "Real.sin_sub",
+    "variant": "closed",
+    "text": "⊢ ∀ (x y : ℝ), Real.sin (x - y) = Real.sin x * Real.cos y - Real.cos x * Real.sin y"
+  },
+  {
+    "name": "Real.cos_sub_cos",
+    "variant": "closed",
+    "text": "⊢ ∀ (x y : ℝ), Real.cos x - Real.cos y = -2 * Real.sin ((x + y) / 2) * Real.sin ((x - y) / 2)"
+  },
+  {
+    "name": "Complex.exp_sub",
+    "variant": "closed",
+    "text": "⊢ ∀ (x y : ℂ), Complex.exp (x - y) = Complex.exp x / Complex.exp y"
+  },
+  {
+    "name": "Complex.exp_eq_exp_iff_exp_sub_eq_one",
+    "variant": "closed",
+    "text": "⊢ ∀ {x y : ℂ}, Complex.exp x = Complex.exp y ↔ Complex.exp (x - y) = 1"
+  },
+  {
+    "name": "Complex.abs_exp_eq_iff_re_eq",
+    "variant": "closed",
+    "text": "⊢ ∀ {x y : ℂ}, Complex.abs (Complex.exp x) = Complex.abs (Complex.exp y) ↔ x.re = y.re"
+  },
+  {
+    "name": "Complex.cpow_def_of_ne_zero",
+    "variant": "closed",
+    "text": "⊢ ∀ {x : ℂ}, x ≠ 0 → ∀ (y : ℂ), x ^ y = Complex.exp (Complex.log x * y)"
+  },
+  {
+    "name": "Nat.sq_add_sq_modEq",
+    "variant": "closed",
+    "text": "⊢ ∀ (p : ℕ) [inst : Fact (Nat.Prime p)] (x : ℕ), ∃ a b, a ≤ p / 2 ∧ b ≤ p / 2 ∧ a ^ 2 + b ^ 2 ≡ x [MOD p]"
+  },
+  {
+    "name": "Nat.sq_add_sq_zmodEq",
+    "variant": "closed",
+    "text": "⊢ ∀ (p : ℕ) [inst : Fact (Nat.Prime p)] (x : ℤ), ∃ a b, a ≤ p / 2 ∧ b ≤ p / 2 ∧ ↑a ^ 2 + ↑b ^ 2 ≡ x [ZMOD ↑p]"
+  },
+  {
+    "name": "ZMod.mod_four_ne_three_of_sq_eq_neg_one",
+    "variant": "closed",
+    "text": "⊢ ∀ {p : ℕ} [inst : Fact (Nat.Prime p)] {y : ZMod p}, y ^ 2 = -1 → p % 4 ≠ 3"
+  },
+  {
+    "name": "ZMod.exists_sq_eq_neg_one_iff",
+    "variant": "closed",
+    "text": "⊢ ∀ {p : ℕ} [inst : Fact (Nat.Prime p)], IsSquare (-1) ↔ p % 4 ≠ 3"
+  },
+  {
+    "name": "GaussianInt.mod_four_eq_three_of_nat_prime_of_prime",
+    "variant": "closed",
+    "text": "⊢ ∀ (p : ℕ) [hp : Fact (Nat.Prime p)], Prime ↑p → p % 4 = 3"
+  },
+  {
+    "name": "GaussianInt.prime_of_nat_prime_of_mod_four_eq_three",
+    "variant": "closed",
+    "text": "⊢ ∀ (p : ℕ) [hp : Fact (Nat.Prime p)], p % 4 = 3 → Prime ↑p"
+  },
+  {
+    "name": "minpoly.natDegree_le",
+    "variant": "closed",
+    "text": "⊢ ∀ {K : Type u} [inst : Field K] {L : Type u_3} [inst_1 : Field L] [inst_2 : Algebra K L] (x : L) [inst_3 : FiniteDimensional K L], (minpoly K x).natDegree ≤ FiniteDimensional.finrank K L"
+  },
+  {
+    "name": "IntermediateField.adjoin.finiteDimensional",
+    "variant": "closed",
+    "text": "⊢ ∀ {K : Type u} [inst : Field K] {L : Type u_3} [inst_1 : Field L] [inst_2 : Algebra K L] {x : L}, IsIntegral K x → FiniteDimensional K ↥K⟮x⟯"
+  },
+  {
+    "name": "minpoly.degree_le",
+    "variant": "closed",
+    "text": "⊢ ∀ {K : Type u} [inst : Field K] {L : Type u_3} [inst_1 : Field L] [inst_2 : Algebra K L] (x : L) [inst_3 : FiniteDimensional K L], (minpoly K x).degree ≤ ↑(FiniteDimensional.finrank K L)"
+  },
+  {
+    "name": "IntermediateField.isAlgebraic_adjoin_simple",
+    "variant": "closed",
+    "text": "⊢ ∀ {K : Type u} [inst : Field K] {L : Type u_3} [inst_1 : Field L] [inst_2 : Algebra K L] {x : L}, IsIntegral K x → Algebra.IsAlgebraic K ↥K⟮x⟯"
+  },
+  {
+    "name": "IsGalois.of_card_aut_eq_finrank",
+    "variant": "closed",
+    "text": "⊢ ∀ (F : Type u_1) [inst : Field F] (E : Type u_2) [inst_1 : Field E] [inst_2 : Algebra F E] [inst_3 : FiniteDimensional F E], Fintype.card (E ≃ₐ[F] E) = FiniteDimensional.finrank F E → IsGalois F E"
+  },
+  {
+    "name": "AlgHom.card",
+    "variant": "closed",
+    "text": "⊢ ∀ (F : Type u_1) (E : Type u_2) [inst : Field F] [inst_1 : Field E] [inst_2 : Algebra F E] [inst_3 : FiniteDimensional F E] [inst_4 : IsSeparable F E] (K : Type u_3) [inst_5 : Field K] [inst_6 : IsAlgClosed K] [inst_7 : Algebra F K], Fintype.card (E →ₐ[F] K) = FiniteDimensional.finrank F E"
+  },
+  {
+    "name": "IntermediateField.finrank_fixedField_eq_card",
+    "variant": "closed",
+    "text": "⊢ ∀ {F : Type u_1} [inst : Field F] {E : Type u_2} [inst_1 : Field E] [inst_2 : Algebra F E] (H : Subgroup (E ≃ₐ[F] E)) [inst_3 : FiniteDimensional F E] [inst_4 : DecidablePred fun x => x ∈ H], FiniteDimensional.finrank (↥(IntermediateField.fixedField H)) E = Fintype.card ↥H"
+  },
+  {
+    "name": "IsGalois.card_fixingSubgroup_eq_finrank",
+    "variant": "closed",
+    "text": "⊢ ∀ {F : Type u_1} [inst : Field F] {E : Type u_2} [inst_1 : Field E] [inst_2 : Algebra F E] (K : IntermediateField F E) [inst_3 : DecidablePred fun x => x ∈ K.fixingSubgroup] [inst_4 : FiniteDimensional F E] [inst_5 : IsGalois F E], Fintype.card ↥K.fixingSubgroup = FiniteDimensional.finrank (↥K) E"
+  },
+  {
+    "name": "hasSum_L_function_mod_four_eval_three",
+    "variant": "closed",
+    "text": "⊢ HasSum (fun n => 1 / ↑n ^ 3 * Real.sin (Real.pi * ↑n / 2)) (Real.pi ^ 3 / 32)"
+  },
+  {
+    "name": "hasSum_geometric_two",
+    "variant": "closed",
+    "text": "⊢ HasSum (fun n => (1 / 2) ^ n) 2"
+  },
+  {
+    "name": "hasSum_zeta_four",
+    "variant": "closed",
+    "text": "⊢ HasSum (fun n => 1 / ↑n ^ 4) (Real.pi ^ 4 / 90)"
+  },
+  {
+    "name": "Real.sin_pi_div_six",
+    "variant": "closed",
+    "text": "⊢ Real.sin (Real.pi / 6) = 1 / 2"
+  },
+  {
+    "name": "has_pointwise_sum_fourier_series_of_summable",
+    "variant": "closed",
+    "text": "⊢ ∀ {T : ℝ} [hT : Fact (0 < T)] {f : C(AddCircle T, ℂ)}, Summable (fourierCoeff ⇑f) → ∀ (x : AddCircle T), HasSum (fun i => fourierCoeff (⇑f) i • (fourier i) x) (f x)"
+  },
+  {
+    "name": "hasSum_fourier_series_L2",
+    "variant": "closed",
+    "text": "⊢ ∀ {T : ℝ} [hT : Fact (0 < T)] (f : ↥(MeasureTheory.Lp ℂ 2 AddCircle.haarAddCircle)), HasSum (fun i => fourierCoeff (↑↑f) i • fourierLp 2 i) f"
+  },
+  {
+    "name": "fourierCoeff.const_mul",
+    "variant": "closed",
+    "text": "⊢ ∀ {T : ℝ} [hT : Fact (0 < T)] (f : AddCircle T → ℂ) (c : ℂ) (n : ℤ), fourierCoeff (fun x => c * f x) n = c * fourierCoeff f n"
+  },
+  {
+    "name": "fourierCoeff_toLp",
+    "variant": "closed",
+    "text": "⊢ ∀ {T : ℝ} [hT : Fact (0 < T)] (f : C(AddCircle T, ℂ)) (n : ℤ), fourierCoeff (↑↑((ContinuousMap.toLp 2 AddCircle.haarAddCircle ℂ) f)) n = fourierCoeff (⇑f) n"
+  },
+  {
+    "name": "Real.sin_add",
+    "variant": "introduced",
+    "text": "x y : ℝ\n⊢ Real.sin (x + y) = Real.sin x * Real.cos y + Real.cos x * Real.sin y"
+  },
+  {
+    "name": "Complex.exp_add",
+    "variant": "introduced",
+    "text": "x y : ℂ\n⊢ Complex.exp (x + y) = Complex.exp x * Complex.exp y"
+  },
+  {
+    "name": "Complex.exp_mul_I",
+    "variant": "introduced",
+    "text": "x : ℂ\n⊢ Complex.exp (x * Complex.I) = Complex.cos x + Complex.sin x * Complex.I"
+  },
+  {
+    "name": "Nat.Prime.sq_add_sq",
+    "variant": "introduced",
+    "text": "p : ℕ\ninst✝ : Fact (Nat.Prime p)\nhp : p % 4 ≠ 3\n⊢ ∃ a b, a ^ 2 + b ^ 2 = p"
+  },
+  {
+    "name": "GaussianInt.prime_iff_mod_four_eq_three_of_nat_prime",
+    "variant": "introduced",
+    "text": "p : ℕ\ninst✝ : Fact (Nat.Prime p)\n⊢ Prime ↑p ↔ p % 4 = 3"
+  },
+  {
+    "name": "GaussianInt.sq_add_sq_of_nat_prime_of_not_irreducible",
+    "variant": "introduced",
+    "text": "p : ℕ\nhp : Fact (Nat.Prime p)\nhpi : ¬Irreducible ↑p\n⊢ ∃ a b, a ^ 2 + b ^ 2 = p"
+  },
+  {
+    "name": "IntermediateField.adjoin.finrank",
+    "variant": "introduced",
+    "text": "K : Type u\ninst✝² : Field K\nL : Type u_3\ninst✝¹ : Field L\ninst✝ : Algebra K L\nx : L\nhx : IsIntegral K x\n⊢ FiniteDimensional.finrank K ↥K⟮x⟯ = (minpoly K x).natDegree"
+  },
+  {
+    "name": "IsGalois.card_aut_eq_finrank",
+    "variant": "introduced",
+    "text": "F : Type u_1\ninst✝⁴ : Field F\nE : Type u_2\ninst✝³ : Field E\ninst✝² : Algebra F E\ninst✝¹ : FiniteDimensional F E\ninst✝ : IsGalois F E\n⊢ Fintype.card (E ≃ₐ[F] E) = FiniteDimensional.finrank F E"
+  },
+  {
+    "name": "IsGalois.IntermediateField.AdjoinSimple.card_aut_eq_finrank",
+    "variant": "introduced",
+    "text": "F : Type u_1\ninst✝³ : Field F\nE : Type u_2\ninst✝² : Field E\ninst✝¹ : Algebra F E\ninst✝ : FiniteDimensional F E\nα : E\nhα : IsIntegral F α\nh_sep : (minpoly F α).Separable\nh_splits : Polynomial.Splits (algebraMap F ↥F⟮α⟯) (minpoly F α)\n⊢ Fintype.card (↥F⟮α⟯ ≃ₐ[F] ↥F⟮α⟯) = FiniteDimensional.finrank F ↥F⟮α⟯"
+  },
+  {
+    "name": "hasSum_zeta_two",
+    "variant": "introduced",
+    "text": "⊢ HasSum (fun n => 1 / ↑n ^ 2) (Real.pi ^ 2 / 6)"
+  },
+  {
+    "name": "hasSum_fourier_series_of_summable",
+    "variant": "introduced",
+    "text": "T : ℝ\nhT : Fact (0 < T)\nf : C(AddCircle T, ℂ)\nh : Summable (fourierCoeff ⇑f)\n⊢ HasSum (fun i => fourierCoeff (⇑f) i • fourier i) f"
+  },
+  {
+    "name": "hasSum_one_div_nat_pow_mul_cos",
+    "variant": "introduced",
+    "text": "k : ℕ\nhk : k ≠ 0\nx : ℝ\nhx : x ∈ Set.Icc 0 1\n⊢ HasSum (fun n => 1 / ↑n ^ (2 * k) * Real.cos (2 * Real.pi * ↑n * x)) ((-1) ^ (k + 1) * (2 * Real.pi) ^ (2 * k) / 2 / ↑(2 * k).factorial * Polynomial.eval x (Polynomial.map (algebraMap ℚ ℝ) (Polynomial.bernoulli (2 * k))))"
+  },
+  {
+    "name": "coe_convexAddSubmonoid",
+    "variant": "introduced",
+    "text": "𝕜 : Type u_1\nE : Type u_2\ninst✝² : OrderedSemiring 𝕜\ninst✝¹ : AddCommMonoid E\ninst✝ : _root_.Module 𝕜 E\n⊢ ↑(convexAddSubmonoid 𝕜 E) = {s | Convex 𝕜 s}"
+  },
+  {
+    "name": "sSupHom.coe_copy",
+    "variant": "introduced",
+    "text": "α : Type u_2\nβ : Type u_3\ninst✝¹ : SupSet α\ninst✝ : SupSet β\nf : sSupHom α β\nf' : α → β\nh : f' = ⇑f\n⊢ ⇑(f.copy f' h) = f'"
+  },
+  {
+    "name": "HasCompactSupport.extend_zero",
+    "variant": "introduced",
+    "text": "α : Type u_2\nα' : Type u_3\nβ : Type u_4\ninst✝³ : TopologicalSpace α\ninst✝² : TopologicalSpace α'\ninst✝¹ : Zero β\nf : α → β\ninst✝ : T2Space α'\nhf : HasCompactSupport f\ng : α → α'\ncont : Continuous g\n⊢ HasCompactSupport (Function.extend g f 0)"
+  },
+  {
+    "name": "AddSubmonoid.LocalizationMap.lift_left_inverse",
+    "variant": "introduced",
+    "text": "M : Type u_1\ninst✝² : AddCommMonoid M\nS : AddSubmonoid M\nN : Type u_2\ninst✝¹ : AddCommMonoid N\nP : Type u_3\ninst✝ : AddCommMonoid P\nf : S.LocalizationMap N\nk : S.LocalizationMap P\nz : N\n⊢ (k.lift ⋯) ((f.lift ⋯) z) = z"
+  },
+  {
+    "name": "Set.vadd_mem_vadd",
+    "variant": "introduced",
+    "text": "α : Type u_2\nβ : Type u_3\ninst✝ : VAdd α β\ns : Set α\nt : Set β\na : α\nb : β\na✝¹ : a ∈ s\na✝ : b ∈ t\n⊢ a +ᵥ b ∈ s +ᵥ t"
+  },
+  {
+    "name": "HasSum.tsum_eq",
+    "variant": "introduced",
+    "text": "α : Type u_1\nβ : Type u_2\ninst✝² : AddCommMonoid α\ninst✝¹ : TopologicalSpace α\nf : β → α\na : α\ninst✝ : T2Space α\nha : HasSum f a\n⊢ ∑' (b : β), f b = a"
+  },
+  {
+    "name": "IsNilpotent.zero",
+    "variant": "introduced",
+    "text": "R : Type u_1\ninst✝ : MonoidWithZero R\n⊢ IsNilpotent 0"
+  },
+  {
+    "name": "IsBoundedLinearMap.fderivWithin",
+    "variant": "introduced",
+    "text": "𝕜 : Type u_1\ninst✝⁴ : NontriviallyNormedField 𝕜\nE : Type u_2\ninst✝³ : NormedAddCommGroup E\ninst✝² : NormedSpace 𝕜 E\nF : Type u_3\ninst✝¹ : NormedAddCommGroup F\ninst✝ : NormedSpace 𝕜 F\nf : E → F\nx : E\ns : Set E\nh : IsBoundedLinearMap 𝕜 f\nhxs : UniqueDiffWithinAt 𝕜 s x\n⊢ fderivWithin 𝕜 f s x = h.toContinuousLinearMap"
+  },
+  {
+    "name": "ite_eq_iff'",
+    "variant": "introduced",
+    "text": "α : Sort u_1\nP : Prop\ninst✝ : Decidable P\na b c : α\n⊢ (if P then a else b) = c ↔ (P → a = c) ∧ (¬P → b = c)"
+  },
+  {
+    "name": "MeasureTheory.measure_eq_top_iff_of_symmDiff",
+    "variant": "introduced",
+    "text": "α : Type u_1\nm : MeasurableSpace α\nμ : MeasureTheory.Measure α\ns t : Set α\nhμst : μ (symmDiff s t) ≠ ⊤\n⊢ μ s = ⊤ ↔ μ t = ⊤"
+  },
+  {
+    "name": "ContinuousMap.specializes_coe",
+    "variant": "introduced",
+    "text": "X : Type u_2\nY : Type u_3\ninst✝¹ : TopologicalSpace X\ninst✝ : TopologicalSpace Y\nf g : C(X, Y)\n⊢ ⇑f ⤳ ⇑g ↔ f ⤳ g"
+  },
+  {
+    "name": "StarAlgHom.coe_codRestrict",
+    "variant": "introduced",
+    "text": "R : Type u_2\nA : Type u_3\nB : Type u_4\ninst✝⁸ : CommSemiring R\ninst✝⁷ : StarRing R\ninst✝⁶ : Semiring A\ninst✝⁵ : Algebra R A\ninst✝⁴ : StarRing A\ninst✝³ : Semiring B\ninst✝² : Algebra R B\ninst✝¹ : StarRing B\ninst✝ : StarModule R B\nf : A →⋆ₐ[R] B\nS : StarSubalgebra R B\nhf : ∀ (x : A), f x ∈ S\nx : A\n⊢ ↑((f.codRestrict S hf) x) = f x"
+  },
+  {
+    "name": "Seminorm.coe_bot",
+    "variant": "introduced",
+    "text": "𝕜 : Type u_3\nE : Type u_7\ninst✝² : SeminormedRing 𝕜\ninst✝¹ : AddCommGroup E\ninst✝ : _root_.Module 𝕜 E\n⊢ ⇑⊥ = 0"
+  },
+  {
+    "name": "AddCircle.exists_gcd_eq_one_of_isOfFinAddOrder",
+    "variant": "introduced",
+    "text": "𝕜 : Type u_1\ninst✝² : LinearOrderedField 𝕜\ninst✝¹ : TopologicalSpace 𝕜\ninst✝ : OrderTopology 𝕜\np : 𝕜\nhp : Fact (0 < p)\nu : AddCircle p\nh : IsOfFinAddOrder u\n⊢ ∃ m, m.gcd (addOrderOf u) = 1 ∧ m < addOrderOf u ∧ ↑(↑m / ↑(addOrderOf u) * p) = u"
+  },
+  {
+    "name": "Set.OrdConnected.dual",
+    "variant": "introduced",
+    "text": "α : Type u_1\ninst✝ : Preorder α\ns : Set α\nhs : s.OrdConnected\n⊢ (⇑OrderDual.ofDual ⁻¹' s).OrdConnected"
+  },
+  {
+    "name": "Set.ite_inter_inter",
+    "variant": "introduced",
+    "text": "α : Type u\nt s₁ s₂ s₁' s₂' : Set α\n⊢ t.ite (s₁ ∩ s₂) (s₁' ∩ s₂') = t.ite s₁ s₁' ∩ t.ite s₂ s₂'"
+  },
+  {
+    "name": "IsModularLattice.inf_sup_inf_assoc",
+    "variant": "introduced",
+    "text": "α : Type u_1\ninst✝¹ : Lattice α\ninst✝ : IsModularLattice α\nx y z : α\n⊢ x ⊓ z ⊔ y ⊓ z = (x ⊓ z ⊔ y) ⊓ z"
+  },
+  {
+    "name": "Part.of_toOption",
+    "variant": "introduced",
+    "text": "α : Type u_1\no : Part α\ninst✝ : Decidable o.Dom\n⊢ ↑o.toOption = o"
+  },
+  {
+    "name": "OrderAddMonoidHom.toOrderHom_injective",
+    "variant": "introduced",
+    "text": "α : Type u_2\nβ : Type u_3\ninst✝³ : Preorder α\ninst✝² : Preorder β\ninst✝¹ : AddZeroClass α\ninst✝ : AddZeroClass β\n⊢ Function.Injective OrderAddMonoidHom.toOrderHom"
+  },
+  {
+    "name": "Asymptotics.IsEquivalent.trans_isTheta",
+    "variant": "introduced",
+    "text": "α : Type u_1\nβ : Type u_2\nβ₂ : Type u_3\ninst✝¹ : NormedAddCommGroup β\ninst✝ : Norm β₂\nl : Filter α\nf g₁ : α → β\ng₂ : α → β₂\nh : Asymptotics.IsEquivalent l f g₁\nh₂ : g₁ =Θ[l] g₂\n⊢ f =Θ[l] g₂"
+  },
+  {
+    "name": "Embedding.toOpenEmbedding_of_surjective",
+    "variant": "introduced",
+    "text": "X : Type u_1\nY : Type u_2\nf : X → Y\ninst✝¹ : TopologicalSpace X\ninst✝ : TopologicalSpace Y\nhf : Embedding f\nhsurj : Function.Surjective f\n⊢ OpenEmbedding f"
+  },
+  {
+    "name": "IsSMulRegular.isLeftRegular",
+    "variant": "introduced",
+    "text": "R : Type u_1\ninst✝ : Mul R\na : R\nh : IsSMulRegular R a\n⊢ IsLeftRegular a"
+  },
+  {
+    "name": "ENat.top_pow",
+    "variant": "introduced",
+    "text": "n : ℕ\nn_pos : 0 < n\n⊢ ⊤ ^ n = ⊤"
+  },
+  {
+    "name": "IsMulCentral.right_comm",
+    "variant": "introduced",
+    "text": "M : Type u_1\nc : M\ninst✝ : Mul M\nh : IsMulCentral c\na b : M\n⊢ a * b * c = a * c * b"
+  },
+  {
+    "name": "IsLowerSet.compl",
+    "variant": "introduced",
+    "text": "α : Type u_1\ninst✝ : LE α\ns : Set α\nhs : IsLowerSet s\n⊢ IsUpperSet sᶜ"
+  },
+  {
+    "name": "OmegaCompletePartialOrder.ContinuousHom.ωSup_bind",
+    "variant": "introduced",
+    "text": "α : Type u\ninst✝ : OmegaCompletePartialOrder α\nβ γ : Type v\nc : OmegaCompletePartialOrder.Chain α\nf : α →o Part β\ng : α →o β → Part γ\n⊢ OmegaCompletePartialOrder.ωSup (c.map (f.bind g)) = OmegaCompletePartialOrder.ωSup (c.map f) >>= OmegaCompletePartialOrder.ωSup (c.map g)"
+  },
+  {
+    "name": "Set.Equicontinuous.closure",
+    "variant": "introduced",
+    "text": "X : Type u_3\nα : Type u_7\ntX : TopologicalSpace X\nuα : UniformSpace α\nA : Set (X → α)\nhA : A.Equicontinuous\n⊢ (closure A).Equicontinuous"
+  },
+  {
+    "name": "Polynomial.card_support_binomial",
+    "variant": "introduced",
+    "text": "R : Type u\ninst✝ : Semiring R\nk m : ℕ\nh : k ≠ m\nx y : R\nhx : x ≠ 0\nhy : y ≠ 0\n⊢ (Polynomial.C x * Polynomial.X ^ k + Polynomial.C y * Polynomial.X ^ m).support.card = 2"
+  },
+  {
+    "name": "Field.FiniteDimensional.of_finite_intermediateField",
+    "variant": "introduced",
+    "text": "F : Type u_1\nE : Type u_2\ninst✝³ : Field F\ninst✝² : Field E\ninst✝¹ : Algebra F E\ninst✝ : Finite (IntermediateField F E)\n⊢ FiniteDimensional F E"
+  },
+  {
+    "name": "iSup_eq_iSup_of_partialSups_eq_partialSups",
+    "variant": "introduced",
+    "text": "α : Type u_1\ninst✝ : CompleteLattice α\nf g : ℕ → α\nh : partialSups f = partialSups g\n⊢ ⨆ n, f n = ⨆ n, g n"
+  },
+  {
+    "name": "iInf_univ",
+    "variant": "introduced",
+    "text": "α : Type u_1\nβ : Type u_2\ninst✝ : CompleteLattice α\nf : β → α\n⊢ ⨅ x ∈ Set.univ, f x = ⨅ x, f x"
+  },
+  {
+    "name": "TopologicalSpace.Opens.partialHomeomorphSubtypeCoe_target",
+    "variant": "introduced",
+    "text": "X : Type u_1\ninst✝ : TopologicalSpace X\ns : TopologicalSpace.Opens X\nhs : Nonempty ↥s\n⊢ (s.partialHomeomorphSubtypeCoe hs).target = ↑s"
+  },
+  {
+    "name": "HasDerivAt.const_smul",
+    "variant": "introduced",
+    "text": "𝕜 : Type u\ninst✝⁶ : NontriviallyNormedField 𝕜\nF : Type v\ninst✝⁵ : NormedAddCommGroup F\ninst✝⁴ : NormedSpace 𝕜 F\nf : 𝕜 → F\nf' : F\nx : 𝕜\nR : Type u_2\ninst✝³ : Semiring R\ninst✝² : _root_.Module R F\ninst✝¹ : SMulCommClass 𝕜 R F\ninst✝ : ContinuousConstSMul R F\nc : R\nhf : HasDerivAt f f' x\n⊢ HasDerivAt (fun y => c • f y) (c • f') x"
+  },
+  {
+    "name": "IntermediateField.algHomEquivAlgHomOfSplits_apply",
+    "variant": "introduced",
+    "text": "F : Type u_1\nK : Type u_2\nA : Type u_3\ninst✝⁵ : Field F\ninst✝⁴ : Field K\ninst✝³ : Field A\ninst✝² : Algebra F K\ninst✝¹ : Algebra F A\ninst✝ : Algebra.IsAlgebraic F K\nL : IntermediateField F A\nhL : ∀ (x : K), Polynomial.Splits (algebraMap F ↥L) (minpoly F x)\nφ₂ : K →ₐ[F] ↥L\n⊢ (IntermediateField.algHomEquivAlgHomOfSplits A L hL) φ₂ = L.val.comp φ₂"
+  },
+  {
+    "name": "Odd.zpow_neg",
+    "variant": "introduced",
+    "text": "α : Type u_1\ninst✝ : LinearOrderedField α\na : α\nn : ℤ\nhn : Odd n\na✝ : a < 0\n⊢ a ^ n < 0"
+  },
+  {
+    "name": "Equiv.Perm.sumCongr_one",
+    "variant": "introduced",
+    "text": "α : Type u_1\nβ : Type u_2\n⊢ Equiv.Perm.sumCongr 1 1 = 1"
+  },
+  {
+    "name": "Set.liftCover_coe",
+    "variant": "introduced",
+    "text": "α : Type u_1\nι : Sort u_3\nβ : Sort u_2\nS : ι → Set α\nf : (i : ι) → ↑(S i) → β\nhf : ∀ (i j : ι) (x : α) (hxi : x ∈ S i) (hxj : x ∈ S j), f i ⟨x, hxi⟩ = f j ⟨x, hxj⟩\nhS : Set.iUnion S = Set.univ\ni : ι\nx : ↑(S i)\n⊢ Set.liftCover S f hf hS ↑x = f i x"
+  },
+  {
+    "name": "finite_of_linearIndependent",
+    "variant": "introduced",
+    "text": "R : Type u_1\nM : Type u_2\ninst✝⁴ : Ring R\ninst✝³ : AddCommGroup M\ninst✝² : _root_.Module R M\ninst✝¹ : IsNoetherian R M\ninst✝ : Nontrivial R\ns : Set M\nhi : LinearIndependent (ι := { x // x ∈ s }) R Subtype.val\n⊢ s.Finite"
+  },
+  {
+    "name": "Filter.map_one'",
+    "variant": "introduced",
+    "text": "α : Type u_2\nβ : Type u_3\ninst✝ : One α\nf : α → β\n⊢ Filter.map f 1 = pure (f 1)"
+  },
+  {
+    "name": "Relation.equivalence_join_reflTransGen",
+    "variant": "introduced",
+    "text": "α : Type u_1\nr : α → α → Prop\nh : ∀ (a b c : α), r a b → r a c → ∃ d, Relation.ReflGen r b d ∧ Relation.ReflTransGen r c d\n⊢ Equivalence (Relation.Join (Relation.ReflTransGen r))"
+  },
+  {
+    "name": "MulOpposite.op_inj",
+    "variant": "introduced",
+    "text": "α : Type u_1\nx y : α\n⊢ MulOpposite.op x = MulOpposite.op y ↔ x = y"
+  },
+  {
+    "name": "MulChar.ringHomComp_eq_one_iff",
+    "variant": "introduced",
+    "text": "R : Type u_1\ninst✝² : CommMonoid R\nR' : Type u_2\ninst✝¹ : CommRing R'\nR'' : Type u_3\ninst✝ : CommRing R''\nf : R' →+* R''\nhf : Function.Injective ⇑f\nχ : MulChar R R'\n⊢ χ.ringHomComp f = 1 ↔ χ = 1"
+  },
+  {
+    "name": "Set.Ioc_union_Ioi_eq_Ioi",
+    "variant": "introduced",
+    "text": "α : Type u_1\ninst✝ : LinearOrder α\na b : α\nh : a ≤ b\n⊢ Set.Ioc a b ∪ Set.Ioi b = Set.Ioi a"
+  },
+  {
+    "name": "NNRat.commute_cast",
+    "variant": "introduced",
+    "text": "α : Type u_3\ninst✝ : DivisionSemiring α\na : α\nq : ℚ≥0\n⊢ Commute a ↑q"
+  },
+  {
+    "name": "Polynomial.expand_mul",
+    "variant": "introduced",
+    "text": "R : Type u\ninst✝ : CommSemiring R\np q : ℕ\nf : Polynomial R\n⊢ (Polynomial.expand R (p * q)) f = (Polynomial.expand R p) ((Polynomial.expand R q) f)"
+  },
+  {
+    "name": "ofLex_neg",
+    "variant": "introduced",
+    "text": "α : Type u_1\ninst✝ : Neg α\na : Lex α\n⊢ ofLex (-a) = -ofLex a"
+  },
+  {
+    "name": "Finset.card_nbij",
+    "variant": "introduced",
+    "text": "α : Type u_1\nβ : Type u_2\ns : Finset α\nt : Finset β\ni : α → β\nhi : ∀ a ∈ s, i a ∈ t\ni_inj : Set.InjOn i ↑s\ni_surj : Set.SurjOn i ↑s ↑t\n⊢ s.card = t.card"
+  },
+  {
+    "name": "Urysohns.CU.left_U_subset",
+    "variant": "introduced",
+    "text": "X : Type u_1\ninst✝ : TopologicalSpace X\nP : Set X → Prop\nc : Urysohns.CU P\n⊢ c.left.U ⊆ c.U"
+  },
+  {
+    "name": "iSup_iSup_eq_left",
+    "variant": "introduced",
+    "text": "α : Type u_1\nβ : Type u_2\ninst✝ : CompleteLattice α\nb : β\nf : (x : β) → x = b → α\n⊢ ⨆ x, ⨆ (h : x = b), f x h = f b ⋯"
+  },
+  {
+    "name": "Subgroup.tendsto_coe_cofinite_of_discrete",
+    "variant": "introduced",
+    "text": "G : Type u_1\ninst✝⁴ : Group G\ninst✝³ : TopologicalSpace G\ninst✝² : TopologicalGroup G\ninst✝¹ : T2Space G\nH : Subgroup G\ninst✝ : DiscreteTopology ↥H\n⊢ Filter.Tendsto Subtype.val Filter.cofinite (Filter.cocompact G)"
+  },
+  {
+    "name": "Function.Periodic.exists_mem_Ioc",
+    "variant": "introduced",
+    "text": "α : Type u_1\nβ : Type u_2\nf : α → β\nc : α\ninst✝¹ : LinearOrderedAddCommGroup α\ninst✝ : Archimedean α\nh : Function.Periodic f c\nhc : 0 < c\nx a : α\n⊢ ∃ y ∈ Set.Ioc a (a + c), f x = f y"
+  },
+  {
+    "name": "isLUB_of_mem_closure",
+    "variant": "introduced",
+    "text": "α : Type u_1\ninst✝² : TopologicalSpace α\ninst✝¹ : LinearOrder α\ninst✝ : OrderTopology α\ns : Set α\na : α\nhsa : a ∈ upperBounds s\nhsf : a ∈ closure s\n⊢ IsLUB s a"
+  },
+  {
+    "name": "interior_eq_nhds",
+    "variant": "introduced",
+    "text": "X : Type u\ns : Set X\ninst✝ : TopologicalSpace X\n⊢ interior s = {x | nhds x ≤ Filter.principal s}"
+  },
+  {
+    "name": "IsSelfAdjoint.all",
+    "variant": "introduced",
+    "text": "R : Type u_1\ninst✝¹ : Star R\ninst✝ : TrivialStar R\nr : R\n⊢ IsSelfAdjoint r"
+  },
+  {
+    "name": "Complex.cosh_add",
+    "variant": "introduced",
+    "text": "x y : ℂ\n⊢ Complex.cosh (x + y) = Complex.cosh x * Complex.cosh y + Complex.sinh x * Complex.sinh y"
+  },
+  {
+    "name": "IsRightRegular.pow",
+    "variant": "introduced",
+    "text": "R : Type u_1\na : R\ninst✝ : Monoid R\nn : ℕ\nrra : IsRightRegular a\n⊢ IsRightRegular (a ^ n)"
+  },
+  {
+    "name": "Ordinal.enumOrd_def'",
+    "variant": "introduced",
+    "text": "S : Set Ordinal\no : Ordinal\n⊢ Ordinal.enumOrd S o = sInf (S ∩ Set.Ici (o.blsub fun a x => Ordinal.enumOrd S a))"
+  },
+  {
+    "name": "MeasurableSpace.measurableSet_enumerateCountable_countableGeneratingSet",
+    "variant": "introduced",
+    "text": "α : Type u_3\ninst✝¹ : MeasurableSpace α\ninst✝ : MeasurableSpace.CountablyGenerated α\nn : ℕ\n⊢ MeasurableSet (Set.enumerateCountable ⋯ ∅ n)"
+  },
+  {
+    "name": "Polynomial.monomial_mul_monomial",
+    "variant": "introduced",
+    "text": "R : Type u\ninst✝ : Semiring R\nn m : ℕ\nr s : R\n⊢ (Polynomial.monomial n) r * (Polynomial.monomial m) s = (Polynomial.monomial (n + m)) (r * s)"
+  },
+  {
+    "name": "IsUnit.isRegular",
+    "variant": "introduced",
+    "text": "R : Type u_1\ninst✝ : Monoid R\na : R\nua : IsUnit a\n⊢ IsRegular a"
+  },
+  {
+    "name": "Monotone.map_inf",
+    "variant": "introduced",
+    "text": "α : Type u\nβ : Type v\ninst✝¹ : LinearOrder α\ninst✝ : SemilatticeInf β\nf : α → β\nhf : Monotone f\nx y : α\n⊢ f (x ⊓ y) = f x ⊓ f y"
+  },
+  {
+    "name": "ENNReal.le_tsum_condensed",
+    "variant": "introduced",
+    "text": "f : ℕ → ENNReal\nhf : ∀ ⦃m n : ℕ⦄, 0 < m → m ≤ n → f n ≤ f m\n⊢ ∑' (k : ℕ), f k ≤ f 0 + ∑' (k : ℕ), 2 ^ k * f (2 ^ k)"
+  },
+  {
+    "name": "Submodule.span_attach_biUnion",
+    "variant": "introduced",
+    "text": "R : Type u_1\nM : Type u_4\ninst✝³ : Semiring R\ninst✝² : AddCommMonoid M\ninst✝¹ : _root_.Module R M\ninst✝ : DecidableEq M\nα : Type u_9\ns : Finset α\nf : { x // x ∈ s } → Finset M\n⊢ Submodule.span R ↑(s.attach.biUnion f) = ⨆ x, Submodule.span R ↑(f x)"
+  },
+  {
+    "name": "Real.continuousAt_arcsin",
+    "variant": "introduced",
+    "text": "x : ℝ\n⊢ ContinuousAt Real.arcsin x"
+  },
+  {
+    "name": "Real.cos_add",
+    "variant": "introduced",
+    "text": "x y : ℝ\n⊢ Real.cos (x + y) = Real.cos x * Real.cos y - Real.sin x * Real.sin y"
+  },
+  {
+    "name": "Real.cos_sub",
+    "variant": "introduced",
+    "text": "x y : ℝ\n⊢ Real.cos (x - y) = Real.cos x * Real.cos y + Real.sin x * Real.sin y"
+  },
+  {
+    "name": "Real.sin_sub",
+    "variant": "introduced",
+    "text": "x y : ℝ\n⊢ Real.sin (x - y) = Real.sin x * Real.cos y - Real.cos x * Real.sin y"
+  },
+  {
+    "name": "Real.cos_sub_cos",
+    "variant": "introduced",
+    "text": "x y : ℝ\n⊢ Real.cos x - Real.cos y = -2 * Real.sin ((x + y) / 2) * Real.sin ((x - y) / 2)"
+  },
+  {
+    "name": "Complex.exp_sub",
+    "variant": "introduced",
+    "text": "x y : ℂ\n⊢ Complex.exp (x - y) = Complex.exp x / Complex.exp y"
+  },
+  {
+    "name": "Complex.exp_eq_exp_iff_exp_sub_eq_one",
+    "variant": "introduced",
+    "text": "x y : ℂ\n⊢ Complex.exp x = Complex.exp y ↔ Complex.exp (x - y) = 1"
+  },
+  {
+    "name": "Complex.abs_exp_eq_iff_re_eq",
+    "variant": "introduced",
+    "text": "x y : ℂ\n⊢ Complex.abs (Complex.exp x) = Complex.abs (Complex.exp y) ↔ x.re = y.re"
+  },
+  {
+    "name": "Complex.cpow_def_of_ne_zero",
+    "variant": "introduced",
+    "text": "x : ℂ\nhx : x ≠ 0\ny : ℂ\n⊢ x ^ y = Complex.exp (Complex.log x * y)"
+  },
+  {
+    "name": "Nat.sq_add_sq_modEq",
+    "variant": "introduced",
+    "text": "p : ℕ\ninst✝ : Fact (Nat.Prime p)\nx : ℕ\n⊢ ∃ a b, a ≤ p / 2 ∧ b ≤ p / 2 ∧ a ^ 2 + b ^ 2 ≡ x [MOD p]"
+  },
+  {
+    "name": "Nat.sq_add_sq_zmodEq",
+    "variant": "introduced",
+    "text": "p : ℕ\ninst✝ : Fact (Nat.Prime p)\nx : ℤ\n⊢ ∃ a b, a ≤ p / 2 ∧ b ≤ p / 2 ∧ ↑a ^ 2 + ↑b ^ 2 ≡ x [ZMOD ↑p]"
+  },
+  {
+    "name": "ZMod.mod_four_ne_three_of_sq_eq_neg_one",
+    "variant": "introduced",
+    "text": "p : ℕ\ninst✝ : Fact (Nat.Prime p)\ny : ZMod p\nhy : y ^ 2 = -1\n⊢ p % 4 ≠ 3"
+  },
+  {
+    "name": "ZMod.exists_sq_eq_neg_one_iff",
+    "variant": "introduced",
+    "text": "p : ℕ\ninst✝ : Fact (Nat.Prime p)\n⊢ IsSquare (-1) ↔ p % 4 ≠ 3"
+  },
+  {
+    "name": "GaussianInt.mod_four_eq_three_of_nat_prime_of_prime",
+    "variant": "introduced",
+    "text": "p : ℕ\nhp : Fact (Nat.Prime p)\nhpi : Prime ↑p\n⊢ p % 4 = 3"
+  },
+  {
+    "name": "GaussianInt.prime_of_nat_prime_of_mod_four_eq_three",
+    "variant": "introduced",
+    "text": "p : ℕ\nhp : Fact (Nat.Prime p)\nhp3 : p % 4 = 3\n⊢ Prime ↑p"
+  },
+  {
+    "name": "minpoly.natDegree_le",
+    "variant": "introduced",
+    "text": "K : Type u\ninst✝³ : Field K\nL : Type u_3\ninst✝² : Field L\ninst✝¹ : Algebra K L\nx : L\ninst✝ : FiniteDimensional K L\n⊢ (minpoly K x).natDegree ≤ FiniteDimensional.finrank K L"
+  },
+  {
+    "name": "IntermediateField.adjoin.finiteDimensional",
+    "variant": "introduced",
+    "text": "K : Type u\ninst✝² : Field K\nL : Type u_3\ninst✝¹ : Field L\ninst✝ : Algebra K L\nx : L\nhx : IsIntegral K x\n⊢ FiniteDimensional K ↥K⟮x⟯"
+  },
+  {
+    "name": "minpoly.degree_le",
+    "variant": "introduced",
+    "text": "K : Type u\ninst✝³ : Field K\nL : Type u_3\ninst✝² : Field L\ninst✝¹ : Algebra K L\nx : L\ninst✝ : FiniteDimensional K L\n⊢ (minpoly K x).degree ≤ ↑(FiniteDimensional.finrank K L)"
+  },
+  {
+    "name": "IntermediateField.isAlgebraic_adjoin_simple",
+    "variant": "introduced",
+    "text": "K : Type u\ninst✝² : Field K\nL : Type u_3\ninst✝¹ : Field L\ninst✝ : Algebra K L\nx : L\nhx : IsIntegral K x\n⊢ Algebra.IsAlgebraic K ↥K⟮x⟯"
+  },
+  {
+    "name": "IsGalois.of_card_aut_eq_finrank",
+    "variant": "introduced",
+    "text": "F : Type u_1\ninst✝³ : Field F\nE : Type u_2\ninst✝² : Field E\ninst✝¹ : Algebra F E\ninst✝ : FiniteDimensional F E\nh : Fintype.card (E ≃ₐ[F] E) = FiniteDimensional.finrank F E\n⊢ IsGalois F E"
+  },
+  {
+    "name": "AlgHom.card",
+    "variant": "introduced",
+    "text": "F : Type u_1\nE : Type u_2\ninst✝⁷ : Field F\ninst✝⁶ : Field E\ninst✝⁵ : Algebra F E\ninst✝⁴ : FiniteDimensional F E\ninst✝³ : IsSeparable F E\nK : Type u_3\ninst✝² : Field K\ninst✝¹ : IsAlgClosed K\ninst✝ : Algebra F K\n⊢ Fintype.card (E →ₐ[F] K) = FiniteDimensional.finrank F E"
+  },
+  {
+    "name": "IntermediateField.finrank_fixedField_eq_card",
+    "variant": "introduced",
+    "text": "F : Type u_1\ninst✝⁴ : Field F\nE : Type u_2\ninst✝³ : Field E\ninst✝² : Algebra F E\nH : Subgroup (E ≃ₐ[F] E)\ninst✝¹ : FiniteDimensional F E\ninst✝ : DecidablePred fun x => x ∈ H\n⊢ FiniteDimensional.finrank (↥(IntermediateField.fixedField H)) E = Fintype.card ↥H"
+  },
+  {
+    "name": "IsGalois.card_fixingSubgroup_eq_finrank",
+    "variant": "introduced",
+    "text": "F : Type u_1\ninst✝⁵ : Field F\nE : Type u_2\ninst✝⁴ : Field E\ninst✝³ : Algebra F E\nK : IntermediateField F E\ninst✝² : DecidablePred fun x => x ∈ K.fixingSubgroup\ninst✝¹ : FiniteDimensional F E\ninst✝ : IsGalois F E\n⊢ Fintype.card ↥K.fixingSubgroup = FiniteDimensional.finrank (↥K) E"
+  },
+  {
+    "name": "hasSum_L_function_mod_four_eval_three",
+    "variant": "introduced",
+    "text": "⊢ HasSum (fun n => 1 / ↑n ^ 3 * Real.sin (Real.pi * ↑n / 2)) (Real.pi ^ 3 / 32)"
+  },
+  {
+    "name": "hasSum_geometric_two",
+    "variant": "introduced",
+    "text": "⊢ HasSum (fun n => (1 / 2) ^ n) 2"
+  },
+  {
+    "name": "hasSum_zeta_four",
+    "variant": "introduced",
+    "text": "⊢ HasSum (fun n => 1 / ↑n ^ 4) (Real.pi ^ 4 / 90)"
+  },
+  {
+    "name": "Real.sin_pi_div_six",
+    "variant": "introduced",
+    "text": "⊢ Real.sin (Real.pi / 6) = 1 / 2"
+  },
+  {
+    "name": "has_pointwise_sum_fourier_series_of_summable",
+    "variant": "introduced",
+    "text": "T : ℝ\nhT : Fact (0 < T)\nf : C(AddCircle T, ℂ)\nh : Summable (fourierCoeff ⇑f)\nx : AddCircle T\n⊢ HasSum (fun i => fourierCoeff (⇑f) i • (fourier i) x) (f x)"
+  },
+  {
+    "name": "hasSum_fourier_series_L2",
+    "variant": "introduced",
+    "text": "T : ℝ\nhT : Fact (0 < T)\nf : ↥(MeasureTheory.Lp ℂ 2 AddCircle.haarAddCircle)\n⊢ HasSum (fun i => fourierCoeff (↑↑f) i • fourierLp 2 i) f"
+  },
+  {
+    "name": "fourierCoeff.const_mul",
+    "variant": "introduced",
+    "text": "T : ℝ\nhT : Fact (0 < T)\nf : AddCircle T → ℂ\nc : ℂ\nn : ℤ\n⊢ fourierCoeff (fun x => c * f x) n = c * fourierCoeff f n"
+  },
+  {
+    "name": "fourierCoeff_toLp",
+    "variant": "introduced",
+    "text": "T : ℝ\nhT : Fact (0 < T)\nf : C(AddCircle T, ℂ)\nn : ℤ\n⊢ fourierCoeff (↑↑((ContinuousMap.toLp 2 AddCircle.haarAddCircle ℂ) f)) n = fourierCoeff (⇑f) n"
+  }
+]

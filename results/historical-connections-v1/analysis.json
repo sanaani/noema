@@ -1,0 +1,1747 @@
+{
+  "cases": [
+    {
+      "label": "Euler: trigonometry / complex exponentials",
+      "a": "Real.sin_add",
+      "b": "Complex.exp_add",
+      "bridge": "Complex.exp_mul_I",
+      "variants": {
+        "typed": {
+          "distance": 1.1924208513553947,
+          "bridge_to_a": 0.9391906526838337,
+          "bridge_to_b": 0.8380504998780097,
+          "directions": [
+            {
+              "anchor": "Real.sin_add",
+              "target": "Complex.exp_add",
+              "background": {
+                "distance": 1.1924208513553947,
+                "controls": 64,
+                "rank": 3,
+                "farther_fraction": 0.96875
+              },
+              "background_jaccard": {
+                "distance": 0.7777777777777778,
+                "controls": 64,
+                "rank": 2,
+                "farther_fraction": 0.984375
+              },
+              "lexical_controls": {
+                "distance": 1.1924208513553947,
+                "controls": 4,
+                "rank": 5,
+                "farther_fraction": 0.0
+              },
+              "lexical_controls_jaccard": {
+                "distance": 0.7777777777777778,
+                "controls": 4,
+                "rank": 5,
+                "farther_fraction": 0.0
+              },
+              "nearest_controls": [
+                {
+                  "name": "Real.cos_add",
+                  "distance": 0.42992282018327027
+                },
+                {
+                  "name": "Real.cos_sub",
+                  "distance": 0.5679210433331826
+                },
+                {
+                  "name": "Real.sin_sub",
+                  "distance": 0.6059070008787748
+                },
+                {
+                  "name": "Real.cos_sub_cos",
+                  "distance": 0.6588004585540292
+                },
+                {
+                  "name": "Real.sin_pi_div_six",
+                  "distance": 0.812107298683974
+                }
+              ]
+            },
+            {
+              "anchor": "Complex.exp_add",
+              "target": "Real.sin_add",
+              "background": {
+                "distance": 1.1924208513553947,
+                "controls": 64,
+                "rank": 6,
+                "farther_fraction": 0.921875
+              },
+              "background_jaccard": {
+                "distance": 0.7777777777777778,
+                "controls": 64,
+                "rank": 2,
+                "farther_fraction": 0.984375
+              },
+              "lexical_controls": {
+                "distance": 1.1924208513553947,
+                "controls": 4,
+                "rank": 5,
+                "farther_fraction": 0.0
+              },
+              "lexical_controls_jaccard": {
+                "distance": 0.7777777777777778,
+                "controls": 4,
+                "rank": 5,
+                "farther_fraction": 0.0
+              },
+              "nearest_controls": [
+                {
+                  "name": "Complex.exp_sub",
+                  "distance": 0.7058046505866294
+                },
+                {
+                  "name": "Complex.cpow_def_of_ne_zero",
+                  "distance": 0.7485313703455316
+                },
+                {
+                  "name": "Complex.exp_eq_exp_iff_exp_sub_eq_one",
+                  "distance": 0.80987218441959
+                },
+                {
+                  "name": "Complex.abs_exp_eq_iff_re_eq",
+                  "distance": 0.9864334313524862
+                },
+                {
+                  "name": "fourierCoeff.const_mul",
+                  "distance": 1.0215564940977553
+                }
+              ]
+            }
+          ]
+        },
+        "closed": {
+          "distance": 1.1924208513553947,
+          "bridge_to_a": 0.9391906526838337,
+          "bridge_to_b": 0.8380504998780097,
+          "directions": [
+            {
+              "anchor": "Real.sin_add",
+              "target": "Complex.exp_add",
+              "background": {
+                "distance": 1.1924208513553947,
+                "controls": 64,
+                "rank": 3,
+                "farther_fraction": 0.96875
+              },
+              "background_jaccard": {
+                "distance": 0.7777777777777778,
+                "controls": 64,
+                "rank": 2,
+                "farther_fraction": 0.984375
+              },
+              "lexical_controls": {
+                "distance": 1.1924208513553947,
+                "controls": 4,
+                "rank": 5,
+                "farther_fraction": 0.0
+              },
+              "lexical_controls_jaccard": {
+                "distance": 0.7777777777777778,
+                "controls": 4,
+                "rank": 5,
+                "farther_fraction": 0.0
+              },
+              "nearest_controls": [
+                {
+                  "name": "Real.cos_add",
+                  "distance": 0.42992282018327027
+                },
+                {
+                  "name": "Real.cos_sub",
+                  "distance": 0.5679210433331826
+                },
+                {
+                  "name": "Real.sin_sub",
+                  "distance": 0.6059070008787748
+                },
+                {
+                  "name": "Real.cos_sub_cos",
+                  "distance": 0.725207305235075
+                },
+                {
+                  "name": "Real.sin_pi_div_six",
+                  "distance": 0.8004578340059397
+                }
+              ]
+            },
+            {
+              "anchor": "Complex.exp_add",
+              "target": "Real.sin_add",
+              "background": {
+                "distance": 1.1924208513553947,
+                "controls": 64,
+                "rank": 6,
+                "farther_fraction": 0.921875
+              },
+              "background_jaccard": {
+                "distance": 0.7777777777777778,
+                "controls": 64,
+                "rank": 2,
+                "farther_fraction": 0.984375
+              },
+              "lexical_controls": {
+                "distance": 1.1924208513553947,
+                "controls": 4,
+                "rank": 5,
+                "farther_fraction": 0.0
+              },
+              "lexical_controls_jaccard": {
+                "distance": 0.7777777777777778,
+                "controls": 4,
+                "rank": 5,
+                "farther_fraction": 0.0
+              },
+              "nearest_controls": [
+                {
+                  "name": "Complex.exp_sub",
+                  "distance": 0.7058046505866294
+                },
+                {
+                  "name": "Complex.cpow_def_of_ne_zero",
+                  "distance": 0.7430834709048305
+                },
+                {
+                  "name": "Complex.exp_eq_exp_iff_exp_sub_eq_one",
+                  "distance": 1.0229901595413537
+                },
+                {
+                  "name": "Complex.abs_exp_eq_iff_re_eq",
+                  "distance": 1.0370049319987702
+                },
+                {
+                  "name": "fourierCoeff.const_mul",
+                  "distance": 1.0572939409042013
+                }
+              ]
+            }
+          ]
+        },
+        "introduced": {
+          "distance": 1.1070408810740013,
+          "bridge_to_a": 0.905811360635772,
+          "bridge_to_b": 0.7939194906026569,
+          "directions": [
+            {
+              "anchor": "Real.sin_add",
+              "target": "Complex.exp_add",
+              "background": {
+                "distance": 1.1070408810740013,
+                "controls": 64,
+                "rank": 1,
+                "farther_fraction": 1.0
+              },
+              "background_jaccard": {
+                "distance": 0.7777777777777778,
+                "controls": 64,
+                "rank": 2,
+                "farther_fraction": 0.984375
+              },
+              "lexical_controls": {
+                "distance": 1.1070408810740013,
+                "controls": 4,
+                "rank": 5,
+                "farther_fraction": 0.0
+              },
+              "lexical_controls_jaccard": {
+                "distance": 0.7777777777777778,
+                "controls": 4,
+                "rank": 5,
+                "farther_fraction": 0.0
+              },
+              "nearest_controls": [
+                {
+                  "name": "Real.cos_add",
+                  "distance": 0.5207321153226545
+                },
+                {
+                  "name": "Real.cos_sub_cos",
+                  "distance": 0.7255177037945493
+                },
+                {
+                  "name": "Real.cos_sub",
+                  "distance": 0.7712538985842106
+                },
+                {
+                  "name": "Real.sin_sub",
+                  "distance": 0.8403428994352274
+                },
+                {
+                  "name": "Real.sin_pi_div_six",
+                  "distance": 0.8443633604716475
+                }
+              ]
+            },
+            {
+              "anchor": "Complex.exp_add",
+              "target": "Real.sin_add",
+              "background": {
+                "distance": 1.1070408810740013,
+                "controls": 64,
+                "rank": 3,
+                "farther_fraction": 0.96875
+              },
+              "background_jaccard": {
+                "distance": 0.7777777777777778,
+                "controls": 64,
+                "rank": 2,
+                "farther_fraction": 0.984375
+              },
+              "lexical_controls": {
+                "distance": 1.1070408810740013,
+                "controls": 4,
+                "rank": 4,
+                "farther_fraction": 0.25
+              },
+              "lexical_controls_jaccard": {
+                "distance": 0.7777777777777778,
+                "controls": 4,
+                "rank": 5,
+                "farther_fraction": 0.0
+              },
+              "nearest_controls": [
+                {
+                  "name": "Complex.cpow_def_of_ne_zero",
+                  "distance": 0.8264228035757668
+                },
+                {
+                  "name": "Complex.exp_sub",
+                  "distance": 0.8369952957863824
+                },
+                {
+                  "name": "fourierCoeff.const_mul",
+                  "distance": 0.8442518600925812
+                },
+                {
+                  "name": "IsMulCentral.right_comm",
+                  "distance": 0.9265636164232826
+                },
+                {
+                  "name": "Complex.exp_eq_exp_iff_exp_sub_eq_one",
+                  "distance": 0.9941467313715081
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "label": "Fermat: sums of squares / Gaussian integers",
+      "a": "Nat.Prime.sq_add_sq",
+      "b": "GaussianInt.prime_iff_mod_four_eq_three_of_nat_prime",
+      "bridge": "GaussianInt.sq_add_sq_of_nat_prime_of_not_irreducible",
+      "variants": {
+        "typed": {
+          "distance": 0.5390028199063149,
+          "bridge_to_a": 0.8129268012877202,
+          "bridge_to_b": 0.7912221009177206,
+          "directions": [
+            {
+              "anchor": "Nat.Prime.sq_add_sq",
+              "target": "GaussianInt.prime_iff_mod_four_eq_three_of_nat_prime",
+              "background": {
+                "distance": 0.5390028199063149,
+                "controls": 64,
+                "rank": 1,
+                "farther_fraction": 1.0
+              },
+              "background_jaccard": {
+                "distance": 0.3846153846153846,
+                "controls": 64,
+                "rank": 1,
+                "farther_fraction": 1.0
+              },
+              "lexical_controls": {
+                "distance": 0.5390028199063149,
+                "controls": 4,
+                "rank": 3,
+                "farther_fraction": 0.5
+              },
+              "lexical_controls_jaccard": {
+                "distance": 0.3846153846153846,
+                "controls": 4,
+                "rank": 3,
+                "farther_fraction": 0.5
+              },
+              "nearest_controls": [
+                {
+                  "name": "ZMod.mod_four_ne_three_of_sq_eq_neg_one",
+                  "distance": 0.4161130328279441
+                },
+                {
+                  "name": "GaussianInt.prime_of_nat_prime_of_mod_four_eq_three",
+                  "distance": 0.4900950090936821
+                },
+                {
+                  "name": "GaussianInt.mod_four_eq_three_of_nat_prime_of_prime",
+                  "distance": 0.5104573340414708
+                },
+                {
+                  "name": "ZMod.exists_sq_eq_neg_one_iff",
+                  "distance": 0.5129535037750906
+                },
+                {
+                  "name": "Nat.sq_add_sq_modEq",
+                  "distance": 0.7853264517203907
+                }
+              ]
+            },
+            {
+              "anchor": "GaussianInt.prime_iff_mod_four_eq_three_of_nat_prime",
+              "target": "Nat.Prime.sq_add_sq",
+              "background": {
+                "distance": 0.5390028199063149,
+                "controls": 64,
+                "rank": 1,
+                "farther_fraction": 1.0
+              },
+              "background_jaccard": {
+                "distance": 0.3846153846153846,
+                "controls": 64,
+                "rank": 1,
+                "farther_fraction": 1.0
+              },
+              "lexical_controls": {
+                "distance": 0.5390028199063149,
+                "controls": 4,
+                "rank": 3,
+                "farther_fraction": 0.5
+              },
+              "lexical_controls_jaccard": {
+                "distance": 0.3846153846153846,
+                "controls": 4,
+                "rank": 3,
+                "farther_fraction": 0.375
+              },
+              "nearest_controls": [
+                {
+                  "name": "GaussianInt.mod_four_eq_three_of_nat_prime_of_prime",
+                  "distance": 0.22048539553401472
+                },
+                {
+                  "name": "GaussianInt.prime_of_nat_prime_of_mod_four_eq_three",
+                  "distance": 0.3235227419478799
+                },
+                {
+                  "name": "ZMod.mod_four_ne_three_of_sq_eq_neg_one",
+                  "distance": 0.5882409268884177
+                },
+                {
+                  "name": "ZMod.exists_sq_eq_neg_one_iff",
+                  "distance": 0.6143475376954486
+                },
+                {
+                  "name": "Nat.sq_add_sq_zmodEq",
+                  "distance": 0.7759438638442816
+                }
+              ]
+            }
+          ]
+        },
+        "closed": {
+          "distance": 0.395836067239164,
+          "bridge_to_a": 0.7528347295803768,
+          "bridge_to_b": 0.8559041612912374,
+          "directions": [
+            {
+              "anchor": "Nat.Prime.sq_add_sq",
+              "target": "GaussianInt.prime_iff_mod_four_eq_three_of_nat_prime",
+              "background": {
+                "distance": 0.395836067239164,
+                "controls": 64,
+                "rank": 1,
+                "farther_fraction": 1.0
+              },
+              "background_jaccard": {
+                "distance": 0.2727272727272727,
+                "controls": 64,
+                "rank": 1,
+                "farther_fraction": 1.0
+              },
+              "lexical_controls": {
+                "distance": 0.395836067239164,
+                "controls": 4,
+                "rank": 1,
+                "farther_fraction": 1.0
+              },
+              "lexical_controls_jaccard": {
+                "distance": 0.2727272727272727,
+                "controls": 4,
+                "rank": 1,
+                "farther_fraction": 1.0
+              },
+              "nearest_controls": [
+                {
+                  "name": "GaussianInt.mod_four_eq_three_of_nat_prime_of_prime",
+                  "distance": 0.40702354843247746
+                },
+                {
+                  "name": "GaussianInt.prime_of_nat_prime_of_mod_four_eq_three",
+                  "distance": 0.4119555527556119
+                },
+                {
+                  "name": "ZMod.mod_four_ne_three_of_sq_eq_neg_one",
+                  "distance": 0.5329852723639523
+                },
+                {
+                  "name": "ZMod.exists_sq_eq_neg_one_iff",
+                  "distance": 0.6362925197196463
+                },
+                {
+                  "name": "Nat.sq_add_sq_zmodEq",
+                  "distance": 0.7383490320147674
+                }
+              ]
+            },
+            {
+              "anchor": "GaussianInt.prime_iff_mod_four_eq_three_of_nat_prime",
+              "target": "Nat.Prime.sq_add_sq",
+              "background": {
+                "distance": 0.395836067239164,
+                "controls": 64,
+                "rank": 1,
+                "farther_fraction": 1.0
+              },
+              "background_jaccard": {
+                "distance": 0.2727272727272727,
+                "controls": 64,
+                "rank": 1,
+                "farther_fraction": 1.0
+              },
+              "lexical_controls": {
+                "distance": 0.395836067239164,
+                "controls": 4,
+                "rank": 3,
+                "farther_fraction": 0.5
+              },
+              "lexical_controls_jaccard": {
+                "distance": 0.2727272727272727,
+                "controls": 4,
+                "rank": 4,
+                "farther_fraction": 0.25
+              },
+              "nearest_controls": [
+                {
+                  "name": "GaussianInt.mod_four_eq_three_of_nat_prime_of_prime",
+                  "distance": 0.2347593094518828
+                },
+                {
+                  "name": "GaussianInt.prime_of_nat_prime_of_mod_four_eq_three",
+                  "distance": 0.3193062498362288
+                },
+                {
+                  "name": "ZMod.exists_sq_eq_neg_one_iff",
+                  "distance": 0.5464679399655934
+                },
+                {
+                  "name": "ZMod.mod_four_ne_three_of_sq_eq_neg_one",
+                  "distance": 0.5744248347891275
+                },
+                {
+                  "name": "Nat.sq_add_sq_zmodEq",
+                  "distance": 0.8098142905068797
+                }
+              ]
+            }
+          ]
+        },
+        "introduced": {
+          "distance": 0.767839730742198,
+          "bridge_to_a": 0.7965728208252442,
+          "bridge_to_b": 0.9858402668941634,
+          "directions": [
+            {
+              "anchor": "Nat.Prime.sq_add_sq",
+              "target": "GaussianInt.prime_iff_mod_four_eq_three_of_nat_prime",
+              "background": {
+                "distance": 0.767839730742198,
+                "controls": 64,
+                "rank": 1,
+                "farther_fraction": 1.0
+              },
+              "background_jaccard": {
+                "distance": 0.33333333333333337,
+                "controls": 64,
+                "rank": 1,
+                "farther_fraction": 1.0
+              },
+              "lexical_controls": {
+                "distance": 0.767839730742198,
+                "controls": 4,
+                "rank": 2,
+                "farther_fraction": 0.75
+              },
+              "lexical_controls_jaccard": {
+                "distance": 0.33333333333333337,
+                "controls": 4,
+                "rank": 1,
+                "farther_fraction": 1.0
+              },
+              "nearest_controls": [
+                {
+                  "name": "ZMod.mod_four_ne_three_of_sq_eq_neg_one",
+                  "distance": 0.6517407090408134
+                },
+                {
+                  "name": "GaussianInt.mod_four_eq_three_of_nat_prime_of_prime",
+                  "distance": 0.6833203758513147
+                },
+                {
+                  "name": "ZMod.exists_sq_eq_neg_one_iff",
+                  "distance": 0.8309523324132801
+                },
+                {
+                  "name": "Nat.sq_add_sq_zmodEq",
+                  "distance": 0.8350213184279992
+                },
+                {
+                  "name": "GaussianInt.prime_of_nat_prime_of_mod_four_eq_three",
+                  "distance": 0.8880176232139068
+                }
+              ]
+            },
+            {
+              "anchor": "GaussianInt.prime_iff_mod_four_eq_three_of_nat_prime",
+              "target": "Nat.Prime.sq_add_sq",
+              "background": {
+                "distance": 0.767839730742198,
+                "controls": 64,
+                "rank": 1,
+                "farther_fraction": 1.0
+              },
+              "background_jaccard": {
+                "distance": 0.33333333333333337,
+                "controls": 64,
+                "rank": 1,
+                "farther_fraction": 1.0
+              },
+              "lexical_controls": {
+                "distance": 0.767839730742198,
+                "controls": 4,
+                "rank": 3,
+                "farther_fraction": 0.5
+              },
+              "lexical_controls_jaccard": {
+                "distance": 0.33333333333333337,
+                "controls": 4,
+                "rank": 4,
+                "farther_fraction": 0.25
+              },
+              "nearest_controls": [
+                {
+                  "name": "GaussianInt.prime_of_nat_prime_of_mod_four_eq_three",
+                  "distance": 0.46993447911344055
+                },
+                {
+                  "name": "GaussianInt.mod_four_eq_three_of_nat_prime_of_prime",
+                  "distance": 0.5616772433063976
+                },
+                {
+                  "name": "ZMod.mod_four_ne_three_of_sq_eq_neg_one",
+                  "distance": 0.8123116783738019
+                },
+                {
+                  "name": "ZMod.exists_sq_eq_neg_one_iff",
+                  "distance": 0.8267207011477293
+                },
+                {
+                  "name": "Nat.sq_add_sq_zmodEq",
+                  "distance": 0.9505441411367798
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "label": "Galois: polynomial degree / field symmetries",
+      "a": "IntermediateField.adjoin.finrank",
+      "b": "IsGalois.card_aut_eq_finrank",
+      "bridge": "IsGalois.IntermediateField.AdjoinSimple.card_aut_eq_finrank",
+      "variants": {
+        "typed": {
+          "distance": 0.9856266838606427,
+          "bridge_to_a": 0.7512529472717749,
+          "bridge_to_b": 0.5490609043982505,
+          "directions": [
+            {
+              "anchor": "IntermediateField.adjoin.finrank",
+              "target": "IsGalois.card_aut_eq_finrank",
+              "background": {
+                "distance": 0.9856266838606427,
+                "controls": 64,
+                "rank": 1,
+                "farther_fraction": 1.0
+              },
+              "background_jaccard": {
+                "distance": 0.7037037037037037,
+                "controls": 64,
+                "rank": 2,
+                "farther_fraction": 0.984375
+              },
+              "lexical_controls": {
+                "distance": 0.9856266838606427,
+                "controls": 4,
+                "rank": 5,
+                "farther_fraction": 0.0
+              },
+              "lexical_controls_jaccard": {
+                "distance": 0.7037037037037037,
+                "controls": 4,
+                "rank": 5,
+                "farther_fraction": 0.0
+              },
+              "nearest_controls": [
+                {
+                  "name": "minpoly.natDegree_le",
+                  "distance": 0.378073886126122
+                },
+                {
+                  "name": "minpoly.degree_le",
+                  "distance": 0.5192847415011808
+                },
+                {
+                  "name": "IntermediateField.adjoin.finiteDimensional",
+                  "distance": 0.7935780899470544
+                },
+                {
+                  "name": "AlgHom.card",
+                  "distance": 0.8474861566773185
+                },
+                {
+                  "name": "IntermediateField.isAlgebraic_adjoin_simple",
+                  "distance": 0.8719502166069729
+                }
+              ]
+            },
+            {
+              "anchor": "IsGalois.card_aut_eq_finrank",
+              "target": "IntermediateField.adjoin.finrank",
+              "background": {
+                "distance": 0.9856266838606427,
+                "controls": 64,
+                "rank": 2,
+                "farther_fraction": 0.984375
+              },
+              "background_jaccard": {
+                "distance": 0.7037037037037037,
+                "controls": 64,
+                "rank": 4,
+                "farther_fraction": 0.953125
+              },
+              "lexical_controls": {
+                "distance": 0.9856266838606427,
+                "controls": 4,
+                "rank": 4,
+                "farther_fraction": 0.25
+              },
+              "lexical_controls_jaccard": {
+                "distance": 0.7037037037037037,
+                "controls": 4,
+                "rank": 5,
+                "farther_fraction": 0.0
+              },
+              "nearest_controls": [
+                {
+                  "name": "IsGalois.card_fixingSubgroup_eq_finrank",
+                  "distance": 0.5486190711823674
+                },
+                {
+                  "name": "IntermediateField.finrank_fixedField_eq_card",
+                  "distance": 0.5547947449353082
+                },
+                {
+                  "name": "AlgHom.card",
+                  "distance": 0.591066935079926
+                },
+                {
+                  "name": "IntermediateField.adjoin.finiteDimensional",
+                  "distance": 0.8151637249596168
+                },
+                {
+                  "name": "Field.FiniteDimensional.of_finite_intermediateField",
+                  "distance": 0.9259951597892807
+                }
+              ]
+            }
+          ]
+        },
+        "closed": {
+          "distance": 0.9403520624350699,
+          "bridge_to_a": 0.6300177901799522,
+          "bridge_to_b": 0.5255963382972415,
+          "directions": [
+            {
+              "anchor": "IntermediateField.adjoin.finrank",
+              "target": "IsGalois.card_aut_eq_finrank",
+              "background": {
+                "distance": 0.9403520624350699,
+                "controls": 64,
+                "rank": 1,
+                "farther_fraction": 1.0
+              },
+              "background_jaccard": {
+                "distance": 0.6923076923076923,
+                "controls": 64,
+                "rank": 2,
+                "farther_fraction": 0.984375
+              },
+              "lexical_controls": {
+                "distance": 0.9403520624350699,
+                "controls": 4,
+                "rank": 5,
+                "farther_fraction": 0.0
+              },
+              "lexical_controls_jaccard": {
+                "distance": 0.6923076923076923,
+                "controls": 4,
+                "rank": 5,
+                "farther_fraction": 0.0
+              },
+              "nearest_controls": [
+                {
+                  "name": "minpoly.natDegree_le",
+                  "distance": 0.43948485467436366
+                },
+                {
+                  "name": "minpoly.degree_le",
+                  "distance": 0.7247470461905081
+                },
+                {
+                  "name": "IntermediateField.adjoin.finiteDimensional",
+                  "distance": 0.7922960548964735
+                },
+                {
+                  "name": "AlgHom.card",
+                  "distance": 0.809173370331511
+                },
+                {
+                  "name": "IntermediateField.isAlgebraic_adjoin_simple",
+                  "distance": 0.8198080029279903
+                }
+              ]
+            },
+            {
+              "anchor": "IsGalois.card_aut_eq_finrank",
+              "target": "IntermediateField.adjoin.finrank",
+              "background": {
+                "distance": 0.9403520624350699,
+                "controls": 64,
+                "rank": 2,
+                "farther_fraction": 0.984375
+              },
+              "background_jaccard": {
+                "distance": 0.6923076923076923,
+                "controls": 64,
+                "rank": 4,
+                "farther_fraction": 0.953125
+              },
+              "lexical_controls": {
+                "distance": 0.9403520624350699,
+                "controls": 4,
+                "rank": 4,
+                "farther_fraction": 0.25
+              },
+              "lexical_controls_jaccard": {
+                "distance": 0.6923076923076923,
+                "controls": 4,
+                "rank": 5,
+                "farther_fraction": 0.0
+              },
+              "nearest_controls": [
+                {
+                  "name": "AlgHom.card",
+                  "distance": 0.5334914031220923
+                },
+                {
+                  "name": "IsGalois.card_fixingSubgroup_eq_finrank",
+                  "distance": 0.6036977997943017
+                },
+                {
+                  "name": "IntermediateField.finrank_fixedField_eq_card",
+                  "distance": 0.643868431014319
+                },
+                {
+                  "name": "IntermediateField.adjoin.finiteDimensional",
+                  "distance": 0.7871158651368356
+                },
+                {
+                  "name": "Field.FiniteDimensional.of_finite_intermediateField",
+                  "distance": 0.8491589987730267
+                }
+              ]
+            }
+          ]
+        },
+        "introduced": {
+          "distance": 1.0010819772563446,
+          "bridge_to_a": 0.7681206049004299,
+          "bridge_to_b": 0.5855665516182053,
+          "directions": [
+            {
+              "anchor": "IntermediateField.adjoin.finrank",
+              "target": "IsGalois.card_aut_eq_finrank",
+              "background": {
+                "distance": 1.0010819772563446,
+                "controls": 64,
+                "rank": 1,
+                "farther_fraction": 1.0
+              },
+              "background_jaccard": {
+                "distance": 0.7037037037037037,
+                "controls": 64,
+                "rank": 2,
+                "farther_fraction": 0.984375
+              },
+              "lexical_controls": {
+                "distance": 1.0010819772563446,
+                "controls": 4,
+                "rank": 5,
+                "farther_fraction": 0.0
+              },
+              "lexical_controls_jaccard": {
+                "distance": 0.7037037037037037,
+                "controls": 4,
+                "rank": 5,
+                "farther_fraction": 0.0
+              },
+              "nearest_controls": [
+                {
+                  "name": "minpoly.natDegree_le",
+                  "distance": 0.3951098747858426
+                },
+                {
+                  "name": "minpoly.degree_le",
+                  "distance": 0.6788412374058383
+                },
+                {
+                  "name": "IntermediateField.adjoin.finiteDimensional",
+                  "distance": 0.8480693815037049
+                },
+                {
+                  "name": "AlgHom.card",
+                  "distance": 0.8690072750591323
+                },
+                {
+                  "name": "IntermediateField.isAlgebraic_adjoin_simple",
+                  "distance": 0.9018619335295532
+                }
+              ]
+            },
+            {
+              "anchor": "IsGalois.card_aut_eq_finrank",
+              "target": "IntermediateField.adjoin.finrank",
+              "background": {
+                "distance": 1.0010819772563446,
+                "controls": 64,
+                "rank": 1,
+                "farther_fraction": 1.0
+              },
+              "background_jaccard": {
+                "distance": 0.7037037037037037,
+                "controls": 64,
+                "rank": 4,
+                "farther_fraction": 0.953125
+              },
+              "lexical_controls": {
+                "distance": 1.0010819772563446,
+                "controls": 4,
+                "rank": 4,
+                "farther_fraction": 0.25
+              },
+              "lexical_controls_jaccard": {
+                "distance": 0.7037037037037037,
+                "controls": 4,
+                "rank": 5,
+                "farther_fraction": 0.0
+              },
+              "nearest_controls": [
+                {
+                  "name": "IsGalois.card_fixingSubgroup_eq_finrank",
+                  "distance": 0.5801197465183161
+                },
+                {
+                  "name": "AlgHom.card",
+                  "distance": 0.6327391737524286
+                },
+                {
+                  "name": "IntermediateField.finrank_fixedField_eq_card",
+                  "distance": 0.6363974658024943
+                },
+                {
+                  "name": "IntermediateField.adjoin.finiteDimensional",
+                  "distance": 0.9906636713125817
+                },
+                {
+                  "name": "IsGalois.of_card_aut_eq_finrank",
+                  "distance": 1.02321130323088
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "label": "Fourier: Basel sum / harmonic analysis",
+      "a": "hasSum_zeta_two",
+      "b": "hasSum_fourier_series_of_summable",
+      "bridge": "hasSum_one_div_nat_pow_mul_cos",
+      "variants": {
+        "typed": {
+          "distance": 1.1447063482070188,
+          "bridge_to_a": 0.8724212850860004,
+          "bridge_to_b": 1.1819467417515719,
+          "directions": [
+            {
+              "anchor": "hasSum_zeta_two",
+              "target": "hasSum_fourier_series_of_summable",
+              "background": {
+                "distance": 1.1447063482070188,
+                "controls": 64,
+                "rank": 2,
+                "farther_fraction": 0.984375
+              },
+              "background_jaccard": {
+                "distance": 0.8620689655172413,
+                "controls": 64,
+                "rank": 5,
+                "farther_fraction": 0.9375
+              },
+              "lexical_controls": {
+                "distance": 1.1447063482070188,
+                "controls": 4,
+                "rank": 4,
+                "farther_fraction": 0.25
+              },
+              "lexical_controls_jaccard": {
+                "distance": 0.8620689655172413,
+                "controls": 4,
+                "rank": 5,
+                "farther_fraction": 0.0
+              },
+              "nearest_controls": [
+                {
+                  "name": "hasSum_zeta_four",
+                  "distance": 0.09894219823368307
+                },
+                {
+                  "name": "hasSum_geometric_two",
+                  "distance": 0.2953327313666864
+                },
+                {
+                  "name": "hasSum_L_function_mod_four_eval_three",
+                  "distance": 0.33554437624483324
+                },
+                {
+                  "name": "HasSum.tsum_eq",
+                  "distance": 1.0751114794134118
+                },
+                {
+                  "name": "has_pointwise_sum_fourier_series_of_summable",
+                  "distance": 1.1464031333565792
+                }
+              ]
+            },
+            {
+              "anchor": "hasSum_fourier_series_of_summable",
+              "target": "hasSum_zeta_two",
+              "background": {
+                "distance": 1.1447063482070188,
+                "controls": 64,
+                "rank": 3,
+                "farther_fraction": 0.96875
+              },
+              "background_jaccard": {
+                "distance": 0.8620689655172413,
+                "controls": 64,
+                "rank": 1,
+                "farther_fraction": 1.0
+              },
+              "lexical_controls": {
+                "distance": 1.1447063482070188,
+                "controls": 4,
+                "rank": 5,
+                "farther_fraction": 0.0
+              },
+              "lexical_controls_jaccard": {
+                "distance": 0.8620689655172413,
+                "controls": 4,
+                "rank": 5,
+                "farther_fraction": 0.0
+              },
+              "nearest_controls": [
+                {
+                  "name": "has_pointwise_sum_fourier_series_of_summable",
+                  "distance": 0.23800806935261853
+                },
+                {
+                  "name": "fourierCoeff_toLp",
+                  "distance": 0.6224653308622645
+                },
+                {
+                  "name": "fourierCoeff.const_mul",
+                  "distance": 0.7911088072812623
+                },
+                {
+                  "name": "HasSum.tsum_eq",
+                  "distance": 0.9114264503524379
+                },
+                {
+                  "name": "hasSum_fourier_series_L2",
+                  "distance": 0.9692403248938597
+                }
+              ]
+            }
+          ]
+        },
+        "closed": {
+          "distance": 1.0810933743911546,
+          "bridge_to_a": 0.9560143128174194,
+          "bridge_to_b": 1.1958047352036056,
+          "directions": [
+            {
+              "anchor": "hasSum_zeta_two",
+              "target": "hasSum_fourier_series_of_summable",
+              "background": {
+                "distance": 1.0810933743911546,
+                "controls": 64,
+                "rank": 1,
+                "farther_fraction": 1.0
+              },
+              "background_jaccard": {
+                "distance": 0.9047619047619048,
+                "controls": 64,
+                "rank": 3,
+                "farther_fraction": 0.96875
+              },
+              "lexical_controls": {
+                "distance": 1.0810933743911546,
+                "controls": 4,
+                "rank": 4,
+                "farther_fraction": 0.25
+              },
+              "lexical_controls_jaccard": {
+                "distance": 0.9047619047619048,
+                "controls": 4,
+                "rank": 5,
+                "farther_fraction": 0.0
+              },
+              "nearest_controls": [
+                {
+                  "name": "hasSum_zeta_four",
+                  "distance": 0.1109659690284507
+                },
+                {
+                  "name": "hasSum_L_function_mod_four_eval_three",
+                  "distance": 0.43908972837897564
+                },
+                {
+                  "name": "hasSum_geometric_two",
+                  "distance": 0.5684508161617037
+                },
+                {
+                  "name": "has_pointwise_sum_fourier_series_of_summable",
+                  "distance": 1.034150888587732
+                },
+                {
+                  "name": "hasSum_fourier_series_L2",
+                  "distance": 1.1145278895301172
+                }
+              ]
+            },
+            {
+              "anchor": "hasSum_fourier_series_of_summable",
+              "target": "hasSum_zeta_two",
+              "background": {
+                "distance": 1.0810933743911546,
+                "controls": 64,
+                "rank": 2,
+                "farther_fraction": 0.984375
+              },
+              "background_jaccard": {
+                "distance": 0.9047619047619048,
+                "controls": 64,
+                "rank": 1,
+                "farther_fraction": 0.9921875
+              },
+              "lexical_controls": {
+                "distance": 1.0810933743911546,
+                "controls": 4,
+                "rank": 5,
+                "farther_fraction": 0.0
+              },
+              "lexical_controls_jaccard": {
+                "distance": 0.9047619047619048,
+                "controls": 4,
+                "rank": 5,
+                "farther_fraction": 0.0
+              },
+              "nearest_controls": [
+                {
+                  "name": "has_pointwise_sum_fourier_series_of_summable",
+                  "distance": 0.22697463480368338
+                },
+                {
+                  "name": "fourierCoeff_toLp",
+                  "distance": 0.676370622611973
+                },
+                {
+                  "name": "fourierCoeff.const_mul",
+                  "distance": 0.7501980397535286
+                },
+                {
+                  "name": "hasSum_fourier_series_L2",
+                  "distance": 0.8792030849776534
+                },
+                {
+                  "name": "HasSum.tsum_eq",
+                  "distance": 0.9706918510515326
+                }
+              ]
+            }
+          ]
+        },
+        "introduced": {
+          "distance": 0.9790669337269575,
+          "bridge_to_a": 0.6813112914919411,
+          "bridge_to_b": 0.8664424034914894,
+          "directions": [
+            {
+              "anchor": "hasSum_zeta_two",
+              "target": "hasSum_fourier_series_of_summable",
+              "background": {
+                "distance": 0.9790669337269575,
+                "controls": 64,
+                "rank": 1,
+                "farther_fraction": 1.0
+              },
+              "background_jaccard": {
+                "distance": 0.9090909090909091,
+                "controls": 64,
+                "rank": 2,
+                "farther_fraction": 0.9765625
+              },
+              "lexical_controls": {
+                "distance": 0.9790669337269575,
+                "controls": 4,
+                "rank": 4,
+                "farther_fraction": 0.25
+              },
+              "lexical_controls_jaccard": {
+                "distance": 0.9090909090909091,
+                "controls": 4,
+                "rank": 5,
+                "farther_fraction": 0.0
+              },
+              "nearest_controls": [
+                {
+                  "name": "hasSum_zeta_four",
+                  "distance": 0.1109659690284507
+                },
+                {
+                  "name": "hasSum_L_function_mod_four_eval_three",
+                  "distance": 0.43908972837897564
+                },
+                {
+                  "name": "hasSum_geometric_two",
+                  "distance": 0.5684508161617037
+                },
+                {
+                  "name": "has_pointwise_sum_fourier_series_of_summable",
+                  "distance": 0.9275297774400004
+                },
+                {
+                  "name": "hasSum_fourier_series_L2",
+                  "distance": 1.076493100766074
+                }
+              ]
+            },
+            {
+              "anchor": "hasSum_fourier_series_of_summable",
+              "target": "hasSum_zeta_two",
+              "background": {
+                "distance": 0.9790669337269575,
+                "controls": 64,
+                "rank": 1,
+                "farther_fraction": 1.0
+              },
+              "background_jaccard": {
+                "distance": 0.9090909090909091,
+                "controls": 64,
+                "rank": 2,
+                "farther_fraction": 0.9765625
+              },
+              "lexical_controls": {
+                "distance": 0.9790669337269575,
+                "controls": 4,
+                "rank": 4,
+                "farther_fraction": 0.25
+              },
+              "lexical_controls_jaccard": {
+                "distance": 0.9090909090909091,
+                "controls": 4,
+                "rank": 5,
+                "farther_fraction": 0.0
+              },
+              "nearest_controls": [
+                {
+                  "name": "has_pointwise_sum_fourier_series_of_summable",
+                  "distance": 0.17749903448973922
+                },
+                {
+                  "name": "hasSum_fourier_series_L2",
+                  "distance": 0.7140252540550699
+                },
+                {
+                  "name": "fourierCoeff_toLp",
+                  "distance": 0.8181900792663569
+                },
+                {
+                  "name": "hasSum_L_function_mod_four_eval_three",
+                  "distance": 0.9022268098130113
+                },
+                {
+                  "name": "hasSum_zeta_four",
+                  "distance": 0.9522953694235016
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "presentation_shifts": [
+    {
+      "name": "Real.sin_add",
+      "distance": 0.47580136654032085
+    },
+    {
+      "name": "Complex.exp_add",
+      "distance": 0.7549024749182209
+    },
+    {
+      "name": "Complex.exp_mul_I",
+      "distance": 0.3772745571137091
+    },
+    {
+      "name": "Nat.Prime.sq_add_sq",
+      "distance": 0.570243199886549
+    },
+    {
+      "name": "GaussianInt.prime_iff_mod_four_eq_three_of_nat_prime",
+      "distance": 0.45817419762788647
+    },
+    {
+      "name": "GaussianInt.sq_add_sq_of_nat_prime_of_not_irreducible",
+      "distance": 0.5680405379065915
+    },
+    {
+      "name": "IntermediateField.adjoin.finrank",
+      "distance": 0.2342749519116251
+    },
+    {
+      "name": "IsGalois.card_aut_eq_finrank",
+      "distance": 0.43030701906029295
+    },
+    {
+      "name": "IsGalois.IntermediateField.AdjoinSimple.card_aut_eq_finrank",
+      "distance": 0.3667665099991352
+    },
+    {
+      "name": "hasSum_zeta_two",
+      "distance": 0.0
+    },
+    {
+      "name": "hasSum_fourier_series_of_summable",
+      "distance": 0.3393119682916554
+    },
+    {
+      "name": "hasSum_one_div_nat_pow_mul_cos",
+      "distance": 1.0001843434539013
+    },
+    {
+      "name": "coe_convexAddSubmonoid",
+      "distance": 0.4273731488468235
+    },
+    {
+      "name": "sSupHom.coe_copy",
+      "distance": 0.5621037463799758
+    },
+    {
+      "name": "HasCompactSupport.extend_zero",
+      "distance": 0.555956520950913
+    },
+    {
+      "name": "AddSubmonoid.LocalizationMap.lift_left_inverse",
+      "distance": 0.582003710341977
+    },
+    {
+      "name": "Set.vadd_mem_vadd",
+      "distance": 0.6785944121817433
+    },
+    {
+      "name": "HasSum.tsum_eq",
+      "distance": 0.5615855312427052
+    },
+    {
+      "name": "IsNilpotent.zero",
+      "distance": 0.6435548156316299
+    },
+    {
+      "name": "IsBoundedLinearMap.fderivWithin",
+      "distance": 0.467640405971072
+    },
+    {
+      "name": "ite_eq_iff'",
+      "distance": 0.4606585460872001
+    },
+    {
+      "name": "MeasureTheory.measure_eq_top_iff_of_symmDiff",
+      "distance": 0.44459568168894426
+    },
+    {
+      "name": "ContinuousMap.specializes_coe",
+      "distance": 0.434102110114812
+    },
+    {
+      "name": "StarAlgHom.coe_codRestrict",
+      "distance": 0.5260406852685426
+    },
+    {
+      "name": "Seminorm.coe_bot",
+      "distance": 0.46303941328275033
+    },
+    {
+      "name": "AddCircle.exists_gcd_eq_one_of_isOfFinAddOrder",
+      "distance": 0.4026520219537575
+    },
+    {
+      "name": "Set.OrdConnected.dual",
+      "distance": 0.36913473978471995
+    },
+    {
+      "name": "Set.ite_inter_inter",
+      "distance": 0.36179007448672984
+    },
+    {
+      "name": "IsModularLattice.inf_sup_inf_assoc",
+      "distance": 0.39626892216847154
+    },
+    {
+      "name": "Part.of_toOption",
+      "distance": 0.7236770431677882
+    },
+    {
+      "name": "OrderAddMonoidHom.toOrderHom_injective",
+      "distance": 0.7651870545641977
+    },
+    {
+      "name": "Asymptotics.IsEquivalent.trans_isTheta",
+      "distance": 0.560019016680789
+    },
+    {
+      "name": "Embedding.toOpenEmbedding_of_surjective",
+      "distance": 0.5519190445854574
+    },
+    {
+      "name": "IsSMulRegular.isLeftRegular",
+      "distance": 0.634596174657323
+    },
+    {
+      "name": "ENat.top_pow",
+      "distance": 0.5202417108961414
+    },
+    {
+      "name": "IsMulCentral.right_comm",
+      "distance": 0.7106628622828909
+    },
+    {
+      "name": "IsLowerSet.compl",
+      "distance": 0.4774194125356987
+    },
+    {
+      "name": "OmegaCompletePartialOrder.ContinuousHom.ωSup_bind",
+      "distance": 0.3731893438636514
+    },
+    {
+      "name": "Set.Equicontinuous.closure",
+      "distance": 0.3851450785709938
+    },
+    {
+      "name": "Polynomial.card_support_binomial",
+      "distance": 0.4168575090453602
+    },
+    {
+      "name": "Field.FiniteDimensional.of_finite_intermediateField",
+      "distance": 0.5963425660013323
+    },
+    {
+      "name": "iSup_eq_iSup_of_partialSups_eq_partialSups",
+      "distance": 0.47710254510029043
+    },
+    {
+      "name": "iInf_univ",
+      "distance": 0.4789465711168566
+    },
+    {
+      "name": "TopologicalSpace.Opens.partialHomeomorphSubtypeCoe_target",
+      "distance": 0.4244757332836353
+    },
+    {
+      "name": "HasDerivAt.const_smul",
+      "distance": 0.3055112244866849
+    },
+    {
+      "name": "IntermediateField.algHomEquivAlgHomOfSplits_apply",
+      "distance": 0.43277169709249813
+    },
+    {
+      "name": "Odd.zpow_neg",
+      "distance": 0.6014859218671663
+    },
+    {
+      "name": "Equiv.Perm.sumCongr_one",
+      "distance": 0.4883876498090135
+    },
+    {
+      "name": "Set.liftCover_coe",
+      "distance": 0.2887604746682407
+    },
+    {
+      "name": "finite_of_linearIndependent",
+      "distance": 0.3423347252288809
+    },
+    {
+      "name": "Filter.map_one'",
+      "distance": 0.3526094523339779
+    },
+    {
+      "name": "Relation.equivalence_join_reflTransGen",
+      "distance": 0.7545269920763256
+    },
+    {
+      "name": "MulOpposite.op_inj",
+      "distance": 0.2971656614070653
+    },
+    {
+      "name": "MulChar.ringHomComp_eq_one_iff",
+      "distance": 0.5151087530253474
+    },
+    {
+      "name": "Set.Ioc_union_Ioi_eq_Ioi",
+      "distance": 0.6136226806471377
+    },
+    {
+      "name": "NNRat.commute_cast",
+      "distance": 0.4605298840250643
+    },
+    {
+      "name": "Polynomial.expand_mul",
+      "distance": 0.473965730551837
+    },
+    {
+      "name": "ofLex_neg",
+      "distance": 0.5568101380463165
+    },
+    {
+      "name": "Finset.card_nbij",
+      "distance": 0.36081090971858615
+    },
+    {
+      "name": "Urysohns.CU.left_U_subset",
+      "distance": 0.9071168246374925
+    },
+    {
+      "name": "iSup_iSup_eq_left",
+      "distance": 0.4520255892989304
+    },
+    {
+      "name": "Subgroup.tendsto_coe_cofinite_of_discrete",
+      "distance": 0.31055881045898437
+    },
+    {
+      "name": "Function.Periodic.exists_mem_Ioc",
+      "distance": 0.6910280950451303
+    },
+    {
+      "name": "isLUB_of_mem_closure",
+      "distance": 0.5093067054120158
+    },
+    {
+      "name": "interior_eq_nhds",
+      "distance": 0.5185718977625551
+    },
+    {
+      "name": "IsSelfAdjoint.all",
+      "distance": 0.465224648163395
+    },
+    {
+      "name": "Complex.cosh_add",
+      "distance": 0.4525027268477554
+    },
+    {
+      "name": "IsRightRegular.pow",
+      "distance": 0.46933230502700907
+    },
+    {
+      "name": "Ordinal.enumOrd_def'",
+      "distance": 0.3155339398995786
+    },
+    {
+      "name": "MeasurableSpace.measurableSet_enumerateCountable_countableGeneratingSet",
+      "distance": 0.5089251188784915
+    },
+    {
+      "name": "Polynomial.monomial_mul_monomial",
+      "distance": 0.39603651472982193
+    },
+    {
+      "name": "IsUnit.isRegular",
+      "distance": 0.6280284500903661
+    },
+    {
+      "name": "Monotone.map_inf",
+      "distance": 0.574809437789206
+    },
+    {
+      "name": "ENNReal.le_tsum_condensed",
+      "distance": 0.6908958776316623
+    },
+    {
+      "name": "Submodule.span_attach_biUnion",
+      "distance": 0.2981469775969139
+    },
+    {
+      "name": "Real.continuousAt_arcsin",
+      "distance": 0.5882949721506308
+    },
+    {
+      "name": "Real.cos_add",
+      "distance": 0.4342264989474926
+    },
+    {
+      "name": "Real.cos_sub",
+      "distance": 0.4598870215646984
+    },
+    {
+      "name": "Real.sin_sub",
+      "distance": 0.5638109555426093
+    },
+    {
+      "name": "Real.cos_sub_cos",
+      "distance": 0.319606367385942
+    },
+    {
+      "name": "Complex.exp_sub",
+      "distance": 0.47725043398052935
+    },
+    {
+      "name": "Complex.exp_eq_exp_iff_exp_sub_eq_one",
+      "distance": 0.21027766416180735
+    },
+    {
+      "name": "Complex.abs_exp_eq_iff_re_eq",
+      "distance": 0.316664839752339
+    },
+    {
+      "name": "Complex.cpow_def_of_ne_zero",
+      "distance": 0.4210892141530651
+    },
+    {
+      "name": "Nat.sq_add_sq_modEq",
+      "distance": 0.4626373420091093
+    },
+    {
+      "name": "Nat.sq_add_sq_zmodEq",
+      "distance": 0.4055475852895486
+    },
+    {
+      "name": "ZMod.mod_four_ne_three_of_sq_eq_neg_one",
+      "distance": 0.723613132321576
+    },
+    {
+      "name": "ZMod.exists_sq_eq_neg_one_iff",
+      "distance": 0.5585600078717503
+    },
+    {
+      "name": "GaussianInt.mod_four_eq_three_of_nat_prime_of_prime",
+      "distance": 0.51243001081053
+    },
+    {
+      "name": "GaussianInt.prime_of_nat_prime_of_mod_four_eq_three",
+      "distance": 0.5700419007609924
+    },
+    {
+      "name": "minpoly.natDegree_le",
+      "distance": 0.305776571822321
+    },
+    {
+      "name": "IntermediateField.adjoin.finiteDimensional",
+      "distance": 0.38648675918843106
+    },
+    {
+      "name": "minpoly.degree_le",
+      "distance": 0.35855752226626125
+    },
+    {
+      "name": "IntermediateField.isAlgebraic_adjoin_simple",
+      "distance": 0.36302018904543787
+    },
+    {
+      "name": "IsGalois.of_card_aut_eq_finrank",
+      "distance": 0.27059043127590077
+    },
+    {
+      "name": "AlgHom.card",
+      "distance": 0.34431603839462843
+    },
+    {
+      "name": "IntermediateField.finrank_fixedField_eq_card",
+      "distance": 0.3365085180756189
+    },
+    {
+      "name": "IsGalois.card_fixingSubgroup_eq_finrank",
+      "distance": 0.30562798493305904
+    },
+    {
+      "name": "hasSum_L_function_mod_four_eval_three",
+      "distance": 0.0
+    },
+    {
+      "name": "hasSum_geometric_two",
+      "distance": 0.0
+    },
+    {
+      "name": "hasSum_zeta_four",
+      "distance": 0.0
+    },
+    {
+      "name": "Real.sin_pi_div_six",
+      "distance": 0.0
+    },
+    {
+      "name": "has_pointwise_sum_fourier_series_of_summable",
+      "distance": 0.44785180400111996
+    },
+    {
+      "name": "hasSum_fourier_series_L2",
+      "distance": 0.29635766726393165
+    },
+    {
+      "name": "fourierCoeff.const_mul",
+      "distance": 0.585614705230935
+    },
+    {
+      "name": "fourierCoeff_toLp",
+      "distance": 0.38042230973680957
+    }
+  ],
+  "mean_presentation_shift": 0.4570346371852415
+}

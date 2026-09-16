@@ -1,0 +1,14 @@
+{
+  "theorems": 106,
+  "vector_rows": 318,
+  "all_inputs_encoded_without_truncation": true,
+  "maximum_input_bytes": 439,
+  "all_selected_theorems_have_allowed_axioms": true,
+  "all_type_aware_displays_roundtrip": true,
+  "explicit_printing_fallbacks": [],
+  "annotation_repairs": [
+    "Seminorm.coe_bot",
+    "hasSum_fourier_series_L2"
+  ],
+  "vectors_sha256": "2338b96c8ab6d9d2143eeafd0b905ad5341c8a5ad6d2bf08e46a71c30a9aa799"
+}

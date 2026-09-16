@@ -1,0 +1,89 @@
+{
+  "inputRows": 318,
+  "checks": [
+    {
+      "variant": "typed",
+      "example": 0,
+      "matrixCells": 144,
+      "summaryRows": 4,
+      "inputsMatch": true
+    },
+    {
+      "variant": "typed",
+      "example": 1,
+      "matrixCells": 144,
+      "summaryRows": 4,
+      "inputsMatch": true
+    },
+    {
+      "variant": "typed",
+      "example": 2,
+      "matrixCells": 144,
+      "summaryRows": 4,
+      "inputsMatch": true
+    },
+    {
+      "variant": "typed",
+      "example": 3,
+      "matrixCells": 144,
+      "summaryRows": 4,
+      "inputsMatch": true
+    },
+    {
+      "variant": "closed",
+      "example": 0,
+      "matrixCells": 144,
+      "summaryRows": 4,
+      "inputsMatch": true
+    },
+    {
+      "variant": "closed",
+      "example": 1,
+      "matrixCells": 144,
+      "summaryRows": 4,
+      "inputsMatch": true
+    },
+    {
+      "variant": "closed",
+      "example": 2,
+      "matrixCells": 144,
+      "summaryRows": 4,
+      "inputsMatch": true
+    },
+    {
+      "variant": "closed",
+      "example": 3,
+      "matrixCells": 144,
+      "summaryRows": 4,
+      "inputsMatch": true
+    },
+    {
+      "variant": "introduced",
+      "example": 0,
+      "matrixCells": 144,
+      "summaryRows": 4,
+      "inputsMatch": true
+    },
+    {
+      "variant": "introduced",
+      "example": 1,
+      "matrixCells": 144,
+      "summaryRows": 4,
+      "inputsMatch": true
+    },
+    {
+      "variant": "introduced",
+      "example": 2,
+      "matrixCells": 144,
+      "summaryRows": 4,
+      "inputsMatch": true
+    },
+    {
+      "variant": "introduced",
+      "example": 3,
+      "matrixCells": 144,
+      "summaryRows": 4,
+      "inputsMatch": true
+    }
+  ]
+}

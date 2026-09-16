@@ -1,0 +1,22 @@
+{
+  "model": "kaiyuy/ct2-leandojo-lean4-retriever-byt5-small",
+  "revision": "8612469b496b72bdb2f0d6ccd5316c100200581e",
+  "checksums": {
+    "model.bin": "311e636b7479e97236de85f5271f2b045e1e40a1de5a431df03b050b2176f827",
+    "config.json": "d3b27bd603df8fb368c641042d2f280d6821066a433f497aa24a2758cc49497c",
+    "vocabulary.json": "60259dce54d4677a043dbadcedb27916fa934567c01a796124dec71bf23a3e09"
+  },
+  "device": "cpu",
+  "compute_type": "int8_float32",
+  "ctranslate2": "4.8.2",
+  "numpy": "2.5.3",
+  "dimension": 1472,
+  "tokenization": "all UTF-8 bytes +3, EOS=1; no truncation",
+  "pooling": "singleton, all tokens including EOS, float64 mean, L2 normalize",
+  "selection_sha256": "5e9b998791ac09d847e5e38cd1c835e5a9df13354113836d64fd8f9e20685429",
+  "lean_output_sha256": "99f01728dd25ac2c7ee616d1f331894619f96d82b2cbabfc403b9eea43b6680f",
+  "script_sha256": "f58623dd6612eef99facdb12b3cdd075ed238205ffc9d43120183b2c9ba9cd71",
+  "mathlib_commit": "f0957a7575317490107578ebaee9efaf8e62a4ab",
+  "lean_version": "4.9.0",
+  "selected_lean_sha256": "00e98cd72a2dee75ff4b2cfc2ad7ed3970c3d19f5c47196f561da9723ef430d9"
+}

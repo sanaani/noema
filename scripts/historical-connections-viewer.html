@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Historical connections — theorem centers</title>
+<style>
+body{font:16px/1.5 system-ui,sans-serif;margin:32px auto;padding:0 24px;max-width:1280px;background:#f7f7f2;color:#23333b}h1{font-size:28px}h2{font-size:21px}p{max-width:1000px}select,button{font:inherit;padding:8px;border:1px solid #a9b5b7;border-radius:5px;background:white}label{display:inline-block;margin:8px 20px 8px 0}section{background:white;border:1px solid #d3dcde;border-radius:8px;padding:22px;margin:18px 0}table{border-collapse:collapse;width:100%;font-size:14px}td,th{padding:10px;text-align:left;border-bottom:1px solid #dfe5e6}th{font-weight:650}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px;background:#f3f5f6;padding:16px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.muted{color:#5d707b}.bar{background:#dfe8e8;height:12px;min-width:130px}.bar span{display:block;background:#147d89;height:100%}.matrix{display:grid;grid-template-columns:repeat(12,minmax(36px,1fr));gap:3px;max-width:750px}.cell{padding:6px 1px;border:0;border-radius:2px;font-size:12px;cursor:pointer}.small{font-size:13px}.active{outline:3px solid #23333b}@media(max-width:800px){.grid{grid-template-columns:1fr}body{padding:0 12px}.matrix{gap:2px}.cell{font-size:10px}table{font-size:12px}}
+</style>
+<h1>Historical connections: are the theorem centers close?</h1>
+<p>Four examples, selected before measuring. Each point is the embedding of a proved theorem’s initial goal. Distances use all <b>1,472 dimensions</b>. This pilot tests centers; it does not measure cumulative proof-State mass or the full Theorem Density Objects.</p>
+<label>Example <select id="example"></select></label>
+<label>Presentation <select id="variant"><option value="typed">Type-aware initial goal (verified round trip)</option><option value="closed">Initial goal before introductions</option><option value="introduced">After introducing quantified assumptions</option></select></label>
+<section><h2>Comparison across examples</h2><p class="muted small">“Background farther away” is the fraction of 64 background theorems farther from an anchor than its historical partner is. Higher means the partner is relatively close. The two directions can differ because the anchors have different surroundings. Background theorems are not certified unrelated.</p><div id="overview"></div></section>
+<section><h2 id="caseTitle"></h2><div id="pair"></div><p id="bridge"></p><div class="grid"><div id="left"></div><div id="right"></div></div></section>
+<section><h2>Distances among the twelve selected centers</h2><p class="small muted">Each three consecutive rows/columns are the two representatives and their bridge. Darker cells mean smaller Euclidean distance. Hover for theorem names; click to inspect both inputs.</p><div class="matrix" id="matrix"></div><p id="cellInfo"></p><div class="grid"><pre id="inputA"></pre><pre id="inputB"></pre></div></section>
+<p class="muted small">No encoder was trained for this test. Model: fixed Lean-trained ReProver/ByT5. Mathematical constants remain in the inputs; historical labels and the measured theorem’s name are excluded. Shared vocabulary and prior model exposure can explain proximity. These illustrative pairs cannot establish a general theorem-relatedness metric.</p>
+<script>
+const DATA=__DATA__;
+const $=id=>document.getElementById(id), fmt=x=>x.toFixed(3), pct=x=>(100*x).toFixed(1)+'%';
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+DATA.cases.forEach((c,i)=>$('example').add(new Option(c.label,i)));
+const names=DATA.cases.flatMap(c=>[c.a,c.b,c.bridge]);
+function input(name,v){return DATA.inputs.find(r=>r.name===name&&r.variant===v).text}
+function inspect(i,j,v){$('cellInfo').textContent=`${i+1}: ${names[i]} ↔ ${j+1}: ${names[j]} · distance ${fmt(DATA.matrices[v][i][j])}`;$('inputA').textContent=input(names[i],v);$('inputB').textContent=input(names[j],v)}
+function details(d){return `<h3>${esc(d.anchor)}</h3><p>Partner ranks <b>${d.background.rank} / 65</b> among the background candidates plus the partner; <b>${d.lexical_controls.rank} / 5</b> among four similarly worded candidates plus the partner.</p><p class="small muted">Nearest measured controls:</p><table>${d.nearest_controls.map(n=>`<tr><td>${esc(n.name)}</td><td>${fmt(n.distance)}</td></tr>`).join('')}</table>`}
+function render(){
+ const v=$('variant').value,c=DATA.cases[Number($('example').value)],r=c.variants[v];
+ $('overview').innerHTML='<table><thead><tr><th>Connection</th><th>Pair distance</th><th>Background farther away (A → B / B → A)</th><th>Vocabulary-only comparison</th></tr></thead><tbody>'+DATA.cases.map(c=>{const r=c.variants[v],ds=r.directions;return `<tr><td>${esc(c.label)}</td><td>${fmt(r.distance)}</td><td>${ds.map(d=>pct(d.background.farther_fraction)).join(' / ')}<div class="bar"><span style="width:${50*(ds[0].background.farther_fraction+ds[1].background.farther_fraction)}%"></span></div></td><td>${ds.map(d=>pct(d.background_jaccard.farther_fraction)).join(' / ')}</td></tr>`}).join('')+'</tbody></table>';
+ $('caseTitle').textContent=c.label;$('pair').innerHTML=`<p><b>A:</b> ${esc(c.a)}<br><b>B:</b> ${esc(c.b)}<br><b>Distance:</b> ${fmt(r.distance)}</p>`;
+ $('bridge').textContent=`Bridge: ${c.bridge}. Distance to A: ${fmt(r.bridge_to_a)}; to B: ${fmt(r.bridge_to_b)}.`;
+ $('left').innerHTML=details(r.directions[0]);$('right').innerHTML=details(r.directions[1]);
+ $('matrix').replaceChildren();
+ DATA.matrices[v].forEach((row,i)=>row.forEach((d,j)=>{const b=document.createElement('button');b.className='cell';b.textContent=fmt(d);b.title=`${i+1}. ${names[i]} / ${j+1}. ${names[j]}`;b.style.background=`hsl(185 47% ${30+Math.min(1,d/2)*65}%)`;b.style.color=d<.65?'white':'#23333b';b.onclick=()=>inspect(i,j,v);$('matrix').append(b)}));
+ const base=Number($('example').value)*3;inspect(base,base+1,v);
+}
+$('example').onchange=render;$('variant').onchange=render;render();
+window.pilotChecks={cases:DATA.cases.length,inputs:DATA.inputs.length,cells:$('matrix').children.length,dimension:1472};
+</script></html>

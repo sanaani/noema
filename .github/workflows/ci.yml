@@ -54,4 +54,5 @@ jobs:
       - run: cd results/endpoint-audit-v1 && sha256sum -c SHA256SUMS
       - run: cd results/theorem-endpoint-assessment-v1 && sha256sum -c SHA256SUMS
       - run: python scripts/verify-theorem-endpoint-assessment.py
+      - run: cd results/historical-connections-v1 && sha256sum -c SHA256SUMS
       - run: noema synthetic --config configs/smoke.json --output outputs/ci-smoke
