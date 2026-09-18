@@ -1,0 +1,24 @@
+{
+  "source": "catalog.log.gz mining, pinned mathlib f0957a7575317490107578ebaee9efaf8e62a4ab",
+  "collisions_with_selection_v1": [],
+  "triples": [
+    {
+      "family": "FTC/differentiation-integration",
+      "a": "deriv_add",
+      "b": "intervalIntegral.integral_add",
+      "bridge": "intervalIntegral.integral_eq_sub_of_hasDerivAt"
+    },
+    {
+      "family": "det/volume",
+      "a": "Matrix.det_mul",
+      "b": "Real.volume_Icc",
+      "bridge": "MeasureTheory.Measure.map_linearMap_addHaar_eq_smul_addHaar"
+    },
+    {
+      "family": "Euler-criterion/squares-powers",
+      "a": "sq_eq_sq_iff_eq_or_eq_neg",
+      "b": "ZMod.pow_card_sub_one_eq_one",
+      "bridge": "ZMod.euler_criterion"
+    }
+  ]
+}

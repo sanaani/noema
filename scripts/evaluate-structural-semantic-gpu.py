@@ -77,6 +77,18 @@ def main():
     ]
     if not token_ids:
         raise ValueError("no structural records selected")
+    args.output.mkdir()
+    save_json(
+        args.output / "inputs.json",
+        [{"name": r["name"], "tokens": len(t)} for r, t in zip(records, token_ids, strict=True)],
+    )
+    print(f"tokenizer: {type(tokenizer).__name__} vocab={tokenizer.vocab_size}", flush=True)
+    print(f"transformers={transformers.__version__} limit={limit}", flush=True)
+    worst = sorted(
+        ((len(t), r["name"]) for r, t in zip(records, token_ids, strict=True)), reverse=True
+    )[:5]
+    for n, name in worst:
+        print(f"longest: {n} {name}", flush=True)
     critical = set(selection["background"])
     for _, a, b, bridge in selection["cases"]:
         critical.update((a, b, bridge))
@@ -116,16 +128,8 @@ def main():
     drift = float(np.linalg.norm(vectors - repeats, axis=1).max())
     if drift > 1e-6:
         raise ValueError(f"GPU repeat drift {drift} exceeds tolerance")
-    args.output.mkdir()
     np.save(args.output / "qwen-vectors.npy", vectors, allow_pickle=False)
     np.save(args.output / "qwen-repeat-vectors.npy", repeats, allow_pickle=False)
-    save_json(
-        args.output / "inputs.json",
-        [
-            {"name": r["name"], "tokens": len(t), "encoded": r["name"] in index}
-            for r, t in zip(records, token_ids, strict=True)
-        ],
-    )
     cases = []
     for label, a, b, bridge in selection["cases"]:
         bridge_i = index[bridge]
