@@ -1,0 +1,5 @@
+{
+  "worker_run": "noema-struct-gpu-20260918-012714",
+  "task_key": "task-v2.tar.gz",
+  "note": "Qwen3-Embedding-0.6B on complete Lean closed_payloads; 104/106 encoded, 2 lexical-only Fourier controls rejected over 32768 context, no truncation; worker.log absent from upload (tee buffering at shutdown), console tail retained in run dir"
+}

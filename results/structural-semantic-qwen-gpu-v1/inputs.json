@@ -1,0 +1,532 @@
+[
+  {
+    "name": "AddCircle.exists_gcd_eq_one_of_isOfFinAddOrder",
+    "tokens": 25842,
+    "encoded": true
+  },
+  {
+    "name": "AddSubmonoid.LocalizationMap.lift_left_inverse",
+    "tokens": 2740,
+    "encoded": true
+  },
+  {
+    "name": "AlgHom.card",
+    "tokens": 3662,
+    "encoded": true
+  },
+  {
+    "name": "Asymptotics.IsEquivalent.trans_isTheta",
+    "tokens": 738,
+    "encoded": true
+  },
+  {
+    "name": "Complex.abs_exp_eq_iff_re_eq",
+    "tokens": 894,
+    "encoded": true
+  },
+  {
+    "name": "Complex.cosh_add",
+    "tokens": 804,
+    "encoded": true
+  },
+  {
+    "name": "Complex.cpow_def_of_ne_zero",
+    "tokens": 640,
+    "encoded": true
+  },
+  {
+    "name": "Complex.exp_add",
+    "tokens": 463,
+    "encoded": true
+  },
+  {
+    "name": "Complex.exp_eq_exp_iff_exp_sub_eq_one",
+    "tokens": 497,
+    "encoded": true
+  },
+  {
+    "name": "Complex.exp_mul_I",
+    "tokens": 619,
+    "encoded": true
+  },
+  {
+    "name": "Complex.exp_sub",
+    "tokens": 504,
+    "encoded": true
+  },
+  {
+    "name": "ContinuousMap.specializes_coe",
+    "tokens": 1319,
+    "encoded": true
+  },
+  {
+    "name": "ENNReal.le_tsum_condensed",
+    "tokens": 3651,
+    "encoded": true
+  },
+  {
+    "name": "ENat.top_pow",
+    "tokens": 790,
+    "encoded": true
+  },
+  {
+    "name": "Embedding.toOpenEmbedding_of_surjective",
+    "tokens": 425,
+    "encoded": true
+  },
+  {
+    "name": "Equiv.Perm.sumCongr_one",
+    "tokens": 1711,
+    "encoded": true
+  },
+  {
+    "name": "Field.FiniteDimensional.of_finite_intermediateField",
+    "tokens": 1346,
+    "encoded": true
+  },
+  {
+    "name": "Filter.map_one'",
+    "tokens": 739,
+    "encoded": true
+  },
+  {
+    "name": "Finset.card_nbij",
+    "tokens": 976,
+    "encoded": true
+  },
+  {
+    "name": "Function.Periodic.exists_mem_Ioc",
+    "tokens": 2614,
+    "encoded": true
+  },
+  {
+    "name": "GaussianInt.mod_four_eq_three_of_nat_prime_of_prime",
+    "tokens": 1511,
+    "encoded": true
+  },
+  {
+    "name": "GaussianInt.prime_iff_mod_four_eq_three_of_nat_prime",
+    "tokens": 1528,
+    "encoded": true
+  },
+  {
+    "name": "GaussianInt.prime_of_nat_prime_of_mod_four_eq_three",
+    "tokens": 1511,
+    "encoded": true
+  },
+  {
+    "name": "GaussianInt.sq_add_sq_of_nat_prime_of_not_irreducible",
+    "tokens": 1861,
+    "encoded": true
+  },
+  {
+    "name": "HasCompactSupport.extend_zero",
+    "tokens": 920,
+    "encoded": true
+  },
+  {
+    "name": "HasDerivAt.const_smul",
+    "tokens": 9871,
+    "encoded": true
+  },
+  {
+    "name": "HasSum.tsum_eq",
+    "tokens": 460,
+    "encoded": true
+  },
+  {
+    "name": "IntermediateField.adjoin.finiteDimensional",
+    "tokens": 3982,
+    "encoded": true
+  },
+  {
+    "name": "IntermediateField.adjoin.finrank",
+    "tokens": 3808,
+    "encoded": true
+  },
+  {
+    "name": "IntermediateField.algHomEquivAlgHomOfSplits_apply",
+    "tokens": 14038,
+    "encoded": true
+  },
+  {
+    "name": "IntermediateField.finrank_fixedField_eq_card",
+    "tokens": 14549,
+    "encoded": true
+  },
+  {
+    "name": "IntermediateField.isAlgebraic_adjoin_simple",
+    "tokens": 2475,
+    "encoded": true
+  },
+  {
+    "name": "IsBoundedLinearMap.fderivWithin",
+    "tokens": 3927,
+    "encoded": true
+  },
+  {
+    "name": "IsGalois.IntermediateField.AdjoinSimple.card_aut_eq_finrank",
+    "tokens": 13161,
+    "encoded": true
+  },
+  {
+    "name": "IsGalois.card_aut_eq_finrank",
+    "tokens": 2722,
+    "encoded": true
+  },
+  {
+    "name": "IsGalois.card_fixingSubgroup_eq_finrank",
+    "tokens": 13847,
+    "encoded": true
+  },
+  {
+    "name": "IsGalois.of_card_aut_eq_finrank",
+    "tokens": 2722,
+    "encoded": true
+  },
+  {
+    "name": "IsLowerSet.compl",
+    "tokens": 363,
+    "encoded": true
+  },
+  {
+    "name": "IsModularLattice.inf_sup_inf_assoc",
+    "tokens": 966,
+    "encoded": true
+  },
+  {
+    "name": "IsMulCentral.right_comm",
+    "tokens": 826,
+    "encoded": true
+  },
+  {
+    "name": "IsNilpotent.zero",
+    "tokens": 447,
+    "encoded": true
+  },
+  {
+    "name": "IsRightRegular.pow",
+    "tokens": 626,
+    "encoded": true
+  },
+  {
+    "name": "IsSMulRegular.isLeftRegular",
+    "tokens": 276,
+    "encoded": true
+  },
+  {
+    "name": "IsSelfAdjoint.all",
+    "tokens": 198,
+    "encoded": true
+  },
+  {
+    "name": "IsUnit.isRegular",
+    "tokens": 300,
+    "encoded": true
+  },
+  {
+    "name": "MeasurableSpace.measurableSet_enumerateCountable_countableGeneratingSet",
+    "tokens": 551,
+    "encoded": true
+  },
+  {
+    "name": "MeasureTheory.measure_eq_top_iff_of_symmDiff",
+    "tokens": 2563,
+    "encoded": true
+  },
+  {
+    "name": "Monotone.map_inf",
+    "tokens": 970,
+    "encoded": true
+  },
+  {
+    "name": "MulChar.ringHomComp_eq_one_iff",
+    "tokens": 3694,
+    "encoded": true
+  },
+  {
+    "name": "MulOpposite.op_inj",
+    "tokens": 321,
+    "encoded": true
+  },
+  {
+    "name": "NNRat.commute_cast",
+    "tokens": 487,
+    "encoded": true
+  },
+  {
+    "name": "Nat.Prime.sq_add_sq",
+    "tokens": 1306,
+    "encoded": true
+  },
+  {
+    "name": "Nat.sq_add_sq_modEq",
+    "tokens": 1569,
+    "encoded": true
+  },
+  {
+    "name": "Nat.sq_add_sq_zmodEq",
+    "tokens": 1759,
+    "encoded": true
+  },
+  {
+    "name": "Odd.zpow_neg",
+    "tokens": 1969,
+    "encoded": true
+  },
+  {
+    "name": "OmegaCompletePartialOrder.ContinuousHom.ωSup_bind",
+    "tokens": 3356,
+    "encoded": true
+  },
+  {
+    "name": "OrderAddMonoidHom.toOrderHom_injective",
+    "tokens": 618,
+    "encoded": true
+  },
+  {
+    "name": "Ordinal.enumOrd_def'",
+    "tokens": 1299,
+    "encoded": true
+  },
+  {
+    "name": "Part.of_toOption",
+    "tokens": 310,
+    "encoded": true
+  },
+  {
+    "name": "Polynomial.card_support_binomial",
+    "tokens": 4785,
+    "encoded": true
+  },
+  {
+    "name": "Polynomial.expand_mul",
+    "tokens": 6680,
+    "encoded": true
+  },
+  {
+    "name": "Polynomial.monomial_mul_monomial",
+    "tokens": 7158,
+    "encoded": true
+  },
+  {
+    "name": "Real.continuousAt_arcsin",
+    "tokens": 344,
+    "encoded": true
+  },
+  {
+    "name": "Real.cos_add",
+    "tokens": 799,
+    "encoded": true
+  },
+  {
+    "name": "Real.cos_sub",
+    "tokens": 799,
+    "encoded": true
+  },
+  {
+    "name": "Real.cos_sub_cos",
+    "tokens": 2008,
+    "encoded": true
+  },
+  {
+    "name": "Real.sin_add",
+    "tokens": 799,
+    "encoded": true
+  },
+  {
+    "name": "Real.sin_pi_div_six",
+    "tokens": 1023,
+    "encoded": true
+  },
+  {
+    "name": "Real.sin_sub",
+    "tokens": 799,
+    "encoded": true
+  },
+  {
+    "name": "Relation.equivalence_join_reflTransGen",
+    "tokens": 497,
+    "encoded": true
+  },
+  {
+    "name": "Seminorm.coe_bot",
+    "tokens": 13233,
+    "encoded": true
+  },
+  {
+    "name": "Set.Equicontinuous.closure",
+    "tokens": 2310,
+    "encoded": true
+  },
+  {
+    "name": "Set.Ioc_union_Ioi_eq_Ioi",
+    "tokens": 1576,
+    "encoded": true
+  },
+  {
+    "name": "Set.OrdConnected.dual",
+    "tokens": 854,
+    "encoded": true
+  },
+  {
+    "name": "Set.ite_inter_inter",
+    "tokens": 864,
+    "encoded": true
+  },
+  {
+    "name": "Set.liftCover_coe",
+    "tokens": 1944,
+    "encoded": true
+  },
+  {
+    "name": "Set.vadd_mem_vadd",
+    "tokens": 1289,
+    "encoded": true
+  },
+  {
+    "name": "StarAlgHom.coe_codRestrict",
+    "tokens": 14298,
+    "encoded": true
+  },
+  {
+    "name": "Subgroup.tendsto_coe_cofinite_of_discrete",
+    "tokens": 2322,
+    "encoded": true
+  },
+  {
+    "name": "Submodule.span_attach_biUnion",
+    "tokens": 2337,
+    "encoded": true
+  },
+  {
+    "name": "TopologicalSpace.Opens.partialHomeomorphSubtypeCoe_target",
+    "tokens": 909,
+    "encoded": true
+  },
+  {
+    "name": "Urysohns.CU.left_U_subset",
+    "tokens": 452,
+    "encoded": true
+  },
+  {
+    "name": "ZMod.exists_sq_eq_neg_one_iff",
+    "tokens": 1388,
+    "encoded": true
+  },
+  {
+    "name": "ZMod.mod_four_ne_three_of_sq_eq_neg_one",
+    "tokens": 1747,
+    "encoded": true
+  },
+  {
+    "name": "coe_convexAddSubmonoid",
+    "tokens": 2130,
+    "encoded": true
+  },
+  {
+    "name": "finite_of_linearIndependent",
+    "tokens": 1296,
+    "encoded": true
+  },
+  {
+    "name": "fourierCoeff.const_mul",
+    "tokens": 2549,
+    "encoded": true
+  },
+  {
+    "name": "fourierCoeff_toLp",
+    "tokens": 261876,
+    "encoded": false
+  },
+  {
+    "name": "hasSum_L_function_mod_four_eval_three",
+    "tokens": 2383,
+    "encoded": true
+  },
+  {
+    "name": "hasSum_fourier_series_L2",
+    "tokens": 472783,
+    "encoded": false
+  },
+  {
+    "name": "hasSum_fourier_series_of_summable",
+    "tokens": 29535,
+    "encoded": true
+  },
+  {
+    "name": "hasSum_geometric_two",
+    "tokens": 1150,
+    "encoded": true
+  },
+  {
+    "name": "hasSum_one_div_nat_pow_mul_cos",
+    "tokens": 5799,
+    "encoded": true
+  },
+  {
+    "name": "hasSum_zeta_four",
+    "tokens": 1586,
+    "encoded": true
+  },
+  {
+    "name": "hasSum_zeta_two",
+    "tokens": 1582,
+    "encoded": true
+  },
+  {
+    "name": "has_pointwise_sum_fourier_series_of_summable",
+    "tokens": 23480,
+    "encoded": true
+  },
+  {
+    "name": "iInf_univ",
+    "tokens": 947,
+    "encoded": true
+  },
+  {
+    "name": "iSup_eq_iSup_of_partialSups_eq_partialSups",
+    "tokens": 1510,
+    "encoded": true
+  },
+  {
+    "name": "iSup_iSup_eq_left",
+    "tokens": 611,
+    "encoded": true
+  },
+  {
+    "name": "interior_eq_nhds",
+    "tokens": 662,
+    "encoded": true
+  },
+  {
+    "name": "isLUB_of_mem_closure",
+    "tokens": 1443,
+    "encoded": true
+  },
+  {
+    "name": "ite_eq_iff'",
+    "tokens": 397,
+    "encoded": true
+  },
+  {
+    "name": "minpoly.degree_le",
+    "tokens": 3078,
+    "encoded": true
+  },
+  {
+    "name": "minpoly.natDegree_le",
+    "tokens": 2479,
+    "encoded": true
+  },
+  {
+    "name": "ofLex_neg",
+    "tokens": 1193,
+    "encoded": true
+  },
+  {
+    "name": "sSupHom.coe_copy",
+    "tokens": 1113,
+    "encoded": true
+  }
+]
