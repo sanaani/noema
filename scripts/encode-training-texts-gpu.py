@@ -91,13 +91,23 @@ def main():
 
     def encode_rows(rows):
         ids = [fit[i][1] for i in rows]
-        feed = tokenizer.pad(
-            {"input_ids": ids}, padding=True, return_tensors="pt", return_attention_mask=True
-        )
-        feed = {k: v.to("cuda") for k, v in feed.items()}
+        if len(set(map(len, ids))) == 1:
+            # No padding needed: skip the attention mask entirely. With a
+            # mask, sdpa can materialize a full n*n additive bias, which OOMs
+            # on ~30k-token rows.
+            feed = {"input_ids": torch.tensor(ids, dtype=torch.long).to("cuda")}
+            last = None
+        else:
+            feed = tokenizer.pad(
+                {"input_ids": ids}, padding=True, return_tensors="pt",
+                return_attention_mask=True,
+            )
+            feed = {k: v.to("cuda") for k, v in feed.items()}
+            last = (feed["attention_mask"].sum(dim=1) - 1).cpu()
         with torch.inference_mode():
             h = model(**feed).last_hidden_state
-        last = (feed["attention_mask"].sum(dim=1) - 1).cpu()
+        if last is None:
+            last = torch.full((len(rows),), h.shape[1] - 1)
         vecs = h[torch.arange(len(rows)), last].float().cpu().numpy().astype(np.float64)
         return vecs / np.linalg.norm(vecs, axis=1, keepdims=True)
 
@@ -105,6 +115,8 @@ def main():
     done_tok, t0 = 0, time.monotonic()
     for b, rows in enumerate(batches, 1):
         vecs[rows] = encode_rows(rows)
+        if b % 200 == 0:
+            torch.cuda.empty_cache()
         done_tok += sum(len(fit[r][1]) for r in rows)
         el = time.monotonic() - t0
         print(f"batches {b}/{len(batches)} rows={sum(map(len, batches[:b]))}/{len(fit)} "
