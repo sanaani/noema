@@ -27,7 +27,10 @@ def main():
     parser.add_argument("--names", type=Path, required=True)
     parser.add_argument("--split", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--lr", type=float, default=LR)
+    parser.add_argument("--epochs", type=int, default=EPOCHS)
     args = parser.parse_args()
+    lr, epochs = args.lr, args.epochs
     if args.output.exists():
         raise FileExistsError("refusing to overwrite output directory")
     rng = np.random.default_rng(SEED)
@@ -48,18 +51,19 @@ def main():
     W = Q.copy()
     n = len(pairs)
     losses = []
-    for ep in range(EPOCHS):
+    for ep in range(epochs):
         perm = rng.permutation(n)
         tot, nb = 0.0, 0
         for s in range(0, n, BATCH):
             b = perm[s:s + BATCH]
-            A = X[pairs[b, 0]] @ W
-            A /= np.linalg.norm(A, axis=1, keepdims=True) + 1e-12
-            P = X[pairs[b, 1]] @ W
-            P /= np.linalg.norm(P, axis=1, keepdims=True) + 1e-12
+            XA, XP = X[pairs[b, 0]], X[pairs[b, 1]]
             neg_idx = rng.integers(0, len(names), size=(len(b), NEG))
-            N = X[neg_idx] @ W
-            N /= np.linalg.norm(N, axis=2, keepdims=True) + 1e-12
+            XN = X[neg_idx]
+            Au, Pu, Nu = XA @ W, XP @ W, XN @ W
+            na = np.linalg.norm(Au, axis=1) + 1e-12
+            np_ = np.linalg.norm(Pu, axis=1) + 1e-12
+            nn = np.linalg.norm(Nu, axis=2) + 1e-12
+            A, P, N = Au / na[:, None], Pu / np_[:, None], Nu / nn[:, :, None]
             s_pos = (A * P).sum(axis=1)
             s_neg = (A[:, None, :] * N).sum(axis=2)
             diff = MARGIN + s_neg - s_pos[:, None]
@@ -67,21 +71,21 @@ def main():
             tot += diff[mask].sum()
             nb += mask.sum()
             if mask.any():
-                XA, XP = X[pairs[b, 0]], X[pairs[b, 1]]
-                XN = X[neg_idx]
-                wA, wP = A, P
-                # gradient via projected-score chain rule (unit-norm approx);
-                # positive term weighted per-row by its active-negative count
+                # Exact gradient through the unit-norm projections:
+                # d(a.b)/dW = Xa^T((b - s*a)/||u||) + Xb^T((a - s*b)/||v||).
                 active = mask.sum(axis=1)
-                g_pos = (np.einsum("bi,bj,b->ij", XA, wP, active)
-                         + np.einsum("bi,bj,b->ij", XP, wA, active))
+                c1 = (P - s_pos[:, None] * A) / na[:, None] * active[:, None]
+                c2 = (A - s_pos[:, None] * P) / np_[:, None] * active[:, None]
+                g_pos = XA.T @ c1 + XP.T @ c2
                 g_neg = np.zeros_like(W)
                 for k in range(NEG):
                     m = mask[:, k]
                     if m.any():
-                        g_neg += np.einsum("bi,bj->ij", XA[m], N[m, k]) + np.einsum(
-                            "bi,bj->ij", XN[m, k], wA[m])
-                W -= LR * (g_neg - g_pos) / len(b)
+                        sk = s_neg[:, k]
+                        d1 = (N[:, k] - sk[:, None] * A) / na[:, None] * m[:, None]
+                        d2 = (A - sk[:, None] * N[:, k]) / nn[:, k, None] * m[:, None]
+                        g_neg += XA.T @ d1 + XN[:, k].T @ d2
+                W -= lr * (g_neg - g_pos) / len(b)
         losses.append(tot / max(nb, 1))
         print(f"epoch={ep} mean_active_loss={losses[-1]:.4f}", flush=True)
 
@@ -89,7 +93,7 @@ def main():
     np.save(args.output / "head.npy", W, allow_pickle=False)
     args.output.joinpath("train-metrics.json").write_text(json.dumps({
         "pairs": len(pairs), "seed": SEED, "dim": DIM, "neg": NEG,
-        "margin": MARGIN, "lr": LR, "epochs": EPOCHS, "loss": losses,
+        "margin": MARGIN, "lr": lr, "epochs": epochs, "loss": losses,
     }, indent=2) + "\n")
     print("TRAIN DONE", flush=True)
 

@@ -1,0 +1,58 @@
+{
+  "families": [
+    "Fourier: Basel sum / harmonic analysis",
+    "Euler criterion: squares / finite fields"
+  ],
+  "cases": [
+    {
+      "label": "Fourier: Basel sum / harmonic analysis",
+      "directions": [
+        {
+          "anchor": "hasSum_zeta_two",
+          "target": "hasSum_fourier_series_of_summable",
+          "unevaluable": [
+            "hasSum_geometric_two",
+            "hasSum_zeta_four",
+            "Real.sin_pi_div_six"
+          ]
+        },
+        {
+          "anchor": "hasSum_fourier_series_of_summable",
+          "target": "hasSum_zeta_two",
+          "unevaluable": [
+            "hasSum_fourier_series_L2",
+            "fourierCoeff.const_mul",
+            "fourierCoeff_toLp"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Euler criterion: squares / finite fields",
+      "directions": [
+        {
+          "anchor": "sq_eq_sq_iff_eq_or_eq_neg",
+          "target": "ZMod.pow_card_sub_one_eq_one",
+          "unevaluable": [
+            "Nat.sq_add_sq_zmodEq"
+          ]
+        },
+        {
+          "anchor": "ZMod.pow_card_sub_one_eq_one",
+          "target": "sq_eq_sq_iff_eq_or_eq_neg",
+          "candidates": 68,
+          "frozen": {
+            "target_rank": 13,
+            "best_lexical_rank": 1,
+            "beats_lexical": false
+          },
+          "head": {
+            "target_rank": 7,
+            "best_lexical_rank": 1,
+            "beats_lexical": false
+          }
+        }
+      ]
+    }
+  ]
+}
