@@ -1,9 +1,10 @@
-"""Encode training texts with frozen Qwen3-Embedding-0.6B on CUDA, batched.
+"""Encode texts with frozen Qwen3-Embedding-0.6B on CUDA, one row at a time.
 
-Same model, revision, pooling, and no-truncation contract as
-evaluate-structural-semantic-gpu.py; batching and a 50-item repeat sample
-replace the per-item double pass for 10k-scale throughput.
-Refuses to overwrite the output directory.
+Identical procedure to evaluate-structural-semantic-gpu.py (single forward
+per text, last-token pooling, L2-normalized float64): no padding and no
+attention mask ever exist, so no n*n mask bias can materialize and long rows
+cannot OOM. Vectors are saved BEFORE the 50-item drift re-encode, so a
+check crash can never lose them. Refuses to overwrite the output directory.
 """
 
 import argparse
@@ -20,7 +21,6 @@ import sys
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from noema.comparison_encoders import MODELS, save_json  # noqa: E402
 
-BATCH_TOKENS = 16384
 DRIFT_SAMPLE = 50
 DRIFT_TOL = 1e-6
 
@@ -73,80 +73,36 @@ def main():
         else:
             rejected[name] = len(ids)
     print(f"encoding {len(fit)}/{len(names)}; rejected_over_limit={len(rejected)}", flush=True)
-    worst = sorted(((len(ids), n) for n, ids in fit), reverse=True)[:5]
-    for n, name in worst:
+    for n, name in sorted(((len(ids), n) for n, ids in fit), reverse=True)[:5]:
         print(f"longest: {n} {name}", flush=True)
 
-    order = sorted(range(len(fit)), key=lambda i: len(fit[i][1]))
-    batches = []
-    cur, cur_tok = [], 0
-    for i in order:
-        if cur and cur_tok + len(fit[i][1]) > BATCH_TOKENS:
-            batches.append(cur)
-            cur, cur_tok = [], 0
-        cur.append(i)
-        cur_tok += len(fit[i][1])
-    if cur:
-        batches.append(cur)
-
-    def encode_rows(rows):
-        ids = [fit[i][1] for i in rows]
-        if len(set(map(len, ids))) == 1:
-            # No padding needed: skip the attention mask entirely. With a
-            # mask, sdpa can materialize a full n*n additive bias, which OOMs
-            # on ~30k-token rows.
-            feed = {"input_ids": torch.tensor(ids, dtype=torch.long).to("cuda")}
-            last = None
-        else:
-            feed = tokenizer.pad(
-                {"input_ids": ids}, padding=True, return_tensors="pt",
-                return_attention_mask=True,
-            )
-            feed = {k: v.to("cuda") for k, v in feed.items()}
-            last = (feed["attention_mask"].sum(dim=1) - 1).cpu()
+    def encode_one(ids):
+        feed = {"input_ids": torch.tensor([ids], dtype=torch.long).to("cuda")}
         with torch.inference_mode():
-            h = model(**feed).last_hidden_state
-        if last is None:
-            last = torch.full((len(rows),), h.shape[1] - 1)
-        vecs = h[torch.arange(len(rows)), last].float().cpu().numpy().astype(np.float64)
-        return vecs / np.linalg.norm(vecs, axis=1, keepdims=True)
+            h = model(**feed).last_hidden_state[0]
+        v = h[-1].float().cpu().numpy().astype(np.float64)
+        return v / np.linalg.norm(v)
 
     vecs = np.empty((len(fit), model.config.hidden_size), dtype=np.float64)
     done_tok, t0 = 0, time.monotonic()
-    for b, rows in enumerate(batches, 1):
-        vecs[rows] = encode_rows(rows)
-        if b % 200 == 0:
-            torch.cuda.empty_cache()
-        done_tok += sum(len(fit[r][1]) for r in rows)
-        el = time.monotonic() - t0
-        print(f"batches {b}/{len(batches)} rows={sum(map(len, batches[:b]))}/{len(fit)} "
-              f"tok={done_tok} tok_per_s={done_tok / el:.0f} elapsed_s={el:.0f}", flush=True)
+    for i, (_, ids) in enumerate(fit, 1):
+        vecs[i - 1] = encode_one(ids)
+        done_tok += len(ids)
+        if i % 100 == 0 or i == len(fit):
+            el = time.monotonic() - t0
+            print(f"rows {i}/{len(fit)} tok={done_tok} tok_per_s={done_tok / el:.0f} "
+                  f"elapsed_s={el:.0f}", flush=True)
 
     # Save BEFORE the drift check: a check crash must never lose the vectors.
     args.output.mkdir()
     np.save(args.output / "vectors.npy", vecs, allow_pickle=False)
-    save_json(args.output / "names.json", [fit[i][0] for i in range(len(fit))])
+    save_json(args.output / "names.json", [n for n, _ in fit])
     save_json(args.output / "rejected.json", rejected)
     print(f"saved {len(fit)} vectors", flush=True)
 
     rng = random.Random(97)
     sample = rng.sample(range(len(fit)), min(DRIFT_SAMPLE, len(fit)))
-    # Drift-check in the same token-budgeted batches: one giant padded
-    # forward over the longest rows OOMs the 22GB card.
-    check = np.empty((len(sample), vecs.shape[1]), dtype=np.float64)
-    s_cur, s_tok, done = [], 0, 0
-    def flush_sample():
-        nonlocal done
-        if s_cur:
-            check[done:done + len(s_cur)] = encode_rows(s_cur)
-            done += len(s_cur)
-    for r in sample:
-        if s_cur and s_tok + len(fit[r][1]) > BATCH_TOKENS:
-            flush_sample()
-            s_cur, s_tok = [], 0
-        s_cur.append(r)
-        s_tok += len(fit[r][1])
-    flush_sample()
+    check = np.asarray([encode_one(fit[r][1]) for r in sample])
     drift = float(np.linalg.norm(vecs[sample] - check, axis=1).max())
     print(f"drift_sample={len(sample)} max_drift={drift}", flush=True)
     if drift > DRIFT_TOL:
