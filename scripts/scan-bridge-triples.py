@@ -1,6 +1,8 @@
 import json, math, sys, collections, itertools, heapq, time
 EDGES = "/home/soverton/Documents/noema/results/link-graph-v1/edges.jsonl"
 DF_LO, DF_HI = 2, 200
+PLUMBING_FILTER = "--raw" not in sys.argv
+MIN_LANDMARK_DEPS = 20   # median theorem size: drops Prod.fst_zero-style trivia
 t0 = time.time()
 
 def rows():
@@ -14,16 +16,28 @@ def rows():
 
 # pass 1: document frequency
 df = collections.Counter()
+theorems = {}
 n = 0
 for name, mod, deps in rows():
     n += 1
+    theorems[name] = len(set(deps))
     df.update(set(deps))
 print(f"pass1 {n} theorems, {len(df)} distinct deps, {time.time()-t0:.0f}s", flush=True)
 
-rare = {l: i for i, l in enumerate(l for l, c in df.items() if DF_LO <= c <= DF_HI)}
+# A shared citation only counts as a landmark if it is itself a recorded theorem
+# (so: not a definition, class, instance or typeclass projection) and not machinery.
+JUNK = ("._", ".proof_", ".match_", "_auxLemma", ".noConfusion", ".injEq",
+        ".sizeOf", ".eq_def", ".brecOn", ".rec")
+def is_landmark(l):
+    if PLUMBING_FILTER and theorems.get(l, 0) < MIN_LANDMARK_DEPS: return False
+    if l.startswith("Mathlib.Tactic") or l.startswith("Mathlib.Init"): return False
+    return not any(j in l for j in JUNK)
+
+rare = {l: i for i, l in enumerate(
+    l for l, c in df.items() if DF_LO <= c <= DF_HI and is_landmark(l))}
 rdf = [0]*len(rare)
 for l, i in rare.items(): rdf[i] = df[l]
-print(f"rare lemmas (df {DF_LO}-{DF_HI}): {len(rare)}  sum df^2 = {sum(c*c for c in rdf):,}", flush=True)
+print(f"filter={PLUMBING_FILTER} rare landmarks (df {DF_LO}-{DF_HI}): {len(rare)}  sum df^2 = {sum(c*c for c in rdf):,}", flush=True)
 
 # pass 2: rare-citation sets
 names, mods, rsets, allsets = [], [], [], []

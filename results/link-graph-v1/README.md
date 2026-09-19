@@ -47,7 +47,27 @@ Mathlib areas, and no citation among any of the three. Score = min of the two
 rarity-weighted overlaps. 205,833 theorems → 94,200 rare lemmas → 121,604 with ≥2
 rare citations → 4,000 triples, 145s.
 
-Unlike shared-citation pairs, a triple names its own bridge. Top hit:
+### Landmark filter
+
+A shared citation counts only if it is itself a recorded theorem in `edges.jsonl`
+(excluding definitions, classes, instances and typeclass projections, which never
+appear as keys) whose own proof cites at least 20 constants — the median theorem
+size, which drops `Prod.fst_zero`-style trivia. Tactic internals are excluded by
+name. `--raw` disables the filter and reproduces `bridge-triples.json.gz`.
+
+| | raw | theorem-only | + median size |
+|---|---|---|---|
+| rare landmarks | 94,200 | 48,603 | 27,373 |
+| theorems with >=2 | 121,604 | 60,209 | 26,620 |
+| runtime | 145s | 28s | 12s |
+
+Filtering makes the scan faster, not slower. It also reshuffles the ranking
+almost completely: only 716 of the raw top-4,000 pairs survive into the
+theorem-only top-4,000, and 466 into the final one. The score is therefore not
+a stable ordering — treat a triple as a candidate to verify, never as a result.
+`bridge-triples-landmarks.json.gz` is the filtered run.
+
+Unlike shared-citation pairs, a triple names its own bridge. Top hit of the raw run:
 `RingHom.isSemisimpleRing_of_surjective` (RingTheory) and
 `Module.isTorsionBySet_span_singleton_iff` (Algebra), bridged by
 `Module.End.isSemisimple_of_squarefree_aeval_eq_zero` (LinearAlgebra), which routes
