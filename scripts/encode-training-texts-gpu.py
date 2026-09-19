@@ -110,18 +110,35 @@ def main():
         print(f"batches {b}/{len(batches)} rows={sum(map(len, batches[:b]))}/{len(fit)} "
               f"tok={done_tok} tok_per_s={done_tok / el:.0f} elapsed_s={el:.0f}", flush=True)
 
-    rng = random.Random(97)
-    sample = rng.sample(range(len(fit)), min(DRIFT_SAMPLE, len(fit)))
-    check = encode_rows(sample)
-    drift = float(np.linalg.norm(vecs[sample] - check, axis=1).max())
-    print(f"drift_sample={len(sample)} max_drift={drift}", flush=True)
-    if drift > DRIFT_TOL:
-        raise ValueError(f"GPU repeat drift {drift} exceeds tolerance")
-
+    # Save BEFORE the drift check: a check crash must never lose the vectors.
     args.output.mkdir()
     np.save(args.output / "vectors.npy", vecs, allow_pickle=False)
     save_json(args.output / "names.json", [fit[i][0] for i in range(len(fit))])
     save_json(args.output / "rejected.json", rejected)
+    print(f"saved {len(fit)} vectors", flush=True)
+
+    rng = random.Random(97)
+    sample = rng.sample(range(len(fit)), min(DRIFT_SAMPLE, len(fit)))
+    # Drift-check in the same token-budgeted batches: one giant padded
+    # forward over the longest rows OOMs the 22GB card.
+    check = np.empty((len(sample), vecs.shape[1]), dtype=np.float64)
+    s_cur, s_tok, done = [], 0, 0
+    def flush_sample():
+        nonlocal done
+        if s_cur:
+            check[done:done + len(s_cur)] = encode_rows(s_cur)
+            done += len(s_cur)
+    for r in sample:
+        if s_cur and s_tok + len(fit[r][1]) > BATCH_TOKENS:
+            flush_sample()
+            s_cur, s_tok = [], 0
+        s_cur.append(r)
+        s_tok += len(fit[r][1])
+    flush_sample()
+    drift = float(np.linalg.norm(vecs[sample] - check, axis=1).max())
+    print(f"drift_sample={len(sample)} max_drift={drift}", flush=True)
+    if drift > DRIFT_TOL:
+        raise ValueError(f"GPU repeat drift {drift} exceeds tolerance")
     save_json(args.output / "meta.json", {
         "model": model_name, "revision": revision, "pooling": pooling,
         "encoded": len(fit), "rejected": len(rejected),
