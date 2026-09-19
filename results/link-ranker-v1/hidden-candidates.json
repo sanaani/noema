@@ -1,0 +1,182 @@
+[
+ {
+  "a": "HurwitzZeta.sinKernel_def",
+  "b": "inner_map_polarization'",
+  "head_sim": 0.6658,
+  "frozen_sim": 0.6963
+ },
+ {
+  "a": "HurwitzZeta.sinKernel_def",
+  "b": "inner_map_polarization",
+  "head_sim": 0.6641,
+  "frozen_sim": 0.6956
+ },
+ {
+  "a": "NumberField.canonicalEmbedding.mem_rat_span_latticeBasis",
+  "b": "Complex.Gamma\u2102_add_one",
+  "head_sim": 0.6504,
+  "frozen_sim": 0.6943
+ },
+ {
+  "a": "Complex.log_mul",
+  "b": "inner_map_polarization'",
+  "head_sim": 0.6498,
+  "frozen_sim": 0.6859
+ },
+ {
+  "a": "Complex.log_mul",
+  "b": "inner_map_polarization",
+  "head_sim": 0.6494,
+  "frozen_sim": 0.6861
+ },
+ {
+  "a": "NumberField.canonicalEmbedding.mem_rat_span_latticeBasis",
+  "b": "Complex.Gamma\u211d_add_two",
+  "head_sim": 0.6489,
+  "frozen_sim": 0.6997
+ },
+ {
+  "a": "HurwitzZeta.sinKernel_def",
+  "b": "NumberField.canonicalEmbedding.mem_rat_span_latticeBasis",
+  "head_sim": 0.645,
+  "frozen_sim": 0.6833
+ },
+ {
+  "a": "Real.arctan_ne_mul_pi_div_two",
+  "b": "Orientation.oangle_sub_right_smul_rotation_pi_div_two",
+  "head_sim": 0.6441,
+  "frozen_sim": 0.6971
+ },
+ {
+  "a": "Real.arctan_ne_mul_pi_div_two",
+  "b": "Orientation.oangle_add_left_smul_rotation_pi_div_two",
+  "head_sim": 0.6424,
+  "frozen_sim": 0.695
+ },
+ {
+  "a": "Complex.two_pi_I_inv_smul_circleIntegral_sub_inv_smul_of_differentiable_on_off_countable",
+  "b": "ProbabilityTheory.measurable_gammaPDFReal",
+  "head_sim": 0.6423,
+  "frozen_sim": 0.686
+ },
+ {
+  "a": "MeasureTheory.Measure.InnerRegularWRT.isCompact_isClosed",
+  "b": "ContinuousMap.idealOfSet_ofIdeal_eq_closure",
+  "head_sim": 0.642,
+  "frozen_sim": 0.6996
+ },
+ {
+  "a": "hasFTaylorSeriesUpToOn_top_iff",
+  "b": "AkraBazziRecurrence.growsPolynomially_deriv_rpow_p_mul_one_sub_smoothingFn",
+  "head_sim": 0.6419,
+  "frozen_sim": 0.6998
+ },
+ {
+  "a": "hasFTaylorSeriesUpToOn_top_iff",
+  "b": "AkraBazziRecurrence.growsPolynomially_deriv_rpow_p_mul_one_add_smoothingFn",
+  "head_sim": 0.6417,
+  "frozen_sim": 0.6991
+ },
+ {
+  "a": "Int.Ioc_filter_modEq_card",
+  "b": "IsCyclotomicExtension.Rat.absdiscr_prime_pow",
+  "head_sim": 0.6413,
+  "frozen_sim": 0.6925
+ },
+ {
+  "a": "HurwitzZeta.cosKernel_def",
+  "b": "inner_map_polarization'",
+  "head_sim": 0.6411,
+  "frozen_sim": 0.6802
+ },
+ {
+  "a": "HurwitzZeta.cosKernel_def",
+  "b": "inner_map_polarization",
+  "head_sim": 0.64,
+  "frozen_sim": 0.6801
+ },
+ {
+  "a": "Complex.cos_ne_zero_of_arctan_bounds",
+  "b": "IsCyclotomicExtension.Rat.absdiscr_prime_pow",
+  "head_sim": 0.6394,
+  "frozen_sim": 0.6964
+ },
+ {
+  "a": "Complex.continuousAt_tan",
+  "b": "EisensteinSeries.auxbound2",
+  "head_sim": 0.6384,
+  "frozen_sim": 0.6937
+ },
+ {
+  "a": "Complex.two_pi_I_inv_smul_circleIntegral_sub_inv_smul_of_differentiable_on_off_countable",
+  "b": "ProbabilityTheory.measurable_gaussianPDFReal",
+  "head_sim": 0.6383,
+  "frozen_sim": 0.6927
+ },
+ {
+  "a": "Real.one_half_lt_eulerMascheroniSeq_six",
+  "b": "taylorWithinEval_succ",
+  "head_sim": 0.6368,
+  "frozen_sim": 0.6996
+ },
+ {
+  "a": "Orientation.eq_zero_or_angle_eq_zero_or_pi_of_sign_oangle_eq_zero",
+  "b": "gold_irrational",
+  "head_sim": 0.6363,
+  "frozen_sim": 0.6906
+ },
+ {
+  "a": "Quaternion.normSq_exp",
+  "b": "gold_irrational",
+  "head_sim": 0.6362,
+  "frozen_sim": 0.688
+ },
+ {
+  "a": "Complex.circleIntegral_sub_center_inv_smul_eq_of_differentiable_on_annulus_off_countable",
+  "b": "ProbabilityTheory.measurable_gammaPDFReal",
+  "head_sim": 0.6359,
+  "frozen_sim": 0.6991
+ },
+ {
+  "a": "ContinuousLinearMap.IsPositive.add",
+  "b": "MeasureTheory.ProbabilityMeasure.continuous_toLevyProkhorov",
+  "head_sim": 0.6356,
+  "frozen_sim": 0.6997
+ },
+ {
+  "a": "fourierCoeffOn_eq_integral",
+  "b": "Real.one_half_lt_eulerMascheroniSeq_six",
+  "head_sim": 0.6355,
+  "frozen_sim": 0.6925
+ },
+ {
+  "a": "NumberField.canonicalEmbedding.mem_rat_span_latticeBasis",
+  "b": "Padic.rat_dense'",
+  "head_sim": 0.6351,
+  "frozen_sim": 0.6969
+ },
+ {
+  "a": "ProbabilityTheory.lintegral_gammaPDF_eq_one",
+  "b": "VectorFourier.integrable_fourierPowSMulRight",
+  "head_sim": 0.6351,
+  "frozen_sim": 0.6996
+ },
+ {
+  "a": "Complex.continuousAt_tan",
+  "b": "EisensteinSeries.auxbound1",
+  "head_sim": 0.6339,
+  "frozen_sim": 0.6904
+ },
+ {
+  "a": "HurwitzZeta.jacobiTheta\u2082'_functional_equation'",
+  "b": "NumberField.canonicalEmbedding.latticeBasis_apply",
+  "head_sim": 0.6338,
+  "frozen_sim": 0.6833
+ },
+ {
+  "a": "HurwitzZeta.sinKernel_def",
+  "b": "ContDiff.fourierPowSMulRight",
+  "head_sim": 0.6336,
+  "frozen_sim": 0.6991
+ }
+]
