@@ -35,3 +35,26 @@ Held-out referee: `results/bridge-expansion-v1/evaluation-v1`
   in `RefereeCenters.lean` (all 91 verified as recorded theorems in
   `edges.jsonl.gz`). Train/referee split: 4 families train, Fourier +
   Euler-criterion held out.
+
+## Bridge triples (near-miss intersections)
+
+`scripts/scan-bridge-triples.py` → `bridge-triples.json.gz` (top 4,000 by score).
+
+For every theorem C, take the proofs sharing ≥2 rare citations with it (df 2–200,
+rarity-weighted, top 150 per C) and keep pairs (A, B) from that neighbourhood with:
+**zero** shared rare citations between A and B, all three in different top-level
+Mathlib areas, and no citation among any of the three. Score = min of the two
+rarity-weighted overlaps. 205,833 theorems → 94,200 rare lemmas → 121,604 with ≥2
+rare citations → 4,000 triples, 145s.
+
+Unlike shared-citation pairs, a triple names its own bridge. Top hit:
+`RingHom.isSemisimpleRing_of_surjective` (RingTheory) and
+`Module.isTorsionBySet_span_singleton_iff` (Algebra), bridged by
+`Module.End.isSemisimple_of_squarefree_aeval_eq_zero` (LinearAlgebra), which routes
+semisimplicity through K[X]-torsion. Many lower-ranked triples share only typeclass
+projections or auto-generated auxiliaries; a plumbing filter is not yet applied.
+
+`Bridge-sinKernel-polarization.lean` — Lean 4.9 check of the `sinKernel_def` /
+`inner_map_polarization'` embedding candidate: polarization generalized to any
+primitive n-th root of unity (n ≥ 3), `n = 4` recovering Mathlib's lemma, `n = 2`
+landing on `Complex.re`. Verdict: the embedding pair is a proof-style false positive.

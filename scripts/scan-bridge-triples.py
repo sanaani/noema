@@ -1,0 +1,95 @@
+import json, math, sys, collections, itertools, heapq, time
+EDGES = "/home/soverton/Documents/noema/results/link-graph-v1/edges.jsonl"
+DF_LO, DF_HI = 2, 200
+t0 = time.time()
+
+def rows():
+    with open(EDGES) as f:
+        for L in f:
+            r = json.loads(L)
+            d = r.get("deps")
+            if d is None:      # oversize-skipped
+                continue
+            yield r["theorem"], r.get("module", ""), d
+
+# pass 1: document frequency
+df = collections.Counter()
+n = 0
+for name, mod, deps in rows():
+    n += 1
+    df.update(set(deps))
+print(f"pass1 {n} theorems, {len(df)} distinct deps, {time.time()-t0:.0f}s", flush=True)
+
+rare = {l: i for i, l in enumerate(l for l, c in df.items() if DF_LO <= c <= DF_HI)}
+rdf = [0]*len(rare)
+for l, i in rare.items(): rdf[i] = df[l]
+print(f"rare lemmas (df {DF_LO}-{DF_HI}): {len(rare)}  sum df^2 = {sum(c*c for c in rdf):,}", flush=True)
+
+# pass 2: rare-citation sets
+names, mods, rsets, allsets = [], [], [], []
+for name, mod, deps in rows():
+    if name.startswith("proof_") or ".proof_" in name: continue
+    s = {rare[d] for d in set(deps) if d in rare}
+    if len(s) < 2: continue
+    names.append(name); mods.append(mod); rsets.append(frozenset(s)); allsets.append(frozenset(deps))
+N = len(names)
+idx = {nm: i for i, nm in enumerate(names)}
+print(f"pass2 {N} theorems with >=2 rare citations, {time.time()-t0:.0f}s", flush=True)
+
+inv = collections.defaultdict(list)
+for i, s in enumerate(rsets):
+    for l in s: inv[l].append(i)
+
+def area(m):
+    p = m.split("."); return p[1] if len(p) > 1 else m
+areas = [area(m) for m in mods]
+W = [1.0/c for c in rdf]                      # rarity weight
+
+def neighbors(i, cap=150):
+    cnt = collections.Counter()
+    for l in rsets[i]:
+        for j in inv[l]:
+            if j != i: cnt[j] += 1
+    out = []
+    for j, c in cnt.items():
+        if c < 2: continue
+        w = sum(W[l] for l in rsets[i] & rsets[j])
+        out.append((w, j))
+    out.sort(reverse=True)
+    return out[:cap]
+
+def cites(i, j):   # does i's proof term mention j (or vice versa)
+    return names[j] in allsets[i] or names[i] in allsets[j]
+
+best = []
+seen = set()
+for c in range(N):
+    nb = neighbors(c)
+    if len(nb) < 2: continue
+    for (wa, a), (wb, b) in itertools.combinations(nb, 2):
+        if areas[a] == areas[b] or areas[a] == areas[c] or areas[b] == areas[c]: continue
+        if rsets[a] & rsets[b]: continue                 # must NOT already intersect
+        if cites(a, b) or cites(a, c) or cites(b, c): continue
+        key = (min(a, b), max(a, b))
+        if key in seen: continue
+        seen.add(key)
+        score = min(wa, wb)
+        if len(best) < 4000: heapq.heappush(best, (score, a, b, c, wa, wb))
+        elif score > best[0][0]: heapq.heapreplace(best, (score, a, b, c, wa, wb))
+    if c % 20000 == 0:
+        print(f"  c={c}/{N} kept={len(best)} {time.time()-t0:.0f}s", flush=True)
+
+best.sort(reverse=True)
+out = []
+for score, a, b, c, wa, wb in best:
+    out.append({"a": names[a], "b": names[b], "bridge": names[c],
+                "a_area": areas[a], "b_area": areas[b], "bridge_area": areas[c],
+                "score": round(score, 4), "w_ac": round(wa, 4), "w_bc": round(wb, 4),
+                "shared_ac": sorted(l for l in (rsets[a] & rsets[c])),
+                "shared_bc": sorted(l for l in (rsets[b] & rsets[c]))})
+rev = {i: l for l, i in rare.items()}
+for r in out:
+    r["shared_ac"] = [rev[i] for i in r["shared_ac"]]
+    r["shared_bc"] = [rev[i] for i in r["shared_bc"]]
+json.dump(out, open(sys.argv[1], "w"), indent=1)
+print(f"done: {len(out)} triples, {time.time()-t0:.0f}s", flush=True)
