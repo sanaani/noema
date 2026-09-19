@@ -23,3 +23,15 @@ All 6 benchmark families share citations across their (A, B, bridge)
 triples (1–39 shared names, mostly typeclass/transport machinery).
 Held-out referee: `results/bridge-expansion-v1/evaluation-v1`
 (6-case structural benchmark).
+
+## Training texts
+
+- `training-texts.jsonl.gz` — 10,602 `{name, sexpr}` records from bulk
+  `centers.jsonl.gz`, byte-gated at 100KB raw line (1,192 oversize gated,
+  0 malformed). Covers 10,602 of 58,642 pair names; 50,955 of 245,628
+  pairs have texts on both endpoints.
+- Referee universe (18 case + 64 background + 12 hard-control + ranking
+  names = 91 unique) has ZERO overlap with bulk texts → targeted capture
+  in `RefereeCenters.lean` (all 91 verified as recorded theorems in
+  `edges.jsonl.gz`). Train/referee split: 4 families train, Fourier +
+  Euler-criterion held out.
