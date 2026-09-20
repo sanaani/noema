@@ -27,8 +27,11 @@ def main():
     args = parser.parse_args()
     specification = json.loads(args.inputs.read_text())
     texts = specification["texts"]
-    if texts != sorted(set(texts)) or len(texts) != 8500:
-        raise ValueError("expected the complete frozen 8500-input list")
+    expected = specification.get("count")
+    if expected is None:
+        raise ValueError("input specification must declare its frozen 'count'")
+    if texts != sorted(set(texts)) or len(texts) != expected:
+        raise ValueError(f"expected the complete frozen {expected}-input list")
     adapter_path = Path(__file__).with_name("benchmark-reprover-device.py")
     hashes = {
         "reprover": checksum(Path(reprover.__file__)),
