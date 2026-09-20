@@ -30,3 +30,23 @@ Proof: rewrite by B, unfold circle-angle equality via
 Elaborated on pinned Mathlib (`f0957a75`, Lean 4.9.0) via AWS CPU worker
 (`outputs/aws-cpu-run-noema-bridge-cpu-20260919/`): `lean rc=0`, no errors,
 `#print axioms` = `[propext, Classical.choice, Quot.sound]` for both — no `sorryAx`.
+
+## Polarization over roots of unity (pair #14/15, proved)
+
+`polarization-over-roots.lean` (formerly `UNVERIFIED-polarization-over-roots.lean`):
+the bridge lemma generalizing `inner_map_polarization'` from `n = 4, ζ = I`
+to any primitive `n`-th root of unity (`n ≥ 3`), recovering the sesquilinear
+form `⟪T x, y⟫` from its diagonal, plus the `n = 2` symmetric-part corollary
+and the `Complex.re` specialization showing where the theta-kernel proofs meet
+the bridge (and where they don't — the bridge route is strictly longer and the
+theta content is untouched).
+
+Machine check: elaborated on pinned Mathlib (`f0957a75`, Lean 4.9.0) via AWS
+CPU worker (`outputs/aws-cpu-run-noema-polarization-cpu-20260920/`):
+`lean rc=0`, no errors, `#print axioms` = `[propext, Classical.choice,
+Quot.sound]` for `inner_map_polarization_roots` and `re_eq_polarization` —
+no `sorryAx`. (Two earlier worker attempts died silently: the worker IAM role
+scoped S3 access to enumerated task keys/result prefixes, and the new
+`task-polarization.tar.gz` / `results/noema-polarization-cpu-20260920/`
+names were denied. Widened the `s3-temp-bucket` inline policy with exactly
+those two entries; third attempt passed.)
