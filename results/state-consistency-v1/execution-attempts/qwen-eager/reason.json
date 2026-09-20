@@ -1,0 +1,6 @@
+{
+  "status": "stopped_for_performance",
+  "elapsed_seconds_approximately": 520,
+  "progress": "11/61 first-pass class encodings; no completed vector artifact",
+  "replacement": "same weights/inputs, SDPA attention, full rerun; do not mix outputs"
+}

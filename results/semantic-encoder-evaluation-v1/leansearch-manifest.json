@@ -1,0 +1,32 @@
+{
+  "model": "ruc-ai4math/LeanStateSearch2025.3",
+  "revision": "b3507394baec2f1cedcc41e320d956b366ece35b",
+  "pooling": "mean",
+  "prefix": "",
+  "dimension": 768,
+  "torch": "2.7.1+cpu",
+  "transformers": "4.53.3",
+  "numpy": "2.2.6",
+  "device": "cpu",
+  "dtype": "float32",
+  "attention": "eager",
+  "batch_size": 1,
+  "threads": 2,
+  "max_tokens": 512,
+  "truncation": false,
+  "normalization": "L2 in float64 after official pooling",
+  "files": {
+    "config.json": "de0d5fe6d772c36cc10d5bb3d59c559dad1fcf5e04d3e4bc4612a5cd3c10e93e",
+    "README.md": "e8896114c57c2d5693d3115c4d8eef974d6da5f517ec7e7aab7b97f41f096e61",
+    "sentence_bert_config.json": "ec8e29d6dcb61b611b7d3fdd2982c4524e6ad985959fa7194eacfb655a8d0d51",
+    "modules.json": "84e40c8e006c9b1d6c122e02cba9b02458120b5fb0c87b746c41e0207cf642cf",
+    "model.safetensors": "b71aee0d75d9f6066c8f54e4dccc4f38670bbc691c43dffe2c80c0d806a0ce14",
+    "vocab.txt": "3258b05021c1edcfaa94f7ba39e4fe9ad1d18973b0933aed24f215b175a0fd7e",
+    "special_tokens_map.json": "5d5b662e421ea9fac075174bb0688ee0d9431699900b90662acd44b2a350503a",
+    "config_sentence_transformers.json": "01da5696cb57a833671a144b29e65484afbb198de4237184f4084b98a3e42d4b",
+    "tokenizer.json": "81243ce3fbd0511321d049e89f36a1369b13e3d69af5fc9e38ca80bf8b6b630e",
+    "added_tokens.json": "742eafbae478a1d09a88577bacb5c33d7dc50327312808a55f903734522707aa",
+    "tokenizer_config.json": "f6ccf1a395302556364aa307175cb1110ee55d2f44561d2a90bd797bec5c450e",
+    "1_Pooling/config.json": "1c8bc7bd750c5c20d8707f1c5c578f5d69bb3d1d5ebcf4b2fde5128de154ec1c"
+  }
+}

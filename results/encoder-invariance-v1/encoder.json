@@ -1,0 +1,23 @@
+{
+  "model": "kaiyuy/leandojo-lean4-retriever-byt5-small",
+  "export": "kaiyuy/ct2-leandojo-lean4-retriever-byt5-small",
+  "revision": "8612469b496b72bdb2f0d6ccd5316c100200581e",
+  "checksums": {
+    "model.bin": "311e636b7479e97236de85f5271f2b045e1e40a1de5a431df03b050b2176f827",
+    "config.json": "d3b27bd603df8fb368c641042d2f280d6821066a433f497aa24a2758cc49497c",
+    "vocabulary.json": "60259dce54d4677a043dbadcedb27916fa934567c01a796124dec71bf23a3e09"
+  },
+  "ctranslate2": "4.8.2",
+  "compute_type": "int8_float32",
+  "tokenization": "UTF-8 bytes +3, append EOS=1, reject >1024 tokens",
+  "pooling": "nonpadding mean including EOS, then L2 normalize",
+  "dimension": 1472,
+  "lean_version": "Lean (version 4.33.1, x86_64-unknown-linux-gnu, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "device": "cpu",
+  "numpy": "2.5.3",
+  "fixture_sha256": "8aff9336b62303e8b0c247dd41bc34796b5a4ae55a6413c83930ff43432e3ee6",
+  "protocol_sha256": "12433310f96da1e3d0a720e89f6e4621030e3fd381d02d0c16d2accea8fe9fcd",
+  "lean_output_sha256": "391e7262ff0bd6c28bb665a88e0536aab51c4f2c813e70899fc01a417dfe546a",
+  "script_sha256": "95b18b06def72683736179a1ee2dcb78382649aaa0e2b7598ee4298f84c8e085",
+  "analysis_code_sha256": "ad405855a0bfafa68e23190ca4839843359abcefe3125a7cd11ce988a9a873bc"
+}

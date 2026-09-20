@@ -1,0 +1,18 @@
+{
+  "completed": true,
+  "seconds": 365.73526156996377,
+  "representations": {
+    "raw": {
+      "physical_rows": 340,
+      "repeats": 68,
+      "distinct_texts": 186
+    },
+    "canonical": {
+      "physical_rows": 340,
+      "repeats": 68,
+      "distinct_texts": 46
+    }
+  },
+  "unique_input_inferences": 231,
+  "cache_policy": "exact text only; separate physical rows; repeats bypass cache"
+}

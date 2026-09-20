@@ -1,0 +1,212 @@
+{
+  "registry_id": "e42dbf40825776be5560675a95fe2f36ce91625fce58e0d366b4a807565120fd",
+  "rows": [
+    {
+      "theorem": "and_assoc",
+      "occurrences": 8,
+      "different_normalized_payload_substitutions": 0,
+      "max_vector_drift": 0.0,
+      "cdf_sup": 0.0,
+      "cdf_witness_radius": 0.0,
+      "wasserstein_1": 0.0,
+      "max_paired_radius_drift": 0.0,
+      "before_radii": [
+        0.0,
+        0.09669763306677337,
+        0.17689679495549404,
+        0.10407888208849439,
+        0.16366161408574728,
+        0.10099626512917174,
+        0.0,
+        0.09669763306677337
+      ],
+      "after_radii": [
+        0.0,
+        0.09669763306677337,
+        0.17689679495549404,
+        0.10407888208849439,
+        0.16366161408574728,
+        0.10099626512917174,
+        0.0,
+        0.09669763306677337
+      ]
+    },
+    {
+      "theorem": "and_swap",
+      "occurrences": 6,
+      "different_normalized_payload_substitutions": 0,
+      "max_vector_drift": 0.0,
+      "cdf_sup": 0.0,
+      "cdf_witness_radius": 0.0,
+      "wasserstein_1": 0.0,
+      "max_paired_radius_drift": 0.0,
+      "before_radii": [
+        0.0,
+        0.11815085686338951,
+        0.14624746350862344,
+        0.1176852835790248,
+        0.0,
+        0.11815085686338951
+      ],
+      "after_radii": [
+        0.0,
+        0.11815085686338951,
+        0.14624746350862344,
+        0.1176852835790248,
+        0.0,
+        0.11815085686338951
+      ]
+    },
+    {
+      "theorem": "eq_symm",
+      "occurrences": 5,
+      "different_normalized_payload_substitutions": 0,
+      "max_vector_drift": 0.0,
+      "cdf_sup": 0.0,
+      "cdf_witness_radius": 0.0,
+      "wasserstein_1": 0.0,
+      "max_paired_radius_drift": 0.0,
+      "before_radii": [
+        0.0,
+        0.10906833672299254,
+        0.10823217631023249,
+        0.0,
+        0.10906833672299254
+      ],
+      "after_radii": [
+        0.0,
+        0.10906833672299254,
+        0.10823217631023249,
+        0.0,
+        0.10906833672299254
+      ]
+    },
+    {
+      "theorem": "eq_trans",
+      "occurrences": 5,
+      "different_normalized_payload_substitutions": 0,
+      "max_vector_drift": 0.0,
+      "cdf_sup": 0.0,
+      "cdf_witness_radius": 0.0,
+      "wasserstein_1": 0.0,
+      "max_paired_radius_drift": 0.0,
+      "before_radii": [
+        0.0,
+        0.11863034816396237,
+        0.12170833834663809,
+        0.0,
+        0.11863034816396237
+      ],
+      "after_radii": [
+        0.0,
+        0.11863034816396237,
+        0.12170833834663809,
+        0.0,
+        0.11863034816396237
+      ]
+    },
+    {
+      "theorem": "imp_comp",
+      "occurrences": 6,
+      "different_normalized_payload_substitutions": 0,
+      "max_vector_drift": 0.0,
+      "cdf_sup": 0.0,
+      "cdf_witness_radius": 0.0,
+      "wasserstein_1": 0.0,
+      "max_paired_radius_drift": 0.0,
+      "before_radii": [
+        0.0,
+        0.1392250328559569,
+        0.13686209337815547,
+        0.14371212782830184,
+        0.0,
+        0.1392250328559569
+      ],
+      "after_radii": [
+        0.0,
+        0.1392250328559569,
+        0.13686209337815547,
+        0.14371212782830184,
+        0.0,
+        0.1392250328559569
+      ]
+    },
+    {
+      "theorem": "list_assoc",
+      "occurrences": 4,
+      "different_normalized_payload_substitutions": 0,
+      "max_vector_drift": 0.0,
+      "cdf_sup": 0.0,
+      "cdf_witness_radius": 0.0,
+      "wasserstein_1": 0.0,
+      "max_paired_radius_drift": 0.0,
+      "before_radii": [
+        0.0,
+        0.10376959719674479,
+        0.0,
+        0.10376959719674479
+      ],
+      "after_radii": [
+        0.0,
+        0.10376959719674479,
+        0.0,
+        0.10376959719674479
+      ]
+    },
+    {
+      "theorem": "nat_assoc",
+      "occurrences": 4,
+      "different_normalized_payload_substitutions": 0,
+      "max_vector_drift": 0.0,
+      "cdf_sup": 0.0,
+      "cdf_witness_radius": 0.0,
+      "wasserstein_1": 0.0,
+      "max_paired_radius_drift": 0.0,
+      "before_radii": [
+        0.0,
+        0.09886691136835342,
+        0.0,
+        0.09886691136835342
+      ],
+      "after_radii": [
+        0.0,
+        0.09886691136835342,
+        0.0,
+        0.09886691136835342
+      ]
+    },
+    {
+      "theorem": "or_swap",
+      "occurrences": 6,
+      "different_normalized_payload_substitutions": 0,
+      "max_vector_drift": 0.0,
+      "cdf_sup": 0.0,
+      "cdf_witness_radius": 0.0,
+      "wasserstein_1": 0.0,
+      "max_paired_radius_drift": 0.0,
+      "before_radii": [
+        0.0,
+        0.1188604120922426,
+        0.16709205280952633,
+        0.1451212772155846,
+        0.0,
+        0.1188604120922426
+      ],
+      "after_radii": [
+        0.0,
+        0.1188604120922426,
+        0.16709205280952633,
+        0.1451212772155846,
+        0.0,
+        0.1188604120922426
+      ]
+    }
+  ],
+  "full_registry_panel": {
+    "occurrences": 106,
+    "centers_checked": 106,
+    "different_normalized_payload_substitutions": 8,
+    "max_pairwise_distance_drift": 0.0
+  },
+  "interpretation": "lookup contract check; equivalence independently certified by Lean"
+}

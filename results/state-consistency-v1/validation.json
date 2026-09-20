@@ -1,0 +1,344 @@
+{
+  "registry_id": "e42dbf40825776be5560675a95fe2f36ce91625fce58e0d366b4a807565120fd",
+  "real_mathlib_center_recapture": {
+    "theorems": 106,
+    "states": 212,
+    "environment": "Lean 4.9.0 / Mathlib f0957a7575317490107578ebaee9efaf8e62a4ab",
+    "structural_capture": true,
+    "full_historical_proof_trajectory_recapture": false
+  },
+  "pytest": {
+    "passed": 189,
+    "all_passed": true,
+    "log": "execution-logs/state-consistency-full-tests.log"
+  },
+  "ruff_check": "passed",
+  "ruff_format_check": "passed; 236 files including execution snapshots",
+  "git_diff_check": "passed",
+  "formal": {
+    "expected_pairs": 34,
+    "all_expected_passed": true,
+    "proofs": [
+      {
+        "axioms": [],
+        "name": "and_swap_0"
+      },
+      {
+        "axioms": [],
+        "name": "and_swap_1"
+      },
+      {
+        "axioms": [],
+        "name": "and_assoc_0"
+      },
+      {
+        "axioms": [],
+        "name": "and_assoc_1"
+      },
+      {
+        "axioms": [],
+        "name": "imp_comp_0"
+      },
+      {
+        "axioms": [],
+        "name": "imp_comp_1"
+      },
+      {
+        "axioms": [],
+        "name": "or_swap_0"
+      },
+      {
+        "axioms": [],
+        "name": "or_swap_1"
+      },
+      {
+        "axioms": [],
+        "name": "eq_symm_0"
+      },
+      {
+        "axioms": [],
+        "name": "eq_symm_1"
+      },
+      {
+        "axioms": [],
+        "name": "eq_trans_0"
+      },
+      {
+        "axioms": [],
+        "name": "eq_trans_1"
+      },
+      {
+        "axioms": [],
+        "name": "nat_assoc_0"
+      },
+      {
+        "axioms": [
+          "propext"
+        ],
+        "name": "nat_assoc_1"
+      },
+      {
+        "axioms": [
+          "propext"
+        ],
+        "name": "list_assoc_0"
+      },
+      {
+        "axioms": [
+          "propext"
+        ],
+        "name": "list_assoc_1"
+      }
+    ],
+    "expected_rejections": [
+      "expr_mvar",
+      "universe_mvar",
+      "loose_bvar"
+    ],
+    "registry_classes": 62,
+    "occurrences": 123,
+    "checked_pairs": 7626,
+    "classes_with_distinct_normalized_payloads": 3
+  },
+  "nonempty_equivalent_distinct_occurrence_pairs": 141,
+  "accepted_model": "qwen",
+  "qwen": {
+    "accepted": true,
+    "registry_id": "e42dbf40825776be5560675a95fe2f36ce91625fce58e0d366b4a807565120fd",
+    "class_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61
+    ],
+    "dimension": 1024,
+    "vectors_sha256": "9ec99edf3e5fa42997d8e288306c0a56ea112c19a2e4f3383aec672827b18474",
+    "max_tokens": 2374,
+    "seconds": 1096.7542016429998,
+    "repeat_max_drift": 0.0,
+    "tolerance": 1e-06,
+    "minimum_distinct_class_distance": 0.007461510268744013,
+    "distinct_class_pairs_checked": 1830
+  },
+  "rejected_models": {
+    "syntax": {
+      "reason": "distinct registered State classes collapse in this encoder",
+      "registry_id": "e42dbf40825776be5560675a95fe2f36ce91625fce58e0d366b4a807565120fd",
+      "collisions": [
+        {
+          "class_indices": [
+            9,
+            28
+          ],
+          "distance": 0.0,
+          "witness_ids": [
+            "goals/ordered",
+            "goals/reversed"
+          ]
+        },
+        {
+          "class_indices": [
+            25,
+            43
+          ],
+          "distance": 0.0,
+          "witness_ids": [
+            "eq_symm/0/1",
+            "eq_symm/0/2"
+          ]
+        }
+      ],
+      "class_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61
+      ]
+    },
+    "leansearch": {
+      "reason": "whole structural input exceeds context; no truncation or fallback",
+      "max_tokens": 4743,
+      "limit": 512,
+      "rejected_class_indices": [
+        0,
+        2,
+        4,
+        7,
+        10,
+        13,
+        16,
+        21,
+        22,
+        24,
+        25,
+        27,
+        30,
+        39,
+        42,
+        43,
+        46,
+        56
+      ],
+      "registry_id": "e42dbf40825776be5560675a95fe2f36ce91625fce58e0d366b4a807565120fd"
+    }
+  },
+  "density": {
+    "occurrences": 106,
+    "centers_checked": 106,
+    "different_normalized_payload_substitutions": 8,
+    "max_pairwise_distance_drift": 0.0
+  },
+  "lean49": {
+    "suite": {
+      "occurrences": 123,
+      "checked_pairs": 7626,
+      "classes": 62,
+      "registry_id": "977e88b8e0860f44807e689604dab5050b7e8672861579f0a8f90eed9925b87f"
+    },
+    "mathlib": {
+      "occurrences": 15,
+      "checked_pairs": 120,
+      "classes": 5,
+      "registry_id": "1590617eabfefcfb8559c237c049ac3b5c3b327931f7a82215e55b894e7ff47c"
+    }
+  },
+  "serializer_lemma_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "source_snapshots_sha256": {
+    "lean/Noema/StateEncoding.lean": "f319a590fb6c76048dd7b0fefabfddeced374905d8304298df170bd775cc1c4d",
+    "src/noema/state_consistency.py": "af65cc35a6577df2eef3aa026ba7dcaac7ef6489fd1d414e4541bf8a8bf56717",
+    "src/noema/comparison_encoders.py": "8e9f9374bf86ed02bbb55b2c96097d82be50760e54d41418558082ae800ff0ce",
+    "src/noema/cli.py": "3266c1adcabad90ee35cd9fd286a3bd8989d02649b96f3b104ad6eed042ab8d2",
+    "scripts/prepare-state-consistency.py": "7ca45a9a467295b9359e6416ae93e410783dd9a3d0f682ff59a2d216c1d7675d",
+    "scripts/audit-state-consistency.py": "ad1307a7bc3704e75ca57f99f6e5e11b4e0ac229882bb6019e300c992bf24820",
+    "scripts/check-consistent-density.py": "4269c81d4cf86243d30412a87970957a4df7a6b67f0b89845d1ace3b2856c092",
+    "scripts/check-state-consistency-lean49.py": "acbfb923f852712cde16c305c7bfe48a610d3d29461def3d754a1e235a6f5028",
+    "scripts/encode-registered-states.py": "97f57191359d990178ffe88a660fa432e2b14f2d267286560e01799a8a196415",
+    "tests/test_state_consistency.py": "b670c4a947d2472e2f026d83e6372b41c39dfe1038764c6308ab1c7498d79099"
+  },
+  "semantic_geometry_validated": false,
+  "old_102_theorem_corpus_recaptured": false,
+  "contract": "exact vector equality for certified admitted States in a frozen environment-scoped registry",
+  "attempt_history": "Initial syntax attempt failed as expected on collisions and was rerun to retain witnesses; initial Qwen eager attempt terminated for cost, all inference restarted with SDPA. Initial Mathlib smoke assumption of identical wrapper syntax failed; defeq checks and registry passed. See retained logs.",
+  "earlier_archive_verification": {
+    "encoder-invariance-v1": "passed",
+    "encoder-comparison-v1": "passed"
+  }
+}

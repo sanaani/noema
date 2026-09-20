@@ -1,0 +1,3 @@
+'Noema.forall_names' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Noema.lambda_names' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Noema.metadata_irrelevant' depends on axioms: [propext, Classical.choice, Quot.sound]

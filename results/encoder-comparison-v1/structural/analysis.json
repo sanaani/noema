@@ -1,0 +1,4229 @@
+{
+  "structural": {
+    "forms": {
+      "status": "finite_screen_passed_not_validated",
+      "semantic_geometry_validated": false,
+      "mathematical_case_studies_blocked": true,
+      "theorems": [
+        "and_assoc",
+        "and_swap",
+        "eq_symm",
+        "eq_trans",
+        "imp_comp",
+        "list_assoc",
+        "nat_assoc",
+        "or_swap"
+      ],
+      "repeat_encoding_max_drift": 0.0,
+      "numerical_tolerance": 1e-06,
+      "occurrences": 44,
+      "summary": {
+        "alpha": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "ranks": [
+            {
+              "anchor": 0,
+              "before_nearest": [
+                1
+              ],
+              "after_nearest": [
+                1
+              ],
+              "nearest_set_changed": false,
+              "strict_comparable_pairs": 21,
+              "strict_order_reversals": 0
+            },
+            {
+              "anchor": 1,
+              "before_nearest": [
+                7
+              ],
+              "after_nearest": [
+                7
+              ],
+              "nearest_set_changed": false,
+              "strict_comparable_pairs": 21,
+              "strict_order_reversals": 0
+            },
+            {
+              "anchor": 2,
+              "before_nearest": [
+                3
+              ],
+              "after_nearest": [
+                3
+              ],
+              "nearest_set_changed": false,
+              "strict_comparable_pairs": 21,
+              "strict_order_reversals": 0
+            },
+            {
+              "anchor": 3,
+              "before_nearest": [
+                2
+              ],
+              "after_nearest": [
+                2
+              ],
+              "nearest_set_changed": false,
+              "strict_comparable_pairs": 21,
+              "strict_order_reversals": 0
+            },
+            {
+              "anchor": 4,
+              "before_nearest": [
+                1
+              ],
+              "after_nearest": [
+                1
+              ],
+              "nearest_set_changed": false,
+              "strict_comparable_pairs": 21,
+              "strict_order_reversals": 0
+            },
+            {
+              "anchor": 5,
+              "before_nearest": [
+                6
+              ],
+              "after_nearest": [
+                6
+              ],
+              "nearest_set_changed": false,
+              "strict_comparable_pairs": 21,
+              "strict_order_reversals": 0
+            },
+            {
+              "anchor": 6,
+              "before_nearest": [
+                2
+              ],
+              "after_nearest": [
+                2
+              ],
+              "nearest_set_changed": false,
+              "strict_comparable_pairs": 21,
+              "strict_order_reversals": 0
+            },
+            {
+              "anchor": 7,
+              "before_nearest": [
+                1
+              ],
+              "after_nearest": [
+                1
+              ],
+              "nearest_set_changed": false,
+              "strict_comparable_pairs": 21,
+              "strict_order_reversals": 0
+            }
+          ]
+        },
+        "pretty_narrow": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "ranks": [
+            {
+              "anchor": 0,
+              "before_nearest": [
+                1
+              ],
+              "after_nearest": [
+                1
+              ],
+              "nearest_set_changed": false,
+              "strict_comparable_pairs": 21,
+              "strict_order_reversals": 0
+            },
+            {
+              "anchor": 1,
+              "before_nearest": [
+                7
+              ],
+              "after_nearest": [
+                7
+              ],
+              "nearest_set_changed": false,
+              "strict_comparable_pairs": 21,
+              "strict_order_reversals": 0
+            },
+            {
+              "anchor": 2,
+              "before_nearest": [
+                3
+              ],
+              "after_nearest": [
+                3
+              ],
+              "nearest_set_changed": false,
+              "strict_comparable_pairs": 21,
+              "strict_order_reversals": 0
+            },
+            {
+              "anchor": 3,
+              "before_nearest": [
+                2
+              ],
+              "after_nearest": [
+                2
+              ],
+              "nearest_set_changed": false,
+              "strict_comparable_pairs": 21,
+              "strict_order_reversals": 0
+            },
+            {
+              "anchor": 4,
+              "before_nearest": [
+                1
+              ],
+              "after_nearest": [
+                1
+              ],
+              "nearest_set_changed": false,
+              "strict_comparable_pairs": 21,
+              "strict_order_reversals": 0
+            },
+            {
+              "anchor": 5,
+              "before_nearest": [
+                6
+              ],
+              "after_nearest": [
+                6
+              ],
+              "nearest_set_changed": false,
+              "strict_comparable_pairs": 21,
+              "strict_order_reversals": 0
+            },
+            {
+              "anchor": 6,
+              "before_nearest": [
+                2
+              ],
+              "after_nearest": [
+                2
+              ],
+              "nearest_set_changed": false,
+              "strict_comparable_pairs": 21,
+              "strict_order_reversals": 0
+            },
+            {
+              "anchor": 7,
+              "before_nearest": [
+                1
+              ],
+              "after_nearest": [
+                1
+              ],
+              "nearest_set_changed": false,
+              "strict_comparable_pairs": 21,
+              "strict_order_reversals": 0
+            }
+          ]
+        },
+        "pretty_no_notation": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "ranks": [
+            {
+              "anchor": 0,
+              "before_nearest": [
+                1
+              ],
+              "after_nearest": [
+                1
+              ],
+              "nearest_set_changed": false,
+              "strict_comparable_pairs": 21,
+              "strict_order_reversals": 0
+            },
+            {
+              "anchor": 1,
+              "before_nearest": [
+                7
+              ],
+              "after_nearest": [
+                7
+              ],
+              "nearest_set_changed": false,
+              "strict_comparable_pairs": 21,
+              "strict_order_reversals": 0
+            },
+            {
+              "anchor": 2,
+              "before_nearest": [
+                3
+              ],
+              "after_nearest": [
+                3
+              ],
+              "nearest_set_changed": false,
+              "strict_comparable_pairs": 21,
+              "strict_order_reversals": 0
+            },
+            {
+              "anchor": 3,
+              "before_nearest": [
+                2
+              ],
+              "after_nearest": [
+                2
+              ],
+              "nearest_set_changed": false,
+              "strict_comparable_pairs": 21,
+              "strict_order_reversals": 0
+            },
+            {
+              "anchor": 4,
+              "before_nearest": [
+                1
+              ],
+              "after_nearest": [
+                1
+              ],
+              "nearest_set_changed": false,
+              "strict_comparable_pairs": 21,
+              "strict_order_reversals": 0
+            },
+            {
+              "anchor": 5,
+              "before_nearest": [
+                6
+              ],
+              "after_nearest": [
+                6
+              ],
+              "nearest_set_changed": false,
+              "strict_comparable_pairs": 21,
+              "strict_order_reversals": 0
+            },
+            {
+              "anchor": 6,
+              "before_nearest": [
+                2
+              ],
+              "after_nearest": [
+                2
+              ],
+              "nearest_set_changed": false,
+              "strict_comparable_pairs": 21,
+              "strict_order_reversals": 0
+            },
+            {
+              "anchor": 7,
+              "before_nearest": [
+                1
+              ],
+              "after_nearest": [
+                1
+              ],
+              "nearest_set_changed": false,
+              "strict_comparable_pairs": 21,
+              "strict_order_reversals": 0
+            }
+          ]
+        },
+        "defeq_id": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "ranks": [
+            {
+              "anchor": 0,
+              "before_nearest": [
+                1
+              ],
+              "after_nearest": [
+                1
+              ],
+              "nearest_set_changed": false,
+              "strict_comparable_pairs": 21,
+              "strict_order_reversals": 0
+            },
+            {
+              "anchor": 1,
+              "before_nearest": [
+                7
+              ],
+              "after_nearest": [
+                7
+              ],
+              "nearest_set_changed": false,
+              "strict_comparable_pairs": 21,
+              "strict_order_reversals": 0
+            },
+            {
+              "anchor": 2,
+              "before_nearest": [
+                3
+              ],
+              "after_nearest": [
+                3
+              ],
+              "nearest_set_changed": false,
+              "strict_comparable_pairs": 21,
+              "strict_order_reversals": 0
+            },
+            {
+              "anchor": 3,
+              "before_nearest": [
+                2
+              ],
+              "after_nearest": [
+                2
+              ],
+              "nearest_set_changed": false,
+              "strict_comparable_pairs": 21,
+              "strict_order_reversals": 0
+            },
+            {
+              "anchor": 4,
+              "before_nearest": [
+                1
+              ],
+              "after_nearest": [
+                1
+              ],
+              "nearest_set_changed": false,
+              "strict_comparable_pairs": 21,
+              "strict_order_reversals": 0
+            },
+            {
+              "anchor": 5,
+              "before_nearest": [
+                6
+              ],
+              "after_nearest": [
+                6
+              ],
+              "nearest_set_changed": false,
+              "strict_comparable_pairs": 21,
+              "strict_order_reversals": 0
+            },
+            {
+              "anchor": 6,
+              "before_nearest": [
+                2
+              ],
+              "after_nearest": [
+                2
+              ],
+              "nearest_set_changed": false,
+              "strict_comparable_pairs": 21,
+              "strict_order_reversals": 0
+            },
+            {
+              "anchor": 7,
+              "before_nearest": [
+                1
+              ],
+              "after_nearest": [
+                1
+              ],
+              "nearest_set_changed": false,
+              "strict_comparable_pairs": 21,
+              "strict_order_reversals": 0
+            }
+          ]
+        }
+      },
+      "center_distances": {
+        "original": [
+          [
+            0.0,
+            0.08346730676519723,
+            0.18865371878342974,
+            0.185709358199085,
+            0.25484859125692416,
+            0.3690631161946425,
+            0.3012486145507724,
+            0.1139697131733572
+          ],
+          [
+            0.08346730676519723,
+            0.0,
+            0.2170882938453235,
+            0.21934249744971634,
+            0.22623614857212407,
+            0.3897609297394415,
+            0.34727613630124354,
+            0.07192035244673041
+          ],
+          [
+            0.18865371878342974,
+            0.2170882938453235,
+            0.0,
+            0.043991975334711816,
+            0.31459818451103866,
+            0.33213337248507124,
+            0.20534353033373284,
+            0.2182859988909034
+          ],
+          [
+            0.185709358199085,
+            0.21934249744971634,
+            0.043991975334711816,
+            0.0,
+            0.30411903449309,
+            0.33724087257296936,
+            0.21226320097644866,
+            0.22047808470147334
+          ],
+          [
+            0.25484859125692416,
+            0.22623614857212407,
+            0.31459818451103866,
+            0.30411903449309,
+            0.0,
+            0.5255403256160432,
+            0.4713387149680467,
+            0.23355774101385146
+          ],
+          [
+            0.3690631161946425,
+            0.3897609297394415,
+            0.33213337248507124,
+            0.33724087257296936,
+            0.5255403256160432,
+            0.0,
+            0.23632041680089086,
+            0.38658873149504763
+          ],
+          [
+            0.3012486145507724,
+            0.34727613630124354,
+            0.20534353033373284,
+            0.21226320097644866,
+            0.4713387149680467,
+            0.23632041680089086,
+            0.0,
+            0.34602542558651
+          ],
+          [
+            0.1139697131733572,
+            0.07192035244673041,
+            0.2182859988909034,
+            0.22047808470147334,
+            0.23355774101385146,
+            0.38658873149504763,
+            0.34602542558651,
+            0.0
+          ]
+        ],
+        "alpha": [
+          [
+            0.0,
+            0.08346730676519723,
+            0.18865371878342974,
+            0.185709358199085,
+            0.25484859125692416,
+            0.3690631161946425,
+            0.3012486145507724,
+            0.1139697131733572
+          ],
+          [
+            0.08346730676519723,
+            0.0,
+            0.2170882938453235,
+            0.21934249744971634,
+            0.22623614857212407,
+            0.3897609297394415,
+            0.34727613630124354,
+            0.07192035244673041
+          ],
+          [
+            0.18865371878342974,
+            0.2170882938453235,
+            0.0,
+            0.043991975334711816,
+            0.31459818451103866,
+            0.33213337248507124,
+            0.20534353033373284,
+            0.2182859988909034
+          ],
+          [
+            0.185709358199085,
+            0.21934249744971634,
+            0.043991975334711816,
+            0.0,
+            0.30411903449309,
+            0.33724087257296936,
+            0.21226320097644866,
+            0.22047808470147334
+          ],
+          [
+            0.25484859125692416,
+            0.22623614857212407,
+            0.31459818451103866,
+            0.30411903449309,
+            0.0,
+            0.5255403256160432,
+            0.4713387149680467,
+            0.23355774101385146
+          ],
+          [
+            0.3690631161946425,
+            0.3897609297394415,
+            0.33213337248507124,
+            0.33724087257296936,
+            0.5255403256160432,
+            0.0,
+            0.23632041680089086,
+            0.38658873149504763
+          ],
+          [
+            0.3012486145507724,
+            0.34727613630124354,
+            0.20534353033373284,
+            0.21226320097644866,
+            0.4713387149680467,
+            0.23632041680089086,
+            0.0,
+            0.34602542558651
+          ],
+          [
+            0.1139697131733572,
+            0.07192035244673041,
+            0.2182859988909034,
+            0.22047808470147334,
+            0.23355774101385146,
+            0.38658873149504763,
+            0.34602542558651,
+            0.0
+          ]
+        ],
+        "pretty_narrow": [
+          [
+            0.0,
+            0.08346730676519723,
+            0.18865371878342974,
+            0.185709358199085,
+            0.25484859125692416,
+            0.3690631161946425,
+            0.3012486145507724,
+            0.1139697131733572
+          ],
+          [
+            0.08346730676519723,
+            0.0,
+            0.2170882938453235,
+            0.21934249744971634,
+            0.22623614857212407,
+            0.3897609297394415,
+            0.34727613630124354,
+            0.07192035244673041
+          ],
+          [
+            0.18865371878342974,
+            0.2170882938453235,
+            0.0,
+            0.043991975334711816,
+            0.31459818451103866,
+            0.33213337248507124,
+            0.20534353033373284,
+            0.2182859988909034
+          ],
+          [
+            0.185709358199085,
+            0.21934249744971634,
+            0.043991975334711816,
+            0.0,
+            0.30411903449309,
+            0.33724087257296936,
+            0.21226320097644866,
+            0.22047808470147334
+          ],
+          [
+            0.25484859125692416,
+            0.22623614857212407,
+            0.31459818451103866,
+            0.30411903449309,
+            0.0,
+            0.5255403256160432,
+            0.4713387149680467,
+            0.23355774101385146
+          ],
+          [
+            0.3690631161946425,
+            0.3897609297394415,
+            0.33213337248507124,
+            0.33724087257296936,
+            0.5255403256160432,
+            0.0,
+            0.23632041680089086,
+            0.38658873149504763
+          ],
+          [
+            0.3012486145507724,
+            0.34727613630124354,
+            0.20534353033373284,
+            0.21226320097644866,
+            0.4713387149680467,
+            0.23632041680089086,
+            0.0,
+            0.34602542558651
+          ],
+          [
+            0.1139697131733572,
+            0.07192035244673041,
+            0.2182859988909034,
+            0.22047808470147334,
+            0.23355774101385146,
+            0.38658873149504763,
+            0.34602542558651,
+            0.0
+          ]
+        ],
+        "pretty_no_notation": [
+          [
+            0.0,
+            0.08346730676519723,
+            0.18865371878342974,
+            0.185709358199085,
+            0.25484859125692416,
+            0.3690631161946425,
+            0.3012486145507724,
+            0.1139697131733572
+          ],
+          [
+            0.08346730676519723,
+            0.0,
+            0.2170882938453235,
+            0.21934249744971634,
+            0.22623614857212407,
+            0.3897609297394415,
+            0.34727613630124354,
+            0.07192035244673041
+          ],
+          [
+            0.18865371878342974,
+            0.2170882938453235,
+            0.0,
+            0.043991975334711816,
+            0.31459818451103866,
+            0.33213337248507124,
+            0.20534353033373284,
+            0.2182859988909034
+          ],
+          [
+            0.185709358199085,
+            0.21934249744971634,
+            0.043991975334711816,
+            0.0,
+            0.30411903449309,
+            0.33724087257296936,
+            0.21226320097644866,
+            0.22047808470147334
+          ],
+          [
+            0.25484859125692416,
+            0.22623614857212407,
+            0.31459818451103866,
+            0.30411903449309,
+            0.0,
+            0.5255403256160432,
+            0.4713387149680467,
+            0.23355774101385146
+          ],
+          [
+            0.3690631161946425,
+            0.3897609297394415,
+            0.33213337248507124,
+            0.33724087257296936,
+            0.5255403256160432,
+            0.0,
+            0.23632041680089086,
+            0.38658873149504763
+          ],
+          [
+            0.3012486145507724,
+            0.34727613630124354,
+            0.20534353033373284,
+            0.21226320097644866,
+            0.4713387149680467,
+            0.23632041680089086,
+            0.0,
+            0.34602542558651
+          ],
+          [
+            0.1139697131733572,
+            0.07192035244673041,
+            0.2182859988909034,
+            0.22047808470147334,
+            0.23355774101385146,
+            0.38658873149504763,
+            0.34602542558651,
+            0.0
+          ]
+        ],
+        "defeq_id": [
+          [
+            0.0,
+            0.08346730676519723,
+            0.18865371878342974,
+            0.185709358199085,
+            0.25484859125692416,
+            0.3690631161946425,
+            0.3012486145507724,
+            0.1139697131733572
+          ],
+          [
+            0.08346730676519723,
+            0.0,
+            0.2170882938453235,
+            0.21934249744971634,
+            0.22623614857212407,
+            0.3897609297394415,
+            0.34727613630124354,
+            0.07192035244673041
+          ],
+          [
+            0.18865371878342974,
+            0.2170882938453235,
+            0.0,
+            0.043991975334711816,
+            0.31459818451103866,
+            0.33213337248507124,
+            0.20534353033373284,
+            0.2182859988909034
+          ],
+          [
+            0.185709358199085,
+            0.21934249744971634,
+            0.043991975334711816,
+            0.0,
+            0.30411903449309,
+            0.33724087257296936,
+            0.21226320097644866,
+            0.22047808470147334
+          ],
+          [
+            0.25484859125692416,
+            0.22623614857212407,
+            0.31459818451103866,
+            0.30411903449309,
+            0.0,
+            0.5255403256160432,
+            0.4713387149680467,
+            0.23355774101385146
+          ],
+          [
+            0.3690631161946425,
+            0.3897609297394415,
+            0.33213337248507124,
+            0.33724087257296936,
+            0.5255403256160432,
+            0.0,
+            0.23632041680089086,
+            0.38658873149504763
+          ],
+          [
+            0.3012486145507724,
+            0.34727613630124354,
+            0.20534353033373284,
+            0.21226320097644866,
+            0.4713387149680467,
+            0.23632041680089086,
+            0.0,
+            0.34602542558651
+          ],
+          [
+            0.1139697131733572,
+            0.07192035244673041,
+            0.2182859988909034,
+            0.22047808470147334,
+            0.23355774101385146,
+            0.38658873149504763,
+            0.34602542558651,
+            0.0
+          ]
+        ]
+      },
+      "objects": [
+        {
+          "theorem": "and_assoc",
+          "arm": "alpha",
+          "occurrences": 8,
+          "changed_texts": 0,
+          "center_displacement": 0.0,
+          "median_state_displacement": 0.0,
+          "max_state_displacement": 0.0,
+          "displacement_witness": "and_assoc/0/0",
+          "baseline_median_radius": 0.018749517327425577,
+          "both_transformed": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.012203839627107596,
+              0.04236347966280689,
+              0.025295195027743557,
+              0.062343866605197584,
+              0.06157346189837744,
+              0.0,
+              0.012203839627107596
+            ],
+            "after_radii": [
+              0.0,
+              0.012203839627107596,
+              0.04236347966280689,
+              0.025295195027743557,
+              0.062343866605197584,
+              0.06157346189837744,
+              0.0,
+              0.012203839627107596
+            ]
+          },
+          "center_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.012203839627107596,
+              0.04236347966280689,
+              0.025295195027743557,
+              0.062343866605197584,
+              0.06157346189837744,
+              0.0,
+              0.012203839627107596
+            ],
+            "after_radii": [
+              0.0,
+              0.012203839627107596,
+              0.04236347966280689,
+              0.025295195027743557,
+              0.062343866605197584,
+              0.06157346189837744,
+              0.0,
+              0.012203839627107596
+            ]
+          },
+          "states_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.012203839627107596,
+              0.04236347966280689,
+              0.025295195027743557,
+              0.062343866605197584,
+              0.06157346189837744,
+              0.0,
+              0.012203839627107596
+            ],
+            "after_radii": [
+              0.0,
+              0.012203839627107596,
+              0.04236347966280689,
+              0.025295195027743557,
+              0.062343866605197584,
+              0.06157346189837744,
+              0.0,
+              0.012203839627107596
+            ]
+          },
+          "radial_invariance_falsified": false,
+          "point_invariance_falsified": false
+        },
+        {
+          "theorem": "and_assoc",
+          "arm": "pretty_narrow",
+          "occurrences": 8,
+          "changed_texts": 0,
+          "center_displacement": 0.0,
+          "median_state_displacement": 0.0,
+          "max_state_displacement": 0.0,
+          "displacement_witness": "and_assoc/0/0",
+          "baseline_median_radius": 0.018749517327425577,
+          "both_transformed": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.012203839627107596,
+              0.04236347966280689,
+              0.025295195027743557,
+              0.062343866605197584,
+              0.06157346189837744,
+              0.0,
+              0.012203839627107596
+            ],
+            "after_radii": [
+              0.0,
+              0.012203839627107596,
+              0.04236347966280689,
+              0.025295195027743557,
+              0.062343866605197584,
+              0.06157346189837744,
+              0.0,
+              0.012203839627107596
+            ]
+          },
+          "center_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.012203839627107596,
+              0.04236347966280689,
+              0.025295195027743557,
+              0.062343866605197584,
+              0.06157346189837744,
+              0.0,
+              0.012203839627107596
+            ],
+            "after_radii": [
+              0.0,
+              0.012203839627107596,
+              0.04236347966280689,
+              0.025295195027743557,
+              0.062343866605197584,
+              0.06157346189837744,
+              0.0,
+              0.012203839627107596
+            ]
+          },
+          "states_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.012203839627107596,
+              0.04236347966280689,
+              0.025295195027743557,
+              0.062343866605197584,
+              0.06157346189837744,
+              0.0,
+              0.012203839627107596
+            ],
+            "after_radii": [
+              0.0,
+              0.012203839627107596,
+              0.04236347966280689,
+              0.025295195027743557,
+              0.062343866605197584,
+              0.06157346189837744,
+              0.0,
+              0.012203839627107596
+            ]
+          },
+          "radial_invariance_falsified": false,
+          "point_invariance_falsified": false
+        },
+        {
+          "theorem": "and_assoc",
+          "arm": "pretty_no_notation",
+          "occurrences": 8,
+          "changed_texts": 0,
+          "center_displacement": 0.0,
+          "median_state_displacement": 0.0,
+          "max_state_displacement": 0.0,
+          "displacement_witness": "and_assoc/0/0",
+          "baseline_median_radius": 0.018749517327425577,
+          "both_transformed": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.012203839627107596,
+              0.04236347966280689,
+              0.025295195027743557,
+              0.062343866605197584,
+              0.06157346189837744,
+              0.0,
+              0.012203839627107596
+            ],
+            "after_radii": [
+              0.0,
+              0.012203839627107596,
+              0.04236347966280689,
+              0.025295195027743557,
+              0.062343866605197584,
+              0.06157346189837744,
+              0.0,
+              0.012203839627107596
+            ]
+          },
+          "center_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.012203839627107596,
+              0.04236347966280689,
+              0.025295195027743557,
+              0.062343866605197584,
+              0.06157346189837744,
+              0.0,
+              0.012203839627107596
+            ],
+            "after_radii": [
+              0.0,
+              0.012203839627107596,
+              0.04236347966280689,
+              0.025295195027743557,
+              0.062343866605197584,
+              0.06157346189837744,
+              0.0,
+              0.012203839627107596
+            ]
+          },
+          "states_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.012203839627107596,
+              0.04236347966280689,
+              0.025295195027743557,
+              0.062343866605197584,
+              0.06157346189837744,
+              0.0,
+              0.012203839627107596
+            ],
+            "after_radii": [
+              0.0,
+              0.012203839627107596,
+              0.04236347966280689,
+              0.025295195027743557,
+              0.062343866605197584,
+              0.06157346189837744,
+              0.0,
+              0.012203839627107596
+            ]
+          },
+          "radial_invariance_falsified": false,
+          "point_invariance_falsified": false
+        },
+        {
+          "theorem": "and_assoc",
+          "arm": "defeq_id",
+          "occurrences": 8,
+          "changed_texts": 0,
+          "center_displacement": 0.0,
+          "median_state_displacement": 0.0,
+          "max_state_displacement": 0.0,
+          "displacement_witness": "and_assoc/0/0",
+          "baseline_median_radius": 0.018749517327425577,
+          "both_transformed": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.012203839627107596,
+              0.04236347966280689,
+              0.025295195027743557,
+              0.062343866605197584,
+              0.06157346189837744,
+              0.0,
+              0.012203839627107596
+            ],
+            "after_radii": [
+              0.0,
+              0.012203839627107596,
+              0.04236347966280689,
+              0.025295195027743557,
+              0.062343866605197584,
+              0.06157346189837744,
+              0.0,
+              0.012203839627107596
+            ]
+          },
+          "center_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.012203839627107596,
+              0.04236347966280689,
+              0.025295195027743557,
+              0.062343866605197584,
+              0.06157346189837744,
+              0.0,
+              0.012203839627107596
+            ],
+            "after_radii": [
+              0.0,
+              0.012203839627107596,
+              0.04236347966280689,
+              0.025295195027743557,
+              0.062343866605197584,
+              0.06157346189837744,
+              0.0,
+              0.012203839627107596
+            ]
+          },
+          "states_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.012203839627107596,
+              0.04236347966280689,
+              0.025295195027743557,
+              0.062343866605197584,
+              0.06157346189837744,
+              0.0,
+              0.012203839627107596
+            ],
+            "after_radii": [
+              0.0,
+              0.012203839627107596,
+              0.04236347966280689,
+              0.025295195027743557,
+              0.062343866605197584,
+              0.06157346189837744,
+              0.0,
+              0.012203839627107596
+            ]
+          },
+          "radial_invariance_falsified": false,
+          "point_invariance_falsified": false
+        },
+        {
+          "theorem": "and_swap",
+          "arm": "alpha",
+          "occurrences": 6,
+          "changed_texts": 0,
+          "center_displacement": 0.0,
+          "median_state_displacement": 0.0,
+          "max_state_displacement": 0.0,
+          "displacement_witness": "and_swap/0/0",
+          "baseline_median_radius": 0.0196916154296172,
+          "both_transformed": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.0196916154296172,
+              0.06748786445659828,
+              0.06699167060842505,
+              0.0,
+              0.0196916154296172
+            ],
+            "after_radii": [
+              0.0,
+              0.0196916154296172,
+              0.06748786445659828,
+              0.06699167060842505,
+              0.0,
+              0.0196916154296172
+            ]
+          },
+          "center_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.0196916154296172,
+              0.06748786445659828,
+              0.06699167060842505,
+              0.0,
+              0.0196916154296172
+            ],
+            "after_radii": [
+              0.0,
+              0.0196916154296172,
+              0.06748786445659828,
+              0.06699167060842505,
+              0.0,
+              0.0196916154296172
+            ]
+          },
+          "states_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.0196916154296172,
+              0.06748786445659828,
+              0.06699167060842505,
+              0.0,
+              0.0196916154296172
+            ],
+            "after_radii": [
+              0.0,
+              0.0196916154296172,
+              0.06748786445659828,
+              0.06699167060842505,
+              0.0,
+              0.0196916154296172
+            ]
+          },
+          "radial_invariance_falsified": false,
+          "point_invariance_falsified": false
+        },
+        {
+          "theorem": "and_swap",
+          "arm": "pretty_narrow",
+          "occurrences": 6,
+          "changed_texts": 0,
+          "center_displacement": 0.0,
+          "median_state_displacement": 0.0,
+          "max_state_displacement": 0.0,
+          "displacement_witness": "and_swap/0/0",
+          "baseline_median_radius": 0.0196916154296172,
+          "both_transformed": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.0196916154296172,
+              0.06748786445659828,
+              0.06699167060842505,
+              0.0,
+              0.0196916154296172
+            ],
+            "after_radii": [
+              0.0,
+              0.0196916154296172,
+              0.06748786445659828,
+              0.06699167060842505,
+              0.0,
+              0.0196916154296172
+            ]
+          },
+          "center_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.0196916154296172,
+              0.06748786445659828,
+              0.06699167060842505,
+              0.0,
+              0.0196916154296172
+            ],
+            "after_radii": [
+              0.0,
+              0.0196916154296172,
+              0.06748786445659828,
+              0.06699167060842505,
+              0.0,
+              0.0196916154296172
+            ]
+          },
+          "states_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.0196916154296172,
+              0.06748786445659828,
+              0.06699167060842505,
+              0.0,
+              0.0196916154296172
+            ],
+            "after_radii": [
+              0.0,
+              0.0196916154296172,
+              0.06748786445659828,
+              0.06699167060842505,
+              0.0,
+              0.0196916154296172
+            ]
+          },
+          "radial_invariance_falsified": false,
+          "point_invariance_falsified": false
+        },
+        {
+          "theorem": "and_swap",
+          "arm": "pretty_no_notation",
+          "occurrences": 6,
+          "changed_texts": 0,
+          "center_displacement": 0.0,
+          "median_state_displacement": 0.0,
+          "max_state_displacement": 0.0,
+          "displacement_witness": "and_swap/0/0",
+          "baseline_median_radius": 0.0196916154296172,
+          "both_transformed": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.0196916154296172,
+              0.06748786445659828,
+              0.06699167060842505,
+              0.0,
+              0.0196916154296172
+            ],
+            "after_radii": [
+              0.0,
+              0.0196916154296172,
+              0.06748786445659828,
+              0.06699167060842505,
+              0.0,
+              0.0196916154296172
+            ]
+          },
+          "center_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.0196916154296172,
+              0.06748786445659828,
+              0.06699167060842505,
+              0.0,
+              0.0196916154296172
+            ],
+            "after_radii": [
+              0.0,
+              0.0196916154296172,
+              0.06748786445659828,
+              0.06699167060842505,
+              0.0,
+              0.0196916154296172
+            ]
+          },
+          "states_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.0196916154296172,
+              0.06748786445659828,
+              0.06699167060842505,
+              0.0,
+              0.0196916154296172
+            ],
+            "after_radii": [
+              0.0,
+              0.0196916154296172,
+              0.06748786445659828,
+              0.06699167060842505,
+              0.0,
+              0.0196916154296172
+            ]
+          },
+          "radial_invariance_falsified": false,
+          "point_invariance_falsified": false
+        },
+        {
+          "theorem": "and_swap",
+          "arm": "defeq_id",
+          "occurrences": 6,
+          "changed_texts": 0,
+          "center_displacement": 0.0,
+          "median_state_displacement": 0.0,
+          "max_state_displacement": 0.0,
+          "displacement_witness": "and_swap/0/0",
+          "baseline_median_radius": 0.0196916154296172,
+          "both_transformed": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.0196916154296172,
+              0.06748786445659828,
+              0.06699167060842505,
+              0.0,
+              0.0196916154296172
+            ],
+            "after_radii": [
+              0.0,
+              0.0196916154296172,
+              0.06748786445659828,
+              0.06699167060842505,
+              0.0,
+              0.0196916154296172
+            ]
+          },
+          "center_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.0196916154296172,
+              0.06748786445659828,
+              0.06699167060842505,
+              0.0,
+              0.0196916154296172
+            ],
+            "after_radii": [
+              0.0,
+              0.0196916154296172,
+              0.06748786445659828,
+              0.06699167060842505,
+              0.0,
+              0.0196916154296172
+            ]
+          },
+          "states_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.0196916154296172,
+              0.06748786445659828,
+              0.06699167060842505,
+              0.0,
+              0.0196916154296172
+            ],
+            "after_radii": [
+              0.0,
+              0.0196916154296172,
+              0.06748786445659828,
+              0.06699167060842505,
+              0.0,
+              0.0196916154296172
+            ]
+          },
+          "radial_invariance_falsified": false,
+          "point_invariance_falsified": false
+        },
+        {
+          "theorem": "eq_symm",
+          "arm": "alpha",
+          "occurrences": 5,
+          "changed_texts": 0,
+          "center_displacement": 0.0,
+          "median_state_displacement": 0.0,
+          "max_state_displacement": 0.0,
+          "displacement_witness": "eq_symm/0/0",
+          "baseline_median_radius": 0.014575777843287485,
+          "both_transformed": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.014575777843287485,
+              0.014575777843287485,
+              0.0,
+              0.014575777843287485
+            ],
+            "after_radii": [
+              0.0,
+              0.014575777843287485,
+              0.014575777843287485,
+              0.0,
+              0.014575777843287485
+            ]
+          },
+          "center_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.014575777843287485,
+              0.014575777843287485,
+              0.0,
+              0.014575777843287485
+            ],
+            "after_radii": [
+              0.0,
+              0.014575777843287485,
+              0.014575777843287485,
+              0.0,
+              0.014575777843287485
+            ]
+          },
+          "states_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.014575777843287485,
+              0.014575777843287485,
+              0.0,
+              0.014575777843287485
+            ],
+            "after_radii": [
+              0.0,
+              0.014575777843287485,
+              0.014575777843287485,
+              0.0,
+              0.014575777843287485
+            ]
+          },
+          "radial_invariance_falsified": false,
+          "point_invariance_falsified": false
+        },
+        {
+          "theorem": "eq_symm",
+          "arm": "pretty_narrow",
+          "occurrences": 5,
+          "changed_texts": 0,
+          "center_displacement": 0.0,
+          "median_state_displacement": 0.0,
+          "max_state_displacement": 0.0,
+          "displacement_witness": "eq_symm/0/0",
+          "baseline_median_radius": 0.014575777843287485,
+          "both_transformed": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.014575777843287485,
+              0.014575777843287485,
+              0.0,
+              0.014575777843287485
+            ],
+            "after_radii": [
+              0.0,
+              0.014575777843287485,
+              0.014575777843287485,
+              0.0,
+              0.014575777843287485
+            ]
+          },
+          "center_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.014575777843287485,
+              0.014575777843287485,
+              0.0,
+              0.014575777843287485
+            ],
+            "after_radii": [
+              0.0,
+              0.014575777843287485,
+              0.014575777843287485,
+              0.0,
+              0.014575777843287485
+            ]
+          },
+          "states_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.014575777843287485,
+              0.014575777843287485,
+              0.0,
+              0.014575777843287485
+            ],
+            "after_radii": [
+              0.0,
+              0.014575777843287485,
+              0.014575777843287485,
+              0.0,
+              0.014575777843287485
+            ]
+          },
+          "radial_invariance_falsified": false,
+          "point_invariance_falsified": false
+        },
+        {
+          "theorem": "eq_symm",
+          "arm": "pretty_no_notation",
+          "occurrences": 5,
+          "changed_texts": 0,
+          "center_displacement": 0.0,
+          "median_state_displacement": 0.0,
+          "max_state_displacement": 0.0,
+          "displacement_witness": "eq_symm/0/0",
+          "baseline_median_radius": 0.014575777843287485,
+          "both_transformed": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.014575777843287485,
+              0.014575777843287485,
+              0.0,
+              0.014575777843287485
+            ],
+            "after_radii": [
+              0.0,
+              0.014575777843287485,
+              0.014575777843287485,
+              0.0,
+              0.014575777843287485
+            ]
+          },
+          "center_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.014575777843287485,
+              0.014575777843287485,
+              0.0,
+              0.014575777843287485
+            ],
+            "after_radii": [
+              0.0,
+              0.014575777843287485,
+              0.014575777843287485,
+              0.0,
+              0.014575777843287485
+            ]
+          },
+          "states_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.014575777843287485,
+              0.014575777843287485,
+              0.0,
+              0.014575777843287485
+            ],
+            "after_radii": [
+              0.0,
+              0.014575777843287485,
+              0.014575777843287485,
+              0.0,
+              0.014575777843287485
+            ]
+          },
+          "radial_invariance_falsified": false,
+          "point_invariance_falsified": false
+        },
+        {
+          "theorem": "eq_symm",
+          "arm": "defeq_id",
+          "occurrences": 5,
+          "changed_texts": 0,
+          "center_displacement": 0.0,
+          "median_state_displacement": 0.0,
+          "max_state_displacement": 0.0,
+          "displacement_witness": "eq_symm/0/0",
+          "baseline_median_radius": 0.014575777843287485,
+          "both_transformed": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.014575777843287485,
+              0.014575777843287485,
+              0.0,
+              0.014575777843287485
+            ],
+            "after_radii": [
+              0.0,
+              0.014575777843287485,
+              0.014575777843287485,
+              0.0,
+              0.014575777843287485
+            ]
+          },
+          "center_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.014575777843287485,
+              0.014575777843287485,
+              0.0,
+              0.014575777843287485
+            ],
+            "after_radii": [
+              0.0,
+              0.014575777843287485,
+              0.014575777843287485,
+              0.0,
+              0.014575777843287485
+            ]
+          },
+          "states_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.014575777843287485,
+              0.014575777843287485,
+              0.0,
+              0.014575777843287485
+            ],
+            "after_radii": [
+              0.0,
+              0.014575777843287485,
+              0.014575777843287485,
+              0.0,
+              0.014575777843287485
+            ]
+          },
+          "radial_invariance_falsified": false,
+          "point_invariance_falsified": false
+        },
+        {
+          "theorem": "eq_trans",
+          "arm": "alpha",
+          "occurrences": 5,
+          "changed_texts": 0,
+          "center_displacement": 0.0,
+          "median_state_displacement": 0.0,
+          "max_state_displacement": 0.0,
+          "displacement_witness": "eq_trans/0/0",
+          "baseline_median_radius": 0.009576575997921657,
+          "both_transformed": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.009576575997921657,
+              0.013534637277702445,
+              0.0,
+              0.009576575997921657
+            ],
+            "after_radii": [
+              0.0,
+              0.009576575997921657,
+              0.013534637277702445,
+              0.0,
+              0.009576575997921657
+            ]
+          },
+          "center_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.009576575997921657,
+              0.013534637277702445,
+              0.0,
+              0.009576575997921657
+            ],
+            "after_radii": [
+              0.0,
+              0.009576575997921657,
+              0.013534637277702445,
+              0.0,
+              0.009576575997921657
+            ]
+          },
+          "states_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.009576575997921657,
+              0.013534637277702445,
+              0.0,
+              0.009576575997921657
+            ],
+            "after_radii": [
+              0.0,
+              0.009576575997921657,
+              0.013534637277702445,
+              0.0,
+              0.009576575997921657
+            ]
+          },
+          "radial_invariance_falsified": false,
+          "point_invariance_falsified": false
+        },
+        {
+          "theorem": "eq_trans",
+          "arm": "pretty_narrow",
+          "occurrences": 5,
+          "changed_texts": 0,
+          "center_displacement": 0.0,
+          "median_state_displacement": 0.0,
+          "max_state_displacement": 0.0,
+          "displacement_witness": "eq_trans/0/0",
+          "baseline_median_radius": 0.009576575997921657,
+          "both_transformed": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.009576575997921657,
+              0.013534637277702445,
+              0.0,
+              0.009576575997921657
+            ],
+            "after_radii": [
+              0.0,
+              0.009576575997921657,
+              0.013534637277702445,
+              0.0,
+              0.009576575997921657
+            ]
+          },
+          "center_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.009576575997921657,
+              0.013534637277702445,
+              0.0,
+              0.009576575997921657
+            ],
+            "after_radii": [
+              0.0,
+              0.009576575997921657,
+              0.013534637277702445,
+              0.0,
+              0.009576575997921657
+            ]
+          },
+          "states_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.009576575997921657,
+              0.013534637277702445,
+              0.0,
+              0.009576575997921657
+            ],
+            "after_radii": [
+              0.0,
+              0.009576575997921657,
+              0.013534637277702445,
+              0.0,
+              0.009576575997921657
+            ]
+          },
+          "radial_invariance_falsified": false,
+          "point_invariance_falsified": false
+        },
+        {
+          "theorem": "eq_trans",
+          "arm": "pretty_no_notation",
+          "occurrences": 5,
+          "changed_texts": 0,
+          "center_displacement": 0.0,
+          "median_state_displacement": 0.0,
+          "max_state_displacement": 0.0,
+          "displacement_witness": "eq_trans/0/0",
+          "baseline_median_radius": 0.009576575997921657,
+          "both_transformed": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.009576575997921657,
+              0.013534637277702445,
+              0.0,
+              0.009576575997921657
+            ],
+            "after_radii": [
+              0.0,
+              0.009576575997921657,
+              0.013534637277702445,
+              0.0,
+              0.009576575997921657
+            ]
+          },
+          "center_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.009576575997921657,
+              0.013534637277702445,
+              0.0,
+              0.009576575997921657
+            ],
+            "after_radii": [
+              0.0,
+              0.009576575997921657,
+              0.013534637277702445,
+              0.0,
+              0.009576575997921657
+            ]
+          },
+          "states_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.009576575997921657,
+              0.013534637277702445,
+              0.0,
+              0.009576575997921657
+            ],
+            "after_radii": [
+              0.0,
+              0.009576575997921657,
+              0.013534637277702445,
+              0.0,
+              0.009576575997921657
+            ]
+          },
+          "radial_invariance_falsified": false,
+          "point_invariance_falsified": false
+        },
+        {
+          "theorem": "eq_trans",
+          "arm": "defeq_id",
+          "occurrences": 5,
+          "changed_texts": 0,
+          "center_displacement": 0.0,
+          "median_state_displacement": 0.0,
+          "max_state_displacement": 0.0,
+          "displacement_witness": "eq_trans/0/0",
+          "baseline_median_radius": 0.009576575997921657,
+          "both_transformed": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.009576575997921657,
+              0.013534637277702445,
+              0.0,
+              0.009576575997921657
+            ],
+            "after_radii": [
+              0.0,
+              0.009576575997921657,
+              0.013534637277702445,
+              0.0,
+              0.009576575997921657
+            ]
+          },
+          "center_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.009576575997921657,
+              0.013534637277702445,
+              0.0,
+              0.009576575997921657
+            ],
+            "after_radii": [
+              0.0,
+              0.009576575997921657,
+              0.013534637277702445,
+              0.0,
+              0.009576575997921657
+            ]
+          },
+          "states_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.009576575997921657,
+              0.013534637277702445,
+              0.0,
+              0.009576575997921657
+            ],
+            "after_radii": [
+              0.0,
+              0.009576575997921657,
+              0.013534637277702445,
+              0.0,
+              0.009576575997921657
+            ]
+          },
+          "radial_invariance_falsified": false,
+          "point_invariance_falsified": false
+        },
+        {
+          "theorem": "imp_comp",
+          "arm": "alpha",
+          "occurrences": 6,
+          "changed_texts": 0,
+          "center_displacement": 0.0,
+          "median_state_displacement": 0.0,
+          "max_state_displacement": 0.0,
+          "displacement_witness": "imp_comp/0/0",
+          "baseline_median_radius": 0.013821668960616797,
+          "both_transformed": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.013821668960616797,
+              0.019626558564937897,
+              0.020425096127675013,
+              0.0,
+              0.013821668960616797
+            ],
+            "after_radii": [
+              0.0,
+              0.013821668960616797,
+              0.019626558564937897,
+              0.020425096127675013,
+              0.0,
+              0.013821668960616797
+            ]
+          },
+          "center_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.013821668960616797,
+              0.019626558564937897,
+              0.020425096127675013,
+              0.0,
+              0.013821668960616797
+            ],
+            "after_radii": [
+              0.0,
+              0.013821668960616797,
+              0.019626558564937897,
+              0.020425096127675013,
+              0.0,
+              0.013821668960616797
+            ]
+          },
+          "states_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.013821668960616797,
+              0.019626558564937897,
+              0.020425096127675013,
+              0.0,
+              0.013821668960616797
+            ],
+            "after_radii": [
+              0.0,
+              0.013821668960616797,
+              0.019626558564937897,
+              0.020425096127675013,
+              0.0,
+              0.013821668960616797
+            ]
+          },
+          "radial_invariance_falsified": false,
+          "point_invariance_falsified": false
+        },
+        {
+          "theorem": "imp_comp",
+          "arm": "pretty_narrow",
+          "occurrences": 6,
+          "changed_texts": 0,
+          "center_displacement": 0.0,
+          "median_state_displacement": 0.0,
+          "max_state_displacement": 0.0,
+          "displacement_witness": "imp_comp/0/0",
+          "baseline_median_radius": 0.013821668960616797,
+          "both_transformed": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.013821668960616797,
+              0.019626558564937897,
+              0.020425096127675013,
+              0.0,
+              0.013821668960616797
+            ],
+            "after_radii": [
+              0.0,
+              0.013821668960616797,
+              0.019626558564937897,
+              0.020425096127675013,
+              0.0,
+              0.013821668960616797
+            ]
+          },
+          "center_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.013821668960616797,
+              0.019626558564937897,
+              0.020425096127675013,
+              0.0,
+              0.013821668960616797
+            ],
+            "after_radii": [
+              0.0,
+              0.013821668960616797,
+              0.019626558564937897,
+              0.020425096127675013,
+              0.0,
+              0.013821668960616797
+            ]
+          },
+          "states_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.013821668960616797,
+              0.019626558564937897,
+              0.020425096127675013,
+              0.0,
+              0.013821668960616797
+            ],
+            "after_radii": [
+              0.0,
+              0.013821668960616797,
+              0.019626558564937897,
+              0.020425096127675013,
+              0.0,
+              0.013821668960616797
+            ]
+          },
+          "radial_invariance_falsified": false,
+          "point_invariance_falsified": false
+        },
+        {
+          "theorem": "imp_comp",
+          "arm": "pretty_no_notation",
+          "occurrences": 6,
+          "changed_texts": 0,
+          "center_displacement": 0.0,
+          "median_state_displacement": 0.0,
+          "max_state_displacement": 0.0,
+          "displacement_witness": "imp_comp/0/0",
+          "baseline_median_radius": 0.013821668960616797,
+          "both_transformed": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.013821668960616797,
+              0.019626558564937897,
+              0.020425096127675013,
+              0.0,
+              0.013821668960616797
+            ],
+            "after_radii": [
+              0.0,
+              0.013821668960616797,
+              0.019626558564937897,
+              0.020425096127675013,
+              0.0,
+              0.013821668960616797
+            ]
+          },
+          "center_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.013821668960616797,
+              0.019626558564937897,
+              0.020425096127675013,
+              0.0,
+              0.013821668960616797
+            ],
+            "after_radii": [
+              0.0,
+              0.013821668960616797,
+              0.019626558564937897,
+              0.020425096127675013,
+              0.0,
+              0.013821668960616797
+            ]
+          },
+          "states_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.013821668960616797,
+              0.019626558564937897,
+              0.020425096127675013,
+              0.0,
+              0.013821668960616797
+            ],
+            "after_radii": [
+              0.0,
+              0.013821668960616797,
+              0.019626558564937897,
+              0.020425096127675013,
+              0.0,
+              0.013821668960616797
+            ]
+          },
+          "radial_invariance_falsified": false,
+          "point_invariance_falsified": false
+        },
+        {
+          "theorem": "imp_comp",
+          "arm": "defeq_id",
+          "occurrences": 6,
+          "changed_texts": 0,
+          "center_displacement": 0.0,
+          "median_state_displacement": 0.0,
+          "max_state_displacement": 0.0,
+          "displacement_witness": "imp_comp/0/0",
+          "baseline_median_radius": 0.013821668960616797,
+          "both_transformed": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.013821668960616797,
+              0.019626558564937897,
+              0.020425096127675013,
+              0.0,
+              0.013821668960616797
+            ],
+            "after_radii": [
+              0.0,
+              0.013821668960616797,
+              0.019626558564937897,
+              0.020425096127675013,
+              0.0,
+              0.013821668960616797
+            ]
+          },
+          "center_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.013821668960616797,
+              0.019626558564937897,
+              0.020425096127675013,
+              0.0,
+              0.013821668960616797
+            ],
+            "after_radii": [
+              0.0,
+              0.013821668960616797,
+              0.019626558564937897,
+              0.020425096127675013,
+              0.0,
+              0.013821668960616797
+            ]
+          },
+          "states_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.013821668960616797,
+              0.019626558564937897,
+              0.020425096127675013,
+              0.0,
+              0.013821668960616797
+            ],
+            "after_radii": [
+              0.0,
+              0.013821668960616797,
+              0.019626558564937897,
+              0.020425096127675013,
+              0.0,
+              0.013821668960616797
+            ]
+          },
+          "radial_invariance_falsified": false,
+          "point_invariance_falsified": false
+        },
+        {
+          "theorem": "list_assoc",
+          "arm": "alpha",
+          "occurrences": 4,
+          "changed_texts": 0,
+          "center_displacement": 0.0,
+          "median_state_displacement": 0.0,
+          "max_state_displacement": 0.0,
+          "displacement_witness": "list_assoc/0/0",
+          "baseline_median_radius": 0.0013033758299193722,
+          "both_transformed": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.0026067516598387444,
+              0.0,
+              0.0026067516598387444
+            ],
+            "after_radii": [
+              0.0,
+              0.0026067516598387444,
+              0.0,
+              0.0026067516598387444
+            ]
+          },
+          "center_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.0026067516598387444,
+              0.0,
+              0.0026067516598387444
+            ],
+            "after_radii": [
+              0.0,
+              0.0026067516598387444,
+              0.0,
+              0.0026067516598387444
+            ]
+          },
+          "states_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.0026067516598387444,
+              0.0,
+              0.0026067516598387444
+            ],
+            "after_radii": [
+              0.0,
+              0.0026067516598387444,
+              0.0,
+              0.0026067516598387444
+            ]
+          },
+          "radial_invariance_falsified": false,
+          "point_invariance_falsified": false
+        },
+        {
+          "theorem": "list_assoc",
+          "arm": "pretty_narrow",
+          "occurrences": 4,
+          "changed_texts": 0,
+          "center_displacement": 0.0,
+          "median_state_displacement": 0.0,
+          "max_state_displacement": 0.0,
+          "displacement_witness": "list_assoc/0/0",
+          "baseline_median_radius": 0.0013033758299193722,
+          "both_transformed": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.0026067516598387444,
+              0.0,
+              0.0026067516598387444
+            ],
+            "after_radii": [
+              0.0,
+              0.0026067516598387444,
+              0.0,
+              0.0026067516598387444
+            ]
+          },
+          "center_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.0026067516598387444,
+              0.0,
+              0.0026067516598387444
+            ],
+            "after_radii": [
+              0.0,
+              0.0026067516598387444,
+              0.0,
+              0.0026067516598387444
+            ]
+          },
+          "states_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.0026067516598387444,
+              0.0,
+              0.0026067516598387444
+            ],
+            "after_radii": [
+              0.0,
+              0.0026067516598387444,
+              0.0,
+              0.0026067516598387444
+            ]
+          },
+          "radial_invariance_falsified": false,
+          "point_invariance_falsified": false
+        },
+        {
+          "theorem": "list_assoc",
+          "arm": "pretty_no_notation",
+          "occurrences": 4,
+          "changed_texts": 0,
+          "center_displacement": 0.0,
+          "median_state_displacement": 0.0,
+          "max_state_displacement": 0.0,
+          "displacement_witness": "list_assoc/0/0",
+          "baseline_median_radius": 0.0013033758299193722,
+          "both_transformed": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.0026067516598387444,
+              0.0,
+              0.0026067516598387444
+            ],
+            "after_radii": [
+              0.0,
+              0.0026067516598387444,
+              0.0,
+              0.0026067516598387444
+            ]
+          },
+          "center_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.0026067516598387444,
+              0.0,
+              0.0026067516598387444
+            ],
+            "after_radii": [
+              0.0,
+              0.0026067516598387444,
+              0.0,
+              0.0026067516598387444
+            ]
+          },
+          "states_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.0026067516598387444,
+              0.0,
+              0.0026067516598387444
+            ],
+            "after_radii": [
+              0.0,
+              0.0026067516598387444,
+              0.0,
+              0.0026067516598387444
+            ]
+          },
+          "radial_invariance_falsified": false,
+          "point_invariance_falsified": false
+        },
+        {
+          "theorem": "list_assoc",
+          "arm": "defeq_id",
+          "occurrences": 4,
+          "changed_texts": 0,
+          "center_displacement": 0.0,
+          "median_state_displacement": 0.0,
+          "max_state_displacement": 0.0,
+          "displacement_witness": "list_assoc/0/0",
+          "baseline_median_radius": 0.0013033758299193722,
+          "both_transformed": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.0026067516598387444,
+              0.0,
+              0.0026067516598387444
+            ],
+            "after_radii": [
+              0.0,
+              0.0026067516598387444,
+              0.0,
+              0.0026067516598387444
+            ]
+          },
+          "center_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.0026067516598387444,
+              0.0,
+              0.0026067516598387444
+            ],
+            "after_radii": [
+              0.0,
+              0.0026067516598387444,
+              0.0,
+              0.0026067516598387444
+            ]
+          },
+          "states_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.0026067516598387444,
+              0.0,
+              0.0026067516598387444
+            ],
+            "after_radii": [
+              0.0,
+              0.0026067516598387444,
+              0.0,
+              0.0026067516598387444
+            ]
+          },
+          "radial_invariance_falsified": false,
+          "point_invariance_falsified": false
+        },
+        {
+          "theorem": "nat_assoc",
+          "arm": "alpha",
+          "occurrences": 4,
+          "changed_texts": 0,
+          "center_displacement": 0.0,
+          "median_state_displacement": 0.0,
+          "max_state_displacement": 0.0,
+          "displacement_witness": "nat_assoc/0/0",
+          "baseline_median_radius": 0.0020042906498344932,
+          "both_transformed": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.0040085812996689865,
+              0.0,
+              0.0040085812996689865
+            ],
+            "after_radii": [
+              0.0,
+              0.0040085812996689865,
+              0.0,
+              0.0040085812996689865
+            ]
+          },
+          "center_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.0040085812996689865,
+              0.0,
+              0.0040085812996689865
+            ],
+            "after_radii": [
+              0.0,
+              0.0040085812996689865,
+              0.0,
+              0.0040085812996689865
+            ]
+          },
+          "states_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.0040085812996689865,
+              0.0,
+              0.0040085812996689865
+            ],
+            "after_radii": [
+              0.0,
+              0.0040085812996689865,
+              0.0,
+              0.0040085812996689865
+            ]
+          },
+          "radial_invariance_falsified": false,
+          "point_invariance_falsified": false
+        },
+        {
+          "theorem": "nat_assoc",
+          "arm": "pretty_narrow",
+          "occurrences": 4,
+          "changed_texts": 0,
+          "center_displacement": 0.0,
+          "median_state_displacement": 0.0,
+          "max_state_displacement": 0.0,
+          "displacement_witness": "nat_assoc/0/0",
+          "baseline_median_radius": 0.0020042906498344932,
+          "both_transformed": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.0040085812996689865,
+              0.0,
+              0.0040085812996689865
+            ],
+            "after_radii": [
+              0.0,
+              0.0040085812996689865,
+              0.0,
+              0.0040085812996689865
+            ]
+          },
+          "center_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.0040085812996689865,
+              0.0,
+              0.0040085812996689865
+            ],
+            "after_radii": [
+              0.0,
+              0.0040085812996689865,
+              0.0,
+              0.0040085812996689865
+            ]
+          },
+          "states_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.0040085812996689865,
+              0.0,
+              0.0040085812996689865
+            ],
+            "after_radii": [
+              0.0,
+              0.0040085812996689865,
+              0.0,
+              0.0040085812996689865
+            ]
+          },
+          "radial_invariance_falsified": false,
+          "point_invariance_falsified": false
+        },
+        {
+          "theorem": "nat_assoc",
+          "arm": "pretty_no_notation",
+          "occurrences": 4,
+          "changed_texts": 0,
+          "center_displacement": 0.0,
+          "median_state_displacement": 0.0,
+          "max_state_displacement": 0.0,
+          "displacement_witness": "nat_assoc/0/0",
+          "baseline_median_radius": 0.0020042906498344932,
+          "both_transformed": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.0040085812996689865,
+              0.0,
+              0.0040085812996689865
+            ],
+            "after_radii": [
+              0.0,
+              0.0040085812996689865,
+              0.0,
+              0.0040085812996689865
+            ]
+          },
+          "center_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.0040085812996689865,
+              0.0,
+              0.0040085812996689865
+            ],
+            "after_radii": [
+              0.0,
+              0.0040085812996689865,
+              0.0,
+              0.0040085812996689865
+            ]
+          },
+          "states_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.0040085812996689865,
+              0.0,
+              0.0040085812996689865
+            ],
+            "after_radii": [
+              0.0,
+              0.0040085812996689865,
+              0.0,
+              0.0040085812996689865
+            ]
+          },
+          "radial_invariance_falsified": false,
+          "point_invariance_falsified": false
+        },
+        {
+          "theorem": "nat_assoc",
+          "arm": "defeq_id",
+          "occurrences": 4,
+          "changed_texts": 0,
+          "center_displacement": 0.0,
+          "median_state_displacement": 0.0,
+          "max_state_displacement": 0.0,
+          "displacement_witness": "nat_assoc/0/0",
+          "baseline_median_radius": 0.0020042906498344932,
+          "both_transformed": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.0040085812996689865,
+              0.0,
+              0.0040085812996689865
+            ],
+            "after_radii": [
+              0.0,
+              0.0040085812996689865,
+              0.0,
+              0.0040085812996689865
+            ]
+          },
+          "center_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.0040085812996689865,
+              0.0,
+              0.0040085812996689865
+            ],
+            "after_radii": [
+              0.0,
+              0.0040085812996689865,
+              0.0,
+              0.0040085812996689865
+            ]
+          },
+          "states_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.0040085812996689865,
+              0.0,
+              0.0040085812996689865
+            ],
+            "after_radii": [
+              0.0,
+              0.0040085812996689865,
+              0.0,
+              0.0040085812996689865
+            ]
+          },
+          "radial_invariance_falsified": false,
+          "point_invariance_falsified": false
+        },
+        {
+          "theorem": "or_swap",
+          "arm": "alpha",
+          "occurrences": 6,
+          "changed_texts": 0,
+          "center_displacement": 0.0,
+          "median_state_displacement": 0.0,
+          "max_state_displacement": 0.0,
+          "displacement_witness": "or_swap/0/0",
+          "baseline_median_radius": 0.01970180415218472,
+          "both_transformed": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.01970180415218472,
+              0.045159778820119116,
+              0.04366819073351948,
+              0.0,
+              0.01970180415218472
+            ],
+            "after_radii": [
+              0.0,
+              0.01970180415218472,
+              0.045159778820119116,
+              0.04366819073351948,
+              0.0,
+              0.01970180415218472
+            ]
+          },
+          "center_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.01970180415218472,
+              0.045159778820119116,
+              0.04366819073351948,
+              0.0,
+              0.01970180415218472
+            ],
+            "after_radii": [
+              0.0,
+              0.01970180415218472,
+              0.045159778820119116,
+              0.04366819073351948,
+              0.0,
+              0.01970180415218472
+            ]
+          },
+          "states_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.01970180415218472,
+              0.045159778820119116,
+              0.04366819073351948,
+              0.0,
+              0.01970180415218472
+            ],
+            "after_radii": [
+              0.0,
+              0.01970180415218472,
+              0.045159778820119116,
+              0.04366819073351948,
+              0.0,
+              0.01970180415218472
+            ]
+          },
+          "radial_invariance_falsified": false,
+          "point_invariance_falsified": false
+        },
+        {
+          "theorem": "or_swap",
+          "arm": "pretty_narrow",
+          "occurrences": 6,
+          "changed_texts": 0,
+          "center_displacement": 0.0,
+          "median_state_displacement": 0.0,
+          "max_state_displacement": 0.0,
+          "displacement_witness": "or_swap/0/0",
+          "baseline_median_radius": 0.01970180415218472,
+          "both_transformed": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.01970180415218472,
+              0.045159778820119116,
+              0.04366819073351948,
+              0.0,
+              0.01970180415218472
+            ],
+            "after_radii": [
+              0.0,
+              0.01970180415218472,
+              0.045159778820119116,
+              0.04366819073351948,
+              0.0,
+              0.01970180415218472
+            ]
+          },
+          "center_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.01970180415218472,
+              0.045159778820119116,
+              0.04366819073351948,
+              0.0,
+              0.01970180415218472
+            ],
+            "after_radii": [
+              0.0,
+              0.01970180415218472,
+              0.045159778820119116,
+              0.04366819073351948,
+              0.0,
+              0.01970180415218472
+            ]
+          },
+          "states_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.01970180415218472,
+              0.045159778820119116,
+              0.04366819073351948,
+              0.0,
+              0.01970180415218472
+            ],
+            "after_radii": [
+              0.0,
+              0.01970180415218472,
+              0.045159778820119116,
+              0.04366819073351948,
+              0.0,
+              0.01970180415218472
+            ]
+          },
+          "radial_invariance_falsified": false,
+          "point_invariance_falsified": false
+        },
+        {
+          "theorem": "or_swap",
+          "arm": "pretty_no_notation",
+          "occurrences": 6,
+          "changed_texts": 0,
+          "center_displacement": 0.0,
+          "median_state_displacement": 0.0,
+          "max_state_displacement": 0.0,
+          "displacement_witness": "or_swap/0/0",
+          "baseline_median_radius": 0.01970180415218472,
+          "both_transformed": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.01970180415218472,
+              0.045159778820119116,
+              0.04366819073351948,
+              0.0,
+              0.01970180415218472
+            ],
+            "after_radii": [
+              0.0,
+              0.01970180415218472,
+              0.045159778820119116,
+              0.04366819073351948,
+              0.0,
+              0.01970180415218472
+            ]
+          },
+          "center_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.01970180415218472,
+              0.045159778820119116,
+              0.04366819073351948,
+              0.0,
+              0.01970180415218472
+            ],
+            "after_radii": [
+              0.0,
+              0.01970180415218472,
+              0.045159778820119116,
+              0.04366819073351948,
+              0.0,
+              0.01970180415218472
+            ]
+          },
+          "states_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.01970180415218472,
+              0.045159778820119116,
+              0.04366819073351948,
+              0.0,
+              0.01970180415218472
+            ],
+            "after_radii": [
+              0.0,
+              0.01970180415218472,
+              0.045159778820119116,
+              0.04366819073351948,
+              0.0,
+              0.01970180415218472
+            ]
+          },
+          "radial_invariance_falsified": false,
+          "point_invariance_falsified": false
+        },
+        {
+          "theorem": "or_swap",
+          "arm": "defeq_id",
+          "occurrences": 6,
+          "changed_texts": 0,
+          "center_displacement": 0.0,
+          "median_state_displacement": 0.0,
+          "max_state_displacement": 0.0,
+          "displacement_witness": "or_swap/0/0",
+          "baseline_median_radius": 0.01970180415218472,
+          "both_transformed": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.01970180415218472,
+              0.045159778820119116,
+              0.04366819073351948,
+              0.0,
+              0.01970180415218472
+            ],
+            "after_radii": [
+              0.0,
+              0.01970180415218472,
+              0.045159778820119116,
+              0.04366819073351948,
+              0.0,
+              0.01970180415218472
+            ]
+          },
+          "center_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.01970180415218472,
+              0.045159778820119116,
+              0.04366819073351948,
+              0.0,
+              0.01970180415218472
+            ],
+            "after_radii": [
+              0.0,
+              0.01970180415218472,
+              0.045159778820119116,
+              0.04366819073351948,
+              0.0,
+              0.01970180415218472
+            ]
+          },
+          "states_only": {
+            "cdf_sup": 0.0,
+            "cdf_witness_radius": 0.0,
+            "wasserstein_1": 0.0,
+            "max_paired_radius_drift": 0.0,
+            "before_radii": [
+              0.0,
+              0.01970180415218472,
+              0.045159778820119116,
+              0.04366819073351948,
+              0.0,
+              0.01970180415218472
+            ],
+            "after_radii": [
+              0.0,
+              0.01970180415218472,
+              0.045159778820119116,
+              0.04366819073351948,
+              0.0,
+              0.01970180415218472
+            ]
+          },
+          "radial_invariance_falsified": false,
+          "point_invariance_falsified": false
+        }
+      ]
+    },
+    "summary": {
+      "alpha": {
+        "radial_failures": 0,
+        "point_failures": 0,
+        "median_cdf_sup": 0.0,
+        "median_radial_wasserstein_1": 0.0,
+        "max_paired_radius_drift": 0.0,
+        "max_center_distance_change": 0.0,
+        "nearest_center_sets_changed": 0,
+        "cdf_w1_failures": 0,
+        "median_w1_over_mean_radius": 0.0,
+        "strict_order_reversals": 0
+      },
+      "pretty_narrow": {
+        "radial_failures": 0,
+        "point_failures": 0,
+        "median_cdf_sup": 0.0,
+        "median_radial_wasserstein_1": 0.0,
+        "max_paired_radius_drift": 0.0,
+        "max_center_distance_change": 0.0,
+        "nearest_center_sets_changed": 0,
+        "cdf_w1_failures": 0,
+        "median_w1_over_mean_radius": 0.0,
+        "strict_order_reversals": 0
+      },
+      "pretty_no_notation": {
+        "radial_failures": 0,
+        "point_failures": 0,
+        "median_cdf_sup": 0.0,
+        "median_radial_wasserstein_1": 0.0,
+        "max_paired_radius_drift": 0.0,
+        "max_center_distance_change": 0.0,
+        "nearest_center_sets_changed": 0,
+        "cdf_w1_failures": 0,
+        "median_w1_over_mean_radius": 0.0,
+        "strict_order_reversals": 0
+      },
+      "defeq_id": {
+        "radial_failures": 0,
+        "point_failures": 0,
+        "median_cdf_sup": 0.0,
+        "median_radial_wasserstein_1": 0.0,
+        "max_paired_radius_drift": 0.0,
+        "max_center_distance_change": 0.0,
+        "nearest_center_sets_changed": 0,
+        "cdf_w1_failures": 0,
+        "median_w1_over_mean_radius": 0.0,
+        "strict_order_reversals": 0
+      }
+    },
+    "contrasts": {
+      "pairs": [
+        {
+          "id": "c00",
+          "distance": 0.031440013315990126,
+          "collapsed": false,
+          "token_collision": false,
+          "equivalent_presentations": [
+            {
+              "side": "a",
+              "arm": "alpha",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "a",
+              "arm": "pretty_narrow",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "a",
+              "arm": "pretty_no_notation",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "a",
+              "arm": "defeq_id",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "b",
+              "arm": "alpha",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "b",
+              "arm": "pretty_narrow",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "b",
+              "arm": "pretty_no_notation",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "b",
+              "arm": "defeq_id",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            }
+          ]
+        },
+        {
+          "id": "c01",
+          "distance": 0.06154817556038956,
+          "collapsed": false,
+          "token_collision": false,
+          "equivalent_presentations": [
+            {
+              "side": "a",
+              "arm": "alpha",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "a",
+              "arm": "pretty_narrow",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "a",
+              "arm": "pretty_no_notation",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "a",
+              "arm": "defeq_id",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "b",
+              "arm": "alpha",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "b",
+              "arm": "pretty_narrow",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "b",
+              "arm": "pretty_no_notation",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "b",
+              "arm": "defeq_id",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            }
+          ]
+        },
+        {
+          "id": "c02",
+          "distance": 0.23062533302138793,
+          "collapsed": false,
+          "token_collision": false,
+          "equivalent_presentations": [
+            {
+              "side": "a",
+              "arm": "alpha",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "a",
+              "arm": "pretty_narrow",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "a",
+              "arm": "pretty_no_notation",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "a",
+              "arm": "defeq_id",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "b",
+              "arm": "alpha",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "b",
+              "arm": "pretty_narrow",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "b",
+              "arm": "pretty_no_notation",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "b",
+              "arm": "defeq_id",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            }
+          ]
+        },
+        {
+          "id": "c03",
+          "distance": 0.11294119452886356,
+          "collapsed": false,
+          "token_collision": false,
+          "equivalent_presentations": [
+            {
+              "side": "a",
+              "arm": "alpha",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "a",
+              "arm": "pretty_narrow",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "a",
+              "arm": "pretty_no_notation",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "a",
+              "arm": "defeq_id",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "b",
+              "arm": "alpha",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "b",
+              "arm": "pretty_narrow",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "b",
+              "arm": "pretty_no_notation",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "b",
+              "arm": "defeq_id",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            }
+          ]
+        },
+        {
+          "id": "c04",
+          "distance": 0.11625235806012463,
+          "collapsed": false,
+          "token_collision": false,
+          "equivalent_presentations": [
+            {
+              "side": "a",
+              "arm": "alpha",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "a",
+              "arm": "pretty_narrow",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "a",
+              "arm": "pretty_no_notation",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "a",
+              "arm": "defeq_id",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "b",
+              "arm": "alpha",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "b",
+              "arm": "pretty_narrow",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "b",
+              "arm": "pretty_no_notation",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "b",
+              "arm": "defeq_id",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            }
+          ]
+        },
+        {
+          "id": "c05",
+          "distance": 0.10060317997118473,
+          "collapsed": false,
+          "token_collision": false,
+          "equivalent_presentations": [
+            {
+              "side": "a",
+              "arm": "alpha",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "a",
+              "arm": "pretty_narrow",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "a",
+              "arm": "pretty_no_notation",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "a",
+              "arm": "defeq_id",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "b",
+              "arm": "alpha",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "b",
+              "arm": "pretty_narrow",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "b",
+              "arm": "pretty_no_notation",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "b",
+              "arm": "defeq_id",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            }
+          ]
+        },
+        {
+          "id": "c06",
+          "distance": 0.034462135046998126,
+          "collapsed": false,
+          "token_collision": false,
+          "equivalent_presentations": [
+            {
+              "side": "a",
+              "arm": "alpha",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "a",
+              "arm": "pretty_narrow",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "a",
+              "arm": "pretty_no_notation",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "a",
+              "arm": "defeq_id",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "b",
+              "arm": "alpha",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "b",
+              "arm": "pretty_narrow",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "b",
+              "arm": "pretty_no_notation",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "b",
+              "arm": "defeq_id",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            }
+          ]
+        },
+        {
+          "id": "c07",
+          "distance": 0.06043246152489203,
+          "collapsed": false,
+          "token_collision": false,
+          "equivalent_presentations": [
+            {
+              "side": "a",
+              "arm": "alpha",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "a",
+              "arm": "pretty_narrow",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "a",
+              "arm": "pretty_no_notation",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "a",
+              "arm": "defeq_id",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "b",
+              "arm": "alpha",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "b",
+              "arm": "pretty_narrow",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "b",
+              "arm": "pretty_no_notation",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "b",
+              "arm": "defeq_id",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            }
+          ]
+        },
+        {
+          "id": "c08",
+          "distance": 0.05955850311359111,
+          "collapsed": false,
+          "token_collision": false,
+          "equivalent_presentations": [
+            {
+              "side": "a",
+              "arm": "alpha",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "a",
+              "arm": "pretty_narrow",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "a",
+              "arm": "pretty_no_notation",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "a",
+              "arm": "defeq_id",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "b",
+              "arm": "alpha",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "b",
+              "arm": "pretty_narrow",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "b",
+              "arm": "pretty_no_notation",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "b",
+              "arm": "defeq_id",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            }
+          ]
+        },
+        {
+          "id": "c09",
+          "distance": 0.049343989057701244,
+          "collapsed": false,
+          "token_collision": false,
+          "equivalent_presentations": [
+            {
+              "side": "a",
+              "arm": "alpha",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "a",
+              "arm": "pretty_narrow",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "a",
+              "arm": "pretty_no_notation",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "a",
+              "arm": "defeq_id",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "b",
+              "arm": "alpha",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "b",
+              "arm": "pretty_narrow",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "b",
+              "arm": "pretty_no_notation",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "b",
+              "arm": "defeq_id",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            }
+          ]
+        },
+        {
+          "id": "c10",
+          "distance": 0.02822905054042866,
+          "collapsed": false,
+          "token_collision": false,
+          "equivalent_presentations": [
+            {
+              "side": "a",
+              "arm": "alpha",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "a",
+              "arm": "pretty_narrow",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "a",
+              "arm": "pretty_no_notation",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "a",
+              "arm": "defeq_id",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "b",
+              "arm": "alpha",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "b",
+              "arm": "pretty_narrow",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "b",
+              "arm": "pretty_no_notation",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "b",
+              "arm": "defeq_id",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            }
+          ]
+        },
+        {
+          "id": "c11",
+          "distance": 0.057126465036434856,
+          "collapsed": false,
+          "token_collision": false,
+          "equivalent_presentations": [
+            {
+              "side": "a",
+              "arm": "alpha",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "a",
+              "arm": "pretty_narrow",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "a",
+              "arm": "pretty_no_notation",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "a",
+              "arm": "defeq_id",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "b",
+              "arm": "alpha",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "b",
+              "arm": "pretty_narrow",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "b",
+              "arm": "pretty_no_notation",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            },
+            {
+              "side": "b",
+              "arm": "defeq_id",
+              "displacement": 0.0,
+              "equivalent_is_closer": true,
+              "tie": false,
+              "displacement_over_contrast": 0.0
+            }
+          ]
+        }
+      ],
+      "collapsed_pairs": 0,
+      "token_collisions": 0,
+      "equivalent_closer": 96,
+      "ties": 0,
+      "comparisons": 96,
+      "median_contrast_distance": 0.059995482319241566,
+      "worst_equivalent_shift_over_contrast": 0.0
+    },
+    "repeat_max_drift": 0.0,
+    "numerical_tolerance": 1e-06,
+    "unknown_tokens": 0,
+    "total_tokens": 0,
+    "max_tokens": null,
+    "semantic_geometry_validated": false
+  }
+}

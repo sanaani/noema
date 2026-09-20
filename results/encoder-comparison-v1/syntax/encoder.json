@@ -1,0 +1,10 @@
+{
+  "model": "syntax",
+  "dimension": 256,
+  "numpy": "2.5.3",
+  "device": "cpu",
+  "inputs_sha256": "54d369741e861aa9e0652c2f148545bac8700319d42f870ccf6747f2173aa775",
+  "protocol_sha256": "f5a0e18de1ba3b491cb66ba1407822d09cf86901a59dcd20c975f14e1507555f",
+  "adapter_sha256": "b465dbdda66a39f3dc55aab2e41fc565190ce886fdd4c82a602ce888ed8f1a90",
+  "script_sha256": "c2ffa8121f0d44b981a522b377ed048c92e13b91b16a8b28d4ef1da012e6a555"
+}

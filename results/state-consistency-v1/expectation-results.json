@@ -1,0 +1,206 @@
+[
+  {
+    "a": "equivalent/rename/0",
+    "b": "equivalent/rename/1",
+    "equal": true,
+    "actual": true
+  },
+  {
+    "a": "equivalent/dependent/0",
+    "b": "equivalent/dependent/1",
+    "equal": true,
+    "actual": true
+  },
+  {
+    "a": "equivalent/beta/0",
+    "b": "equivalent/beta/1",
+    "equal": true,
+    "actual": true
+  },
+  {
+    "a": "equivalent/nested_beta/0",
+    "b": "equivalent/nested_beta/1",
+    "equal": true,
+    "actual": true
+  },
+  {
+    "a": "equivalent/zeta/0",
+    "b": "equivalent/zeta/1",
+    "equal": true,
+    "actual": true
+  },
+  {
+    "a": "equivalent/projection/0",
+    "b": "equivalent/projection/1",
+    "equal": true,
+    "actual": true
+  },
+  {
+    "a": "equivalent/iota/0",
+    "b": "equivalent/iota/1",
+    "equal": true,
+    "actual": true
+  },
+  {
+    "a": "equivalent/eta/0",
+    "b": "equivalent/eta/1",
+    "equal": true,
+    "actual": true
+  },
+  {
+    "a": "equivalent/reducible_alias/0",
+    "b": "equivalent/reducible_alias/1",
+    "equal": true,
+    "actual": true
+  },
+  {
+    "a": "equivalent/ordinary_alias/0",
+    "b": "equivalent/ordinary_alias/1",
+    "equal": true,
+    "actual": true
+  },
+  {
+    "a": "equivalent/context_alias/0",
+    "b": "equivalent/context_alias/1",
+    "equal": true,
+    "actual": true
+  },
+  {
+    "a": "equivalent/instance/0",
+    "b": "equivalent/instance/1",
+    "equal": true,
+    "actual": true
+  },
+  {
+    "a": "equivalent/shadow/0",
+    "b": "equivalent/shadow/1",
+    "equal": true,
+    "actual": true
+  },
+  {
+    "a": "equivalent/level_arithmetic/0",
+    "b": "equivalent/level_arithmetic/1",
+    "equal": true,
+    "actual": true
+  },
+  {
+    "a": "equivalent/string/0",
+    "b": "equivalent/string/1",
+    "equal": true,
+    "actual": true
+  },
+  {
+    "a": "equivalent/dependent_fn/0",
+    "b": "equivalent/dependent_fn/1",
+    "equal": true,
+    "actual": true
+  },
+  {
+    "a": "distinct/goal/0",
+    "b": "distinct/goal/1",
+    "equal": false,
+    "actual": false
+  },
+  {
+    "a": "distinct/type/0",
+    "b": "distinct/type/1",
+    "equal": false,
+    "actual": false
+  },
+  {
+    "a": "distinct/unused/0",
+    "b": "distinct/unused/1",
+    "equal": false,
+    "actual": false
+  },
+  {
+    "a": "distinct/dependent_reference/0",
+    "b": "distinct/dependent_reference/1",
+    "equal": false,
+    "actual": false
+  },
+  {
+    "a": "distinct/literal/0",
+    "b": "distinct/literal/1",
+    "equal": false,
+    "actual": false
+  },
+  {
+    "a": "distinct/operator/0",
+    "b": "distinct/operator/1",
+    "equal": false,
+    "actual": false
+  },
+  {
+    "a": "distinct/assumption/0",
+    "b": "distinct/assumption/1",
+    "equal": false,
+    "actual": false
+  },
+  {
+    "a": "distinct/universe/0",
+    "b": "distinct/universe/1",
+    "equal": false,
+    "actual": false
+  },
+  {
+    "a": "let/base",
+    "b": "let/renamed",
+    "equal": true,
+    "actual": true
+  },
+  {
+    "a": "let/base",
+    "b": "let/different",
+    "equal": false,
+    "actual": false
+  },
+  {
+    "a": "goals/ordered",
+    "b": "goals/reversed",
+    "equal": false,
+    "actual": false
+  },
+  {
+    "a": "goals/ordered",
+    "b": "goals/single",
+    "equal": false,
+    "actual": false
+  },
+  {
+    "a": "goals/single",
+    "b": "goals/empty",
+    "equal": false,
+    "actual": false
+  },
+  {
+    "a": "printer/all",
+    "b": "printer/narrow",
+    "equal": true,
+    "actual": true
+  },
+  {
+    "a": "printer/all",
+    "b": "equivalent/rename/0",
+    "equal": true,
+    "actual": true
+  },
+  {
+    "a": "boundary/closed",
+    "b": "boundary/introduced",
+    "equal": false,
+    "actual": false
+  },
+  {
+    "a": "universe_name/u",
+    "b": "universe_name/v",
+    "equal": false,
+    "actual": false
+  },
+  {
+    "a": "sharing/shared",
+    "b": "sharing/separate",
+    "equal": false,
+    "actual": false
+  }
+]

@@ -1,0 +1,85 @@
+{
+  "expected_pairs": 34,
+  "all_expected_passed": true,
+  "proofs": [
+    {
+      "axioms": [],
+      "name": "and_swap_0"
+    },
+    {
+      "axioms": [],
+      "name": "and_swap_1"
+    },
+    {
+      "axioms": [],
+      "name": "and_assoc_0"
+    },
+    {
+      "axioms": [],
+      "name": "and_assoc_1"
+    },
+    {
+      "axioms": [],
+      "name": "imp_comp_0"
+    },
+    {
+      "axioms": [],
+      "name": "imp_comp_1"
+    },
+    {
+      "axioms": [],
+      "name": "or_swap_0"
+    },
+    {
+      "axioms": [],
+      "name": "or_swap_1"
+    },
+    {
+      "axioms": [],
+      "name": "eq_symm_0"
+    },
+    {
+      "axioms": [],
+      "name": "eq_symm_1"
+    },
+    {
+      "axioms": [],
+      "name": "eq_trans_0"
+    },
+    {
+      "axioms": [],
+      "name": "eq_trans_1"
+    },
+    {
+      "axioms": [],
+      "name": "nat_assoc_0"
+    },
+    {
+      "axioms": [
+        "propext"
+      ],
+      "name": "nat_assoc_1"
+    },
+    {
+      "axioms": [
+        "propext"
+      ],
+      "name": "list_assoc_0"
+    },
+    {
+      "axioms": [
+        "propext"
+      ],
+      "name": "list_assoc_1"
+    }
+  ],
+  "expected_rejections": [
+    "expr_mvar",
+    "universe_mvar",
+    "loose_bvar"
+  ],
+  "registry_classes": 62,
+  "occurrences": 123,
+  "checked_pairs": 7626,
+  "classes_with_distinct_normalized_payloads": 3
+}

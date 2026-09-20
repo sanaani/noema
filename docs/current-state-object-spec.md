@@ -7,6 +7,29 @@ relationships. This is exploratory investigation. Training an encoder or LLM,
 predicting missing regions, and optimizing prediction accuracy are not current
 objectives. Existing fixed encoders are measurement tools.
 
+**September 16 priority correction:** test measurement invariance before further
+corpus acquisition or mathematical case studies. The
+[presentation audit](../results/encoder-invariance-v1/README.md) checks α-renaming,
+printer changes and Lean-verified defeq restatements, including F_T with both
+center and States transformed. A failed screen blocks semantic interpretation
+of the current distances, curves and rankings. Passing a finite screen would
+still not establish mathematical relatedness. This priority supersedes the
+acquisition-first next steps retained below; it does not change archived objects.
+The [multi-encoder follow-up](../results/encoder-comparison-v1/README.md) compares
+five alternatives against the same frozen fixtures and 12 verified proposition
+distinctions. Canonical-input success on these cases is a limited representation
+repair, not validation of mathematical distance or grounds to skip the
+remaining semantic checks.
+
+The [State consistency implementation](../results/state-consistency-v1/README.md)
+provides structured capture of ordered goals, typed local contexts, definition
+values and shared local variables. Frozen environment-scoped equivalence registries
+use direct Lean checks for every member/representative pair and collision-tested
+encoder artifacts. Identical lookup outputs are guaranteed for admitted equivalent
+inputs; unknown States require certified acquisition into a new version. The old
+display-only archive cannot be certified by textual cleanup alone. Complete tactic
+snapshots and semantic usefulness of distances remain separate questions.
+
 ## Theorem selection and proof coverage
 
 Sample theorems. For each selected theorem, include every known proof and every

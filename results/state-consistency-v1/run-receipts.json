@@ -1,0 +1,24 @@
+[
+  {
+    "model": "syntax",
+    "exit_code": 1,
+    "seconds": 2.3385780480002722
+  },
+  {
+    "model": "leansearch",
+    "exit_code": 0,
+    "seconds": 20.82493667799963
+  },
+  {
+    "model": "qwen",
+    "exit_code": -15,
+    "seconds": 542.1404000870002
+  },
+  {
+    "model": "qwen",
+    "attention": "sdpa",
+    "exit_code": 0,
+    "seconds": 1096.7542016429998,
+    "accepted": true
+  }
+]

@@ -1,0 +1,985 @@
+{
+  "protocol": "/home/soverton/Documents/noema/results/historical-connections-v1/protocol.md",
+  "selection_sha256": "5e9b998791ac09d847e5e38cd1c835e5a9df13354113836d64fd8f9e20685429",
+  "inputs": "historical-connections-v1 typed, round-trip-checked displays",
+  "models": [
+    "leansearch",
+    "e5",
+    "bge",
+    "qwen",
+    "qwen-instruct"
+  ],
+  "cases": {
+    "leansearch": [
+      {
+        "label": "Euler: trigonometry / complex exponentials",
+        "a": "Real.sin_add",
+        "b": "Complex.exp_add",
+        "bridge": "Complex.exp_mul_I",
+        "directions": [
+          {
+            "anchor": "Real.sin_add",
+            "target": "Complex.exp_add",
+            "target_vs_background": {
+              "controls": 64,
+              "rank": 2,
+              "farther_fraction": 0.984375
+            },
+            "target_vs_lexical": {
+              "controls": 4,
+              "rank": 5,
+              "farther_fraction": 0.0
+            },
+            "bridge_distance": 0.9555748195003172,
+            "bridge_vs_background": {
+              "controls": 64,
+              "rank": 1,
+              "farther_fraction": 1.0
+            }
+          },
+          {
+            "anchor": "Complex.exp_add",
+            "target": "Real.sin_add",
+            "target_vs_background": {
+              "controls": 64,
+              "rank": 2,
+              "farther_fraction": 0.984375
+            },
+            "target_vs_lexical": {
+              "controls": 4,
+              "rank": 5,
+              "farther_fraction": 0.0
+            },
+            "bridge_distance": 0.8043175471391107,
+            "bridge_vs_background": {
+              "controls": 64,
+              "rank": 1,
+              "farther_fraction": 1.0
+            }
+          }
+        ]
+      },
+      {
+        "label": "Fermat: sums of squares / Gaussian integers",
+        "a": "Nat.Prime.sq_add_sq",
+        "b": "GaussianInt.prime_iff_mod_four_eq_three_of_nat_prime",
+        "bridge": "GaussianInt.sq_add_sq_of_nat_prime_of_not_irreducible",
+        "directions": [
+          {
+            "anchor": "Nat.Prime.sq_add_sq",
+            "target": "GaussianInt.prime_iff_mod_four_eq_three_of_nat_prime",
+            "target_vs_background": {
+              "controls": 64,
+              "rank": 1,
+              "farther_fraction": 1.0
+            },
+            "target_vs_lexical": {
+              "controls": 4,
+              "rank": 3,
+              "farther_fraction": 0.5
+            },
+            "bridge_distance": 0.9169621441297349,
+            "bridge_vs_background": {
+              "controls": 64,
+              "rank": 1,
+              "farther_fraction": 1.0
+            }
+          },
+          {
+            "anchor": "GaussianInt.prime_iff_mod_four_eq_three_of_nat_prime",
+            "target": "Nat.Prime.sq_add_sq",
+            "target_vs_background": {
+              "controls": 64,
+              "rank": 1,
+              "farther_fraction": 1.0
+            },
+            "target_vs_lexical": {
+              "controls": 4,
+              "rank": 3,
+              "farther_fraction": 0.5
+            },
+            "bridge_distance": 0.8222349304342638,
+            "bridge_vs_background": {
+              "controls": 64,
+              "rank": 1,
+              "farther_fraction": 1.0
+            }
+          }
+        ]
+      },
+      {
+        "label": "Galois: polynomial degree / field symmetries",
+        "a": "IntermediateField.adjoin.finrank",
+        "b": "IsGalois.card_aut_eq_finrank",
+        "bridge": "IsGalois.IntermediateField.AdjoinSimple.card_aut_eq_finrank",
+        "directions": [
+          {
+            "anchor": "IntermediateField.adjoin.finrank",
+            "target": "IsGalois.card_aut_eq_finrank",
+            "target_vs_background": {
+              "controls": 64,
+              "rank": 2,
+              "farther_fraction": 0.984375
+            },
+            "target_vs_lexical": {
+              "controls": 4,
+              "rank": 5,
+              "farther_fraction": 0.0
+            },
+            "bridge_distance": 0.8283056858418787,
+            "bridge_vs_background": {
+              "controls": 64,
+              "rank": 1,
+              "farther_fraction": 1.0
+            }
+          },
+          {
+            "anchor": "IsGalois.card_aut_eq_finrank",
+            "target": "IntermediateField.adjoin.finrank",
+            "target_vs_background": {
+              "controls": 64,
+              "rank": 2,
+              "farther_fraction": 0.984375
+            },
+            "target_vs_lexical": {
+              "controls": 4,
+              "rank": 5,
+              "farther_fraction": 0.0
+            },
+            "bridge_distance": 0.9973529774542378,
+            "bridge_vs_background": {
+              "controls": 64,
+              "rank": 1,
+              "farther_fraction": 1.0
+            }
+          }
+        ]
+      },
+      {
+        "label": "Fourier: Basel sum / harmonic analysis",
+        "a": "hasSum_zeta_two",
+        "b": "hasSum_fourier_series_of_summable",
+        "bridge": "hasSum_one_div_nat_pow_mul_cos",
+        "directions": [
+          {
+            "anchor": "hasSum_zeta_two",
+            "target": "hasSum_fourier_series_of_summable",
+            "target_vs_background": {
+              "controls": 64,
+              "rank": 1,
+              "farther_fraction": 1.0
+            },
+            "target_vs_lexical": {
+              "controls": 4,
+              "rank": 5,
+              "farther_fraction": 0.0
+            },
+            "bridge_distance": 0.873760836511364,
+            "bridge_vs_background": {
+              "controls": 64,
+              "rank": 1,
+              "farther_fraction": 1.0
+            }
+          },
+          {
+            "anchor": "hasSum_fourier_series_of_summable",
+            "target": "hasSum_zeta_two",
+            "target_vs_background": {
+              "controls": 64,
+              "rank": 1,
+              "farther_fraction": 1.0
+            },
+            "target_vs_lexical": {
+              "controls": 4,
+              "rank": 5,
+              "farther_fraction": 0.0
+            },
+            "bridge_distance": 1.2234621025218642,
+            "bridge_vs_background": {
+              "controls": 64,
+              "rank": 4,
+              "farther_fraction": 0.953125
+            }
+          }
+        ]
+      }
+    ],
+    "e5": [
+      {
+        "label": "Euler: trigonometry / complex exponentials",
+        "a": "Real.sin_add",
+        "b": "Complex.exp_add",
+        "bridge": "Complex.exp_mul_I",
+        "directions": [
+          {
+            "anchor": "Real.sin_add",
+            "target": "Complex.exp_add",
+            "target_vs_background": {
+              "controls": 64,
+              "rank": 2,
+              "farther_fraction": 0.984375
+            },
+            "target_vs_lexical": {
+              "controls": 4,
+              "rank": 5,
+              "farther_fraction": 0.0
+            },
+            "bridge_distance": 0.3651732147017107,
+            "bridge_vs_background": {
+              "controls": 64,
+              "rank": 2,
+              "farther_fraction": 0.984375
+            }
+          },
+          {
+            "anchor": "Complex.exp_add",
+            "target": "Real.sin_add",
+            "target_vs_background": {
+              "controls": 64,
+              "rank": 2,
+              "farther_fraction": 0.984375
+            },
+            "target_vs_lexical": {
+              "controls": 4,
+              "rank": 5,
+              "farther_fraction": 0.0
+            },
+            "bridge_distance": 0.2773212366412264,
+            "bridge_vs_background": {
+              "controls": 64,
+              "rank": 1,
+              "farther_fraction": 1.0
+            }
+          }
+        ]
+      },
+      {
+        "label": "Fermat: sums of squares / Gaussian integers",
+        "a": "Nat.Prime.sq_add_sq",
+        "b": "GaussianInt.prime_iff_mod_four_eq_three_of_nat_prime",
+        "bridge": "GaussianInt.sq_add_sq_of_nat_prime_of_not_irreducible",
+        "directions": [
+          {
+            "anchor": "Nat.Prime.sq_add_sq",
+            "target": "GaussianInt.prime_iff_mod_four_eq_three_of_nat_prime",
+            "target_vs_background": {
+              "controls": 64,
+              "rank": 1,
+              "farther_fraction": 1.0
+            },
+            "target_vs_lexical": {
+              "controls": 4,
+              "rank": 3,
+              "farther_fraction": 0.5
+            },
+            "bridge_distance": 0.3169404035268326,
+            "bridge_vs_background": {
+              "controls": 64,
+              "rank": 1,
+              "farther_fraction": 1.0
+            }
+          },
+          {
+            "anchor": "GaussianInt.prime_iff_mod_four_eq_three_of_nat_prime",
+            "target": "Nat.Prime.sq_add_sq",
+            "target_vs_background": {
+              "controls": 64,
+              "rank": 1,
+              "farther_fraction": 1.0
+            },
+            "target_vs_lexical": {
+              "controls": 4,
+              "rank": 3,
+              "farther_fraction": 0.5
+            },
+            "bridge_distance": 0.30106530430037315,
+            "bridge_vs_background": {
+              "controls": 64,
+              "rank": 1,
+              "farther_fraction": 1.0
+            }
+          }
+        ]
+      },
+      {
+        "label": "Galois: polynomial degree / field symmetries",
+        "a": "IntermediateField.adjoin.finrank",
+        "b": "IsGalois.card_aut_eq_finrank",
+        "bridge": "IsGalois.IntermediateField.AdjoinSimple.card_aut_eq_finrank",
+        "directions": [
+          {
+            "anchor": "IntermediateField.adjoin.finrank",
+            "target": "IsGalois.card_aut_eq_finrank",
+            "target_vs_background": {
+              "controls": 64,
+              "rank": 1,
+              "farther_fraction": 1.0
+            },
+            "target_vs_lexical": {
+              "controls": 4,
+              "rank": 5,
+              "farther_fraction": 0.0
+            },
+            "bridge_distance": 0.37487614611949804,
+            "bridge_vs_background": {
+              "controls": 64,
+              "rank": 1,
+              "farther_fraction": 1.0
+            }
+          },
+          {
+            "anchor": "IsGalois.card_aut_eq_finrank",
+            "target": "IntermediateField.adjoin.finrank",
+            "target_vs_background": {
+              "controls": 64,
+              "rank": 2,
+              "farther_fraction": 0.984375
+            },
+            "target_vs_lexical": {
+              "controls": 4,
+              "rank": 5,
+              "farther_fraction": 0.0
+            },
+            "bridge_distance": 0.3533394105587742,
+            "bridge_vs_background": {
+              "controls": 64,
+              "rank": 2,
+              "farther_fraction": 0.984375
+            }
+          }
+        ]
+      },
+      {
+        "label": "Fourier: Basel sum / harmonic analysis",
+        "a": "hasSum_zeta_two",
+        "b": "hasSum_fourier_series_of_summable",
+        "bridge": "hasSum_one_div_nat_pow_mul_cos",
+        "directions": [
+          {
+            "anchor": "hasSum_zeta_two",
+            "target": "hasSum_fourier_series_of_summable",
+            "target_vs_background": {
+              "controls": 64,
+              "rank": 1,
+              "farther_fraction": 1.0
+            },
+            "target_vs_lexical": {
+              "controls": 4,
+              "rank": 4,
+              "farther_fraction": 0.25
+            },
+            "bridge_distance": 0.4229814017837303,
+            "bridge_vs_background": {
+              "controls": 64,
+              "rank": 1,
+              "farther_fraction": 1.0
+            }
+          },
+          {
+            "anchor": "hasSum_fourier_series_of_summable",
+            "target": "hasSum_zeta_two",
+            "target_vs_background": {
+              "controls": 64,
+              "rank": 2,
+              "farther_fraction": 0.984375
+            },
+            "target_vs_lexical": {
+              "controls": 4,
+              "rank": 5,
+              "farther_fraction": 0.0
+            },
+            "bridge_distance": 0.4569511773264941,
+            "bridge_vs_background": {
+              "controls": 64,
+              "rank": 4,
+              "farther_fraction": 0.953125
+            }
+          }
+        ]
+      }
+    ],
+    "bge": [
+      {
+        "label": "Euler: trigonometry / complex exponentials",
+        "a": "Real.sin_add",
+        "b": "Complex.exp_add",
+        "bridge": "Complex.exp_mul_I",
+        "directions": [
+          {
+            "anchor": "Real.sin_add",
+            "target": "Complex.exp_add",
+            "target_vs_background": {
+              "controls": 64,
+              "rank": 2,
+              "farther_fraction": 0.984375
+            },
+            "target_vs_lexical": {
+              "controls": 4,
+              "rank": 5,
+              "farther_fraction": 0.0
+            },
+            "bridge_distance": 0.6089753136248115,
+            "bridge_vs_background": {
+              "controls": 64,
+              "rank": 2,
+              "farther_fraction": 0.984375
+            }
+          },
+          {
+            "anchor": "Complex.exp_add",
+            "target": "Real.sin_add",
+            "target_vs_background": {
+              "controls": 64,
+              "rank": 2,
+              "farther_fraction": 0.984375
+            },
+            "target_vs_lexical": {
+              "controls": 4,
+              "rank": 5,
+              "farther_fraction": 0.0
+            },
+            "bridge_distance": 0.4262720067266282,
+            "bridge_vs_background": {
+              "controls": 64,
+              "rank": 1,
+              "farther_fraction": 1.0
+            }
+          }
+        ]
+      },
+      {
+        "label": "Fermat: sums of squares / Gaussian integers",
+        "a": "Nat.Prime.sq_add_sq",
+        "b": "GaussianInt.prime_iff_mod_four_eq_three_of_nat_prime",
+        "bridge": "GaussianInt.sq_add_sq_of_nat_prime_of_not_irreducible",
+        "directions": [
+          {
+            "anchor": "Nat.Prime.sq_add_sq",
+            "target": "GaussianInt.prime_iff_mod_four_eq_three_of_nat_prime",
+            "target_vs_background": {
+              "controls": 64,
+              "rank": 1,
+              "farther_fraction": 1.0
+            },
+            "target_vs_lexical": {
+              "controls": 4,
+              "rank": 4,
+              "farther_fraction": 0.25
+            },
+            "bridge_distance": 0.514328215058382,
+            "bridge_vs_background": {
+              "controls": 64,
+              "rank": 1,
+              "farther_fraction": 1.0
+            }
+          },
+          {
+            "anchor": "GaussianInt.prime_iff_mod_four_eq_three_of_nat_prime",
+            "target": "Nat.Prime.sq_add_sq",
+            "target_vs_background": {
+              "controls": 64,
+              "rank": 1,
+              "farther_fraction": 1.0
+            },
+            "target_vs_lexical": {
+              "controls": 4,
+              "rank": 3,
+              "farther_fraction": 0.5
+            },
+            "bridge_distance": 0.358307876669301,
+            "bridge_vs_background": {
+              "controls": 64,
+              "rank": 1,
+              "farther_fraction": 1.0
+            }
+          }
+        ]
+      },
+      {
+        "label": "Galois: polynomial degree / field symmetries",
+        "a": "IntermediateField.adjoin.finrank",
+        "b": "IsGalois.card_aut_eq_finrank",
+        "bridge": "IsGalois.IntermediateField.AdjoinSimple.card_aut_eq_finrank",
+        "directions": [
+          {
+            "anchor": "IntermediateField.adjoin.finrank",
+            "target": "IsGalois.card_aut_eq_finrank",
+            "target_vs_background": {
+              "controls": 64,
+              "rank": 2,
+              "farther_fraction": 0.984375
+            },
+            "target_vs_lexical": {
+              "controls": 4,
+              "rank": 5,
+              "farther_fraction": 0.0
+            },
+            "bridge_distance": 0.45823889598721185,
+            "bridge_vs_background": {
+              "controls": 64,
+              "rank": 2,
+              "farther_fraction": 0.984375
+            }
+          },
+          {
+            "anchor": "IsGalois.card_aut_eq_finrank",
+            "target": "IntermediateField.adjoin.finrank",
+            "target_vs_background": {
+              "controls": 64,
+              "rank": 3,
+              "farther_fraction": 0.96875
+            },
+            "target_vs_lexical": {
+              "controls": 4,
+              "rank": 5,
+              "farther_fraction": 0.0
+            },
+            "bridge_distance": 0.36785958817218223,
+            "bridge_vs_background": {
+              "controls": 64,
+              "rank": 2,
+              "farther_fraction": 0.984375
+            }
+          }
+        ]
+      },
+      {
+        "label": "Fourier: Basel sum / harmonic analysis",
+        "a": "hasSum_zeta_two",
+        "b": "hasSum_fourier_series_of_summable",
+        "bridge": "hasSum_one_div_nat_pow_mul_cos",
+        "directions": [
+          {
+            "anchor": "hasSum_zeta_two",
+            "target": "hasSum_fourier_series_of_summable",
+            "target_vs_background": {
+              "controls": 64,
+              "rank": 2,
+              "farther_fraction": 0.984375
+            },
+            "target_vs_lexical": {
+              "controls": 4,
+              "rank": 4,
+              "farther_fraction": 0.25
+            },
+            "bridge_distance": 0.5184255752898558,
+            "bridge_vs_background": {
+              "controls": 64,
+              "rank": 1,
+              "farther_fraction": 1.0
+            }
+          },
+          {
+            "anchor": "hasSum_fourier_series_of_summable",
+            "target": "hasSum_zeta_two",
+            "target_vs_background": {
+              "controls": 64,
+              "rank": 1,
+              "farther_fraction": 1.0
+            },
+            "target_vs_lexical": {
+              "controls": 4,
+              "rank": 5,
+              "farther_fraction": 0.0
+            },
+            "bridge_distance": 0.5439847141175778,
+            "bridge_vs_background": {
+              "controls": 64,
+              "rank": 1,
+              "farther_fraction": 1.0
+            }
+          }
+        ]
+      }
+    ],
+    "qwen": [
+      {
+        "label": "Euler: trigonometry / complex exponentials",
+        "a": "Real.sin_add",
+        "b": "Complex.exp_add",
+        "bridge": "Complex.exp_mul_I",
+        "directions": [
+          {
+            "anchor": "Real.sin_add",
+            "target": "Complex.exp_add",
+            "target_vs_background": {
+              "controls": 64,
+              "rank": 2,
+              "farther_fraction": 0.984375
+            },
+            "target_vs_lexical": {
+              "controls": 4,
+              "rank": 5,
+              "farther_fraction": 0.0
+            },
+            "bridge_distance": 0.702020824248394,
+            "bridge_vs_background": {
+              "controls": 64,
+              "rank": 2,
+              "farther_fraction": 0.984375
+            }
+          },
+          {
+            "anchor": "Complex.exp_add",
+            "target": "Real.sin_add",
+            "target_vs_background": {
+              "controls": 64,
+              "rank": 2,
+              "farther_fraction": 0.984375
+            },
+            "target_vs_lexical": {
+              "controls": 4,
+              "rank": 5,
+              "farther_fraction": 0.0
+            },
+            "bridge_distance": 0.5492413364276305,
+            "bridge_vs_background": {
+              "controls": 64,
+              "rank": 2,
+              "farther_fraction": 0.984375
+            }
+          }
+        ]
+      },
+      {
+        "label": "Fermat: sums of squares / Gaussian integers",
+        "a": "Nat.Prime.sq_add_sq",
+        "b": "GaussianInt.prime_iff_mod_four_eq_three_of_nat_prime",
+        "bridge": "GaussianInt.sq_add_sq_of_nat_prime_of_not_irreducible",
+        "directions": [
+          {
+            "anchor": "Nat.Prime.sq_add_sq",
+            "target": "GaussianInt.prime_iff_mod_four_eq_three_of_nat_prime",
+            "target_vs_background": {
+              "controls": 64,
+              "rank": 1,
+              "farther_fraction": 1.0
+            },
+            "target_vs_lexical": {
+              "controls": 4,
+              "rank": 3,
+              "farther_fraction": 0.5
+            },
+            "bridge_distance": 0.4644121968217512,
+            "bridge_vs_background": {
+              "controls": 64,
+              "rank": 1,
+              "farther_fraction": 1.0
+            }
+          },
+          {
+            "anchor": "GaussianInt.prime_iff_mod_four_eq_three_of_nat_prime",
+            "target": "Nat.Prime.sq_add_sq",
+            "target_vs_background": {
+              "controls": 64,
+              "rank": 1,
+              "farther_fraction": 1.0
+            },
+            "target_vs_lexical": {
+              "controls": 4,
+              "rank": 3,
+              "farther_fraction": 0.5
+            },
+            "bridge_distance": 0.5718708919394354,
+            "bridge_vs_background": {
+              "controls": 64,
+              "rank": 1,
+              "farther_fraction": 1.0
+            }
+          }
+        ]
+      },
+      {
+        "label": "Galois: polynomial degree / field symmetries",
+        "a": "IntermediateField.adjoin.finrank",
+        "b": "IsGalois.card_aut_eq_finrank",
+        "bridge": "IsGalois.IntermediateField.AdjoinSimple.card_aut_eq_finrank",
+        "directions": [
+          {
+            "anchor": "IntermediateField.adjoin.finrank",
+            "target": "IsGalois.card_aut_eq_finrank",
+            "target_vs_background": {
+              "controls": 64,
+              "rank": 1,
+              "farther_fraction": 1.0
+            },
+            "target_vs_lexical": {
+              "controls": 4,
+              "rank": 4,
+              "farther_fraction": 0.25
+            },
+            "bridge_distance": 0.5359718902772914,
+            "bridge_vs_background": {
+              "controls": 64,
+              "rank": 1,
+              "farther_fraction": 1.0
+            }
+          },
+          {
+            "anchor": "IsGalois.card_aut_eq_finrank",
+            "target": "IntermediateField.adjoin.finrank",
+            "target_vs_background": {
+              "controls": 64,
+              "rank": 2,
+              "farther_fraction": 0.984375
+            },
+            "target_vs_lexical": {
+              "controls": 4,
+              "rank": 5,
+              "farther_fraction": 0.0
+            },
+            "bridge_distance": 0.6841048796261169,
+            "bridge_vs_background": {
+              "controls": 64,
+              "rank": 2,
+              "farther_fraction": 0.984375
+            }
+          }
+        ]
+      },
+      {
+        "label": "Fourier: Basel sum / harmonic analysis",
+        "a": "hasSum_zeta_two",
+        "b": "hasSum_fourier_series_of_summable",
+        "bridge": "hasSum_one_div_nat_pow_mul_cos",
+        "directions": [
+          {
+            "anchor": "hasSum_zeta_two",
+            "target": "hasSum_fourier_series_of_summable",
+            "target_vs_background": {
+              "controls": 64,
+              "rank": 3,
+              "farther_fraction": 0.96875
+            },
+            "target_vs_lexical": {
+              "controls": 4,
+              "rank": 5,
+              "farther_fraction": 0.0
+            },
+            "bridge_distance": 0.6726957449618545,
+            "bridge_vs_background": {
+              "controls": 64,
+              "rank": 1,
+              "farther_fraction": 1.0
+            }
+          },
+          {
+            "anchor": "hasSum_fourier_series_of_summable",
+            "target": "hasSum_zeta_two",
+            "target_vs_background": {
+              "controls": 64,
+              "rank": 1,
+              "farther_fraction": 1.0
+            },
+            "target_vs_lexical": {
+              "controls": 4,
+              "rank": 5,
+              "farther_fraction": 0.0
+            },
+            "bridge_distance": 0.6966116340579362,
+            "bridge_vs_background": {
+              "controls": 64,
+              "rank": 1,
+              "farther_fraction": 1.0
+            }
+          }
+        ]
+      }
+    ],
+    "qwen-instruct": [
+      {
+        "label": "Euler: trigonometry / complex exponentials",
+        "a": "Real.sin_add",
+        "b": "Complex.exp_add",
+        "bridge": "Complex.exp_mul_I",
+        "directions": [
+          {
+            "anchor": "Real.sin_add",
+            "target": "Complex.exp_add",
+            "target_vs_background": {
+              "controls": 64,
+              "rank": 2,
+              "farther_fraction": 0.984375
+            },
+            "target_vs_lexical": {
+              "controls": 4,
+              "rank": 5,
+              "farther_fraction": 0.0
+            },
+            "bridge_distance": 0.6864293169259333,
+            "bridge_vs_background": {
+              "controls": 64,
+              "rank": 2,
+              "farther_fraction": 0.984375
+            }
+          },
+          {
+            "anchor": "Complex.exp_add",
+            "target": "Real.sin_add",
+            "target_vs_background": {
+              "controls": 64,
+              "rank": 2,
+              "farther_fraction": 0.984375
+            },
+            "target_vs_lexical": {
+              "controls": 4,
+              "rank": 5,
+              "farther_fraction": 0.0
+            },
+            "bridge_distance": 0.5391081856900358,
+            "bridge_vs_background": {
+              "controls": 64,
+              "rank": 1,
+              "farther_fraction": 1.0
+            }
+          }
+        ]
+      },
+      {
+        "label": "Fermat: sums of squares / Gaussian integers",
+        "a": "Nat.Prime.sq_add_sq",
+        "b": "GaussianInt.prime_iff_mod_four_eq_three_of_nat_prime",
+        "bridge": "GaussianInt.sq_add_sq_of_nat_prime_of_not_irreducible",
+        "directions": [
+          {
+            "anchor": "Nat.Prime.sq_add_sq",
+            "target": "GaussianInt.prime_iff_mod_four_eq_three_of_nat_prime",
+            "target_vs_background": {
+              "controls": 64,
+              "rank": 1,
+              "farther_fraction": 1.0
+            },
+            "target_vs_lexical": {
+              "controls": 4,
+              "rank": 3,
+              "farther_fraction": 0.5
+            },
+            "bridge_distance": 0.5523299814615863,
+            "bridge_vs_background": {
+              "controls": 64,
+              "rank": 1,
+              "farther_fraction": 1.0
+            }
+          },
+          {
+            "anchor": "GaussianInt.prime_iff_mod_four_eq_three_of_nat_prime",
+            "target": "Nat.Prime.sq_add_sq",
+            "target_vs_background": {
+              "controls": 64,
+              "rank": 1,
+              "farther_fraction": 1.0
+            },
+            "target_vs_lexical": {
+              "controls": 4,
+              "rank": 3,
+              "farther_fraction": 0.5
+            },
+            "bridge_distance": 0.6482865099671276,
+            "bridge_vs_background": {
+              "controls": 64,
+              "rank": 1,
+              "farther_fraction": 1.0
+            }
+          }
+        ]
+      },
+      {
+        "label": "Galois: polynomial degree / field symmetries",
+        "a": "IntermediateField.adjoin.finrank",
+        "b": "IsGalois.card_aut_eq_finrank",
+        "bridge": "IsGalois.IntermediateField.AdjoinSimple.card_aut_eq_finrank",
+        "directions": [
+          {
+            "anchor": "IntermediateField.adjoin.finrank",
+            "target": "IsGalois.card_aut_eq_finrank",
+            "target_vs_background": {
+              "controls": 64,
+              "rank": 1,
+              "farther_fraction": 1.0
+            },
+            "target_vs_lexical": {
+              "controls": 4,
+              "rank": 4,
+              "farther_fraction": 0.25
+            },
+            "bridge_distance": 0.5947313425520225,
+            "bridge_vs_background": {
+              "controls": 64,
+              "rank": 1,
+              "farther_fraction": 1.0
+            }
+          },
+          {
+            "anchor": "IsGalois.card_aut_eq_finrank",
+            "target": "IntermediateField.adjoin.finrank",
+            "target_vs_background": {
+              "controls": 64,
+              "rank": 2,
+              "farther_fraction": 0.984375
+            },
+            "target_vs_lexical": {
+              "controls": 4,
+              "rank": 5,
+              "farther_fraction": 0.0
+            },
+            "bridge_distance": 0.684018915546923,
+            "bridge_vs_background": {
+              "controls": 64,
+              "rank": 2,
+              "farther_fraction": 0.984375
+            }
+          }
+        ]
+      },
+      {
+        "label": "Fourier: Basel sum / harmonic analysis",
+        "a": "hasSum_zeta_two",
+        "b": "hasSum_fourier_series_of_summable",
+        "bridge": "hasSum_one_div_nat_pow_mul_cos",
+        "directions": [
+          {
+            "anchor": "hasSum_zeta_two",
+            "target": "hasSum_fourier_series_of_summable",
+            "target_vs_background": {
+              "controls": 64,
+              "rank": 3,
+              "farther_fraction": 0.96875
+            },
+            "target_vs_lexical": {
+              "controls": 4,
+              "rank": 4,
+              "farther_fraction": 0.25
+            },
+            "bridge_distance": 0.6575931416765467,
+            "bridge_vs_background": {
+              "controls": 64,
+              "rank": 1,
+              "farther_fraction": 1.0
+            }
+          },
+          {
+            "anchor": "hasSum_fourier_series_of_summable",
+            "target": "hasSum_zeta_two",
+            "target_vs_background": {
+              "controls": 64,
+              "rank": 2,
+              "farther_fraction": 0.984375
+            },
+            "target_vs_lexical": {
+              "controls": 4,
+              "rank": 5,
+              "farther_fraction": 0.0
+            },
+            "bridge_distance": 0.7564510760057229,
+            "bridge_vs_background": {
+              "controls": 64,
+              "rank": 1,
+              "farther_fraction": 1.0
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "interpretation": "descriptive semantic benchmark; no post-result control selection"
+}

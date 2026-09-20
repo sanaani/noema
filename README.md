@@ -4,7 +4,28 @@ Exploring whether theorem embeddings and the distributions of States across thei
 
 The starting point is the [original research plan](docs/latent_geometry_mathematical_theorems_research_plan.md), preserved byte for byte. The [current specification](docs/current-state-object-spec.md) governs this investigation. The original [implementation plan](docs/implementation-plan.md) is historical and superseded where it conflicts with that specification.
 
-**For the current research direction and an LLM handoff, start with
+**Immediate priority: encoder invariance, before further corpus acquisition or
+mathematical case studies.** The [Lean-certified presentation audit](results/encoder-invariance-v1/README.md)
+tests α-renaming, pretty-print changes and definitionally equal restatements,
+including their effect on cumulative mass with both center and States transformed.
+The fixed encoder has no validated claim to measure mathematical relatedness.
+The [checked State encoding contract](results/state-consistency-v1/README.md)
+now supplies typed capture and a frozen Lean-certified equivalence registry.
+Accepted equivalent States receive identical vectors; unknown States and
+unvalidated encoders are rejected. This is scoped consistency, not validated
+mathematical relatedness or a migration of the old display-only corpus.
+The follow-up [semantic encoder evaluation](results/semantic-encoder-evaluation-v1/README.md)
+finds no evidence for the four prespecified cross-area connections in a fixed
+theorem-center benchmark, so the distance-usefulness claim remains unvalidated.
+The [alternative-encoder comparison](results/encoder-comparison-v1/README.md)
+tests five replacements, a fixed Qwen instruction, canonical Lean inputs and
+explicit proposition-distinction controls. The representation intervention is
+reported separately from the neural models' raw-input behavior.
+None of the alternatives passes on raw displays. Canonical inputs pass the
+finite screen while retaining 12 verified proposition distinctions, including
+with a structural control; mathematical relatedness is still unvalidated.
+
+**For the longer-term research direction and an LLM handoff, read
 [Demonstrating usefulness of Theorem Density Objects](docs/theorem-density-usefulness.md).**
 The object is centered on the theorem's initial State and retains all acquired
 nonempty proof-State occurrences, their rays, and cumulative mass. That proposal

@@ -1,0 +1,24 @@
+{
+  "pytest": {
+    "passed": 172,
+    "seconds": 172.69,
+    "command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -m pytest"
+  },
+  "ruff_check": "passed",
+  "ruff_format_check": "204 files already formatted",
+  "git_diff_check": "passed",
+  "lean_verified_proofs": 16,
+  "nonempty_occurrences": 44,
+  "archived_empty_occurrences": 16,
+  "vector_rows": 220,
+  "repeated_original_rows": 44,
+  "max_input_tokens": 115,
+  "max_pending_goals": 2,
+  "archive_numerical_reproduction": "exact match",
+  "repeat_encoding_max_drift": 0.0,
+  "plot_visually_inspected": true,
+  "matplotlib": "3.11.2",
+  "renderer_sha256": "6ce206e4aff65927160b612755a4a7e398afb27c7b3c49595e1d32e9ce10e8aa",
+  "tests_sha256": "861ee3b3ae18919638621520636fe573fdd534055d112e7706ff0a59a73fb961",
+  "semantic_geometry_validated": false
+}

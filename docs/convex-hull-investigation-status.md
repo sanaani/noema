@@ -1,5 +1,18 @@
 # Recovery checkpoint: convex hull investigation
 
+**September 16, 2026 priority:** encoder invariance precedes corpus questions and
+case studies. Start with the [presentation audit](../results/encoder-invariance-v1/README.md)
+and the [current specification](current-state-object-spec.md). The current object
+is initial-State-centered cumulative mass over nonempty occurrences. The display
+and convex studies below are historical. Preserve their evidence; do not restart
+corpus acquisition to address a measurement failure.
+The [alternative-encoder evidence](../results/encoder-comparison-v1/README.md)
+adds five models, raw/canonical comparisons and explicit distinction controls.
+The latest [consistency implementation](../results/state-consistency-v1/README.md)
+adds typed capture, all-pairs Lean equivalence checks and a guarded encoder API.
+Use that contract for new acquisition; preserve prior display-based archives as
+historical evidence rather than silently reinterpreting them.
+
 **Current display:** `results/theorem-boundaries-v2/explore.html` implements the
 user's inward-bending minimum-area boundary request, removing `no goals` from
 geometry while preserving every raw record. All 10,748 nonempty states are plotted;

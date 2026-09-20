@@ -1,0 +1,30 @@
+{
+  "model_configurations_completed": 10,
+  "alternative_pretrained_weights": 5,
+  "neural_configurations_including_reference_and_prompt": 7,
+  "physical_vectors": 6460,
+  "independent_repeat_vectors": 1292,
+  "pytest": {
+    "total_passed": 179,
+    "base_plus_independent_checks": 177,
+    "archive_checks": 2,
+    "all_passed": true
+  },
+  "ruff_check": "passed",
+  "ruff_format_check": "passed",
+  "git_diff_check": "passed",
+  "separate_output_prepare_encode_summarize_seal_verify": "passed with constant negative control",
+  "original_invariance_archive_checksums_and_analysis": "passed",
+  "reprover_reference_matches_frozen_vectors_at_1e_12": true,
+  "comparison_figure_visually_inspected": true,
+  "source_snapshots_by_sha256": {
+    "5ae027be29fbf521dd66faf63150bca7c2e2e72d2480300a0a7649d5d571fae7": "execution-source/prepare-encoder-comparison.py",
+    "b465dbdda66a39f3dc55aab2e41fc565190ce886fdd4c82a602ce888ed8f1a90": "execution-source/comparison_encoders.py",
+    "c2ffa8121f0d44b981a522b377ed048c92e13b91b16a8b28d4ef1da012e6a555": "execution-source/runner-c2ffa8121f0d.py",
+    "080ba20fc2727501d3e7dbc50d801753e85f7c373840e9824be17080a3616285": "execution-source/compare-encoders.py"
+  },
+  "python": "3.12.3",
+  "analysis_numpy": "2.5.3",
+  "repeat_encoding_max_drift": 0.0,
+  "semantic_geometry_validated": false
+}

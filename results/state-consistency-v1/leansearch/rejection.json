@@ -1,0 +1,26 @@
+{
+  "reason": "whole structural input exceeds context; no truncation or fallback",
+  "max_tokens": 4743,
+  "limit": 512,
+  "rejected_class_indices": [
+    0,
+    2,
+    4,
+    7,
+    10,
+    13,
+    16,
+    21,
+    22,
+    24,
+    25,
+    27,
+    30,
+    39,
+    42,
+    43,
+    46,
+    56
+  ],
+  "registry_id": "e42dbf40825776be5560675a95fe2f36ce91625fce58e0d366b4a807565120fd"
+}

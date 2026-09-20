@@ -1,0 +1,47 @@
+[
+  {
+    "model": "leansearch",
+    "exit_code": 0,
+    "seconds": 27.740437480970286
+  },
+  {
+    "model": "e5",
+    "exit_code": 0,
+    "seconds": 19.63202734105289
+  },
+  {
+    "model": "bge",
+    "exit_code": 0,
+    "seconds": 21.010398018057458
+  },
+  {
+    "model": "qwen",
+    "exit_code": 0,
+    "seconds": 371.5816325600026
+  },
+  {
+    "model": "qwen-instruct",
+    "exit_code": 0,
+    "seconds": 478.7159004950663
+  },
+  {
+    "model": "reprover",
+    "exit_code": 0,
+    "seconds": 131.3613193059573
+  },
+  {
+    "model": "syntax",
+    "exit_code": 0,
+    "seconds": 0.36567740596365184
+  },
+  {
+    "model": "structural",
+    "exit_code": 0,
+    "seconds": 1.0177302139345556
+  },
+  {
+    "model": "constant",
+    "exit_code": 0,
+    "seconds": 0.26764797209762037
+  }
+]

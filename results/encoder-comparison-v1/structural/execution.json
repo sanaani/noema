@@ -1,0 +1,13 @@
+{
+  "completed": true,
+  "seconds": 0.8121025949949399,
+  "representations": {
+    "structural": {
+      "physical_rows": 340,
+      "repeats": 68,
+      "distinct_texts": 46
+    }
+  },
+  "unique_input_inferences": 46,
+  "cache_policy": "exact text only; separate physical rows; repeats bypass cache"
+}

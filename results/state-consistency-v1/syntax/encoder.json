@@ -1,0 +1,6 @@
+{
+  "model": "syntax",
+  "dimension": 256,
+  "numpy": "2.5.3",
+  "device": "cpu"
+}

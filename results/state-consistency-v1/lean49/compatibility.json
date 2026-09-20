@@ -1,0 +1,24 @@
+{
+  "environment": {
+    "lean_version": "Lean (version 4.9.0, x86_64-unknown-linux-gnu, commit 8f9843a4a5fe, Release)",
+    "lean_binary_sha256": "c2059c8da4034467e5f391cfd07b81c4a7b32a7e04ff7e50c7c385993cd77010",
+    "capture_policy_sha256": "61671adc27b610495aa269cad359f227ed964f2f3f2f57d5379f72a2b336fcbd",
+    "modules_sha256": "212f7df21116f433a3c64d320f8bfe2831aebcfd0e1ca647c25ac6aaaecab51e",
+    "mathlib_commit": "f0957a7575317490107578ebaee9efaf8e62a4ab",
+    "scope": "compatibility evidence only; no vectors shared with Lean 4.33 registry"
+  },
+  "results": {
+    "suite": {
+      "occurrences": 123,
+      "checked_pairs": 7626,
+      "classes": 62,
+      "registry_id": "977e88b8e0860f44807e689604dab5050b7e8672861579f0a8f90eed9925b87f"
+    },
+    "mathlib": {
+      "occurrences": 15,
+      "checked_pairs": 120,
+      "classes": 5,
+      "registry_id": "1590617eabfefcfb8559c237c049ac3b5c3b327931f7a82215e55b894e7ff47c"
+    }
+  }
+}

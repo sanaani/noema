@@ -1,0 +1,15 @@
+{
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "export": "onnx/model_quint8_avx2.onnx",
+  "window_tokens": 254,
+  "pooling": "token-weighted mean across nonoverlapping windows, L2 normalize",
+  "model_sha256": "b941bf19f1f1283680f449fa6a7336bb5600bdcd5f84d10ddc5cd72218a0fd21",
+  "tokenizer_sha256": "be50c3628f2bf5bb5e3a7f17b1f74611b2561a3a27eeab05e5aa30f411572037",
+  "numpy": "2.5.3",
+  "device": "cpu",
+  "inputs_sha256": "54d369741e861aa9e0652c2f148545bac8700319d42f870ccf6747f2173aa775",
+  "protocol_sha256": "f5a0e18de1ba3b491cb66ba1407822d09cf86901a59dcd20c975f14e1507555f",
+  "adapter_sha256": "b465dbdda66a39f3dc55aab2e41fc565190ce886fdd4c82a602ce888ed8f1a90",
+  "script_sha256": "080ba20fc2727501d3e7dbc50d801753e85f7c373840e9824be17080a3616285"
+}

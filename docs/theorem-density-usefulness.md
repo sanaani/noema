@@ -2,6 +2,22 @@
 
 September 16, 2026. Research proposal, not a report of new measurements.
 
+**Priority correction, later September 16:** the user requires encoder invariance
+to be addressed first. The [Lean-certified presentation audit](../results/encoder-invariance-v1/README.md)
+is the immediate work. The case studies proposed below are conditional on a
+defensible measurement: α-renaming, pretty-printing and definitionally equal
+restatements must not manufacture the signal attributed to mathematics. Neither
+corpus expansion nor a selected connection example repairs a failed encoder.
+The [alternative-encoder comparison](../results/encoder-comparison-v1/README.md)
+separates raw model behavior from Lean-derived canonicalization and tests for
+lost proposition distinctions. Passing these finite controls does not establish
+the mathematical usefulness proposed below.
+The [subsequent implementation](../results/state-consistency-v1/README.md) enforces
+identical encoding for certified equivalent States in a frozen inventory, using
+typed capture and rejecting unknown States. This resolves the accepted-input
+consistency contract within its declared scope; useful mathematical distance
+still needs independent evidence.
+
 ## Handoff: recommended path to value for the math community
 
 Read this document first for the current direction, then the
@@ -10,7 +26,7 @@ rules, and the [historical pilot](../results/historical-connections-v1/README.md
 for completed evidence. Earlier boundary and synthetic prediction studies are
 historical; do not silently restart them as the current objective.
 
-The recommended next contribution is an inspectable collection of mathematical
+After the measurement gate is resolved, a possible contribution is an inspectable collection of mathematical
 case studies: theorem statements, verified source proofs, initial-State centers,
 State distributions, and explanations of what the observed proximity reveals.
 A mathematician should be able to find a relevant connection or proof passage,
@@ -18,7 +34,7 @@ open its source, and judge the explanation. This offers a concrete route to valu
 in mathematical navigation, comparison of alternative arguments, and teaching.
 It is a proposal to test, not an established benefit of the current encoder.
 
-Prioritize known connections first, then comparisons of existing proof routes.
+After that gate, prioritize known connections, then comparisons of existing proof routes.
 For cumulative mass specifically, ask whether its features help locate meaningful
 excursions or differences between arguments. Retain the full vectors and ordered
 provenance so that a disappointing radial summary does not erase other evidence.

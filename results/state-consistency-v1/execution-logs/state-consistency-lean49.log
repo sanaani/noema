@@ -1,0 +1,14 @@
+{
+  "suite": {
+    "occurrences": 123,
+    "checked_pairs": 7626,
+    "classes": 62,
+    "registry_id": "977e88b8e0860f44807e689604dab5050b7e8672861579f0a8f90eed9925b87f"
+  },
+  "mathlib": {
+    "occurrences": 15,
+    "checked_pairs": 120,
+    "classes": 5,
+    "registry_id": "1590617eabfefcfb8559c237c049ac3b5c3b327931f7a82215e55b894e7ff47c"
+  }
+}

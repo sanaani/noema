@@ -1,0 +1,3294 @@
+{
+  "status": "invariance_falsified",
+  "semantic_geometry_validated": false,
+  "mathematical_case_studies_blocked": true,
+  "theorems": [
+    "and_assoc",
+    "and_swap",
+    "eq_symm",
+    "eq_trans",
+    "imp_comp",
+    "list_assoc",
+    "nat_assoc",
+    "or_swap"
+  ],
+  "repeat_encoding_max_drift": 0.0,
+  "numerical_tolerance": 1e-06,
+  "occurrences": 44,
+  "summary": {
+    "alpha": {
+      "radial_failures": 8,
+      "point_failures": 8,
+      "median_cdf_sup": 0.6333333333333333,
+      "median_radial_wasserstein_1": 0.3175435650521963,
+      "max_paired_radius_drift": 0.8289557354495192,
+      "max_center_distance_change": 0.4801150879031869,
+      "nearest_center_sets_changed": 0,
+      "ranks": [
+        {
+          "anchor": 0,
+          "before_nearest": [
+            1
+          ],
+          "after_nearest": [
+            1
+          ],
+          "nearest_set_changed": false,
+          "strict_comparable_pairs": 21,
+          "strict_order_reversals": 5
+        },
+        {
+          "anchor": 1,
+          "before_nearest": [
+            7
+          ],
+          "after_nearest": [
+            7
+          ],
+          "nearest_set_changed": false,
+          "strict_comparable_pairs": 21,
+          "strict_order_reversals": 1
+        },
+        {
+          "anchor": 2,
+          "before_nearest": [
+            3
+          ],
+          "after_nearest": [
+            3
+          ],
+          "nearest_set_changed": false,
+          "strict_comparable_pairs": 21,
+          "strict_order_reversals": 7
+        },
+        {
+          "anchor": 3,
+          "before_nearest": [
+            2
+          ],
+          "after_nearest": [
+            2
+          ],
+          "nearest_set_changed": false,
+          "strict_comparable_pairs": 21,
+          "strict_order_reversals": 8
+        },
+        {
+          "anchor": 4,
+          "before_nearest": [
+            0
+          ],
+          "after_nearest": [
+            0
+          ],
+          "nearest_set_changed": false,
+          "strict_comparable_pairs": 21,
+          "strict_order_reversals": 5
+        },
+        {
+          "anchor": 5,
+          "before_nearest": [
+            6
+          ],
+          "after_nearest": [
+            6
+          ],
+          "nearest_set_changed": false,
+          "strict_comparable_pairs": 21,
+          "strict_order_reversals": 3
+        },
+        {
+          "anchor": 6,
+          "before_nearest": [
+            5
+          ],
+          "after_nearest": [
+            5
+          ],
+          "nearest_set_changed": false,
+          "strict_comparable_pairs": 21,
+          "strict_order_reversals": 3
+        },
+        {
+          "anchor": 7,
+          "before_nearest": [
+            1
+          ],
+          "after_nearest": [
+            1
+          ],
+          "nearest_set_changed": false,
+          "strict_comparable_pairs": 21,
+          "strict_order_reversals": 4
+        }
+      ]
+    },
+    "pretty_narrow": {
+      "radial_failures": 0,
+      "point_failures": 0,
+      "median_cdf_sup": 0.0,
+      "median_radial_wasserstein_1": 0.0,
+      "max_paired_radius_drift": 0.0,
+      "max_center_distance_change": 0.0,
+      "nearest_center_sets_changed": 0,
+      "ranks": [
+        {
+          "anchor": 0,
+          "before_nearest": [
+            1
+          ],
+          "after_nearest": [
+            1
+          ],
+          "nearest_set_changed": false,
+          "strict_comparable_pairs": 21,
+          "strict_order_reversals": 0
+        },
+        {
+          "anchor": 1,
+          "before_nearest": [
+            7
+          ],
+          "after_nearest": [
+            7
+          ],
+          "nearest_set_changed": false,
+          "strict_comparable_pairs": 21,
+          "strict_order_reversals": 0
+        },
+        {
+          "anchor": 2,
+          "before_nearest": [
+            3
+          ],
+          "after_nearest": [
+            3
+          ],
+          "nearest_set_changed": false,
+          "strict_comparable_pairs": 21,
+          "strict_order_reversals": 0
+        },
+        {
+          "anchor": 3,
+          "before_nearest": [
+            2
+          ],
+          "after_nearest": [
+            2
+          ],
+          "nearest_set_changed": false,
+          "strict_comparable_pairs": 21,
+          "strict_order_reversals": 0
+        },
+        {
+          "anchor": 4,
+          "before_nearest": [
+            0
+          ],
+          "after_nearest": [
+            0
+          ],
+          "nearest_set_changed": false,
+          "strict_comparable_pairs": 21,
+          "strict_order_reversals": 0
+        },
+        {
+          "anchor": 5,
+          "before_nearest": [
+            6
+          ],
+          "after_nearest": [
+            6
+          ],
+          "nearest_set_changed": false,
+          "strict_comparable_pairs": 21,
+          "strict_order_reversals": 0
+        },
+        {
+          "anchor": 6,
+          "before_nearest": [
+            5
+          ],
+          "after_nearest": [
+            5
+          ],
+          "nearest_set_changed": false,
+          "strict_comparable_pairs": 21,
+          "strict_order_reversals": 0
+        },
+        {
+          "anchor": 7,
+          "before_nearest": [
+            1
+          ],
+          "after_nearest": [
+            1
+          ],
+          "nearest_set_changed": false,
+          "strict_comparable_pairs": 21,
+          "strict_order_reversals": 0
+        }
+      ]
+    },
+    "pretty_no_notation": {
+      "radial_failures": 7,
+      "point_failures": 7,
+      "median_cdf_sup": 0.3666666666666667,
+      "median_radial_wasserstein_1": 0.015622058439561715,
+      "max_paired_radius_drift": 0.12986259785477755,
+      "max_center_distance_change": 0.39532217720709806,
+      "nearest_center_sets_changed": 1,
+      "ranks": [
+        {
+          "anchor": 0,
+          "before_nearest": [
+            1
+          ],
+          "after_nearest": [
+            1
+          ],
+          "nearest_set_changed": false,
+          "strict_comparable_pairs": 21,
+          "strict_order_reversals": 1
+        },
+        {
+          "anchor": 1,
+          "before_nearest": [
+            7
+          ],
+          "after_nearest": [
+            7
+          ],
+          "nearest_set_changed": false,
+          "strict_comparable_pairs": 21,
+          "strict_order_reversals": 0
+        },
+        {
+          "anchor": 2,
+          "before_nearest": [
+            3
+          ],
+          "after_nearest": [
+            3
+          ],
+          "nearest_set_changed": false,
+          "strict_comparable_pairs": 21,
+          "strict_order_reversals": 3
+        },
+        {
+          "anchor": 3,
+          "before_nearest": [
+            2
+          ],
+          "after_nearest": [
+            2
+          ],
+          "nearest_set_changed": false,
+          "strict_comparable_pairs": 21,
+          "strict_order_reversals": 4
+        },
+        {
+          "anchor": 4,
+          "before_nearest": [
+            0
+          ],
+          "after_nearest": [
+            7
+          ],
+          "nearest_set_changed": true,
+          "strict_comparable_pairs": 21,
+          "strict_order_reversals": 4
+        },
+        {
+          "anchor": 5,
+          "before_nearest": [
+            6
+          ],
+          "after_nearest": [
+            6
+          ],
+          "nearest_set_changed": false,
+          "strict_comparable_pairs": 21,
+          "strict_order_reversals": 3
+        },
+        {
+          "anchor": 6,
+          "before_nearest": [
+            5
+          ],
+          "after_nearest": [
+            5
+          ],
+          "nearest_set_changed": false,
+          "strict_comparable_pairs": 21,
+          "strict_order_reversals": 2
+        },
+        {
+          "anchor": 7,
+          "before_nearest": [
+            1
+          ],
+          "after_nearest": [
+            1
+          ],
+          "nearest_set_changed": false,
+          "strict_comparable_pairs": 21,
+          "strict_order_reversals": 0
+        }
+      ]
+    },
+    "defeq_id": {
+      "radial_failures": 8,
+      "point_failures": 8,
+      "median_cdf_sup": 0.45,
+      "median_radial_wasserstein_1": 0.02292867661053704,
+      "max_paired_radius_drift": 0.10479657818179733,
+      "max_center_distance_change": 0.07456348467867002,
+      "nearest_center_sets_changed": 0,
+      "ranks": [
+        {
+          "anchor": 0,
+          "before_nearest": [
+            1
+          ],
+          "after_nearest": [
+            1
+          ],
+          "nearest_set_changed": false,
+          "strict_comparable_pairs": 21,
+          "strict_order_reversals": 1
+        },
+        {
+          "anchor": 1,
+          "before_nearest": [
+            7
+          ],
+          "after_nearest": [
+            7
+          ],
+          "nearest_set_changed": false,
+          "strict_comparable_pairs": 21,
+          "strict_order_reversals": 0
+        },
+        {
+          "anchor": 2,
+          "before_nearest": [
+            3
+          ],
+          "after_nearest": [
+            3
+          ],
+          "nearest_set_changed": false,
+          "strict_comparable_pairs": 21,
+          "strict_order_reversals": 1
+        },
+        {
+          "anchor": 3,
+          "before_nearest": [
+            2
+          ],
+          "after_nearest": [
+            2
+          ],
+          "nearest_set_changed": false,
+          "strict_comparable_pairs": 21,
+          "strict_order_reversals": 1
+        },
+        {
+          "anchor": 4,
+          "before_nearest": [
+            0
+          ],
+          "after_nearest": [
+            0
+          ],
+          "nearest_set_changed": false,
+          "strict_comparable_pairs": 21,
+          "strict_order_reversals": 1
+        },
+        {
+          "anchor": 5,
+          "before_nearest": [
+            6
+          ],
+          "after_nearest": [
+            6
+          ],
+          "nearest_set_changed": false,
+          "strict_comparable_pairs": 21,
+          "strict_order_reversals": 1
+        },
+        {
+          "anchor": 6,
+          "before_nearest": [
+            5
+          ],
+          "after_nearest": [
+            5
+          ],
+          "nearest_set_changed": false,
+          "strict_comparable_pairs": 21,
+          "strict_order_reversals": 0
+        },
+        {
+          "anchor": 7,
+          "before_nearest": [
+            1
+          ],
+          "after_nearest": [
+            1
+          ],
+          "nearest_set_changed": false,
+          "strict_comparable_pairs": 21,
+          "strict_order_reversals": 0
+        }
+      ]
+    }
+  },
+  "center_distances": {
+    "original": [
+      [
+        0.0,
+        0.7960182834358104,
+        1.316840836104976,
+        1.332220449266741,
+        0.8371423093431727,
+        1.3296262341725515,
+        1.2841607363676097,
+        0.9392791996926475
+      ],
+      [
+        0.7960182834358104,
+        0.0,
+        1.2763957270511925,
+        1.2974511496095442,
+        0.929396624492812,
+        1.395581472469375,
+        1.3492870259487035,
+        0.5604584518865896
+      ],
+      [
+        1.316840836104976,
+        1.2763957270511925,
+        0.0,
+        0.5430706763701977,
+        1.2993820153634559,
+        1.1195575154037187,
+        1.0320228294569198,
+        1.2743038591099025
+      ],
+      [
+        1.332220449266741,
+        1.2974511496095442,
+        0.5430706763701977,
+        0.0,
+        1.3329395558897061,
+        1.134344325316836,
+        0.9958070361616087,
+        1.2843775545047997
+      ],
+      [
+        0.8371423093431727,
+        0.929396624492812,
+        1.2993820153634559,
+        1.3329395558897061,
+        0.0,
+        1.375394057290796,
+        1.3768139489067202,
+        0.9084403648722165
+      ],
+      [
+        1.3296262341725515,
+        1.395581472469375,
+        1.1195575154037187,
+        1.134344325316836,
+        1.375394057290796,
+        0.0,
+        0.6003985822673561,
+        1.3889537243603491
+      ],
+      [
+        1.2841607363676097,
+        1.3492870259487035,
+        1.0320228294569198,
+        0.9958070361616087,
+        1.3768139489067202,
+        0.6003985822673561,
+        0.0,
+        1.3398667508983941
+      ],
+      [
+        0.9392791996926475,
+        0.5604584518865896,
+        1.2743038591099025,
+        1.2843775545047997,
+        0.9084403648722165,
+        1.3889537243603491,
+        1.3398667508983941,
+        0.0
+      ]
+    ],
+    "alpha": [
+      [
+        0.0,
+        0.7464567996787479,
+        1.0730665694989026,
+        1.0019647476220739,
+        0.9341987329938276,
+        1.2084879029512754,
+        1.0834786012971862,
+        0.9127845266789429
+      ],
+      [
+        0.7464567996787479,
+        0.0,
+        0.8920826786737817,
+        1.0365566557796522,
+        1.0032921681834965,
+        1.2197543384214606,
+        1.132952100062254,
+        0.670669133092765
+      ],
+      [
+        1.0730665694989026,
+        0.8920826786737817,
+        0.0,
+        0.6690359845663115,
+        0.9985960241299626,
+        1.148670079971303,
+        0.999323246096149,
+        0.7941887712067156
+      ],
+      [
+        1.0019647476220739,
+        1.0365566557796522,
+        0.6690359845663115,
+        0.0,
+        0.9391304548624249,
+        1.110728718183212,
+        0.9254843636997816,
+        0.9133632894571171
+      ],
+      [
+        0.9341987329938276,
+        1.0032921681834965,
+        0.9985960241299626,
+        0.9391304548624249,
+        0.0,
+        1.190250035771304,
+        1.0743637410242821,
+        0.9656499350532646
+      ],
+      [
+        1.2084879029512754,
+        1.2197543384214606,
+        1.148670079971303,
+        1.110728718183212,
+        1.190250035771304,
+        0.0,
+        0.6377538461321264,
+        1.192712831579121
+      ],
+      [
+        1.0834786012971862,
+        1.132952100062254,
+        0.999323246096149,
+        0.9254843636997816,
+        1.0743637410242821,
+        0.6377538461321264,
+        0.0,
+        1.092850560288323
+      ],
+      [
+        0.9127845266789429,
+        0.670669133092765,
+        0.7941887712067156,
+        0.9133632894571171,
+        0.9656499350532646,
+        1.192712831579121,
+        1.092850560288323,
+        0.0
+      ]
+    ],
+    "pretty_narrow": [
+      [
+        0.0,
+        0.7960182834358104,
+        1.316840836104976,
+        1.332220449266741,
+        0.8371423093431727,
+        1.3296262341725515,
+        1.2841607363676097,
+        0.9392791996926475
+      ],
+      [
+        0.7960182834358104,
+        0.0,
+        1.2763957270511925,
+        1.2974511496095442,
+        0.929396624492812,
+        1.395581472469375,
+        1.3492870259487035,
+        0.5604584518865896
+      ],
+      [
+        1.316840836104976,
+        1.2763957270511925,
+        0.0,
+        0.5430706763701977,
+        1.2993820153634559,
+        1.1195575154037187,
+        1.0320228294569198,
+        1.2743038591099025
+      ],
+      [
+        1.332220449266741,
+        1.2974511496095442,
+        0.5430706763701977,
+        0.0,
+        1.3329395558897061,
+        1.134344325316836,
+        0.9958070361616087,
+        1.2843775545047997
+      ],
+      [
+        0.8371423093431727,
+        0.929396624492812,
+        1.2993820153634559,
+        1.3329395558897061,
+        0.0,
+        1.375394057290796,
+        1.3768139489067202,
+        0.9084403648722165
+      ],
+      [
+        1.3296262341725515,
+        1.395581472469375,
+        1.1195575154037187,
+        1.134344325316836,
+        1.375394057290796,
+        0.0,
+        0.6003985822673561,
+        1.3889537243603491
+      ],
+      [
+        1.2841607363676097,
+        1.3492870259487035,
+        1.0320228294569198,
+        0.9958070361616087,
+        1.3768139489067202,
+        0.6003985822673561,
+        0.0,
+        1.3398667508983941
+      ],
+      [
+        0.9392791996926475,
+        0.5604584518865896,
+        1.2743038591099025,
+        1.2843775545047997,
+        0.9084403648722165,
+        1.3889537243603491,
+        1.3398667508983941,
+        0.0
+      ]
+    ],
+    "pretty_no_notation": [
+      [
+        0.0,
+        0.784943263323252,
+        1.2701151201273926,
+        1.2778994647428672,
+        0.8963119407243908,
+        1.2780705428499803,
+        1.2609973746272696,
+        0.9592386957024372
+      ],
+      [
+        0.784943263323252,
+        0.0,
+        1.246858855827462,
+        1.288081586548943,
+        0.9355955880766211,
+        1.356184653366551,
+        1.3267622033592965,
+        0.6364958654290114
+      ],
+      [
+        1.2701151201273926,
+        1.246858855827462,
+        0.0,
+        0.6755119124047287,
+        1.2714104206201606,
+        1.1977717242214074,
+        1.239766563210637,
+        1.2143641300624242
+      ],
+      [
+        1.2778994647428672,
+        1.288081586548943,
+        0.6755119124047287,
+        0.0,
+        1.3758580502296835,
+        1.1385670622723922,
+        1.153258685595266,
+        1.2918570520274975
+      ],
+      [
+        0.8963119407243908,
+        0.9355955880766211,
+        1.2714104206201606,
+        1.3758580502296835,
+        0.0,
+        1.3662896476807942,
+        1.3488435920399606,
+        0.8559646938023598
+      ],
+      [
+        1.2780705428499803,
+        1.356184653366551,
+        1.1977717242214074,
+        1.1385670622723922,
+        1.3662896476807942,
+        0.0,
+        0.9957207594744542,
+        1.408681333704995
+      ],
+      [
+        1.2609973746272696,
+        1.3267622033592965,
+        1.239766563210637,
+        1.153258685595266,
+        1.3488435920399606,
+        0.9957207594744542,
+        0.0,
+        1.3617883446396615
+      ],
+      [
+        0.9592386957024372,
+        0.6364958654290114,
+        1.2143641300624242,
+        1.2918570520274975,
+        0.8559646938023598,
+        1.408681333704995,
+        1.3617883446396615,
+        0.0
+      ]
+    ],
+    "defeq_id": [
+      [
+        0.0,
+        0.7507701658038005,
+        1.245679650726693,
+        1.26255685720952,
+        0.7826539333829033,
+        1.2857511470694287,
+        1.2309569560910214,
+        0.877540367738733
+      ],
+      [
+        0.7507701658038005,
+        0.0,
+        1.2290831855312587,
+        1.2388296210766434,
+        0.8788619867993154,
+        1.3514676262269572,
+        1.2966754366188338,
+        0.53761737404294
+      ],
+      [
+        1.245679650726693,
+        1.2290831855312587,
+        0.0,
+        0.5980203158500791,
+        1.2257339308117001,
+        1.1152876559043725,
+        1.0332966556140413,
+        1.2094563616144844
+      ],
+      [
+        1.26255685720952,
+        1.2388296210766434,
+        0.5980203158500791,
+        0.0,
+        1.259373259517919,
+        1.1094469168385528,
+        0.9827420848588689,
+        1.2098140698261297
+      ],
+      [
+        0.7826539333829033,
+        0.8788619867993154,
+        1.2257339308117001,
+        1.259373259517919,
+        0.0,
+        1.3264181713960217,
+        1.3140154438206164,
+        0.855551841348066
+      ],
+      [
+        1.2857511470694287,
+        1.3514676262269572,
+        1.1152876559043725,
+        1.1094469168385528,
+        1.3264181713960217,
+        0.0,
+        0.5816800437145252,
+        1.3348341132005908
+      ],
+      [
+        1.2309569560910214,
+        1.2966754366188338,
+        1.0332966556140413,
+        0.9827420848588689,
+        1.3140154438206164,
+        0.5816800437145252,
+        0.0,
+        1.2752078865042862
+      ],
+      [
+        0.877540367738733,
+        0.53761737404294,
+        1.2094563616144844,
+        1.2098140698261297,
+        0.855551841348066,
+        1.3348341132005908,
+        1.2752078865042862,
+        0.0
+      ]
+    ]
+  },
+  "objects": [
+    {
+      "theorem": "and_assoc",
+      "arm": "alpha",
+      "occurrences": 8,
+      "changed_texts": 8,
+      "center_displacement": 1.072447165059513,
+      "median_state_displacement": 1.2382204114191864,
+      "max_state_displacement": 1.2921251577881592,
+      "displacement_witness": "and_assoc/0/4",
+      "baseline_median_radius": 0.6473727434038243,
+      "both_transformed": {
+        "cdf_sup": 0.75,
+        "cdf_witness_radius": 0.757254906200338,
+        "wasserstein_1": 0.3804379546052817,
+        "max_paired_radius_drift": 0.5560366200374062,
+        "before_radii": [
+          0.0,
+          0.6184823334094837,
+          0.6975200752631723,
+          0.6762631533981649,
+          0.7458336729244843,
+          0.757254906200338,
+          0.0,
+          0.6184823334094837
+        ],
+        "after_radii": [
+          0.0,
+          1.1745189534468898,
+          1.1981635353267366,
+          1.1868814616510435,
+          1.2124912805009598,
+          1.2107659270748607,
+          0.0,
+          1.1745189534468898
+        ]
+      },
+      "center_only": {
+        "cdf_sup": 1.0,
+        "cdf_witness_radius": 0.757254906200338,
+        "wasserstein_1": 0.6763939372077709,
+        "max_paired_radius_drift": 1.072447165059513,
+        "before_radii": [
+          0.0,
+          0.6184823334094837,
+          0.6975200752631723,
+          0.6762631533981649,
+          0.7458336729244843,
+          0.757254906200338,
+          0.0,
+          0.6184823334094837
+        ],
+        "after_radii": [
+          1.072447165059513,
+          1.2108281835994117,
+          1.2374468894180195,
+          1.2196189663711796,
+          1.2481289435156924,
+          1.2532424756445524,
+          1.072447165059513,
+          1.2108281835994117
+        ]
+      },
+      "states_only": {
+        "cdf_sup": 1.0,
+        "cdf_witness_radius": 0.757254906200338,
+        "wasserstein_1": 0.6546509916921105,
+        "max_paired_radius_drift": 1.072447165059513,
+        "before_radii": [
+          0.0,
+          0.6184823334094837,
+          0.6975200752631723,
+          0.6762631533981649,
+          0.7458336729244843,
+          0.757254906200338,
+          0.0,
+          0.6184823334094837
+        ],
+        "after_radii": [
+          1.072447165059513,
+          1.1814209153036563,
+          1.1991226339134733,
+          1.1933914698743668,
+          1.2236219548612048,
+          1.2271721887666267,
+          1.072447165059513,
+          1.1814209153036563
+        ]
+      },
+      "radial_invariance_falsified": true,
+      "point_invariance_falsified": true
+    },
+    {
+      "theorem": "and_assoc",
+      "arm": "pretty_narrow",
+      "occurrences": 8,
+      "changed_texts": 2,
+      "center_displacement": 0.0,
+      "median_state_displacement": 0.0,
+      "max_state_displacement": 0.0,
+      "displacement_witness": "and_assoc/0/0",
+      "baseline_median_radius": 0.6473727434038243,
+      "both_transformed": {
+        "cdf_sup": 0.0,
+        "cdf_witness_radius": 0.0,
+        "wasserstein_1": 0.0,
+        "max_paired_radius_drift": 0.0,
+        "before_radii": [
+          0.0,
+          0.6184823334094837,
+          0.6975200752631723,
+          0.6762631533981649,
+          0.7458336729244843,
+          0.757254906200338,
+          0.0,
+          0.6184823334094837
+        ],
+        "after_radii": [
+          0.0,
+          0.6184823334094837,
+          0.6975200752631723,
+          0.6762631533981649,
+          0.7458336729244843,
+          0.757254906200338,
+          0.0,
+          0.6184823334094837
+        ]
+      },
+      "center_only": {
+        "cdf_sup": 0.0,
+        "cdf_witness_radius": 0.0,
+        "wasserstein_1": 0.0,
+        "max_paired_radius_drift": 0.0,
+        "before_radii": [
+          0.0,
+          0.6184823334094837,
+          0.6975200752631723,
+          0.6762631533981649,
+          0.7458336729244843,
+          0.757254906200338,
+          0.0,
+          0.6184823334094837
+        ],
+        "after_radii": [
+          0.0,
+          0.6184823334094837,
+          0.6975200752631723,
+          0.6762631533981649,
+          0.7458336729244843,
+          0.757254906200338,
+          0.0,
+          0.6184823334094837
+        ]
+      },
+      "states_only": {
+        "cdf_sup": 0.0,
+        "cdf_witness_radius": 0.0,
+        "wasserstein_1": 0.0,
+        "max_paired_radius_drift": 0.0,
+        "before_radii": [
+          0.0,
+          0.6184823334094837,
+          0.6975200752631723,
+          0.6762631533981649,
+          0.7458336729244843,
+          0.757254906200338,
+          0.0,
+          0.6184823334094837
+        ],
+        "after_radii": [
+          0.0,
+          0.6184823334094837,
+          0.6975200752631723,
+          0.6762631533981649,
+          0.7458336729244843,
+          0.757254906200338,
+          0.0,
+          0.6184823334094837
+        ]
+      },
+      "radial_invariance_falsified": false,
+      "point_invariance_falsified": false
+    },
+    {
+      "theorem": "and_assoc",
+      "arm": "pretty_no_notation",
+      "occurrences": 8,
+      "changed_texts": 8,
+      "center_displacement": 0.9649012813540154,
+      "median_state_displacement": 0.9649012813540153,
+      "max_state_displacement": 1.091068747776591,
+      "displacement_witness": "and_assoc/0/1",
+      "baseline_median_radius": 0.6473727434038243,
+      "both_transformed": {
+        "cdf_sup": 0.25,
+        "cdf_witness_radius": 0.5768666522920834,
+        "wasserstein_1": 0.022796080112207143,
+        "max_paired_radius_drift": 0.045183103729726115,
+        "before_radii": [
+          0.0,
+          0.6184823334094837,
+          0.6975200752631723,
+          0.6762631533981649,
+          0.7458336729244843,
+          0.757254906200338,
+          0.0,
+          0.6184823334094837
+        ],
+        "after_radii": [
+          0.0,
+          0.5768666522920834,
+          0.719073978813795,
+          0.721446257127891,
+          0.7633002807183135,
+          0.7721885697890167,
+          0.0,
+          0.5768666522920834
+        ]
+      },
+      "center_only": {
+        "cdf_sup": 1.0,
+        "cdf_witness_radius": 0.757254906200338,
+        "wasserstein_1": 0.5433016971338275,
+        "max_paired_radius_drift": 0.9649012813540153,
+        "before_radii": [
+          0.0,
+          0.6184823334094837,
+          0.6975200752631723,
+          0.6762631533981649,
+          0.7458336729244843,
+          0.757254906200338,
+          0.0,
+          0.6184823334094837
+        ],
+        "after_radii": [
+          0.9649012813540153,
+          1.1346976452707287,
+          1.0654400178585215,
+          1.1084520406052825,
+          1.0431534784392018,
+          1.0440066615232533,
+          0.9649012813540153,
+          1.1346976452707287
+        ]
+      },
+      "states_only": {
+        "cdf_sup": 1.0,
+        "cdf_witness_radius": 0.757254906200338,
+        "wasserstein_1": 0.5818248618868104,
+        "max_paired_radius_drift": 0.9649012813540153,
+        "before_radii": [
+          0.0,
+          0.6184823334094837,
+          0.6975200752631723,
+          0.6762631533981649,
+          0.7458336729244843,
+          0.757254906200338,
+          0.0,
+          0.6184823334094837
+        ],
+        "after_radii": [
+          0.9649012813540153,
+          1.1372078231856169,
+          1.136993938128893,
+          1.1462320784657054,
+          1.1416327308578786,
+          1.1393584131678685,
+          0.9649012813540153,
+          1.1372078231856169
+        ]
+      },
+      "radial_invariance_falsified": true,
+      "point_invariance_falsified": true
+    },
+    {
+      "theorem": "and_assoc",
+      "arm": "defeq_id",
+      "occurrences": 8,
+      "changed_texts": 8,
+      "center_displacement": 0.3162029529839969,
+      "median_state_displacement": 0.3424987422932315,
+      "max_state_displacement": 0.43260840131223216,
+      "displacement_witness": "and_assoc/0/3",
+      "baseline_median_radius": 0.6473727434038243,
+      "both_transformed": {
+        "cdf_sup": 0.25,
+        "cdf_witness_radius": 0.5886307557320903,
+        "wasserstein_1": 0.025188251026060954,
+        "max_paired_radius_drift": 0.05897335006690363,
+        "before_radii": [
+          0.0,
+          0.6184823334094837,
+          0.6975200752631723,
+          0.6762631533981649,
+          0.7458336729244843,
+          0.757254906200338,
+          0.0,
+          0.6184823334094837
+        ],
+        "after_radii": [
+          0.0,
+          0.5886307557320903,
+          0.7064526548992889,
+          0.6553495726230103,
+          0.804807022991388,
+          0.8102382485758641,
+          0.0,
+          0.5886307557320903
+        ]
+      },
+      "center_only": {
+        "cdf_sup": 0.375,
+        "cdf_witness_radius": 0.6762631533981649,
+        "wasserstein_1": 0.12148722598484402,
+        "max_paired_radius_drift": 0.3162029529839969,
+        "before_radii": [
+          0.0,
+          0.6184823334094837,
+          0.6975200752631723,
+          0.6762631533981649,
+          0.7458336729244843,
+          0.757254906200338,
+          0.0,
+          0.6184823334094837
+        ],
+        "after_radii": [
+          0.3162029529839969,
+          0.6866170991850827,
+          0.7510857208290703,
+          0.7335571308483558,
+          0.7924867879528554,
+          0.802964538515438,
+          0.3162029529839969,
+          0.6866170991850827
+        ]
+      },
+      "states_only": {
+        "cdf_sup": 0.25,
+        "cdf_witness_radius": 0.0,
+        "wasserstein_1": 0.09840742168480314,
+        "max_paired_radius_drift": 0.3162029529839969,
+        "before_radii": [
+          0.0,
+          0.6184823334094837,
+          0.6975200752631723,
+          0.6762631533981649,
+          0.7458336729244843,
+          0.757254906200338,
+          0.0,
+          0.6184823334094837
+        ],
+        "after_radii": [
+          0.3162029529839969,
+          0.6235484124452066,
+          0.7264420825335994,
+          0.7075905156407558,
+          0.7909725311070082,
+          0.7965879879437814,
+          0.3162029529839969,
+          0.6235484124452066
+        ]
+      },
+      "radial_invariance_falsified": true,
+      "point_invariance_falsified": true
+    },
+    {
+      "theorem": "and_swap",
+      "arm": "alpha",
+      "occurrences": 6,
+      "changed_texts": 6,
+      "center_displacement": 1.084282237823379,
+      "median_state_displacement": 1.267258772658706,
+      "max_state_displacement": 1.296271391645516,
+      "displacement_witness": "and_swap/0/2",
+      "baseline_median_radius": 0.7975730804475317,
+      "both_transformed": {
+        "cdf_sup": 0.6666666666666666,
+        "cdf_witness_radius": 0.86876589388421,
+        "wasserstein_1": 0.32136009613340316,
+        "max_paired_radius_drift": 0.4950279290748364,
+        "before_radii": [
+          0.0,
+          0.7975730804475317,
+          0.8666207140866901,
+          0.86876589388421,
+          0.0,
+          0.7975730804475317
+        ],
+        "after_radii": [
+          0.0,
+          1.2926010095223681,
+          1.3365985915474214,
+          1.3368927350742248,
+          0.0,
+          1.2926010095223681
+        ]
+      },
+      "center_only": {
+        "cdf_sup": 1.0,
+        "cdf_witness_radius": 0.86876589388421,
+        "wasserstein_1": 0.6620245155944033,
+        "max_paired_radius_drift": 1.0842822378233787,
+        "before_radii": [
+          0.0,
+          0.7975730804475317,
+          0.8666207140866901,
+          0.86876589388421,
+          0.0,
+          0.7975730804475317
+        ],
+        "after_radii": [
+          1.0842822378233787,
+          1.265781921786262,
+          1.3010998925323636,
+          1.3014516506807385,
+          1.0842822378233787,
+          1.265781921786262
+        ]
+      },
+      "states_only": {
+        "cdf_sup": 1.0,
+        "cdf_witness_radius": 0.86876589388421,
+        "wasserstein_1": 0.6512965986753857,
+        "max_paired_radius_drift": 1.0842822378233787,
+        "before_radii": [
+          0.0,
+          0.7975730804475317,
+          0.8666207140866901,
+          0.86876589388421,
+          0.0,
+          0.7975730804475317
+        ],
+        "after_radii": [
+          1.0842822378233787,
+          1.2569982569157165,
+          1.2776107201250553,
+          1.2781406513150313,
+          1.0842822378233787,
+          1.2569982569157165
+        ]
+      },
+      "radial_invariance_falsified": true,
+      "point_invariance_falsified": true
+    },
+    {
+      "theorem": "and_swap",
+      "arm": "pretty_narrow",
+      "occurrences": 6,
+      "changed_texts": 2,
+      "center_displacement": 0.0,
+      "median_state_displacement": 0.0,
+      "max_state_displacement": 0.0,
+      "displacement_witness": "and_swap/0/0",
+      "baseline_median_radius": 0.7975730804475317,
+      "both_transformed": {
+        "cdf_sup": 0.0,
+        "cdf_witness_radius": 0.0,
+        "wasserstein_1": 0.0,
+        "max_paired_radius_drift": 0.0,
+        "before_radii": [
+          0.0,
+          0.7975730804475317,
+          0.8666207140866901,
+          0.86876589388421,
+          0.0,
+          0.7975730804475317
+        ],
+        "after_radii": [
+          0.0,
+          0.7975730804475317,
+          0.8666207140866901,
+          0.86876589388421,
+          0.0,
+          0.7975730804475317
+        ]
+      },
+      "center_only": {
+        "cdf_sup": 0.0,
+        "cdf_witness_radius": 0.0,
+        "wasserstein_1": 0.0,
+        "max_paired_radius_drift": 0.0,
+        "before_radii": [
+          0.0,
+          0.7975730804475317,
+          0.8666207140866901,
+          0.86876589388421,
+          0.0,
+          0.7975730804475317
+        ],
+        "after_radii": [
+          0.0,
+          0.7975730804475317,
+          0.8666207140866901,
+          0.86876589388421,
+          0.0,
+          0.7975730804475317
+        ]
+      },
+      "states_only": {
+        "cdf_sup": 0.0,
+        "cdf_witness_radius": 0.0,
+        "wasserstein_1": 0.0,
+        "max_paired_radius_drift": 0.0,
+        "before_radii": [
+          0.0,
+          0.7975730804475317,
+          0.8666207140866901,
+          0.86876589388421,
+          0.0,
+          0.7975730804475317
+        ],
+        "after_radii": [
+          0.0,
+          0.7975730804475317,
+          0.8666207140866901,
+          0.86876589388421,
+          0.0,
+          0.7975730804475317
+        ]
+      },
+      "radial_invariance_falsified": false,
+      "point_invariance_falsified": false
+    },
+    {
+      "theorem": "and_swap",
+      "arm": "pretty_no_notation",
+      "occurrences": 6,
+      "changed_texts": 6,
+      "center_displacement": 0.6805309464012238,
+      "median_state_displacement": 0.6805309464012238,
+      "max_state_displacement": 0.7721885697890167,
+      "displacement_witness": "and_swap/0/1",
+      "baseline_median_radius": 0.7975730804475317,
+      "both_transformed": {
+        "cdf_sup": 0.3333333333333333,
+        "cdf_witness_radius": 0.7876671130066628,
+        "wasserstein_1": 0.010436949471890222,
+        "max_paired_radius_drift": 0.021464361180470903,
+        "before_radii": [
+          0.0,
+          0.7975730804475317,
+          0.8666207140866901,
+          0.86876589388421,
+          0.0,
+          0.7975730804475317
+        ],
+        "after_radii": [
+          0.0,
+          0.7876671130066628,
+          0.8451563529062192,
+          0.8474204931150774,
+          0.0,
+          0.7876671130066628
+        ]
+      },
+      "center_only": {
+        "cdf_sup": 0.6666666666666666,
+        "cdf_witness_radius": 0.86876589388421,
+        "wasserstein_1": 0.3023320452689353,
+        "max_paired_radius_drift": 0.6805309464012238,
+        "before_radii": [
+          0.0,
+          0.7975730804475317,
+          0.8666207140866901,
+          0.86876589388421,
+          0.0,
+          0.7975730804475317
+        ],
+        "after_radii": [
+          0.6805309464012238,
+          0.960474781064157,
+          0.930349046227089,
+          0.9321645393217247,
+          0.6805309464012238,
+          0.960474781064157
+        ]
+      },
+      "states_only": {
+        "cdf_sup": 0.6666666666666666,
+        "cdf_witness_radius": 0.86876589388421,
+        "wasserstein_1": 0.33433115027924315,
+        "max_paired_radius_drift": 0.6805309464012238,
+        "before_radii": [
+          0.0,
+          0.7975730804475317,
+          0.8666207140866901,
+          0.86876589388421,
+          0.0,
+          0.7975730804475317
+        ],
+        "after_radii": [
+          0.6805309464012238,
+          1.001336495303651,
+          0.9856153786632564,
+          0.9871694084684167,
+          0.6805309464012238,
+          1.001336495303651
+        ]
+      },
+      "radial_invariance_falsified": true,
+      "point_invariance_falsified": true
+    },
+    {
+      "theorem": "and_swap",
+      "arm": "defeq_id",
+      "occurrences": 6,
+      "changed_texts": 6,
+      "center_displacement": 0.4064313781589976,
+      "median_state_displacement": 0.4064313781589976,
+      "max_state_displacement": 0.48665953107843696,
+      "displacement_witness": "and_swap/0/1",
+      "baseline_median_radius": 0.7975730804475317,
+      "both_transformed": {
+        "cdf_sup": 0.3333333333333333,
+        "cdf_witness_radius": 0.7368400888672209,
+        "wasserstein_1": 0.03537194139704275,
+        "max_paired_radius_drift": 0.06073299158031087,
+        "before_radii": [
+          0.0,
+          0.7975730804475317,
+          0.8666207140866901,
+          0.86876589388421,
+          0.0,
+          0.7975730804475317
+        ],
+        "after_radii": [
+          0.0,
+          0.7368400888672209,
+          0.9095186168523941,
+          0.9166336563401407,
+          0.0,
+          0.7368400888672209
+        ]
+      },
+      "center_only": {
+        "cdf_sup": 0.3333333333333333,
+        "cdf_witness_radius": 0.0,
+        "wasserstein_1": 0.1527638178826006,
+        "max_paired_radius_drift": 0.4064313781589976,
+        "before_radii": [
+          0.0,
+          0.7975730804475317,
+          0.8666207140866901,
+          0.86876589388421,
+          0.0,
+          0.7975730804475317
+        ],
+        "after_radii": [
+          0.4064313781589976,
+          0.8196749317704248,
+          0.8964581826650821,
+          0.8984448736376401,
+          0.4064313781589976,
+          0.8196749317704248
+        ]
+      },
+      "states_only": {
+        "cdf_sup": 0.3333333333333333,
+        "cdf_witness_radius": 0.0,
+        "wasserstein_1": 0.1714152237466815,
+        "max_paired_radius_drift": 0.4064313781589976,
+        "before_radii": [
+          0.0,
+          0.7975730804475317,
+          0.8666207140866901,
+          0.86876589388421,
+          0.0,
+          0.7975730804475317
+        ],
+        "after_radii": [
+          0.4064313781589976,
+          0.8509415898677071,
+          0.9182788862989657,
+          0.9259992889936774,
+          0.4064313781589976,
+          0.8509415898677071
+        ]
+      },
+      "radial_invariance_falsified": true,
+      "point_invariance_falsified": true
+    },
+    {
+      "theorem": "eq_symm",
+      "arm": "alpha",
+      "occurrences": 5,
+      "changed_texts": 5,
+      "center_displacement": 1.1545226595138438,
+      "median_state_displacement": 1.2322818340454906,
+      "max_state_displacement": 1.2382783747337807,
+      "displacement_witness": "eq_symm/0/2",
+      "baseline_median_radius": 0.8084234809717044,
+      "both_transformed": {
+        "cdf_sup": 0.6,
+        "cdf_witness_radius": 0.8500846861575926,
+        "wasserstein_1": 0.28322580748549087,
+        "max_paired_radius_drift": 0.48374944494111327,
+        "before_radii": [
+          0.0,
+          0.8084234809717044,
+          0.8500846861575926,
+          0.0,
+          0.8084234809717044
+        ],
+        "after_radii": [
+          0.0,
+          1.2921729259128176,
+          1.2987148337028203,
+          0.0,
+          1.2921729259128176
+        ]
+      },
+      "center_only": {
+        "cdf_sup": 1.0,
+        "cdf_witness_radius": 0.8500846861575926,
+        "wasserstein_1": 0.7589401066777806,
+        "max_paired_radius_drift": 1.1545226595138438,
+        "before_radii": [
+          0.0,
+          0.8084234809717044,
+          0.8500846861575926,
+          0.0,
+          0.8084234809717044
+        ],
+        "after_radii": [
+          1.1545226595138438,
+          1.3202683268199118,
+          1.3120502088223924,
+          1.1545226595138438,
+          1.3202683268199118
+        ]
+      },
+      "states_only": {
+        "cdf_sup": 1.0,
+        "cdf_witness_radius": 0.8500846861575926,
+        "wasserstein_1": 0.7342727262454204,
+        "max_paired_radius_drift": 1.1545226595138438,
+        "before_radii": [
+          0.0,
+          0.8084234809717044,
+          0.8500846861575926,
+          0.0,
+          0.8084234809717044
+        ],
+        "after_radii": [
+          1.1545226595138438,
+          1.2828369593852698,
+          1.2635760415298762,
+          1.1545226595138438,
+          1.2828369593852698
+        ]
+      },
+      "radial_invariance_falsified": true,
+      "point_invariance_falsified": true
+    },
+    {
+      "theorem": "eq_symm",
+      "arm": "pretty_narrow",
+      "occurrences": 5,
+      "changed_texts": 2,
+      "center_displacement": 0.0,
+      "median_state_displacement": 0.0,
+      "max_state_displacement": 0.0,
+      "displacement_witness": "eq_symm/0/0",
+      "baseline_median_radius": 0.8084234809717044,
+      "both_transformed": {
+        "cdf_sup": 0.0,
+        "cdf_witness_radius": 0.0,
+        "wasserstein_1": 0.0,
+        "max_paired_radius_drift": 0.0,
+        "before_radii": [
+          0.0,
+          0.8084234809717044,
+          0.8500846861575926,
+          0.0,
+          0.8084234809717044
+        ],
+        "after_radii": [
+          0.0,
+          0.8084234809717044,
+          0.8500846861575926,
+          0.0,
+          0.8084234809717044
+        ]
+      },
+      "center_only": {
+        "cdf_sup": 0.0,
+        "cdf_witness_radius": 0.0,
+        "wasserstein_1": 0.0,
+        "max_paired_radius_drift": 0.0,
+        "before_radii": [
+          0.0,
+          0.8084234809717044,
+          0.8500846861575926,
+          0.0,
+          0.8084234809717044
+        ],
+        "after_radii": [
+          0.0,
+          0.8084234809717044,
+          0.8500846861575926,
+          0.0,
+          0.8084234809717044
+        ]
+      },
+      "states_only": {
+        "cdf_sup": 0.0,
+        "cdf_witness_radius": 0.0,
+        "wasserstein_1": 0.0,
+        "max_paired_radius_drift": 0.0,
+        "before_radii": [
+          0.0,
+          0.8084234809717044,
+          0.8500846861575926,
+          0.0,
+          0.8084234809717044
+        ],
+        "after_radii": [
+          0.0,
+          0.8084234809717044,
+          0.8500846861575926,
+          0.0,
+          0.8084234809717044
+        ]
+      },
+      "radial_invariance_falsified": false,
+      "point_invariance_falsified": false
+    },
+    {
+      "theorem": "eq_symm",
+      "arm": "pretty_no_notation",
+      "occurrences": 5,
+      "changed_texts": 5,
+      "center_displacement": 0.7811334658849433,
+      "median_state_displacement": 0.7861000965772202,
+      "max_state_displacement": 0.8609764296904935,
+      "displacement_witness": "eq_symm/0/2",
+      "baseline_median_radius": 0.8084234809717044,
+      "both_transformed": {
+        "cdf_sup": 0.4,
+        "cdf_witness_radius": 0.7798858882692762,
+        "wasserstein_1": 0.014325913358165155,
+        "max_paired_radius_drift": 0.02853759270242817,
+        "before_radii": [
+          0.0,
+          0.8084234809717044,
+          0.8500846861575926,
+          0.0,
+          0.8084234809717044
+        ],
+        "after_radii": [
+          0.0,
+          0.7798858882692762,
+          0.8355303047716232,
+          0.0,
+          0.7798858882692762
+        ]
+      },
+      "center_only": {
+        "cdf_sup": 0.6,
+        "cdf_witness_radius": 0.8500846861575926,
+        "wasserstein_1": 0.4264346103809446,
+        "max_paired_radius_drift": 0.7811334658849433,
+        "before_radii": [
+          0.0,
+          0.8084234809717044,
+          0.8500846861575926,
+          0.0,
+          0.8084234809717044
+        ],
+        "after_radii": [
+          0.7811334658849433,
+          1.0039312029325334,
+          1.0289753623707711,
+          0.7811334658849433,
+          1.0039312029325334
+        ]
+      },
+      "states_only": {
+        "cdf_sup": 0.6,
+        "cdf_witness_radius": 0.8500846861575926,
+        "wasserstein_1": 0.41254669691725104,
+        "max_paired_radius_drift": 0.7811334658849433,
+        "before_radii": [
+          0.0,
+          0.8084234809717044,
+          0.8500846861575926,
+          0.0,
+          0.8084234809717044
+        ],
+        "after_radii": [
+          0.7811334658849433,
+          0.9778376649736747,
+          1.0117228709700206,
+          0.7811334658849433,
+          0.9778376649736747
+        ]
+      },
+      "radial_invariance_falsified": true,
+      "point_invariance_falsified": true
+    },
+    {
+      "theorem": "eq_symm",
+      "arm": "defeq_id",
+      "occurrences": 5,
+      "changed_texts": 5,
+      "center_displacement": 0.45297187318884813,
+      "median_state_displacement": 0.4777456063046565,
+      "max_state_displacement": 0.4945554539735437,
+      "displacement_witness": "eq_symm/0/1",
+      "baseline_median_radius": 0.8084234809717044,
+      "both_transformed": {
+        "cdf_sup": 0.4,
+        "cdf_witness_radius": 0.7716080105399008,
+        "wasserstein_1": 0.015074883998275035,
+        "max_paired_radius_drift": 0.036815470431803554,
+        "before_radii": [
+          0.0,
+          0.8084234809717044,
+          0.8500846861575926,
+          0.0,
+          0.8084234809717044
+        ],
+        "after_radii": [
+          0.0,
+          0.7716080105399008,
+          0.8518281652853607,
+          0.0,
+          0.7716080105399008
+        ]
+      },
+      "center_only": {
+        "cdf_sup": 0.4,
+        "cdf_witness_radius": 0.0,
+        "wasserstein_1": 0.19891750709407224,
+        "max_paired_radius_drift": 0.45297187318884813,
+        "before_radii": [
+          0.0,
+          0.8084234809717044,
+          0.8500846861575926,
+          0.0,
+          0.8084234809717044
+        ],
+        "after_radii": [
+          0.45297187318884813,
+          0.8327369573659045,
+          0.8901015224618574,
+          0.45297187318884813,
+          0.8327369573659045
+        ]
+      },
+      "states_only": {
+        "cdf_sup": 0.6,
+        "cdf_witness_radius": 0.8500846861575926,
+        "wasserstein_1": 0.2300265743302064,
+        "max_paired_radius_drift": 0.45297187318884813,
+        "before_radii": [
+          0.0,
+          0.8084234809717044,
+          0.8500846861575926,
+          0.0,
+          0.8084234809717044
+        ],
+        "after_radii": [
+          0.45297187318884813,
+          0.8972468559558299,
+          0.9166270614626774,
+          0.45297187318884813,
+          0.8972468559558299
+        ]
+      },
+      "radial_invariance_falsified": true,
+      "point_invariance_falsified": true
+    },
+    {
+      "theorem": "eq_trans",
+      "arm": "alpha",
+      "occurrences": 5,
+      "changed_texts": 5,
+      "center_displacement": 1.249189922911738,
+      "median_state_displacement": 1.275736588115362,
+      "max_state_displacement": 1.3008801299179336,
+      "displacement_witness": "eq_trans/0/2",
+      "baseline_median_radius": 0.8292192829320412,
+      "both_transformed": {
+        "cdf_sup": 0.6,
+        "cdf_witness_radius": 0.8495440062690784,
+        "wasserstein_1": 0.258378393276954,
+        "max_paired_radius_drift": 0.4339038632900739,
+        "before_radii": [
+          0.0,
+          0.8292192829320412,
+          0.8495440062690784,
+          0.0,
+          0.8292192829320412
+        ],
+        "after_radii": [
+          0.0,
+          1.263123146222115,
+          1.2736282460737007,
+          0.0,
+          1.263123146222115
+        ]
+      },
+      "center_only": {
+        "cdf_sup": 1.0,
+        "cdf_witness_radius": 0.8495440062690784,
+        "wasserstein_1": 0.8165629818060992,
+        "max_paired_radius_drift": 1.2491899229117378,
+        "before_radii": [
+          0.0,
+          0.8292192829320412,
+          0.8495440062690784,
+          0.0,
+          0.8292192829320412
+        ],
+        "after_radii": [
+          1.2491899229117378,
+          1.363354508994486,
+          1.3657086173512092,
+          1.2491899229117378,
+          1.363354508994486
+        ]
+      },
+      "states_only": {
+        "cdf_sup": 1.0,
+        "cdf_witness_radius": 0.8495440062690784,
+        "wasserstein_1": 0.7531551982773902,
+        "max_paired_radius_drift": 1.2491899229117378,
+        "before_radii": [
+          0.0,
+          0.8292192829320412,
+          0.8495440062690784,
+          0.0,
+          0.8292192829320412
+        ],
+        "after_radii": [
+          1.2491899229117378,
+          1.2511540697771093,
+          1.2730705781424179,
+          1.2491899229117378,
+          1.2511540697771093
+        ]
+      },
+      "radial_invariance_falsified": true,
+      "point_invariance_falsified": true
+    },
+    {
+      "theorem": "eq_trans",
+      "arm": "pretty_narrow",
+      "occurrences": 5,
+      "changed_texts": 2,
+      "center_displacement": 0.0,
+      "median_state_displacement": 0.0,
+      "max_state_displacement": 0.0,
+      "displacement_witness": "eq_trans/0/0",
+      "baseline_median_radius": 0.8292192829320412,
+      "both_transformed": {
+        "cdf_sup": 0.0,
+        "cdf_witness_radius": 0.0,
+        "wasserstein_1": 0.0,
+        "max_paired_radius_drift": 0.0,
+        "before_radii": [
+          0.0,
+          0.8292192829320412,
+          0.8495440062690784,
+          0.0,
+          0.8292192829320412
+        ],
+        "after_radii": [
+          0.0,
+          0.8292192829320412,
+          0.8495440062690784,
+          0.0,
+          0.8292192829320412
+        ]
+      },
+      "center_only": {
+        "cdf_sup": 0.0,
+        "cdf_witness_radius": 0.0,
+        "wasserstein_1": 0.0,
+        "max_paired_radius_drift": 0.0,
+        "before_radii": [
+          0.0,
+          0.8292192829320412,
+          0.8495440062690784,
+          0.0,
+          0.8292192829320412
+        ],
+        "after_radii": [
+          0.0,
+          0.8292192829320412,
+          0.8495440062690784,
+          0.0,
+          0.8292192829320412
+        ]
+      },
+      "states_only": {
+        "cdf_sup": 0.0,
+        "cdf_witness_radius": 0.0,
+        "wasserstein_1": 0.0,
+        "max_paired_radius_drift": 0.0,
+        "before_radii": [
+          0.0,
+          0.8292192829320412,
+          0.8495440062690784,
+          0.0,
+          0.8292192829320412
+        ],
+        "after_radii": [
+          0.0,
+          0.8292192829320412,
+          0.8495440062690784,
+          0.0,
+          0.8292192829320412
+        ]
+      },
+      "radial_invariance_falsified": false,
+      "point_invariance_falsified": false
+    },
+    {
+      "theorem": "eq_trans",
+      "arm": "pretty_no_notation",
+      "occurrences": 5,
+      "changed_texts": 5,
+      "center_displacement": 0.9924762092955772,
+      "median_state_displacement": 0.8732426584010262,
+      "max_state_displacement": 0.9924762092955771,
+      "displacement_witness": "eq_trans/0/0",
+      "baseline_median_radius": 0.8292192829320412,
+      "both_transformed": {
+        "cdf_sup": 0.4,
+        "cdf_witness_radius": 0.7926398064839619,
+        "wasserstein_1": 0.016918203520958276,
+        "max_paired_radius_drift": 0.03657947644807924,
+        "before_radii": [
+          0.0,
+          0.8292192829320412,
+          0.8495440062690784,
+          0.0,
+          0.8292192829320412
+        ],
+        "after_radii": [
+          0.0,
+          0.7926398064839619,
+          0.8381119415604456,
+          0.0,
+          0.7926398064839619
+        ]
+      },
+      "center_only": {
+        "cdf_sup": 1.0,
+        "cdf_witness_radius": 0.8495440062690784,
+        "wasserstein_1": 0.5337977979268097,
+        "max_paired_radius_drift": 0.9924762092955771,
+        "before_radii": [
+          0.0,
+          0.8292192829320412,
+          0.8495440062690784,
+          0.0,
+          0.8292192829320412
+        ],
+        "after_radii": [
+          0.9924762092955771,
+          1.0616291809585565,
+          1.0687607812589421,
+          0.9924762092955771,
+          1.0616291809585565
+        ]
+      },
+      "states_only": {
+        "cdf_sup": 1.0,
+        "cdf_witness_radius": 0.8495440062690784,
+        "wasserstein_1": 0.5746183893690591,
+        "max_paired_radius_drift": 0.9924762092955771,
+        "before_radii": [
+          0.0,
+          0.8292192829320412,
+          0.8495440062690784,
+          0.0,
+          0.8292192829320412
+        ],
+        "after_radii": [
+          0.9924762092955771,
+          1.1280040447139368,
+          1.140114010959428,
+          0.9924762092955771,
+          1.1280040447139368
+        ]
+      },
+      "radial_invariance_falsified": true,
+      "point_invariance_falsified": true
+    },
+    {
+      "theorem": "eq_trans",
+      "arm": "defeq_id",
+      "occurrences": 5,
+      "changed_texts": 5,
+      "center_displacement": 0.42808240027860234,
+      "median_state_displacement": 0.4203767839330683,
+      "max_state_displacement": 0.42808240027860234,
+      "displacement_witness": "eq_trans/0/0",
+      "baseline_median_radius": 0.8292192829320412,
+      "both_transformed": {
+        "cdf_sup": 0.4,
+        "cdf_witness_radius": 0.7872140172732971,
+        "wasserstein_1": 0.020669102195013122,
+        "max_paired_radius_drift": 0.04200526565874407,
+        "before_radii": [
+          0.0,
+          0.8292192829320412,
+          0.8495440062690784,
+          0.0,
+          0.8292192829320412
+        ],
+        "after_radii": [
+          0.0,
+          0.7872140172732971,
+          0.830209026611501,
+          0.0,
+          0.7872140172732971
+        ]
+      },
+      "center_only": {
+        "cdf_sup": 0.6,
+        "cdf_witness_radius": 0.8495440062690784,
+        "wasserstein_1": 0.19603507620451016,
+        "max_paired_radius_drift": 0.42808240027860234,
+        "before_radii": [
+          0.0,
+          0.8292192829320412,
+          0.8495440062690784,
+          0.0,
+          0.8292192829320412
+        ],
+        "after_radii": [
+          0.42808240027860234,
+          0.8713190461316298,
+          0.8893550603352474,
+          0.42808240027860234,
+          0.8713190461316298
+        ]
+      },
+      "states_only": {
+        "cdf_sup": 0.6,
+        "cdf_witness_radius": 0.8495440062690784,
+        "wasserstein_1": 0.19736232477126536,
+        "max_paired_radius_drift": 0.42808240027860234,
+        "before_radii": [
+          0.0,
+          0.8292192829320412,
+          0.8495440062690784,
+          0.0,
+          0.8292192829320412
+        ],
+        "after_radii": [
+          0.42808240027860234,
+          0.8671088040254089,
+          0.9044117873814651,
+          0.42808240027860234,
+          0.8671088040254089
+        ]
+      },
+      "radial_invariance_falsified": true,
+      "point_invariance_falsified": true
+    },
+    {
+      "theorem": "imp_comp",
+      "arm": "alpha",
+      "occurrences": 6,
+      "changed_texts": 6,
+      "center_displacement": 0.999691881029539,
+      "median_state_displacement": 1.1952286093343936,
+      "max_state_displacement": 1.2116864183944993,
+      "displacement_witness": "imp_comp/0/2",
+      "baseline_median_radius": 0.9533856371112582,
+      "both_transformed": {
+        "cdf_sup": 0.6666666666666666,
+        "cdf_witness_radius": 0.9569575080708056,
+        "wasserstein_1": 0.21345410434078815,
+        "max_paired_radius_drift": 0.33183692060249725,
+        "before_radii": [
+          0.0,
+          0.9533856371112582,
+          0.9533856371112582,
+          0.9569575080708056,
+          0.0,
+          0.9533856371112582
+        ],
+        "after_radii": [
+          0.0,
+          1.2683983101962664,
+          1.2722479963834736,
+          1.2887944286733028,
+          0.0,
+          1.2683983101962664
+        ]
+      },
+      "center_only": {
+        "cdf_sup": 1.0,
+        "cdf_witness_radius": 0.9569575080708056,
+        "wasserstein_1": 0.5475659019509195,
+        "max_paired_radius_drift": 0.999691881029539,
+        "before_radii": [
+          0.0,
+          0.9533856371112582,
+          0.9533856371112582,
+          0.9569575080708056,
+          0.0,
+          0.9533856371112582
+        ],
+        "after_radii": [
+          0.999691881029539,
+          1.2854171042233702,
+          1.2683983101962664,
+          1.2638935504080129,
+          0.999691881029539,
+          1.2854171042233702
+        ]
+      },
+      "states_only": {
+        "cdf_sup": 1.0,
+        "cdf_witness_radius": 0.9569575080708056,
+        "wasserstein_1": 0.5608054444617052,
+        "max_paired_radius_drift": 0.999691881029539,
+        "before_radii": [
+          0.0,
+          0.9533856371112582,
+          0.9533856371112582,
+          0.9569575080708056,
+          0.0,
+          0.9533856371112582
+        ],
+        "after_radii": [
+          0.999691881029539,
+          1.2900738408264185,
+          1.3012078212314482,
+          1.3012078212314482,
+          0.999691881029539,
+          1.2900738408264185
+        ]
+      },
+      "radial_invariance_falsified": true,
+      "point_invariance_falsified": true
+    },
+    {
+      "theorem": "imp_comp",
+      "arm": "pretty_narrow",
+      "occurrences": 6,
+      "changed_texts": 2,
+      "center_displacement": 0.0,
+      "median_state_displacement": 0.0,
+      "max_state_displacement": 0.0,
+      "displacement_witness": "imp_comp/0/0",
+      "baseline_median_radius": 0.9533856371112582,
+      "both_transformed": {
+        "cdf_sup": 0.0,
+        "cdf_witness_radius": 0.0,
+        "wasserstein_1": 0.0,
+        "max_paired_radius_drift": 0.0,
+        "before_radii": [
+          0.0,
+          0.9533856371112582,
+          0.9533856371112582,
+          0.9569575080708056,
+          0.0,
+          0.9533856371112582
+        ],
+        "after_radii": [
+          0.0,
+          0.9533856371112582,
+          0.9533856371112582,
+          0.9569575080708056,
+          0.0,
+          0.9533856371112582
+        ]
+      },
+      "center_only": {
+        "cdf_sup": 0.0,
+        "cdf_witness_radius": 0.0,
+        "wasserstein_1": 0.0,
+        "max_paired_radius_drift": 0.0,
+        "before_radii": [
+          0.0,
+          0.9533856371112582,
+          0.9533856371112582,
+          0.9569575080708056,
+          0.0,
+          0.9533856371112582
+        ],
+        "after_radii": [
+          0.0,
+          0.9533856371112582,
+          0.9533856371112582,
+          0.9569575080708056,
+          0.0,
+          0.9533856371112582
+        ]
+      },
+      "states_only": {
+        "cdf_sup": 0.0,
+        "cdf_witness_radius": 0.0,
+        "wasserstein_1": 0.0,
+        "max_paired_radius_drift": 0.0,
+        "before_radii": [
+          0.0,
+          0.9533856371112582,
+          0.9533856371112582,
+          0.9569575080708056,
+          0.0,
+          0.9533856371112582
+        ],
+        "after_radii": [
+          0.0,
+          0.9533856371112582,
+          0.9533856371112582,
+          0.9569575080708056,
+          0.0,
+          0.9533856371112582
+        ]
+      },
+      "radial_invariance_falsified": false,
+      "point_invariance_falsified": false
+    },
+    {
+      "theorem": "imp_comp",
+      "arm": "pretty_no_notation",
+      "occurrences": 6,
+      "changed_texts": 0,
+      "center_displacement": 0.0,
+      "median_state_displacement": 0.0,
+      "max_state_displacement": 0.0,
+      "displacement_witness": "imp_comp/0/0",
+      "baseline_median_radius": 0.9533856371112582,
+      "both_transformed": {
+        "cdf_sup": 0.0,
+        "cdf_witness_radius": 0.0,
+        "wasserstein_1": 0.0,
+        "max_paired_radius_drift": 0.0,
+        "before_radii": [
+          0.0,
+          0.9533856371112582,
+          0.9533856371112582,
+          0.9569575080708056,
+          0.0,
+          0.9533856371112582
+        ],
+        "after_radii": [
+          0.0,
+          0.9533856371112582,
+          0.9533856371112582,
+          0.9569575080708056,
+          0.0,
+          0.9533856371112582
+        ]
+      },
+      "center_only": {
+        "cdf_sup": 0.0,
+        "cdf_witness_radius": 0.0,
+        "wasserstein_1": 0.0,
+        "max_paired_radius_drift": 0.0,
+        "before_radii": [
+          0.0,
+          0.9533856371112582,
+          0.9533856371112582,
+          0.9569575080708056,
+          0.0,
+          0.9533856371112582
+        ],
+        "after_radii": [
+          0.0,
+          0.9533856371112582,
+          0.9533856371112582,
+          0.9569575080708056,
+          0.0,
+          0.9533856371112582
+        ]
+      },
+      "states_only": {
+        "cdf_sup": 0.0,
+        "cdf_witness_radius": 0.0,
+        "wasserstein_1": 0.0,
+        "max_paired_radius_drift": 0.0,
+        "before_radii": [
+          0.0,
+          0.9533856371112582,
+          0.9533856371112582,
+          0.9569575080708056,
+          0.0,
+          0.9533856371112582
+        ],
+        "after_radii": [
+          0.0,
+          0.9533856371112582,
+          0.9533856371112582,
+          0.9569575080708056,
+          0.0,
+          0.9533856371112582
+        ]
+      },
+      "radial_invariance_falsified": false,
+      "point_invariance_falsified": false
+    },
+    {
+      "theorem": "imp_comp",
+      "arm": "defeq_id",
+      "occurrences": 6,
+      "changed_texts": 6,
+      "center_displacement": 0.30471517840034135,
+      "median_state_displacement": 0.2980319313578735,
+      "max_state_displacement": 0.30471517840034135,
+      "displacement_witness": "imp_comp/0/0",
+      "baseline_median_radius": 0.9533856371112582,
+      "both_transformed": {
+        "cdf_sup": 0.6666666666666666,
+        "cdf_witness_radius": 0.9569575080708056,
+        "wasserstein_1": 0.026920226671966474,
+        "max_paired_radius_drift": 0.047590017073202984,
+        "before_radii": [
+          0.0,
+          0.9533856371112582,
+          0.9533856371112582,
+          0.9569575080708056,
+          0.0,
+          0.9533856371112582
+        ],
+        "after_radii": [
+          0.0,
+          0.9915246698096535,
+          1.0009756541844612,
+          0.994610785632611,
+          0.0,
+          0.9915246698096535
+        ]
+      },
+      "center_only": {
+        "cdf_sup": 0.6666666666666666,
+        "cdf_witness_radius": 0.9569575080708056,
+        "wasserstein_1": 0.126823459309452,
+        "max_paired_radius_drift": 0.30471517840034135,
+        "before_radii": [
+          0.0,
+          0.9533856371112582,
+          0.9533856371112582,
+          0.9569575080708056,
+          0.0,
+          0.9533856371112582
+        ],
+        "after_radii": [
+          0.30471517840034135,
+          0.991310014602839,
+          0.991310014602839,
+          0.9946947746520927,
+          0.30471517840034135,
+          0.991310014602839
+        ]
+      },
+      "states_only": {
+        "cdf_sup": 0.6666666666666666,
+        "cdf_witness_radius": 0.9569575080708056,
+        "wasserstein_1": 0.11742970342621799,
+        "max_paired_radius_drift": 0.30471517840034135,
+        "before_radii": [
+          0.0,
+          0.9533856371112582,
+          0.9533856371112582,
+          0.9569575080708056,
+          0.0,
+          0.9533856371112582
+        ],
+        "after_radii": [
+          0.30471517840034135,
+          0.9747725959265637,
+          0.9852747271747242,
+          0.9774423641333538,
+          0.30471517840034135,
+          0.9747725959265637
+        ]
+      },
+      "radial_invariance_falsified": true,
+      "point_invariance_falsified": true
+    },
+    {
+      "theorem": "list_assoc",
+      "arm": "alpha",
+      "occurrences": 4,
+      "changed_texts": 4,
+      "center_displacement": 0.9535557735213391,
+      "median_state_displacement": 0.9558779399996293,
+      "max_state_displacement": 0.9582001064779195,
+      "displacement_witness": "list_assoc/0/1",
+      "baseline_median_radius": 0.15730801198059224,
+      "both_transformed": {
+        "cdf_sup": 0.5,
+        "cdf_witness_radius": 0.3146160239611845,
+        "wasserstein_1": 0.3137270339709894,
+        "max_paired_radius_drift": 0.6274540679419788,
+        "before_radii": [
+          0.0,
+          0.3146160239611845,
+          0.0,
+          0.3146160239611845
+        ],
+        "after_radii": [
+          0.0,
+          0.9420700919031633,
+          0.0,
+          0.9420700919031633
+        ]
+      },
+      "center_only": {
+        "cdf_sup": 1.0,
+        "cdf_witness_radius": 0.3146160239611845,
+        "wasserstein_1": 0.8194327069671465,
+        "max_paired_radius_drift": 0.9535557735213391,
+        "before_radii": [
+          0.0,
+          0.3146160239611845,
+          0.0,
+          0.3146160239611845
+        ],
+        "after_radii": [
+          0.9535557735213391,
+          0.9999256643741382,
+          0.9535557735213391,
+          0.9999256643741382
+        ]
+      },
+      "states_only": {
+        "cdf_sup": 1.0,
+        "cdf_witness_radius": 0.3146160239611845,
+        "wasserstein_1": 0.8047010956471272,
+        "max_paired_radius_drift": 0.9535557735213391,
+        "before_radii": [
+          0.0,
+          0.3146160239611845,
+          0.0,
+          0.3146160239611845
+        ],
+        "after_radii": [
+          0.9535557735213391,
+          0.9704624417340997,
+          0.9535557735213391,
+          0.9704624417340997
+        ]
+      },
+      "radial_invariance_falsified": true,
+      "point_invariance_falsified": true
+    },
+    {
+      "theorem": "list_assoc",
+      "arm": "pretty_narrow",
+      "occurrences": 4,
+      "changed_texts": 4,
+      "center_displacement": 0.0,
+      "median_state_displacement": 0.0,
+      "max_state_displacement": 0.0,
+      "displacement_witness": "list_assoc/0/0",
+      "baseline_median_radius": 0.15730801198059224,
+      "both_transformed": {
+        "cdf_sup": 0.0,
+        "cdf_witness_radius": 0.0,
+        "wasserstein_1": 0.0,
+        "max_paired_radius_drift": 0.0,
+        "before_radii": [
+          0.0,
+          0.3146160239611845,
+          0.0,
+          0.3146160239611845
+        ],
+        "after_radii": [
+          0.0,
+          0.3146160239611845,
+          0.0,
+          0.3146160239611845
+        ]
+      },
+      "center_only": {
+        "cdf_sup": 0.0,
+        "cdf_witness_radius": 0.0,
+        "wasserstein_1": 0.0,
+        "max_paired_radius_drift": 0.0,
+        "before_radii": [
+          0.0,
+          0.3146160239611845,
+          0.0,
+          0.3146160239611845
+        ],
+        "after_radii": [
+          0.0,
+          0.3146160239611845,
+          0.0,
+          0.3146160239611845
+        ]
+      },
+      "states_only": {
+        "cdf_sup": 0.0,
+        "cdf_witness_radius": 0.0,
+        "wasserstein_1": 0.0,
+        "max_paired_radius_drift": 0.0,
+        "before_radii": [
+          0.0,
+          0.3146160239611845,
+          0.0,
+          0.3146160239611845
+        ],
+        "after_radii": [
+          0.0,
+          0.3146160239611845,
+          0.0,
+          0.3146160239611845
+        ]
+      },
+      "radial_invariance_falsified": false,
+      "point_invariance_falsified": false
+    },
+    {
+      "theorem": "list_assoc",
+      "arm": "pretty_no_notation",
+      "occurrences": 4,
+      "changed_texts": 4,
+      "center_displacement": 1.19952764876498,
+      "median_state_displacement": 1.1935023841251342,
+      "max_state_displacement": 1.19952764876498,
+      "displacement_witness": "list_assoc/0/0",
+      "baseline_median_radius": 0.15730801198059224,
+      "both_transformed": {
+        "cdf_sup": 0.5,
+        "cdf_witness_radius": 0.2975565757135215,
+        "wasserstein_1": 0.00852972412383149,
+        "max_paired_radius_drift": 0.01705944824766298,
+        "before_radii": [
+          0.0,
+          0.3146160239611845,
+          0.0,
+          0.3146160239611845
+        ],
+        "after_radii": [
+          0.0,
+          0.2975565757135215,
+          0.0,
+          0.2975565757135215
+        ]
+      },
+      "center_only": {
+        "cdf_sup": 1.0,
+        "cdf_witness_radius": 0.3146160239611845,
+        "wasserstein_1": 1.0619568270406583,
+        "max_paired_radius_drift": 1.19952764876498,
+        "before_radii": [
+          0.0,
+          0.3146160239611845,
+          0.0,
+          0.3146160239611845
+        ],
+        "after_radii": [
+          1.19952764876498,
+          1.239002029277521,
+          1.19952764876498,
+          1.239002029277521
+        ]
+      },
+      "states_only": {
+        "cdf_sup": 1.0,
+        "cdf_witness_radius": 0.3146160239611845,
+        "wasserstein_1": 1.0410208185833345,
+        "max_paired_radius_drift": 1.19952764876498,
+        "before_radii": [
+          0.0,
+          0.3146160239611845,
+          0.0,
+          0.3146160239611845
+        ],
+        "after_radii": [
+          1.19952764876498,
+          1.1971300123628736,
+          1.19952764876498,
+          1.1971300123628736
+        ]
+      },
+      "radial_invariance_falsified": true,
+      "point_invariance_falsified": true
+    },
+    {
+      "theorem": "list_assoc",
+      "arm": "defeq_id",
+      "occurrences": 4,
+      "changed_texts": 4,
+      "center_displacement": 0.25968413601195733,
+      "median_state_displacement": 0.2617826322842334,
+      "max_state_displacement": 0.2638811285565094,
+      "displacement_witness": "list_assoc/0/1",
+      "baseline_median_radius": 0.15730801198059224,
+      "both_transformed": {
+        "cdf_sup": 0.5,
+        "cdf_witness_radius": 0.3050145190866881,
+        "wasserstein_1": 0.004800752437248201,
+        "max_paired_radius_drift": 0.009601504874496403,
+        "before_radii": [
+          0.0,
+          0.3146160239611845,
+          0.0,
+          0.3146160239611845
+        ],
+        "after_radii": [
+          0.0,
+          0.3050145190866881,
+          0.0,
+          0.3050145190866881
+        ]
+      },
+      "center_only": {
+        "cdf_sup": 0.5,
+        "cdf_witness_radius": 0.0,
+        "wasserstein_1": 0.15393329141032974,
+        "max_paired_radius_drift": 0.25968413601195733,
+        "before_radii": [
+          0.0,
+          0.3146160239611845,
+          0.0,
+          0.3146160239611845
+        ],
+        "after_radii": [
+          0.25968413601195733,
+          0.36279847076988664,
+          0.25968413601195733,
+          0.36279847076988664
+        ]
+      },
+      "states_only": {
+        "cdf_sup": 0.5,
+        "cdf_witness_radius": 0.0,
+        "wasserstein_1": 0.1621619813303938,
+        "max_paired_radius_drift": 0.25968413601195733,
+        "before_radii": [
+          0.0,
+          0.3146160239611845,
+          0.0,
+          0.3146160239611845
+        ],
+        "after_radii": [
+          0.25968413601195733,
+          0.37925585061001477,
+          0.25968413601195733,
+          0.37925585061001477
+        ]
+      },
+      "radial_invariance_falsified": true,
+      "point_invariance_falsified": true
+    },
+    {
+      "theorem": "nat_assoc",
+      "arm": "alpha",
+      "occurrences": 4,
+      "changed_texts": 4,
+      "center_displacement": 1.1978026330329001,
+      "median_state_displacement": 1.1833150963880223,
+      "max_state_displacement": 1.1978026330329,
+      "displacement_witness": "nat_assoc/0/0",
+      "baseline_median_radius": 0.20335187561452106,
+      "both_transformed": {
+        "cdf_sup": 0.5,
+        "cdf_witness_radius": 0.4067037512290421,
+        "wasserstein_1": 0.4144778677247596,
+        "max_paired_radius_drift": 0.8289557354495192,
+        "before_radii": [
+          0.0,
+          0.4067037512290421,
+          0.0,
+          0.4067037512290421
+        ],
+        "after_radii": [
+          0.0,
+          1.2356594866785613,
+          0.0,
+          1.2356594866785613
+        ]
+      },
+      "center_only": {
+        "cdf_sup": 1.0,
+        "cdf_witness_radius": 0.4067037512290421,
+        "wasserstein_1": 1.0310947063669862,
+        "max_paired_radius_drift": 1.1978026330329,
+        "before_radii": [
+          0.0,
+          0.4067037512290421,
+          0.0,
+          0.4067037512290421
+        ],
+        "after_radii": [
+          1.1978026330329,
+          1.2710905309301148,
+          1.1978026330329,
+          1.2710905309301148
+        ]
+      },
+      "states_only": {
+        "cdf_sup": 1.0,
+        "cdf_witness_radius": 0.4067037512290421,
+        "wasserstein_1": 0.9848741466382269,
+        "max_paired_radius_drift": 1.1978026330329,
+        "before_radii": [
+          0.0,
+          0.4067037512290421,
+          0.0,
+          0.4067037512290421
+        ],
+        "after_radii": [
+          1.1978026330329,
+          1.178649411472596,
+          1.1978026330329,
+          1.178649411472596
+        ]
+      },
+      "radial_invariance_falsified": true,
+      "point_invariance_falsified": true
+    },
+    {
+      "theorem": "nat_assoc",
+      "arm": "pretty_narrow",
+      "occurrences": 4,
+      "changed_texts": 4,
+      "center_displacement": 0.0,
+      "median_state_displacement": 0.0,
+      "max_state_displacement": 0.0,
+      "displacement_witness": "nat_assoc/0/0",
+      "baseline_median_radius": 0.20335187561452106,
+      "both_transformed": {
+        "cdf_sup": 0.0,
+        "cdf_witness_radius": 0.0,
+        "wasserstein_1": 0.0,
+        "max_paired_radius_drift": 0.0,
+        "before_radii": [
+          0.0,
+          0.4067037512290421,
+          0.0,
+          0.4067037512290421
+        ],
+        "after_radii": [
+          0.0,
+          0.4067037512290421,
+          0.0,
+          0.4067037512290421
+        ]
+      },
+      "center_only": {
+        "cdf_sup": 0.0,
+        "cdf_witness_radius": 0.0,
+        "wasserstein_1": 0.0,
+        "max_paired_radius_drift": 0.0,
+        "before_radii": [
+          0.0,
+          0.4067037512290421,
+          0.0,
+          0.4067037512290421
+        ],
+        "after_radii": [
+          0.0,
+          0.4067037512290421,
+          0.0,
+          0.4067037512290421
+        ]
+      },
+      "states_only": {
+        "cdf_sup": 0.0,
+        "cdf_witness_radius": 0.0,
+        "wasserstein_1": 0.0,
+        "max_paired_radius_drift": 0.0,
+        "before_radii": [
+          0.0,
+          0.4067037512290421,
+          0.0,
+          0.4067037512290421
+        ],
+        "after_radii": [
+          0.0,
+          0.4067037512290421,
+          0.0,
+          0.4067037512290421
+        ]
+      },
+      "radial_invariance_falsified": false,
+      "point_invariance_falsified": false
+    },
+    {
+      "theorem": "nat_assoc",
+      "arm": "pretty_no_notation",
+      "occurrences": 4,
+      "changed_texts": 4,
+      "center_displacement": 1.1573793980845117,
+      "median_state_displacement": 1.164404550486672,
+      "max_state_displacement": 1.1714297028888325,
+      "displacement_witness": "nat_assoc/0/1",
+      "baseline_median_radius": 0.20335187561452106,
+      "both_transformed": {
+        "cdf_sup": 0.5,
+        "cdf_witness_radius": 0.27684115337426457,
+        "wasserstein_1": 0.06493129892738878,
+        "max_paired_radius_drift": 0.12986259785477755,
+        "before_radii": [
+          0.0,
+          0.4067037512290421,
+          0.0,
+          0.4067037512290421
+        ],
+        "after_radii": [
+          0.0,
+          0.27684115337426457,
+          0.0,
+          0.27684115337426457
+        ]
+      },
+      "center_only": {
+        "cdf_sup": 1.0,
+        "cdf_witness_radius": 0.4067037512290421,
+        "wasserstein_1": 0.9792605566841575,
+        "max_paired_radius_drift": 1.1573793980845117,
+        "before_radii": [
+          0.0,
+          0.4067037512290421,
+          0.0,
+          0.4067037512290421
+        ],
+        "after_radii": [
+          1.1573793980845117,
+          1.2078454665128455,
+          1.1573793980845117,
+          1.2078454665128455
+        ]
+      },
+      "states_only": {
+        "cdf_sup": 1.0,
+        "cdf_witness_radius": 0.4067037512290421,
+        "wasserstein_1": 0.9659058978019375,
+        "max_paired_radius_drift": 1.1573793980845117,
+        "before_radii": [
+          0.0,
+          0.4067037512290421,
+          0.0,
+          0.4067037512290421
+        ],
+        "after_radii": [
+          1.1573793980845117,
+          1.1811361487484056,
+          1.1573793980845117,
+          1.1811361487484056
+        ]
+      },
+      "radial_invariance_falsified": true,
+      "point_invariance_falsified": true
+    },
+    {
+      "theorem": "nat_assoc",
+      "arm": "defeq_id",
+      "occurrences": 4,
+      "changed_texts": 4,
+      "center_displacement": 0.3294921242761098,
+      "median_state_displacement": 0.3323144463848855,
+      "max_state_displacement": 0.3351367684936611,
+      "displacement_witness": "nat_assoc/0/1",
+      "baseline_median_radius": 0.20335187561452106,
+      "both_transformed": {
+        "cdf_sup": 0.5,
+        "cdf_witness_radius": 0.40624940419321526,
+        "wasserstein_1": 0.00022717351791343154,
+        "max_paired_radius_drift": 0.0004543470358268631,
+        "before_radii": [
+          0.0,
+          0.4067037512290421,
+          0.0,
+          0.4067037512290421
+        ],
+        "after_radii": [
+          0.0,
+          0.40624940419321526,
+          0.0,
+          0.40624940419321526
+        ]
+      },
+      "center_only": {
+        "cdf_sup": 0.5,
+        "cdf_witness_radius": 0.0,
+        "wasserstein_1": 0.20206011721151484,
+        "max_paired_radius_drift": 0.32949212427610985,
+        "before_radii": [
+          0.0,
+          0.4067037512290421,
+          0.0,
+          0.4067037512290421
+        ],
+        "after_radii": [
+          0.32949212427610985,
+          0.48133186137596196,
+          0.32949212427610985,
+          0.48133186137596196
+        ]
+      },
+      "states_only": {
+        "cdf_sup": 0.5,
+        "cdf_witness_radius": 0.0,
+        "wasserstein_1": 0.20272110787615955,
+        "max_paired_radius_drift": 0.32949212427610985,
+        "before_radii": [
+          0.0,
+          0.4067037512290421,
+          0.0,
+          0.4067037512290421
+        ],
+        "after_radii": [
+          0.32949212427610985,
+          0.4826538427052513,
+          0.32949212427610985,
+          0.4826538427052513
+        ]
+      },
+      "radial_invariance_falsified": true,
+      "point_invariance_falsified": true
+    },
+    {
+      "theorem": "or_swap",
+      "arm": "alpha",
+      "occurrences": 6,
+      "changed_texts": 6,
+      "center_displacement": 1.1309493608938677,
+      "median_state_displacement": 1.2625322379401216,
+      "max_state_displacement": 1.2805122623147949,
+      "displacement_witness": "or_swap/0/1",
+      "baseline_median_radius": 0.7455263013665518,
+      "both_transformed": {
+        "cdf_sup": 0.6666666666666666,
+        "cdf_witness_radius": 0.8353609408970193,
+        "wasserstein_1": 0.3775057658664405,
+        "max_paired_radius_drift": 0.6199241359764665,
+        "before_radii": [
+          0.0,
+          0.8353609408970193,
+          0.745821254109893,
+          0.7452313486232108,
+          0.0,
+          0.8353609408970193
+        ],
+        "after_radii": [
+          0.0,
+          1.3600260271036855,
+          1.3657453900863594,
+          1.3410116354320554,
+          0.0,
+          1.3600260271036855
+        ]
+      },
+      "center_only": {
+        "cdf_sup": 1.0,
+        "cdf_witness_radius": 0.8353609408970193,
+        "wasserstein_1": 0.7161307579687758,
+        "max_paired_radius_drift": 1.1309493608938677,
+        "before_radii": [
+          0.0,
+          0.8353609408970193,
+          0.745821254109893,
+          0.7452313486232108,
+          0.0,
+          0.8353609408970193
+        ],
+        "after_radii": [
+          1.1309493608938677,
+          1.3081042550692787,
+          1.2864163594197349,
+          1.2940354409937698,
+          1.1309493608938677,
+          1.3081042550692787
+        ]
+      },
+      "states_only": {
+        "cdf_sup": 1.0,
+        "cdf_witness_radius": 0.8353609408970193,
+        "wasserstein_1": 0.7046600904090602,
+        "max_paired_radius_drift": 1.1309493608938677,
+        "before_radii": [
+          0.0,
+          0.8353609408970193,
+          0.745821254109893,
+          0.7452313486232108,
+          0.0,
+          0.8353609408970193
+        ],
+        "after_radii": [
+          1.1309493608938677,
+          1.285486669153571,
+          1.2813246190883814,
+          1.275538347798244,
+          1.1309493608938677,
+          1.285486669153571
+        ]
+      },
+      "radial_invariance_falsified": true,
+      "point_invariance_falsified": true
+    },
+    {
+      "theorem": "or_swap",
+      "arm": "pretty_narrow",
+      "occurrences": 6,
+      "changed_texts": 2,
+      "center_displacement": 0.0,
+      "median_state_displacement": 0.0,
+      "max_state_displacement": 0.0,
+      "displacement_witness": "or_swap/0/0",
+      "baseline_median_radius": 0.7455263013665518,
+      "both_transformed": {
+        "cdf_sup": 0.0,
+        "cdf_witness_radius": 0.0,
+        "wasserstein_1": 0.0,
+        "max_paired_radius_drift": 0.0,
+        "before_radii": [
+          0.0,
+          0.8353609408970193,
+          0.745821254109893,
+          0.7452313486232108,
+          0.0,
+          0.8353609408970193
+        ],
+        "after_radii": [
+          0.0,
+          0.8353609408970193,
+          0.745821254109893,
+          0.7452313486232108,
+          0.0,
+          0.8353609408970193
+        ]
+      },
+      "center_only": {
+        "cdf_sup": 0.0,
+        "cdf_witness_radius": 0.0,
+        "wasserstein_1": 0.0,
+        "max_paired_radius_drift": 0.0,
+        "before_radii": [
+          0.0,
+          0.8353609408970193,
+          0.745821254109893,
+          0.7452313486232108,
+          0.0,
+          0.8353609408970193
+        ],
+        "after_radii": [
+          0.0,
+          0.8353609408970193,
+          0.745821254109893,
+          0.7452313486232108,
+          0.0,
+          0.8353609408970193
+        ]
+      },
+      "states_only": {
+        "cdf_sup": 0.0,
+        "cdf_witness_radius": 0.0,
+        "wasserstein_1": 0.0,
+        "max_paired_radius_drift": 0.0,
+        "before_radii": [
+          0.0,
+          0.8353609408970193,
+          0.745821254109893,
+          0.7452313486232108,
+          0.0,
+          0.8353609408970193
+        ],
+        "after_radii": [
+          0.0,
+          0.8353609408970193,
+          0.745821254109893,
+          0.7452313486232108,
+          0.0,
+          0.8353609408970193
+        ]
+      },
+      "radial_invariance_falsified": false,
+      "point_invariance_falsified": false
+    },
+    {
+      "theorem": "or_swap",
+      "arm": "pretty_no_notation",
+      "occurrences": 6,
+      "changed_texts": 6,
+      "center_displacement": 0.7170314411367243,
+      "median_state_displacement": 0.7170314411367243,
+      "max_state_displacement": 0.8007918325173435,
+      "displacement_witness": "or_swap/0/1",
+      "baseline_median_radius": 0.7455263013665518,
+      "both_transformed": {
+        "cdf_sup": 0.3333333333333333,
+        "cdf_witness_radius": 0.6844673759179043,
+        "wasserstein_1": 0.04526596455361306,
+        "max_paired_radius_drift": 0.07457492879753314,
+        "before_radii": [
+          0.0,
+          0.8353609408970193,
+          0.745821254109893,
+          0.7452313486232108,
+          0.0,
+          0.8353609408970193
+        ],
+        "after_radii": [
+          0.0,
+          0.7607860120994862,
+          0.6844673759179043,
+          0.6841392970885875,
+          0.0,
+          0.7607860120994862
+        ]
+      },
+      "center_only": {
+        "cdf_sup": 0.6666666666666666,
+        "cdf_witness_radius": 0.8353609408970193,
+        "wasserstein_1": 0.35107434999696013,
+        "max_paired_radius_drift": 0.7170314411367243,
+        "before_radii": [
+          0.0,
+          0.8353609408970193,
+          0.745821254109893,
+          0.7452313486232108,
+          0.0,
+          0.8353609408970193
+        ],
+        "after_radii": [
+          0.7170314411367243,
+          1.0062494581290715,
+          0.9035695292811048,
+          0.9180892566962064,
+          0.7170314411367243,
+          1.0062494581290715
+        ]
+      },
+      "states_only": {
+        "cdf_sup": 0.6666666666666666,
+        "cdf_witness_radius": 0.8353609408970193,
+        "wasserstein_1": 0.3442219135443974,
+        "max_paired_radius_drift": 0.7170314411367243,
+        "before_radii": [
+          0.0,
+          0.8353609408970193,
+          0.745821254109893,
+          0.7452313486232108,
+          0.0,
+          0.8353609408970193
+        ],
+        "after_radii": [
+          0.7170314411367243,
+          0.9585191642306486,
+          0.9391649624498527,
+          0.936839792608928,
+          0.7170314411367243,
+          0.9585191642306486
+        ]
+      },
+      "radial_invariance_falsified": true,
+      "point_invariance_falsified": true
+    },
+    {
+      "theorem": "or_swap",
+      "arm": "defeq_id",
+      "occurrences": 6,
+      "changed_texts": 6,
+      "center_displacement": 0.40134239593572946,
+      "median_state_displacement": 0.44086281399666694,
+      "max_state_displacement": 0.4879008263095968,
+      "displacement_witness": "or_swap/0/1",
+      "baseline_median_radius": 0.7455263013665518,
+      "both_transformed": {
+        "cdf_sup": 0.6666666666666666,
+        "cdf_witness_radius": 0.730564362715222,
+        "wasserstein_1": 0.06365044123075508,
+        "max_paired_radius_drift": 0.10479657818179733,
+        "before_radii": [
+          0.0,
+          0.8353609408970193,
+          0.745821254109893,
+          0.7452313486232108,
+          0.0,
+          0.8353609408970193
+        ],
+        "after_radii": [
+          0.0,
+          0.730564362715222,
+          0.6639848140547471,
+          0.6547582976574209,
+          0.0,
+          0.730564362715222
+        ]
+      },
+      "center_only": {
+        "cdf_sup": 0.3333333333333333,
+        "cdf_witness_radius": 0.0,
+        "wasserstein_1": 0.14009337881426573,
+        "max_paired_radius_drift": 0.40134239593572946,
+        "before_radii": [
+          0.0,
+          0.8353609408970193,
+          0.745821254109893,
+          0.7452313486232108,
+          0.0,
+          0.8353609408970193
+        ],
+        "after_radii": [
+          0.40134239593572946,
+          0.817618143223739,
+          0.744145103313812,
+          0.7445176137517168,
+          0.40134239593572946,
+          0.817618143223739
+        ]
+      },
+      "states_only": {
+        "cdf_sup": 0.3333333333333333,
+        "cdf_witness_radius": 0.0,
+        "wasserstein_1": 0.1621363456015055,
+        "max_paired_radius_drift": 0.40134239593572946,
+        "before_radii": [
+          0.0,
+          0.8353609408970193,
+          0.745821254109893,
+          0.7452313486232108,
+          0.0,
+          0.8353609408970193
+        ],
+        "after_radii": [
+          0.40134239593572946,
+          0.874398242503237,
+          0.7966862058978867,
+          0.7864250753603556,
+          0.40134239593572946,
+          0.874398242503237
+        ]
+      },
+      "radial_invariance_falsified": true,
+      "point_invariance_falsified": true
+    }
+  ]
+}

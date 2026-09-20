@@ -9,3 +9,5 @@ dist/
 outputs/
 data/
 .tools/
+*.olean
+*.ilean

@@ -1,0 +1,11 @@
+{
+  "frozen_raw_presentations_unchanged": true,
+  "proofs": 16,
+  "nonempty_fixture_occurrences": 44,
+  "control_pairs": 12,
+  "disagreement_proofs": 12,
+  "canonical_identities_checked": true,
+  "all_normalizations_defeq": true,
+  "lean_version": "Lean (version 4.33.1, x86_64-unknown-linux-gnu, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "source_archive_sha256": "f4ed9db4ecb4bb5c2e1d7a8c5b150bbdf0795e1849be13ceebecd889048fb7ea"
+}

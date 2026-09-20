@@ -1,0 +1,1295 @@
+{
+  "minilm": {
+    "raw": {
+      "summary": {
+        "alpha": {
+          "radial_failures": 8,
+          "point_failures": 8,
+          "median_cdf_sup": 0.6333333333333333,
+          "median_radial_wasserstein_1": 0.22121052682759906,
+          "max_paired_radius_drift": 0.4550380979443446,
+          "max_center_distance_change": 0.31066546522575733,
+          "nearest_center_sets_changed": 1,
+          "cdf_w1_failures": 8,
+          "median_w1_over_mean_radius": 0.6248113700653799,
+          "strict_order_reversals": 10
+        },
+        "pretty_narrow": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 0,
+          "median_w1_over_mean_radius": 0.0,
+          "strict_order_reversals": 0
+        },
+        "pretty_no_notation": {
+          "radial_failures": 7,
+          "point_failures": 7,
+          "median_cdf_sup": 0.5,
+          "median_radial_wasserstein_1": 0.014579363653148826,
+          "max_paired_radius_drift": 0.12149279813122554,
+          "max_center_distance_change": 0.2934008078189104,
+          "nearest_center_sets_changed": 2,
+          "cdf_w1_failures": 7,
+          "median_w1_over_mean_radius": 0.03980681784929045,
+          "strict_order_reversals": 17
+        },
+        "defeq_id": {
+          "radial_failures": 8,
+          "point_failures": 8,
+          "median_cdf_sup": 0.6,
+          "median_radial_wasserstein_1": 0.04593088900629344,
+          "max_paired_radius_drift": 0.13327461345016872,
+          "max_center_distance_change": 0.15231144546628395,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 8,
+          "median_w1_over_mean_radius": 0.13900065439683906,
+          "strict_order_reversals": 4
+        }
+      },
+      "repeat_max_drift": 0.0,
+      "numerical_tolerance": 1e-06,
+      "unknown_tokens": 440,
+      "total_tokens": 6236,
+      "max_tokens": 51,
+      "semantic_geometry_validated": false,
+      "contrast_summary": {
+        "collapsed_pairs": 1,
+        "token_collisions": 1,
+        "equivalent_closer": 38,
+        "ties": 2,
+        "comparisons": 96,
+        "median_contrast_distance": 0.44918108371148857,
+        "worst_equivalent_shift_over_contrast": 6.883006050459431
+      }
+    },
+    "canonical": {
+      "summary": {
+        "alpha": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 0,
+          "median_w1_over_mean_radius": 0.0,
+          "strict_order_reversals": 0
+        },
+        "pretty_narrow": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 0,
+          "median_w1_over_mean_radius": 0.0,
+          "strict_order_reversals": 0
+        },
+        "pretty_no_notation": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 0,
+          "median_w1_over_mean_radius": 0.0,
+          "strict_order_reversals": 0
+        },
+        "defeq_id": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 0,
+          "median_w1_over_mean_radius": 0.0,
+          "strict_order_reversals": 0
+        }
+      },
+      "repeat_max_drift": 0.0,
+      "numerical_tolerance": 1e-06,
+      "unknown_tokens": 440,
+      "total_tokens": 11320,
+      "max_tokens": 96,
+      "semantic_geometry_validated": false,
+      "contrast_summary": {
+        "collapsed_pairs": 0,
+        "token_collisions": 0,
+        "equivalent_closer": 96,
+        "ties": 0,
+        "comparisons": 96,
+        "median_contrast_distance": 0.29540842499396525,
+        "worst_equivalent_shift_over_contrast": 0.0
+      }
+    }
+  },
+  "leansearch": {
+    "raw": {
+      "summary": {
+        "alpha": {
+          "radial_failures": 8,
+          "point_failures": 8,
+          "median_cdf_sup": 0.55,
+          "median_radial_wasserstein_1": 0.0479278247880965,
+          "max_paired_radius_drift": 0.27764834476307565,
+          "max_center_distance_change": 0.6906939297365924,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 8,
+          "median_w1_over_mean_radius": 0.07486202988000157,
+          "strict_order_reversals": 30
+        },
+        "pretty_narrow": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 0,
+          "median_w1_over_mean_radius": 0.0,
+          "strict_order_reversals": 0
+        },
+        "pretty_no_notation": {
+          "radial_failures": 7,
+          "point_failures": 7,
+          "median_cdf_sup": 0.55,
+          "median_radial_wasserstein_1": 0.09524979437912556,
+          "max_paired_radius_drift": 0.5075877618796938,
+          "max_center_distance_change": 0.4665300345295835,
+          "nearest_center_sets_changed": 1,
+          "cdf_w1_failures": 7,
+          "median_w1_over_mean_radius": 0.1567107576545794,
+          "strict_order_reversals": 53
+        },
+        "defeq_id": {
+          "radial_failures": 8,
+          "point_failures": 8,
+          "median_cdf_sup": 0.6125,
+          "median_radial_wasserstein_1": 0.0472239603699688,
+          "max_paired_radius_drift": 0.15672535319573844,
+          "max_center_distance_change": 0.22407073584879322,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 8,
+          "median_w1_over_mean_radius": 0.07386052687990882,
+          "strict_order_reversals": 10
+        }
+      },
+      "repeat_max_drift": 0.0,
+      "numerical_tolerance": 1e-06,
+      "unknown_tokens": 360,
+      "total_tokens": 6334,
+      "max_tokens": 48,
+      "semantic_geometry_validated": false,
+      "contrast_summary": {
+        "collapsed_pairs": 0,
+        "token_collisions": 0,
+        "equivalent_closer": 40,
+        "ties": 0,
+        "comparisons": 96,
+        "median_contrast_distance": 0.5072577081957953,
+        "worst_equivalent_shift_over_contrast": 5.227072901434807
+      }
+    },
+    "canonical": {
+      "summary": {
+        "alpha": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 0,
+          "median_w1_over_mean_radius": 0.0,
+          "strict_order_reversals": 0
+        },
+        "pretty_narrow": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 0,
+          "median_w1_over_mean_radius": 0.0,
+          "strict_order_reversals": 0
+        },
+        "pretty_no_notation": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 0,
+          "median_w1_over_mean_radius": 0.0,
+          "strict_order_reversals": 0
+        },
+        "defeq_id": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 0,
+          "median_w1_over_mean_radius": 0.0,
+          "strict_order_reversals": 0
+        }
+      },
+      "repeat_max_drift": 0.0,
+      "numerical_tolerance": 1e-06,
+      "unknown_tokens": 360,
+      "total_tokens": 9290,
+      "max_tokens": 88,
+      "semantic_geometry_validated": false,
+      "contrast_summary": {
+        "collapsed_pairs": 0,
+        "token_collisions": 0,
+        "equivalent_closer": 96,
+        "ties": 0,
+        "comparisons": 96,
+        "median_contrast_distance": 0.6626622640428765,
+        "worst_equivalent_shift_over_contrast": 0.0
+      }
+    }
+  },
+  "e5": {
+    "raw": {
+      "summary": {
+        "alpha": {
+          "radial_failures": 8,
+          "point_failures": 8,
+          "median_cdf_sup": 0.6333333333333333,
+          "median_radial_wasserstein_1": 0.0902359389909286,
+          "max_paired_radius_drift": 0.19199664532351257,
+          "max_center_distance_change": 0.09320151095107923,
+          "nearest_center_sets_changed": 4,
+          "cdf_w1_failures": 8,
+          "median_w1_over_mean_radius": 0.5704374097216975,
+          "strict_order_reversals": 11
+        },
+        "pretty_narrow": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 0,
+          "median_w1_over_mean_radius": 0.0,
+          "strict_order_reversals": 0
+        },
+        "pretty_no_notation": {
+          "radial_failures": 7,
+          "point_failures": 7,
+          "median_cdf_sup": 0.5,
+          "median_radial_wasserstein_1": 0.014366342541746022,
+          "max_paired_radius_drift": 0.05025009072358454,
+          "max_center_distance_change": 0.09895941457814592,
+          "nearest_center_sets_changed": 1,
+          "cdf_w1_failures": 7,
+          "median_w1_over_mean_radius": 0.09288564882489952,
+          "strict_order_reversals": 10
+        },
+        "defeq_id": {
+          "radial_failures": 8,
+          "point_failures": 8,
+          "median_cdf_sup": 0.5,
+          "median_radial_wasserstein_1": 0.008043479901811822,
+          "max_paired_radius_drift": 0.03617366103664099,
+          "max_center_distance_change": 0.08454315697286519,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 8,
+          "median_w1_over_mean_radius": 0.06439060855804446,
+          "strict_order_reversals": 1
+        }
+      },
+      "repeat_max_drift": 0.0,
+      "numerical_tolerance": 1e-06,
+      "unknown_tokens": 440,
+      "total_tokens": 7596,
+      "max_tokens": 55,
+      "semantic_geometry_validated": false,
+      "contrast_summary": {
+        "collapsed_pairs": 1,
+        "token_collisions": 1,
+        "equivalent_closer": 38,
+        "ties": 2,
+        "comparisons": 96,
+        "median_contrast_distance": 0.17489119019822513,
+        "worst_equivalent_shift_over_contrast": 10.087892230523122
+      }
+    },
+    "canonical": {
+      "summary": {
+        "alpha": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 0,
+          "median_w1_over_mean_radius": 0.0,
+          "strict_order_reversals": 0
+        },
+        "pretty_narrow": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 0,
+          "median_w1_over_mean_radius": 0.0,
+          "strict_order_reversals": 0
+        },
+        "pretty_no_notation": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 0,
+          "median_w1_over_mean_radius": 0.0,
+          "strict_order_reversals": 0
+        },
+        "defeq_id": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 0,
+          "median_w1_over_mean_radius": 0.0,
+          "strict_order_reversals": 0
+        }
+      },
+      "repeat_max_drift": 0.0,
+      "numerical_tolerance": 1e-06,
+      "unknown_tokens": 440,
+      "total_tokens": 12680,
+      "max_tokens": 100,
+      "semantic_geometry_validated": false,
+      "contrast_summary": {
+        "collapsed_pairs": 0,
+        "token_collisions": 0,
+        "equivalent_closer": 96,
+        "ties": 0,
+        "comparisons": 96,
+        "median_contrast_distance": 0.15860935212326235,
+        "worst_equivalent_shift_over_contrast": 0.0
+      }
+    }
+  },
+  "bge": {
+    "raw": {
+      "summary": {
+        "alpha": {
+          "radial_failures": 8,
+          "point_failures": 8,
+          "median_cdf_sup": 0.6333333333333333,
+          "median_radial_wasserstein_1": 0.1416327078772379,
+          "max_paired_radius_drift": 0.2839881027214517,
+          "max_center_distance_change": 0.15163006156750958,
+          "nearest_center_sets_changed": 2,
+          "cdf_w1_failures": 8,
+          "median_w1_over_mean_radius": 0.7534529780759354,
+          "strict_order_reversals": 11
+        },
+        "pretty_narrow": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 0,
+          "median_w1_over_mean_radius": 0.0,
+          "strict_order_reversals": 0
+        },
+        "pretty_no_notation": {
+          "radial_failures": 7,
+          "point_failures": 7,
+          "median_cdf_sup": 0.6,
+          "median_radial_wasserstein_1": 0.012373270947944914,
+          "max_paired_radius_drift": 0.10083577472166338,
+          "max_center_distance_change": 0.1587232856945069,
+          "nearest_center_sets_changed": 1,
+          "cdf_w1_failures": 7,
+          "median_w1_over_mean_radius": 0.07260208580533146,
+          "strict_order_reversals": 12
+        },
+        "defeq_id": {
+          "radial_failures": 8,
+          "point_failures": 8,
+          "median_cdf_sup": 0.55,
+          "median_radial_wasserstein_1": 0.02930435473978084,
+          "max_paired_radius_drift": 0.07229249910324295,
+          "max_center_distance_change": 0.09335541617512644,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 8,
+          "median_w1_over_mean_radius": 0.1529343979648281,
+          "strict_order_reversals": 2
+        }
+      },
+      "repeat_max_drift": 0.0,
+      "numerical_tolerance": 1e-06,
+      "unknown_tokens": 440,
+      "total_tokens": 6916,
+      "max_tokens": 53,
+      "semantic_geometry_validated": false,
+      "contrast_summary": {
+        "collapsed_pairs": 1,
+        "token_collisions": 1,
+        "equivalent_closer": 47,
+        "ties": 2,
+        "comparisons": 96,
+        "median_contrast_distance": 0.35678049769565745,
+        "worst_equivalent_shift_over_contrast": 7.924365374184477
+      }
+    },
+    "canonical": {
+      "summary": {
+        "alpha": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 0,
+          "median_w1_over_mean_radius": 0.0,
+          "strict_order_reversals": 0
+        },
+        "pretty_narrow": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 0,
+          "median_w1_over_mean_radius": 0.0,
+          "strict_order_reversals": 0
+        },
+        "pretty_no_notation": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 0,
+          "median_w1_over_mean_radius": 0.0,
+          "strict_order_reversals": 0
+        },
+        "defeq_id": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 0,
+          "median_w1_over_mean_radius": 0.0,
+          "strict_order_reversals": 0
+        }
+      },
+      "repeat_max_drift": 0.0,
+      "numerical_tolerance": 1e-06,
+      "unknown_tokens": 440,
+      "total_tokens": 12000,
+      "max_tokens": 98,
+      "semantic_geometry_validated": false,
+      "contrast_summary": {
+        "collapsed_pairs": 0,
+        "token_collisions": 0,
+        "equivalent_closer": 96,
+        "ties": 0,
+        "comparisons": 96,
+        "median_contrast_distance": 0.2679311106669241,
+        "worst_equivalent_shift_over_contrast": 0.0
+      }
+    }
+  },
+  "qwen": {
+    "raw": {
+      "summary": {
+        "alpha": {
+          "radial_failures": 8,
+          "point_failures": 8,
+          "median_cdf_sup": 0.5,
+          "median_radial_wasserstein_1": 0.012987898358966271,
+          "max_paired_radius_drift": 0.17432693148476758,
+          "max_center_distance_change": 0.12975379121278152,
+          "nearest_center_sets_changed": 2,
+          "cdf_w1_failures": 8,
+          "median_w1_over_mean_radius": 0.05057607837110693,
+          "strict_order_reversals": 12
+        },
+        "pretty_narrow": {
+          "radial_failures": 8,
+          "point_failures": 8,
+          "median_cdf_sup": 0.4,
+          "median_radial_wasserstein_1": 0.01599593888311429,
+          "max_paired_radius_drift": 0.07600893603622816,
+          "max_center_distance_change": 0.10258492654366036,
+          "nearest_center_sets_changed": 1,
+          "cdf_w1_failures": 8,
+          "median_w1_over_mean_radius": 0.036920890550111024,
+          "strict_order_reversals": 11
+        },
+        "pretty_no_notation": {
+          "radial_failures": 7,
+          "point_failures": 7,
+          "median_cdf_sup": 0.5,
+          "median_radial_wasserstein_1": 0.02580251650742237,
+          "max_paired_radius_drift": 0.1230736365956282,
+          "max_center_distance_change": 0.14924200102213003,
+          "nearest_center_sets_changed": 3,
+          "cdf_w1_failures": 7,
+          "median_w1_over_mean_radius": 0.09845886986180914,
+          "strict_order_reversals": 20
+        },
+        "defeq_id": {
+          "radial_failures": 8,
+          "point_failures": 8,
+          "median_cdf_sup": 0.5,
+          "median_radial_wasserstein_1": 0.012779484193947602,
+          "max_paired_radius_drift": 0.13031787448067578,
+          "max_center_distance_change": 0.18088790916692388,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 8,
+          "median_w1_over_mean_radius": 0.04832354255488823,
+          "strict_order_reversals": 4
+        }
+      },
+      "repeat_max_drift": 0.0,
+      "numerical_tolerance": 1e-06,
+      "unknown_tokens": 0,
+      "total_tokens": 6929,
+      "max_tokens": 57,
+      "semantic_geometry_validated": false,
+      "contrast_summary": {
+        "collapsed_pairs": 0,
+        "token_collisions": 0,
+        "equivalent_closer": 63,
+        "ties": 0,
+        "comparisons": 96,
+        "median_contrast_distance": 0.4737151810997852,
+        "worst_equivalent_shift_over_contrast": 3.9255121215206144
+      }
+    },
+    "canonical": {
+      "summary": {
+        "alpha": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 0,
+          "median_w1_over_mean_radius": 0.0,
+          "strict_order_reversals": 0
+        },
+        "pretty_narrow": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 0,
+          "median_w1_over_mean_radius": 0.0,
+          "strict_order_reversals": 0
+        },
+        "pretty_no_notation": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 0,
+          "median_w1_over_mean_radius": 0.0,
+          "strict_order_reversals": 0
+        },
+        "defeq_id": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 0,
+          "median_w1_over_mean_radius": 0.0,
+          "strict_order_reversals": 0
+        }
+      },
+      "repeat_max_drift": 0.0,
+      "numerical_tolerance": 1e-06,
+      "unknown_tokens": 0,
+      "total_tokens": 11580,
+      "max_tokens": 92,
+      "semantic_geometry_validated": false,
+      "contrast_summary": {
+        "collapsed_pairs": 0,
+        "token_collisions": 0,
+        "equivalent_closer": 96,
+        "ties": 0,
+        "comparisons": 96,
+        "median_contrast_distance": 0.5748526932768234,
+        "worst_equivalent_shift_over_contrast": 0.0
+      }
+    }
+  },
+  "qwen-instruct": {
+    "raw": {
+      "summary": {
+        "alpha": {
+          "radial_failures": 8,
+          "point_failures": 8,
+          "median_cdf_sup": 0.45,
+          "median_radial_wasserstein_1": 0.027334364204407026,
+          "max_paired_radius_drift": 0.1264861304373226,
+          "max_center_distance_change": 0.15498925248200324,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 8,
+          "median_w1_over_mean_radius": 0.07618220116987925,
+          "strict_order_reversals": 19
+        },
+        "pretty_narrow": {
+          "radial_failures": 8,
+          "point_failures": 8,
+          "median_cdf_sup": 0.3875,
+          "median_radial_wasserstein_1": 0.006725952478903202,
+          "max_paired_radius_drift": 0.05418514339138025,
+          "max_center_distance_change": 0.05968470693612982,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 8,
+          "median_w1_over_mean_radius": 0.017448869896170657,
+          "strict_order_reversals": 9
+        },
+        "pretty_no_notation": {
+          "radial_failures": 7,
+          "point_failures": 7,
+          "median_cdf_sup": 0.5,
+          "median_radial_wasserstein_1": 0.013286375104524439,
+          "max_paired_radius_drift": 0.11641014666401517,
+          "max_center_distance_change": 0.1469547957209743,
+          "nearest_center_sets_changed": 2,
+          "cdf_w1_failures": 7,
+          "median_w1_over_mean_radius": 0.06549202343168888,
+          "strict_order_reversals": 25
+        },
+        "defeq_id": {
+          "radial_failures": 8,
+          "point_failures": 8,
+          "median_cdf_sup": 0.45,
+          "median_radial_wasserstein_1": 0.024053110887897876,
+          "max_paired_radius_drift": 0.1355249627388081,
+          "max_center_distance_change": 0.1924805110685115,
+          "nearest_center_sets_changed": 1,
+          "cdf_w1_failures": 8,
+          "median_w1_over_mean_radius": 0.057574041870055784,
+          "strict_order_reversals": 17
+        }
+      },
+      "repeat_max_drift": 0.0,
+      "numerical_tolerance": 1e-06,
+      "unknown_tokens": 0,
+      "total_tokens": 11769,
+      "max_tokens": 71,
+      "semantic_geometry_validated": false,
+      "contrast_summary": {
+        "collapsed_pairs": 0,
+        "token_collisions": 0,
+        "equivalent_closer": 64,
+        "ties": 0,
+        "comparisons": 96,
+        "median_contrast_distance": 0.5121762863109789,
+        "worst_equivalent_shift_over_contrast": 2.9998318866176668
+      }
+    },
+    "canonical": {
+      "summary": {
+        "alpha": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 0,
+          "median_w1_over_mean_radius": 0.0,
+          "strict_order_reversals": 0
+        },
+        "pretty_narrow": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 0,
+          "median_w1_over_mean_radius": 0.0,
+          "strict_order_reversals": 0
+        },
+        "pretty_no_notation": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 0,
+          "median_w1_over_mean_radius": 0.0,
+          "strict_order_reversals": 0
+        },
+        "defeq_id": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 0,
+          "median_w1_over_mean_radius": 0.0,
+          "strict_order_reversals": 0
+        }
+      },
+      "repeat_max_drift": 0.0,
+      "numerical_tolerance": 1e-06,
+      "unknown_tokens": 0,
+      "total_tokens": 16420,
+      "max_tokens": 107,
+      "semantic_geometry_validated": false,
+      "contrast_summary": {
+        "collapsed_pairs": 0,
+        "token_collisions": 0,
+        "equivalent_closer": 96,
+        "ties": 0,
+        "comparisons": 96,
+        "median_contrast_distance": 0.55232006364118,
+        "worst_equivalent_shift_over_contrast": 0.0
+      }
+    }
+  },
+  "reprover": {
+    "raw": {
+      "summary": {
+        "alpha": {
+          "radial_failures": 8,
+          "point_failures": 8,
+          "median_cdf_sup": 0.55,
+          "median_radial_wasserstein_1": 0.0734324517203731,
+          "max_paired_radius_drift": 0.47686663352821235,
+          "max_center_distance_change": 0.17974173557831263,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 8,
+          "median_w1_over_mean_radius": 0.16584307686520017,
+          "strict_order_reversals": 24
+        },
+        "pretty_narrow": {
+          "radial_failures": 8,
+          "point_failures": 8,
+          "median_cdf_sup": 0.5,
+          "median_radial_wasserstein_1": 0.021403473083071063,
+          "max_paired_radius_drift": 0.10712339723555322,
+          "max_center_distance_change": 0.12133735160034764,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 8,
+          "median_w1_over_mean_radius": 0.06244259993979569,
+          "strict_order_reversals": 7
+        },
+        "pretty_no_notation": {
+          "radial_failures": 7,
+          "point_failures": 7,
+          "median_cdf_sup": 0.6,
+          "median_radial_wasserstein_1": 0.10433196219579906,
+          "max_paired_radius_drift": 0.5072270336856969,
+          "max_center_distance_change": 0.5182088386394829,
+          "nearest_center_sets_changed": 3,
+          "cdf_w1_failures": 7,
+          "median_w1_over_mean_radius": 0.49445162424049166,
+          "strict_order_reversals": 31
+        },
+        "defeq_id": {
+          "radial_failures": 8,
+          "point_failures": 8,
+          "median_cdf_sup": 0.55,
+          "median_radial_wasserstein_1": 0.0480890775680243,
+          "max_paired_radius_drift": 0.488538625529112,
+          "max_center_distance_change": 0.34259280591524033,
+          "nearest_center_sets_changed": 1,
+          "cdf_w1_failures": 8,
+          "median_w1_over_mean_radius": 0.13251778227698344,
+          "strict_order_reversals": 10
+        }
+      },
+      "repeat_max_drift": 0.0,
+      "numerical_tolerance": 1e-06,
+      "unknown_tokens": 0,
+      "total_tokens": 14501,
+      "max_tokens": 115,
+      "semantic_geometry_validated": false,
+      "contrast_summary": {
+        "collapsed_pairs": 0,
+        "token_collisions": 0,
+        "equivalent_closer": 61,
+        "ties": 0,
+        "comparisons": 96,
+        "median_contrast_distance": 0.7961852993600342,
+        "worst_equivalent_shift_over_contrast": 5.871799183797725
+      }
+    },
+    "canonical": {
+      "summary": {
+        "alpha": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 0,
+          "median_w1_over_mean_radius": 0.0,
+          "strict_order_reversals": 0
+        },
+        "pretty_narrow": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 0,
+          "median_w1_over_mean_radius": 0.0,
+          "strict_order_reversals": 0
+        },
+        "pretty_no_notation": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 0,
+          "median_w1_over_mean_radius": 0.0,
+          "strict_order_reversals": 0
+        },
+        "defeq_id": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 0,
+          "median_w1_over_mean_radius": 0.0,
+          "strict_order_reversals": 0
+        }
+      },
+      "repeat_max_drift": 0.0,
+      "numerical_tolerance": 1e-06,
+      "unknown_tokens": 0,
+      "total_tokens": 20555,
+      "max_tokens": 172,
+      "semantic_geometry_validated": false,
+      "contrast_summary": {
+        "collapsed_pairs": 0,
+        "token_collisions": 0,
+        "equivalent_closer": 96,
+        "ties": 0,
+        "comparisons": 96,
+        "median_contrast_distance": 0.7184227151745357,
+        "worst_equivalent_shift_over_contrast": 0.0
+      }
+    }
+  },
+  "syntax": {
+    "raw": {
+      "summary": {
+        "alpha": {
+          "radial_failures": 8,
+          "point_failures": 8,
+          "median_cdf_sup": 0.6333333333333333,
+          "median_radial_wasserstein_1": 0.3175435650521963,
+          "max_paired_radius_drift": 0.8289557354495192,
+          "max_center_distance_change": 0.4801150879031869,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 8,
+          "median_w1_over_mean_radius": 0.6476576976363583,
+          "strict_order_reversals": 36
+        },
+        "pretty_narrow": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 0,
+          "median_w1_over_mean_radius": 0.0,
+          "strict_order_reversals": 0
+        },
+        "pretty_no_notation": {
+          "radial_failures": 7,
+          "point_failures": 7,
+          "median_cdf_sup": 0.3666666666666667,
+          "median_radial_wasserstein_1": 0.015622058439561715,
+          "max_paired_radius_drift": 0.12986259785477755,
+          "max_center_distance_change": 0.39532217720709806,
+          "nearest_center_sets_changed": 1,
+          "cdf_w1_failures": 7,
+          "median_w1_over_mean_radius": 0.0390296310439349,
+          "strict_order_reversals": 17
+        },
+        "defeq_id": {
+          "radial_failures": 8,
+          "point_failures": 8,
+          "median_cdf_sup": 0.45,
+          "median_radial_wasserstein_1": 0.02292867661053704,
+          "max_paired_radius_drift": 0.10479657818179733,
+          "max_center_distance_change": 0.07456348467867002,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 8,
+          "median_w1_over_mean_radius": 0.04176083661534631,
+          "strict_order_reversals": 5
+        }
+      },
+      "repeat_max_drift": 0.0,
+      "numerical_tolerance": 1e-06,
+      "unknown_tokens": 0,
+      "total_tokens": 0,
+      "max_tokens": null,
+      "semantic_geometry_validated": false,
+      "contrast_summary": {
+        "collapsed_pairs": 0,
+        "token_collisions": 0,
+        "equivalent_closer": 34,
+        "ties": 1,
+        "comparisons": 96,
+        "median_contrast_distance": 0.653867472661457,
+        "worst_equivalent_shift_over_contrast": 3.3026370541315644
+      }
+    },
+    "canonical": {
+      "summary": {
+        "alpha": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 0,
+          "median_w1_over_mean_radius": 0.0,
+          "strict_order_reversals": 0
+        },
+        "pretty_narrow": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 0,
+          "median_w1_over_mean_radius": 0.0,
+          "strict_order_reversals": 0
+        },
+        "pretty_no_notation": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 0,
+          "median_w1_over_mean_radius": 0.0,
+          "strict_order_reversals": 0
+        },
+        "defeq_id": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 0,
+          "median_w1_over_mean_radius": 0.0,
+          "strict_order_reversals": 0
+        }
+      },
+      "repeat_max_drift": 0.0,
+      "numerical_tolerance": 1e-06,
+      "unknown_tokens": 0,
+      "total_tokens": 0,
+      "max_tokens": null,
+      "semantic_geometry_validated": false,
+      "contrast_summary": {
+        "collapsed_pairs": 0,
+        "token_collisions": 0,
+        "equivalent_closer": 96,
+        "ties": 0,
+        "comparisons": 96,
+        "median_contrast_distance": 0.6856738061034213,
+        "worst_equivalent_shift_over_contrast": 0.0
+      }
+    }
+  },
+  "structural": {
+    "structural": {
+      "summary": {
+        "alpha": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 0,
+          "median_w1_over_mean_radius": 0.0,
+          "strict_order_reversals": 0
+        },
+        "pretty_narrow": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 0,
+          "median_w1_over_mean_radius": 0.0,
+          "strict_order_reversals": 0
+        },
+        "pretty_no_notation": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 0,
+          "median_w1_over_mean_radius": 0.0,
+          "strict_order_reversals": 0
+        },
+        "defeq_id": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 0,
+          "median_w1_over_mean_radius": 0.0,
+          "strict_order_reversals": 0
+        }
+      },
+      "repeat_max_drift": 0.0,
+      "numerical_tolerance": 1e-06,
+      "unknown_tokens": 0,
+      "total_tokens": 0,
+      "max_tokens": null,
+      "semantic_geometry_validated": false,
+      "contrast_summary": {
+        "collapsed_pairs": 0,
+        "token_collisions": 0,
+        "equivalent_closer": 96,
+        "ties": 0,
+        "comparisons": 96,
+        "median_contrast_distance": 0.059995482319241566,
+        "worst_equivalent_shift_over_contrast": 0.0
+      }
+    }
+  },
+  "constant": {
+    "raw": {
+      "summary": {
+        "alpha": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 0,
+          "median_w1_over_mean_radius": null,
+          "strict_order_reversals": 0
+        },
+        "pretty_narrow": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 0,
+          "median_w1_over_mean_radius": null,
+          "strict_order_reversals": 0
+        },
+        "pretty_no_notation": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 0,
+          "median_w1_over_mean_radius": null,
+          "strict_order_reversals": 0
+        },
+        "defeq_id": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 0,
+          "median_w1_over_mean_radius": null,
+          "strict_order_reversals": 0
+        }
+      },
+      "repeat_max_drift": 0.0,
+      "numerical_tolerance": 1e-06,
+      "unknown_tokens": 0,
+      "total_tokens": 0,
+      "max_tokens": null,
+      "semantic_geometry_validated": false,
+      "contrast_summary": {
+        "collapsed_pairs": 12,
+        "token_collisions": 0,
+        "equivalent_closer": 0,
+        "ties": 96,
+        "comparisons": 96,
+        "median_contrast_distance": 0.0,
+        "worst_equivalent_shift_over_contrast": null
+      }
+    },
+    "canonical": {
+      "summary": {
+        "alpha": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 0,
+          "median_w1_over_mean_radius": null,
+          "strict_order_reversals": 0
+        },
+        "pretty_narrow": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 0,
+          "median_w1_over_mean_radius": null,
+          "strict_order_reversals": 0
+        },
+        "pretty_no_notation": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 0,
+          "median_w1_over_mean_radius": null,
+          "strict_order_reversals": 0
+        },
+        "defeq_id": {
+          "radial_failures": 0,
+          "point_failures": 0,
+          "median_cdf_sup": 0.0,
+          "median_radial_wasserstein_1": 0.0,
+          "max_paired_radius_drift": 0.0,
+          "max_center_distance_change": 0.0,
+          "nearest_center_sets_changed": 0,
+          "cdf_w1_failures": 0,
+          "median_w1_over_mean_radius": null,
+          "strict_order_reversals": 0
+        }
+      },
+      "repeat_max_drift": 0.0,
+      "numerical_tolerance": 1e-06,
+      "unknown_tokens": 0,
+      "total_tokens": 0,
+      "max_tokens": null,
+      "semantic_geometry_validated": false,
+      "contrast_summary": {
+        "collapsed_pairs": 12,
+        "token_collisions": 0,
+        "equivalent_closer": 0,
+        "ties": 96,
+        "comparisons": 96,
+        "median_contrast_distance": 0.0,
+        "worst_equivalent_shift_over_contrast": null
+      }
+    }
+  }
+}

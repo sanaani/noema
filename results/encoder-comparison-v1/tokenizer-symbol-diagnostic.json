@@ -1,0 +1,375 @@
+{
+  "exploratory": true,
+  "trigger": "observed exact raw c10 collision",
+  "script_sha256": "cffdb6e2e558a2de51a57d8acb0699ad9c9a670fe6499c6975ca8b0096cafc1c",
+  "models": {
+    "minilm": {
+      "tokenizer_sha256": "be50c3628f2bf5bb5e3a7f17b1f74611b2561a3a27eeab05e5aa30f411572037",
+      "normalizer": {
+        "type": "BertNormalizer",
+        "clean_text": true,
+        "handle_chinese_chars": true,
+        "strip_accents": null,
+        "lowercase": true
+      },
+      "symbols": [
+        {
+          "input": "=",
+          "normalized": "=",
+          "ids": [
+            1027
+          ],
+          "tokens": [
+            "="
+          ]
+        },
+        {
+          "input": "≠",
+          "normalized": "=",
+          "ids": [
+            1027
+          ],
+          "tokens": [
+            "="
+          ]
+        },
+        {
+          "input": "≤",
+          "normalized": "≤",
+          "ids": [
+            1608
+          ],
+          "tokens": [
+            "≤"
+          ]
+        },
+        {
+          "input": "<",
+          "normalized": "<",
+          "ids": [
+            1026
+          ],
+          "tokens": [
+            "<"
+          ]
+        },
+        {
+          "input": "⊢",
+          "normalized": "⊢",
+          "ids": [
+            100
+          ],
+          "tokens": [
+            "[UNK]"
+          ]
+        },
+        {
+          "input": "∧",
+          "normalized": "∧",
+          "ids": [
+            1602
+          ],
+          "tokens": [
+            "∧"
+          ]
+        },
+        {
+          "input": "∨",
+          "normalized": "∨",
+          "ids": [
+            1603
+          ],
+          "tokens": [
+            "∨"
+          ]
+        },
+        {
+          "input": "¬",
+          "normalized": "¬",
+          "ids": [
+            1078
+          ],
+          "tokens": [
+            "¬"
+          ]
+        }
+      ]
+    },
+    "e5": {
+      "tokenizer_sha256": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+      "normalizer": {
+        "type": "BertNormalizer",
+        "clean_text": true,
+        "handle_chinese_chars": true,
+        "strip_accents": null,
+        "lowercase": true
+      },
+      "symbols": [
+        {
+          "input": "=",
+          "normalized": "=",
+          "ids": [
+            1027
+          ],
+          "tokens": [
+            "="
+          ]
+        },
+        {
+          "input": "≠",
+          "normalized": "=",
+          "ids": [
+            1027
+          ],
+          "tokens": [
+            "="
+          ]
+        },
+        {
+          "input": "≤",
+          "normalized": "≤",
+          "ids": [
+            1608
+          ],
+          "tokens": [
+            "≤"
+          ]
+        },
+        {
+          "input": "<",
+          "normalized": "<",
+          "ids": [
+            1026
+          ],
+          "tokens": [
+            "<"
+          ]
+        },
+        {
+          "input": "⊢",
+          "normalized": "⊢",
+          "ids": [
+            100
+          ],
+          "tokens": [
+            "[UNK]"
+          ]
+        },
+        {
+          "input": "∧",
+          "normalized": "∧",
+          "ids": [
+            1602
+          ],
+          "tokens": [
+            "∧"
+          ]
+        },
+        {
+          "input": "∨",
+          "normalized": "∨",
+          "ids": [
+            1603
+          ],
+          "tokens": [
+            "∨"
+          ]
+        },
+        {
+          "input": "¬",
+          "normalized": "¬",
+          "ids": [
+            1078
+          ],
+          "tokens": [
+            "¬"
+          ]
+        }
+      ]
+    },
+    "bge": {
+      "tokenizer_sha256": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+      "normalizer": {
+        "type": "BertNormalizer",
+        "clean_text": true,
+        "handle_chinese_chars": true,
+        "strip_accents": null,
+        "lowercase": true
+      },
+      "symbols": [
+        {
+          "input": "=",
+          "normalized": "=",
+          "ids": [
+            1027
+          ],
+          "tokens": [
+            "="
+          ]
+        },
+        {
+          "input": "≠",
+          "normalized": "=",
+          "ids": [
+            1027
+          ],
+          "tokens": [
+            "="
+          ]
+        },
+        {
+          "input": "≤",
+          "normalized": "≤",
+          "ids": [
+            1608
+          ],
+          "tokens": [
+            "≤"
+          ]
+        },
+        {
+          "input": "<",
+          "normalized": "<",
+          "ids": [
+            1026
+          ],
+          "tokens": [
+            "<"
+          ]
+        },
+        {
+          "input": "⊢",
+          "normalized": "⊢",
+          "ids": [
+            100
+          ],
+          "tokens": [
+            "[UNK]"
+          ]
+        },
+        {
+          "input": "∧",
+          "normalized": "∧",
+          "ids": [
+            1602
+          ],
+          "tokens": [
+            "∧"
+          ]
+        },
+        {
+          "input": "∨",
+          "normalized": "∨",
+          "ids": [
+            1603
+          ],
+          "tokens": [
+            "∨"
+          ]
+        },
+        {
+          "input": "¬",
+          "normalized": "¬",
+          "ids": [
+            1078
+          ],
+          "tokens": [
+            "¬"
+          ]
+        }
+      ]
+    },
+    "leansearch": {
+      "tokenizer_sha256": "81243ce3fbd0511321d049e89f36a1369b13e3d69af5fc9e38ca80bf8b6b630e",
+      "normalizer": {
+        "type": "BertNormalizer",
+        "clean_text": true,
+        "handle_chinese_chars": true,
+        "strip_accents": null,
+        "lowercase": false
+      },
+      "symbols": [
+        {
+          "input": "=",
+          "normalized": "=",
+          "ids": [
+            34
+          ],
+          "tokens": [
+            "="
+          ]
+        },
+        {
+          "input": "≠",
+          "normalized": "≠",
+          "ids": [
+            272
+          ],
+          "tokens": [
+            "≠"
+          ]
+        },
+        {
+          "input": "≤",
+          "normalized": "≤",
+          "ids": [
+            274
+          ],
+          "tokens": [
+            "≤"
+          ]
+        },
+        {
+          "input": "<",
+          "normalized": "<",
+          "ids": [
+            33
+          ],
+          "tokens": [
+            "<"
+          ]
+        },
+        {
+          "input": "⊢",
+          "normalized": "⊢",
+          "ids": [
+            3
+          ],
+          "tokens": [
+            "[UNK]"
+          ]
+        },
+        {
+          "input": "∧",
+          "normalized": "∧",
+          "ids": [
+            260
+          ],
+          "tokens": [
+            "∧"
+          ]
+        },
+        {
+          "input": "∨",
+          "normalized": "∨",
+          "ids": [
+            261
+          ],
+          "tokens": [
+            "∨"
+          ]
+        },
+        {
+          "input": "¬",
+          "normalized": "¬",
+          "ids": [
+            100
+          ],
+          "tokens": [
+            "¬"
+          ]
+        }
+      ]
+    }
+  }
+}
