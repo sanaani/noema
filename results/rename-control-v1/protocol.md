@@ -135,3 +135,38 @@ separately, and the honest claim there remains "still separates where words give
 little", not "vocabulary-independent". Surviving this control is necessary
 evidence, not sufficient: it cannot establish that the distances mean
 mathematical relatedness.
+
+## Amendment, 2026-09-21, after the first capture and before any encoding
+
+The definitional check as specified above could not run unbounded at Mathlib
+scale, and finding that out cost a capture.
+
+`Mathlib/FieldTheory/KummerExtension.lean` has goals large enough that `isDefEq`
+exhausts Lean's heartbeat budget. That budget is shared with everything else
+elaborating in the same file, so once this check burned it, the *unpatched*
+original-arm printing began throwing too, with no handler, and the REPL process
+died. Five theorems were lost, two of them forward-test endpoints — not
+something that could be waived, since their centroids are inputs to the primary
+statistic.
+
+The check is therefore bounded twice: it is asked only of obligations under
+5,000 nodes, and only within its own 20,000-heartbeat allowance. **Exhaustion is
+recorded as inconclusive, not as a refusal.** A definite `false` still refuses
+the state, because that would mean the rename had changed the obligation.
+
+This is a bound on corroboration, not a weakening of the certificate:
+
+- The **structural** check is unchanged, is total, and still gates every emitted
+  state. It is also the tighter of the two claims — it establishes that the two
+  obligations are the same expression apart from binder names, where `isDefEq`
+  establishes only that they are definitionally equal.
+- Across all 98,458 states of the first capture, **no state was ever refused for
+  being "not definitionally equal"**; all 110 refusals were structural
+  mismatches. So the bound cannot change which states are emitted, only how many
+  carry the second, weaker confirmation as well.
+
+The count of states resting on the structural certificate alone is reported with
+the results.
+
+The first capture was discarded rather than merged, so that no part of the
+corpus was produced by the pre-amendment code.

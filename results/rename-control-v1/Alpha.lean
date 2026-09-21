@@ -61,6 +61,23 @@ partial def eraseBinderNames : Expr → Expr
   | .proj t i b => .proj t i (eraseBinderNames b)
   | e => e
 
+/-- Node count, abandoned once it passes `limit`. Used only to decide whether
+an obligation is small enough to be worth asking `isDefEq` about. -/
+partial def sizeAtMost (limit : Nat) (e : Expr) (acc : Nat := 0) : Nat :=
+  if acc > limit then acc else
+  match e with
+  | .forallE _ a b _ | .lam _ a b _ => sizeAtMost limit b (sizeAtMost limit a (acc + 1))
+  | .letE _ t v b _ => sizeAtMost limit b (sizeAtMost limit v (sizeAtMost limit t (acc + 1)))
+  | .app f a => sizeAtMost limit a (sizeAtMost limit f (acc + 1))
+  | .mdata _ b | .proj _ _ b => sizeAtMost limit b (acc + 1)
+  | _ => acc + 1
+
+/-- Above this many nodes the definitional check is skipped rather than risked. -/
+def definitionalSizeLimit : Nat := 5000
+
+/-- And this many heartbeats, so one check cannot eat the file's whole budget. -/
+def definitionalHeartbeats : Nat := 20000
+
 /-- Close a target over the whole local context, so the certificate covers the
 hypotheses and not only the goal. -/
 def closedGoal (target : Expr) : MetaM Expr := do
@@ -97,12 +114,28 @@ def renderGoal (s : Scheme) (goal : MVarId) : MetaM Rendered := goal.withContext
         return ⟨"", false, "structural mismatch", false⟩
       -- Definitional certificate, asked only where it is safe to ask. Isolated
       -- so a check cannot assign a metavariable or disturb the replay.
-      let closedEnough := !closed.hasExprMVar && !transformed.hasExprMVar
-      if closedEnough then
-        unless ← withoutModifyingState (isDefEq closed transformed) do
-          return ⟨"", false, "not definitionally equal", true⟩
+      -- `isDefEq` on a large obligation can exhaust Lean's heartbeat budget,
+      -- and that budget is shared with everything downstream: once it is gone
+      -- the *unpatched* original-arm printing throws too, with no handler, and
+      -- the capture process dies. So the check is bounded twice — by obligation
+      -- size and by its own heartbeat allowance — and its exhaustion is
+      -- inconclusive, not a refusal. The structural certificate above is the
+      -- sound one and is total; this is corroboration where it is cheap.
+      let askable := !closed.hasExprMVar && !transformed.hasExprMVar
+        && sizeAtMost definitionalSizeLimit closed ≤ definitionalSizeLimit
+      let verdict : Option Bool ← if askable then
+          try
+            some <$> withoutModifyingState (withCurrHeartbeats (
+              withTheReader Core.Context
+                (fun c => { c with maxHeartbeats := definitionalHeartbeats })
+                (isDefEq closed transformed)))
+          catch _ => pure none
+        else pure none
+      -- A definite `false` means the rename changed the obligation: refuse it.
+      if verdict == some false then
+        return ⟨"", false, "not definitionally equal", true⟩
       let display ← mkFreshExprMVar target'
-      return ⟨← Meta.ppGoal display.mvarId!, true, "", closedEnough⟩
+      return ⟨← Meta.ppGoal display.mvarId!, true, "", verdict == some true⟩
   catch ex =>
     return ⟨"", false, s!"exception: {← ex.toMessageData.toString}", false⟩
 
