@@ -68,6 +68,60 @@ band holds 3 hits instead of 4, and a hit appears in 30–45° that was not ther
 before. Read the AUC, as the forward test's own README says; the bands rest on
 too few pairs to carry an argument.
 
+## The secondary tests survive too
+
+The other two measurements in the repository, rerun on both arms.
+
+**Betweenness** — does a known bridge theorem sit *between* its two endpoints?
+All six families stay in the top 3.3% of 1,795 objects, and four of six move
+*closer* to the geodesic after renaming:
+
+| family | original rank | α-renamed rank | α percentile |
+|---|---:|---:|---:|
+| Euler | 25 | 29 | 1.62% |
+| Fermat | 78 | **59** | 3.29% |
+| Galois | 9 | **4** | 0.22% |
+| Fourier | 6 | 8 | 0.45% |
+| FTC | 69 | **14** | 0.78% |
+| Euler criterion | 11 | 16 | 0.89% |
+
+The published claim was 6/6 inside the top 4.3% with four inside 1.4%. The
+renamed arm gives 6/6 inside 3.3% with four inside 0.9%.
+
+**Replication** — do proofs sharing a rare lemma have nearer centroids?
+
+| | original | α-renamed |
+|---|---:|---:|
+| AUC, all pairs | 0.877 | 0.870 |
+| AUC, cross-area | 0.863 | 0.855 |
+| shuffled control | 0.710 | 0.707 |
+| **margin over control** | **+0.167** | **+0.162** |
+
+Only the margin is the encoder's, and it is intact. This is the weakest of the
+three tests — it shares a confound with its own target, as
+[`state-bridge-v1`](../state-bridge-v1/README.md) records — but it does not
+collapse under renaming either.
+
+## The original arm reproduces everything published
+
+A fresh capture and a fresh encode, scored by the published scripts:
+
+| | published | this run's original arm |
+|---|---:|---:|
+| forward angle AUC | 0.958 | 0.9582 |
+| vocabulary AUC | 0.764 | 0.7636 |
+| proof size AUC | 0.498 | 0.4976 |
+| replication AUC | 0.877 | 0.8775 |
+| cross-area AUC | 0.863 | 0.8625 |
+| betweenness ranks | 25, 78, 9, 6, 69, 11 | 25, 78, 9, 6, 69, 11 |
+
+Detour ratios agree to three decimals and all six families land in the same
+percentiles. Of the 377 centroids that differ from the committed archive at all,
+363 differ by 0.02–0.03° — float32 archive against float64 vectors. The 14 that
+moved materially are exactly the theorems that lost states to the 110 refusals,
+none of them a forward-test endpoint, and the five bridge-family members in that
+list moved by 0.02°, which is why betweenness is untouched.
+
 ## A caveat the protocol required, and why
 
 On the renamed arm, absolute word overlap **rises** — positives share 24.9% of

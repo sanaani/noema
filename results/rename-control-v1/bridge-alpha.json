@@ -1,0 +1,279 @@
+{
+  "objects": 1797,
+  "texts": 47513,
+  "max_state_df": 0.5,
+  "replication_all": {
+    "objects": 1797,
+    "pairs": 1613706,
+    "positives": 83572,
+    "auc": 0.8696184927239421,
+    "cross_area_pairs": 1447944,
+    "cross_area_positives": 53364,
+    "cross_area_auc": 0.8545266443520334,
+    "disjoint_pairs": 1613676,
+    "disjoint_positives": 83542,
+    "disjoint_auc": 0.8695717282315915,
+    "permutations": 20000,
+    "p_value": 4.999750012499375e-05,
+    "null_mean": 0.49999302257473344,
+    "null_sd_empirical": 0.0010211891543185198,
+    "null_sd_analytic": 0.001025478567231804,
+    "z": 360.4351222295139
+  },
+  "replication_observed": {
+    "objects": 1372,
+    "pairs": 940506,
+    "positives": 71858,
+    "auc": 0.8536798813703427,
+    "cross_area_pairs": 831659,
+    "cross_area_positives": 47954,
+    "cross_area_auc": 0.8397629285379451,
+    "disjoint_pairs": 940479,
+    "disjoint_positives": 71831,
+    "disjoint_auc": 0.8536249629411438,
+    "permutations": 20000,
+    "p_value": 4.999750012499375e-05,
+    "null_mean": 0.49999273938011346,
+    "null_sd_empirical": 0.0011244782860759589,
+    "null_sd_analytic": 0.001120549170256277,
+    "z": 315.6308449092455
+  },
+  "betweenness": [
+    {
+      "family": "Euler",
+      "A": "Real.sin_add",
+      "B": "Complex.exp_add",
+      "bridge": "Complex.exp_mul_I",
+      "d_AB": 1.456387244784308,
+      "detour_ratio": 1.5661634120304635,
+      "projection_t": 0.3057734355407541,
+      "rank": 29,
+      "candidates": 1795,
+      "percentile": 1.615598885793872,
+      "kinds": {
+        "A": "observed",
+        "B": "observed",
+        "bridge": "synthetic"
+      },
+      "control_percentile": 60.83565459610028,
+      "control_detour_ratio": 1.903112623464325
+    },
+    {
+      "family": "Fermat",
+      "A": "Nat.Prime.sq_add_sq",
+      "B": "GaussianInt.prime_iff_mod_four_eq_three_of_nat_prime",
+      "bridge": "GaussianInt.sq_add_sq_of_nat_prime_of_not_irreducible",
+      "d_AB": 0.8652284486782121,
+      "detour_ratio": 3.013686799377174,
+      "projection_t": 0.5060608026558442,
+      "rank": 59,
+      "candidates": 1795,
+      "percentile": 3.286908077994429,
+      "kinds": {
+        "A": "observed",
+        "B": "synthetic",
+        "bridge": "observed"
+      },
+      "control_percentile": 19.944289693593316,
+      "control_detour_ratio": 1.806120731513983
+    },
+    {
+      "family": "Galois",
+      "A": "IntermediateField.adjoin.finrank",
+      "B": "IsGalois.card_aut_eq_finrank",
+      "bridge": "IsGalois.IntermediateField.AdjoinSimple.card_aut_eq_finrank",
+      "d_AB": 0.9806865640754071,
+      "detour_ratio": 1.468459722774667,
+      "projection_t": 0.5157064537571159,
+      "rank": 4,
+      "candidates": 1795,
+      "percentile": 0.22284122562674094,
+      "kinds": {
+        "A": "observed",
+        "B": "observed",
+        "bridge": "observed"
+      },
+      "control_percentile": 78.16155988857939,
+      "control_detour_ratio": 2.9190525861283922
+    },
+    {
+      "family": "Fourier",
+      "A": "hasSum_zeta_two",
+      "B": "hasSum_fourier_series_of_summable",
+      "bridge": "hasSum_one_div_nat_pow_mul_cos",
+      "d_AB": 1.3792700559705597,
+      "detour_ratio": 1.4636993433566483,
+      "projection_t": 0.21531377490188225,
+      "rank": 8,
+      "candidates": 1795,
+      "percentile": 0.4456824512534819,
+      "kinds": {
+        "A": "observed",
+        "B": "observed",
+        "bridge": "observed"
+      },
+      "control_percentile": 9.470752089136491,
+      "control_detour_ratio": 1.8815800124672801
+    },
+    {
+      "family": "FTC",
+      "A": "deriv_add",
+      "B": "intervalIntegral.integral_add",
+      "bridge": "intervalIntegral.integral_eq_sub_of_hasDerivAt",
+      "d_AB": 1.4836678348441625,
+      "detour_ratio": 1.6385879843241131,
+      "projection_t": 0.8125019475991573,
+      "rank": 14,
+      "candidates": 1795,
+      "percentile": 0.7799442896935933,
+      "kinds": {
+        "A": "synthetic",
+        "B": "observed",
+        "bridge": "synthetic"
+      },
+      "control_percentile": 32.36768802228412,
+      "control_detour_ratio": 1.6620384801543633
+    },
+    {
+      "family": "EulerCriterion",
+      "A": "sq_eq_sq_iff_eq_or_eq_neg",
+      "B": "ZMod.pow_card_sub_one_eq_one",
+      "bridge": "ZMod.euler_criterion",
+      "d_AB": 1.3529160058718877,
+      "detour_ratio": 1.653275263282002,
+      "projection_t": 0.8338383351325438,
+      "rank": 16,
+      "candidates": 1795,
+      "percentile": 0.8913649025069638,
+      "kinds": {
+        "A": "synthetic",
+        "B": "observed",
+        "bridge": "observed"
+      },
+      "control_percentile": 25.905292479108635,
+      "control_detour_ratio": 1.9052763077521286
+    }
+  ],
+  "control_replication_all": {
+    "objects": 1797,
+    "pairs": 1613706,
+    "positives": 83572,
+    "auc": 0.7074192926114794,
+    "cross_area_pairs": 1447944,
+    "cross_area_positives": 53364,
+    "cross_area_auc": 0.7398613183232037,
+    "disjoint_pairs": 1613676,
+    "disjoint_positives": 83542,
+    "disjoint_auc": 0.7073712750896656,
+    "permutations": 0,
+    "p_value": NaN,
+    "null_mean": 0.5,
+    "null_sd_empirical": 0.0,
+    "null_sd_analytic": 0.001025478567231804,
+    "z": 202.26584858949408
+  },
+  "control_betweenness": [
+    {
+      "family": "Euler",
+      "A": "Real.sin_add",
+      "B": "Complex.exp_add",
+      "bridge": "Complex.exp_mul_I",
+      "d_AB": 1.396110095517368,
+      "detour_ratio": 1.903112623464325,
+      "projection_t": 0.4761011305816877,
+      "rank": 1092,
+      "candidates": 1795,
+      "percentile": 60.83565459610028,
+      "kinds": {
+        "A": "observed",
+        "B": "observed",
+        "bridge": "synthetic"
+      }
+    },
+    {
+      "family": "Fermat",
+      "A": "Nat.Prime.sq_add_sq",
+      "B": "GaussianInt.prime_iff_mod_four_eq_three_of_nat_prime",
+      "bridge": "GaussianInt.sq_add_sq_of_nat_prime_of_not_irreducible",
+      "d_AB": 1.3142668462685159,
+      "detour_ratio": 1.806120731513983,
+      "projection_t": 0.4406111816364179,
+      "rank": 358,
+      "candidates": 1795,
+      "percentile": 19.944289693593316,
+      "kinds": {
+        "A": "observed",
+        "B": "synthetic",
+        "bridge": "observed"
+      }
+    },
+    {
+      "family": "Galois",
+      "A": "IntermediateField.adjoin.finrank",
+      "B": "IsGalois.card_aut_eq_finrank",
+      "bridge": "IsGalois.IntermediateField.AdjoinSimple.card_aut_eq_finrank",
+      "d_AB": 0.9466112341928483,
+      "detour_ratio": 2.9190525861283922,
+      "projection_t": 0.7903026532722466,
+      "rank": 1403,
+      "candidates": 1795,
+      "percentile": 78.16155988857939,
+      "kinds": {
+        "A": "observed",
+        "B": "observed",
+        "bridge": "observed"
+      }
+    },
+    {
+      "family": "Fourier",
+      "A": "hasSum_zeta_two",
+      "B": "hasSum_fourier_series_of_summable",
+      "bridge": "hasSum_one_div_nat_pow_mul_cos",
+      "d_AB": 1.0881799562101038,
+      "detour_ratio": 1.8815800124672801,
+      "projection_t": 0.43952327703111393,
+      "rank": 170,
+      "candidates": 1795,
+      "percentile": 9.470752089136491,
+      "kinds": {
+        "A": "observed",
+        "B": "observed",
+        "bridge": "observed"
+      }
+    },
+    {
+      "family": "FTC",
+      "A": "deriv_add",
+      "B": "intervalIntegral.integral_add",
+      "bridge": "intervalIntegral.integral_eq_sub_of_hasDerivAt",
+      "d_AB": 1.5677295941766818,
+      "detour_ratio": 1.6620384801543633,
+      "projection_t": 0.7256051107523533,
+      "rank": 581,
+      "candidates": 1795,
+      "percentile": 32.36768802228412,
+      "kinds": {
+        "A": "synthetic",
+        "B": "observed",
+        "bridge": "synthetic"
+      }
+    },
+    {
+      "family": "EulerCriterion",
+      "A": "sq_eq_sq_iff_eq_or_eq_neg",
+      "B": "ZMod.pow_card_sub_one_eq_one",
+      "bridge": "ZMod.euler_criterion",
+      "d_AB": 1.2996264266794466,
+      "detour_ratio": 1.9052763077521286,
+      "projection_t": 0.6099786611961531,
+      "rank": 465,
+      "candidates": 1795,
+      "percentile": 25.905292479108635,
+      "kinds": {
+        "A": "synthetic",
+        "B": "observed",
+        "bridge": "observed"
+      }
+    }
+  ]
+}
