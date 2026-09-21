@@ -14,17 +14,25 @@ CHECKSUMS = {
 }
 
 
-def byte_ids(text):
+# The archived state-object vectors (results/state-object-v1) were encoded with
+# no length cap at all — 79 of their 3,659 states run past 1024 tokens, up to
+# 17,339. The 1024 cap below belongs to the transfer arm, which froze it; state
+# work that has to stay comparable to the archive passes limit=None.
+UNCAPPED_TOKENIZATION = "all UTF-8 bytes +3, append EOS=1; no truncation or length cap"
+CAPPED_TOKENIZATION = "UTF-8 bytes +3, append EOS=1, reject >1024 tokens"
+
+
+def byte_ids(text, limit=1024):
     if not text.strip() or re.search(r"</?s>|<pad>|<unk>|<extra_id_\d+>", text):
         raise ValueError("empty input or special token spelling")
     ids = [value + 3 for value in text.encode("utf-8")] + [1]
-    if len(ids) > 1024:
-        raise ValueError("input exceeds frozen 1024-token limit")
+    if limit is not None and len(ids) > limit:
+        raise ValueError(f"input exceeds frozen {limit}-token limit")
     return ids
 
 
 class ReProverEncoder:
-    def __init__(self, directory: Path):
+    def __init__(self, directory: Path, token_limit=1024):
         for filename, expected in CHECKSUMS.items():
             with (directory / filename).open("rb") as stream:
                 actual = hashlib.file_digest(stream, "sha256").hexdigest()
@@ -32,6 +40,7 @@ class ReProverEncoder:
                 raise ValueError(f"pinned ReProver checksum mismatch: {filename}")
         import ctranslate2
 
+        self.token_limit = token_limit
         self.model = ctranslate2.Encoder(
             str(directory), device="cpu", compute_type="int8_float32", intra_threads=2
         )
@@ -42,7 +51,11 @@ class ReProverEncoder:
             "checksums": CHECKSUMS,
             "ctranslate2": ctranslate2.__version__,
             "compute_type": self.model.compute_type,
-            "tokenization": "UTF-8 bytes +3, append EOS=1, reject >1024 tokens",
+            "tokenization": (
+                CAPPED_TOKENIZATION if token_limit == 1024
+                else UNCAPPED_TOKENIZATION if token_limit is None
+                else f"UTF-8 bytes +3, append EOS=1, reject >{token_limit} tokens"
+            ),
             "pooling": "nonpadding mean including EOS, then L2 normalize",
             "dimension": 1472,
         }
@@ -52,7 +65,7 @@ class ReProverEncoder:
         # Singleton batches also make dynamic activation quantization independent
         # of which unrelated states happen to share a batch.
         for text in states:
-            ids = byte_ids(text)
+            ids = byte_ids(text, self.token_limit)
             hidden = np.asarray(self.model.forward_batch([ids]).last_hidden_state)
             if hidden.shape != (1, len(ids), 1472):
                 raise ValueError("unexpected ReProver output shape")

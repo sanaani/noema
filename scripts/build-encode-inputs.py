@@ -35,6 +35,7 @@ def main():
     ap.add_argument("--states", type=Path, required=True)
     ap.add_argument("--model", type=Path, required=True)
     ap.add_argument("--out", type=Path, required=True)
+    ap.add_argument("--plan", type=Path, default=Path("docs/state-bridge-run-plan.md"))
     args = ap.parse_args()
     args.out.mkdir(parents=True, exist_ok=True)
 
@@ -51,7 +52,8 @@ def main():
             "transport": checksum(scripts / "benchmark-reprover-device.py"),
             "gpu_encoder": checksum(scripts / "encode-reprover-gpu.py"),
         },
-        "reference_manifest": reprover.ReProverEncoder(args.model).manifest,
+        "reference_manifest": reprover.ReProverEncoder(args.model, token_limit=None).manifest,
+        "plan_sha256": checksum(args.plan),
         "provenance": {
             "states": str(args.states),
             "records": len(records),

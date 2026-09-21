@@ -41,7 +41,9 @@ def main():
     if hashes != specification["source_hashes"]:
         raise ValueError("acquisition source changed after input freeze")
     args.output.mkdir(parents=True, exist_ok=False)
-    encoder = reprover.ReProverEncoder(args.model)
+    # token_limit=None: the archive this run replicates encoded every state
+    # whole. 2,555 of the 23,874 frozen inputs exceed 1024 tokens.
+    encoder = reprover.ReProverEncoder(args.model, token_limit=None)
     if encoder.manifest != specification["reference_manifest"]:
         raise ValueError("model/runtime differs from the pinned reference")
     adapter = runpy.run_path(str(adapter_path))["HostOutputEncoder"]
