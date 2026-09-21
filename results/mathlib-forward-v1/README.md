@@ -44,6 +44,32 @@ two names — `GaussianInt.natCast_natAbs_norm` beside
 bridges a thing to itself. The signal sits in a band, and the band filters the
 duplicates out for free.
 
+## Proof size does not explain it
+
+| predictor | AUC on the 2026 label |
+|---|---|
+| **proof size alone** (bigger = closer) | **0.515** |
+| **state-geometry angle** | **0.958** |
+
+Proof size is the confound that faked AUC 0.740 on the replication target:
+longer proofs cite more lemmas, so they more often share a rare landmark, and
+their centroids drift toward the corpus mean, so they look mutually close. Both
+effects pushed the same way there.
+
+Here it is a coin flip. This label does not reward length — nobody writes a
+connecting theorem because two proofs were long — so the confound does not
+transfer. That is the point of choosing a label made of different material.
+
+Pairs in the 45–55° band *are* larger than average (median 13 states against 5),
+but since size predicts nothing, that is a passenger rather than the driver.
+
+At AUC 0.958 the honest reading is closer to **"much nearer than typical"**
+than to a magic window: the corpus sits at 86–89° and the hits sit at 45–75°.
+The sub-45° exclusion still matters for precision, since that is where the
+renames are, but it is 527 pairs out of 1.5M — a correction, not the effect.
+
+## The band agrees with the known bridges
+
 **45–55° is where the six known bridges also sat.** Their nearer-endpoint
 angles were 40, 41, 52, 53, 64, 75 → ranks 6, 9, 11, 25, 69, 78 out of 1,795
 (`results/state-bridge-v1/`). That reading came first, from six historical

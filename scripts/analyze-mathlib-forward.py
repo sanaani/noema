@@ -49,6 +49,16 @@ ROOT = Path(__file__).resolve().parents[1]
 BANDS = [(0, 30), (30, 45), (45, 55), (55, 65), (65, 75), (75, 85), (85, 95), (95, 180)]
 
 
+def auc(score, label):
+    """Mann-Whitney U; higher score should mean likelier positive."""
+    order = score.argsort()
+    r = np.empty(len(score))
+    r[order] = np.arange(1, len(score) + 1)
+    pos = int(label.sum())
+    neg = len(label) - pos
+    return float((r[label].sum() - pos * (pos + 1) / 2) / (pos * neg))
+
+
 def centroids(vectors, index, max_df=0.5):
     z = np.load(vectors)
     V, texts = z["vectors"].astype(np.float32), list(z["texts"])
@@ -57,12 +67,14 @@ def centroids(vectors, index, max_df=0.5):
     for r in records:
         df.update(set(r["text_indices"]))
     drop = {i for i, c in df.items() if c / len(records) >= max_df}
-    out = {}
+    out, size = {}, {}
     for r in records:
         keep = [i for i in r["text_indices"] if i not in drop] or r["text_indices"]
         c = V[keep].mean(0)
-        out[r["theorem_id"].split(":", 1)[1]] = c / np.linalg.norm(c)
-    return out
+        name = r["theorem_id"].split(":", 1)[1]
+        out[name] = c / np.linalg.norm(c)
+        size[name] = len(keep)
+    return out, size
 
 
 def rare_landmarks(want, edges):
@@ -92,7 +104,7 @@ def main():
     ap.add_argument("--out", type=Path)
     args = ap.parse_args()
 
-    cen = centroids(args.vectors, args.index)
+    cen, size = centroids(args.vectors, args.index)
     names = sorted(cen)
     pos = {n: i for i, n in enumerate(names)}
     rare = rare_landmarks(set(names), args.edges)
@@ -126,6 +138,19 @@ def main():
         print(f"{f'{lo}-{hi}':>12}{m.sum():>12,}{h:>6}{lift:>7.0f}x")
         rows.append({"low": lo, "high": hi, "pairs": int(m.sum()), "hits": h, "lift": float(lift)})
 
+    # Proof size is the confound that faked AUC 0.740 on the replication target:
+    # longer proofs cite more lemmas, so they more often share a rare landmark,
+    # and their centroids drift toward the corpus mean, so they look mutually
+    # close. This label does not reward length, so it should not transfer.
+    minsize = np.fromiter(
+        (min(size[names[a]], size[names[b]]) for a, b in zip(pi, pj)), float, len(pi))
+    print(f"\n{'predictor':<34}{'AUC':>7}")
+    print(f"{'proof size alone (bigger=closer)':<34}{auc(minsize, label):>7.3f}")
+    print(f"{'state-geometry angle':<34}{auc(-angle, label):>7.3f}")
+    band = (angle >= 45) & (angle < 55)
+    print(f"\nmedian min-size in 45-55 band: {np.median(minsize[band]):.0f} states "
+          f"| all pairs: {np.median(minsize):.0f}")
+
     print("\nthe closest pairs, for contrast — these are renames, not bridges:")
     for x in np.argsort(angle)[:5]:
         print(f"  {angle[x]:5.1f}  {names[pi[x]][:44]:<44} | {names[pj[x]][:44]}")
@@ -134,7 +159,11 @@ def main():
         args.out.parent.mkdir(parents=True, exist_ok=True)
         args.out.write_text(json.dumps(
             {"eligible_pairs": int(len(angle)), "positives": int(label.sum()),
-             "base_rate": float(base), "bands": rows}, indent=2) + "\n")
+             "base_rate": float(base), "bands": rows,
+             "auc_proof_size": auc(minsize, label),
+             "auc_angle": auc(-angle, label),
+             "median_minsize_band_45_55": float(np.median(minsize[band])),
+             "median_minsize_all": float(np.median(minsize))}, indent=2) + "\n")
         print(f"\nwrote {args.out}")
 
 
