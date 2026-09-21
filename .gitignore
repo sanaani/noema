@@ -17,3 +17,6 @@ data/
 results/link-graph-v1/edges.jsonl
 results/link-graph-v1/train-pairs.jsonl
 results/state-consistency-v1/lean49/typed-centers.json
+
+# Auto-generated agent session brief; local only.
+.claude/
