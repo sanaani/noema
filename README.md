@@ -68,6 +68,16 @@ fragile number: it rests on four pairs, and dropping that one hub leaves one.
   eligible pair. The angle's 0.958 is well clear of that, and 3 of the 22 hits
   share under 5%, but "still separates where words give little" is the
   defensible claim, not "vocabulary-independent".
+- **It is not a subfield detector, which was the most plausible deflation.**
+  Same area means same people working in the same active corner of Mathlib, and
+  those pairs get connected later anyway — so the angle could predict the label
+  without understanding anything. Measured
+  ([`area-control.json`](results/mathlib-forward-v1/area-control.json)): the
+  angle predicts "same area" at only 0.656, "same area" predicts the 2026 label
+  at only 0.660, and on cross-area pairs alone — where the confound cannot
+  operate — the angle still scores **0.955 on 13 hits** against 0.958 overall.
+  That rules out this story. It does not rule out an α-rename effect, which is
+  a different thing and still untested.
 - The forward label is `git grep` over full declaration names, so it misses
   citations under an `open` namespace and does not check that a citation is
   load-bearing. Both attenuate rather than inflate.
@@ -147,11 +157,12 @@ The analyses read committed artifacts:
 .venv/bin/python scripts/analyze-mathlib-forward.py         # the forward test
 .venv/bin/python scripts/analyze-forward-independence.py    # does the clustering break it?
 .venv/bin/python scripts/analyze-forward-vocabulary.py      # how much is word overlap?
+.venv/bin/python scripts/analyze-forward-area.py            # is it just a subfield detector?
 .venv/bin/python scripts/analyze-size-confound.py           # proof size on both labels
 .venv/bin/python scripts/analyze-state-bridge.py            # needs the vectors, see below
 ```
 
-The first five need nothing but the repository, and CI runs all five. The four
+The first six need nothing but the repository, and CI runs all six. The five
 that read `results/mathlib-forward-v1/centroids.npz` use it as 1,797 unit
 centroids, 9.9 MB, the only input they need from the encode, exported by
 `scripts/export-forward-centroids.py` and checked against the full vectors by

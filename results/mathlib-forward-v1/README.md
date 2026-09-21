@@ -133,6 +133,27 @@ the null sits at **0.499 ± 0.068** and the observed 0.958 does not occur in
 124× rests on four pairs; drop one hub theorem and one remains. The AUC is the
 number this result rests on.
 
+## Is it just noticing they share a subfield?
+
+Same area means the same people working in the same active corner of Mathlib,
+and those pairs attract new connecting theorems anyway — so the angle could
+score well without understanding anything. `scripts/analyze-forward-area.py`
+(`area-control.json`) tests it, with area as the second module component, the
+definition `analyze-state-bridge.py` already uses.
+
+| subset | pairs | hits | angle AUC |
+|---|---|---|---|
+| all eligible | 1,530,134 | 22 | 0.958 |
+| **cross-area only** | 1,394,580 | 13 | **0.955** |
+| same-area only | 135,554 | 9 | 0.920 |
+
+The angle predicts "same area" at only AUC 0.656, and "same area" predicts the
+2026 label at only 0.660. So area is a weak confound, the angle is not a proxy
+for it, and the AUC survives intact where the confound cannot operate at all.
+
+This rules out the subfield story. It does not rule out α-rename sensitivity,
+which is a different mechanism and still open (3, below).
+
 ## How much of it is just shared words?
 
 `scripts/analyze-forward-vocabulary.py` (`--out vocabulary.json`) scores token overlap
@@ -186,6 +207,7 @@ replication target and is not controlled here.
 | `centroids.npz` | 1,797 unit centroids + kept-state counts; the only part of the 272 MB encode these analyses need |
 | `independence.json` | the subset, jackknife and cluster-null results |
 | `vocabulary.json` | token-overlap distributions and the 0.764 AUC |
+| `area-control.json` | the cross-area control: 0.955 on 13 cross-area hits |
 
 Regenerating these needs a shallow fetch of current Mathlib into
 `outputs/eligibility-v1/mathlib` (`git fetch --depth=1 origin 09712d48`), which

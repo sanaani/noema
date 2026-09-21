@@ -15,6 +15,7 @@ data/
 # Large link-graph/consistency data: the committed copies are gzipped.
 # Unpack with `gzip -dk <file>.gz` if a tool wants the plain file.
 results/link-graph-v1/edges.jsonl
+# Left over locally from the statement ranker, whose corpus is no longer tracked.
 results/link-graph-v1/train-pairs.jsonl
 results/state-consistency-v1/lean49/typed-centers.json
 

@@ -13,9 +13,20 @@ proof term references. Giant proof terms (>3M nodes) are recorded as
 - `edges.jsonl.gz` — 206,889 theorems → dependency name lists
   (1,056 oversize-skipped; raw `edges.jsonl` kept locally, over GitHub's
   file limit).
-- `train-pairs.jsonl.gz` — 245,628 training pairs sharing ≥2 rare lemmas
-  (lemma document frequency 2–200), proof-helper (`proof_*`) pairs removed,
-  all 115 benchmark names excluded. Ranked by shared count, top 400k kept.
+- `DeclRanges.lean` / `target-decl-ranges.jsonl` — the declaration ranges the
+  1,797-theorem selection was built from (`build-state-bridge-selection.py`).
+- `InitialGoals.lean` / `target-initial-goals.jsonl` — initial goals for the 425
+  term-mode theorems with no tactic states (`add-initial-goal-states.py`).
+- `state-bridge-replay-summary.json` — the capture's split: 1,372 with observed
+  states, 425 initial-goal only.
+
+The training pairs, training texts and referee centers that used to sit here
+(`train-pairs.jsonl.gz`, `train-split.jsonl`, `training-texts.jsonl.gz`,
+`train-vocab.json`, `holdout-names.json`, `referee-texts.jsonl.gz`,
+`RefereeCenters*.lean`, `BulkCenters.lean`) were the statement ranker's corpus.
+That line predates the proof-state capture and is no longer in the tree, so its
+training data went with it on 09-21; see
+[`docs/history.md`](../../docs/history.md) or the `full-research-trail` tag.
 
 ## Validation
 
@@ -23,18 +34,6 @@ All 6 benchmark families share citations across their (A, B, bridge)
 triples (1–39 shared names, mostly typeclass/transport machinery).
 Held-out referee: `results/bridge-expansion-v1/evaluation-v1`
 (6-case structural benchmark).
-
-## Training texts
-
-- `training-texts.jsonl.gz` — 10,602 `{name, sexpr}` records from bulk
-  `centers.jsonl.gz`, byte-gated at 100KB raw line (1,192 oversize gated,
-  0 malformed). Covers 10,602 of 58,642 pair names; 50,955 of 245,628
-  pairs have texts on both endpoints.
-- Referee universe (18 case + 64 background + 12 hard-control + ranking
-  names = 91 unique) has ZERO overlap with bulk texts → targeted capture
-  in `RefereeCenters.lean` (all 91 verified as recorded theorems in
-  `edges.jsonl.gz`). Train/referee split: 4 families train, Fourier +
-  Euler-criterion held out.
 
 ## Bridge triples (near-miss intersections)
 
