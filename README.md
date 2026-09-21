@@ -173,8 +173,8 @@ They are intact in the commit history, with what was known at each point.
 what it found. The whole pre-prune tree is one command away:
 
 ```bash
-git checkout full-research-trail   # branch at 2e56503, the commit before the prune
-git checkout 2e56503               # same tree, and survives the branch being deleted
+git checkout full-research-trail   # tag on 2e56503, the commit before the prune
 ```
 
-`a44f244` is the prune itself: 1,743 files, 1,663,285 deletions, no new work.
+2,128 files against the 418 here. `a44f244` is the prune itself: 1,743 files,
+1,663,285 deletions, no new work.
