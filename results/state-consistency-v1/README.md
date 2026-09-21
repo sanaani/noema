@@ -221,3 +221,11 @@ repeats, and accepted occurrence vectors or rejection witnesses. `density-checks
 checks the lookup contract throughout the original proof traces, not model
 generalization to unseen examples. `validation.json` and `SHA256SUMS` record final
 engineering validation and artifact integrity.
+
+## Large artifact
+
+`lean49/typed-centers.json` is 103 MB and stays out of git; the committed
+`lean49/typed-centers.json.gz` is byte-identical (`gzip -dk` to unpack). The
+checksum list covers the `.gz`, since that is the file a clone has. The
+uncompressed file's digest, for anyone who unpacks it, is
+`ce6437e3ef638302a6eafd156cd52d1a8e9a9163f8f82a17cfad9c6399c564c9`.
