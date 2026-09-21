@@ -51,12 +51,24 @@ jobs:
       - run: python scripts/analyze-size-confound.py
 
       # The rename control's two arms, re-derived from their committed
-      # centroids and written back over the committed tables, so the git diff
-      # below is what actually checks the numbers. The driver itself needs the
-      # 517 MB encode and cannot run here; these are the parts that can.
-      - run: python scripts/analyze-mathlib-forward.py --vectors /nonexistent --centroids results/rename-control-v1/centroids-original.npz --out results/rename-control-v1/forward-original.json
-      - run: python scripts/analyze-mathlib-forward.py --vectors /nonexistent --centroids results/rename-control-v1/centroids-alpha.npz --out results/rename-control-v1/forward-alpha.json
-      - run: python scripts/analyze-forward-independence.py --centroids results/rename-control-v1/centroids-alpha.npz --out results/rename-control-v1/independence-alpha.json
+      # centroids and compared against the committed tables numerically. Not by
+      # git diff: BLAS sums the 1797x1472 product in a host-dependent order, so
+      # an AUC agreeing to eight significant figures still differs in its last
+      # bits on another machine. The driver itself needs the 517 MB encode and
+      # cannot run here; these are the parts that can.
+      - run: |
+          mkdir -p "$RUNNER_TEMP/rc"
+          python scripts/analyze-mathlib-forward.py --vectors /nonexistent \
+            --centroids results/rename-control-v1/centroids-original.npz \
+            --out "$RUNNER_TEMP/rc/forward-original.json"
+          python scripts/analyze-mathlib-forward.py --vectors /nonexistent \
+            --centroids results/rename-control-v1/centroids-alpha.npz \
+            --out "$RUNNER_TEMP/rc/forward-alpha.json"
+          python scripts/analyze-forward-independence.py \
+            --centroids results/rename-control-v1/centroids-alpha.npz \
+            --out "$RUNNER_TEMP/rc/independence-alpha.json"
+          python scripts/check-committed-numbers.py "$RUNNER_TEMP/rc" results/rename-control-v1 \
+            forward-original.json forward-alpha.json independence-alpha.json
 
       # Nothing above may quietly rewrite a committed result.
       - run: git diff --exit-code
