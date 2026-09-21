@@ -46,6 +46,7 @@ jobs:
       - run: python scripts/analyze-mathlib-forward.py
       - run: python scripts/analyze-forward-independence.py
       - run: python scripts/analyze-forward-vocabulary.py
+      - run: python scripts/analyze-size-confound.py
 
       # Nothing above may quietly rewrite a committed result.
       - run: git diff --exit-code

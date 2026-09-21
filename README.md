@@ -17,7 +17,7 @@ that the map is measuring something real.
 |---|---|---|
 | [Replication](results/state-bridge-v1/README.md) | do proofs sharing a rare lemma have nearer centroids? | AUC **0.877**, margin over shuffled control **+0.164** |
 | [Betweenness](results/state-bridge-v1/README.md) | does a known bridge theorem sit *between* its two endpoints? | all **6/6** families in the top 4.3% of 1,795 objects, four in the top 1.4% |
-| [Forward test](results/mathlib-forward-v1/README.md) | does the 2024 map point at links Mathlib only made by 2026? | angle **AUC 0.958** against proof size's 0.498 and vocabulary overlap's 0.763 |
+| [Forward test](results/mathlib-forward-v1/README.md) | does the 2024 map point at links Mathlib only made by 2026? | angle **AUC 0.958** against proof size's 0.498 and vocabulary overlap's 0.764 |
 
 1,797 Mathlib theorems, 99,275 captured proof states, 23,874 unique state texts,
 encoded with the pinned ReProver ByT5 retriever. The corpus was built by
@@ -35,8 +35,10 @@ is a coin flip at 0.498.
 The forward test's label contains no 2024 vocabulary at all: between Mathlib
 `f0957a7` (2024-07-01) and `09712d48` (2026-09-21) — 812 days, 22,961 commits,
 65,368 new declarations — did anyone write a theorem citing both halves of a
-pair? Over 1,530,134 eligible pairs the base rate is 1 in 69,551. The hits
-concentrate between 45° and 75°, against a corpus sitting at 86–89°.
+pair? Over 1,530,134 eligible pairs the base rate is 1 in 69,551. The corpus
+sits at a median 89.3° (quartiles 87.3–90.4); the hits sit at a median 74.0°,
+with 20 of the 22 below 85° where only 14.9% of pairs live, and 13 below 75°
+where 2.9% do.
 
 **Read the AUC, not the band lift.** The 22 positives are not 22 independent
 observations: 32 theorems carry all of them, `Complex.exp_add` appears in four.
@@ -60,7 +62,7 @@ fragile number: it rests on four pairs, and dropping that one hub leaves one.
   positives is a thin base, and the band lift does not survive dropping a hub
   theorem. The AUC does; that is the number the claim rests on.
 - **Vocabulary does some of the work.** Token overlap between two theorems'
-  state texts predicts the same 2026 label at AUC 0.763 on its own
+  state texts predicts the same 2026 label at AUC 0.764 on its own
   ([`vocabulary.json`](results/mathlib-forward-v1/vocabulary.json)): connected
   pairs share 17.0% of their state vocabulary against 7.7% for an average
   eligible pair. The angle's 0.958 is well clear of that, and 3 of the 22 hits
@@ -81,12 +83,23 @@ fragile number: it rests on four pairs, and dropping that one hub leaves one.
   initial-state centers, eight toy fixtures — so it does not directly indict the
   1,797-theorem geometry, and nothing here yet clears it either. If the bridges
   do not survive α-renaming, much of this is stylometry.
-- Statement embeddings never showed this. Five encoders on theorem statements
-  found no evidence for four prespecified cross-area connections
-  ([semantic-encoder-evaluation-v1](results/semantic-encoder-evaluation-v1/README.md));
-  the signal appears only in proof states.
-- No model was trained on this corpus. The
-  [link ranker](results/link-ranker-v1/) is a linear head over frozen vectors.
+- **The statement-embedding null is not a like-for-like comparison, and it is
+  quoted here more carefully than it used to be.** Five encoders on theorem
+  statements put the four prespecified targets nearer than 98.8–99.2% of
+  background controls — they pass the bar the tests above are scored against.
+  What they fail is a *lexical* control: against four word-matched decoys the
+  target was nearer only 12.5–18.8% of the time, so the proximity tracks
+  wording
+  ([semantic-encoder-evaluation-v1](results/semantic-encoder-evaluation-v1/README.md)).
+  Betweenness and the forward test have never been put through that lexical
+  control, so "statements fail, states succeed" is not established — the two
+  were held to different bars. The honest reading is that a lexical control is
+  the obvious next screen for the state geometry, and it has not been run.
+- Nothing was fitted to the three measurements above: they are distances
+  between frozen ReProver vectors, with no learned component anywhere. A linear
+  head does exist — the [link ranker](results/link-ranker-v1/), trained on
+  link-graph citation pairs held out from the benchmark families — but it
+  contributes to none of the numbers here, and its own loss rises every epoch.
 
 Each result directory states its own caveats; they travel with the numbers.
 
@@ -136,11 +149,12 @@ The analyses read committed artifacts:
 .venv/bin/python scripts/analyze-mathlib-forward.py         # the forward test
 .venv/bin/python scripts/analyze-forward-independence.py    # does the clustering break it?
 .venv/bin/python scripts/analyze-forward-vocabulary.py      # how much is word overlap?
+.venv/bin/python scripts/analyze-size-confound.py           # proof size on both labels
 .venv/bin/python scripts/analyze-state-bridge.py            # needs the vectors, see below
 ```
 
-The first four need nothing but the repository, and CI runs all four. The three
-forward scripts read `results/mathlib-forward-v1/centroids.npz` — 1,797 unit
+The first five need nothing but the repository, and CI runs all five. The four
+that read `results/mathlib-forward-v1/centroids.npz` use it as 1,797 unit
 centroids, 9.9 MB, the only input they need from the encode, exported by
 `scripts/export-forward-centroids.py` and checked against the full vectors by
 `tests/test_forward_centroids.py` wherever those vectors are present.

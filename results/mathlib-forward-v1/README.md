@@ -83,9 +83,11 @@ Pairs in the 45–55° band *are* larger than average (median 13 states against 
 but since size predicts nothing, that is a passenger rather than the driver.
 
 At AUC 0.958 the honest reading is closer to **"much nearer than typical"**
-than to a magic window: the corpus sits at 86–89° and the hits sit at 45–75°.
-The sub-45° exclusion still matters for precision, since that is where the
-renames are, but it is 527 pairs out of 1.5M — a correction, not the effect.
+than to a magic window. The corpus median is 89.3° (quartiles 87.3–90.4); the
+hits run 51.5° to 86.3° with a median of 74.0°. 20 of the 22 are below 85°,
+where 14.9% of eligible pairs sit, and 13 are below 75°, where 2.9% do. The
+sub-45° exclusion still matters for precision, since that is where the renames
+are, but it is 527 pairs out of 1.5M — a correction, not the effect.
 
 ## The band and the known bridges
 
@@ -139,7 +141,7 @@ between the two theorems' state texts on the same label:
 | predictor | AUC on the 2026 label |
 |---|---|
 | proof size alone | 0.498 |
-| **vocabulary overlap alone** | **0.763** |
+| **vocabulary overlap alone** | **0.764** |
 | state-geometry angle | **0.958** |
 
 Words are doing real work — connected pairs share 17.0% of their state
@@ -183,7 +185,7 @@ replication target and is not controlled here.
 | `band-report.json` | the band table, machine-readable |
 | `centroids.npz` | 1,797 unit centroids + kept-state counts; the only part of the 272 MB encode these analyses need |
 | `independence.json` | the subset, jackknife and cluster-null results |
-| `vocabulary.json` | token-overlap distributions and the 0.763 AUC |
+| `vocabulary.json` | token-overlap distributions and the 0.764 AUC |
 
 Regenerating these needs a shallow fetch of current Mathlib into
 `outputs/eligibility-v1/mathlib` (`git fetch --depth=1 origin 09712d48`), which
@@ -207,7 +209,7 @@ Ordered by how much each would change the picture.
    outward from the benchmark seeds, which is correct as a positive control but
    says nothing about whether the band generalizes.
 5. **Vocabulary independence, properly.** Now measured, not asserted: see
-   "How much of it is just shared words?" above. Overlap alone scores AUC 0.763,
+   "How much of it is just shared words?" above. Overlap alone scores AUC 0.764,
    and only 3 of the 22 hits sit under 5% overlap. What is still missing is a
    *causal* test — re-encode with the vocabulary scrambled, which is the same
    α-rename rerun item (3) needs.

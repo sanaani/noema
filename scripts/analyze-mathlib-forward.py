@@ -51,7 +51,7 @@ misses anything written under an `open` namespace and does not check that a
 citation is load-bearing — both of which make these numbers conservative,
 since noisy labels attenuate. Proof size remains an unmodelled confound: it
 faked AUC 0.740 on the replication target and is not controlled here. And
-vocabulary overlap alone scores 0.763 on this label
+vocabulary overlap alone scores 0.764 on this label
 (`analyze-forward-vocabulary.py`), so words do part of the work.
 """
 

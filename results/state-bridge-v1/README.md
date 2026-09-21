@@ -14,6 +14,7 @@ for git. Everything upstream of the encode is committed here:
 | `selected.json.gz` | the 1,797-theorem selection the capture ran against |
 | `text-index.jsonl.gz` | the 23,874 unique texts, in encode order |
 | `report.json` | every number below, machine-readable |
+| `size-confound.json` | proof size against both labels: 0.740 here, 0.498 on the 2026 label |
 
 Rebuild the vectors with `scripts/build-encode-inputs.py --states
 results/state-bridge-v1/states-augmented.jsonl.gz ...` then
@@ -37,7 +38,8 @@ exceeds it at 14x the objects and 6,000x the positives.
 **Read the margin, not the 0.877.** The control keeps every theorem's
 state-sharing structure and discards the encoder, and it still scores 0.714.
 That is not noise, it is proof size: `min(state count)` alone predicts the
-label at AUC 0.740. Large proofs cite more lemmas, so they are likelier to
+label at AUC 0.740 (`scripts/analyze-size-confound.py`, `size-confound.json`;
+it needs no vectors, so it runs from a bare clone). Large proofs cite more lemmas, so they are likelier to
 share a rare landmark, and their centroids sit nearer the corpus mean
 direction, so they are mutually similar. Both effects push the same way.
 The encoder's claim is the +0.164 it adds on top.
