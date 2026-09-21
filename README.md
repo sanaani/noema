@@ -83,9 +83,8 @@ fragile number: it rests on four pairs, and dropping that one hub leaves one.
   initial-state centers, eight toy fixtures — so it does not directly indict the
   1,797-theorem geometry, and nothing here yet clears it either. If the bridges
   do not survive α-renaming, much of this is stylometry.
-- **The statement-embedding null is not a like-for-like comparison, and it is
-  quoted here more carefully than it used to be.** Five encoders on theorem
-  statements put the four prespecified targets nearer than 98.8–99.2% of
+- **The statement-embedding null is not a like-for-like comparison.** Five
+  encoders on theorem statements put the four prespecified targets nearer than 98.8–99.2% of
   background controls — they pass the bar the tests above are scored against.
   What they fail is a *lexical* control: against four word-matched decoys the
   target was nearer only 12.5–18.8% of the time, so the proximity tracks
