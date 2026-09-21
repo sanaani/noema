@@ -130,7 +130,7 @@ What was known, and when:
 | 09-19 | `824f3c2` | **First real signal.** State centroids on the archived 128-object corpus predict shared rare lemmas at AUC 0.786 (p=0.0001) — on 14 positives. |
 | 09-19 | `21276e6` | 4,000 near-miss (A, B, bridge) triples from the citation graph. |
 | 09-19 | `b072f9f` | Hand-inspecting 8 of them yields no hidden connection, but one genuinely unnamed lemma — the observation behind [muse-brief-lemma-hygiene.md](muse-brief-lemma-hygiene.md). |
-| 09-19 | `2390fbf` | Linear ranking head beats the frozen encoder 3/3 on held-out families. |
+| 09-19 | `2390fbf` | Linear ranking head beats the frozen encoder 3/3 on held-out families — but beats the *lexical* baseline in only 1 of 3. See the statement-ranker section below; this is not part of the state-geometry line. |
 | 09-20 | `c9a6f73` | Capture complete: 99,275 states over 1,797 theorems. |
 | 09-20 | `cf50941` | The replication test scored AUC 0.702 **on random vectors** — the terminal `"no goals"` state, shared by every tactic proof, was carrying it. Caught and fixed before the run. |
 | 09-20 | `b4cda9d` | Both tests pass. AUC 0.877 (+0.164 over the shuffled control); all six bridges in the top 4.3% by betweenness. |
@@ -141,3 +141,33 @@ What was known, and when:
 The question the project exists to ask — can the geometry find a connection
 nobody has made — is still untested. Everything above is recognition of links
 that already exist.
+
+## The statement ranker, and why it is not in the tree
+
+Between 09-18 and 09-19, before any proof state had been captured, a separate
+line of work built a ranker over theorem **statements**: a linear contrastive
+head (`scripts/train-link-ranker.py`) over frozen Qwen vectors of theorem
+s-expressions (`scripts/encode-training-texts-gpu.py` encoded `sexpr`, the
+theorem center, not proof states). Its artifacts were
+`results/link-ranker-v1/`, and two structural follow-ups,
+`results/structural-semantic-evaluation-v1/` (which produced no vectors and no
+scores — a CPU attention pass that never finished) and its GPU rerun
+`results/structural-semantic-qwen-gpu-v1/`.
+
+None of it is read by any current analysis, test or CI step, and it uses a
+different encoder on different inputs from the measurements in the tree, so it
+was moved here on 09-21. Recover it with `git show b072f9f` or the
+`full-research-trail` tag.
+
+What it found, which is worth keeping on the record:
+
+| commit | what it showed |
+|---|---|
+| `2390fbf` | The head beat the frozen encoder on all three held-out directions (ranks 61→13, 9→6, 13→7) but beat the best *lexical* decoy in only one of them. |
+| `b072f9f` | Asked for hidden connections, it produced 30 candidates. Hand-investigated: 12 noise, 9 "genre resemblance" (same proof flavour, generic deps only), 4 topical, 2–3 bridgeable. Its own lesson: "the head reliably finds shared proof machinery, but shared machinery ≠ composable statements." |
+| `aca2cca` | One candidate did compose, was conjectured and machine-checked in Lean, and is the only machine-proposed result the project has: `results/bridge-conjecture-v1/`. |
+| — | Training loss rises every epoch in all three heads, so the head was not converging. |
+
+**This does not bear on the proof-state geometry.** It is a different encoder
+over different inputs, and the state geometry has never been asked to propose a
+connection. That question is still untested, not failed.

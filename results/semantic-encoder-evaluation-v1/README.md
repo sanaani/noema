@@ -13,7 +13,7 @@ historical baseline.
 
 Here “typed” means the round-trip-checked type-aware textual display. These
 results do not use the later complete `Noema.capture` structural JSON payloads;
-that separate structural run is recorded in `structural-semantic-evaluation-v1`.
+that separate structural run is not in the current tree; see `docs/history.md`.
 
 Across the ten directed target-vs-background comparisons, the mean fraction of
 background controls farther away was 0.988--0.992 for the five new encoders.

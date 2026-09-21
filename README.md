@@ -95,10 +95,11 @@ fragile number: it rests on four pairs, and dropping that one hub leaves one.
   were held to different bars. The honest reading is that a lexical control is
   the obvious next screen for the state geometry, and it has not been run.
 - Nothing was fitted to the three measurements above: they are distances
-  between frozen ReProver vectors, with no learned component anywhere. A linear
-  head does exist — the [link ranker](results/link-ranker-v1/), trained on
-  link-graph citation pairs held out from the benchmark families — but it
-  contributes to none of the numbers here, and its own loss rises every epoch.
+  between frozen ReProver vectors, with no learned component anywhere. A
+  trained linear head existed in an earlier line of work, over Qwen vectors of
+  theorem *statements*; it predates the proof-state capture, contributes to
+  none of the numbers here, and now lives in
+  [`docs/history.md`](docs/history.md) with the other detours.
 
 Each result directory states its own caveats; they travel with the numbers.
 
@@ -118,13 +119,11 @@ results/
   mathlib-forward-v1/   the 2024 -> 2026 forward test, its centroids, and the
                         independence and vocabulary checks on it
   bridge-expansion-v1/  the six machine-checked (A, B, bridge) families
-  bridge-conjecture-v1/ Lean-checked conjectures raised by the bridge scan
-  link-ranker-v1/       linear ranking head and its held-out referee — note the
-                        training loss rises every epoch in all three heads; it
-                        is a recorded dead end, not a result
+  bridge-conjecture-v1/ a machine-proposed, machine-checked bridge — proposed by
+                        the earlier statement ranker, not by the state geometry
   state-object-v1/      the 128-object archive the first AUC 0.786 came from
   historical-connections-v1/  the initial-State pilot that seeded the six families
-  encoder-*/, semantic-*/, state-consistency-v1/, structural-semantic-*/
+  encoder-*/, semantic-*/, state-consistency-v1/
                         what the encoder does and does not do: α-rename
                         invariance, a five-encoder comparison, certified
                         structural capture, and the statement-embedding null

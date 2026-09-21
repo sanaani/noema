@@ -2,7 +2,15 @@
 
 ## Origin
 
-Pair #1 from the hidden-connection scan (`results/link-ranker-v1/hidden-candidates.json`):
+Pair #1 from the hidden-connection scan of the earlier **statement** ranker — a
+linear head over frozen Qwen vectors of theorem s-expressions, built 09-19, a day
+before the proof-state capture. That line of work is not in the current tree; see
+[`docs/history.md`](../../docs/history.md), or `git show b072f9f` for the
+candidate list (`results/link-ranker-v1/hidden-candidates.json`). **This bridge
+was not proposed by the proof-state geometry**, which has never been asked to
+propose one.
+
+Pair #1 was:
 `Real.arctan_ne_mul_pi_div_two` (analysis) with two `Orientation.oangle_*_smul_rotation_pi_div_two`
 theorems (Euclidean geometry). Head similarity 0.64–0.67 at below-mean surface similarity;
 the pair shares no rare lemmas, so it never appeared in training.
