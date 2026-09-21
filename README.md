@@ -17,7 +17,7 @@ that the map is measuring something real.
 |---|---|---|
 | [Replication](results/state-bridge-v1/README.md) | do proofs sharing a rare lemma have nearer centroids? | AUC **0.877**, margin over shuffled control **+0.164** |
 | [Betweenness](results/state-bridge-v1/README.md) | does a known bridge theorem sit *between* its two endpoints? | all **6/6** families in the top 4.3% of 1,795 objects, four in the top 1.4% |
-| [Forward test](results/mathlib-forward-v1/README.md) | does the 2024 map point at links Mathlib only made by 2026? | angle **AUC 0.958** against proof size's 0.515 and vocabulary overlap's 0.763 |
+| [Forward test](results/mathlib-forward-v1/README.md) | does the 2024 map point at links Mathlib only made by 2026? | angle **AUC 0.958** against proof size's 0.498 and vocabulary overlap's 0.763 |
 
 1,797 Mathlib theorems, 99,275 captured proof states, 23,874 unique state texts,
 encoded with the pinned ReProver ByT5 retriever. The corpus was built by
@@ -30,7 +30,7 @@ at AUC 0.740, because long proofs cite more lemmas and their centroids drift
 toward the corpus mean. Only the +0.164 margin over the shuffled control is the
 encoder's. Betweenness does not inherit that confound — its null is the same
 corpus scored the same way — and neither does the forward test, where proof size
-is a coin flip at 0.515.
+is a coin flip at 0.498.
 
 The forward test's label contains no 2024 vocabulary at all: between Mathlib
 `f0957a7` (2024-07-01) and `09712d48` (2026-09-21) — 812 days, 22,961 commits,

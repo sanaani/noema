@@ -5,38 +5,38 @@
   "subsets": {
     "all positives": {
       "n": 22,
-      "auc": 0.9581502114640211,
+      "auc": 0.9581501966106819,
       "band_hits": 4,
       "band_lift": 123.5922620249586
     },
     "vertex-disjoint subset (independent pairs)": {
       "n": 14,
-      "auc": 0.9628465647885693,
+      "auc": 0.9628465414477296,
       "band_hits": 2,
       "band_lift": 97.10820587675319
     },
     "drop pairs touching a seed family": {
       "n": 16,
-      "auc": 0.9628265189351409,
+      "auc": 0.9628264985118795,
       "band_hits": 2,
       "band_lift": 84.96968014215904
     },
     "drop the Complex.exp*/cos* hub": {
       "n": 15,
-      "auc": 0.9637821633480794,
+      "auc": 0.9637821415632815,
       "band_hits": 1,
       "band_lift": 45.31716274248482
     }
   },
   "jackknife_auc": {
-    "min": 0.954922995983962,
-    "median": 0.9573817034926116,
-    "max": 0.9662790272110089
+    "min": 0.9549229787853923,
+    "median": 0.957381695712296,
+    "max": 0.966279009056975
   },
   "cluster_null": {
     "draws": 5000,
-    "auc_mean": 0.4986122546221685,
-    "auc_sd": 0.06796234217744973,
+    "auc_mean": 0.4986122536214016,
+    "auc_sd": 0.06796234504669947,
     "p_auc": 0.0,
     "band_hits_mean": 0.0292,
     "p_band_hits": 0.0

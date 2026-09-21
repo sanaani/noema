@@ -135,7 +135,7 @@ What was known, and when:
 | 09-20 | `cf50941` | The replication test scored AUC 0.702 **on random vectors** — the terminal `"no goals"` state, shared by every tactic proof, was carrying it. Caught and fixed before the run. |
 | 09-20 | `b4cda9d` | Both tests pass. AUC 0.877 (+0.164 over the shuffled control); all six bridges in the top 4.3% by betweenness. |
 | 09-21 | `5443083` | Forward test: the 2024 geometry ranks the pairs Mathlib connected by 2026. 124× lift in the 45–55° band. |
-| 09-21 | `a142bcc` | Proof size — the confound that faked AUC 0.740 on the replication target — is a coin flip on the 2026 label at 0.515, against the angle's 0.958. |
+| 09-21 | `a142bcc` | Proof size — the confound that faked AUC 0.740 on the replication target — is a coin flip on the 2026 label at 0.498 (0.515 as first published, before ties were averaged), against the angle's 0.958. |
 | 09-21 | `6a08a17` | Both result READMEs rewritten to say plainly what is still open. A sealed 2025-split rerun is considered and rejected: splitting 22 positives costs more power than the ceremony buys. |
 
 The question the project exists to ask — can the geometry find a connection

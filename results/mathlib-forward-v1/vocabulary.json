@@ -7,7 +7,7 @@
   "mean_overlap_eligible": 0.07681556791067123,
   "median_overlap_eligible": 0.06849315017461777,
   "positives_below_threshold": 3,
-  "auc_vocabulary_overlap": 0.7633681836243479,
+  "auc_vocabulary_overlap": 0.7636491493908467,
   "positive_histogram": {
     "<5%": 3,
     "5-10%": 4,

@@ -60,8 +60,8 @@
       "lift": 0.0
     }
   ],
-  "auc_proof_size": 0.5151417020453405,
-  "auc_angle": 0.9581502114640211,
+  "auc_proof_size": 0.4975064362489923,
+  "auc_angle": 0.9581501966106819,
   "median_minsize_band_45_55": 13.0,
   "median_minsize_all": 5.0
 }

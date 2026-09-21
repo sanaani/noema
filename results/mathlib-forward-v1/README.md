@@ -61,7 +61,7 @@ duplicates out for free.
 
 | predictor | AUC on the 2026 label |
 |---|---|
-| **proof size alone** (bigger = closer) | **0.515** |
+| **proof size alone** (bigger = closer) | **0.498** |
 | **state-geometry angle** | **0.958** |
 
 Proof size is the confound that faked AUC 0.740 on the replication target:
@@ -72,6 +72,12 @@ effects pushed the same way there.
 Here it is a coin flip. This label does not reward length — nobody writes a
 connecting theorem because two proofs were long — so the confound does not
 transfer. That is the point of choosing a label made of different material.
+
+(This row first read 0.515. `min(state count)` takes only 222 distinct values
+over 1.53M pairs, so nearly every comparison is a tie, and the AUC was ordering
+those ties by argsort position — which numpy resolves differently per CPU, 0.515
+here against 0.511 on a CI runner. Averaging tied ranks, as the replication has
+always done, gives 0.498 on any machine. It is more of a coin flip, not less.)
 
 Pairs in the 45–55° band *are* larger than average (median 13 states against 5),
 but since size predicts nothing, that is a passenger rather than the driver.
@@ -132,7 +138,7 @@ between the two theorems' state texts on the same label:
 
 | predictor | AUC on the 2026 label |
 |---|---|
-| proof size alone | 0.515 |
+| proof size alone | 0.498 |
 | **vocabulary overlap alone** | **0.763** |
 | state-geometry angle | **0.958** |
 

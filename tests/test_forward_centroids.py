@@ -99,3 +99,26 @@ def test_committed_centroids_match_the_encode_they_came_from():
     np.testing.assert_array_equal(
         np.array([cen[n] for n in names], dtype=np.float32), z["centroids"]
     )
+
+
+def test_auc_averages_tied_ranks():
+    """A tied predictor must not get its AUC from the sort's tie order.
+
+    `min(state count)` has 222 distinct values over 1.53M pairs. Ordering those
+    ties by argsort position made the reported figure a property of the CPU's
+    sort kernel — 0.515 on one machine, 0.511 on another — rather than of the
+    data. Tie-averaged ranks give 0.498 everywhere.
+    """
+    # One positive tied with every negative: neither ranked above nor below, so
+    # the only defensible answer is 0.5.
+    assert forward.auc(np.zeros(100), np.arange(100) < 10) == 0.5
+    # Ties must not be broken by input order either.
+    score = np.array([1.0, 1.0, 1.0, 2.0])
+    label = np.array([True, False, False, False])
+    assert forward.auc(score, label) == pytest.approx(1 / 3)
+    assert forward.auc(score[::-1], label[::-1]) == pytest.approx(1 / 3)
+    # Untied scores keep the ordinary Mann-Whitney answer.
+    assert forward.auc(np.array([0.0, 1.0, 2.0]), np.array([False, False, True])) == 1.0
+
+    ranks = forward.midranks(np.array([5.0, 5.0, 1.0, 9.0]))
+    np.testing.assert_allclose(ranks, [2.5, 2.5, 1.0, 4.0])

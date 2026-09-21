@@ -68,11 +68,33 @@ ROOT = Path(__file__).resolve().parents[1]
 BANDS = [(0, 30), (30, 45), (45, 55), (55, 65), (65, 75), (75, 85), (85, 95), (95, 180)]
 
 
+def midranks(score):
+    """Ascending ranks with ties averaged.
+
+    Tied scores must share a rank or the AUC is not a property of the data.
+    `min(state count)` takes only 222 distinct values over 1.53M pairs, so
+    almost every comparison is a tie; ordering those ties by argsort position
+    reported 0.515 on this machine and 0.511 on a CI runner, because numpy
+    picks a different SIMD sort kernel per CPU. The tie-averaged value is
+    0.498, and it is the same everywhere. `analyze-state-bridge.py` has always
+    done this; this script did not.
+    """
+    score = np.asarray(score, dtype=float)
+    order = score.argsort(kind="stable")
+    r = np.empty(len(score), dtype=float)
+    r[order] = np.arange(1, len(score) + 1, dtype=float)
+    ordered = score[order]
+    # Walk the runs of equal score and give each run its mean rank.
+    edges = np.flatnonzero(np.r_[True, ordered[1:] != ordered[:-1], True])
+    for start, end in zip(edges[:-1], edges[1:], strict=True):
+        if end - start > 1:
+            r[order[start:end]] = (start + end + 1) / 2
+    return r
+
+
 def auc(score, label):
-    """Mann-Whitney U; higher score should mean likelier positive."""
-    order = score.argsort()
-    r = np.empty(len(score))
-    r[order] = np.arange(1, len(score) + 1)
+    """Mann-Whitney U over tie-averaged ranks; higher score = likelier positive."""
+    r = midranks(score)
     pos = int(label.sum())
     neg = len(label) - pos
     return float((r[label].sum() - pos * (pos + 1) / 2) / (pos * neg))

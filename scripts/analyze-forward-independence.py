@@ -69,10 +69,10 @@ def main():
     pi, pj, angle = i[eligible], j[eligible], D[i, j][eligible]
     total = len(angle)
 
-    # Rank once. AUC for any positive set is then a rank sum, O(k) rather than
-    # O(n log n), which is what makes 5,000 null draws affordable.
-    ranks = np.empty(total)
-    ranks[(-angle).argsort()] = np.arange(1, total + 1)
+    # Rank once, ties averaged (see forward.midranks). AUC for any positive set
+    # is then a rank sum, O(k) rather than O(n log n), which is what makes 5,000
+    # null draws affordable.
+    ranks = forward.midranks(-angle)
 
     def auc_of(idx):
         k = len(idx)

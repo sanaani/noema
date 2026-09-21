@@ -102,7 +102,7 @@ following two years. Its README carries the current open questions, which
 supersede the list below.
 
 One number from there belongs here, because it changes how Test 1 should be
-read: **proof size predicts the 2026 label at AUC 0.515** — a coin flip —
+read: **proof size predicts the 2026 label at AUC 0.498** — a coin flip —
 against the angle's 0.958. So the size confound that eats most of Test 1's
 0.877 does not touch the forward result. Test 1 remains the weaker of the two.
 
