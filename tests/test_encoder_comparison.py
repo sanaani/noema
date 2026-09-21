@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 
 import numpy as np
+from conftest import assert_reproduces
 
 from noema.encoder_invariance import ARMS, radial_change
 
@@ -81,7 +82,7 @@ def test_completed_archives_reproduce_and_keep_physical_occurrences():
         folder = OUT / name
         assert (folder / "execution.json").exists(), name
         measured = comparison.measure(name)
-        assert measured == json.loads((folder / "analysis.json").read_text())
+        assert_reproduces(measured, json.loads((folder / "analysis.json").read_text()))
         for representation, result in measured.items():
             vectors = np.load(folder / f"{representation}-vectors.npy", allow_pickle=False)
             assert len(vectors) == 340

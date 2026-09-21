@@ -6,6 +6,7 @@ from pathlib import Path
 
 import numpy as np
 import pytest
+from conftest import assert_reproduces
 
 from noema.encoder_invariance import ARMS, analyze, radial_change, ranking_change
 
@@ -82,8 +83,8 @@ def test_lean_evidence_rejects_missing_rows_false_certificates_and_bad_axioms():
 def test_archive_numerical_results_reproduce():
     root = ROOT / "results/encoder-invariance-v1"
     result, syntax = audit.analyze_saved(root)
-    assert result == json.loads((root / "analysis.json").read_text())
-    assert syntax == json.loads((root / "syntax-control.json").read_text())
+    assert_reproduces(result, json.loads((root / "analysis.json").read_text()))
+    assert_reproduces(syntax, json.loads((root / "syntax-control.json").read_text()))
     vectors = np.load(root / "vectors.npy", allow_pickle=False)
     assert vectors.shape == (220, 1472)
     assert np.allclose(np.linalg.norm(vectors, axis=1), 1, rtol=0, atol=1e-12)

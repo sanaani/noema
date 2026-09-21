@@ -19,28 +19,40 @@ Result at time of writing, over 1,530,134 eligible pairs (base rate 1/69,551):
     55-65        8,441          2     16x
     65-75       34,204          7     14x
     75-85      182,588          7      3x
-    85+      1,300,144          2      0x
+    85-95    1,300,144          2      0x
+    95-180       1,979          0      0x
 
-45-55 deg is where the six known bridges also sat (nearer-endpoint angles
-40, 41, 52, 53, 64, 75 -> ranks 6, 9, 11, 25, 69, 78). Those two facts are
-independent: the band was read off the historical bridges before this label
-existed. "Closest" is the wrong rule — the closest pairs are renames.
+READ THE AUC, NOT THE BAND LIFT. 124x rests on four pairs, and those 22
+positives are carried by only 32 theorems — `Complex.exp_add` is in four of
+them. `analyze-forward-independence.py` takes the clustering apart: the AUC
+holds at 0.963 on a vertex-disjoint subset, 0.963 after dropping every pair
+touching a seed family, 0.964 without the `Complex.exp*` hub, and 0.955-0.966
+across all 32 leave-one-endpoint-out refits, against a degree-preserving
+cluster null at 0.499 +/- 0.068. The band lift does not hold: drop that one
+hub and 4 hits become 1.
+
+The six known bridges sat at nearer-endpoint angles 40, 41, 52, 53, 64, 75
+(ranks 6, 9, 11, 25, 69, 78). Only two of those six are inside 45-55; what the
+two measurements agree on is 40-75 against a corpus at 86-89. "Closest" is
+still the wrong rule — the closest pairs are renames.
 
 STATUS: OPEN, NOT FINAL. This is one measurement, not a conclusion. The band
-edges were fixed with this table visible, though "40-55 deg" was published to
-issue #1 twenty-five minutes before this ran, so the commit and comment
-timestamps serve as the preregistration.
+edges were fixed with this table visible, and 45-55 is narrower than the
+"40-55" published to issue #1 twenty-five minutes before this ran; over the
+preregistered 40-55 the lift is 108x on the same four hits.
 
 A sealed 2025-split rerun was considered and REJECTED: splitting 22 positives
 across two windows costs more statistical power than the ceremony buys. What
 would actually strengthen this is listed under "What is still open" in
 results/mathlib-forward-v1/README.md.
 
-Two further caveats. The label comes from `git grep` over full names, so it
+Three further caveats. The label comes from `git grep` over full names, so it
 misses anything written under an `open` namespace and does not check that a
 citation is load-bearing — both of which make these numbers conservative,
-since noisy labels attenuate. And proof size remains an unmodelled confound:
-it faked AUC 0.740 on the replication target and is not controlled here.
+since noisy labels attenuate. Proof size remains an unmodelled confound: it
+faked AUC 0.740 on the replication target and is not controlled here. And
+vocabulary overlap alone scores 0.763 on this label
+(`analyze-forward-vocabulary.py`), so words do part of the work.
 """
 
 import argparse
@@ -66,7 +78,7 @@ def auc(score, label):
     return float((r[label].sum() - pos * (pos + 1) / 2) / (pos * neg))
 
 
-def centroids(vectors, index, max_df=0.5):
+def centroids_from_vectors(vectors, index, max_df=0.5):
     z = np.load(vectors)
     V = z["vectors"].astype(np.float32)
     records = [json.loads(lem) for lem in gzip.open(index, "rt")]
@@ -82,6 +94,31 @@ def centroids(vectors, index, max_df=0.5):
         out[name] = c / np.linalg.norm(c)
         size[name] = len(keep)
     return out, size
+
+
+def centroids_from_archive(path):
+    """The committed 10.6 MB collapse of the 272 MB encode; see
+    scripts/export-forward-centroids.py for how it is built and checked."""
+    z = np.load(path, allow_pickle=False)
+    names = [str(n) for n in z["names"]]
+    C, sizes = z["centroids"], z["sizes"]
+    return (
+        {n: C[i] for i, n in enumerate(names)},
+        {n: int(sizes[i]) for i, n in enumerate(names)},
+    )
+
+
+def load_centroids(args):
+    """Prefer the 272 MB encode when a working tree has it, fall back to the
+    committed centroids so a bare clone still reproduces the whole table."""
+    if args.vectors.exists():
+        return centroids_from_vectors(args.vectors, args.index, args.max_state_df)
+    if not args.centroids.exists():
+        raise SystemExit(
+            f"need either {args.vectors} (the full encode) or {args.centroids} "
+            "(the committed collapse of it); neither is present"
+        )
+    return centroids_from_archive(args.centroids)
 
 
 def open_maybe_gz(path):
@@ -119,8 +156,12 @@ def main():
         default=ROOT / "outputs/state-bridge-v1/vectors/reprover-embeddings.npz",
     )
     ap.add_argument(
-        "--index", type=Path, default=ROOT / "outputs/state-bridge-v1/encode/text-index.jsonl.gz"
+        "--centroids", type=Path, default=ROOT / "results/mathlib-forward-v1/centroids.npz"
     )
+    ap.add_argument(
+        "--index", type=Path, default=ROOT / "results/state-bridge-v1/text-index.jsonl.gz"
+    )
+    ap.add_argument("--max-state-df", type=float, default=0.5)
     ap.add_argument("--edges", type=Path, default=ROOT / "results/link-graph-v1/edges.jsonl.gz")
     ap.add_argument(
         "--connectors", type=Path, default=ROOT / "results/mathlib-forward-v1/new-connectors.json"
@@ -128,7 +169,7 @@ def main():
     ap.add_argument("--out", type=Path)
     args = ap.parse_args()
 
-    cen, size = centroids(args.vectors, args.index)
+    cen, size = load_centroids(args)
     names = sorted(cen)
     pos = {n: i for i, n in enumerate(names)}
     rare = rare_landmarks(set(names), args.edges)

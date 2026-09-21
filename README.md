@@ -16,8 +16,8 @@ that the map is measuring something real.
 | | what it asks | result |
 |---|---|---|
 | [Replication](results/state-bridge-v1/README.md) | do proofs sharing a rare lemma have nearer centroids? | AUC **0.877**, margin over shuffled control **+0.164** |
-| [Betweenness](results/state-bridge-v1/README.md) | does a known bridge theorem sit *between* its two endpoints? | all **6/6** families in the top 4.3% of 1,795 objects, five in the top 1.4% |
-| [Forward test](results/mathlib-forward-v1/README.md) | does the 2024 map point at links Mathlib only made by 2026? | angle **AUC 0.958** against proof size's 0.515; 124× lift in the 45–55° band |
+| [Betweenness](results/state-bridge-v1/README.md) | does a known bridge theorem sit *between* its two endpoints? | all **6/6** families in the top 4.3% of 1,795 objects, four in the top 1.4% |
+| [Forward test](results/mathlib-forward-v1/README.md) | does the 2024 map point at links Mathlib only made by 2026? | angle **AUC 0.958** against proof size's 0.515 and vocabulary overlap's 0.763 |
 
 1,797 Mathlib theorems, 99,275 captured proof states, 23,874 unique state texts,
 encoded with the pinned ReProver ByT5 retriever. The corpus was built by
@@ -35,24 +35,52 @@ is a coin flip at 0.515.
 The forward test's label contains no 2024 vocabulary at all: between Mathlib
 `f0957a7` (2024-07-01) and `09712d48` (2026-09-21) — 812 days, 22,961 commits,
 65,368 new declarations — did anyone write a theorem citing both halves of a
-pair? Over 1,530,134 eligible pairs the base rate is 1 in 69,551. The band that
-concentrates the hits, 45–55°, is where the six historical bridges already sat.
-That reading came off the bridges first, before this label existed.
+pair? Over 1,530,134 eligible pairs the base rate is 1 in 69,551. The hits
+concentrate between 45° and 75°, against a corpus sitting at 86–89°.
+
+**Read the AUC, not the band lift.** The 22 positives are not 22 independent
+observations: 32 theorems carry all of them, `Complex.exp_add` appears in four.
+[`analyze-forward-independence.py`](scripts/analyze-forward-independence.py)
+takes the clustering apart. The AUC does not move — 0.963 on a vertex-disjoint
+subset where no theorem is used twice, 0.963 after dropping every pair that
+touches a seed family, 0.964 after dropping the `Complex.exp*` hub outright, and
+0.955–0.966 across all 32 leave-one-endpoint-out refits. Against a cluster null
+that substitutes each endpoint for a random theorem while preserving exactly
+which endpoints pair with which, the null sits at 0.499 ± 0.068 and the observed
+0.958 does not occur in 5,000 draws. The 124× lift in the 45–55° band is the
+fragile number: it rests on four pairs, and dropping that one hub leaves one.
 
 ## What this does not show
 
 - **No connection has been discovered.** Every link measured here is one a human
   already made. Recognising them is a precondition, not the result.
-- The band edges in the forward test were fixed with the table visible. The
-  preregistration is a timestamp: "40–55°" was posted to issue #1 at 15:05:53Z,
-  the analysis committed at 15:31:00Z. 22 positives is a thin base.
+- The band edges in the forward test were fixed with the table visible, and the
+  band that got reported, 45–55°, is narrower than the 40–55° that was posted to
+  issue #1 at 15:05:53Z before the analysis was committed at 15:31:00Z. 22
+  positives is a thin base, and the band lift does not survive dropping a hub
+  theorem. The AUC does; that is the number the claim rests on.
+- **Vocabulary does some of the work.** Token overlap between two theorems'
+  state texts predicts the same 2026 label at AUC 0.763 on its own
+  ([`vocabulary.json`](results/mathlib-forward-v1/vocabulary.json)): connected
+  pairs share 17.0% of their state vocabulary against 7.7% for an average
+  eligible pair. The angle's 0.958 is well clear of that, and 3 of the 22 hits
+  share under 5%, but "still separates where words give little" is the
+  defensible claim, not "vocabulary-independent".
 - The forward label is `git grep` over full declaration names, so it misses
   citations under an `open` namespace and does not check that a citation is
   load-bearing. Both attenuate rather than inflate.
-- **Rename robustness is unresolved.** A cosmetic α-rename moves a state 48.1°
-  against 56.4° for a genuine mathematical change
-  ([encoder-invariance-v1](results/encoder-invariance-v1/README.md)). If the
-  bridges do not survive renaming, much of this is stylometry.
+- **Rename robustness is the open threat.** On a single probed state, renaming
+  `n` to `myNumber` moves it 48.1° where changing the mathematics moves it 56.4°
+  — a cosmetic edit doing ~85% of the work of a real one ([issue
+  #2](https://github.com/sanaani/noema/issues/2), where that probe and the
+  planned α-rename rerun are specified). A separate screen on eight Lean-core
+  fixtures is harsher still: it reports invariance **falsified 8/8** under
+  α-renaming and says its distances must not be read as relatedness
+  ([encoder-invariance-v1](results/encoder-invariance-v1/README.md)). That
+  screen uses different settings from the main run — CPU `int8_float32`,
+  initial-state centers, eight toy fixtures — so it does not directly indict the
+  1,797-theorem geometry, and nothing here yet clears it either. If the bridges
+  do not survive α-renaming, much of this is stylometry.
 - Statement embeddings never showed this. Five encoders on theorem statements
   found no evidence for four prespecified cross-area connections
   ([semantic-encoder-evaluation-v1](results/semantic-encoder-evaluation-v1/README.md));
@@ -75,10 +103,13 @@ results/
   link-graph-v1/        206,889 theorem->dependency edges from pinned Mathlib; the
                         bridge-triple scan; the Lean elaborators that produced them
   state-bridge-v1/      the replication and betweenness tests
-  mathlib-forward-v1/   the 2024 -> 2026 forward test
+  mathlib-forward-v1/   the 2024 -> 2026 forward test, its centroids, and the
+                        independence and vocabulary checks on it
   bridge-expansion-v1/  the six machine-checked (A, B, bridge) families
   bridge-conjecture-v1/ Lean-checked conjectures raised by the bridge scan
-  link-ranker-v1/       linear ranking head and its held-out referee
+  link-ranker-v1/       linear ranking head and its held-out referee — note the
+                        training loss rises every epoch in all three heads; it
+                        is a recorded dead end, not a result
   state-object-v1/      the 128-object archive the first AUC 0.786 came from
   historical-connections-v1/  the initial-State pilot that seeded the six families
   encoder-*/, semantic-*/, state-consistency-v1/, structural-semantic-*/
@@ -101,14 +132,23 @@ ruff check . && python -m pytest
 The analyses read committed artifacts:
 
 ```bash
-.venv/bin/python scripts/analyze-state-geometry.py    # the first AUC 0.786
-.venv/bin/python scripts/analyze-mathlib-forward.py   # the forward test
-.venv/bin/python scripts/analyze-state-bridge.py      # needs the vectors, see below
+.venv/bin/python scripts/analyze-state-geometry.py          # the first AUC 0.786
+.venv/bin/python scripts/analyze-mathlib-forward.py         # the forward test
+.venv/bin/python scripts/analyze-forward-independence.py    # does the clustering break it?
+.venv/bin/python scripts/analyze-forward-vocabulary.py      # how much is word overlap?
+.venv/bin/python scripts/analyze-state-bridge.py            # needs the vectors, see below
 ```
 
-The first two need nothing but the repository, and CI runs both.
-`analyze-state-bridge.py` needs `outputs/state-bridge-v1/vectors/reprover-embeddings.npz`,
-272 MB and therefore not committed. Everything upstream of it is:
+The first four need nothing but the repository, and CI runs all four. The three
+forward scripts read `results/mathlib-forward-v1/centroids.npz` — 1,797 unit
+centroids, 9.9 MB, the only input they need from the encode, exported by
+`scripts/export-forward-centroids.py` and checked against the full vectors by
+`tests/test_forward_centroids.py` wherever those vectors are present.
+
+`analyze-state-bridge.py` is the one that cannot: its shuffled control permutes
+the vector/text assignment, so it needs every state vector, and
+`outputs/state-bridge-v1/vectors/reprover-embeddings.npz` is 272 MB and
+therefore not committed. Everything upstream of it is:
 `results/state-bridge-v1/states-augmented.jsonl.gz` holds the 99,275 captured
 states, so the Lean capture — the long pole, a CPU host against Lean 4.9.0 and
 Mathlib `f0957a7` — does not have to be repeated. Rebuild the vectors with
@@ -133,5 +173,8 @@ They are intact in the commit history, with what was known at each point.
 what it found. The whole pre-prune tree is one command away:
 
 ```bash
-git checkout full-research-trail
+git checkout full-research-trail   # branch at 2e56503, the commit before the prune
+git checkout 2e56503               # same tree, and survives the branch being deleted
 ```
+
+`a44f244` is the prune itself: 1,743 files, 1,663,285 deletions, no new work.

@@ -38,8 +38,14 @@ jobs:
       - run: cd results/semantic-encoder-evaluation-v1 && sha256sum -c SHA256SUMS
       - run: cd results/state-consistency-v1 && sha256sum -c SHA256SUMS
 
-      # These two run end to end from committed artifacts alone. The
-      # state-bridge analysis cannot, because its 272 MB vector file is not in
-      # git. See the reproduce section of README.md.
+      # These run end to end from committed artifacts alone. The state-bridge
+      # analysis cannot, because its shuffled control needs every state vector
+      # and that 272 MB file is not in git. See the reproduce section of
+      # README.md.
       - run: python scripts/analyze-state-geometry.py
       - run: python scripts/analyze-mathlib-forward.py
+      - run: python scripts/analyze-forward-independence.py
+      - run: python scripts/analyze-forward-vocabulary.py
+
+      # Nothing above may quietly rewrite a committed result.
+      - run: git diff --exit-code

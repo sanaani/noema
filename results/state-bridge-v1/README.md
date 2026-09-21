@@ -57,9 +57,11 @@ other objects in the corpus.
 | FTC | 1.894 | 0.76 | **69**/1795 | **3.8%** | 72.0% |
 | Fermat | 4.845 | 0.54 | **78**/1795 | **4.3%** | 54.8% |
 
-All six bridges land in the top 4.3% of the corpus by betweenness, five in
-the top 1.4%. The shuffled control scatters across 6.9-92.1% (median ~54%),
-so this is not the sharing structure or the proof-size effect.
+All six bridges land in the top 4.3% of the corpus by betweenness, four in
+the top 1.4% — 1.4% of 1,795 is rank 25, so ranks 6, 9, 11 and 25 qualify and
+FTC's 69 and Fermat's 78 do not. The shuffled control scatters across
+6.9-92.1% (median ~54%), so this is not the sharing structure or the
+proof-size effect.
 
 Fermat's detour of 4.845 is an artifact of a very short baseline
 (d(A,B) = 0.541, the closest endpoint pair by far) — the ratio is inflated by
@@ -73,8 +75,16 @@ matters, not the raw detour.
 - Proof size confounds the replication (see above). The betweenness test does
   not share this weakness — its null is the corpus, scored the same way.
 - 5 of the 18 family members are synthetic single points (term-mode proofs,
-  initial goal). Fine for betweenness, which needs only a location. Any use of
-  diameter, affine dimension or hull separation must exclude them.
+  initial goal): Euler's bridge, Fermat's B, FTC's A *and* bridge, and Euler
+  criterion's A. Fine for betweenness, which needs only a location, but FTC is
+  the weak case — two of its three points are statement encodings with no
+  captured proof states at all, and it is also one of the two families outside
+  the top 1.4%. Any use of diameter, affine dimension or hull separation must
+  exclude them.
+- The control column is a single shuffle, so those six percentiles are one draw
+  of the null and are noisy at n=6. The rank against the 1,795-object corpus is
+  the null that carries the weight; the control only rules out the sharing
+  structure producing betweenness on its own.
 - `"no goals"` is excluded from every centroid (`--max-state-df 0.5`). Left in,
   the test scores AUC 0.702 on random vectors. See the script docstring.
 
