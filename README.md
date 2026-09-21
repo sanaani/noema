@@ -130,7 +130,7 @@ Each result directory states its own caveats; they travel with the numbers.
 
 ```
 docs/
-  theorem-link-discovery-plan.md   the hypothesis and why the project pivoted to it
+  theorem-link-discovery-plan.md   the hypothesis, as predicted; superseded stages flagged
   state-bridge-run-plan.md         how the 1,797-theorem run was designed and costed
   muse-brief-lemma-hygiene.md      spin-off: anonymous-lemma detection for Mathlib
   latent_geometry_...plan.md       the original proposal, preserved byte for byte
@@ -154,6 +154,8 @@ results/
                         invariance, a five-encoder comparison, certified
                         structural capture, and the statement-embedding null
 scripts/   the pipeline, in order: scan -> filter -> select -> capture -> encode -> analyse
+           bootstrap-*/setup-* provision a pinned host or encoder for a rerun;
+           audit-/evaluate-/verify-* regenerate one archived result each
 src/noema/ encoders, typed state capture, replay
 ```
 

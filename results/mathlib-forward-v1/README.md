@@ -151,8 +151,9 @@ The angle predicts "same area" at only AUC 0.656, and "same area" predicts the
 2026 label at only 0.660. So area is a weak confound, the angle is not a proxy
 for it, and the AUC survives intact where the confound cannot operate at all.
 
-This rules out the subfield story. It does not rule out α-rename sensitivity,
-which is a different mechanism and still open (3, below).
+This rules out the subfield story. α-rename sensitivity is a different
+mechanism, and it has since been measured separately and does not explain the
+result either ([`rename-control-v1`](../rename-control-v1/README.md)).
 
 ## How much of it is just shared words?
 
@@ -224,21 +225,24 @@ Ordered by how much each would change the picture.
    namespace, or one renamed since 2024. Compiling Mathlib would likely turn
    22 into a hundred-plus in the same window, which is the cheapest route to
    the statistical power this needs.
-3. **Rename robustness** (issue #2). A cosmetic rename moves a state 48.1°
-   against 56.4° for a genuine mathematical change. If the bridges do not
-   survive alpha-renaming, much of this is stylometry.
+3. ~~**Rename robustness** (issue #2).~~ **Done, and it survived.** Renaming
+   every binder and hypothesis in all 1,797 theorems, certified in Lean, takes
+   this test from 0.958 to **0.964** while the vocabulary baseline it is scored
+   against drops 0.764 → 0.610. Centroids do move a median 20.0°, so the
+   encoder is not name-blind — but they move together, and the arrangement
+   holds ([`rename-control-v1`](../rename-control-v1/README.md)).
 4. **A corpus not seeded on the six families.** This one was built by expanding
    outward from the benchmark seeds, which is correct as a positive control but
    says nothing about whether the band generalizes.
 5. **Vocabulary independence, properly.** Now measured, not asserted: see
    "How much of it is just shared words?" above. Overlap alone scores AUC 0.764,
-   and only 3 of the 22 hits sit under 5% overlap. What is still missing is a
-   *causal* test — re-encode with the vocabulary scrambled, which is the same
-   α-rename rerun item (3) needs.
+   and only 3 of the 22 hits sit under 5% overlap. The *causal* test that was
+   missing here has now been run for the naming half of it: item (3). What it
+   does not cover is constant names, which α-renaming leaves untouched.
 
 ## What would overturn this
 
-- Bridges failing to survive alpha-renaming (3).
+- ~~Bridges failing to survive alpha-renaming (3).~~ Tested; they survived.
 - The band not reproducing on an unseeded corpus (4).
 - Proper dependency labels revealing many connected pairs at 85°+, which would
   mean the angle was selecting on something incidental.

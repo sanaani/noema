@@ -1,5 +1,15 @@
 # Theorem-Link Discovery: Research Plan
 
+> **Status, 2026-09-21.** This is a prediction record, not a live plan, and its
+> body is left exactly as written. What happened since: stages 1 and 4 were
+> taken, stages 2 and 3 were not. The ranker of stage 2 was built over theorem
+> *statements*, beat the frozen encoder on held-out families but not the lexical
+> baseline, and its training corpus was removed from the tree on 09-21 — see
+> [`history.md`](history.md). The project went to stage 4's state-level
+> trajectories instead, which is the proof-state geometry the results directories
+> now measure. Stage 4's second half — proposing unknown links and letting Lean
+> confirm them — remains the open question.
+
 ## Hypothesis
 
 Mathematical relatedness between theorems is learnable from **denoised

@@ -37,6 +37,7 @@ jobs:
       - run: cd results/encoder-comparison-v1 && sha256sum -c SHA256SUMS
       - run: cd results/semantic-encoder-evaluation-v1 && sha256sum -c SHA256SUMS
       - run: cd results/state-consistency-v1 && sha256sum -c SHA256SUMS
+      - run: cd results/rename-control-v1 && sha256sum -c SHA256SUMS
 
       # These run end to end from committed artifacts alone. The state-bridge
       # analysis cannot, because its shuffled control needs every state vector
@@ -48,6 +49,14 @@ jobs:
       - run: python scripts/analyze-forward-vocabulary.py
       - run: python scripts/analyze-forward-area.py
       - run: python scripts/analyze-size-confound.py
+
+      # The rename control's two arms, re-derived from their committed
+      # centroids and written back over the committed tables, so the git diff
+      # below is what actually checks the numbers. The driver itself needs the
+      # 517 MB encode and cannot run here; these are the parts that can.
+      - run: python scripts/analyze-mathlib-forward.py --vectors /nonexistent --centroids results/rename-control-v1/centroids-original.npz --out results/rename-control-v1/forward-original.json
+      - run: python scripts/analyze-mathlib-forward.py --vectors /nonexistent --centroids results/rename-control-v1/centroids-alpha.npz --out results/rename-control-v1/forward-alpha.json
+      - run: python scripts/analyze-forward-independence.py --centroids results/rename-control-v1/centroids-alpha.npz --out results/rename-control-v1/independence-alpha.json
 
       # Nothing above may quietly rewrite a committed result.
       - run: git diff --exit-code

@@ -1,7 +1,9 @@
 # State object acquisition and geometry archive
 
-See the [implementation and findings](../../docs/state-object-implementation-v1.md)
-and open [explore.html](explore.html) locally for the interactive drawing.
+Open [explore.html](explore.html) locally for the interactive drawing; the
+implementation notes that used to sit in `docs/` went with the prune, and
+[`docs/history.md`](../../docs/history.md) says where to read them in the
+history.
 The HTML is self-contained and needs no server or network connection.
 
 This archive preserves a frozen draw of 256 theorem identities, 1,337 inventoried

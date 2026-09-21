@@ -197,6 +197,10 @@ table differ by the rename alone.
 - `centroids-{original,alpha}.npz` — 1,797 unit centroids per arm
 - [`Alpha.lean`](Alpha.lean) / [`repl49-alpha.patch`](repl49-alpha.patch) — the
   transform and its certificate, inside the Lean REPL
+- `scripts/build-rename-control-arms.py` — pairs the two arms and freezes the
+  single encoder input list they share
+- `scripts/analyze-rename-control.py` — runs the published analyses once per arm
+  and applies the rule above
 - [`AlphaInitialGoals.lean`](AlphaInitialGoals.lean) /
   [`initial-goals-both-arms.jsonl.gz`](initial-goals-both-arms.jsonl.gz) — the
   same transform for the 425 term-mode theorems that have no tactic states

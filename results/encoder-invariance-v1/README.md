@@ -7,6 +7,16 @@ relatedness.** Further corpus acquisition and connection case studies do not
 resolve this failure. The broader possibility of useful theorem geometry remains
 open; this experiment tests one fixed measurement.
 
+**What later work did and did not overturn.** Everything on this page stands:
+[`rename-control-v1`](../rename-control-v1/README.md) put the same question to
+the 1,797-theorem corpus and measured centroid shifts of a median 20.0° under
+α-renaming, so the encoder is not name-blind there either. What it also found is
+that the shifts are shared — the *arrangement* survives even though the
+positions do not — and all three of the repository's measurements hold up under
+the rename. So the reading is *exact invariance is false, discriminative
+invariance holds*: these distances still must not be read as absolute
+relatedness, and ranks over the large corpus may be.
+
 ## Measured result
 
 Eight Lean-core theorem fixtures, two explicit proofs each, 44 nonempty State
