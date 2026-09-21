@@ -47,6 +47,11 @@ def main():
     ap.add_argument("--out", type=Path, default=ROOT / "results/rename-control-v1")
     ap.add_argument("--max-state-df", type=float, default=0.5)
     args = ap.parse_args()
+    # export-forward-centroids.py records provenance with Path.relative_to(ROOT),
+    # so every path handed to it has to be absolute and inside the repository.
+    args.arms = args.arms.resolve()
+    args.vectors = args.vectors.resolve()
+    args.out = args.out.resolve()
     args.out.mkdir(parents=True, exist_ok=True)
 
     per_arm = {}

@@ -1,0 +1,27 @@
+{
+  "verdict": "survives",
+  "rule": {
+    "survives": "A >= 0.9 and A - V >= 0.1",
+    "fails": "A <= 0.8 or A - V <= 0.05",
+    "source": "results/rename-control-v1/protocol.md, fixed before encoding"
+  },
+  "auc_angle_original": 0.9581570291467671,
+  "auc_angle_alpha": 0.9636983050319786,
+  "auc_vocabulary_original": 0.7636337613313156,
+  "auc_vocabulary_alpha": 0.6098371022394558,
+  "margin_alpha_over_vocabulary": 0.35386120279252287,
+  "retention": 1.0120947088720456,
+  "published_original_auc": 0.958,
+  "published_vocabulary_auc": 0.764,
+  "theorems": 1797,
+  "centroid_shift_degrees": {
+    "min": 0.0,
+    "p25": 15.17885971069336,
+    "median": 19.962181091308594,
+    "p75": 26.255878448486328,
+    "max": 69.51976013183594,
+    "unmoved_under_1deg": 31
+  },
+  "positives": 22,
+  "eligible_pairs": 1530134
+}
