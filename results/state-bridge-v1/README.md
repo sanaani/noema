@@ -4,7 +4,20 @@
 encoded with the pinned ReProver ByT5 retriever on an L40S (`device: cuda`,
 `int8_float32`, uncapped tokenization — the archive's own settings). 366s.
 
-Reproduce: `.venv/bin/python scripts/analyze-state-bridge.py`
+Reproduce: `.venv/bin/python scripts/analyze-state-bridge.py`, which needs
+`outputs/state-bridge-v1/vectors/reprover-embeddings.npz` — 272 MB, too large
+for git. Everything upstream of the encode is committed here:
+
+| file | what it is |
+|---|---|
+| `states-augmented.jsonl.gz` | the 99,275 captured states, so the Lean capture need not be repeated |
+| `selected.json.gz` | the 1,797-theorem selection the capture ran against |
+| `text-index.jsonl.gz` | the 23,874 unique texts, in encode order |
+| `report.json` | every number below, machine-readable |
+
+Rebuild the vectors with `scripts/build-encode-inputs.py --states
+results/state-bridge-v1/states-augmented.jsonl.gz ...` then
+`scripts/encode-reprover-gpu.py` (L40S, 366s, ~$0.31).
 
 ## 1. Replication
 

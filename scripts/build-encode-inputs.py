@@ -16,6 +16,7 @@ refuses to run if the acquisition code or the pinned model/runtime differ from
 what was frozen here. So build the spec *after* any edit to the encoder, not
 before.
 """
+
 import argparse
 import gzip
 import hashlib
@@ -39,7 +40,7 @@ def main():
     args = ap.parse_args()
     args.out.mkdir(parents=True, exist_ok=True)
 
-    records = [json.loads(l) for l in gzip.open(args.states, "rt")]
+    records = [json.loads(lem) for lem in gzip.open(args.states, "rt")]
     texts = sorted({s["text"] for r in records for s in r["states"]})
     index = {t: i for i, t in enumerate(texts)}
 
@@ -66,14 +67,21 @@ def main():
 
     with gzip.open(args.out / "text-index.jsonl.gz", "wt") as f:
         for r in records:
-            f.write(json.dumps({
-                "theorem_id": r["theorem_id"],
-                "object_kind": r["object_kind"],
-                "text_indices": [index[s["text"]] for s in r["states"]],
-            }) + "\n")
+            f.write(
+                json.dumps(
+                    {
+                        "theorem_id": r["theorem_id"],
+                        "object_kind": r["object_kind"],
+                        "text_indices": [index[s["text"]] for s in r["states"]],
+                    }
+                )
+                + "\n"
+            )
 
-    print(f"records {len(records)} | states {spec['provenance']['states_total']} | "
-          f"unique texts {len(texts)}")
+    print(
+        f"records {len(records)} | states {spec['provenance']['states_total']} | "
+        f"unique texts {len(texts)}"
+    )
     print(f"wrote {args.out}/inputs.json and text-index.jsonl.gz")
 
 

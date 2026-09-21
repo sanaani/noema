@@ -1,9 +1,0 @@
-{
-  "calibration_report_sha256": "b9c40e6a83a9d78ab386df31857b2a551115b24bad7ac4c50da5f5f0a09eb791",
-  "selection": "union of every provisional envelope minimum and both same-regime nulls",
-  "strata": 17,
-  "alternative_trials": 1800,
-  "null_trials": 3200,
-  "config_sha256": "e3697160cf333d654c4b0b60efa8663771b50fcd4d174930be4da3c3bf7ab6ab",
-  "selected_sha256": "fb51fbee07c8de18f813fcf7f455a75edcaa138eadc58a30d6cb90617c3f77af"
-}

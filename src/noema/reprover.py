@@ -52,8 +52,10 @@ class ReProverEncoder:
             "ctranslate2": ctranslate2.__version__,
             "compute_type": self.model.compute_type,
             "tokenization": (
-                CAPPED_TOKENIZATION if token_limit == 1024
-                else UNCAPPED_TOKENIZATION if token_limit is None
+                CAPPED_TOKENIZATION
+                if token_limit == 1024
+                else UNCAPPED_TOKENIZATION
+                if token_limit is None
                 else f"UTF-8 bytes +3, append EOS=1, reject >{token_limit} tokens"
             ),
             "pooling": "nonpadding mean including EOS, then L2 normalize",

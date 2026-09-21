@@ -1,4 +1,0 @@
-Command: OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/pytest tests/test_device_benchmark.py
-Result: 3 passed in 0.50s
-Checks cover deterministic label-blind selection, modified-input rejection before model loading, and device-to-host transport preserving inputs and outputs.
-Subsequent edits to this test file were formatting only.

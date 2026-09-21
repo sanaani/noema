@@ -1,3 +1,0 @@
-# Optional, only needed to import public source archives.
-ijson==3.4.0.post0
-pyarrow==23.0.1

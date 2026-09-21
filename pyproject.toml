@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "noema-geometry"
 version = "0.1.0"
-description = "Auditable Lean theorem State object geometry experiments"
+description = "State-space geometry of Lean proofs as a predictor of theorem links"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = ["numpy>=2.0,<3", "scipy>=1.14,<2"]

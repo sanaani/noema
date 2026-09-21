@@ -1,7 +1,0 @@
-{
-  "all_intervention_fields_exact": true,
-  "interventions": 18,
-  "context_and_goal_census": "passed",
-  "certificate_source_and_record_checks": 12,
-  "note": "cached-vector reproduction and recorded Lean response audit; no new kernel run"
-}

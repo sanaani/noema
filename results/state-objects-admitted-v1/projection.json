@@ -1,8 +1,0 @@
-{
-  "method": "common PCA fitted to every physical state-vector row, with repetitions retained",
-  "rows_used": 16592,
-  "deduplication": false,
-  "variance_fraction": 0.45066999822735637,
-  "semantic_identity_verified": false,
-  "projection_used_for_intersection": false
-}

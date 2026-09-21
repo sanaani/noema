@@ -11,12 +11,11 @@ import argparse
 import gzip
 import json
 import random
+import sys
 import time
 from pathlib import Path
 
 import numpy as np
-
-import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from noema.comparison_encoders import MODELS, save_json  # noqa: E402
@@ -90,8 +89,11 @@ def main():
         done_tok += len(ids)
         if i % 100 == 0 or i == len(fit):
             el = time.monotonic() - t0
-            print(f"rows {i}/{len(fit)} tok={done_tok} tok_per_s={done_tok / el:.0f} "
-                  f"elapsed_s={el:.0f}", flush=True)
+            print(
+                f"rows {i}/{len(fit)} tok={done_tok} tok_per_s={done_tok / el:.0f} "
+                f"elapsed_s={el:.0f}",
+                flush=True,
+            )
 
     # Save BEFORE the drift check: a check crash must never lose the vectors.
     args.output.mkdir()
@@ -107,11 +109,19 @@ def main():
     print(f"drift_sample={len(sample)} max_drift={drift}", flush=True)
     if drift > DRIFT_TOL:
         raise ValueError(f"GPU repeat drift {drift} exceeds tolerance")
-    save_json(args.output / "meta.json", {
-        "model": model_name, "revision": revision, "pooling": pooling,
-        "encoded": len(fit), "rejected": len(rejected),
-        "seconds": time.monotonic() - t0, "tokens": done_tok, "max_drift": drift,
-    })
+    save_json(
+        args.output / "meta.json",
+        {
+            "model": model_name,
+            "revision": revision,
+            "pooling": pooling,
+            "encoded": len(fit),
+            "rejected": len(rejected),
+            "seconds": time.monotonic() - t0,
+            "tokens": done_tok,
+            "max_drift": drift,
+        },
+    )
     print("JOB DONE", flush=True)
 
 

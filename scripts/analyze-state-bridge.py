@@ -38,6 +38,7 @@ Synthetic objects (term-mode proofs, one initial-goal point, zero extent) are
 fine here: everything below uses centroids only, never diameter, affine
 dimension or hull separation. They are flagged in the output regardless.
 """
+
 import argparse
 import collections
 import gzip
@@ -130,14 +131,16 @@ def load_centroids(vectors, index, max_df=0.5, shuffle_rng=None, verbose=False):
     V, texts = z["vectors"], list(z["texts"])
     if shuffle_rng is not None:
         V = V[shuffle_rng.permutation(len(V))]
-    records = [json.loads(l) for l in gzip.open(index, "rt")]
+    records = [json.loads(lem) for lem in gzip.open(index, "rt")]
     df = collections.Counter()
     for r in records:
         df.update(set(r["text_indices"]))
     ubiquitous = {i for i, c in df.items() if c / len(records) >= max_df}
     if verbose:
-        print(f"excluded {len(ubiquitous)} state text(s) present in >={max_df:.0%} "
-              f"of {len(records)} theorems:")
+        print(
+            f"excluded {len(ubiquitous)} state text(s) present in >={max_df:.0%} "
+            f"of {len(records)} theorems:"
+        )
         for i in sorted(ubiquitous, key=lambda i: -df[i]):
             print(f"  {df[i]}/{len(records)}  {texts[i][:60]!r}")
     centroid, kind, states, emptied = {}, {}, {}, 0
@@ -179,13 +182,16 @@ def landmarks(names, edges):
         if r["theorem"] in want:
             deps[r["theorem"]] = set(d)
             mod[r["theorem"]] = r.get("module", "")
-    rare = {l for l, c in df.items() if 2 <= c <= 200}
+    rare = {lem for lem, c in df.items() if 2 <= c <= 200}
     return {n: deps.get(n, set()) & rare for n in names}, mod
 
 
 def replication(names, X, rare, mod, permutations, rng, note, states=None):
     sim = X @ X.T
-    area = lambda n: mod.get(n, "").split(".")[1] if mod.get(n, "").count(".") else ""
+
+    def area(n):
+        return mod.get(n, "").split(".")[1] if mod.get(n, "").count(".") else ""
+
     sims, labels, cross_sims, cross_labels = [], [], [], []
     disjoint_sims, disjoint_labels = [], []
     for i, j in itertools.combinations(range(len(names)), 2):
@@ -207,8 +213,12 @@ def replication(names, X, rare, mod, permutations, rng, note, states=None):
     pos = int(sum(labels))
     neg = len(labels) - pos
     # shuffle=False keeps this on Floyd's algorithm, O(pos) rather than O(pairs).
-    draws = np.array([r[rng.choice(len(r), size=pos, replace=False, shuffle=False)].sum()
-                      for _ in range(permutations)])
+    draws = np.array(
+        [
+            r[rng.choice(len(r), size=pos, replace=False, shuffle=False)].sum()
+            for _ in range(permutations)
+        ]
+    )
     perm = (draws - pos * (pos + 1) / 2) / (pos * neg) if permutations else np.array([0.5])
     p = float((np.sum(perm >= observed) + 1) / (len(perm) + 1)) if permutations else float("nan")
     # At 1.6M pairs the null is tight enough that the permutation p bottoms out
@@ -222,29 +232,46 @@ def replication(names, X, rare, mod, permutations, rng, note, states=None):
     disjoint = float("nan")
     if disjoint_labels:
         disjoint = auc(disjoint_sims, disjoint_labels)
-        print(f"disjoint-state pairs   : n={len(disjoint_labels)} pos={sum(disjoint_labels)} "
-              f"AUC={disjoint:.3f}")
+        print(
+            f"disjoint-state pairs   : n={len(disjoint_labels)} pos={sum(disjoint_labels)} "
+            f"AUC={disjoint:.3f}"
+        )
     if permutations:
-        print(f"permutation test       : p={p:.4f} ({permutations} shuffles, "
-              f"null mean {perm.mean():.4f} sd {perm.std():.5f})")
+        print(
+            f"permutation test       : p={p:.4f} ({permutations} shuffles, "
+            f"null mean {perm.mean():.4f} sd {perm.std():.5f})"
+        )
     print(f"analytic null          : sd={null_sd:.5f}  z={z:.1f}")
     return {
-        "objects": len(names), "pairs": len(labels), "positives": int(sum(labels)),
-        "auc": float(observed), "cross_area_pairs": len(cross_labels),
-        "cross_area_positives": int(sum(cross_labels)), "cross_area_auc": float(cross),
-        "disjoint_pairs": len(disjoint_labels), "disjoint_positives": int(sum(disjoint_labels)),
+        "objects": len(names),
+        "pairs": len(labels),
+        "positives": int(sum(labels)),
+        "auc": float(observed),
+        "cross_area_pairs": len(cross_labels),
+        "cross_area_positives": int(sum(cross_labels)),
+        "cross_area_auc": float(cross),
+        "disjoint_pairs": len(disjoint_labels),
+        "disjoint_positives": int(sum(disjoint_labels)),
         "disjoint_auc": float(disjoint),
-        "permutations": permutations, "p_value": p, "null_mean": float(perm.mean()),
-        "null_sd_empirical": float(perm.std()), "null_sd_analytic": float(null_sd),
+        "permutations": permutations,
+        "p_value": p,
+        "null_mean": float(perm.mean()),
+        "null_sd_empirical": float(perm.std()),
+        "null_sd_analytic": float(null_sd),
         "z": float(z),
     }
 
 
 def betweenness(centroid, kind, names, X, note=""):
     """Angular distance; detour ratio and the true bridge's rank among all others."""
-    d = lambda u, v: float(np.arccos(np.clip(float(u @ v), -1.0, 1.0)))
+
+    def d(u, v):
+        return float(np.arccos(np.clip(float(u @ v), -1.0, 1.0)))
+
     print(f"\n--- betweenness{' (' + note + ')' if note else ''} ---")
-    print(f"{'family':16s} {'d(A,B)':>7s} {'detour':>7s} {'t':>6s} {'rank':>10s} {'pct':>6s}  kinds")
+    print(
+        f"{'family':16s} {'d(A,B)':>7s} {'detour':>7s} {'t':>6s} {'rank':>10s} {'pct':>6s}  kinds"
+    )
     rows = []
     for fam, (a, b, c) in FAMILIES.items():
         if not all(n in centroid for n in (a, b, c)):
@@ -257,20 +284,32 @@ def betweenness(centroid, kind, names, X, note=""):
         t = float((C - A) @ u / (u @ u))
         # Null: every other object in the corpus scored the same way.
         others = [n for n in names if n not in (a, b, c)]
-        O = np.array([centroid[n] for n in others])
-        da = np.arccos(np.clip(O @ A, -1.0, 1.0))
-        db = np.arccos(np.clip(O @ B, -1.0, 1.0))
+        obj = np.array([centroid[n] for n in others])
+        da = np.arccos(np.clip(obj @ A, -1.0, 1.0))
+        db = np.arccos(np.clip(obj @ B, -1.0, 1.0))
         null = (da + db) / ab
         rank = int((null < detour).sum()) + 1
         pct = 100.0 * rank / (len(others) + 1)
         ks = "".join("s" if kind[n] == "synthetic" else "o" for n in (a, b, c))
-        print(f"{fam:16s} {ab:7.3f} {detour:7.3f} {t:6.2f} {rank:5d}/{len(others)+1:4d} {pct:5.1f}%  {ks}")
-        rows.append({
-            "family": fam, "A": a, "B": b, "bridge": c, "d_AB": ab,
-            "detour_ratio": detour, "projection_t": t, "rank": rank,
-            "candidates": len(others) + 1, "percentile": pct,
-            "kinds": {"A": kind[a], "B": kind[b], "bridge": kind[c]},
-        })
+        print(
+            f"{fam:16s} {ab:7.3f} {detour:7.3f} {t:6.2f} "
+            f"{rank:5d}/{len(others) + 1:4d} {pct:5.1f}%  {ks}"
+        )
+        rows.append(
+            {
+                "family": fam,
+                "A": a,
+                "B": b,
+                "bridge": c,
+                "d_AB": ab,
+                "detour_ratio": detour,
+                "projection_t": t,
+                "rank": rank,
+                "candidates": len(others) + 1,
+                "percentile": pct,
+                "kinds": {"A": kind[a], "B": kind[b], "bridge": kind[c]},
+            }
+        )
     print("\nkinds: o=observed states, s=synthetic initial goal (single point)")
     print("detour 1.0 = exactly on the geodesic; t in [0,1] = between the endpoints")
     print("rank = bridges among all corpus objects by detour, 1 = most between")
@@ -282,15 +321,17 @@ def verdict(report):
     real, ctrl = report["replication_all"], report["control_replication_all"]
     print("\n--- verdict ---")
     print(f"{'measure':24s} {'encoder':>9s} {'control':>9s} {'margin':>9s}")
-    for key, label in (("auc", "AUC all pairs"),
-                       ("cross_area_auc", "AUC cross-area"),
-                       ("disjoint_auc", "AUC disjoint-state")):
+    for key, label in (
+        ("auc", "AUC all pairs"),
+        ("cross_area_auc", "AUC cross-area"),
+        ("disjoint_auc", "AUC disjoint-state"),
+    ):
         a, b = real[key], ctrl[key]
         print(f"{label:24s} {a:9.3f} {b:9.3f} {a - b:+9.3f}")
     print("\nThe control keeps every theorem's state-sharing structure and discards")
     print("the encoder. Only the margin is attributable to the embedding; the")
     print("disjoint-state row is the one the sharing structure cannot reach.")
-    for row, crow in zip(report["betweenness"], report["control_betweenness"]):
+    for row, crow in zip(report["betweenness"], report["control_betweenness"], strict=True):
         row["control_percentile"] = crow["percentile"]
         row["control_detour_ratio"] = crow["detour_ratio"]
 
@@ -298,45 +339,66 @@ def verdict(report):
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     root = Path(__file__).resolve().parents[1]
-    ap.add_argument("--vectors", type=Path,
-                    default=root / "outputs/state-bridge-v1/vectors/reprover-embeddings.npz")
-    ap.add_argument("--index", type=Path,
-                    default=root / "outputs/state-bridge-v1/encode/text-index.jsonl.gz")
+    ap.add_argument(
+        "--vectors",
+        type=Path,
+        default=root / "outputs/state-bridge-v1/vectors/reprover-embeddings.npz",
+    )
+    ap.add_argument(
+        "--index", type=Path, default=root / "outputs/state-bridge-v1/encode/text-index.jsonl.gz"
+    )
     ap.add_argument("--edges", type=Path, default=root / "results/link-graph-v1/edges.jsonl.gz")
     ap.add_argument("--out", type=Path)
     ap.add_argument("--permutations", type=int, default=20000)
-    ap.add_argument("--max-state-df", type=float, default=0.5,
-                    help="exclude state texts carried by at least this fraction of theorems")
+    ap.add_argument(
+        "--max-state-df",
+        type=float,
+        default=0.5,
+        help="exclude state texts carried by at least this fraction of theorems",
+    )
     args = ap.parse_args()
 
     rng = np.random.default_rng(SEED)
     centroid, kind, states, n_texts = load_centroids(
-        args.vectors, args.index, args.max_state_df, verbose=True)
+        args.vectors, args.index, args.max_state_df, verbose=True
+    )
     names = sorted(centroid)
     X = np.array([centroid[n] for n in names])
     rare, mod = landmarks(names, args.edges)
-    print(f"vectors {n_texts} texts | objects {len(names)} "
-          f"(observed {sum(k == 'observed' for k in kind.values())}, "
-          f"synthetic {sum(k == 'synthetic' for k in kind.values())})")
+    print(
+        f"vectors {n_texts} texts | objects {len(names)} "
+        f"(observed {sum(k == 'observed' for k in kind.values())}, "
+        f"synthetic {sum(k == 'synthetic' for k in kind.values())})"
+    )
 
     report = {"objects": len(names), "texts": n_texts, "max_state_df": args.max_state_df}
     report["replication_all"] = replication(
-        names, X, rare, mod, args.permutations, rng, "all objects", states)
+        names, X, rare, mod, args.permutations, rng, "all objects", states
+    )
     obs = [n for n in names if kind[n] == "observed"]
     report["replication_observed"] = replication(
-        obs, np.array([centroid[n] for n in obs]), rare, mod, args.permutations, rng,
-        "observed-state objects only", states)
+        obs,
+        np.array([centroid[n] for n in obs]),
+        rare,
+        mod,
+        args.permutations,
+        rng,
+        "observed-state objects only",
+        states,
+    )
     report["betweenness"] = betweenness(centroid, kind, names, X)
 
     # Control arm: same objects, same sharing structure, encoder semantics gone.
     c_centroid, _, _, _ = load_centroids(
-        args.vectors, args.index, args.max_state_df,
-        shuffle_rng=np.random.default_rng(SEED + 1))
+        args.vectors, args.index, args.max_state_df, shuffle_rng=np.random.default_rng(SEED + 1)
+    )
     cX = np.array([c_centroid[n] for n in names])
     report["control_replication_all"] = replication(
-        names, cX, rare, mod, 0, rng, "CONTROL: shuffled vector/text assignment", states)
+        names, cX, rare, mod, 0, rng, "CONTROL: shuffled vector/text assignment", states
+    )
     report["control_betweenness"] = betweenness(
-        c_centroid, kind, names, cX, note="CONTROL: shuffled vector/text assignment")
+        c_centroid, kind, names, cX, note="CONTROL: shuffled vector/text assignment"
+    )
     verdict(report)
     if args.out:
         args.out.parent.mkdir(parents=True, exist_ok=True)

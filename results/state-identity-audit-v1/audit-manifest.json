@@ -1,9 +1,0 @@
-{
-  "corpus_sha256": "af5f40d7679f80021760e0bb369a983da06c4222303f6b5a9ebdce37f754ebc5",
-  "vector_manifest_sha256": "bb6f227ce85f9c2aae4d5fa0be0ea010fb610f992aaf49c17c1275fb4d1474c0",
-  "audit_script_sha256": "0b96f0c81d63a4b73c8d933325e157957ed62927b34a234f3927f20dfc076e33",
-  "state_identity_status": "not_verified",
-  "semantically_incorrect_actual_corpus_merges": "unknown; internal state snapshots were not archived",
-  "new_embeddings_or_gpu_used": false,
-  "original_coordinates_and_corpus_modified": false
-}

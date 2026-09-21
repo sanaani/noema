@@ -14,22 +14,37 @@ Test 3 is what catches pairs like blimsup_cthickening_ae_le_of_eventually_mul_le
 / AddCircle.exists_norm_nsmul_le, where B is a leaf lemma in a file that already
 imports A's machinery to prove Gallagher's theorem.
 """
+
 import collections
 import gzip
 import json
 import sys
+from pathlib import Path
 
-EDGES = "/home/soverton/Documents/noema/results/link-graph-v1/edges.jsonl"
-TRIPLES = "/home/soverton/Documents/noema/results/link-graph-v1/bridge-triples-landmarks.json.gz"
+ROOT = Path(__file__).resolve().parent.parent
+EDGES = ROOT / "results/link-graph-v1/edges.jsonl.gz"
+TRIPLES = ROOT / "results/link-graph-v1/bridge-triples-landmarks.json.gz"
+
+
+def open_maybe_gz(path):
+    """edges.jsonl is 148 MB and cannot go in git; the committed copy is gzipped.
+    Accept either, so an existing working tree with the plain file still runs."""
+    path = Path(path)
+    if path.suffix == ".gz" or not path.exists():
+        gz = path if path.suffix == ".gz" else path.with_suffix(path.suffix + ".gz")
+        if gz.exists():
+            return gzip.open(gz, "rt")
+    return path.open()
+
 
 triples = json.load(gzip.open(TRIPLES, "rt"))
 wanted = {r[k] for r in triples for k in ("a", "b")}
 
 mod, citers = {}, collections.defaultdict(set)
-uses = collections.defaultdict(set)          # module -> modules it cites
-users = collections.defaultdict(set)         # module -> modules citing it
+uses = collections.defaultdict(set)  # module -> modules it cites
+users = collections.defaultdict(set)  # module -> modules citing it
 rows = []
-for line in open(EDGES):
+for line in open_maybe_gz(EDGES):
     r = json.loads(line)
     mod[r["theorem"]] = r.get("module", "")
     if r.get("deps"):

@@ -42,6 +42,7 @@ citation is load-bearing — both of which make these numbers conservative,
 since noisy labels attenuate. And proof size remains an unmodelled confound:
 it faked AUC 0.740 on the replication target and is not controlled here.
 """
+
 import argparse
 import collections
 import gzip
@@ -67,8 +68,8 @@ def auc(score, label):
 
 def centroids(vectors, index, max_df=0.5):
     z = np.load(vectors)
-    V, texts = z["vectors"].astype(np.float32), list(z["texts"])
-    records = [json.loads(l) for l in gzip.open(index, "rt")]
+    V = z["vectors"].astype(np.float32)
+    records = [json.loads(lem) for lem in gzip.open(index, "rt")]
     df = collections.Counter()
     for r in records:
         df.update(set(r["text_indices"]))
@@ -104,20 +105,26 @@ def rare_landmarks(want, edges):
         df.update(set(d))
         if r["theorem"] in want:
             deps[r["theorem"]] = set(d)
-    rare = {l for l, c in df.items() if 2 <= c <= 200}
+    rare = {lem for lem, c in df.items() if 2 <= c <= 200}
     return {n: deps.get(n, set()) & rare for n in want}
 
 
 def main():
-    ap = argparse.ArgumentParser(description=__doc__,
-                                 formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--vectors", type=Path,
-                    default=ROOT / "outputs/state-bridge-v1/vectors/reprover-embeddings.npz")
-    ap.add_argument("--index", type=Path,
-                    default=ROOT / "outputs/state-bridge-v1/encode/text-index.jsonl.gz")
+    ap = argparse.ArgumentParser(
+        description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
+    )
+    ap.add_argument(
+        "--vectors",
+        type=Path,
+        default=ROOT / "outputs/state-bridge-v1/vectors/reprover-embeddings.npz",
+    )
+    ap.add_argument(
+        "--index", type=Path, default=ROOT / "outputs/state-bridge-v1/encode/text-index.jsonl.gz"
+    )
     ap.add_argument("--edges", type=Path, default=ROOT / "results/link-graph-v1/edges.jsonl.gz")
-    ap.add_argument("--connectors", type=Path,
-                    default=ROOT / "results/mathlib-forward-v1/new-connectors.json")
+    ap.add_argument(
+        "--connectors", type=Path, default=ROOT / "results/mathlib-forward-v1/new-connectors.json"
+    )
     ap.add_argument("--out", type=Path)
     args = ap.parse_args()
 
@@ -130,7 +137,10 @@ def main():
 
     i, j = np.triu_indices(len(names), 1)
     eligible = np.fromiter(
-        (not (rare[names[a]] & rare[names[b]]) for a, b in zip(i, j)), bool, len(i))
+        (not (rare[names[a]] & rare[names[b]]) for a, b in zip(i, j, strict=True)),
+        bool,
+        len(i),
+    )
     pi, pj, angle = i[eligible], j[eligible], D[i, j][eligible]
 
     truth = set()
@@ -138,12 +148,12 @@ def main():
         for a, b in itertools.combinations(sorted(targets), 2):
             if a in pos and b in pos and not (rare[a] & rare[b]):
                 truth.add((min(pos[a], pos[b]), max(pos[a], pos[b])))
-    label = np.fromiter(((a, b) in truth for a, b in zip(pi, pj)), bool, len(pi))
+    label = np.fromiter(((a, b) in truth for a, b in zip(pi, pj, strict=True)), bool, len(pi))
     base = label.mean()
 
     print(f"eligible pairs (no shared rare lemma in 2024) : {len(angle):,}")
     print(f"pairs Mathlib connected by 2026               : {label.sum()}")
-    print(f"base rate                                     : 1 in {int(1/base):,}\n")
+    print(f"base rate                                     : 1 in {int(1 / base):,}\n")
     print(f"{'band':>12}{'pairs':>12}{'hits':>6}{'lift':>8}")
     rows = []
     for lo, hi in BANDS:
@@ -160,13 +170,18 @@ def main():
     # and their centroids drift toward the corpus mean, so they look mutually
     # close. This label does not reward length, so it should not transfer.
     minsize = np.fromiter(
-        (min(size[names[a]], size[names[b]]) for a, b in zip(pi, pj)), float, len(pi))
+        (min(size[names[a]], size[names[b]]) for a, b in zip(pi, pj, strict=True)),
+        float,
+        len(pi),
+    )
     print(f"\n{'predictor':<34}{'AUC':>7}")
     print(f"{'proof size alone (bigger=closer)':<34}{auc(minsize, label):>7.3f}")
     print(f"{'state-geometry angle':<34}{auc(-angle, label):>7.3f}")
     band = (angle >= 45) & (angle < 55)
-    print(f"\nmedian min-size in 45-55 band: {np.median(minsize[band]):.0f} states "
-          f"| all pairs: {np.median(minsize):.0f}")
+    print(
+        f"\nmedian min-size in 45-55 band: {np.median(minsize[band]):.0f} states "
+        f"| all pairs: {np.median(minsize):.0f}"
+    )
 
     print("\nthe closest pairs, for contrast — these are renames, not bridges:")
     for x in np.argsort(angle)[:5]:
@@ -174,13 +189,22 @@ def main():
 
     if args.out:
         args.out.parent.mkdir(parents=True, exist_ok=True)
-        args.out.write_text(json.dumps(
-            {"eligible_pairs": int(len(angle)), "positives": int(label.sum()),
-             "base_rate": float(base), "bands": rows,
-             "auc_proof_size": auc(minsize, label),
-             "auc_angle": auc(-angle, label),
-             "median_minsize_band_45_55": float(np.median(minsize[band])),
-             "median_minsize_all": float(np.median(minsize))}, indent=2) + "\n")
+        args.out.write_text(
+            json.dumps(
+                {
+                    "eligible_pairs": int(len(angle)),
+                    "positives": int(label.sum()),
+                    "base_rate": float(base),
+                    "bands": rows,
+                    "auc_proof_size": auc(minsize, label),
+                    "auc_angle": auc(-angle, label),
+                    "median_minsize_band_45_55": float(np.median(minsize[band])),
+                    "median_minsize_all": float(np.median(minsize)),
+                },
+                indent=2,
+            )
+            + "\n"
+        )
         print(f"\nwrote {args.out}")
 
 

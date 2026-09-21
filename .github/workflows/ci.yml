@@ -10,7 +10,7 @@ permissions:
 jobs:
   validate:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     env:
       OPENBLAS_NUM_THREADS: "1"
       OMP_NUM_THREADS: "1"
@@ -26,33 +26,20 @@ jobs:
       - run: ruff check .
       - run: ruff format --check .
       - run: python -m pytest
-      - run: python scripts/verify-strategy-headroom.py
-      - run: python scripts/verify-adversarial-result.py
-      - run: python scripts/verify-transfer-v2.py
-      - run: python scripts/verify-transfer-confirmation.py
-      - run: python scripts/verify-gpu-execution.py
+
+      # Archived evidence: checksums, then the independent re-derivations that
+      # need no model download. The 128-object ReProver archive is what the
+      # first AUC 0.786 was measured on, so it is checked, not just stored.
       - run: cd results/state-object-v1 && sha256sum -c SHA256SUMS
       - run: python scripts/verify-state-object-archive.py --corpus results/state-object-v1/corpus.json.gz --analysis results/state-object-v1
-      - run: cd results/state-identity-audit-v1 && sha256sum -c SHA256SUMS
-      - run: python scripts/audit-state-object-inputs.py --output outputs/ci-state-input-audit
-      - run: cd results/state-object-records-v1 && sha256sum -c SHA256SUMS
-      - run: python scripts/verify-state-record-vectors.py --records results/state-object-records-v1
-      - run: python scripts/analyze-state-record-objects.py --records results/state-object-records-v1
-      - run: cd results/assumption-audit-v1 && sha256sum -c SHA256SUMS
-      - run: python scripts/audit-state-object-assumptions.py --output outputs/ci-assumption-audit
-      - run: cd results/theorem-admission-v1 && sha256sum -c SHA256SUMS
-      - run: cd results/state-objects-admitted-v1 && sha256sum -c SHA256SUMS
-      - run: python scripts/verify-theorem-admission-archive.py
-      - run: python scripts/verify-state-record-vectors.py --records results/state-objects-admitted-v1
-      - run: python scripts/analyze-state-record-objects.py --records results/state-objects-admitted-v1
-      - run: cd results/theorem-forms-v1 && sha256sum -c SHA256SUMS
-      - run: python scripts/verify-theorem-forms.py
-      - run: python scripts/audit-theorem-form-formatting.py --output outputs/ci-theorem-formatting.json
-      - run: cmp results/theorem-forms-v1/formatting-sensitivity.json outputs/ci-theorem-formatting.json
-      - run: cd results/theorem-boundaries-v2 && sha256sum -c SHA256SUMS
-      - run: python scripts/verify-boundary-explorer.py
-      - run: cd results/endpoint-audit-v1 && sha256sum -c SHA256SUMS
-      - run: cd results/theorem-endpoint-assessment-v1 && sha256sum -c SHA256SUMS
-      - run: python scripts/verify-theorem-endpoint-assessment.py
       - run: cd results/historical-connections-v1 && sha256sum -c SHA256SUMS
-      - run: noema synthetic --config configs/smoke.json --output outputs/ci-smoke
+      - run: cd results/encoder-invariance-v1 && sha256sum -c SHA256SUMS
+      - run: cd results/encoder-comparison-v1 && sha256sum -c SHA256SUMS
+      - run: cd results/semantic-encoder-evaluation-v1 && sha256sum -c SHA256SUMS
+      - run: cd results/state-consistency-v1 && sha256sum -c SHA256SUMS
+
+      # These two run end to end from committed artifacts alone. The
+      # state-bridge analysis cannot, because its 272 MB vector file is not in
+      # git. See the reproduce section of README.md.
+      - run: python scripts/analyze-state-geometry.py
+      - run: python scripts/analyze-mathlib-forward.py

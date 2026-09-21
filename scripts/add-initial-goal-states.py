@@ -17,6 +17,7 @@ It is one point, not an observed trajectory, so an object built from it has zero
 extent. Any geometry that depends on extent (diameter, affine dimension, hull
 separation) must exclude or specially handle these.
 """
+
 import argparse
 import glob
 import gzip
@@ -51,33 +52,39 @@ def main():
         elif name in goals:
             synthetic += 1
             kind = "synthetic"
-            states = [{
-                "text": goals[name],
-                "kind": "initial_goal",
-                "synthetic": True,
-                "tactic": "",
-                "tactic_index": -1,
-                "provenance": "InitialGoals.lean: declaration type, forall-telescoped",
-            }]
+            states = [
+                {
+                    "text": goals[name],
+                    "kind": "initial_goal",
+                    "synthetic": True,
+                    "tactic": "",
+                    "tactic_index": -1,
+                    "provenance": "InitialGoals.lean: declaration type, forall-telescoped",
+                }
+            ]
         else:
             missing += 1
             continue
-        records.append({
-            "theorem_id": d["theorem_id"],
-            "proof_id": d.get("proof_id"),
-            "status": d.get("status"),
-            "verified": d.get("verified"),
-            "object_kind": kind,
-            "states": states,
-        })
+        records.append(
+            {
+                "theorem_id": d["theorem_id"],
+                "proof_id": d.get("proof_id"),
+                "status": d.get("status"),
+                "verified": d.get("verified"),
+                "object_kind": kind,
+                "states": states,
+            }
+        )
 
     with gzip.open(args.out, "wt") as f:
         for r in records:
             f.write(json.dumps(r, ensure_ascii=False) + "\n")
 
     total_states = sum(len(r["states"]) for r in records)
-    print(f"records {len(records)} | observed {observed} | synthetic {synthetic} | "
-          f"no goal available {missing}")
+    print(
+        f"records {len(records)} | observed {observed} | synthetic {synthetic} | "
+        f"no goal available {missing}"
+    )
     print(f"states {total_states} -> {args.out}")
 
 

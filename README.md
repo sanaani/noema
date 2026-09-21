@@ -1,195 +1,137 @@
 # Noema
 
-Exploring whether theorem embeddings and the distributions of States across their proofs reveal useful mathematical relationships.
+**Does the geometry of a theorem's proof states know which theorems are related?**
 
-The starting point is the [original research plan](docs/latent_geometry_mathematical_theorems_research_plan.md), preserved byte for byte. The [current specification](docs/current-state-object-spec.md) governs this investigation. The original [implementation plan](docs/implementation-plan.md) is historical and superseded where it conflicts with that specification.
+A Lean proof passes through a sequence of goal states. Encode every state of
+every proof, summarise a theorem by the centroid of its states, and ask whether
+theorems that are mathematically connected sit closer together than theorems
+that are not. If they do, the map can be asked a question no citation search
+can answer: *which two theorems should be connected, but have not been yet?*
 
-**Immediate priority: encoder invariance, before further corpus acquisition or
-mathematical case studies.** The [Lean-certified presentation audit](results/encoder-invariance-v1/README.md)
-tests α-renaming, pretty-print changes and definitionally equal restatements,
-including their effect on cumulative mass with both center and States transformed.
-The fixed encoder has no validated claim to measure mathematical relatedness.
-The [checked State encoding contract](results/state-consistency-v1/README.md)
-now supplies typed capture and a frozen Lean-certified equivalence registry.
-Accepted equivalent States receive identical vectors; unknown States and
-unvalidated encoders are rejected. This is scoped consistency, not validated
-mathematical relatedness or a migration of the old display-only corpus.
-The follow-up [semantic encoder evaluation](results/semantic-encoder-evaluation-v1/README.md)
-finds no evidence for the four prespecified cross-area connections in a fixed
-theorem-center benchmark, so the distance-usefulness claim remains unvalidated.
-The [alternative-encoder comparison](results/encoder-comparison-v1/README.md)
-tests five replacements, a fixed Qwen instruction, canonical Lean inputs and
-explicit proposition-distinction controls. The representation intervention is
-reported separately from the neural models' raw-input behavior.
-None of the alternatives passes on raw displays. Canonical inputs pass the
-finite screen while retaining 12 verified proposition distinctions, including
-with a structural control; mathematical relatedness is still unvalidated.
+That last question is still open. What follows is the evidence collected so far
+that the map is measuring something real.
 
-**For the longer-term research direction and an LLM handoff, read
-[Demonstrating usefulness of Theorem Density Objects](docs/theorem-density-usefulness.md).**
-The object is centered on the theorem's initial State and retains all acquired
-nonempty proof-State occurrences, their rays, and cumulative mass. That proposal
-explains how mass could help inspect mathematical connections and existing proof
-routes, what it cannot establish, and the recommended next investigation.
-The [historical-connections pilot](results/historical-connections-v1/README.md)
-measured initial-State centers; cumulative-mass usefulness has not yet been tested.
+## Three measurements
 
-The [active dataset](results/state-objects-admitted-v1/README.md) now contains
-**102 theorem groups, 813 proof records and 16,592 separate state-vector rows**.
-Open the [current boundary explorer](results/theorem-boundaries-v2/explore.html):
-it follows every projected location with an inward-bending area objective,
-excludes generic “no goals” displays from geometry, and shows shared x–y axes,
-zero, scale and individually selectable multi-object overlays. Every original record remains accessible.
-The [earlier convex explorer](results/state-objects-admitted-v1/explore.html)
-is preserved as an archive.
+| | what it asks | result |
+|---|---|---|
+| [Replication](results/state-bridge-v1/README.md) | do proofs sharing a rare lemma have nearer centroids? | AUC **0.877**, margin over shuffled control **+0.164** |
+| [Betweenness](results/state-bridge-v1/README.md) | does a known bridge theorem sit *between* its two endpoints? | all **6/6** families in the top 4.3% of 1,795 objects, five in the top 1.4% |
+| [Forward test](results/mathlib-forward-v1/README.md) | does the 2024 map point at links Mathlib only made by 2026? | angle **AUC 0.958** against proof size's 0.515; 124× lift in the 45–55° band |
 
-The [first form analysis](docs/theorem-forms-v1.md) constructed and measured all
-102 hulls. Its [interactive atlas](results/theorem-forms-v1/explore.html) shows
-every object and every state, with common or local display axes. All objects
-touch at the empty-goal encoding; substantial formatting sensitivity means these
-forms cannot yet be interpreted as the shapes of mathematical ideas.
+1,797 Mathlib theorems, 99,275 captured proof states, 23,874 unique state texts,
+encoded with the pinned ReProver ByT5 retriever. The corpus was built by
+expanding outward from six known bridge families, so it is a positive control by
+construction.
 
-An enforced admission rule excludes six theorem groups whose assumptions were
-proved contradictory in Lean, and holds 148 groups with unresolved source identity
-or inventoried proof/trace gaps. All states of every admitted theorem remain;
-there is no state deduplication or proof/state cap. The full 26,820-row
-[historical archive](results/state-object-records-v1/README.md) remains available
-for recovery and repair, but is no longer the active analysis set.
+**Betweenness is the load-bearing one.** The replication shares a confound with
+its own target: proof size alone predicts "these two proofs share a rare lemma"
+at AUC 0.740, because long proofs cite more lemmas and their centroids drift
+toward the corpus mean. Only the +0.164 margin over the shuffled control is the
+encoder's. Betweenness does not inherit that confound — its null is the same
+corpus scored the same way — and neither does the forward test, where proof size
+is a coin flip at 0.515.
 
-The [remediation report](docs/theorem-admission-remediation-v1.md) records the
-exclusions, the contradiction screen of all 128 Workbook groups, the admission
-checks and what is still open. The earlier [assumption audit](docs/assumption-audit-v1.md)
-identified defects; labelling them was not sufficient remediation.
+The forward test's label contains no 2024 vocabulary at all: between Mathlib
+`f0957a7` (2024-07-01) and `09712d48` (2026-09-21) — 812 days, 22,961 commits,
+65,368 new declarations — did anyone write a theorem citing both halves of a
+pair? Over 1,530,134 eligible pairs the base rate is 1 in 69,551. The band that
+concentrates the hits, 45–55°, is where the six historical bridges already sat.
+That reading came off the bridges first, before this label existed.
 
-The current focus is the **Theorem Density Object** and its mathematical usefulness.
-The [current specification](docs/current-state-object-spec.md) defines the scope;
-the [convex-hull literature review](docs/state-object-convex-hull-literature-review.md)
-documents the earlier boundary investigation. Proof admission does not establish complete internal state capture,
-all-known-proof coverage or mathematical faithfulness of the encoder. Those remain
-open work, not problems declared fixed by documentation. No model was trained.
+## What this does not show
 
-The completed strategy-transfer continuation addressed a task-design failure in the earlier study.
-An [adversarial analysis](docs/adversarial-centroid-results-v1.md) verifies that
-invariant premise text is sufficient for the old centroid's perfect score;
-all 12 contexts are also constructively equivalent in Lean. That ceiling was
-not an informative test of State object added information.
+- **No connection has been discovered.** Every link measured here is one a human
+  already made. Recognising them is a precondition, not the result.
+- The band edges in the forward test were fixed with the table visible. The
+  preregistration is a timestamp: "40–55°" was posted to issue #1 at 15:05:53Z,
+  the analysis committed at 15:31:00Z. 22 positives is a thin base.
+- The forward label is `git grep` over full declaration names, so it misses
+  citations under an `open` namespace and does not check that a citation is
+  load-bearing. Both attenuate rather than inflate.
+- **Rename robustness is unresolved.** A cosmetic α-rename moves a state 48.1°
+  against 56.4° for a genuine mathematical change
+  ([encoder-invariance-v1](results/encoder-invariance-v1/README.md)). If the
+  bridges do not survive renaming, much of this is stylometry.
+- Statement embeddings never showed this. Five encoders on theorem statements
+  found no evidence for four prespecified cross-area connections
+  ([semantic-encoder-evaluation-v1](results/semantic-encoder-evaluation-v1/README.md));
+  the signal appears only in proof states.
+- No model was trained on this corpus. The
+  [link ranker](results/link-ranker-v1/) is a linear head over frozen vectors.
 
-The first strategy-transfer screen failed its task and budget gates. A fresh
-[structurally matched experiment](docs/strategy-transfer-protocol-v2.md) now passes
-both: all nine baseline upper accuracy bounds are below 71.2%, and simulated
-power qualifies a 512-triplet confirmation budget. Premise overlap and both
-source and target statement-structure distances are matched exactly by design.
+Each result directory states its own caveats; they travel with the numbers.
 
-The eight-leaf development State object initially exceeded its centroid, but failed the
-original ten-point continuation rule. The user removed that arbitrary margin,
-and a fresh 512-triplet, nine-leaf study was acquired with exact matching and
-no minimum-gain requirement. All 6,144 sampled proofs and 30,720 intermediate
-states passed Lean verification.
+## The tree
 
-The **[completed 512-triplet study](docs/gpu-execution-results-v1.md)** has baseline
-headroom, but shows no advantage for its sampled-state energy-distance predictor: its accuracy
-is **53.91%**, versus **54.49%** for its centroid (paired gain **-0.59 points**,
-marginal bootstrap 95% interval **[-2.54, +1.37]**). None of the three sampled-state arms
-exceeds its corresponding centroid. Tactic histograms and complete-program
-comparisons score 82.03% and 92.19%; the latter sees more proof information.
+```
+docs/
+  theorem-link-discovery-plan.md   the hypothesis and why the project pivoted to it
+  state-bridge-run-plan.md         how the 1,797-theorem run was designed and costed
+  muse-brief-lemma-hygiene.md      spin-off: anonymous-lemma detection for Mathlib
+  latent_geometry_...plan.md       the original proposal, preserved byte for byte
+  history.md                       every earlier line of work, and where to read it
+results/
+  link-graph-v1/        206,889 theorem->dependency edges from pinned Mathlib; the
+                        bridge-triple scan; the Lean elaborators that produced them
+  state-bridge-v1/      the replication and betweenness tests
+  mathlib-forward-v1/   the 2024 -> 2026 forward test
+  bridge-expansion-v1/  the six machine-checked (A, B, bridge) families
+  bridge-conjecture-v1/ Lean-checked conjectures raised by the bridge scan
+  link-ranker-v1/       linear ranking head and its held-out referee
+  state-object-v1/      the 128-object archive the first AUC 0.786 came from
+  historical-connections-v1/  the initial-State pilot that seeded the six families
+  encoder-*/, semantic-*/, state-consistency-v1/, structural-semantic-*/
+                        what the encoder does and does not do: α-rename
+                        invariance, a five-encoder comparison, certified
+                        structural capture, and the statement-embedding null
+scripts/   the pipeline, in order: scan -> filter -> select -> capture -> encode -> analyse
+src/noema/ encoders, typed state capture, replay
+```
 
-All 8,500 ReProver inputs were completed on the GPU using the same theorem set,
-model weights, proof sampling and analysis rules. The user stopped the remaining
-CPU encoding; its checkpoints and execution history are preserved in the
-[reproducibility notes](docs/strategy-transfer-confirmation-results-v1.md).
-No duplicate CPU result is needed for the completed study. The temporary GPU
-instance and its temporary AWS resources have been removed.
-
-The [GPU archive](results/gpu-execution-check-v1/README.md) reproduces every score,
-paired test, interval and supplemental control without a GPU or model download.
-The earlier 99-test suite, two scheduler tests and three new device tests pass.
-The [development result](docs/strategy-transfer-results-v2.md) remains intact;
-the [first screen](docs/strategy-transfer-results-v1.md) stays closed with State objects
-unscored. No old-corpus pair mining, Phase 5, or full mathlib acquisition occurred.
-The broader conjecture remains unresolved.
-
-The [canonical-v3 report](docs/revised-plan-results.md), its
-[comparison table](results/canonical-v3/report.md),
-[power study](docs/cluster-power-results.md), and
-[reproduction guide](docs/reproduction-v3.md) remain historical evidence. That
-study verified 1,864 proofs and 60,501 states with exact length/depth matching;
-its measurements are preserved and its saturated-task interpretation corrected.
-
-The first study's 3,072 verified proofs and unmatched outcomes remain intact in
-the [historical report](docs/final-research-status.md). The original
-[checkpoint 2 report](docs/checkpoint-2-results.md) remains a foundation record.
-
-## Run it
-
-Requires Python 3.12+; the reference environment and CI use Python 3.12.
+## Reproduce
 
 ```bash
-python3 -m venv .venv
-source .venv/bin/activate
+python3 -m venv .venv && source .venv/bin/activate
 python -m pip install -r requirements.lock
 python -m pip install --no-deps -e .
-OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 noema synthetic \
-  --config configs/smoke.json --output outputs/my-smoke
+ruff check . && python -m pytest
 ```
 
-Each run creates `report.json` with all trial statistics and provenance, and `report.md` with readable tables. The output directory must be new. The seed controls every sample, projection, and permutation; timestamps and platform metadata naturally differ across reruns. Dependency pins make the reference environment reproducible. BLAS thread limits avoid overhead on these small matrix operations.
-
-The smoke configuration runs 336 comparisons across seven scenarios, two sample sizes, and two dimensions. It checks independent same-shape samples, partial overlap, separated populations, multimodality, holes, and branches. Each comparison uses equal-size State objects. A shared isometric map embeds the two latent dimensions into the ambient space; noise is added per ambient coordinate. This is a controlled low-intrinsic-dimensional benchmark, not a model of all proof-state distributions.
-
-For a larger exploratory sweep across dimensions and noise levels:
+The analyses read committed artifacts:
 
 ```bash
-OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 noema synthetic \
-  --config configs/pilot.json --output outputs/my-pilot
+.venv/bin/python scripts/analyze-state-geometry.py    # the first AUC 0.786
+.venv/bin/python scripts/analyze-mathlib-forward.py   # the forward test
+.venv/bin/python scripts/analyze-state-bridge.py      # needs the vectors, see below
 ```
 
-The pilot makes 2,520 comparisons and costs substantially more than the smoke run. Both are development runs and deliberately report `not_qualified`. The separately seeded v2 qualification passed only the restricted low-noise regime; see the [qualification review](docs/phase-0-review.md). The noisy pilot and failed v1 qualification remain part of the evidence.
-
-## Measurements
-
-| Measurement | Purpose |
-|---|---|
-| Gaussian MMD² | Original primary distribution comparison; revised power candidate |
-| Energy V-statistic | Qualified primary metric for the revised matched experiment |
-| Sliced Wasserstein-1 | Average exact transport along random 1D projections |
-| Symmetric radius coverage | Local proximity diagnostic; larger means more coverage |
-| Centroid distance | Baseline exposing information lost by collapsing a State object to its mean |
-
-MMD uses the nonnegative biased estimator and a bandwidth computed without labels from the pooled points. The original study tests MMD; the revised proof-cluster calibration tests MMD and energy, and its frozen formal continuation selects energy. P-values include the Monte Carlo correction and undergo Benjamini–Hochberg adjustment across each complete primary family. The new synthetic calibration permutes whole proof blocks. Formal comparisons use whole-theorem label permutations and theorem-cluster uncertainty because states within one proof are correlated.
-
-The implementation of projected transport uses sorted, equal-weight samples, consistent with the [SciPy definition of 1D Wasserstein-1](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.wasserstein_distance.html). Explicit random generators follow [NumPy's Generator interface](https://numpy.org/doc/stable/reference/random/generator.html).
-
-## Develop
+The first two need nothing but the repository, and CI runs both.
+`analyze-state-bridge.py` needs `outputs/state-bridge-v1/vectors/reprover-embeddings.npz`,
+272 MB and therefore not committed. Everything upstream of it is:
+`results/state-bridge-v1/states-augmented.jsonl.gz` holds the 99,275 captured
+states, so the Lean capture — the long pole, a CPU host against Lean 4.9.0 and
+Mathlib `f0957a7` — does not have to be repeated. Rebuild the vectors with
 
 ```bash
-ruff check .
-ruff format --check .
-OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m pytest
+python scripts/build-encode-inputs.py --states results/state-bridge-v1/states-augmented.jsonl.gz ...
+python scripts/encode-reprover-gpu.py ...        # L40S, 23,874 texts, 366s, ~$0.31
 ```
 
-Tests cover analytic metric values, invariance to input order and shared translations, isometric embeddings, degeneracy, exact/permutation reference calculations, null calibration, detection power, multiple-testing adjustment, reproducibility, invalid input, and CLI overwrite protection. GitHub Actions runs these checks and the smoke experiment.
+Model weights, transient run outputs and the uncompressed copies of the large
+`.jsonl` artifacts stay out of git; the committed `.gz` files are byte-identical.
 
-Source lives in `src/noema/`; configurations in `configs/`; scientific and engineering decisions in `docs/`. Model weights and transient run outputs stay outside Git; selected numerical evidence is archived. The numerical API accepts finite point matrices and does not accept theorem identity, proof order, or graph edges. Proof provenance remains in external audit records. Syntax, exact truth-table, and pinned pretrained text encoders consume only normalized state content. The formal run also includes proof-sampling sensitivity, stricter diversity policies, baselines and graph-fidelity diagnostics.
+## History
 
-## Reproduce the formal study
+This repository is a research trail, and the tree above is only its current
+head. Four earlier lines of work — a synthetic distribution benchmark, two
+matched formal studies, a strategy-transfer experiment and the convex-hull
+"State object" investigation — ran before this one and are not in the tree.
+They are intact in the commit history, with what was known at each point.
 
-After installing the additional encoder dependencies and bootstrapping the pinned
-tools as described in the [reproduction guide](docs/reproduction.md):
+[`docs/history.md`](docs/history.md) maps each of them to its commits and says
+what it found. The whole pre-prune tree is one command away:
 
 ```bash
-noema corpus --output outputs/my-corpus --theorems 24 --proofs 64
-noema audit --corpus outputs/my-corpus/manifest.json --output outputs/my-audit
-# Freeze/review the actual sampling assignments before computing embeddings.
-noema formal --corpus outputs/my-corpus/manifest.json \
-  --freeze outputs/my-audit/splits.json --output outputs/my-formal
+git checkout full-research-trail
 ```
-
-Corpus and formal analysis support `--resume` for incomplete checkpoints and
-refuse to overwrite completed results. The checksummed corpus and all three
-embedding caches are committed under `results/corpus-v1/` and `results/formal-v1/`.
-The reproduction guide also shows how to use these archives without recollecting
-proofs or recomputing embeddings.
-
-The completed added-information test supplies no positive evidence for opening
-cross-theorem overlap mining or making mathematical-discovery claims. Cross-domain
-H3/H4 remain untested in this single-domain population.

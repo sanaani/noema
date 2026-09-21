@@ -1,8 +1,0 @@
-{
-  "same_seed_reproduction_exact": true,
-  "arrays": 9,
-  "experiments": 90000,
-  "paired_comparisons": 810000,
-  "qualified_n": 512,
-  "scope": "Recomputation of frozen simulation, not independent statistical replication."
-}

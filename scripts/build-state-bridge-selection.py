@@ -14,6 +14,7 @@ Columns: Lean reports 0-based columns; the replay subtracts 1 from
 `raw_record.start/end`, matching LeanDojo's 1-based convention, so columns are
 written back out 1-based here.
 """
+
 import argparse
 import gzip
 import hashlib
@@ -34,7 +35,7 @@ def main():
     sources = args.out / "proof-sources"
     sources.mkdir(parents=True, exist_ok=True)
 
-    rows = [json.loads(l) for l in args.ranges.open() if l.strip()]
+    rows = [json.loads(lem) for lem in args.ranges.open() if lem.strip()]
     resolved = [r for r in rows if "missing" not in r]
     skipped = [r for r in rows if "missing" in r]
 
@@ -59,35 +60,45 @@ def main():
         art = artifacts[r["module"]]
         text = (args.mathlib / rel).read_text(encoding="utf-8").split("\n")
         (sl, sc), (el, ec) = r["start"], r["end"]
-        body = "\n".join(text[sl - 1:el])
+        body = "\n".join(text[sl - 1 : el])
         pid = hashlib.sha256(f"{args.source_tag}:{r['name']}:{art['sha256']}".encode()).hexdigest()
-        proofs.append({
-            "id": pid,
-            "theorem_id": "mathlib:" + r["name"],
-            "source": args.source_tag,
-            "source_artifact": art,
-            "raw_record": {
-                "commit": args.commit,
-                "file_path": str(rel),
-                "full_name": r["name"],
-                "start": [sl, sc + 1],
-                "end": [el, ec + 1],
-            },
-            "kernel_declaration_identity": {
-                "found": True, "module": r["module"], "name": r["name"],
-                "start": [sl, sc + 1], "end": [el, ec + 1],
-            },
-            "body": body,
-            "body_extraction": "Lean declRangeExt span; whole module archived",
-            "source_span_verified": True,
-            "states": [],
-            "trace_complete": False,
-            "verification": "noema DeclRanges span, pinned checkout",
-        })
-        theorems.append({
-            "id": "mathlib:" + r["name"], "name": r["name"], "family": "mathlib",
-            "proof_ids": [pid], "module": r["module"],
-        })
+        proofs.append(
+            {
+                "id": pid,
+                "theorem_id": "mathlib:" + r["name"],
+                "source": args.source_tag,
+                "source_artifact": art,
+                "raw_record": {
+                    "commit": args.commit,
+                    "file_path": str(rel),
+                    "full_name": r["name"],
+                    "start": [sl, sc + 1],
+                    "end": [el, ec + 1],
+                },
+                "kernel_declaration_identity": {
+                    "found": True,
+                    "module": r["module"],
+                    "name": r["name"],
+                    "start": [sl, sc + 1],
+                    "end": [el, ec + 1],
+                },
+                "body": body,
+                "body_extraction": "Lean declRangeExt span; whole module archived",
+                "source_span_verified": True,
+                "states": [],
+                "trace_complete": False,
+                "verification": "noema DeclRanges span, pinned checkout",
+            }
+        )
+        theorems.append(
+            {
+                "id": "mathlib:" + r["name"],
+                "name": r["name"],
+                "family": "mathlib",
+                "proof_ids": [pid],
+                "module": r["module"],
+            }
+        )
 
     selected = {
         "proofs": proofs,
@@ -104,8 +115,10 @@ def main():
     }
     with gzip.open(args.out / "selected.json.gz", "wt") as f:
         json.dump(selected, f)
-    print(f"requested {len(rows)} | resolved {len(resolved)} | "
-          f"no-range {len(skipped)} | unreadable {len(unreadable)}")
+    print(
+        f"requested {len(rows)} | resolved {len(resolved)} | "
+        f"no-range {len(skipped)} | unreadable {len(unreadable)}"
+    )
     print(f"proofs {len(proofs)} | modules archived {len(artifacts)} -> {sources}")
 
 

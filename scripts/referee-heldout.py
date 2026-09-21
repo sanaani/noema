@@ -46,8 +46,9 @@ def main():
             cands = [target] + sel["background"] + sel["hard_controls"].get(anchor, [])
             missing = [c for c in [anchor] + cands if c not in index]
             if missing:
-                case["directions"].append({"anchor": anchor, "target": target,
-                                           "unevaluable": missing})
+                case["directions"].append(
+                    {"anchor": anchor, "target": target, "unevaluable": missing}
+                )
                 continue
             d = {"anchor": anchor, "target": target, "candidates": len(cands) - 1}
             for tag, M in (("frozen", X), ("head", P)):
@@ -55,14 +56,17 @@ def main():
                 dist = 1.0 - M[[index[c] for c in cands]] @ M[ai]
                 lex = sel["hard_controls"].get(anchor, [])
                 lex_d = [dist[cands.index(c)] for c in lex if c in index]
-                d[tag] = {"target_rank": rank_of(dist[0], dist[1:]),
-                          "best_lexical_rank": rank_of(min(lex_d), dist[1:]) if lex_d else None,
-                          "beats_lexical": bool((dist[0] < min(lex_d) - 1e-12)) if lex_d else None}
+                d[tag] = {
+                    "target_rank": rank_of(dist[0], dist[1:]),
+                    "best_lexical_rank": rank_of(min(lex_d), dist[1:]) if lex_d else None,
+                    "beats_lexical": bool(dist[0] < min(lex_d) - 1e-12) if lex_d else None,
+                }
             case["directions"].append(d)
         out_cases.append(case)
     args.output.mkdir()
     args.output.joinpath("referee.json").write_text(
-        json.dumps({"families": args.families, "cases": out_cases}, indent=2) + "\n")
+        json.dumps({"families": args.families, "cases": out_cases}, indent=2) + "\n"
+    )
     for c in out_cases:
         for d in c["directions"]:
             if "unevaluable" in d:
@@ -70,9 +74,11 @@ def main():
                 continue
             for tag in ("frozen", "head"):
                 r = d[tag]
-                print(f"{c['label']} {d['anchor']}->{d['target']} [{tag}]: "
-                      f"target_rank={r['target_rank']}/{d['candidates']} "
-                      f"best_lexical={r['best_lexical_rank']} beats_lexical={r['beats_lexical']}")
+                print(
+                    f"{c['label']} {d['anchor']}->{d['target']} [{tag}]: "
+                    f"target_rank={r['target_rank']}/{d['candidates']} "
+                    f"best_lexical={r['best_lexical_rank']} beats_lexical={r['beats_lexical']}"
+                )
     print("REFEREE DONE", flush=True)
 
 

@@ -55,7 +55,7 @@ def main():
         perm = rng.permutation(n)
         tot, nb = 0.0, 0
         for s in range(0, n, BATCH):
-            b = perm[s:s + BATCH]
+            b = perm[s : s + BATCH]
             XA, XP = X[pairs[b, 0]], X[pairs[b, 1]]
             neg_idx = rng.integers(0, len(names), size=(len(b), NEG))
             XN = X[neg_idx]
@@ -91,10 +91,22 @@ def main():
 
     args.output.mkdir()
     np.save(args.output / "head.npy", W, allow_pickle=False)
-    args.output.joinpath("train-metrics.json").write_text(json.dumps({
-        "pairs": len(pairs), "seed": SEED, "dim": DIM, "neg": NEG,
-        "margin": MARGIN, "lr": lr, "epochs": epochs, "loss": losses,
-    }, indent=2) + "\n")
+    args.output.joinpath("train-metrics.json").write_text(
+        json.dumps(
+            {
+                "pairs": len(pairs),
+                "seed": SEED,
+                "dim": DIM,
+                "neg": NEG,
+                "margin": MARGIN,
+                "lr": lr,
+                "epochs": epochs,
+                "loss": losses,
+            },
+            indent=2,
+        )
+        + "\n"
+    )
     print("TRAIN DONE", flush=True)
 
 
