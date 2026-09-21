@@ -11,18 +11,27 @@ can answer: *which two theorems should be connected, but have not been yet?*
 That last question is still open. What follows is the evidence collected so far
 that the map is measuring something real.
 
-## Three measurements
+## Three measurements, and the control that decides how to read them
 
 | | what it asks | result |
 |---|---|---|
 | [Replication](results/state-bridge-v1/README.md) | do proofs sharing a rare lemma have nearer centroids? | AUC **0.877**, margin over shuffled control **+0.164** |
 | [Betweenness](results/state-bridge-v1/README.md) | does a known bridge theorem sit *between* its two endpoints? | all **6/6** families in the top 4.3% of 1,795 objects, four in the top 1.4% |
 | [Forward test](results/mathlib-forward-v1/README.md) | does the 2024 map point at links Mathlib only made by 2026? | angle **AUC 0.958** against proof size's 0.498 and vocabulary overlap's 0.764 |
+| [α-rename control](results/rename-control-v1/README.md) | does any of it survive deleting every variable name? | all three: forward **0.964**, betweenness **6/6 in the top 3.3%**, replication margin **+0.162** |
 
 1,797 Mathlib theorems, 99,275 captured proof states, 23,874 unique state texts,
 encoded with the pinned ReProver ByT5 retriever. The corpus was built by
 expanding outward from six known bridge families, so it is a positive control by
 construction.
+
+The fourth row is the one that decides how to read the first three. The encoder
+consumes pretty-printed text, so every result above could have been stylometry —
+the map recognising an author's naming habits rather than any mathematics. It is
+not: renaming every binder and hypothesis in all 1,797 theorems, certified in
+Lean, leaves each measurement where it was or slightly better, while the purely
+lexical baseline it is scored against drops from 0.764 to 0.610. The ablation
+demonstrably removed information and the geometry did not depend on it.
 
 **Betweenness is the load-bearing one.** The replication shares a confound with
 its own target: proof size alone predicts "these two proofs share a rare lemma"
@@ -67,7 +76,10 @@ fragile number: it rests on four pairs, and dropping that one hub leaves one.
   pairs share 17.0% of their state vocabulary against 7.7% for an average
   eligible pair. The angle's 0.958 is well clear of that, and 3 of the 22 hits
   share under 5%, but "still separates where words give little" is the
-  defensible claim, not "vocabulary-independent".
+  defensible claim, not "vocabulary-independent". The α-rename arm sharpens this
+  rather than settling it: stripping names costs the lexical baseline 15 points
+  (0.764 → 0.610) without costing the angle anything, so the angle is not riding
+  on *naming*, but 0.610 is still well above chance and constants are untouched.
 - **It is not a subfield detector, which was the most plausible deflation.**
   Same area means same people working in the same active corner of Mathlib, and
   those pairs get connected later anyway — so the angle could predict the label
@@ -76,23 +88,21 @@ fragile number: it rests on four pairs, and dropping that one hub leaves one.
   angle predicts "same area" at only 0.656, "same area" predicts the 2026 label
   at only 0.660, and on cross-area pairs alone — where the confound cannot
   operate — the angle still scores **0.955 on 13 hits** against 0.958 overall.
-  That rules out this story. It does not rule out an α-rename effect, which is
-  a different thing and still untested.
+  That rules out this story, and the α-rename effect — a different story, and
+  the one that stayed open longest — is ruled out separately below.
 - The forward label is `git grep` over full declaration names, so it misses
   citations under an `open` namespace and does not check that a citation is
   load-bearing. Both attenuate rather than inflate.
-- **Rename robustness is the open threat.** On a single probed state, renaming
-  `n` to `myNumber` moves it 48.1° where changing the mathematics moves it 56.4°
-  — a cosmetic edit doing ~85% of the work of a real one ([issue
-  #2](https://github.com/sanaani/noema/issues/2), where that probe and the
-  planned α-rename rerun are specified). A separate screen on eight Lean-core
-  fixtures is harsher still: it reports invariance **falsified 8/8** under
-  α-renaming and says its distances must not be read as relatedness
-  ([encoder-invariance-v1](results/encoder-invariance-v1/README.md)). That
-  screen uses different settings from the main run — CPU `int8_float32`,
-  initial-state centers, eight toy fixtures — so it does not directly indict the
-  1,797-theorem geometry, and nothing here yet clears it either. If the bridges
-  do not survive α-renaming, much of this is stylometry.
+- **Exact invariance is false; discriminative invariance holds.** The encoder
+  is not name-blind, and never was: under α-renaming the centroids move a median
+  **20.0°** (quartiles 15.2–26.3, max 69.5°), with only 31 of 1,797 theorems
+  left under 1°. The 8/8 falsification in
+  [encoder-invariance-v1](results/encoder-invariance-v1/README.md) and the 48.1°
+  single-state probe in [issue #2](https://github.com/sanaani/noema/issues/2)
+  are both confirmed. What they do not imply is what was feared: everything
+  moves *together*, so the arrangement the three tests read is preserved and all
+  three survive ([rename-control-v1](results/rename-control-v1/README.md)).
+  Distances here still must not be read as absolute relatedness — only as rank.
 - **The statement-embedding null is not a like-for-like comparison.** Five
   encoders on theorem statements put the four prespecified targets nearer than 98.8–99.2% of
   background controls — they pass the bar the tests above are scored against.
@@ -100,10 +110,13 @@ fragile number: it rests on four pairs, and dropping that one hub leaves one.
   target was nearer only 12.5–18.8% of the time, so the proximity tracks
   wording
   ([semantic-encoder-evaluation-v1](results/semantic-encoder-evaluation-v1/README.md)).
-  Betweenness and the forward test have never been put through that lexical
-  control, so "statements fail, states succeed" is not established — the two
-  were held to different bars. The honest reading is that a lexical control is
-  the obvious next screen for the state geometry, and it has not been run.
+  Betweenness and the forward test have never been put through *that* control,
+  so "statements fail, states succeed" is not established — the two were held to
+  different bars. The α-rename arm closes part of the gap and not all of it: it
+  ablates names and measures what the ablation cost the lexical baseline, which
+  is a real lexical screen, but it is not the word-matched-decoy construction
+  the statement encoders failed. Building those decoys for proof states remains
+  the obvious next screen, and it has not been run.
 - Nothing was fitted to the three measurements above: they are distances
   between frozen ReProver vectors, with no learned component anywhere. A
   trained linear head existed in an earlier line of work, over Qwen vectors of
@@ -128,6 +141,9 @@ results/
   state-bridge-v1/      the replication and betweenness tests
   mathlib-forward-v1/   the 2024 -> 2026 forward test, its centroids, and the
                         independence and vocabulary checks on it
+  rename-control-v1/    all three measurements rerun with every binder and
+                        hypothesis renamed in Lean under a structural
+                        certificate; the arms, the prespecification, the verdict
   bridge-expansion-v1/  the six machine-checked (A, B, bridge) families
   bridge-conjecture-v1/ a machine-proposed, machine-checked bridge — proposed by
                         the earlier statement ranker, not by the state geometry
@@ -161,6 +177,21 @@ The analyses read committed artifacts:
 .venv/bin/python scripts/analyze-size-confound.py           # proof size on both labels
 .venv/bin/python scripts/analyze-state-bridge.py            # needs the vectors, see below
 ```
+
+The α-rename control compares two arms of one encode, so it needs that encode's
+vectors (517 MB, not committed) rather than the centroids:
+
+```bash
+.venv/bin/python scripts/analyze-rename-control.py \
+    --arms outputs/rename-control-v1/arms \
+    --vectors outputs/rename-control-v1/vectors/reprover-embeddings.npz
+```
+
+Its two exported centroid files *are* committed
+([`centroids-original.npz`](results/rename-control-v1/centroids-original.npz),
+[`centroids-alpha.npz`](results/rename-control-v1/centroids-alpha.npz)), so the
+forward, vocabulary and independence scripts can be pointed at either arm with
+`--centroids` without rebuilding anything.
 
 The first six need nothing but the repository, and CI runs all six. The five
 that read `results/mathlib-forward-v1/centroids.npz` use it as 1,797 unit
