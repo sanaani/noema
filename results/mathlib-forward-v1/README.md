@@ -75,11 +75,20 @@ angles were 40, 41, 52, 53, 64, 75 → ranks 6, 9, 11, 25, 69, 78 out of 1,795
 (`results/state-bridge-v1/`). That reading came first, from six historical
 bridges, before this label existed. Two independent measurements, one band.
 
-## Status: pilot, not a sealed test
+## Status: open, not final
 
-The band was chosen with the table above visible. Confirming it means splitting
-the window at 2025 — tune on 2024→2025, commit and hash the script, then open
-2025→2026 exactly once.
+**This is one measurement, not a conclusion.** Nothing here closes the question
+the project exists to ask, which is whether the geometry can find a connection
+*nobody has made yet*. Everything below is a connection humans already made; we
+only showed the 2024 map had ranked those pairs highly beforehand.
+
+The band edges were fixed with the table above visible. Mitigating that:
+"40–55°" was published to issue #1 at 15:05:53Z and this analysis was committed
+at 15:31:00Z, so the comment and commit timestamps are the preregistration.
+
+A sealed 2025-split rerun was considered and **rejected**. Splitting 22
+positives into two windows of roughly 11 costs more power than the ceremony
+buys, and the evidence is already thin.
 
 Two more caveats. The label is `git grep` over full names: it misses anything
 written under an `open` namespace and does not check that a citation is
@@ -99,4 +108,34 @@ replication target and is not controlled here.
 
 Regenerating these needs a shallow fetch of current Mathlib into
 `outputs/eligibility-v1/mathlib` (`git fetch --depth=1 origin 09712d48`), which
-is slow. They are committed so the sealed run does not have to redo it.
+is slow. They are committed so a rerun does not have to redo it.
+
+## What is still open
+
+Ordered by how much each would change the picture.
+
+1. **Find a bridge nobody has built.** Untested, and it is the whole point.
+   Everything measured so far is recognition of links that already exist.
+2. **Real dependency data instead of `git grep`.** 22 positives is almost
+   certainly an undercount — grep cannot see a theorem cited under an `open`
+   namespace, or one renamed since 2024. Compiling Mathlib would likely turn
+   22 into a hundred-plus in the same window, which is the cheapest route to
+   the statistical power this needs.
+3. **Rename robustness** (issue #2). A cosmetic rename moves a state 48.1°
+   against 56.4° for a genuine mathematical change. If the bridges do not
+   survive alpha-renaming, much of this is stylometry.
+4. **A corpus not seeded on the six families.** This one was built by expanding
+   outward from the benchmark seeds, which is correct as a positive control but
+   says nothing about whether the band generalizes.
+5. **Vocabulary independence, properly.** 7 of the 25 hits share under 5% of
+   their state vocabulary, so the map does work where words give almost
+   nothing — but the hits overall share *more* vocabulary than random pairs
+   (17.6% vs 6.7%), so words are doing some of the work. The defensible claim
+   is "still works when vocabulary gives little", not "vocabulary-independent".
+
+## What would overturn this
+
+- Bridges failing to survive alpha-renaming (3).
+- The band not reproducing on an unseeded corpus (4).
+- Proper dependency labels revealing many connected pairs at 85°+, which would
+  mean the angle was selecting on something incidental.

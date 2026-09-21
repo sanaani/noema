@@ -26,9 +26,15 @@ Result at time of writing, over 1,530,134 eligible pairs (base rate 1/69,551):
 independent: the band was read off the historical bridges before this label
 existed. "Closest" is the wrong rule — the closest pairs are renames.
 
-STATUS: PILOT, NOT A SEALED TEST. The band was chosen with this table visible.
-Confirming it means splitting the window at 2025, tuning on 2024->2025,
-committing the script, then opening 2025->2026 once. See issue #4.
+STATUS: OPEN, NOT FINAL. This is one measurement, not a conclusion. The band
+edges were fixed with this table visible, though "40-55 deg" was published to
+issue #1 twenty-five minutes before this ran, so the commit and comment
+timestamps serve as the preregistration.
+
+A sealed 2025-split rerun was considered and REJECTED: splitting 22 positives
+across two windows costs more statistical power than the ceremony buys. What
+would actually strengthen this is listed under "What is still open" in
+results/mathlib-forward-v1/README.md.
 
 Two further caveats. The label comes from `git grep` over full names, so it
 misses anything written under an `open` namespace and does not check that a

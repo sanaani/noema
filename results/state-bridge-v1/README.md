@@ -64,3 +64,22 @@ matters, not the raw detour.
   diameter, affine dimension or hull separation must exclude them.
 - `"no goals"` is excluded from every centroid (`--max-state-df 0.5`). Left in,
   the test scores AUC 0.702 on random vectors. See the script docstring.
+
+## Status: open, not final
+
+These two tests were the decision point named in issue #1, and betweenness
+passed. That licenses continuing the line of work. It does not establish that
+the geometry can find a connection nobody has made — every bridge here was
+known in advance, and the corpus was deliberately seeded with them as a
+positive control.
+
+The follow-on measurement is `results/mathlib-forward-v1/`: freeze this model
+at 2024, and check it against connections Mathlib formalized over the
+following two years. Its README carries the current open questions, which
+supersede the list below.
+
+One number from there belongs here, because it changes how Test 1 should be
+read: **proof size predicts the 2026 label at AUC 0.515** — a coin flip —
+against the angle's 0.958. So the size confound that eats most of Test 1's
+0.877 does not touch the forward result. Test 1 remains the weaker of the two.
+
