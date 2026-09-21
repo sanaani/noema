@@ -53,9 +53,7 @@ def main():
     )
     ap.add_argument("--families", type=Path, default=ROOT / "results/state-bridge-v1/report.json")
     ap.add_argument("--draws", type=int, default=5000)
-    ap.add_argument(
-        "--out", type=Path, default=ROOT / "results/mathlib-forward-v1/independence.json"
-    )
+    ap.add_argument("--out", type=Path)
     args = ap.parse_args()
 
     cen, _ = forward.centroids_from_archive(args.centroids)
@@ -178,6 +176,8 @@ def main():
         "\nfour pairs, and removing one hub theorem leaves one. Read the AUC."
     )
 
+    if not args.out:
+        return
     args.out.write_text(
         json.dumps(
             {

@@ -81,7 +81,7 @@ def main():
         "--connectors", type=Path, default=ROOT / "results/mathlib-forward-v1/new-connectors.json"
     )
     ap.add_argument("--threshold", type=float, default=0.05)
-    ap.add_argument("--out", type=Path, default=ROOT / "results/mathlib-forward-v1/vocabulary.json")
+    ap.add_argument("--out", type=Path)
     args = ap.parse_args()
 
     cen, _ = forward.centroids_from_archive(args.centroids)
@@ -137,8 +137,9 @@ def main():
         print(f"  {name:>7}  {counts.get(k, 0)}")
     report["positive_histogram"] = {labels[k]: counts.get(k, 0) for k in range(len(labels))}
 
-    args.out.write_text(json.dumps(report, indent=2) + "\n")
-    print(f"\nwrote {args.out}")
+    if args.out:
+        args.out.write_text(json.dumps(report, indent=2) + "\n")
+        print(f"\nwrote {args.out}")
 
 
 if __name__ == "__main__":

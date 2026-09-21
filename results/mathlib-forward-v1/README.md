@@ -105,7 +105,7 @@ lemmas about the same function — "someone later cited both" is close to free.
 More generally the 22 pairs are carried by 32 theorems, with `Complex.exp_add`
 in four of them, `Complex.exp_neg` and `FiniteField.card` in three each. They
 are not 22 independent observations, and `scripts/analyze-forward-independence.py`
-takes that apart (`independence.json`):
+takes that apart (`--out independence.json` for the committed copy):
 
 | subset | n | AUC | 45–55° hits | lift |
 |---|---|---|---|---|
@@ -127,7 +127,7 @@ number this result rests on.
 
 ## How much of it is just shared words?
 
-`scripts/analyze-forward-vocabulary.py` (`vocabulary.json`) scores token overlap
+`scripts/analyze-forward-vocabulary.py` (`--out vocabulary.json`) scores token overlap
 between the two theorems' state texts on the same label:
 
 | predictor | AUC on the 2026 label |

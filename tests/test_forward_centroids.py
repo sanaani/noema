@@ -74,8 +74,13 @@ def test_committed_centroids_reproduce_the_published_bands():
     minsize = np.fromiter(
         (min(size[names[a]], size[names[b]]) for a, b in zip(pi, pj, strict=True)), float, len(pi)
     )
-    assert forward.auc(-angle, label) == pytest.approx(published["auc_angle"], rel=1e-9)
-    assert forward.auc(minsize, label) == pytest.approx(published["auc_proof_size"], rel=1e-9)
+    # Six significant figures, not bit-identity. The 1,797x1,472 Gram matrix is a
+    # BLAS reduction, so its summation order follows the thread count: one thread
+    # and eight give 0.9581502411706998 against 0.9581502114640211. A handful of
+    # near-tied angles swap rank and the rank sum moves in the 8th digit. The
+    # published number is three digits; this is three orders tighter than that.
+    assert forward.auc(-angle, label) == pytest.approx(published["auc_angle"], rel=1e-6)
+    assert forward.auc(minsize, label) == pytest.approx(published["auc_proof_size"], rel=1e-6)
 
 
 @pytest.mark.skipif(
