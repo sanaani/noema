@@ -156,10 +156,21 @@ def load_centroids(vectors, index, max_df=0.5, shuffle_rng=None, verbose=False):
     return centroid, kind, states, len(texts)
 
 
+def open_maybe_gz(path):
+    """edges.jsonl is 148 MB and cannot go in git; the committed copy is gzipped.
+    Accept either, so an existing working tree with the plain file still runs."""
+    path = Path(path)
+    if path.suffix == ".gz" or not path.exists():
+        gz = path if path.suffix == ".gz" else path.with_suffix(path.suffix + ".gz")
+        if gz.exists():
+            return gzip.open(gz, "rt")
+    return path.open()
+
+
 def landmarks(names, edges):
     df, deps, mod = collections.Counter(), {}, {}
     want = set(names)
-    for line in open(edges):
+    for line in open_maybe_gz(edges):
         r = json.loads(line)
         d = r.get("deps")
         if not d:
@@ -291,7 +302,7 @@ def main():
                     default=root / "outputs/state-bridge-v1/vectors/reprover-embeddings.npz")
     ap.add_argument("--index", type=Path,
                     default=root / "outputs/state-bridge-v1/encode/text-index.jsonl.gz")
-    ap.add_argument("--edges", type=Path, default=root / "results/link-graph-v1/edges.jsonl")
+    ap.add_argument("--edges", type=Path, default=root / "results/link-graph-v1/edges.jsonl.gz")
     ap.add_argument("--out", type=Path)
     ap.add_argument("--permutations", type=int, default=20000)
     ap.add_argument("--max-state-df", type=float, default=0.5,
