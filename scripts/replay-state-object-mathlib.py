@@ -160,9 +160,16 @@ def run_file(records, args):
             and begin <= position(n["pos"])
             and position(n["endPos"]) <= end
         ]
+        # Both arms travel in one record, so an original state and its
+        # alpha-renamed counterpart can never be mispaired downstream. A REPL
+        # without the alpha arm leaves the fields empty rather than failing.
         states = [
             {
                 "text": node[key],
+                "alpha_text": node.get(alpha_key, ""),
+                "alpha_certified": bool(node.get(alpha_key)),
+                "alpha_definitional": bool(node.get("alphaDefinitional", False)),
+                "alpha_reason": node.get("alphaReason", ""),
                 "kind": kind,
                 "tactic": node["tactic"],
                 "tactic_index": i,
@@ -170,7 +177,10 @@ def run_file(records, args):
                 "endPos": node["endPos"],
             }
             for i, node in enumerate(nodes)
-            for key, kind in (("goals", "state_before"), ("goalsAfter", "state_after"))
+            for key, alpha_key, kind in (
+                ("goals", "goalsAlpha", "state_before"),
+                ("goalsAfter", "goalsAfterAlpha", "state_after"),
+            )
             if node.get(key)
         ]
         complete = (

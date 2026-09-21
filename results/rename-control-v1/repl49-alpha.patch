@@ -1,0 +1,82 @@
+diff --git a/REPL/JSON.lean b/REPL/JSON.lean
+index 10cd880..0e76e89 100644
+--- a/REPL/JSON.lean
++++ b/REPL/JSON.lean
+@@ -101,6 +101,16 @@ structure Tactic where
+   pos : Pos
+   endPos : Pos
+   goals : String
++  goalsAfter : String := ""
++  /-- The same states with every binder and hypothesis renamed positionally.
++  Empty when the rename was not certified; read `alphaCertified` first. -/
++  goalsAlpha : String := ""
++  goalsAfterAlpha : String := ""
++  /-- False if any goal in either state failed its rename certificate. -/
++  alphaCertified : Bool := true
++  /-- True only where every goal was closed enough to also pass `isDefEq`. -/
++  alphaDefinitional : Bool := true
++  alphaReason : String := ""
+   tactic : String
+   proofState : Option Nat
+ deriving ToJson, FromJson
+diff --git a/REPL/Lean/InfoTree.lean b/REPL/Lean/InfoTree.lean
+index ac4ffb6..d2ead54 100644
+--- a/REPL/Lean/InfoTree.lean
++++ b/REPL/Lean/InfoTree.lean
+@@ -158,7 +158,7 @@ partial def findAllInfo (t : InfoTree) (ctx? : Option ContextInfo) (p : Info →
+ each equipped with its relevant `ContextInfo`. -/
+ def findTacticNodes (t : InfoTree) : List (TacticInfo × ContextInfo) :=
+   let infos := t.findAllInfo none fun i => match i with
+-  | .ofTacticInfo i' => i.isOriginal && i'.isSubstantive
++  | .ofTacticInfo _ => i.isOriginal
+   | _ => false
+   infos.filterMap fun p => match p with
+   | (.ofTacticInfo i, some ctx) => (i, ctx)
+diff --git a/REPL/Main.lean b/REPL/Main.lean
+index 47d6065..06f913f 100644
+--- a/REPL/Main.lean
++++ b/REPL/Main.lean
+@@ -11,6 +11,7 @@ import REPL.Lean.Environment
+ import REPL.Lean.InfoTree
+ import REPL.Lean.InfoTree.ToJson
+ import REPL.Snapshots
++import REPL.Alpha
+ 
+ /-!
+ # A REPL for Lean.
+@@ -115,13 +116,28 @@ def ppTactic (ctx : ContextInfo) (stx : Syntax) : IO Format :=
+     pure "<failed to pretty print>"
+ 
+ def tactics (trees : List InfoTree) : M m (List Tactic) :=
+-  trees.bind InfoTree.tactics |>.mapM
+-    fun ⟨ctx, stx, goals, pos, endPos⟩ => do
+-      let proofState := some (← ProofSnapshot.create ctx none none goals)
+-      let goals := s!"{(← ctx.ppGoals goals)}".trim
+-      let tactic := Format.pretty (← ppTactic ctx stx)
+-      let proofStateId ← proofState.mapM recordProofSnapshot
+-      return Tactic.of goals tactic pos endPos proofStateId
++  trees.bind InfoTree.findTacticNodes |>.mapM
++    fun ⟨info, ctx⟩ => do
++      let beforeCtx := { ctx with mctx := info.mctxBefore, ngen := ctx.ngen.mkChild.1 }
++      let afterCtx := { ctx with mctx := info.mctxAfter, ngen := ctx.ngen.mkChild.1 }
++      let goals ← if info.goalsBefore.isEmpty then pure "no goals"
++        else pure s!"{(← beforeCtx.ppGoals info.goalsBefore)}".trim
++      let goalsAfter ← if info.goalsAfter.isEmpty then pure "no goals"
++        else pure s!"{(← afterCtx.ppGoals info.goalsAfter)}".trim
++      let scheme := REPL.Alpha.canonical
++      let (goalsAlpha, okBefore, whyBefore, defBefore) ←
++        REPL.Alpha.ppGoalsRenamed beforeCtx info.goalsBefore scheme
++      let (goalsAfterAlpha, okAfter, whyAfter, defAfter) ←
++        REPL.Alpha.ppGoalsRenamed afterCtx info.goalsAfter scheme
++      let tactic := Format.pretty (← ppTactic beforeCtx info.stx)
++      let (pos, endPos) := stxRange ctx.fileMap info.stx
++      return { (Tactic.of goals tactic pos endPos none) with
++        goalsAfter := goalsAfter
++        goalsAlpha := if okBefore then goalsAlpha else ""
++        goalsAfterAlpha := if okAfter then goalsAfterAlpha else ""
++        alphaCertified := okBefore && okAfter
++        alphaDefinitional := defBefore && defAfter
++        alphaReason := if okBefore then whyAfter else whyBefore }
+ 
+ /-- Record a `ProofSnapshot` and generate a JSON response for it. -/
+ def createProofStepReponse (proofState : ProofSnapshot) (old? : Option ProofSnapshot := none) :
