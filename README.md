@@ -234,3 +234,13 @@ git checkout full-research-trail   # tag on 2e56503, the commit before the prune
 
 2,128 files against the 418 here. `a44f244` is the prune itself: 1,743 files,
 1,663,285 deletions, no new work.
+
+## License
+
+[Apache-2.0](LICENSE), matching Lean and Mathlib, so the pinned Mathlib, the
+vendored `REPL` fork and this work all sit under one license.
+
+Imported material keeps its own terms and is not relicensed here: the Lean REPL
+carries its original Apache-2.0 headers, the ReProver export is the authors',
+and `results/state-object-v1/source-manifests/` retains the publisher notices
+for everything it archived.
