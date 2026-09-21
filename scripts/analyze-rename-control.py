@@ -61,26 +61,44 @@ def main():
         centroids = args.out / f"centroids-{arm}.npz"
         run(
             "export-forward-centroids.py",
-            "--vectors", args.vectors, "--index", index,
-            "--max-state-df", args.max_state_df, "--out", centroids,
+            "--vectors",
+            args.vectors,
+            "--index",
+            index,
+            "--max-state-df",
+            args.max_state_df,
+            "--out",
+            centroids,
         )
         forward_out = args.out / f"forward-{arm}.json"
         text = run(
             "analyze-mathlib-forward.py",
             # A path that cannot exist forces the committed-centroid path, so
             # both arms are scored from their exported centroids identically.
-            "--vectors", "/nonexistent", "--centroids", centroids,
-            "--out", forward_out,
+            "--vectors",
+            "/nonexistent",
+            "--centroids",
+            centroids,
+            "--out",
+            forward_out,
         )
         vocabulary_out = args.out / f"vocabulary-{arm}.json"
         run(
             "analyze-forward-vocabulary.py",
-            "--states", states, "--centroids", centroids, "--out", vocabulary_out,
+            "--states",
+            states,
+            "--centroids",
+            centroids,
+            "--out",
+            vocabulary_out,
         )
         independence_out = args.out / f"independence-{arm}.json"
         run(
             "analyze-forward-independence.py",
-            "--centroids", centroids, "--out", independence_out,
+            "--centroids",
+            centroids,
+            "--out",
+            independence_out,
         )
         per_arm[arm] = {
             "forward": json.loads(forward_out.read_text()),
@@ -144,11 +162,15 @@ def main():
 
     print(f"{'':<34}{'original':>10}{'alpha':>10}")
     print(f"{'forward angle AUC':<34}{o:>10.3f}{a:>10.3f}")
-    print(f"{'vocabulary baseline AUC':<34}"
-          f"{report['auc_vocabulary_original'] or float('nan'):>10.3f}{v:>10.3f}")
-    print(f"\ncentroid shift under renaming: median {np.median(shift):.1f}deg "
-          f"(p25 {np.percentile(shift, 25):.1f}, p75 {np.percentile(shift, 75):.1f}), "
-          f"{int((shift < 1).sum())} theorems unmoved")
+    print(
+        f"{'vocabulary baseline AUC':<34}"
+        f"{report['auc_vocabulary_original'] or float('nan'):>10.3f}{v:>10.3f}"
+    )
+    print(
+        f"\ncentroid shift under renaming: median {np.median(shift):.1f}deg "
+        f"(p25 {np.percentile(shift, 25):.1f}, p75 {np.percentile(shift, 75):.1f}), "
+        f"{int((shift < 1).sum())} theorems unmoved"
+    )
     print(f"\nprespecified verdict: {verdict.upper()}")
     print(f"wrote {args.out}/comparison.json")
 
