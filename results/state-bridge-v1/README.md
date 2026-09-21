@@ -1,0 +1,66 @@
+# State-bridge v1 — replication and betweenness
+
+1,797 Mathlib theorems, 99,275 captured proof states, 23,874 unique texts,
+encoded with the pinned ReProver ByT5 retriever on an L40S (`device: cuda`,
+`int8_float32`, uncapped tokenization — the archive's own settings). 366s.
+
+Reproduce: `.venv/bin/python scripts/analyze-state-bridge.py`
+
+## 1. Replication
+
+| measure | encoder | shuffled control | margin |
+|---|---|---|---|
+| AUC, all pairs | **0.877** | 0.714 | **+0.164** |
+| AUC, cross-area only | **0.863** | 0.749 | **+0.114** |
+| AUC, disjoint-state pairs | 0.877 | 0.714 | +0.164 |
+
+n = 1,613,706 pairs, 83,572 positive. z = 368 against the analytic null;
+the 20,000-shuffle permutation p bottoms out at 1/20001 and carries no
+information at this scale. Observed-state objects alone: 0.863 / 0.850.
+
+The archive got 0.786 on 128 objects, 14 positives. This replicates it and
+exceeds it at 14x the objects and 6,000x the positives.
+
+**Read the margin, not the 0.877.** The control keeps every theorem's
+state-sharing structure and discards the encoder, and it still scores 0.714.
+That is not noise, it is proof size: `min(state count)` alone predicts the
+label at AUC 0.740. Large proofs cite more lemmas, so they are likelier to
+share a rare landmark, and their centroids sit nearer the corpus mean
+direction, so they are mutually similar. Both effects push the same way.
+The encoder's claim is the +0.164 it adds on top.
+
+## 2. Betweenness — the decision point
+
+Does each known bridge sit between its endpoints? Scored by detour ratio
+`(d(A,C) + d(C,B)) / d(A,B)` in angular distance, ranked against all 1,795
+other objects in the corpus.
+
+| family | detour | t | rank | percentile | control pct |
+|---|---|---|---|---|---|
+| Fourier | 1.453 | 0.17 | **6**/1795 | **0.3%** | 6.9% |
+| Galois | 1.647 | 0.59 | **9**/1795 | **0.5%** | 53.2% |
+| Euler criterion | 1.629 | 0.74 | **11**/1795 | **0.6%** | 49.5% |
+| Euler | 1.569 | 0.29 | **25**/1795 | **1.4%** | 92.1% |
+| FTC | 1.894 | 0.76 | **69**/1795 | **3.8%** | 72.0% |
+| Fermat | 4.845 | 0.54 | **78**/1795 | **4.3%** | 54.8% |
+
+All six bridges land in the top 4.3% of the corpus by betweenness, five in
+the top 1.4%. The shuffled control scatters across 6.9-92.1% (median ~54%),
+so this is not the sharing structure or the proof-size effect.
+
+Fermat's detour of 4.845 is an artifact of a very short baseline
+(d(A,B) = 0.541, the closest endpoint pair by far) — the ratio is inflated by
+its denominator, which is why the rank against the corpus is the number that
+matters, not the raw detour.
+
+## Caveats that travel with these numbers
+
+- The target is partly circular: proofs invoking the same lemma may share
+  state shape *because* of that lemma.
+- Proof size confounds the replication (see above). The betweenness test does
+  not share this weakness — its null is the corpus, scored the same way.
+- 5 of the 18 family members are synthetic single points (term-mode proofs,
+  initial goal). Fine for betweenness, which needs only a location. Any use of
+  diameter, affine dimension or hull separation must exclude them.
+- `"no goals"` is excluded from every centroid (`--max-state-df 0.5`). Left in,
+  the test scores AUC 0.702 on random vectors. See the script docstring.
