@@ -6,9 +6,10 @@ from pathlib import Path
 from tokenizers import Tokenizer
 
 from noema.comparison_encoders import save_json, sha
+from noema.paths import result_path
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "results/encoder-comparison-v1"
+OUT = result_path("encoder-comparison-v1")
 
 
 def main():

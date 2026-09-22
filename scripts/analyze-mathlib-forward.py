@@ -52,7 +52,7 @@ preregistered 40-55 the lift is 140x on the same four hits.
 A sealed 2025-split rerun was considered and REJECTED: splitting 17 positives
 across two windows costs more statistical power than the ceremony buys. What
 would actually strengthen this is listed under "What is still open" in
-results/mathlib-forward-v1/README.md.
+results/phase-1-recognition/mathlib-forward-v1/README.md.
 
 Three further caveats. The label comes from `git grep` over full names, so it
 misses anything written under an `open` namespace and does not check that a
@@ -71,6 +71,8 @@ import json
 from pathlib import Path
 
 import numpy as np
+
+from noema.paths import result_path
 
 ROOT = Path(__file__).resolve().parents[1]
 BANDS = [(0, 30), (30, 45), (45, 55), (55, 65), (65, 75), (75, 85), (85, 95), (95, 180)]
@@ -186,15 +188,15 @@ def main():
         default=ROOT / "outputs/state-bridge-v1/vectors/reprover-embeddings.npz",
     )
     ap.add_argument(
-        "--centroids", type=Path, default=ROOT / "results/mathlib-forward-v1/centroids.npz"
+        "--centroids", type=Path, default=result_path("mathlib-forward-v1/centroids.npz")
     )
     ap.add_argument(
-        "--index", type=Path, default=ROOT / "results/state-bridge-v1/text-index.jsonl.gz"
+        "--index", type=Path, default=result_path("state-bridge-v1/text-index.jsonl.gz")
     )
     ap.add_argument("--max-state-df", type=float, default=0.5)
-    ap.add_argument("--edges", type=Path, default=ROOT / "results/link-graph-v1/edges.jsonl.gz")
+    ap.add_argument("--edges", type=Path, default=result_path("link-graph-v1/edges.jsonl.gz"))
     ap.add_argument(
-        "--connectors", type=Path, default=ROOT / "results/mathlib-forward-v1/new-connectors.json"
+        "--connectors", type=Path, default=result_path("mathlib-forward-v1/new-connectors.json")
     )
     ap.add_argument("--out", type=Path)
     args = ap.parse_args()

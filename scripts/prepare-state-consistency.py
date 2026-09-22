@@ -2,8 +2,10 @@
 
 from pathlib import Path
 
+from noema.paths import result_path
+
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "results/state-consistency-v1"
+OUT = result_path("state-consistency-v1")
 
 HEADER = r"""
 import Noema.StateEncoding
@@ -195,7 +197,7 @@ def main():
             for identifier, term in zip(ids, terms, strict=True):
                 source += f'\nstate "{identifier}" : {term}\n'
             expected.append({"a": ids[0], "b": ids[1], "equal": kind == "equivalent"})
-    original = (ROOT / "results/encoder-invariance-v1/Fixtures.lean").read_text()
+    original = (result_path("encoder-invariance-v1/Fixtures.lean")).read_text()
     source += "\n theorem and_swap_0" + original.split("\n theorem and_swap_0", 1)[1]
     source += FOOTER
     for a, b, equal in [

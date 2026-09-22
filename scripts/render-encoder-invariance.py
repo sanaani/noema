@@ -6,11 +6,13 @@ from pathlib import Path
 import matplotlib
 import numpy as np
 
+from noema.paths import result_path
+
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "results/encoder-invariance-v1"
+OUT = result_path("encoder-invariance-v1")
 result = json.loads((OUT / "analysis.json").read_text())
 styles = {
     "original": ("Original", "#222222", "-"),

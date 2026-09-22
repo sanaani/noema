@@ -6,11 +6,13 @@ from pathlib import Path
 import matplotlib
 import numpy as np
 
+from noema.paths import result_path
+
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "results/encoder-comparison-v1"
+OUT = result_path("encoder-comparison-v1")
 NAMES = {
     "reprover": "ReProver (reference)",
     "minilm": "MiniLM",

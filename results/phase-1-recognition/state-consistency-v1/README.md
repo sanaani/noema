@@ -5,9 +5,9 @@ classes, 106 occurrence rows, zero repeat drift, and no collisions among 1,830
 distinct-class pairs. All 189 repository tests pass. This implements a usable
 encoding path and separates exact State identity and Lean-certified equivalence
 from numerical similarity. Use `Noema.capture` in
-[`lean/Noema/StateEncoding.lean`](../../lean/Noema/StateEncoding.lean) to capture
+[`lean/Noema/StateEncoding.lean`](../../../lean/Noema/StateEncoding.lean) to capture
 typed ordered obligations, then certify and freeze their equivalence registry.
-[`RegisteredStateEncoder`](../../src/noema/state_consistency.py) accepts only
+[`RegisteredStateEncoder`](../../../src/noema/state_consistency.py) accepts only
 registered structural inputs in the pinned environment. It returns separate
 physical rows for repeated occurrences; unknown inputs never fall back to text.
 
@@ -177,7 +177,7 @@ Compile the reusable capture module with the pinned Lean toolchain:
 ```bash
 .tools/lean-4.33.1-linux/bin/lean -o lean/Noema/StateEncoding.olean \
   lean/Noema/StateEncoding.lean
-LEAN_PATH=lean .tools/lean-4.33.1-linux/bin/lean results/state-consistency-v1/Suite.lean
+LEAN_PATH=lean .tools/lean-4.33.1-linux/bin/lean results/phase-1-recognition/state-consistency-v1/Suite.lean
 ```
 
 The suite includes all acquisition definitions and the complete pair comparison.
@@ -193,7 +193,7 @@ registry receipt:
 from pathlib import Path
 from noema.state_consistency import RegisteredStateEncoder
 
-encoder = RegisteredStateEncoder(Path("results/state-consistency-v1"), "qwen")
+encoder = RegisteredStateEncoder(Path("results/phase-1-recognition/state-consistency-v1"), "qwen")
 # records are nonempty structural State records acquired in this environment.
 vectors = encoder.encode(
     [record["payload"] for record in records],

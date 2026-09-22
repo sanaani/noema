@@ -48,6 +48,8 @@ from pathlib import Path
 
 import numpy as np
 
+from noema.paths import result_path
+
 SEED = 7
 FAMILIES = {
     "Euler": ("Real.sin_add", "Complex.exp_add", "Complex.exp_mul_I"),
@@ -347,7 +349,7 @@ def main():
     ap.add_argument(
         "--index", type=Path, default=root / "outputs/state-bridge-v1/encode/text-index.jsonl.gz"
     )
-    ap.add_argument("--edges", type=Path, default=root / "results/link-graph-v1/edges.jsonl.gz")
+    ap.add_argument("--edges", type=Path, default=result_path("link-graph-v1/edges.jsonl.gz"))
     ap.add_argument("--out", type=Path)
     ap.add_argument("--permutations", type=int, default=20000)
     ap.add_argument(

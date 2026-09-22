@@ -27,23 +27,33 @@ jobs:
       - run: ruff format --check .
       - run: python -m pytest
 
-      # Archived evidence: checksums, then the independent re-derivations that
-      # need no model download. The 128-object ReProver archive is what the
-      # first AUC 0.786 was measured on, so it is checked, not just stored.
-      - run: cd results/state-object-v1 && sha256sum -c SHA256SUMS
-      - run: python scripts/verify-state-object-archive.py --corpus results/state-object-v1/corpus.json.gz --analysis results/state-object-v1 --out "$RUNNER_TEMP/verification.json"
-      - run: cmp "$RUNNER_TEMP/verification.json" results/state-object-v1/verification.json
+      # Archived evidence. Every SHA256SUMS in every phase, so a new phase's
+      # archives are covered the day they land and nothing here names a phase.
+      - run: |
+          found=0
+          for f in results/phase-*/*/SHA256SUMS; do
+            [ -e "$f" ] || continue
+            echo "== $f"
+            ( cd "$(dirname "$f")" && sha256sum -c SHA256SUMS )
+            found=$((found + 1))
+          done
+          [ "$found" -gt 0 ] || { echo "no SHA256SUMS found"; exit 1; }
+          echo "verified $found archives"
+
+      # The 128-object ReProver archive is what the first AUC 0.786 was
+      # measured on, so it is re-derived, not just stored.
+      - run: |
+          python scripts/verify-state-object-archive.py \
+            --corpus results/phase-1-recognition/state-object-v1/corpus.json.gz \
+            --analysis results/phase-1-recognition/state-object-v1 \
+            --out "$RUNNER_TEMP/verification.json"
+          cmp "$RUNNER_TEMP/verification.json" \
+            results/phase-1-recognition/state-object-v1/verification.json
 
       # The forward test's label: every citation in new-connectors.json must be a
       # whole-name hit in the committed grep output, never a prefix of a longer
       # name. The full rebuild needs a Mathlib checkout; this check does not.
       - run: python scripts/build-forward-label.py --check
-      - run: cd results/historical-connections-v1 && sha256sum -c SHA256SUMS
-      - run: cd results/encoder-invariance-v1 && sha256sum -c SHA256SUMS
-      - run: cd results/encoder-comparison-v1 && sha256sum -c SHA256SUMS
-      - run: cd results/semantic-encoder-evaluation-v1 && sha256sum -c SHA256SUMS
-      - run: cd results/state-consistency-v1 && sha256sum -c SHA256SUMS
-      - run: cd results/rename-control-v1 && sha256sum -c SHA256SUMS
 
       # These run end to end from committed artifacts alone. The state-bridge
       # analysis cannot, because its shuffled control needs every state vector
@@ -64,16 +74,17 @@ jobs:
       # cannot run here; these are the parts that can.
       - run: |
           mkdir -p "$RUNNER_TEMP/rc"
+          rc=results/phase-1-recognition/rename-control-v1
           python scripts/analyze-mathlib-forward.py --vectors /nonexistent \
-            --centroids results/rename-control-v1/centroids-original.npz \
+            --centroids "$rc/centroids-original.npz" \
             --out "$RUNNER_TEMP/rc/forward-original.json"
           python scripts/analyze-mathlib-forward.py --vectors /nonexistent \
-            --centroids results/rename-control-v1/centroids-alpha.npz \
+            --centroids "$rc/centroids-alpha.npz" \
             --out "$RUNNER_TEMP/rc/forward-alpha.json"
           python scripts/analyze-forward-independence.py \
-            --centroids results/rename-control-v1/centroids-alpha.npz \
+            --centroids "$rc/centroids-alpha.npz" \
             --out "$RUNNER_TEMP/rc/independence-alpha.json"
-          python scripts/check-committed-numbers.py "$RUNNER_TEMP/rc" results/rename-control-v1 \
+          python scripts/check-committed-numbers.py "$RUNNER_TEMP/rc" "$rc" \
             forward-original.json forward-alpha.json independence-alpha.json
 
       # Nothing above may quietly rewrite a committed result.

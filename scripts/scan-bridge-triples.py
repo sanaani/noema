@@ -7,8 +7,10 @@ import sys
 import time
 from pathlib import Path
 
+from noema.paths import result_path
+
 ROOT = Path(__file__).resolve().parent.parent
-EDGES = ROOT / "results/link-graph-v1/edges.jsonl.gz"
+EDGES = result_path("link-graph-v1/edges.jsonl.gz")
 
 
 def open_maybe_gz(path):

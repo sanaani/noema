@@ -185,7 +185,7 @@ historical-example centers in a full-space distance matrix.
 From the repository root, with the original Lean binary on PATH:
 
 ```sh
-lake -d outputs/eligibility-v1/mathlib env lean -s 32768 results/historical-connections-v1/Selected.lean
+lake -d outputs/eligibility-v1/mathlib env lean -s 32768 results/phase-1-recognition/historical-connections-v1/Selected.lean
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python scripts/historical-connections.py encode
 OPENBLAS_NUM_THREADS=1 .venv/bin/python scripts/historical-connections.py analyze
 .venv/bin/python scripts/render-historical-connections.py

@@ -1,7 +1,7 @@
 """The forward test must reproduce from git alone, and its committed input must
 still be the collapse of the encode it claims to come from.
 
-`results/mathlib-forward-v1/centroids.npz` is the only part of the forward test
+`results/phase-1-recognition/mathlib-forward-v1/centroids.npz` is the only part of the forward test
 that is derived rather than captured, so it is the only part that can silently
 drift from its source. Two checks: the committed table is reproducible from it,
 and — whenever the 272 MB encode happens to be present in a working tree — it is
@@ -15,8 +15,10 @@ from pathlib import Path
 import numpy as np
 import pytest
 
+from noema.paths import resolve_recorded, result_path
+
 ROOT = Path(__file__).resolve().parents[1]
-ARCHIVE = ROOT / "results/mathlib-forward-v1/centroids.npz"
+ARCHIVE = result_path("mathlib-forward-v1/centroids.npz")
 
 spec = importlib.util.spec_from_file_location(
     "forward", ROOT / "scripts/analyze-mathlib-forward.py"
@@ -43,7 +45,7 @@ def test_committed_centroids_reproduce_the_published_bands():
     cen, size = forward.centroids_from_archive(ARCHIVE)
     names = sorted(cen)
     index = {n: i for i, n in enumerate(names)}
-    rare = forward.rare_landmarks(set(names), ROOT / "results/link-graph-v1/edges.jsonl.gz")
+    rare = forward.rare_landmarks(set(names), result_path("link-graph-v1/edges.jsonl.gz"))
     C = np.array([cen[n] for n in names])
     D = np.degrees(np.arccos(np.clip(C @ C.T, -1, 1)))
     i, j = np.triu_indices(len(names), 1)
@@ -54,7 +56,7 @@ def test_committed_centroids_reproduce_the_published_bands():
 
     import itertools
 
-    connectors = json.loads((ROOT / "results/mathlib-forward-v1/new-connectors.json").read_text())
+    connectors = json.loads((result_path("mathlib-forward-v1/new-connectors.json")).read_text())
     truth = {
         (min(index[a], index[b]), max(index[a], index[b]))
         for targets in connectors.values()
@@ -63,7 +65,7 @@ def test_committed_centroids_reproduce_the_published_bands():
     }
     label = np.fromiter(((a, b) in truth for a, b in zip(pi, pj, strict=True)), bool, len(pi))
 
-    published = json.loads((ROOT / "results/mathlib-forward-v1/band-report.json").read_text())
+    published = json.loads((result_path("mathlib-forward-v1/band-report.json")).read_text())
     assert len(angle) == published["eligible_pairs"]
     assert int(label.sum()) == published["positives"]
     for row in published["bands"]:
@@ -91,7 +93,9 @@ def test_committed_centroids_match_the_encode_they_came_from():
     z = np.load(ARCHIVE, allow_pickle=False)
     provenance = json.loads(str(z["provenance"]))
     cen, size = forward.centroids_from_vectors(
-        ROOT / provenance["vectors"], ROOT / provenance["index"], provenance["max_state_df"]
+        resolve_recorded(provenance["vectors"]),
+        resolve_recorded(provenance["index"]),
+        provenance["max_state_df"],
     )
     names = [str(n) for n in z["names"]]
     assert sorted(cen) == names

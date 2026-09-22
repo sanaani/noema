@@ -25,6 +25,8 @@ from pathlib import Path
 
 import numpy as np
 
+from noema.paths import result_path
+
 ROOT = Path(__file__).resolve().parents[1]
 TOKEN = re.compile(r"[A-Za-z_][A-Za-z0-9_.']*")
 EXCLUDED_STATE = "no goals"
@@ -71,14 +73,14 @@ def jaccard_matrix(names, vocab):
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument(
-        "--states", type=Path, default=ROOT / "results/state-bridge-v1/states-augmented.jsonl.gz"
+        "--states", type=Path, default=result_path("state-bridge-v1/states-augmented.jsonl.gz")
     )
     ap.add_argument(
-        "--centroids", type=Path, default=ROOT / "results/mathlib-forward-v1/centroids.npz"
+        "--centroids", type=Path, default=result_path("mathlib-forward-v1/centroids.npz")
     )
-    ap.add_argument("--edges", type=Path, default=ROOT / "results/link-graph-v1/edges.jsonl.gz")
+    ap.add_argument("--edges", type=Path, default=result_path("link-graph-v1/edges.jsonl.gz"))
     ap.add_argument(
-        "--connectors", type=Path, default=ROOT / "results/mathlib-forward-v1/new-connectors.json"
+        "--connectors", type=Path, default=result_path("mathlib-forward-v1/new-connectors.json")
     )
     ap.add_argument("--threshold", type=float, default=0.05)
     ap.add_argument("--out", type=Path)

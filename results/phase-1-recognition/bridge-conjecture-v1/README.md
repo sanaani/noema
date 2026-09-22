@@ -5,7 +5,7 @@
 Pair #1 from the hidden-connection scan of the earlier **statement** ranker — a
 linear head over frozen Qwen vectors of theorem s-expressions, built 09-19, a day
 before the proof-state capture. That line of work is not in the current tree; see
-[`docs/history.md`](../../docs/history.md), or `git show b072f9f` for the
+[`docs/history.md`](../../../docs/history.md), or `git show b072f9f` for the
 candidate list (`results/link-ranker-v1/hidden-candidates.json`). **This bridge
 was not proposed by the proof-state geometry**, which has never been asked to
 propose one.

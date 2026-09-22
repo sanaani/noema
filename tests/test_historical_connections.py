@@ -5,6 +5,8 @@ from pathlib import Path
 
 import pytest
 
+from noema.paths import result_path
+
 ROOT = Path(__file__).resolve().parents[1]
 spec = importlib.util.spec_from_file_location(
     "historical_connections", ROOT / "scripts/historical-connections.py"
@@ -32,7 +34,7 @@ def test_saved_pilot_has_all_presentations_for_every_selected_theorem():
 
     import numpy as np
 
-    folder = ROOT / "results/historical-connections-v1"
+    folder = result_path("historical-connections-v1")
     records = pilot.tagged(folder / "lean-output.log", "CENTER ")
     inputs = json.loads((folder / "inputs.json").read_text())
     selection = json.loads((folder / "selection.json").read_text())

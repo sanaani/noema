@@ -20,6 +20,8 @@ from pathlib import Path
 
 import numpy as np
 
+from noema.paths import result_path
+
 ROOT = Path(__file__).resolve().parents[1]
 
 
@@ -39,10 +41,10 @@ def main():
         default=ROOT / "outputs/state-bridge-v1/vectors/reprover-embeddings.npz",
     )
     ap.add_argument(
-        "--index", type=Path, default=ROOT / "results/state-bridge-v1/text-index.jsonl.gz"
+        "--index", type=Path, default=result_path("state-bridge-v1/text-index.jsonl.gz")
     )
     ap.add_argument("--max-state-df", type=float, default=0.5)
-    ap.add_argument("--out", type=Path, default=ROOT / "results/mathlib-forward-v1/centroids.npz")
+    ap.add_argument("--out", type=Path, default=result_path("mathlib-forward-v1/centroids.npz"))
     args = ap.parse_args()
 
     # Import the one definition the analysis uses, so the two can never drift.

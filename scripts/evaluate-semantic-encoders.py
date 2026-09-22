@@ -6,12 +6,14 @@ from pathlib import Path
 
 import numpy as np
 
+from noema.paths import result_path
+
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 from noema.comparison_encoders import load_encoder, save_json  # noqa: E402
 
-OUT = ROOT / "results/semantic-encoder-evaluation-v1"
-HIST = ROOT / "results/historical-connections-v1"
+OUT = result_path("semantic-encoder-evaluation-v1")
+HIST = result_path("historical-connections-v1")
 MODELS = ("leansearch", "e5", "bge", "qwen", "qwen-instruct")
 
 

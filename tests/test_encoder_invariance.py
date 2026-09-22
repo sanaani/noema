@@ -9,6 +9,7 @@ import pytest
 from conftest import assert_reproduces
 
 from noema.encoder_invariance import ARMS, analyze, radial_change, ranking_change
+from noema.paths import result_path
 
 ROOT = Path(__file__).resolve().parents[1]
 spec = importlib.util.spec_from_file_location(
@@ -61,7 +62,7 @@ def test_joint_isometry_preserves_density_but_one_sided_change_does_not():
 
 
 def test_lean_evidence_rejects_missing_rows_false_certificates_and_bad_axioms():
-    root = ROOT / "results/encoder-invariance-v1"
+    root = result_path("encoder-invariance-v1")
     source, log = (root / "Fixtures.lean").read_text(), (root / "lean-output.log").read_text()
     states, proofs = audit.read_lean(source, log)
     assert len(proofs) == 16
@@ -81,7 +82,7 @@ def test_lean_evidence_rejects_missing_rows_false_certificates_and_bad_axioms():
 
 
 def test_archive_numerical_results_reproduce():
-    root = ROOT / "results/encoder-invariance-v1"
+    root = result_path("encoder-invariance-v1")
     result, syntax = audit.analyze_saved(root)
     assert_reproduces(result, json.loads((root / "analysis.json").read_text()))
     assert_reproduces(syntax, json.loads((root / "syntax-control.json").read_text()))

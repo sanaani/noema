@@ -2,7 +2,7 @@
 
 Open [explore.html](explore.html) locally for the interactive drawing; the
 implementation notes that used to sit in `docs/` went with the prune, and
-[`docs/history.md`](../../docs/history.md) says where to read them in the
+[`docs/history.md`](../../../docs/history.md) says where to read them in the
 history.
 The HTML is self-contained and needs no server or network connection.
 
@@ -54,10 +54,10 @@ of all known mathematical proofs is not established.
 From the repository root, with its Python dependencies installed:
 
 ```sh
-(cd results/state-object-v1 && sha256sum -c SHA256SUMS)
+(cd results/phase-1-recognition/state-object-v1 && sha256sum -c SHA256SUMS)
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python scripts/verify-state-object-archive.py \
-  --corpus results/state-object-v1/corpus.json.gz \
-  --analysis results/state-object-v1
+  --corpus results/phase-1-recognition/state-object-v1/corpus.json.gz \
+  --analysis results/phase-1-recognition/state-object-v1
 ```
 
 This checks every proof inclusion and occurrence against the corpus, all vector
@@ -73,7 +73,7 @@ import json
 from pathlib import Path
 import numpy as np
 
-archive = Path("results/state-object-v1")
+archive = Path("results/phase-1-recognition/state-object-v1")
 cache = Path("outputs/state-object-reproduction/encoding")
 (cache / "vectors").mkdir(parents=True, exist_ok=True)
 manifest = json.loads((archive / "vector-manifest.json").read_text())
@@ -88,7 +88,7 @@ Then run:
 
 ```sh
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python scripts/analyze-state-object-corpus.py \
-  --corpus results/state-object-v1/corpus.json.gz \
+  --corpus results/phase-1-recognition/state-object-v1/corpus.json.gz \
   --encoding outputs/state-object-reproduction/encoding \
   --output outputs/state-object-reproduction/analysis
 OPENBLAS_NUM_THREADS=1 python scripts/render-state-object-viewer.py \

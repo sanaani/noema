@@ -3,7 +3,7 @@
 
 The forward test asks whether, between Mathlib `f0957a7` (2024-07-01) and
 `09712d48` (2026-09-21), anyone wrote a *new* declaration that cites two of the
-1,797 corpus theorems. `results/mathlib-forward-v1/target-references-2026.txt.gz`
+1,797 corpus theorems. `mathlib-forward-v1/target-references-2026.txt.gz`
 is the raw evidence: every line of the 2026 tree that contains any corpus
 theorem's name as a substring (`git grep -F` over the full names, `file:line:text`).
 
@@ -37,7 +37,7 @@ a target only if the target is a different theorem.
 Known limits, unchanged from the first version: the 2024 name list holds short
 names, so a declaration renamed after 2024 counts as new, and citations under
 an `open` namespace are missed. Both are documented in
-results/mathlib-forward-v1/README.md.
+results/phase-1-recognition/mathlib-forward-v1/README.md.
 """
 
 from __future__ import annotations
@@ -53,8 +53,10 @@ from pathlib import Path
 
 import numpy as np
 
+from noema.paths import result_path
+
 ROOT = Path(__file__).resolve().parent.parent
-FORWARD = ROOT / "results/mathlib-forward-v1"
+FORWARD = result_path("mathlib-forward-v1")
 
 # Anything that can continue a Lean identifier. `.` is included on both sides so a
 # longer dotted name is never credited to its suffix or prefix.

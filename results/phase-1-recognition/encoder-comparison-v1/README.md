@@ -223,7 +223,7 @@ python3 -m venv .tools/encoder-comparison-venv
 .tools/encoder-comparison-venv/bin/pip install --no-cache-dir \
   torch==2.7.1 --index-url https://download.pytorch.org/whl/cpu
 .tools/encoder-comparison-venv/bin/pip install --no-cache-dir \
-  -r results/encoder-comparison-v1/requirements-transformers.lock
+  -r results/phase-1-recognition/encoder-comparison-v1/requirements-transformers.lock
 .venv/bin/python scripts/bootstrap-comparison-encoders.py
 OPENBLAS_NUM_THREADS=1 .venv/bin/python scripts/compare-encoders.py prepare \
   --output outputs/encoder-comparison-new

@@ -8,9 +8,10 @@ import numpy as np
 from conftest import assert_reproduces
 
 from noema.encoder_invariance import ARMS, radial_change
+from noema.paths import result_path
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "results/encoder-comparison-v1"
+OUT = result_path("encoder-comparison-v1")
 spec = importlib.util.spec_from_file_location("comparison", ROOT / "scripts/compare-encoders.py")
 comparison = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(comparison)
@@ -106,7 +107,7 @@ def test_saved_symbol_diagnostic_explains_the_collision():
 
 def test_reprover_reference_matches_original_frozen_rows():
     current = json.loads((OUT / "inputs.json").read_text())
-    frozen = ROOT / "results/encoder-invariance-v1"
+    frozen = result_path("encoder-invariance-v1")
     original = json.loads((frozen / "inputs.json").read_text())
     selected = [i for i, r in enumerate(current) if r["kind"] == "fixture"]
     for i, row in zip(selected, original, strict=True):

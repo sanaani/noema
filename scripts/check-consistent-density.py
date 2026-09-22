@@ -7,10 +7,11 @@ import numpy as np
 
 from noema.comparison_encoders import save_json
 from noema.encoder_invariance import radial_change
+from noema.paths import result_path
 from noema.state_consistency import RegisteredStateEncoder, digest
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "results/state-consistency-v1"
+OUT = result_path("state-consistency-v1")
 
 
 def main():

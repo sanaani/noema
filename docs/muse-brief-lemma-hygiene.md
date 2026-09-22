@@ -56,7 +56,7 @@ citing it anywhere.
 
 ## Method notes
 
-- Start from `Deps.lean` (in `results/link-graph-v1/`, 2.6KB, core-only Lean, no
+- Start from `Deps.lean` (in `results/phase-1-recognition/link-graph-v1/`, 2.6KB, core-only Lean, no
   Batteries). It already walks every non-internal `Mathlib.*` theorem's proof term.
   Extend it to record inline `have` statements rather than only referenced constants.
 - Giant proof terms (>3M nodes) must stay skipped, as in the current sweep — 1,056

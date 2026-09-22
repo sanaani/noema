@@ -11,12 +11,14 @@ from pathlib import Path
 
 import numpy as np
 
+from noema.paths import result_path
+
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 from noema.comparison_encoders import load_encoder, save_json, sha  # noqa: E402
 from noema.encoder_invariance import ARMS, analyze  # noqa: E402
 
-DEFAULT_OUT = ROOT / "results/encoder-comparison-v1"
+DEFAULT_OUT = result_path("encoder-comparison-v1")
 OUT = DEFAULT_OUT
 MODELS = [
     "minilm",
@@ -64,7 +66,7 @@ def prepare():
     rows, proofs = old_audit().read_lean(
         (OUT / "Fixtures.lean").read_text(), (OUT / "lean-output.log").read_text()
     )
-    frozen = ROOT / "results/encoder-invariance-v1"
+    frozen = result_path("encoder-invariance-v1")
     old_rows, _ = old_audit().read_lean(
         (frozen / "Fixtures.lean").read_text(), (frozen / "lean-output.log").read_text()
     )

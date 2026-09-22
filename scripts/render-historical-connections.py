@@ -5,8 +5,10 @@ from pathlib import Path
 
 import numpy as np
 
+from noema.paths import result_path
+
 root = Path(__file__).resolve().parents[1]
-out = root / "results/historical-connections-v1"
+out = result_path("historical-connections-v1")
 analysis = json.loads((out / "analysis.json").read_text())
 inputs = json.loads((out / "inputs.json").read_text())
 distances = np.load(out / "distances.npy", allow_pickle=False)

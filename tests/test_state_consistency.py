@@ -10,6 +10,7 @@ from pathlib import Path
 import numpy as np
 import pytest
 
+from noema.paths import result_path
 from noema.state_consistency import (
     RegisteredStateEncoder,
     build_registry,
@@ -19,7 +20,7 @@ from noema.state_consistency import (
 )
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "results/state-consistency-v1"
+OUT = result_path("state-consistency-v1")
 
 
 def toy():

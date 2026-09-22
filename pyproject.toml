@@ -27,7 +27,7 @@ addopts = "-q"
 [tool.ruff]
 line-length = 100
 # Preserve verbatim third-party source cards and their recorded hashes.
-extend-exclude = ["results/state-object-v1/source-manifests"]
+extend-exclude = ["results/phase-*/state-object-v1/source-manifests"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "B", "UP"]

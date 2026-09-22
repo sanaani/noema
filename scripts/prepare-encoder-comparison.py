@@ -2,8 +2,10 @@
 
 from pathlib import Path
 
+from noema.paths import result_path
+
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "results/encoder-comparison-v1"
+OUT = result_path("encoder-comparison-v1")
 
 NORMALIZER = r"""
 -- Limited, explicit policy: alpha annotations, metadata, beta/zeta and id.
@@ -133,7 +135,7 @@ PAIRS = [
 
 
 def main():
-    source = (ROOT / "results/encoder-invariance-v1/Fixtures.lean").read_text()
+    source = (result_path("encoder-invariance-v1/Fixtures.lean")).read_text()
     prefix = source.split('elab "observe "')[0] + NORMALIZER
     audits = source.split('elab "audit_fixture "')[1].split("\n theorem and_swap_0")[0]
     prefix += '\nelab "audit_fixture "' + audits

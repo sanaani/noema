@@ -28,7 +28,7 @@ neighbouring theorem. And it counted a theorem's own header line as a citation
 of itself when its name contained a corpus name as a substring. One connector
 name was also truncated to `hasSum_`.
 
-[`scripts/build-forward-label.py`](../../scripts/build-forward-label.py)
+[`scripts/build-forward-label.py`](../../../scripts/build-forward-label.py)
 replaces it. From the same committed grep output it keeps a citation only when
 the corpus name appears whole — not preceded or followed by an identifier
 character — in the statement or proof of a `theorem` or `lemma` that is new
@@ -51,7 +51,7 @@ first label's README said label noise could only "attenuate rather than
 inflate", and that was wrong: a loose matcher inflates. Every number in this
 file is on the corrected label. The first label's numbers are in the git
 history before this correction and in
-[`docs/history.md`](../../docs/history.md).
+[`docs/history.md`](../../../docs/history.md).
 
 ## Why this exists
 
@@ -134,7 +134,7 @@ but it is 527 pairs out of 1.5M — a correction, not the effect.
 ## The band and the known bridges
 
 The six known bridges sat at nearer-endpoint angles of 40, 41, 52, 53, 64 and
-75° → ranks 6, 9, 11, 25, 69, 78 out of 1,795 (`results/state-bridge-v1/`).
+75° → ranks 6, 9, 11, 25, 69, 78 out of 1,795 (`results/phase-1-recognition/state-bridge-v1/`).
 That reading came first, before this label existed.
 
 **But it is not the same band.** Only two of those six — 52 and 53 — fall inside

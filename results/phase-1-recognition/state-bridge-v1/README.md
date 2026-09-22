@@ -17,7 +17,7 @@ for git. Everything upstream of the encode is committed here:
 | `size-confound.json` | proof size against both labels: 0.740 here, 0.509 on the 2026 label |
 
 Rebuild the vectors with `scripts/build-encode-inputs.py --states
-results/state-bridge-v1/states-augmented.jsonl.gz ...` then
+results/phase-1-recognition/state-bridge-v1/states-augmented.jsonl.gz ...` then
 `scripts/encode-reprover-gpu.py` (L40S, 366s, ~$0.31).
 
 ## 1. Replication
@@ -108,7 +108,7 @@ matters, not the raw detour.
   for its own positives. Betweenness and the forward test use different
   labels, but the same seeded corpus. The expansion script was never
   committed and does not survive in the history; the 2,000-name list it
-  produced was (`824f3c2:results/state-object-v1-targets.json`), and
+  produced was (`824f3c2:results/phase-1-recognition/state-object-v1-targets.json`), and
   `selected.json.gz` here is the 1,797 of those with a Lean-emitted
   declaration range.
 - `"no goals"` is excluded from every centroid (`--max-state-df 0.5`). Left in,
@@ -122,7 +122,7 @@ the geometry can find a connection nobody has made — every bridge here was
 known in advance, and the corpus was deliberately seeded with them as a
 positive control.
 
-The follow-on measurement is `results/mathlib-forward-v1/`: freeze this model
+The follow-on measurement is `results/phase-1-recognition/mathlib-forward-v1/`: freeze this model
 at 2024, and check it against connections Mathlib formalized over the
 following two years. Its README carries the current open questions, which
 supersede the list below.

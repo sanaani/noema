@@ -1,12 +1,12 @@
 """Does state-space geometry track mathematical relatedness?
 
-Uses the archived ReProver state vectors (results/state-object-v1, 3,659 states
+Uses the archived ReProver state vectors (results/phase-1-recognition/state-object-v1, 3,659 states
 over 256 theorem objects, 128 of them Mathlib) and asks whether two theorems
 whose proofs share a rare lemma sit closer together than two that share none.
 
 Each theorem object is summarised by the L2-normalised centroid of its state
 vectors; relatedness is "shares >=1 rare landmark" (document frequency 2-200)
-from results/link-graph-v1/edges.jsonl.gz. Reports AUC overall, AUC restricted to
+from link-graph-v1/edges.jsonl.gz. Reports AUC overall, AUC restricted to
 cross-area pairs (controls for same-namespace proximity), and a permutation test.
 
 Result at time of writing: AUC 0.786 overall, 0.743 cross-area, p = 0.0001
@@ -22,6 +22,8 @@ import json
 from pathlib import Path
 
 import numpy as np
+
+from noema.paths import result_path
 
 ROOT = str(Path(__file__).resolve().parent.parent) + "/"
 SEED = 7
@@ -49,10 +51,10 @@ def auc(sims, labels):
 
 def main():
     rng = np.random.default_rng(SEED)
-    objects = json.load(gzip.open(ROOT + "results/state-object-v1/objects.json.gz", "rt"))
+    objects = json.load(gzip.open(result_path("state-object-v1/objects.json.gz"), "rt"))
     vecs = {}
     for chunk in ("vectors-000.npz", "vectors-001.npz"):
-        z = np.load(ROOT + "results/state-object-v1/" + chunk)
+        z = np.load(result_path("state-object-v1/") / chunk)
         for sid, v in zip(z["state_ids"], z["vectors"], strict=True):
             vecs[str(sid)] = v
 
@@ -71,7 +73,7 @@ def main():
 
     df, deps, mod = collections.Counter(), {}, {}
     want = set(names)
-    for line in open_maybe_gz(ROOT + "results/link-graph-v1/edges.jsonl.gz"):
+    for line in open_maybe_gz(result_path("link-graph-v1/edges.jsonl.gz")):
         r = json.loads(line)
         d = r.get("deps")
         if not d:

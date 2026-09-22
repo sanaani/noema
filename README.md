@@ -15,10 +15,10 @@ that the map is measuring something real.
 
 | | what it asks | result |
 |---|---|---|
-| [Replication](results/state-bridge-v1/README.md) | do proofs sharing a rare lemma have nearer centroids? | AUC **0.877**, margin over shuffled control **+0.164** |
-| [Betweenness](results/state-bridge-v1/README.md) | does a known bridge theorem sit *between* its two endpoints? | all **6/6** families in the top 4.3% of 1,795 objects, four in the top 1.4% |
-| [Forward test](results/mathlib-forward-v1/README.md) | does the 2024 map point at links Mathlib only made by 2026? | angle **AUC 0.973** against proof size's 0.509 and vocabulary overlap's 0.691 |
-| [α-rename control](results/rename-control-v1/README.md) | does any of it survive deleting every variable name? | all three: forward **0.974**, betweenness **6/6 in the top 3.3%**, replication margin **+0.162** |
+| [Replication](results/phase-1-recognition/state-bridge-v1/README.md) | do proofs sharing a rare lemma have nearer centroids? | AUC **0.877**, margin over shuffled control **+0.164** |
+| [Betweenness](results/phase-1-recognition/state-bridge-v1/README.md) | does a known bridge theorem sit *between* its two endpoints? | all **6/6** families in the top 4.3% of 1,795 objects, four in the top 1.4% |
+| [Forward test](results/phase-1-recognition/mathlib-forward-v1/README.md) | does the 2024 map point at links Mathlib only made by 2026? | angle **AUC 0.973** against proof size's 0.509 and vocabulary overlap's 0.691 |
+| [α-rename control](results/phase-1-recognition/rename-control-v1/README.md) | does any of it survive deleting every variable name? | all three: forward **0.974**, betweenness **6/6 in the top 3.3%**, replication margin **+0.162** |
 
 1,797 Mathlib theorems, 99,275 captured proof states, 23,874 unique state texts,
 encoded with the pinned ReProver ByT5 retriever. The corpus was built by
@@ -88,7 +88,7 @@ same object, and dropping that one hub leaves one.
   theorem. The AUC does; that is the number the claim rests on.
 - **Vocabulary does some of the work.** Token overlap between two theorems'
   state texts predicts the same 2026 label at AUC 0.691 on its own
-  ([`vocabulary.json`](results/mathlib-forward-v1/vocabulary.json)): connected
+  ([`vocabulary.json`](results/phase-1-recognition/mathlib-forward-v1/vocabulary.json)): connected
   pairs share 14.1% of their state vocabulary against 7.7% for an average
   eligible pair. The angle's 0.973 is well clear of that, and 4 of the 17 hits
   share under 5%, but "still separates where words give little" is the
@@ -100,7 +100,7 @@ same object, and dropping that one hub leaves one.
   Same area means same people working in the same active corner of Mathlib, and
   those pairs get connected later anyway — so the angle could predict the label
   without understanding anything. Measured
-  ([`area-control.json`](results/mathlib-forward-v1/area-control.json)): the
+  ([`area-control.json`](results/phase-1-recognition/mathlib-forward-v1/area-control.json)): the
   angle predicts "same area" at only 0.656, "same area" predicts the 2026 label
   at only 0.632, and on cross-area pairs alone — where the confound cannot
   operate — the angle still scores **0.972 on 11 hits** against 0.973 overall.
@@ -116,11 +116,11 @@ same object, and dropping that one hub leaves one.
   is not name-blind, and never was: under α-renaming the centroids move a median
   **20.0°** (quartiles 15.2–26.3, max 69.5°), with only 31 of 1,797 theorems
   left under 1°. The 8/8 falsification in
-  [encoder-invariance-v1](results/encoder-invariance-v1/README.md) and the 48.1°
+  [encoder-invariance-v1](results/phase-1-recognition/encoder-invariance-v1/README.md) and the 48.1°
   single-state probe in [issue #2](https://github.com/sanaani/noema/issues/2)
   are both confirmed. What they do not imply is what was feared: everything
   moves *together*, so the arrangement the three tests read is preserved and all
-  three survive ([rename-control-v1](results/rename-control-v1/README.md)).
+  three survive ([rename-control-v1](results/phase-1-recognition/rename-control-v1/README.md)).
   Distances here still must not be read as absolute relatedness — only as rank.
 - **The statement-embedding null is not a like-for-like comparison.** Five
   encoders on theorem statements put the four prespecified targets nearer than 98.8–99.2% of
@@ -128,7 +128,7 @@ same object, and dropping that one hub leaves one.
   What they fail is a *lexical* control: against four word-matched decoys the
   target was nearer only 12.5–18.8% of the time, so the proximity tracks
   wording
-  ([semantic-encoder-evaluation-v1](results/semantic-encoder-evaluation-v1/README.md)).
+  ([semantic-encoder-evaluation-v1](results/phase-1-recognition/semantic-encoder-evaluation-v1/README.md)).
   Betweenness and the forward test have never been put through *that* control,
   so "statements fail, states succeed" is not established — the two were held to
   different bars. The α-rename arm closes part of the gap and not all of it: it
@@ -171,32 +171,42 @@ docs/
   muse-brief-lemma-hygiene.md      spin-off: anonymous-lemma detection for Mathlib
   latent_geometry_...plan.md       the original proposal, preserved byte for byte
   history.md                       every earlier line of work, and where to read it
-results/
-  link-graph-v1/        206,889 theorem->dependency edges from pinned Mathlib; the
-                        bridge-triple scan; the Lean elaborators that produced them
-  state-bridge-v1/      the replication and betweenness tests
-  mathlib-forward-v1/   the 2024 -> 2026 forward test, its centroids, and the
-                        independence and vocabulary checks on it
-  rename-control-v1/    all three measurements rerun with every binder and
-                        hypothesis renamed in Lean under a structural
-                        certificate; the arms, the prespecification, the verdict
-  bridge-expansion-v1/  the six (A, B, bridge) families: Lean checks that each
-                        theorem exists and is sorry-free; the bridge relation
-                        itself is a human judgement, not a certified one
-  bridge-conjecture-v1/ a machine-proposed, machine-checked bridge — proposed by
-                        the earlier statement ranker, not by the state geometry
-  state-object-v1/      the 128-object archive the first AUC 0.786 came from
-  historical-connections-v1/  the initial-State pilot that seeded four of the
-                        six families; bridge-expansion-v1 added the other two
-  encoder-*/, semantic-*/, state-consistency-v1/
-                        what the encoder does and does not do: α-rename
-                        invariance, a five-encoder comparison, certified
-                        structural capture, and the statement-embedding null
+results/                 findings and precompiled data, grouped by research phase
+  phase-1-recognition/   CLOSED. Can the geometry recognise links humans already made?
+    link-graph-v1/       206,889 theorem->dependency edges from pinned Mathlib; the
+                         bridge-triple scan; the Lean elaborators that produced them
+    state-bridge-v1/     the replication and betweenness tests
+    mathlib-forward-v1/  the 2024 -> 2026 forward test, its centroids, and the
+                         independence and vocabulary checks on it
+    rename-control-v1/   all three measurements rerun with every binder and
+                         hypothesis renamed in Lean under a structural
+                         certificate; the arms, the prespecification, the verdict
+    bridge-expansion-v1/ the six (A, B, bridge) families: Lean checks that each
+                         theorem exists and is sorry-free; the bridge relation
+                         itself is a human judgement, not a certified one
+    bridge-conjecture-v1/ a machine-proposed, machine-checked bridge — proposed by
+                         the earlier statement ranker, not by the state geometry
+    state-object-v1/     the 128-object archive the first AUC 0.786 came from
+    historical-connections-v1/  the initial-State pilot that seeded four of the
+                         six families; bridge-expansion-v1 added the other two
+    encoder-*/, semantic-*/, state-consistency-v1/
+                         what the encoder does and does not do: α-rename
+                         invariance, a five-encoder comparison, certified
+                         structural capture, and the statement-embedding null
+  phase-2-dependency-labels/  OPEN. Replace the grep label with what Lean knows.
 scripts/   the pipeline, in order: scan -> filter -> select -> capture -> encode -> analyse
+           shared across phases and phase-agnostic: a script asks for
+           result_path("link-graph-v1/edges.jsonl.gz") and never names a phase.
            bootstrap-*/setup-* provision a pinned host or encoder for a rerun;
            audit-/evaluate-/verify-* regenerate one archived result each
-src/noema/ encoders, typed state capture, replay
+src/noema/ encoders, typed state capture, replay; paths.py owns the phase layout
 ```
+
+Each phase directory carries its own README: the question it asked, what it
+found, what it does not establish, and what it hands to the next phase.
+Phase 1 is closed, so its numbers do not move. Code is deliberately not
+organised by phase, so a phase 2 script reading phase 1's centroids needs no
+phase awareness.
 
 ## Reproduce
 
@@ -230,13 +240,13 @@ vectors (517 MB, not committed) rather than the centroids:
 ```
 
 Its two exported centroid files *are* committed
-([`centroids-original.npz`](results/rename-control-v1/centroids-original.npz),
-[`centroids-alpha.npz`](results/rename-control-v1/centroids-alpha.npz)), so the
+([`centroids-original.npz`](results/phase-1-recognition/rename-control-v1/centroids-original.npz),
+[`centroids-alpha.npz`](results/phase-1-recognition/rename-control-v1/centroids-alpha.npz)), so the
 forward, vocabulary and independence scripts can be pointed at either arm with
 `--centroids` without rebuilding anything.
 
 The first six need nothing but the repository, and CI runs all six. The five
-that read `results/mathlib-forward-v1/centroids.npz` use it as 1,797 unit
+that read `results/phase-1-recognition/mathlib-forward-v1/centroids.npz` use it as 1,797 unit
 centroids, 9.9 MB, the only input they need from the encode, exported by
 `scripts/export-forward-centroids.py` and checked against the full vectors by
 `tests/test_forward_centroids.py` wherever those vectors are present.
@@ -245,12 +255,12 @@ centroids, 9.9 MB, the only input they need from the encode, exported by
 the vector/text assignment, so it needs every state vector, and
 `outputs/state-bridge-v1/vectors/reprover-embeddings.npz` is 272 MB and
 therefore not committed. Everything upstream of it is:
-`results/state-bridge-v1/states-augmented.jsonl.gz` holds the 99,275 captured
+`results/phase-1-recognition/state-bridge-v1/states-augmented.jsonl.gz` holds the 99,275 captured
 states, so the Lean capture — the long pole, a CPU host against Lean 4.9.0 and
 Mathlib `f0957a7` — does not have to be repeated. Rebuild the vectors with
 
 ```bash
-python scripts/build-encode-inputs.py --states results/state-bridge-v1/states-augmented.jsonl.gz ...
+python scripts/build-encode-inputs.py --states results/phase-1-recognition/state-bridge-v1/states-augmented.jsonl.gz ...
 python scripts/encode-reprover-gpu.py ...        # L40S, 23,874 texts, 366s, ~$0.31
 ```
 
@@ -281,7 +291,7 @@ script that expanded the 82 seed names into the 2,000-theorem target list
 `docs/state-bridge-run-plan.md`), and the first procedure that turned the
 2026 grep hits into a label (replaced by `scripts/build-forward-label.py` on
 2026-09-22, which found and fixed its matching errors). The Lean sweep that
-produced `results/link-graph-v1/edges.jsonl.gz` names its Mathlib pin only in
+produced `results/phase-1-recognition/link-graph-v1/edges.jsonl.gz` names its Mathlib pin only in
 `scripts/setup-state-object-host.sh` and the READMEs; `Deps.lean` itself just
 says `import Mathlib`.
 
@@ -292,5 +302,5 @@ vendored `REPL` fork and this work all sit under one license.
 
 Imported material keeps its own terms and is not relicensed here: the Lean REPL
 carries its original Apache-2.0 headers, the ReProver export is the authors',
-and `results/state-object-v1/source-manifests/` retains the publisher notices
+and `results/phase-1-recognition/state-object-v1/source-manifests/` retains the publisher notices
 for everything it archived.

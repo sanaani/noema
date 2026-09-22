@@ -10,6 +10,8 @@ from pathlib import Path
 
 import numpy as np
 
+from noema.paths import result_path
+
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 from noema.comparison_encoders import load_encoder, save_json, sha  # noqa: E402
@@ -21,7 +23,7 @@ from noema.state_consistency import (  # noqa: E402
     vector_checks,
 )
 
-OUT = ROOT / "results/state-consistency-v1"
+OUT = result_path("state-consistency-v1")
 
 
 def acquire():

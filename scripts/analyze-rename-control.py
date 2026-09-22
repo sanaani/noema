@@ -2,7 +2,7 @@
 
 Runs the *published* analysis scripts unchanged, once per arm, so the renamed
 number and the number it is being compared against come from the same code. The
-decision rule is the one fixed in `results/rename-control-v1/protocol.md` before
+decision rule is the one fixed in `results/phase-1-recognition/rename-control-v1/protocol.md` before
 any renamed vector existed; it is transcribed here and not re-chosen.
 
     .venv/bin/python scripts/analyze-rename-control.py \
@@ -20,6 +20,8 @@ import sys
 from pathlib import Path
 
 import numpy as np
+
+from noema.paths import phase_of, result_path
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -47,7 +49,7 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--arms", type=Path, required=True)
     ap.add_argument("--vectors", type=Path, required=True)
-    ap.add_argument("--out", type=Path, default=ROOT / "results/rename-control-v1")
+    ap.add_argument("--out", type=Path, default=result_path("rename-control-v1"))
     ap.add_argument("--max-state-df", type=float, default=0.5)
     args = ap.parse_args()
     # export-forward-centroids.py records provenance with Path.relative_to(ROOT),
@@ -139,7 +141,8 @@ def main():
         "rule": {
             "survives": f"A >= {SURVIVES_AUC} and A - V >= {SURVIVES_MARGIN}",
             "fails": f"A <= {FAILS_AUC} or A - V <= {FAILS_MARGIN}",
-            "source": "results/rename-control-v1/protocol.md, fixed before encoding",
+            "source": f"{phase_of('rename-control-v1')}/rename-control-v1/protocol.md, "
+            "fixed before encoding",
         },
         "auc_angle_original": o,
         "auc_angle_alpha": a,

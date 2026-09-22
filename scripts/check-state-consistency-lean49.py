@@ -6,10 +6,11 @@ import subprocess
 from pathlib import Path
 
 from noema.comparison_encoders import save_json, sha
+from noema.paths import result_path
 from noema.state_consistency import build_registry, digest
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "results/state-consistency-v1/lean49"
+OUT = result_path("state-consistency-v1/lean49")
 LEAN = ROOT / ".tools/lean-4.9.0-linux/bin/lean"
 MATH = ROOT / "outputs/eligibility-v1/mathlib"
 

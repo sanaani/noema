@@ -3,7 +3,7 @@
 ## Why this run exists
 
 `scripts/analyze-state-geometry.py` on the archived ReProver vectors
-(`results/state-object-v1`, 3,659 states / 128 Mathlib objects):
+(`results/phase-1-recognition/state-object-v1`, 3,659 states / 128 Mathlib objects):
 
 | measure | value |
 |---|---|
@@ -36,7 +36,7 @@ interpolation scheme rescues the idea.
 ## Target set
 
 `scratchpad/targets.json` — 2,000 theorems: 82 seed names (6 families' A/B/bridge
-plus background and hard controls from `results/bridge-expansion-v1/selection-v3.json`)
+plus background and hard controls from `results/phase-1-recognition/bridge-expansion-v1/selection-v3.json`)
 expanded by rarity-weighted shared-landmark score over `edges.jsonl`.
 
 Families:

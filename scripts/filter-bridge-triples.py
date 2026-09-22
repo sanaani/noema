@@ -1,6 +1,6 @@
 """Post-filter bridge triples by how 'hidden' the A-B link really is.
 
-Input:  results/link-graph-v1/bridge-triples-landmarks.json.gz (from scan-bridge-triples.py)
+Input:  link-graph-v1/bridge-triples-landmarks.json.gz (from scan-bridge-triples.py)
 Output: bridge-triples-hidden.json  (path given as argv[1])
 
 Three exact tests, each stricter than the last. A triple survives only if the
@@ -21,9 +21,11 @@ import json
 import sys
 from pathlib import Path
 
+from noema.paths import result_path
+
 ROOT = Path(__file__).resolve().parent.parent
-EDGES = ROOT / "results/link-graph-v1/edges.jsonl.gz"
-TRIPLES = ROOT / "results/link-graph-v1/bridge-triples-landmarks.json.gz"
+EDGES = result_path("link-graph-v1/edges.jsonl.gz")
+TRIPLES = result_path("link-graph-v1/bridge-triples-landmarks.json.gz")
 
 
 def open_maybe_gz(path):

@@ -17,7 +17,7 @@ Both arms are encoded together on purpose. `encoder-invariance-v1` is weakened
 by having run at settings the main run did not use; splitting the arms across
 two encoder sessions would reintroduce exactly that confound.
 
-Per `results/rename-control-v1/protocol.md`, a state whose rename Lean refused
+Per `results/phase-1-recognition/rename-control-v1/protocol.md`, a state whose rename Lean refused
 to certify is dropped from **both** arms, so the comparison stays exactly
 paired, and the drop rate is reported rather than absorbed.
 """
@@ -31,6 +31,7 @@ from collections import Counter
 from pathlib import Path
 
 from noema import reprover
+from noema.paths import result_path
 
 
 def checksum(path):
@@ -44,7 +45,7 @@ def main():
     ap.add_argument("--goals", type=Path, required=True, help="alpha-initial-goals.jsonl")
     ap.add_argument("--model", type=Path, required=True)
     ap.add_argument("--out", type=Path, required=True)
-    ap.add_argument("--plan", type=Path, default=Path("results/rename-control-v1/protocol.md"))
+    ap.add_argument("--plan", type=Path, default=result_path("rename-control-v1/protocol.md"))
     args = ap.parse_args()
     args.out.mkdir(parents=True, exist_ok=True)
 

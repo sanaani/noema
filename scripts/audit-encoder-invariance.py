@@ -11,10 +11,11 @@ import numpy as np
 
 from noema.encoder_invariance import ARMS, analyze
 from noema.encoders import SyntaxEncoder
+from noema.paths import result_path
 from noema.reprover import ReProverEncoder, byte_ids
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT = ROOT / "results/encoder-invariance-v1"
+DEFAULT = result_path("encoder-invariance-v1")
 
 
 def sha(path):

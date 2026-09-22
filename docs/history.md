@@ -100,8 +100,8 @@ cannot be read as the shapes of mathematical ideas.
 `results/state-object-records-v1/`.
 
 Two things from this phase are still in the tree because the current line
-measures against them: `results/state-object-v1/` (the 128-object, 3,659-state
-ReProver archive) and `results/historical-connections-v1/` (the initial-State
+measures against them: `results/phase-1-recognition/state-object-v1/` (the 128-object, 3,659-state
+ReProver archive) and `results/phase-1-recognition/historical-connections-v1/` (the initial-State
 pilot that produced the first bridge families).
 
 `docs/theorem-density-usefulness.md`, written at the end of this phase, argued
@@ -137,7 +137,7 @@ What was known, and when:
 | 09-21 | `5443083` | Forward test: the 2024 geometry ranks the pairs Mathlib connected by 2026. 124× lift in the 45–55° band. |
 | 09-21 | `a142bcc` | Proof size — the confound that faked AUC 0.740 on the replication target — is a coin flip on the 2026 label at 0.498 (0.515 as first published, before ties were averaged), against the angle's 0.958. |
 | 09-21 | `6a08a17` | Both result READMEs rewritten to say plainly what is still open. A sealed 2025-split rerun is considered and rejected: splitting 22 positives costs more power than the ceremony buys. |
-| 09-21 | `544d980` | **The rename threat closes.** Every binder and hypothesis renamed in all 1,797 theorems, certified in Lean on the `Expr`: forward 0.958 → 0.964, betweenness 6/6 inside the top 3.3%, replication margin +0.167 → +0.162, while the lexical baseline the angle is scored against drops 0.764 → 0.610. Centroids move a median 20.0°, so the encoder is not name-blind — *exact invariance is false, discriminative invariance holds*. [`rename-control-v1`](../results/rename-control-v1/README.md). |
+| 09-21 | `544d980` | **The rename threat closes.** Every binder and hypothesis renamed in all 1,797 theorems, certified in Lean on the `Expr`: forward 0.958 → 0.964, betweenness 6/6 inside the top 3.3%, replication margin +0.167 → +0.162, while the lexical baseline the angle is scored against drops 0.764 → 0.610. Centroids move a median 20.0°, so the encoder is not name-blind — *exact invariance is false, discriminative invariance holds*. [`rename-control-v1`](../results/phase-1-recognition/rename-control-v1/README.md). |
 | 09-22 | review | **The forward label was wrong, and is rebuilt.** An external review found that the uncommitted procedure behind `new-connectors.json` matched names by prefix (`ZMod.card_units` credited for `ZMod.card_units_eq_totient`), credited `def` bodies and docstrings to neighbouring theorems, and counted a theorem's own header as a citation. `scripts/build-forward-label.py` replaces it with whole-name matching inside theorem and lemma bodies, and CI checks the committed label. 22 positives → 17 (13 kept, 9 dropped, 4 found); forward AUC 0.958 → **0.973**, vocabulary baseline 0.764 → 0.691, proof size 0.498 → 0.509. The rename control rerun on the corrected label: 0.973 → 0.974, baseline 0.691 → 0.547, verdict unchanged. The 09-21 rows above quote the first label's numbers. The same review added what the tree had not said: the betweenness test has no prespecified pass mark and its percentile is an observed rank; the +0.164 margin is a single shuffle draw; the corpus was grown by the replication's own label; the Lean certificate is on the `Expr`, not the text the encoder reads; "machine-checked family" certifies that the three theorems exist, not that the bridge relation holds; the pilot seeded four families, not six; and the corpus-expansion script never existed in the history. Each is now stated where the number it qualifies lives. |
 
 The question the project exists to ask — can the geometry find a connection
@@ -167,7 +167,7 @@ What it found, which is worth keeping on the record:
 |---|---|
 | `2390fbf` | The head beat the frozen encoder on all three held-out directions (ranks 61→13, 9→6, 13→7) but beat the best *lexical* decoy in only one of them. |
 | `b072f9f` | Asked for hidden connections, it produced 30 candidates. Hand-investigated: 12 noise, 9 "genre resemblance" (same proof flavour, generic deps only), 4 topical, 2–3 bridgeable. Its own lesson: "the head reliably finds shared proof machinery, but shared machinery ≠ composable statements." |
-| `aca2cca` | One candidate did compose, was conjectured and machine-checked in Lean, and is the only machine-proposed result the project has: `results/bridge-conjecture-v1/`. |
+| `aca2cca` | One candidate did compose, was conjectured and machine-checked in Lean, and is the only machine-proposed result the project has: `results/phase-1-recognition/bridge-conjecture-v1/`. |
 | — | Training loss rises every epoch in all three heads, so the head was not converging. |
 
 **This does not bear on the proof-state geometry.** It is a different encoder

@@ -10,10 +10,11 @@ from pathlib import Path
 
 import numpy as np
 
+from noema.paths import result_path
 from noema.reprover import CHECKSUMS, REVISION
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "results/historical-connections-v1"
+OUT = result_path("historical-connections-v1")
 WORK = ROOT / "outputs/historical-connections-v1"
 CASES = [
     (

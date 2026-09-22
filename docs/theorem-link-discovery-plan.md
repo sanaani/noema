@@ -62,7 +62,7 @@ current encoders invert.
 
 1. **Dependency edges.** Host job over pinned Mathlib: per theorem, the set
    of lemmas its proof term references (dedupe to one edge per pair).
-   Artifact: `results/link-graph-v1/edges.json`.
+   Artifact: `results/phase-1-recognition/link-graph-v1/edges.json`.
 2. **Ranker.** Contrastive/ranking loss on shared-citation pairs; negatives
    = lexical lookalikes + background. Train on 4 families, hold out 2.
 3. **Referee.** The 6-case structural benchmark, target-vs-lexical rank as

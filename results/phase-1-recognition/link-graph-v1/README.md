@@ -26,13 +26,13 @@ The training pairs, training texts and referee centers that used to sit here
 `RefereeCenters*.lean`, `BulkCenters.lean`) were the statement ranker's corpus.
 That line predates the proof-state capture and is no longer in the tree, so its
 training data went with it on 09-21; see
-[`docs/history.md`](../../docs/history.md) or the `full-research-trail` tag.
+[`docs/history.md`](../../../docs/history.md) or the `full-research-trail` tag.
 
 ## Validation
 
 All 6 benchmark families share citations across their (A, B, bridge)
 triples (1–39 shared names, mostly typeclass/transport machinery).
-Held-out referee: `results/bridge-expansion-v1/evaluation-v1`
+Held-out referee: `results/phase-1-recognition/bridge-expansion-v1/evaluation-v1`
 (6-case structural benchmark).
 
 ## Bridge triples (near-miss intersections)

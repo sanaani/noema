@@ -3,7 +3,7 @@
 Written and committed before any renamed state was encoded and before any
 renamed AUC was computed. The decision rule below is fixed here so it cannot be
 chosen once the table is visible, which is the failure mode this repository has
-already recorded once (`results/mathlib-forward-v1`, band edges).
+already recorded once (`results/phase-1-recognition/mathlib-forward-v1`, band edges).
 
 ## The question
 
@@ -83,7 +83,7 @@ Implementation: `.tools/repl49/REPL/Alpha.lean` (patch committed as
 
 The patched REPL must reproduce the committed corpus exactly. On the validation
 subset the original arm is required to be **byte-identical**, state for state,
-to `results/state-bridge-v1/states-augmented.jsonl.gz`. A single differing byte
+to `results/phase-1-recognition/state-bridge-v1/states-augmented.jsonl.gz`. A single differing byte
 disqualifies the run, because then the two arms would differ by the patch as
 well as by the rename.
 
