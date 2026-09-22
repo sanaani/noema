@@ -1,0 +1,186 @@
+{
+  "rows": [
+    {
+      "files": 250,
+      "trial": 0,
+      "theorems": 11004,
+      "connectors": 4836,
+      "pairs": 8748,
+      "positives": 8093,
+      "cross_area": 5431
+    },
+    {
+      "files": 250,
+      "trial": 1,
+      "theorems": 13419,
+      "connectors": 6753,
+      "pairs": 9458,
+      "positives": 8605,
+      "cross_area": 4434
+    },
+    {
+      "files": 250,
+      "trial": 2,
+      "theorems": 11592,
+      "connectors": 2548,
+      "pairs": 2979,
+      "positives": 2092,
+      "cross_area": 1154
+    },
+    {
+      "files": 250,
+      "trial": 3,
+      "theorems": 12917,
+      "connectors": 3601,
+      "pairs": 5565,
+      "positives": 4708,
+      "cross_area": 1566
+    },
+    {
+      "files": 250,
+      "trial": 4,
+      "theorems": 12482,
+      "connectors": 3159,
+      "pairs": 4772,
+      "positives": 3667,
+      "cross_area": 2048
+    },
+    {
+      "files": 250,
+      "trial": 5,
+      "theorems": 10935,
+      "connectors": 3779,
+      "pairs": 7054,
+      "positives": 5946,
+      "cross_area": 3307
+    },
+    {
+      "files": 250,
+      "trial": 6,
+      "theorems": 11933,
+      "connectors": 2454,
+      "pairs": 3755,
+      "positives": 2983,
+      "cross_area": 1221
+    },
+    {
+      "files": 250,
+      "trial": 7,
+      "theorems": 11789,
+      "connectors": 2263,
+      "pairs": 4137,
+      "positives": 3283,
+      "cross_area": 685
+    },
+    {
+      "files": 250,
+      "trial": 8,
+      "theorems": 10617,
+      "connectors": 2046,
+      "pairs": 2960,
+      "positives": 2385,
+      "cross_area": 1268
+    },
+    {
+      "files": 250,
+      "trial": 9,
+      "theorems": 14309,
+      "connectors": 5212,
+      "pairs": 7123,
+      "positives": 6327,
+      "cross_area": 2995
+    },
+    {
+      "files": 350,
+      "trial": 0,
+      "theorems": 17289,
+      "connectors": 5643,
+      "pairs": 8289,
+      "positives": 6979,
+      "cross_area": 3623
+    },
+    {
+      "files": 350,
+      "trial": 1,
+      "theorems": 17114,
+      "connectors": 8995,
+      "pairs": 12828,
+      "positives": 11383,
+      "cross_area": 6746
+    },
+    {
+      "files": 350,
+      "trial": 2,
+      "theorems": 17802,
+      "connectors": 3759,
+      "pairs": 5219,
+      "positives": 3923,
+      "cross_area": 2180
+    },
+    {
+      "files": 350,
+      "trial": 3,
+      "theorems": 17931,
+      "connectors": 5438,
+      "pairs": 11994,
+      "positives": 10752,
+      "cross_area": 4517
+    },
+    {
+      "files": 350,
+      "trial": 4,
+      "theorems": 16563,
+      "connectors": 3533,
+      "pairs": 7597,
+      "positives": 6129,
+      "cross_area": 2129
+    },
+    {
+      "files": 350,
+      "trial": 5,
+      "theorems": 17076,
+      "connectors": 5615,
+      "pairs": 7623,
+      "positives": 6561,
+      "cross_area": 3007
+    },
+    {
+      "files": 350,
+      "trial": 6,
+      "theorems": 19758,
+      "connectors": 4364,
+      "pairs": 8465,
+      "positives": 6783,
+      "cross_area": 2157
+    },
+    {
+      "files": 350,
+      "trial": 7,
+      "theorems": 17081,
+      "connectors": 3243,
+      "pairs": 5851,
+      "positives": 5059,
+      "cross_area": 2473
+    },
+    {
+      "files": 350,
+      "trial": 8,
+      "theorems": 18196,
+      "connectors": 4788,
+      "pairs": 8879,
+      "positives": 7191,
+      "cross_area": 3899
+    },
+    {
+      "files": 350,
+      "trial": 9,
+      "theorems": 20270,
+      "connectors": 4283,
+      "pairs": 9613,
+      "positives": 7918,
+      "cross_area": 2853
+    }
+  ],
+  "phase1_k": 1.641268806076039e-05,
+  "eligible_fraction": 0.9482111363532143
+}

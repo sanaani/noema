@@ -44,6 +44,13 @@ def main() -> int:
     ap.add_argument("--edges-2026", required=True)
     ap.add_argument("--files", type=int, nargs="+", default=[25, 50, 100, 156, 250])
     ap.add_argument("--trials", type=int, default=5)
+    ap.add_argument(
+        "--stratify",
+        action="store_true",
+        help="allocate files across Mathlib areas in proportion to each area's file count, "
+        "which cuts the draw-to-draw variance and guarantees cross-area coverage. It selects "
+        "on file location only, never on the outcome, so it does not bias the label.",
+    )
     ap.add_argument("--seed", type=int, default=20260922)
     ap.add_argument("--out")
     args = ap.parse_args()
@@ -65,12 +72,14 @@ def main() -> int:
 
     print("pass 2: per-theorem rare sets, and the file each theorem lives in")
     by_file: dict[str, list[str]] = collections.defaultdict(list)
+    mod_of: dict[str, str] = {}
     rare_of: dict[str, frozenset[str]] = {}
     with gzip.open(args.edges_2024, "rt") as f:
         for line in f:
             r = json.loads(line)
             name = r["theorem"]
             by_file[r.get("module", "")].append(name)
+            mod_of[name] = r.get("module", "")
             rare_of[name] = frozenset(set(r.get("deps") or ()) & rare)
     names_2024 = set(rare_of)
     files = sorted(by_file)
@@ -88,15 +97,40 @@ def main() -> int:
                 connectors.append(sorted(set(cited)))
     print(f"  {len(connectors):,} new theorems citing >=2 theorems that existed in 2024")
 
+    def area_of(module: str) -> str:
+        parts = module.split(".")
+        return parts[1] if len(parts) > 1 else module
+
+    by_area: dict[str, list[str]] = collections.defaultdict(list)
+    for m in files:
+        by_area[area_of(m)].append(m)
+
+    def draw(rng: random.Random, k: int) -> list[str]:
+        if not args.stratify:
+            return rng.sample(files, min(k, len(files)))
+        picked: list[str] = []
+        areas = sorted(by_area)
+        # Largest-remainder allocation, so small areas are not rounded away.
+        quota = {a: len(by_area[a]) * k / len(files) for a in areas}
+        base = {a: int(quota[a]) for a in areas}
+        left = k - sum(base.values())
+        for a in sorted(areas, key=lambda a: quota[a] - base[a], reverse=True)[:left]:
+            base[a] += 1
+        for a in areas:
+            n = min(base[a], len(by_area[a]))
+            if n:
+                picked.extend(rng.sample(by_area[a], n))
+        return picked
+
     rng = random.Random(args.seed)
     rows = []
     print(
         f"\n{'files':>6} {'theorems':>9} {'connectors':>11} {'pairs':>7} {'positives':>10} "
-        f"{'per-1k-thm':>11}"
+        f"{'cross-area':>11}"
     )
     for k in args.files:
         for t in range(args.trials):
-            picked = rng.sample(files, min(k, len(files)))
+            picked = draw(rng, k)
             corpus = {n for m in picked for n in by_file[m]}
             conn = 0
             pairs: set[tuple[str, str]] = set()
@@ -106,7 +140,9 @@ def main() -> int:
                     continue
                 conn += 1
                 pairs.update(itertools.combinations(sorted(inside), 2))
-            pos = sum(1 for a, b in pairs if not (rare_of[a] & rare_of[b]))
+            elig = [(a, b) for a, b in pairs if not (rare_of[a] & rare_of[b])]
+            pos = len(elig)
+            xa = sum(1 for a, b in elig if area_of(mod_of[a]) != area_of(mod_of[b]))
             n = len(corpus)
             rows.append(
                 {
@@ -116,20 +152,25 @@ def main() -> int:
                     "connectors": conn,
                     "pairs": len(pairs),
                     "positives": pos,
+                    "cross_area": xa,
                 }
             )
-            print(
-                f"{k:>6} {n:>9,} {conn:>11,} {len(pairs):>7,} {pos:>10,} "
-                f"{1000 * pos / max(n, 1):>11.2f}"
-            )
+            print(f"{k:>6} {n:>9,} {conn:>11,} {len(pairs):>7,} {pos:>10,} {xa:>11,}")
 
-    print("\nsummary (mean over trials)")
-    print(f"{'files':>6} {'theorems':>9} {'positives':>10} {'implied k = P/N^2':>18}")
+    print("\nsummary over trials -- plan against the worst draw, not the mean")
+    print(
+        f"{'files':>6} {'theorems':>9} {'pos mean':>9} {'pos min':>8} "
+        f"{'xarea mean':>11} {'xarea min':>10}"
+    )
     for k in args.files:
         sel = [r for r in rows if r["files"] == k]
         n = float(np.mean([r["theorems"] for r in sel]))
-        p = float(np.mean([r["positives"] for r in sel]))
-        print(f"{k:>6} {n:>9,.0f} {p:>10,.1f} {p / (n * n):>18.3e}")
+        pp = [r["positives"] for r in sel]
+        xx = [r["cross_area"] for r in sel]
+        print(
+            f"{k:>6} {n:>9,.0f} {np.mean(pp):>9,.0f} {min(pp):>8,} "
+            f"{np.mean(xx):>11,.0f} {min(xx):>10,}"
+        )
 
     k1 = 53 / (1797.0**2)
     print(f"\nphase 1 (selected corpus, dependency label): k = {k1:.3e}")
