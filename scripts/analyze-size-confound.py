@@ -47,7 +47,14 @@ def main():
     ap.add_argument(
         "--connectors", type=Path, default=result_path("mathlib-forward-v1/new-connectors.json")
     )
-    ap.add_argument("--report", type=Path, default=result_path("state-bridge-v1/report.json"))
+    ap.add_argument(
+        "--report",
+        type=Path,
+        help="the state-bridge report.json of a replication run on this same corpus; when "
+        "given, its encoder AUC and shuffled control are quoted beside the size AUC. Not "
+        "given, nothing about a replication is claimed -- the first version of this quoted "
+        "phase 1's 0.877 and 0.714 on every corpus, including one with no replication run.",
+    )
     ap.add_argument("--out", type=Path)
     args = ap.parse_args()
 
@@ -78,7 +85,6 @@ def main():
     connected = np.fromiter(((a, b) in truth for a, b in zip(pi, pj, strict=True)), bool, len(pi))
     auc_forward = forward.auc(minsize[eligible], connected)
 
-    published = json.loads(args.report.read_text())["replication_all"]
     print(f"{'target':<44}{'pairs':>12}{'positives':>11}{'size AUC':>10}")
     print(
         f"{'shares a rare lemma (replication)':<44}{len(shares):>12,}"
@@ -88,13 +94,30 @@ def main():
         f"{'cited together by 2026 (forward)':<44}{len(connected):>12,}"
         f"{int(connected.sum()):>11,}{auc_forward:>10.3f}"
     )
+    gap = auc_forward - 0.5
     print(
-        f"\nThe replication's own encoder AUC is {published['auc']:.3f}, of which the shuffled"
-        f"\ncontrol already takes 0.714 — so proof size at {auc_replication:.3f} is most of what"
-        "\nthat test measures, and only the +0.164 margin is the embedding's."
-        f"\nOn the forward label the same predictor is {auc_forward:.3f}, so the confound does"
-        "\nnot transfer. That asymmetry is why the forward test carries more weight."
+        f"\nProof size alone predicts the replication label at {auc_replication:.3f} and the"
+        f"\nforward label at {auc_forward:.3f}."
     )
+    if abs(gap) <= 0.05:
+        print("On the forward label that is a coin flip: the size confound does not transfer.")
+    else:
+        print(
+            f"On the forward label that is {abs(gap):.3f} {'above' if gap > 0 else 'below'} "
+            "chance, so proof size\nis a confound there too and the angle must be read "
+            "against it."
+        )
+    published = None
+    if args.report:
+        rep = json.loads(args.report.read_text())
+        enc = rep["replication_all"]["auc"]
+        ctl = rep["control_replication_all"]["auc"]
+        published = {"replication_encoder_auc": enc, "replication_shuffled_control_auc": ctl}
+        print(
+            f"\nThe replication's own encoder AUC is {enc:.3f}, of which the shuffled control"
+            f"\nalready takes {ctl:.3f}; only the +{enc - ctl:.3f} margin is the embedding's,"
+            f"\nand proof size alone reaches {auc_replication:.3f} of it."
+        )
 
     if args.out:
         args.out.write_text(
@@ -107,6 +130,7 @@ def main():
                     "forward_pairs": int(len(connected)),
                     "forward_positives": int(connected.sum()),
                     "distinct_size_values": int(len(np.unique(minsize))),
+                    "published_replication": published,
                 },
                 indent=2,
             )

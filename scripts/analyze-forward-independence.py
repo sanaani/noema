@@ -1,5 +1,9 @@
 """The 22 forward-test positives are not 22 independent observations. Does that matter?
 
+(Written against phase 1's seeded corpus and its first grep label; the counts
+below are that corpus's. The checks are corpus-independent, but the seed-family
+and `Complex.*` hub subsets exist only there and drop nothing on another corpus.)
+
 They share endpoints: `Complex.exp_add` is in four of them, `Complex.exp_neg` in
 three, `FiniteField.card` in three. 32 distinct theorems carry all 22 pairs, and
 several of those theorems are seeds of the six bridge families the corpus was
@@ -112,7 +116,10 @@ def main():
             return
         hits = sum(1 for k in idx if k in in_band)
         lift = (hits / len(band)) / (len(idx) / total)
-        print(f"{tag:<46}{len(idx):>4}{auc_of(idx):>8.3f}{hits:>12}{lift:>7.0f}x")
+        # The seed-family and hub subsets are phase 1's; on a corpus that has
+        # neither, the row drops nothing and says so rather than looking like a test.
+        note = "  (drops nothing here)" if len(idx) == len(truth) and keep is not truth else ""
+        print(f"{tag:<46}{len(idx):>4}{auc_of(idx):>8.3f}{hits:>12}{lift:>7.0f}x{note}")
         rows[tag] = {"n": len(idx), "auc": auc_of(idx), "band_hits": hits, "band_lift": lift}
 
     row(truth, "all positives")
@@ -173,10 +180,24 @@ def main():
         f"  45-55 hits  null {null_hits.mean():.2f}"
         f"          | observed {observed_hits}     | p = {p_hits:.5f}"
     )
-    print(
-        "\nThe AUC survives every subset; the 45-55 band lift does not — it rests on"
-        "\nfour pairs, and removing one hub theorem leaves one. Read the AUC."
-    )
+    # Derived from the rows above, not remembered from the corpus this was
+    # written on. The first version printed phase 1's verdict ("the band lift
+    # rests on four pairs, and removing one hub theorem leaves one") verbatim,
+    # and kept printing it on a corpus where 293 band hits survived every subset.
+    aucs = [r["auc"] for r in rows.values()]
+    all_hits = rows["all positives"]["band_hits"]
+    hub_hits = rows["drop the Complex.exp*/cos* hub"]["band_hits"]
+    print(f"\nThe AUC stays within {min(aucs):.3f}-{max(aucs):.3f} across the subsets.")
+    if hub_hits < all_hits / 2:
+        print(
+            f"The 45-55 band count does not: {all_hits} hits become {hub_hits} without the "
+            "hub. Read the AUC."
+        )
+    else:
+        print(
+            f"The 45-55 band count holds as well: {hub_hits} of {all_hits} hits remain "
+            "without the hub."
+        )
 
     if not args.out:
         return

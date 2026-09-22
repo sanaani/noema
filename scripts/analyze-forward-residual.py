@@ -25,7 +25,6 @@ import gzip
 import importlib.util
 import itertools
 import json
-import re
 from pathlib import Path
 
 import numpy as np
@@ -36,8 +35,11 @@ spec = importlib.util.spec_from_file_location(
 )
 forward = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(forward)
-
-TOKEN = re.compile(r"[A-Za-z_][A-Za-z0-9_.']*")
+vspec = importlib.util.spec_from_file_location(
+    "vocabulary", ROOT / "scripts/analyze-forward-vocabulary.py"
+)
+vocabmod = importlib.util.module_from_spec(vspec)
+vspec.loader.exec_module(vocabmod)
 
 
 def main() -> int:
@@ -60,15 +62,12 @@ def main() -> int:
         t["name"]: (t["module"].split(".")[1] if t["module"].count(".") else "")
         for t in json.loads(gzip.open(args.selection, "rt").read())["theorems"]
     }
-    vocab: dict[str, frozenset[str]] = {}
-    for line in gzip.open(args.states, "rt"):
-        r = json.loads(line)
-        name = r["theorem_id"].split(":", 1)[1]
-        if name in index:
-            words: set[str] = set()
-            for s in r["states"]:
-                words.update(TOKEN.findall(s["text"]))
-            vocab[name] = frozenset(words)
+    # Same tokenizer, same state filter as analyze-forward-vocabulary.py, imported
+    # rather than copied. The first version of this re-implemented the tokenizer
+    # and left out that script's `no goals` exclusion, so on the same corpus its
+    # "all eligible" vocabulary AUC read 0.729 against vocabulary.json's 0.736,
+    # and its <5% subset held 588 positives where vocabulary.json counted 640.
+    vocab = {n: frozenset(t) for n, t in vocabmod.vocabularies(args.states).items() if n in index}
 
     rare = forward.rare_landmarks(set(names), args.edges)
     D = np.degrees(np.arccos(np.clip(C @ C.T, -1, 1)))
@@ -164,7 +163,8 @@ def main() -> int:
                     "subsets": rows,
                     "top_k": tops,
                     "vocab_threshold": args.vocab_threshold,
-                    "tokenizer": "identifier-like runs, set per theorem, Jaccard over pairs",
+                    "tokenizer": "analyze-forward-vocabulary.py: identifier-like runs per state, "
+                    "`no goals` excluded, set per theorem, Jaccard over pairs",
                 },
                 indent=2,
             )
