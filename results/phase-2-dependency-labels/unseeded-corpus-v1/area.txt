@@ -9,8 +9,9 @@ angle as an 'are these the same area?' detector : AUC 0.612
 'same area' alone as a predictor of the 2026 link: AUC 0.712
 
 If the forward result were the map noticing shared subfield, the angle would
-be a strong area detector and the cross-area row would collapse. Neither
-happens: area is a weak predictor on its own, and the angle keeps its AUC
-where the confound cannot reach.
+be a strong area detector and the cross-area row would collapse.
+  the angle is a weak area detector (0.612)
+  area alone predicts the link at 0.712, above the angle's 0.709
+  cross-area falls to 0.572
 
 wrote /opt/noema/out/area-control.json

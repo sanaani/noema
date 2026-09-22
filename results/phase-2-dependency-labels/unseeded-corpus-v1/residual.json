@@ -29,6 +29,50 @@
       "auc_vocab": 0.3670245300639583
     }
   ],
+  "top_k": [
+    {
+      "subset": "all eligible",
+      "k": 100,
+      "hits": 0,
+      "base_rate": 7.905941193176808e-05,
+      "lift": 0.0
+    },
+    {
+      "subset": "all eligible",
+      "k": 1000,
+      "hits": 31,
+      "base_rate": 7.905941193176808e-05,
+      "lift": 392.11017692307695
+    },
+    {
+      "subset": "all eligible",
+      "k": 10000,
+      "hits": 195,
+      "base_rate": 7.905941193176808e-05,
+      "lift": 246.64995
+    },
+    {
+      "subset": "cross-area AND overlap < 5%",
+      "k": 100,
+      "hits": 0,
+      "base_rate": 2.7188287582849063e-05,
+      "lift": 0.0
+    },
+    {
+      "subset": "cross-area AND overlap < 5%",
+      "k": 1000,
+      "hits": 1,
+      "base_rate": 2.7188287582849063e-05,
+      "lift": 36.780543715846996
+    },
+    {
+      "subset": "cross-area AND overlap < 5%",
+      "k": 10000,
+      "hits": 3,
+      "base_rate": 2.7188287582849063e-05,
+      "lift": 11.034163114754097
+    }
+  ],
   "vocab_threshold": 0.05,
   "tokenizer": "identifier-like runs, set per theorem, Jaccard over pairs"
 }

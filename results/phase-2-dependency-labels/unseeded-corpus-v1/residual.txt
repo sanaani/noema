@@ -4,6 +4,14 @@ cross-area only                                 60,352,871   2562   0.572   0.62
 vocabulary overlap < 5%                         14,302,860    588   0.648   0.367
 cross-area AND overlap < 5%                     13,461,679    366   0.580   0.367
 
+subset                                             k   hits     base    lift
+all eligible                                     100      0  0.00008      0x
+all eligible                                   1,000     31  0.00008    392x
+all eligible                                  10,000    195  0.00008    247x
+cross-area AND overlap < 5%                      100      0  0.00003      0x
+cross-area AND overlap < 5%                    1,000      1  0.00003     37x
+cross-area AND overlap < 5%                   10,000      3  0.00003     11x
+
 With neither shared subfield nor shared vocabulary, the angle scores 0.580 on 366 positives.
 Vocabulary on that same subset scores 0.367; it has been stripped, so it should be near chance,
 and it is the control that says the subset is doing what it claims.
