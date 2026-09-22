@@ -1,0 +1,67 @@
+{
+  "eligible_pairs": 1530134,
+  "positives": 53,
+  "base_rate": 3.463748926564602e-05,
+  "bands": [
+    {
+      "low": 0,
+      "high": 30,
+      "pairs": 26,
+      "hits": 0,
+      "lift": 0.0
+    },
+    {
+      "low": 30,
+      "high": 45,
+      "pairs": 501,
+      "hits": 4,
+      "lift": 230.502617406696
+    },
+    {
+      "low": 45,
+      "high": 55,
+      "pairs": 2251,
+      "hits": 4,
+      "lift": 51.30244838771866
+    },
+    {
+      "low": 55,
+      "high": 65,
+      "pairs": 8441,
+      "hits": 5,
+      "lift": 17.10132260999211
+    },
+    {
+      "low": 65,
+      "high": 75,
+      "pairs": 34204,
+      "hits": 19,
+      "lift": 16.037264757735496
+    },
+    {
+      "low": 75,
+      "high": 85,
+      "pairs": 182588,
+      "hits": 10,
+      "lift": 1.5811801887412469
+    },
+    {
+      "low": 85,
+      "high": 95,
+      "pairs": 1300144,
+      "hits": 11,
+      "lift": 0.24426139037835456
+    },
+    {
+      "low": 95,
+      "high": 180,
+      "pairs": 1979,
+      "hits": 0,
+      "lift": 0.0
+    }
+  ],
+  "auc_proof_size": 0.43939625936439203,
+  "auc_angle": 0.8984681881374809,
+  "median_minsize_band_45_55": 13.0,
+  "median_minsize_all": 5.0
+}

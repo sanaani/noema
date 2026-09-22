@@ -143,8 +143,34 @@ Reference timings, 2026 library with oleans warm: import ~4s, 808,723 imported
 constants, `countNodes` 0–24ms per theorem, `getUsedConstants` ~0ms, twenty
 theorems in 258ms.
 
-## Status
+## Result
 
-No findings yet. The 2026 sweep is running; nothing in this directory is a
-result. `Deps2026.lean`, `scripts/build-dependency-label.py` and
-`scripts/size-corpus.py` are in place and tested.
+The 2026 graph is built and the label is rebuilt from it. See
+[`link-graph-2026-v1/`](link-graph-2026-v1/README.md).
+
+**The effect survives an exact label and is weaker.**
+
+| | grep label | dependency label |
+|---|---:|---:|
+| positives | 17 | **53** |
+| **angle AUC** | **0.973** | **0.898** |
+| cluster null | 0.50 | 0.501 +/- 0.045, p < 1e-5 |
+| cross-area AUC | — | 0.904 (higher than overall) |
+| leave-one-endpoint-out | — | 0.886 to 0.934 over 69 endpoints |
+
+0.898 on 53 positives is the number to quote. The grep label was not a noisier
+measurement of the same quantity — a text search can only find citations
+written as visible names, which selects for the easy cases.
+
+Two things the larger label buys that 17 positives could not: a
+leave-one-endpoint-out range that shows no single theorem carries the result,
+and a cross-area AUC *above* the overall figure, which is what rules out the
+subfield confound.
+
+The measured label gain is **R = 3.1**, against the R = 2 assumed above. At
+that rate 1,000 positives needs ~7,800 theorems and ~156 files rather than 195
+(`scripts/size-corpus.py --ratio 3.12`).
+
+Still open: the corpus remains 1,797 theorems selected theorem-by-theorem in
+phase 1, so the selection effect described under "Sampling plan" is untouched.
+The unseeded capture is the next job.
