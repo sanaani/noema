@@ -5,28 +5,28 @@
       "pairs": 65773320,
       "positives": 5200,
       "auc_angle": 0.7089158665396057,
-      "auc_vocab": 0.7285008318810086
+      "auc_vocab": 0.7360826363722447
     },
     {
       "subset": "cross-area only",
       "pairs": 60352871,
       "positives": 2562,
       "auc_angle": 0.5719212162721994,
-      "auc_vocab": 0.6228048593622205
+      "auc_vocab": 0.6338611738753369
     },
     {
       "subset": "vocabulary overlap < 5%",
-      "pairs": 14302860,
-      "positives": 588,
-      "auc_angle": 0.6477449264109688,
-      "auc_vocab": 0.36706839941139385
+      "pairs": 16191305,
+      "positives": 640,
+      "auc_angle": 0.6103154471071757,
+      "auc_vocab": 0.3629982634862435
     },
     {
       "subset": "cross-area AND overlap < 5%",
-      "pairs": 13461679,
-      "positives": 366,
-      "auc_angle": 0.5802502334600615,
-      "auc_vocab": 0.3670245300639583
+      "pairs": 15218798,
+      "positives": 401,
+      "auc_angle": 0.5487936877957694,
+      "auc_vocab": 0.37022770766598134
     }
   ],
   "top_k": [
@@ -54,25 +54,25 @@
     {
       "subset": "cross-area AND overlap < 5%",
       "k": 100,
-      "hits": 0,
-      "base_rate": 2.7188287582849063e-05,
-      "lift": 0.0
+      "hits": 1,
+      "base_rate": 2.634899287052762e-05,
+      "lift": 379.5211471321696
     },
     {
       "subset": "cross-area AND overlap < 5%",
       "k": 1000,
       "hits": 1,
-      "base_rate": 2.7188287582849063e-05,
-      "lift": 36.780543715846996
+      "base_rate": 2.634899287052762e-05,
+      "lift": 37.95211471321696
     },
     {
       "subset": "cross-area AND overlap < 5%",
       "k": 10000,
       "hits": 3,
-      "base_rate": 2.7188287582849063e-05,
-      "lift": 11.034163114754097
+      "base_rate": 2.634899287052762e-05,
+      "lift": 11.385634413965086
     }
   ],
   "vocab_threshold": 0.05,
-  "tokenizer": "identifier-like runs, set per theorem, Jaccard over pairs"
+  "tokenizer": "analyze-forward-vocabulary.py: identifier-like runs per state, `no goals` excluded, set per theorem, Jaccard over pairs"
 }

@@ -105,6 +105,21 @@ cannot correct. 53 positives is three times 17 and still a small number. The
 band lifts above 30-45 rest on single-digit hit counts and should not be quoted
 individually; the AUC is the stable statistic.
 
+## Two checks run later, on this same corpus
+
+Both were written for the unseeded corpus and run here for the seeded column of
+its comparison table; they read the committed centroids and this label.
+
+* `residual.json` — the angle on the pairs that share no area and under 5% of
+  their state vocabulary: **0.928 on 11 positives**, with vocabulary itself at
+  0.399 on the same pairs as the control. Vocabulary on all eligible pairs is
+  0.672, which agrees with `vocabulary.json`.
+* `state-source.json` — 425 of the 1,797 centroids are a single synthetic state
+  (the statement; the proof ran no tactic). Angle AUC on observed-observed
+  pairs 0.848 (25 positives), observed-synthetic 0.965 (23),
+  synthetic-synthetic 0.878 (5). Too few positives to say whether proof states
+  add to the statement; the unseeded corpus answers that.
+
 ## What it settles for planning
 
 The label gain over the grep label is now measured rather than assumed:

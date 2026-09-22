@@ -1,0 +1,24 @@
+11,489 theorems: 4,697 observed (41%), 6,792 synthetic (statement only)
+
+subset                                                   pairs    pos   angle   vocab
+all eligible                                        65,773,320   5200   0.709   0.736
+observed-observed                                   10,949,257    529   0.726   0.720
+observed-synthetic                                  31,820,405   2030   0.734   0.707
+synthetic-synthetic                                 23,003,658   2641   0.773   0.757
+
+observed-observed, cross-area AND overlap < 5%       2,550,867     44   0.592   0.395
+observed-synthetic, cross-area AND overlap < 5%      8,313,948    192   0.600   0.360
+synthetic-synthetic, cross-area AND overlap < 5%     4,353,983    165   0.592   0.413
+
+subset (observed-observed)                             k   hits     base    lift
+all eligible                                         100      2  0.00005    414x
+all eligible                                       1,000     10  0.00005    207x
+all eligible                                      10,000     56  0.00005    116x
+cross-area AND overlap < 5%                          100      1  0.00002    580x
+cross-area AND overlap < 5%                        1,000      1  0.00002     58x
+cross-area AND overlap < 5%                       10,000      2  0.00002     12x
+
+On pairs of real proof-state centroids the angle scores 0.726 (529 positives);
+on pairs of statement-only centroids 0.773 (2,641).
+The statement alone does better, by 0.047.
+wrote /opt/noema/out/state-source.json

@@ -1,0 +1,100 @@
+{
+  "theorems": {
+    "synthetic": 425,
+    "observed": 1372
+  },
+  "subsets": [
+    {
+      "subset": "all eligible",
+      "pairs": 1530134,
+      "positives": 53,
+      "auc_angle": 0.8984681881374809,
+      "auc_vocab": 0.6719592030970662
+    },
+    {
+      "subset": "observed-observed",
+      "pairs": 868648,
+      "positives": 25,
+      "auc_angle": 0.848263585007535,
+      "auc_vocab": 0.6269119744699369
+    },
+    {
+      "subset": "observed-synthetic",
+      "pairs": 573200,
+      "positives": 23,
+      "auc_angle": 0.9654347230626309,
+      "auc_vocab": 0.6990244154795191
+    },
+    {
+      "subset": "synthetic-synthetic",
+      "pairs": 88286,
+      "positives": 5,
+      "auc_angle": 0.8778038309489018,
+      "auc_vocab": 0.7151448216490525
+    },
+    {
+      "subset": "observed-observed, cross-area AND overlap < 5%",
+      "pairs": 293905,
+      "positives": 7,
+      "auc_angle": 0.9445891334505752,
+      "auc_vocab": 0.40758066695636874
+    },
+    {
+      "subset": "observed-synthetic, cross-area AND overlap < 5%",
+      "pairs": 220951,
+      "positives": 4,
+      "auc_angle": 0.9085663077570639,
+      "auc_vocab": 0.3769003426161025
+    },
+    {
+      "subset": "synthetic-synthetic, cross-area AND overlap < 5%",
+      "pairs": 20298,
+      "positives": 0
+    }
+  ],
+  "top_k_observed_observed": [
+    {
+      "subset": "all eligible",
+      "k": 100,
+      "hits": 0,
+      "base_rate": 2.878035752111327e-05,
+      "lift": 0.0
+    },
+    {
+      "subset": "all eligible",
+      "k": 1000,
+      "hits": 2,
+      "base_rate": 2.878035752111327e-05,
+      "lift": 69.49184000000001
+    },
+    {
+      "subset": "all eligible",
+      "k": 10000,
+      "hits": 8,
+      "base_rate": 2.878035752111327e-05,
+      "lift": 27.796736000000003
+    },
+    {
+      "subset": "cross-area AND overlap < 5%",
+      "k": 100,
+      "hits": 0,
+      "base_rate": 2.3817219849951516e-05,
+      "lift": 0.0
+    },
+    {
+      "subset": "cross-area AND overlap < 5%",
+      "k": 1000,
+      "hits": 0,
+      "base_rate": 2.3817219849951516e-05,
+      "lift": 0.0
+    },
+    {
+      "subset": "cross-area AND overlap < 5%",
+      "k": 10000,
+      "hits": 4,
+      "base_rate": 2.3817219849951516e-05,
+      "lift": 16.79457142857143
+    }
+  ],
+  "vocab_threshold": 0.05
+}

@@ -1,0 +1,78 @@
+{
+  "subsets": [
+    {
+      "subset": "all eligible",
+      "pairs": 1530134,
+      "positives": 53,
+      "auc_angle": 0.8984681881374809,
+      "auc_vocab": 0.6719592030970662
+    },
+    {
+      "subset": "cross-area only",
+      "pairs": 1394580,
+      "positives": 30,
+      "auc_angle": 0.903802588648668,
+      "auc_vocab": 0.5296779725837486
+    },
+    {
+      "subset": "vocabulary overlap < 5%",
+      "pairs": 585841,
+      "positives": 12,
+      "auc_angle": 0.9219867629177343,
+      "auc_vocab": 0.43374097503992914
+    },
+    {
+      "subset": "cross-area AND overlap < 5%",
+      "pairs": 535154,
+      "positives": 11,
+      "auc_angle": 0.9275004319151398,
+      "auc_vocab": 0.39908177474398093
+    }
+  ],
+  "top_k": [
+    {
+      "subset": "all eligible",
+      "k": 100,
+      "hits": 0,
+      "base_rate": 3.463748926564602e-05,
+      "lift": 0.0
+    },
+    {
+      "subset": "all eligible",
+      "k": 1000,
+      "hits": 5,
+      "base_rate": 3.463748926564602e-05,
+      "lift": 144.3522641509434
+    },
+    {
+      "subset": "all eligible",
+      "k": 10000,
+      "hits": 13,
+      "base_rate": 3.463748926564602e-05,
+      "lift": 37.53158867924528
+    },
+    {
+      "subset": "cross-area AND overlap < 5%",
+      "k": 100,
+      "hits": 0,
+      "base_rate": 2.0554830945858575e-05,
+      "lift": 0.0
+    },
+    {
+      "subset": "cross-area AND overlap < 5%",
+      "k": 1000,
+      "hits": 1,
+      "base_rate": 2.0554830945858575e-05,
+      "lift": 48.650363636363636
+    },
+    {
+      "subset": "cross-area AND overlap < 5%",
+      "k": 10000,
+      "hits": 4,
+      "base_rate": 2.0554830945858575e-05,
+      "lift": 19.460145454545454
+    }
+  ],
+  "vocab_threshold": 0.05,
+  "tokenizer": "analyze-forward-vocabulary.py: identifier-like runs per state, `no goals` excluded, set per theorem, Jaccard over pairs"
+}

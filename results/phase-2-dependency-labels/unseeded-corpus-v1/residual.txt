@@ -1,18 +1,18 @@
 subset                                               pairs    pos   angle   vocab
-all eligible                                    65,773,320   5200   0.709   0.729
-cross-area only                                 60,352,871   2562   0.572   0.623
-vocabulary overlap < 5%                         14,302,860    588   0.648   0.367
-cross-area AND overlap < 5%                     13,461,679    366   0.580   0.367
+all eligible                                    65,773,320   5200   0.709   0.736
+cross-area only                                 60,352,871   2562   0.572   0.634
+vocabulary overlap < 5%                         16,191,305    640   0.610   0.363
+cross-area AND overlap < 5%                     15,218,798    401   0.549   0.370
 
 subset                                             k   hits     base    lift
 all eligible                                     100      0  0.00008      0x
 all eligible                                   1,000     31  0.00008    392x
 all eligible                                  10,000    195  0.00008    247x
-cross-area AND overlap < 5%                      100      0  0.00003      0x
-cross-area AND overlap < 5%                    1,000      1  0.00003     37x
+cross-area AND overlap < 5%                      100      1  0.00003    380x
+cross-area AND overlap < 5%                    1,000      1  0.00003     38x
 cross-area AND overlap < 5%                   10,000      3  0.00003     11x
 
-With neither shared subfield nor shared vocabulary, the angle scores 0.580 on 366 positives.
-Vocabulary on that same subset scores 0.367; it has been stripped, so it should be near chance,
+With neither shared subfield nor shared vocabulary, the angle scores 0.549 on 401 positives.
+Vocabulary on that same subset scores 0.370; it has been stripped, so it should be near chance,
 and it is the control that says the subset is doing what it claims.
 wrote /opt/noema/out/residual.json

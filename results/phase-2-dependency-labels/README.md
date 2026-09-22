@@ -1,6 +1,6 @@
 # Phase 2 — Dependency labels
 
-**Open.** Started 2026-09-22.
+**Closed 2026-09-22.** Two jobs, one day. Numbers here do not move.
 
 ## The question
 
@@ -171,6 +171,62 @@ The measured label gain is **R = 3.1**, against the R = 2 assumed above. At
 that rate 1,000 positives needs ~7,800 theorems and ~156 files rather than 195
 (`scripts/size-corpus.py --ratio 3.12`).
 
-Still open: the corpus remains 1,797 theorems selected theorem-by-theorem in
-phase 1, so the selection effect described under "Sampling plan" is untouched.
-The unseeded capture is the next job.
+That left the corpus: still 1,797 theorems selected theorem-by-theorem in
+phase 1, so the selection effect described under "Sampling plan" was untouched.
+The second job removed it.
+
+## Result, job 2: the unseeded corpus
+
+See [`unseeded-corpus-v1/`](unseeded-corpus-v1/README.md). 350 Mathlib files
+drawn once by seed, every replayable theorem kept, yield predicted to the pair
+before capture and met exactly.
+
+**The effect survives, and phase 1's number was mostly selection.**
+
+| | seeded corpus (job 1) | unseeded corpus (job 2) |
+|---|---:|---:|
+| theorems | 1,797 | **11,489** |
+| positives | 53 | **5,200** |
+| **angle AUC** | 0.898 | **0.709** |
+| cluster null | 0.501 ± 0.045 | 0.500 ± 0.017, p < 1/5,000 |
+| shared vocabulary alone | 0.672 | 0.736 |
+| same area alone | 0.673 | 0.712 |
+| proof size alone | 0.439 | 0.468 |
+| cross-area pairs, angle | 0.904 | 0.572 |
+| cross-area and under 5% shared vocabulary, angle | 0.928 on 11 | 0.549 on 401 |
+
+Two predictors that need no encoder match or beat the angle on the full pair
+set. That is not the comparison the project turns on: where two theorems share
+no vocabulary a lexical predictor is undefined, and there the angle still ranks
+the true connections above chance (0.549 on 401 positives, 3.4 null standard
+deviations, with vocabulary itself at 0.370 on the same pairs as the control). At the top of
+that ranking the enrichment is real and thin: the closest 10,000 candidates hold
+three true connections against 0.26 expected (p ≈ 0.003).
+
+Two things the unseeded corpus exposed that the seeded one hid: 59% of a random
+corpus's proofs run no tactic, so their centroids are statement embeddings, not
+proof-state centroids (scored apart in `state-source.json`: statement-only pairs score 0.773, proof-state
+pairs 0.726, so on this corpus the proof adds nothing over the statement); and the
+sizing rule above held: positives ∝ files², 156 files for 1,000 positives at
+R = 3.1, predicts about 4,600 for the 335 files that replayed, and the corpus
+gave 5,200.
+
+## What this phase hands on
+
+1. **An exact label, on both corpora.** `link-graph-2026-v1/edges-2026.jsonl.gz`
+   is the 2026 dependency graph; `build-dependency-label.py` turns it into a
+   label for any corpus in seconds.
+2. **A corpus nobody chose.** `unseeded-corpus-v1/centroids.npz` is 11,489 unit
+   centroids, with every state, every synthetic goal and the theorem → module
+   map beside it. Any new analysis can be scored on it without a GPU.
+3. **A staged, self-terminating capture** that measures its own throughput
+   before spending: `run-capture-aws.sh`, `run-encode-aws.sh`,
+   `run-analysis-aws.sh`, and the REPL patches the capture always depended on,
+   now committed.
+4. **The honest number.** 0.709 overall, and the residual figures where words
+   give nothing. Every claim from phase 1 should be read against them.
+
+What it does **not** hand on: a shortlist. In the regime the project exists
+for, the top of the ranking holds about one true connection per thousand
+candidates, and its very top is polluted by 0.0° renames and generated twins.
+Fixing that is the next job, and the fix must be stated before it is scored.

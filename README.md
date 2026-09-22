@@ -19,6 +19,8 @@ that the map is measuring something real.
 | [Betweenness](results/phase-1-recognition/state-bridge-v1/README.md) | does a known bridge theorem sit *between* its two endpoints? | all **6/6** families in the top 4.3% of 1,795 objects, four in the top 1.4% |
 | [Forward test](results/phase-1-recognition/mathlib-forward-v1/README.md) | does the 2024 map point at links Mathlib only made by 2026? | angle **AUC 0.973** against proof size's 0.509 and vocabulary overlap's 0.691 |
 | [α-rename control](results/phase-1-recognition/rename-control-v1/README.md) | does any of it survive deleting every variable name? | all three: forward **0.974**, betweenness **6/6 in the top 3.3%**, replication margin **+0.162** |
+| [Exact label](results/phase-2-dependency-labels/link-graph-2026-v1/README.md) | does the forward test survive asking Lean, not grep, who cites whom? | 53 positives instead of 17; angle **AUC 0.898** |
+| [Unseeded corpus](results/phase-2-dependency-labels/unseeded-corpus-v1/README.md) | does it survive a corpus drawn by seed instead of by hand? | 5,200 positives; angle **AUC 0.709**, cluster null 0.500 ± 0.017 |
 
 1,797 Mathlib theorems, 99,275 captured proof states, 23,874 unique state texts,
 encoded with the pinned ReProver ByT5 retriever. The corpus was built by
@@ -33,6 +35,26 @@ Lean on the `Expr`, leaves each measurement where it was or slightly better,
 while the purely lexical baseline it is scored against drops from 0.691 to
 0.547. The ablation demonstrably removed information and the geometry did not
 depend on it.
+
+**Phase 2 changed how the first four rows should be read.** The 1,797-theorem
+corpus was chosen by hand, and phase 2 replaced it with 11,489 theorems from
+350 Mathlib files drawn once by a fixed seed, with the 2026 label taken from
+Lean's own dependency graph rather than a text search. The forward AUC went
+from 0.973 (grep label) to 0.898 (exact label, same corpus) to **0.709**
+(exact label, unseeded corpus). The effect is real — 5,200 positives, predicted
+to the pair before the first proof was replayed, against a degree-preserving
+null of 0.500 ± 0.017 — and phase 1's number was mostly selection. On the
+unseeded corpus two predictors that need no encoder, shared state vocabulary
+(0.736) and same Mathlib area (0.712), match or beat the angle on the full pair
+set. Where those two give nothing — cross-area pairs sharing under 5% of their
+vocabulary, the pairs the project exists to find — the angle still scores
+0.549 on 401 positives, 3.4 null standard deviations above chance, with
+vocabulary at 0.370 as the control, and the top of that ranking is enriched
+but thin. And the theorem's *statement*, encoded the same way, predicts the
+label at least as well as its proof states (0.773 against 0.726), so the
+premise that a proof's trajectory knows something its statement does not is
+not supported. The phase 2 READMEs carry the tables; the paragraphs below are
+phase 1's reading of phase 1's corpus and are kept as written.
 
 **Betweenness is the load-bearing one.** The replication shares a confound with
 its own target: proof size alone predicts "these two proofs share a rare lemma"
@@ -106,7 +128,9 @@ same object, and dropping that one hub leaves one.
   operate — the angle still scores **0.972 on 11 hits** against 0.973 overall.
   That rules out this story, and the α-rename effect — a different story, and
   the one that stayed open longest — is ruled out separately below.
-- The forward label is `git grep` over full declaration names, so it misses
+- **Superseded by phase 2**, which rebuilt the label from Lean's dependency
+  graph and found 53 positives where grep found 17. As written in phase 1: the
+  forward label is `git grep` over full declaration names, so it misses
   citations under an `open` namespace, misses a target renamed since 2024, and
   does not check that a citation is load-bearing. Misses attenuate; but the
   first version of this label showed that a loose matcher inflates, so a grep
@@ -193,7 +217,13 @@ results/                 findings and precompiled data, grouped by research phas
                          what the encoder does and does not do: α-rename
                          invariance, a five-encoder comparison, certified
                          structural capture, and the statement-embedding null
-  phase-2-dependency-labels/  OPEN. Replace the grep label with what Lean knows.
+  phase-2-dependency-labels/  CLOSED. An exact label, then a corpus nobody chose.
+    link-graph-2026-v1/  the 2026 dependency graph (281,359 theorems) and the
+                         exact label scored on phase 1's corpus: 53 positives, 0.898
+    unseeded-corpus-v1/  350 files by seed, 11,489 theorems, 5,200 positives, 0.709;
+                         the residual and state-source tests; every capture artifact
+viewer/    the centroid cloud flattened onto a globe two ways, with the figures that
+           say how much each flattening lies; built by scripts/project-centroids-sphere.py
 scripts/   the pipeline, in order: scan -> filter -> select -> capture -> encode -> analyse
            shared across phases and phase-agnostic: a script asks for
            result_path("link-graph-v1/edges.jsonl.gz") and never names a phase.
@@ -228,6 +258,18 @@ The analyses read committed artifacts:
 .venv/bin/python scripts/analyze-size-confound.py           # proof size on both labels
 .venv/bin/python scripts/build-forward-label.py --check     # the 2026 label's citations are whole names
 .venv/bin/python scripts/analyze-state-bridge.py            # needs the vectors, see below
+```
+
+Phase 2's analyses take the unseeded corpus's committed centroids (62.8 MB) and
+label as arguments; the residual, state-source and independence runs need about
+4 GB of memory, which is why `scripts/run-analysis-aws.sh` exists:
+
+```bash
+U=results/phase-2-dependency-labels/unseeded-corpus-v1
+.venv/bin/python scripts/analyze-forward-residual.py --centroids $U/centroids.npz \
+    --connectors $U/new-connectors.json --states $U/states-augmented.jsonl.gz \
+    --selection $U/selection-modules.json.gz --edges results/phase-1-recognition/link-graph-v1/edges.jsonl.gz
+.venv/bin/python scripts/project-centroids-sphere.py        # rebuilds viewer/data.js, ~90 s
 ```
 
 The α-rename control compares two arms of one encode, so it needs that encode's

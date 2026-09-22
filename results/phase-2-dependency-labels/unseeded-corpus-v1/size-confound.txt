@@ -2,10 +2,8 @@ target                                             pairs  positives  size AUC
 shares a rare lemma (replication)             65,992,816    219,496     0.603
 cited together by 2026 (forward)              65,773,320      5,200     0.468
 
-The replication's own encoder AUC is 0.877, of which the shuffled
-control already takes 0.714 — so proof size at 0.603 is most of what
-that test measures, and only the +0.164 margin is the embedding's.
-On the forward label the same predictor is 0.468, so the confound does
-not transfer. That asymmetry is why the forward test carries more weight.
+Proof size alone predicts the replication label at 0.603 and the
+forward label at 0.468.
+On the forward label that is a coin flip: the size confound does not transfer.
 
 wrote /opt/noema/out/size-confound.json

@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Noema Theorem Globe</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:ital,wght@0,300;0,400;1,300&display=swap">
+<style>
+:root {
+  --ground: #f3f4f7;
+  --panel: #ffffff;
+  --panel-2: #e9ebf1;
+  --line: #d3d7e0;
+  --ink: #171b26;
+  --ink-2: #4d5567;
+  --ink-3: #7c8496;
+  --accent: #b06a00;
+  --accent-ink: #7a4800;
+  --hard: #b8154e;
+  --nn: #1b6fb3;
+  --globe: #e6e8ee;
+  --globe-line: #c9cdd8;
+  --point-l: 42%;
+  --sans: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --serif: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground: #0b0e17; --panel: #121724; --panel-2: #1a2030; --line: #273043;
+    --ink: #e7eaf2; --ink-2: #aab2c5; --ink-3: #6f788c;
+    --accent: #f0b34a; --accent-ink: #f5c979; --hard: #ff6b9a; --nn: #6db3ff;
+    --globe: #141a29; --globe-line: #222b3d; --point-l: 66%;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --ground: #0b0e17; --panel: #121724; --panel-2: #1a2030; --line: #273043;
+  --ink: #e7eaf2; --ink-2: #aab2c5; --ink-3: #6f788c;
+  --accent: #f0b34a; --accent-ink: #f5c979; --hard: #ff6b9a; --nn: #6db3ff;
+  --globe: #141a29; --globe-line: #222b3d; --point-l: 66%;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0; background: var(--ground); color: var(--ink);
+  font: 14px/1.5 var(--sans); -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 1400px; margin: 0 auto; padding-block: 20px 40px; padding-inline: 16px; }
+h1 { font: 300 clamp(26px, 3.4vw, 38px)/1.1 var(--serif); margin: 0 0 6px; letter-spacing: -0.01em; text-wrap: balance; }
+h1 em { font-style: italic; color: var(--accent-ink); }
+.lede { max-width: 70ch; color: var(--ink-2); margin: 0 0 14px; font-size: 15px; }
+.lede b { color: var(--ink); font-weight: 600; }
+h2 { font: 400 17px/1.3 var(--serif); margin: 0 0 8px; }
+.eyebrow { font: 500 11px/1 var(--sans); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 6px; }
+
+.warn {
+  border: 1px solid var(--line); border-left: 4px solid var(--accent);
+  background: var(--panel); padding: 12px 14px; margin: 0 0 16px;
+  display: grid; grid-template-columns: 1fr; gap: 10px 24px;
+}
+.warn p { margin: 0; max-width: 72ch; }
+.figs { display: flex; flex-wrap: wrap; gap: 6px 22px; font-variant-numeric: tabular-nums; }
+.fig { display: flex; flex-direction: column; gap: 1px; min-width: 120px; }
+.fig .v { font: 400 22px/1.1 var(--serif); }
+.fig .k { font-size: 11.5px; color: var(--ink-3); letter-spacing: 0.02em; }
+@media (min-width: 900px) { .warn { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); align-items: start; } }
+
+.stage { display: grid; grid-template-columns: 1fr; gap: 14px; }
+@media (min-width: 900px) { .stage { grid-template-columns: 300px minmax(0, 1fr); } }
+.panel { background: var(--panel); border: 1px solid var(--line); padding: 12px 14px; display: flex; flex-direction: column; gap: 14px; }
+.ctl { display: flex; flex-direction: column; gap: 6px; }
+.ctl label { font-size: 12.5px; color: var(--ink-2); }
+select, input[type="search"], input[type="range"] { width: 100%; font: inherit; color: var(--ink); background: var(--panel-2); border: 1px solid var(--line); border-radius: 3px; padding: 6px 8px; }
+input[type="range"] { padding: 0; accent-color: var(--accent); }
+select:focus-visible, input:focus-visible, button:focus-visible, .chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.row { display: flex; justify-content: space-between; gap: 8px; font-size: 12.5px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.legend { display: flex; flex-wrap: wrap; gap: 4px; max-height: 190px; overflow: auto; padding-right: 4px; }
+.chip { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line); background: var(--panel-2); color: var(--ink); font: 500 11.5px/1 var(--sans); padding: 5px 8px; border-radius: 999px; cursor: pointer; }
+.chip .dot { width: 9px; height: 9px; border-radius: 50%; flex: none; }
+.chip.off { opacity: 0.38; }
+.chip .n { color: var(--ink-3); font-weight: 400; }
+button.link { background: none; border: none; color: var(--accent-ink); font: inherit; cursor: pointer; padding: 0; text-decoration: underline; }
+
+.globe { position: relative; background: var(--panel); border: 1px solid var(--line); min-height: 420px; height: min(78vh, 820px); overflow: hidden; }
+@media (max-width: 899px) { .globe { height: 62vh; min-height: 360px; } }
+.globe canvas { display: block; width: 100%; height: 100%; touch-action: none; cursor: grab; }
+.globe canvas:active { cursor: grabbing; }
+.hint { position: absolute; left: 12px; bottom: 10px; font-size: 11.5px; color: var(--ink-3); pointer-events: none; }
+.tip { position: absolute; pointer-events: none; background: var(--panel); color: var(--ink); border: 1px solid var(--line); padding: 6px 9px; font: 12px/1.35 var(--mono); max-width: 360px; transform: translate(12px, 12px); box-shadow: 0 4px 16px rgba(0,0,0,0.18); }
+.tip .s { color: var(--ink-3); font-family: var(--sans); }
+
+.detail { border-top: 1px solid var(--line); padding-top: 12px; display: flex; flex-direction: column; gap: 8px; }
+.detail .name { font: 500 13px/1.35 var(--mono); word-break: break-all; }
+.detail .mod { font: 12px/1.35 var(--mono); color: var(--ink-3); word-break: break-all; }
+.detail table { border-collapse: collapse; width: 100%; font-size: 12px; font-variant-numeric: tabular-nums; }
+.detail td { padding: 3px 0; border-bottom: 1px dashed var(--line); vertical-align: top; }
+.detail td:last-child { text-align: right; white-space: nowrap; color: var(--ink-2); }
+.detail td .nm { font-family: var(--mono); font-size: 11.5px; word-break: break-all; cursor: pointer; }
+.detail td .nm:hover { color: var(--accent-ink); }
+.sw { display: inline-block; width: 18px; height: 3px; vertical-align: middle; margin-right: 6px; }
+.sw.acc { background: var(--accent); } .sw.hard { background: var(--hard); } .sw.nn { background: var(--nn); border-top: 1px dashed var(--nn); height: 0; }
+
+.notes { margin-top: 20px; display: grid; grid-template-columns: 1fr; gap: 16px 32px; }
+@media (min-width: 900px) { .notes { grid-template-columns: 1fr 1fr; } }
+.notes p, .notes li { max-width: 68ch; color: var(--ink-2); }
+.notes ul { padding-left: 18px; margin: 0; }
+.notes li { margin: 0 0 6px; }
+.notes code, .tip code { font: 12px var(--mono); color: var(--ink); }
+.notes a { color: var(--accent-ink); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Eleven thousand theorems, on a globe that is <em>almost</em> lying to you</h1>
+  <p class="lede">Every Mathlib theorem in the phase 2 corpus is a point on a sphere with <b>1,472 axes</b>: the average direction of its proof states, as read by a proof-state encoder. Nobody can look at that. This page flattens it onto an ordinary globe two different ways, and each way throws away something different. Turn the object, switch between the two, and read the figures that say how much each one lies.</p>
+
+  <div class="warn" id="warn">
+    <div>
+      <p class="eyebrow">Read this before trusting the picture</p>
+      <p><b>This is a compressed object.</b> In the real space almost every pair of theorems sits close to 90° apart, and no globe can hold that. Click any point and its five true nearest neighbours light up in <span class="sw nn"></span>blue: on one globe they scatter, on the other they cluster, and neither is the truth. Use the page to build intuition for the <i>shape</i>: how many clumps there are, which areas overlap, where the 2026 connections run. Never read a distance off it.</p>
+      <p id="layoutnote"></p>
+    </div>
+    <div class="figs" id="figs"></div>
+  </div>
+
+  <div class="stage">
+    <aside class="panel" aria-label="controls">
+      <div class="ctl">
+        <label for="layout">Which globe</label>
+        <select id="layout">
+          <option value="pca">Global axes (PCA): the three biggest directions</option>
+          <option value="nl">Neighbourhood layout: who sits near whom</option>
+        </select>
+      </div>
+      <div class="ctl">
+        <label for="color">Colour points by</label>
+        <select id="color">
+          <option value="area">Mathlib area</option>
+          <option value="kind">Proof states vs statement only</option>
+          <option value="kept">How faithful this globe is here (neighbours kept)</option>
+          <option value="fidelity">How much of the point the 3 PCA axes keep</option>
+        </select>
+      </div>
+      <div class="ctl">
+        <label for="arcs">Draw the 2026 connections as arcs</label>
+        <select id="arcs">
+          <option value="hard">Only cross-area, under 5% shared vocabulary</option>
+          <option value="cross">Cross-area only</option>
+          <option value="all">All positives</option>
+          <option value="none">None</option>
+        </select>
+      </div>
+      <div class="ctl">
+        <label for="maxang">Only arcs whose <i>true</i> angle is under <span id="maxangv">90</span>°</label>
+        <input id="maxang" type="range" min="10" max="180" value="90" step="1">
+        <div class="row"><span id="arcinfo"></span></div>
+      </div>
+      <div class="ctl">
+        <label for="q">Find a theorem</label>
+        <input id="q" type="search" placeholder="e.g. Nat.cast_one, then Enter" autocomplete="off">
+      </div>
+      <div class="ctl">
+        <div class="row"><span>Areas</span><span><button class="link" id="allon" type="button">all</button> · <button class="link" id="alloff" type="button">none</button></span></div>
+        <div class="legend" id="legend"></div>
+      </div>
+      <div class="detail" id="detail" hidden></div>
+    </aside>
+
+    <div class="globe" id="globe">
+      <canvas id="c" aria-label="theorem globe"></canvas>
+      <div class="tip" id="tip" hidden></div>
+      <div class="hint">drag to turn · wheel or pinch to zoom · click a point to pin it · Esc to unpin</div>
+    </div>
+  </div>
+
+  <div class="notes">
+    <div>
+      <h2>What you are looking at</h2>
+      <ul>
+        <li>One point per theorem: 11,489 of them, from 335 Mathlib files drawn by a fixed random seed, not chosen by hand. Each is the centroid of that theorem's captured proof states, encoded by the pinned ReProver retriever.</li>
+        <li><b>Statement-only points.</b> A proof that runs no tactic leaves no states, so its point is the encoder's reading of the theorem <i>statement</i> alone. That is 59% of this corpus. The "proof states vs statement only" colouring separates them; the two kinds are scored apart in the write-up.</li>
+        <li><b>Arcs</b> are pairs that a theorem written between July 2024 and September 2026 cites together. <span class="sw acc"></span>amber arcs are ordinary positives; <span class="sw hard"></span>pink arcs join theorems from different Mathlib areas that share under 5% of their state vocabulary, the pairs no text-matching method can rank.</li>
+        <li>The arc slider filters on the <i>true</i> angle between the two centroids in 1,472 dimensions, never on how far apart they look here.</li>
+      </ul>
+    </div>
+    <div>
+      <h2>How the flattening was made, and measured</h2>
+      <ul>
+        <li><b>Global axes.</b> Centre the cloud, take its three principal axes (PCA), project every centroid onto them, scale each back to unit length. Linear, deterministic, no fitting to any label. It shows which directions the corpus spreads along most, and almost nothing about who is near whom.</li>
+        <li><b>Neighbourhood layout.</b> Start from that globe, then for 300 rounds pull every theorem along the surface toward its ten true nearest neighbours and push it away from random others, renormalising each round. This is the objective UMAP and LargeVis optimise, done on the sphere. It keeps clusters and neighbourhoods; the position of a cluster on the globe and the gaps between clusters carry no information.</li>
+        <li><b>Variance carried</b> (PCA only) is the share of the cloud's spread the three axes hold; the rest is invisible.</li>
+        <li><b>Rank agreement</b> is the Spearman correlation between the true angle and the globe angle over 300,000 random pairs. At 1.0 the globe would order every pair correctly.</li>
+        <li><b>Neighbours kept</b>: of each theorem's ten nearest in the real space, how many are still among its ten nearest on the globe, averaged.</li>
+        <li>On the PCA globe, a point near the centre of the cloud projects to almost nothing, and pushing it out to the surface amplifies noise. The "how much of the point the 3 PCA axes keep" colouring shows where that happened.</li>
+      </ul>
+      <p>Full method, numbers and caveats: <code>results/phase-2-dependency-labels/unseeded-corpus-v1/README.md</code> in the Noema repository. The data on this page is produced by <code>scripts/project-centroids-sphere.py</code> from the committed centroids.</p>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+<script src="data.js"></script>
+<script>
+(function () {
+  const D = window.NOEMA_DATA;
+  if (!D || !window.THREE) { document.getElementById('globe').innerHTML = '<p style="padding:16px">Could not load the data or the 3D library.</p>'; return; }
+  const M = D.meta, N = M.theorems, A = D.areas.length;
+  const $ = id => document.getElementById(id);
+  const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+  const isDark = () => matchMedia('(prefers-color-scheme: dark)').matches && document.documentElement.dataset.theme !== 'light' || document.documentElement.dataset.theme === 'dark';
+
+  // ---- the two globes, and the figures that say how much each one lies ----
+  let layout = 'pca';
+  const pos = new Float32Array(D.xyz);
+  let keptArr = D.kept;
+  const NOTES = {
+    pca: 'You are on the <b>global-axes globe</b>. It keeps the three directions along which the corpus spreads most, and almost nothing else: a theorem\'s true neighbours are almost never its neighbours here. Clumps you see are the big areas of Mathlib pulling in different directions; local structure is gone.',
+    nl: 'You are on the <b>neighbourhood globe</b>. Each theorem was pulled toward its ten true nearest neighbours, so the clumps are real neighbourhoods. But where a clump sits, and how far it is from another clump, was decided by the optimiser and means nothing.'
+  };
+  const pct = x => (100 * x).toFixed(1) + '%';
+  function renderFigs() {
+    const L = M.layouts[layout === 'pca' ? 'pca' : 'neighbourhood'];
+    const rows = layout === 'pca'
+      ? [[M.dims + ' → 3', 'axes kept'], [pct(L.variance_explained_total), 'of the variance carried by those 3']]
+      : [[M.dims + ' → 3', 'axes kept'], ['none', 'axes: positions were optimised, not projected']];
+    rows.push(
+      [L.spearman_true_vs_globe_angle.toFixed(2), 'rank agreement, true vs globe angle (1 = perfect)'],
+      [(L.knn_kept_mean < 0.1 ? L.knn_kept_mean.toFixed(2) : L.knn_kept_mean.toFixed(1)) + ' of ' + M.knn_k, 'true nearest neighbours still nearest here, on average'],
+      [M.true_angle_median.toFixed(0) + '° → ' + L.globe_angle_median.toFixed(0) + '°', 'median pair angle, real vs globe']);
+    $('figs').innerHTML = rows.map(([v, k]) => `<div class="fig"><span class="v">${v}</span><span class="k">${k}</span></div>`).join('');
+    $('layoutnote').innerHTML = NOTES[layout];
+  }
+
+  // ---- colours -------------------------------------------------------------
+  const areaCount = new Array(A).fill(0); D.area.forEach(a => areaCount[a]++);
+  const areaOrder = [...Array(A).keys()].sort((a, b) => areaCount[b] - areaCount[a]);
+  const hueOf = i => (areaOrder.indexOf(i) * 137.508) % 360;
+  const hsl = (h, s, l) => { const c = new THREE.Color(); c.setHSL(h / 360, s, l); return c; };
+  function areaColor(i) { return hsl(hueOf(i), 0.62, parseFloat(css('--point-l')) / 100); }
+  const ramp = (t, dark) => { // 0 = poor, 1 = good; grey → accent
+    const c0 = new THREE.Color(dark ? '#3a4152' : '#c4c9d6'), c1 = new THREE.Color(css('--accent'));
+    return c0.clone().lerp(c1, Math.max(0, Math.min(1, t)));
+  };
+  function pointColor(i, mode, dark) {
+    if (mode === 'area') return areaColor(D.area[i]);
+    if (mode === 'kind') return D.kind[i] ? new THREE.Color(dark ? '#5d6678' : '#9aa2b3') : new THREE.Color(css('--accent'));
+    if (mode === 'kept') return ramp(keptArr[i], dark);
+    return ramp(Math.min(1, D.fidelity[i] / 0.5), dark);
+  }
+
+  // ---- scene ---------------------------------------------------------------
+  const canvas = $('c'), box = $('globe');
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+  renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 2));
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 50); camera.position.set(0, 0, 3.4);
+  const world = new THREE.Group(); scene.add(world);
+  world.rotation.x = 0.35; world.rotation.y = -0.6;
+
+  const globeMat = new THREE.MeshBasicMaterial({ color: css('--globe') });
+  const globe = new THREE.Mesh(new THREE.SphereGeometry(0.992, 64, 48), globeMat); world.add(globe);
+  // graticule: it is a globe, and lines make that legible at a glance
+  const gratMat = new THREE.LineBasicMaterial({ color: css('--globe-line'), transparent: true, opacity: 0.9 });
+  const grat = new THREE.Group(); world.add(grat);
+  (function () {
+    const R = 0.994, seg = 96;
+    for (let lat = -60; lat <= 60; lat += 30) {
+      const pts = []; const r = Math.cos(lat * Math.PI / 180) * R, y = Math.sin(lat * Math.PI / 180) * R;
+      for (let i = 0; i <= seg; i++) { const t = i / seg * Math.PI * 2; pts.push(new THREE.Vector3(r * Math.cos(t), y, r * Math.sin(t))); }
+      grat.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), gratMat));
+    }
+    for (let lon = 0; lon < 180; lon += 30) {
+      const pts = []; const p = lon * Math.PI / 180;
+      for (let i = 0; i <= seg; i++) { const t = i / seg * Math.PI * 2; pts.push(new THREE.Vector3(R * Math.cos(t) * Math.cos(p), R * Math.sin(t), R * Math.cos(t) * Math.sin(p))); }
+      grat.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), gratMat));
+    }
+  })();
+
+  const pGeo = new THREE.BufferGeometry();
+  pGeo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+  const colors = new Float32Array(N * 3);
+  pGeo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+  const pMat = new THREE.PointsMaterial({ size: 0.016, vertexColors: true, sizeAttenuation: true, transparent: true, opacity: 0.95, depthWrite: false });
+  const points = new THREE.Points(pGeo, pMat); world.add(points);
+  const hidden = new Uint8Array(N); // per-point visibility via alpha in colour is not available on PointsMaterial; we move hidden points inside the globe
+  const posLive = new Float32Array(pos);
+
+  // arcs
+  const arcMat = new THREE.LineBasicMaterial({ vertexColors: true, transparent: true, opacity: 0.55, depthWrite: false });
+  let arcs = null;
+  const SEG = 14;
+  function slerpArc(i, j, out, off) {
+    const a = new THREE.Vector3(pos[3 * i], pos[3 * i + 1], pos[3 * i + 2]);
+    const b = new THREE.Vector3(pos[3 * j], pos[3 * j + 1], pos[3 * j + 2]);
+    const omega = Math.acos(Math.max(-1, Math.min(1, a.dot(b)))); const so = Math.sin(omega) || 1e-6;
+    let prev = null;
+    for (let s = 0; s <= SEG; s++) {
+      const t = s / SEG, w1 = Math.sin((1 - t) * omega) / so, w2 = Math.sin(t * omega) / so;
+      const lift = 1.004 + 0.06 * Math.sin(t * Math.PI) * Math.min(1, omega / 1.2);
+      const p = new THREE.Vector3(a.x * w1 + b.x * w2, a.y * w1 + b.y * w2, a.z * w1 + b.z * w2).normalize().multiplyScalar(lift);
+      if (prev) { out[off++] = prev.x; out[off++] = prev.y; out[off++] = prev.z; out[off++] = p.x; out[off++] = p.y; out[off++] = p.z; }
+      prev = p;
+    }
+    return off;
+  }
+  function buildArcs() {
+    if (arcs) { world.remove(arcs); arcs.geometry.dispose(); arcs = null; }
+    const mode = $('arcs').value, maxA = +$('maxang').value;
+    const sel = D.edges.filter(e => e[2] <= maxA && !hidden[e[0]] && !hidden[e[1]] &&
+      (mode === 'all' || (mode === 'cross' && e[3]) || (mode === 'hard' && e[3] && e[4] < M.vocab_threshold)));
+    const total = D.edges.filter(e => mode === 'all' || (mode === 'cross' && e[3]) || (mode === 'hard' && e[3] && e[4] < M.vocab_threshold)).length;
+    $('arcinfo').textContent = mode === 'none' ? 'no arcs drawn' : `${sel.length.toLocaleString()} of ${total.toLocaleString()} arcs shown`;
+    if (mode === 'none' || !sel.length) return;
+    const verts = new Float32Array(sel.length * SEG * 6), cols = new Float32Array(sel.length * SEG * 6);
+    const cAcc = new THREE.Color(css('--accent')), cHard = new THREE.Color(css('--hard'));
+    let off = 0;
+    for (const e of sel) {
+      const c = (e[3] && e[4] < M.vocab_threshold) ? cHard : cAcc;
+      const start = off; off = slerpArc(e[0], e[1], verts, off);
+      for (let k = start; k < off; k += 3) { cols[k] = c.r; cols[k + 1] = c.g; cols[k + 2] = c.b; }
+    }
+    const g = new THREE.BufferGeometry();
+    g.setAttribute('position', new THREE.BufferAttribute(verts, 3));
+    g.setAttribute('color', new THREE.BufferAttribute(cols, 3));
+    arcs = new THREE.LineSegments(g, arcMat); world.add(arcs);
+  }
+
+  // pinned point: a ring, plus dashed lines to its true nearest neighbours
+  const pinGroup = new THREE.Group(); world.add(pinGroup);
+  let pinned = -1;
+  function drawPin() {
+    while (pinGroup.children.length) { const c = pinGroup.children.pop(); c.geometry && c.geometry.dispose(); }
+    if (pinned < 0) return;
+    const p = new THREE.Vector3(pos[3 * pinned], pos[3 * pinned + 1], pos[3 * pinned + 2]);
+    const ring = new THREE.Mesh(new THREE.RingGeometry(0.022, 0.03, 32), new THREE.MeshBasicMaterial({ color: css('--ink'), side: THREE.DoubleSide, depthTest: false }));
+    ring.position.copy(p).multiplyScalar(1.006); ring.lookAt(p.clone().multiplyScalar(2)); pinGroup.add(ring);
+    const lm = new THREE.LineDashedMaterial({ color: css('--nn'), dashSize: 0.02, gapSize: 0.012, depthTest: false, transparent: true, opacity: 0.95 });
+    for (let k = 0; k < 5; k++) {
+      const j = D.nn[pinned * 5 + k];
+      const q = new THREE.Vector3(pos[3 * j], pos[3 * j + 1], pos[3 * j + 2]);
+      const v = new Float32Array(SEG * 6); slerpArc(pinned, j, v, 0);
+      const pts = []; for (let s = 0; s < v.length; s += 3) pts.push(new THREE.Vector3(v[s], v[s + 1], v[s + 2]));
+      const l = new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), lm); l.computeLineDistances(); pinGroup.add(l);
+      const dot = new THREE.Mesh(new THREE.SphereGeometry(0.012, 12, 12), new THREE.MeshBasicMaterial({ color: css('--nn'), depthTest: false }));
+      dot.position.copy(q).multiplyScalar(1.006); pinGroup.add(dot);
+    }
+  }
+
+  function recolor() {
+    const mode = $('color').value, dark = isDark();
+    for (let i = 0; i < N; i++) { const c = pointColor(i, mode, dark); colors[3 * i] = c.r; colors[3 * i + 1] = c.g; colors[3 * i + 2] = c.b; }
+    pGeo.attributes.color.needsUpdate = true;
+  }
+  function applyHidden() {
+    for (let i = 0; i < N; i++) { const s = hidden[i] ? 0 : 1; posLive[3 * i] = pos[3 * i] * s; posLive[3 * i + 1] = pos[3 * i + 1] * s; posLive[3 * i + 2] = pos[3 * i + 2] * s; }
+    pGeo.attributes.position.array.set(posLive); pGeo.attributes.position.needsUpdate = true;
+    buildArcs();
+  }
+  function retheme() {
+    globeMat.color.set(css('--globe')); gratMat.color.set(css('--globe-line'));
+    recolor(); buildArcs(); drawPin();
+  }
+
+  // ---- legend --------------------------------------------------------------
+  const areaOn = new Array(A).fill(true);
+  const legend = $('legend');
+  function renderLegend() {
+    legend.innerHTML = areaOrder.map(i => `<button type="button" class="chip${areaOn[i] ? '' : ' off'}" data-a="${i}"><span class="dot" style="background:${'#' + areaColor(i).getHexString()}"></span>${D.areas[i]} <span class="n">${areaCount[i].toLocaleString()}</span></button>`).join('');
+  }
+  legend.addEventListener('click', e => {
+    const b = e.target.closest('.chip'); if (!b) return;
+    const i = +b.dataset.a; areaOn[i] = !areaOn[i];
+    for (let k = 0; k < N; k++) hidden[k] = areaOn[D.area[k]] ? 0 : 1;
+    renderLegend(); applyHidden();
+  });
+  $('allon').onclick = () => { areaOn.fill(true); hidden.fill(0); renderLegend(); applyHidden(); };
+  $('alloff').onclick = () => { areaOn.fill(false); hidden.fill(1); renderLegend(); applyHidden(); };
+
+  // ---- interaction: own orbit, hover, click --------------------------------
+  let drag = null, moved = 0, spin = !matchMedia('(prefers-reduced-motion: reduce)').matches, pinchD = 0;
+  function pointerPos(e) { const r = canvas.getBoundingClientRect(); return [e.clientX - r.left, e.clientY - r.top, r.width, r.height]; }
+  canvas.addEventListener('pointerdown', e => { drag = [e.clientX, e.clientY]; moved = 0; spin = false; canvas.setPointerCapture(e.pointerId); });
+  canvas.addEventListener('pointerup', e => {
+    canvas.releasePointerCapture(e.pointerId); drag = null;
+    if (moved < 4) { const h = pick(...pointerPos(e)); pin(h); }
+  });
+  canvas.addEventListener('pointermove', e => {
+    if (drag) {
+      const dx = e.clientX - drag[0], dy = e.clientY - drag[1]; moved += Math.abs(dx) + Math.abs(dy);
+      world.rotation.y += dx * 0.005; world.rotation.x = Math.max(-1.4, Math.min(1.4, world.rotation.x + dy * 0.005)); drag = [e.clientX, e.clientY];
+      $('tip').hidden = true; return;
+    }
+    const [x, y, w, h] = pointerPos(e); hover(pick(x, y, w, h), x, y);
+  });
+  canvas.addEventListener('pointerleave', () => { $('tip').hidden = true; });
+  canvas.addEventListener('wheel', e => { e.preventDefault(); camera.position.z = Math.max(1.5, Math.min(6, camera.position.z * (1 + Math.sign(e.deltaY) * 0.08))); }, { passive: false });
+  canvas.addEventListener('touchmove', e => {
+    if (e.touches.length === 2) { const d = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY); if (pinchD) camera.position.z = Math.max(1.5, Math.min(6, camera.position.z * pinchD / d)); pinchD = d; }
+  }, { passive: true });
+  canvas.addEventListener('touchend', () => { pinchD = 0; });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') pin(-1); });
+
+  // screen-space nearest visible point; the globe hides the far side, so only front-facing points count
+  const tmp = new THREE.Vector3();
+  function pick(x, y, w, h) {
+    world.updateMatrixWorld(); const m = world.matrixWorld; const camDir = camera.position.clone().normalize();
+    let best = -1, bd = 12 * 12;
+    for (let i = 0; i < N; i++) {
+      if (hidden[i]) continue;
+      tmp.set(pos[3 * i], pos[3 * i + 1], pos[3 * i + 2]).applyMatrix4(m);
+      if (tmp.dot(camDir) < 0.05) continue;
+      tmp.project(camera);
+      const sx = (tmp.x + 1) / 2 * w, sy = (1 - tmp.y) / 2 * h;
+      const d = (sx - x) ** 2 + (sy - y) ** 2;
+      if (d < bd) { bd = d; best = i; }
+    }
+    return best;
+  }
+  function kindText(i) { return D.kind[i] ? 'statement only, no tactic states' : `centroid of ${D.states[i]} proof state${D.states[i] === 1 ? '' : 's'}`; }
+  function hover(i, x, y) {
+    const t = $('tip'); if (i < 0) { t.hidden = true; return; }
+    t.innerHTML = `${D.names[i]}<br><span class="s">${D.areas[D.area[i]]} · ${kindText(i)}</span>`;
+    const r = box.getBoundingClientRect(); t.style.left = Math.min(x, r.width - 240) + 'px'; t.style.top = Math.min(y, r.height - 60) + 'px'; t.hidden = false;
+  }
+  function pin(i) {
+    pinned = i; drawPin(); const d = $('detail');
+    if (i < 0) { d.hidden = true; return; }
+    const mod = D.names[i]; const nn = [];
+    for (let k = 0; k < 5; k++) { const j = D.nn[i * 5 + k]; nn.push(j); }
+    const ang = j => { let s = 0; for (let k = 0; k < 3; k++) s += pos[3 * i + k] * pos[3 * j + k]; return s; };
+    const edges = D.edges.filter(e => e[0] === i || e[1] === i).sort((a, b) => a[2] - b[2]);
+    d.innerHTML = `
+      <p class="eyebrow">Pinned</p>
+      <div class="name">${mod}</div>
+      <div class="mod">${D.areas[D.area[i]]} · ${kindText(i)}</div>
+      <table>
+        <tr><td>neighbours kept on this globe</td><td>${Math.round(keptArr[i] * M.knn_k)} of ${M.knn_k}</td></tr>
+        <tr><td>share of this point the 3 PCA axes keep</td><td>${(100 * D.fidelity[i]).toFixed(0)}%</td></tr>
+        <tr><td>angle to its true nearest neighbour</td><td>${D.nn_angle[i]}°</td></tr>
+      </table>
+      <p class="eyebrow"><span class="sw nn"></span>five true nearest neighbours, in 1,472 dimensions</p>
+      <table>${nn.map(j => `<tr><td><span class="nm" data-j="${j}">${D.names[j]}</span></td><td>${D.areas[D.area[j]]}</td></tr>`).join('')}</table>
+      ${edges.length ? `<p class="eyebrow"><span class="sw acc"></span>connected by 2026 (${edges.length})</p>
+      <table>${edges.slice(0, 8).map(e => { const j = e[0] === i ? e[1] : e[0]; return `<tr><td><span class="nm" data-j="${j}">${D.names[j]}</span></td><td>${e[2]}°${e[3] && e[4] < M.vocab_threshold ? ' <span style="color:var(--hard)">■</span>' : ''}</td></tr>`; }).join('')}</table>` : '<p class="mod">no 2026 connection recorded for this theorem</p>'}
+      <div class="row"><button class="link" id="unpin" type="button">unpin</button></div>`;
+    d.hidden = false;
+    d.querySelectorAll('.nm').forEach(el => el.onclick = () => pin(+el.dataset.j));
+    $('unpin').onclick = () => pin(-1);
+  }
+  $('q').addEventListener('keydown', e => {
+    if (e.key !== 'Enter') return;
+    const q = $('q').value.trim().toLowerCase(); if (!q) return;
+    let i = D.names.findIndex(n => n.toLowerCase() === q); if (i < 0) i = D.names.findIndex(n => n.toLowerCase().includes(q));
+    if (i < 0) { $('q').setCustomValidity('no theorem by that name'); $('q').reportValidity(); return; }
+    $('q').setCustomValidity(''); if (hidden[i]) { areaOn[D.area[i]] = true; for (let k = 0; k < N; k++) hidden[k] = areaOn[D.area[k]] ? 0 : 1; renderLegend(); applyHidden(); }
+    pin(i);
+    // turn the globe so the point faces the camera
+    const p = new THREE.Vector3(pos[3 * i], pos[3 * i + 1], pos[3 * i + 2]);
+    world.rotation.y = Math.atan2(p.x, p.z); world.rotation.x = Math.atan2(p.y, Math.hypot(p.x, p.z)); spin = false;
+  });
+
+  $('layout').onchange = () => {
+    layout = $('layout').value;
+    pos.set(layout === 'pca' ? D.xyz : D.xyz_nl); keptArr = layout === 'pca' ? D.kept : D.kept_nl;
+    renderFigs(); applyHidden(); recolor(); drawPin(); if (pinned >= 0) pin(pinned);
+  };
+  $('color').onchange = recolor;
+  $('arcs').onchange = buildArcs;
+  $('maxang').oninput = () => { $('maxangv').textContent = $('maxang').value; buildArcs(); };
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', retheme);
+  new MutationObserver(retheme).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+  function resize() { const r = box.getBoundingClientRect(); renderer.setSize(r.width, r.height, false); camera.aspect = r.width / r.height; camera.updateProjectionMatrix(); }
+  addEventListener('resize', resize);
+  resize(); renderFigs(); renderLegend(); recolor(); buildArcs();
+  (function loop() { if (spin) world.rotation.y += 0.0012; renderer.render(scene, camera); requestAnimationFrame(loop); })();
+})();
+</script>
+</body>
+</html>
