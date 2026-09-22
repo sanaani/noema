@@ -16,12 +16,27 @@ meaningless:
 * a proof term past the node cutoff is recorded as `skipped: "oversize"`
   rather than dropped, so the two graphs account for the same population.
 
-Two things changed in the port. Phase 1 walked the term itself with an
-explicit worklist (`accDeps`) because it was avoiding a stack overflow on
-Mathlib's largest proofs; core's `Expr.getUsedConstants` does the same
-collection and is maintained, so it is used here and the hand-rolled walker is
-gone. `NameSet` iteration was replaced for the same reason. The node-count
-pre-screen is kept verbatim, so the same proofs are declared oversize.
+Three things changed in the port, none of which moves an edge. Phase 1 walked
+the term itself with an explicit worklist (`accDeps`) because it was avoiding a
+stack overflow on Mathlib's largest proofs; core's `Expr.getUsedConstants` does
+the same collection and is maintained, so it is used here and the hand-rolled
+walker is gone. `NameSet` iteration was replaced for the same reason. The
+node-count pre-screen is kept verbatim, so the same proofs are declared
+oversize.
+
+The third is about visibility rather than semantics. Phase 1 iterated
+`env.constants.toList`, which builds a cons-list of every constant -- 471,260
+of them here -- before the loop can print anything. `SMap.foldM` streams the
+same entries in the same order and threads the counter instead, so nothing is
+allocated up front and the first theorem prints as soon as one is found.
+
+Be careful about what that buys. `SMap.toList` is `fold` with `(a, b) :: es`,
+so it is O(n) and costs about a second, not minutes -- it is *not* the reason
+a run sits silent after launch. That silence is `import Mathlib`: Lean's
+module loader is single-threaded and takes tens of minutes on the 2026
+library, and no change in this file affects it. The `STAGE` line below is the
+actual fix, because it fires the moment the environment is up and so
+distinguishes "still importing" from "running but producing nothing".
 
 Run it from a built Mathlib worktree:
 
@@ -58,8 +73,9 @@ def depNames (e : Expr) : Array String :=
 
 elab "dump_deps" : command => do
   let env ← getEnv
-  let mut count := 0
-  for (name, info) in env.constants.toList do
+  IO.println s!"STAGE environment loaded, {env.constants.map₁.size} imported constants"
+  (← IO.getStdout).flush
+  let count ← env.constants.foldM (init := 0) fun count name info => do
     match info with
     | .thmInfo v =>
       if let some idx := env.getModuleIdxFor? name then
@@ -77,11 +93,14 @@ elab "dump_deps" : command => do
               ("theorem", toJson name.toString),
               ("module", toJson modName.toString),
               ("deps", toJson (depNames v.value))]).compress
-          count := count + 1
+          let count := count + 1
           if count % 100 == 0 then
             IO.println s!"PROGRESS {count}"
             (← IO.getStdout).flush
-    | _ => pure ()
+          return count
+        else return count
+      else return count
+    | _ => return count
   IO.println s!"DONE {count}"
 
 dump_deps

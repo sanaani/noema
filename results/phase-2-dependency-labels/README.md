@@ -124,6 +124,81 @@ elaborator, and every analysis script. None of it is re-derived. See the
 handoff section of
 [`../phase-1-recognition/README.md`](../phase-1-recognition/README.md).
 
+## Known limitation: the sweep is single-threaded
+
+The worker is a 16 vCPU box and the sweep uses one core. CloudWatch shows a
+flat 6.35% CPU, which is 1/16 exactly. This is a deliberate choice rather than
+an oversight, but it is a choice worth writing down because it is not the
+right one forever.
+
+Two separate things are serial, and only one of them is ours:
+
+**The import is Lean's.** Building the environment from 8,571 oleans is
+single-threaded inside Lean's module loader. Nothing in `Deps2026.lean`
+affects it, and it is a fixed cost for any version of this job.
+
+**The per-theorem loop is ours, and it is embarrassingly parallel.**
+`countNodes` and `getUsedConstants` are pure functions of an immutable
+environment, so the work could be chunked across cores:
+
+```lean
+-- sketch, not implemented
+let chunks := names.toArray.chunks 16
+let tasks ← chunks.mapM fun c => BaseIO.asTask (prio := .dedicated) do
+  c.foldlM (init := #[]) fun acc n => return acc.push (render n)
+let results ← tasks.mapM BaseIO.ofExcept ...
+```
+
+Output order would change, which does not matter: `build-dependency-label.py`
+reads the edge list into a dictionary and never depends on order.
+
+It is not implemented because the payoff does not justify the risk *yet*.
+Phase 1's equivalent 2024 job ran boot-to-`JOB DONE` in **43 minutes**
+(`outputs/aws-deps-cpu-run-noema-deps-cpu-20260918-170747/.../worker.log`),
+of which roughly 41 was the sweep. The 2026 library is about 1.55x larger, so
+this run should be 60-75 minutes, not the five hours the shutdown timer
+allows -- that timer is a safety margin, not an estimate. Parallelising the
+loop would save perhaps 50 minutes on a $0.77/hr instance, about **$0.65**, in
+exchange for rewriting the one component whose semantics phase 2's entire
+comparison assumes are identical to phase 1's.
+
+That trade flips if this job ever has to run repeatedly. It does not: the
+sweep is corpus-independent, so it is run once per Mathlib revision and reused
+for every corpus size in the table above.
+
+### The blind window, and what actually causes it
+
+The silence at the start of a run is `import Mathlib`, not anything in
+`Deps2026.lean`. Lean's module loader is single-threaded, and on the 2026
+library it runs for tens of minutes before the elaborator gets control. This
+run showed 24 minutes of `log=0B` with exactly one core busy and an empty
+stderr, which is what that looks like from outside.
+
+It is worth recording that the first explanation reached for was wrong.
+`env.constants.toList` allocates a cons-list of all 471,260 constants before
+the loop starts, which looks like a plausible culprit -- but `SMap.toList` is
+`fold` with `(a, b) :: es`, so it is O(n) and costs about a second. Checking
+the toolchain source rather than acting on the guess is what caught it.
+
+Two changes went in anyway. Both were verified against core Lean `v4.35.0-rc2`
+by running the edited elaborator over core's own environment, and then running
+the *committed* `toList` version over the same environment and diffing: 28,644
+edges from each, **identical after sorting**. The change provably does not move
+an edge, which is the only property phase 2's comparison against the 2024 graph
+actually requires:
+
+* `SMap.foldM` replaces `toList`, streaming the same entries in the same order
+  and threading the counter. This removes a pointless allocation; it is not a
+  fix for the blind window.
+* A `STAGE` line is emitted once the environment is loaded, carrying
+  `env.constants.map₁.size`. **This** is the fix: an empty log now
+  distinguishes "still importing" from "imported and producing nothing",
+  which is the distinction that cost two restarts.
+
+`SMap.size` does not exist in this toolchain and `map₂.size` does not either;
+`map₁.size` (the imported constants) does. Both were checked before the line
+was written, which is the only reason the next run will start at all.
+
 ## Status
 
 No findings yet. What exists:
