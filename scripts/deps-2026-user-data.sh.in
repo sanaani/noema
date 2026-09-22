@@ -1,0 +1,132 @@
+#!/bin/bash
+# Template. scripts/run-deps-2026-aws.sh substitutes @BUCKET@, @RUN@,
+# @MATHLIB_REV@ and @LEAN_VERSION@ and passes the result as EC2 user data.
+#
+# Structure follows phase 1's deps worker: self-terminating from the first
+# minute, uploads whatever it has on any exit path, never waits on a human.
+set -u
+LOG=/var/log/noema-deps2026.log
+exec > >(tee -a "$LOG") 2>&1
+BKT="@BUCKET@"
+RNAME="@RUN@"
+REV="@MATHLIB_REV@"
+LEANV="@LEAN_VERSION@"
+echo "boot $(date -u +%FT%TZ) rev=$REV lean=$LEANV"
+
+# Heartbeat into the console log, so a stall is visible without SSH.
+(while true; do echo "ALIVE $(date -u +%FT%TZ) up=$(cut -d. -f1 /proc/uptime)s \
+mem=$(awk '/MemAvailable/{print $2}' /proc/meminfo)kB"; sleep 60; done &)
+
+# Three independent stops: hard clock, systemd timer, and shutdown-terminates.
+/usr/sbin/shutdown -h +300
+cat > /etc/systemd/system/noema-expiry.service <<'SVC'
+[Unit]
+Description=Terminate temporary Noema deps worker
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/poweroff
+SVC
+cat > /etc/systemd/system/noema-expiry.timer <<'TMR'
+[Unit]
+Description=Expire temporary deps worker
+[Timer]
+OnBootSec=290min
+Unit=noema-expiry.service
+[Install]
+WantedBy=timers.target
+TMR
+systemctl daemon-reload
+systemctl enable --now noema-expiry.timer
+
+# Harvest whatever the sweep has produced so far. Called by the exit trap and
+# by the checkpoint loop, so a run killed at any point still ships its partial
+# edge list rather than nothing. A five-hour job that returns nothing on a
+# timeout is a job you cannot debug and cannot resume.
+harvest() {
+  local tag="${1:-final}"
+  [ -f /opt/work/deps.log ] || return 0
+  grep '^EDGE ' /opt/work/deps.log | sed 's/^EDGE //' \
+    | gzip -9 > "/opt/noema/out/edges-2026.jsonl.gz.part" 2>/dev/null
+  mv "/opt/noema/out/edges-2026.jsonl.gz.part" /opt/noema/out/edges-2026.jsonl.gz
+  grep -c '^EDGE ' /opt/work/deps.log > /opt/noema/out/edge-count.txt 2>/dev/null
+  grep '^DONE ' /opt/work/deps.log > /opt/noema/out/done.txt 2>/dev/null
+  grep -vE '^(EDGE|THEOREM|PROGRESS) ' /opt/work/deps.log | tail -400 \
+    > /opt/noema/out/deps-tail.log 2>/dev/null
+  echo "HARVEST $tag $(date -u +%FT%TZ) edges=$(cat /opt/noema/out/edge-count.txt 2>/dev/null)"
+}
+
+upload() {
+  local name="${1:-result.tar.gz}"
+  cp "$LOG" /opt/noema/out/worker.log 2>/dev/null
+  ( cd /opt/noema/out && sha256sum ./* > SHA256SUMS 2>/dev/null )
+  tar czf "/tmp/$name" -C /opt noema/out
+  for i in 1 2 3 4 5; do
+    /opt/nvenv/bin/aws s3 cp "/tmp/$name" \
+      "s3://$BKT/results/$RNAME/$name" --region us-east-2 && return 0 || sleep 20
+  done
+  return 1
+}
+
+finish() {
+  rc=$?
+  set +e
+  echo "FINISH rc=$rc $(date -u +%FT%TZ)"
+  harvest final
+  upload result.tar.gz
+  /usr/sbin/shutdown -h now
+  exit $rc
+}
+trap finish EXIT
+set -e
+
+export DEBIAN_FRONTEND=noninteractive
+apt-get update -qq
+apt-get install -y -qq python3-venv curl git zstd
+python3 -m venv /opt/nvenv
+/opt/nvenv/bin/pip -q install awscli
+mkdir -p /opt/noema/out /opt/work
+cd /opt/work
+
+curl --fail --location --retry 3 \
+  "https://github.com/leanprover/lean4/releases/download/$LEANV/lean-${LEANV#v}-linux.tar.zst" \
+  -o lean.tar.zst
+tar --zstd -xf lean.tar.zst
+export PATH="$PWD/lean-${LEANV#v}-linux/bin:$PATH"
+lean --version
+
+mkdir -p mathlib && cd mathlib
+git init -q
+git remote add origin https://github.com/leanprover-community/mathlib4
+git fetch -q --depth 1 origin "$REV"
+git checkout -q FETCH_HEAD
+cd ..
+test "$(git -C mathlib rev-parse HEAD)" = "$REV"
+
+# Prebuilt oleans. Without these the box would compile Mathlib for hours.
+(cd mathlib && lake exe cache get)
+echo "oleans: $(find mathlib/.lake/build/lib -name '*.olean' | wc -l)"
+
+/opt/nvenv/bin/aws s3 cp "s3://$BKT/$RNAME-task.tar.gz" /tmp/task.tar.gz --region us-east-2
+tar xzf /tmp/task.tar.gz -C /opt/noema
+cp /opt/noema/Deps2026.lean mathlib/Deps2026.lean
+
+echo "sweep starting $(date -u +%FT%TZ)"
+
+# Progress and partial results, every ten minutes. The sweep's own stdout is
+# gigabytes and has to go to a file, so without this the run is opaque from
+# outside for its whole duration and a timeout loses everything.
+(
+  while true; do
+    sleep 600
+    [ -f /opt/work/deps.log ] || continue
+    echo "PROGRESS $(date -u +%FT%TZ) theorems=$(grep -c '^THEOREM ' /opt/work/deps.log 2>/dev/null) \
+edges=$(grep -c '^EDGE ' /opt/work/deps.log 2>/dev/null) log=$(stat -c%s /opt/work/deps.log 2>/dev/null)B"
+    harvest checkpoint
+    upload checkpoint.tar.gz
+  done &
+)
+
+(cd mathlib && lake env lean Deps2026.lean > /opt/work/deps.log 2>&1) || echo "LEAN_RC=$?"
+echo "sweep finished $(date -u +%FT%TZ)"
+harvest final
+echo "JOB DONE $(date -u +%FT%TZ)"
