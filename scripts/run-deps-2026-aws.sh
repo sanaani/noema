@@ -17,6 +17,7 @@
 #
 #   scripts/run-deps-2026-aws.sh launch     # create, upload, launch, print the run name
 #   scripts/run-deps-2026-aws.sh watch  <run-name>
+#   scripts/run-deps-2026-aws.sh shell  <run-name>   # Session Manager, no SSH
 #   scripts/run-deps-2026-aws.sh fetch  <run-name>
 #   scripts/run-deps-2026-aws.sh teardown <run-name>
 set -euo pipefail
@@ -57,6 +58,13 @@ JSON
     --tags Key=Project,Value=noema Key=Purpose,Value=temporary-deps-extraction >/dev/null
   aws iam put-role-policy --role-name "$run" --policy-name s3-temp \
     --policy-document "file://$out/policy.json"
+  # Session Manager, so a stuck run can be inspected without SSH and without an
+  # ingress rule. A sweep that goes quiet is otherwise undiagnosable from
+  # outside: console output, CPU and EBS metrics cannot separate "still
+  # importing Mathlib" from "hung", and attaching this to a live run is too
+  # late -- the agent has already backed off by the time you want it.
+  aws iam attach-role-policy --role-name "$run" \
+    --policy-arn arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
   aws iam create-instance-profile --instance-profile-name "$run" >/dev/null
   aws iam add-role-to-instance-profile --instance-profile-name "$run" --role-name "$run"
 
@@ -116,6 +124,24 @@ watch_run() {
   aws s3 ls "s3://$BUCKET/results/$run/" --region "$REGION" 2>/dev/null || echo "  (not yet)"
 }
 
+# What the sweep is actually doing, when the log is empty and the console is
+# silent. Needs the instance to have registered with SSM, which takes a few
+# minutes after boot.
+shell_run() {
+  local run=$1 out="$REPO/outputs/phase-2-dependency-labels/$1"
+  local id; id=$(cat "$out/instance-id")
+  local ping
+  ping=$(aws ssm describe-instance-information --region "$REGION" \
+    --filters "Key=InstanceIds,Values=$id" \
+    --query 'InstanceInformationList[0].PingStatus' --output text 2>/dev/null)
+  if [ "$ping" != "Online" ]; then
+    echo "instance $id is not registered with SSM (ping=${ping:-none})."
+    echo "it registers a few minutes after boot; until then use 'watch'."
+    return 1
+  fi
+  aws ssm start-session --region "$REGION" --target "$id"
+}
+
 fetch() {
   local run=$1 out="$REPO/outputs/phase-2-dependency-labels/$1"
   aws s3 cp "s3://$BUCKET/results/$run/result.tar.gz" "$out/result.tar.gz" --region "$REGION"
@@ -135,6 +161,9 @@ teardown() {
   aws iam remove-role-from-instance-profile --instance-profile-name "$run" --role-name "$run" || true
   aws iam delete-instance-profile --instance-profile-name "$run" || true
   aws iam delete-role-policy --role-name "$run" --policy-name s3-temp || true
+  # Managed policies must be detached before the role can be deleted.
+  aws iam detach-role-policy --role-name "$run" \
+    --policy-arn arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore || true
   aws iam delete-role --role-name "$run" || true
   aws s3 rm "s3://$BUCKET/$run-task.tar.gz" --region "$REGION" || true
   echo "torn down: $run"
@@ -143,6 +172,7 @@ teardown() {
 case "${1:-}" in
   launch)   launch ;;
   watch)    watch_run "${2:?run name}" ;;
+  shell)    shell_run "${2:?run name}" ;;
   fetch)    fetch "${2:?run name}" ;;
   teardown) teardown "${2:?run name}" ;;
   *) sed -n '2,24p' "$0"; exit 2 ;;
