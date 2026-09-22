@@ -5,14 +5,14 @@
     "fails": "A <= 0.8 or A - V <= 0.05",
     "source": "results/rename-control-v1/protocol.md, fixed before encoding"
   },
-  "auc_angle_original": 0.9581570291467671,
-  "auc_angle_alpha": 0.9636983050319786,
-  "auc_vocabulary_original": 0.7636337613313156,
-  "auc_vocabulary_alpha": 0.6098371022394558,
-  "margin_alpha_over_vocabulary": 0.35386120279252287,
-  "retention": 1.0120947088720456,
-  "published_original_auc": 0.958,
-  "published_vocabulary_auc": 0.764,
+  "auc_angle_original": 0.9734052055765516,
+  "auc_angle_alpha": 0.9735569048564491,
+  "auc_vocabulary_original": 0.6913592805225314,
+  "auc_vocabulary_alpha": 0.5465039024889639,
+  "margin_alpha_over_vocabulary": 0.4270530023674852,
+  "retention": 1.0003204427794847,
+  "published_original_auc": 0.973,
+  "published_vocabulary_auc": 0.691,
   "theorems": 1797,
   "centroid_shift_degrees": {
     "min": 0.0,
@@ -22,6 +22,6 @@
     "max": 69.51976013183594,
     "unmoved_under_1deg": 31
   },
-  "positives": 22,
+  "positives": 17,
   "eligible_pairs": 1530134
 }

@@ -21,6 +21,12 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--analysis", type=Path, required=True)
     parser.add_argument("--corpus", type=Path, required=True)
+    parser.add_argument(
+        "--out",
+        type=Path,
+        help="where to write the report; omitted, the archive's own "
+        "verification.json is left untouched and the report goes to stdout only",
+    )
     args = parser.parse_args()
     root = args.analysis
     corpus = read(args.corpus)
@@ -104,7 +110,8 @@ def main():
         "all_pair_certificates_rechecked": dict(checked),
         "formal_exact_arithmetic_certification": False,
     }
-    atomic_json(root / "verification.json", report)
+    if args.out is not None:
+        atomic_json(args.out, report)
     print(json.dumps(report))
 
 

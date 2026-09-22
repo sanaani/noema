@@ -3,20 +3,20 @@
   "subsets": {
     "all eligible": {
       "pairs": 1530134,
-      "hits": 22,
-      "auc": 0.9581501966106819
+      "hits": 17,
+      "auc": 0.9734061666718373
     },
     "cross-area only": {
       "pairs": 1394580,
-      "hits": 13,
-      "auc": 0.9547158310125596
+      "hits": 11,
+      "auc": 0.9721200600328848
     },
     "same-area only": {
       "pairs": 135554,
-      "hits": 9,
-      "auc": 0.9201068935695812
+      "hits": 6,
+      "auc": 0.962266749294223
     }
   },
-  "auc_angle_predicts_same_area": 0.6555184619269665,
-  "auc_same_area_predicts_label": 0.6602529452389463
+  "auc_angle_predicts_same_area": 0.6555184619375461,
+  "auc_same_area_predicts_label": 0.6321772433472889
 }

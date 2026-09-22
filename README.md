@@ -17,8 +17,8 @@ that the map is measuring something real.
 |---|---|---|
 | [Replication](results/state-bridge-v1/README.md) | do proofs sharing a rare lemma have nearer centroids? | AUC **0.877**, margin over shuffled control **+0.164** |
 | [Betweenness](results/state-bridge-v1/README.md) | does a known bridge theorem sit *between* its two endpoints? | all **6/6** families in the top 4.3% of 1,795 objects, four in the top 1.4% |
-| [Forward test](results/mathlib-forward-v1/README.md) | does the 2024 map point at links Mathlib only made by 2026? | angle **AUC 0.958** against proof size's 0.498 and vocabulary overlap's 0.764 |
-| [α-rename control](results/rename-control-v1/README.md) | does any of it survive deleting every variable name? | all three: forward **0.964**, betweenness **6/6 in the top 3.3%**, replication margin **+0.162** |
+| [Forward test](results/mathlib-forward-v1/README.md) | does the 2024 map point at links Mathlib only made by 2026? | angle **AUC 0.973** against proof size's 0.509 and vocabulary overlap's 0.691 |
+| [α-rename control](results/rename-control-v1/README.md) | does any of it survive deleting every variable name? | all three: forward **0.974**, betweenness **6/6 in the top 3.3%**, replication margin **+0.162** |
 
 1,797 Mathlib theorems, 99,275 captured proof states, 23,874 unique state texts,
 encoded with the pinned ReProver ByT5 retriever. The corpus was built by
@@ -29,37 +29,53 @@ The fourth row is the one that decides how to read the first three. The encoder
 consumes pretty-printed text, so every result above could have been stylometry —
 the map recognising an author's naming habits rather than any mathematics. It is
 not: renaming every binder and hypothesis in all 1,797 theorems, certified in
-Lean, leaves each measurement where it was or slightly better, while the purely
-lexical baseline it is scored against drops from 0.764 to 0.610. The ablation
-demonstrably removed information and the geometry did not depend on it.
+Lean on the `Expr`, leaves each measurement where it was or slightly better,
+while the purely lexical baseline it is scored against drops from 0.691 to
+0.547. The ablation demonstrably removed information and the geometry did not
+depend on it.
 
 **Betweenness is the load-bearing one.** The replication shares a confound with
 its own target: proof size alone predicts "these two proofs share a rare lemma"
 at AUC 0.740, because long proofs cite more lemmas and their centroids drift
 toward the corpus mean. Only the +0.164 margin over the shuffled control is the
-encoder's. Betweenness does not inherit that confound — its null is the same
-corpus scored the same way — and neither does the forward test, where proof size
-is a coin flip at 0.498.
+encoder's, and that margin is one shuffle draw (an independent re-encode gave
++0.167). The corpus itself was grown by that same rare-lemma criterion, so the
+replication is scored on a corpus enriched for its own positives. Betweenness
+does not inherit the size confound — its null is the same corpus scored the
+same way, though it has no prespecified pass mark and its "top 4.3%" is an
+observed rank, not a fitted null — and neither does the forward test, where
+proof size is a coin flip at 0.509.
 
 The forward test's label contains no 2024 vocabulary at all: between Mathlib
 `f0957a7` (2024-07-01) and `09712d48` (2026-09-21) — 812 days, 22,961 commits,
 65,368 new declarations — did anyone write a theorem citing both halves of a
-pair? Over 1,530,134 eligible pairs the base rate is 1 in 69,551. The corpus
-sits at a median 89.3° (quartiles 87.3–90.4); the hits sit at a median 74.0°,
-with 20 of the 22 below 85° where only 14.9% of pairs live, and 13 below 75°
-where 2.9% do.
+pair? Over 1,530,134 eligible pairs the base rate is 1 in 90,007. The corpus
+sits at a median 89.3° (quartiles 87.3–90.4); the hits sit at a median 72.7°,
+all 17 below 85° where only 14.9% of pairs live, and 13 below 75° where 3.0%
+do.
 
-**Read the AUC, not the band lift.** The 22 positives are not 22 independent
-observations: 32 theorems carry all of them, `Complex.exp_add` appears in four.
+**The label was rebuilt on 2026-09-22.** The first version credited a theorem
+with citing `Foo.bar` when the line said `Foo.bar_baz`, counted hits inside
+`def` bodies and docstrings, and counted a theorem's own header as a citation
+of itself. [`build-forward-label.py`](scripts/build-forward-label.py) replaces
+that uncommitted procedure with whole-name matching inside theorem and lemma
+bodies, and CI checks the committed label against it. 22 positives became 17
+and the AUC went from 0.958 to 0.973; the vocabulary baseline fell from 0.764
+to 0.691. The forward-test README carries the before-and-after table.
+
+**Read the AUC, not the band lift.** The 17 positives are not 17 independent
+observations: 24 theorems carry all of them, `FiniteField.card` appears in
+four.
 [`analyze-forward-independence.py`](scripts/analyze-forward-independence.py)
-takes the clustering apart. The AUC does not move — 0.963 on a vertex-disjoint
-subset where no theorem is used twice, 0.963 after dropping every pair that
-touches a seed family, 0.964 after dropping the `Complex.exp*` hub outright, and
-0.955–0.966 across all 32 leave-one-endpoint-out refits. Against a cluster null
+takes the clustering apart. The AUC does not move — 0.977 on a vertex-disjoint
+subset where no theorem is used twice, 0.973 after dropping every pair that
+touches a seed family, 0.975 after dropping the `Complex.exp*` hub outright, and
+0.971–0.980 across all 24 leave-one-endpoint-out refits. Against a cluster null
 that substitutes each endpoint for a random theorem while preserving exactly
-which endpoints pair with which, the null sits at 0.499 ± 0.068 and the observed
-0.958 does not occur in 5,000 draws. The 124× lift in the 45–55° band is the
-fragile number: it rests on four pairs, and dropping that one hub leaves one.
+which endpoints pair with which, the null sits at 0.499 ± 0.075 and the observed
+0.973 does not occur in 5,000 draws. The 160× lift in the 45–55° band is the
+fragile number: it rests on four pairs, three of them sibling lemmas about the
+same object, and dropping that one hub leaves one.
 
 ## What this does not show
 
@@ -67,32 +83,35 @@ fragile number: it rests on four pairs, and dropping that one hub leaves one.
   already made. Recognising them is a precondition, not the result.
 - The band edges in the forward test were fixed with the table visible, and the
   band that got reported, 45–55°, is narrower than the 40–55° that was posted to
-  issue #1 at 15:05:53Z before the analysis was committed at 15:31:00Z. 22
+  issue #1 at 15:05:53Z before the analysis was committed at 15:31:00Z. 17
   positives is a thin base, and the band lift does not survive dropping a hub
   theorem. The AUC does; that is the number the claim rests on.
 - **Vocabulary does some of the work.** Token overlap between two theorems'
-  state texts predicts the same 2026 label at AUC 0.764 on its own
+  state texts predicts the same 2026 label at AUC 0.691 on its own
   ([`vocabulary.json`](results/mathlib-forward-v1/vocabulary.json)): connected
-  pairs share 17.0% of their state vocabulary against 7.7% for an average
-  eligible pair. The angle's 0.958 is well clear of that, and 3 of the 22 hits
+  pairs share 14.1% of their state vocabulary against 7.7% for an average
+  eligible pair. The angle's 0.973 is well clear of that, and 4 of the 17 hits
   share under 5%, but "still separates where words give little" is the
   defensible claim, not "vocabulary-independent". The α-rename arm sharpens this
-  rather than settling it: stripping names costs the lexical baseline 15 points
-  (0.764 → 0.610) without costing the angle anything, so the angle is not riding
-  on *naming*, but 0.610 is still well above chance and constants are untouched.
+  rather than settling it: stripping names costs the lexical baseline 14 points
+  (0.691 → 0.547) without costing the angle anything, so the angle is not riding
+  on *naming*, but 0.547 is still above chance and constants are untouched.
 - **It is not a subfield detector, which was the most plausible deflation.**
   Same area means same people working in the same active corner of Mathlib, and
   those pairs get connected later anyway — so the angle could predict the label
   without understanding anything. Measured
   ([`area-control.json`](results/mathlib-forward-v1/area-control.json)): the
   angle predicts "same area" at only 0.656, "same area" predicts the 2026 label
-  at only 0.660, and on cross-area pairs alone — where the confound cannot
-  operate — the angle still scores **0.955 on 13 hits** against 0.958 overall.
+  at only 0.632, and on cross-area pairs alone — where the confound cannot
+  operate — the angle still scores **0.972 on 11 hits** against 0.973 overall.
   That rules out this story, and the α-rename effect — a different story, and
   the one that stayed open longest — is ruled out separately below.
 - The forward label is `git grep` over full declaration names, so it misses
-  citations under an `open` namespace and does not check that a citation is
-  load-bearing. Both attenuate rather than inflate.
+  citations under an `open` namespace, misses a target renamed since 2024, and
+  does not check that a citation is load-bearing. Misses attenuate; but the
+  first version of this label showed that a loose matcher inflates, so a grep
+  label is not conservative by default. Real dependency data would replace
+  the heuristic.
 - **Exact invariance is false; discriminative invariance holds.** The encoder
   is not name-blind, and never was: under α-renaming the centroids move a median
   **20.0°** (quartiles 15.2–26.3, max 69.5°), with only 31 of 1,797 theorems
@@ -116,7 +135,24 @@ fragile number: it rests on four pairs, and dropping that one hub leaves one.
   ablates names and measures what the ablation cost the lexical baseline, which
   is a real lexical screen, but it is not the word-matched-decoy construction
   the statement encoders failed. Building those decoys for proof states remains
-  the obvious next screen, and it has not been run.
+  the obvious next screen, and it has not been run. The decoys the statement
+  encoders faced were also sibling lemmas (`Real.cos_add` for `Real.sin_add`),
+  which are mathematically as well as lexically near, so "proximity tracks
+  wording" is the stronger of two readings of that result.
+- **The Lean certificate is on the expression, not the text.** The α-rename
+  arm proves that each renamed goal differs from the original only in binder
+  names as an `Expr`. The encoder reads pretty-printed text, and the
+  protocol records that instance markers (`inst✝`) are lost in the renamed
+  printing. Nothing certifies the two texts differ only in names; the
+  structural certificate is one level below the input.
+- **Betweenness and the replication have no prespecified pass mark, and the
+  rename arm's versions of them were not prespecified either.** The run plan
+  named betweenness the decision point without saying what would count as
+  passing; `rename-control-v1/protocol.md` fixes a rule for the forward AUC
+  only. The bridge and replication results on the renamed arm were produced
+  by running `analyze-state-bridge.py` against each arm's vectors, not by
+  `analyze-rename-control.py`, and were committed ten minutes after the
+  verdict.
 - Nothing was fitted to the three measurements above: they are distances
   between frozen ReProver vectors, with no learned component anywhere. A
   trained linear head existed in an earlier line of work, over Qwen vectors of
@@ -144,11 +180,14 @@ results/
   rename-control-v1/    all three measurements rerun with every binder and
                         hypothesis renamed in Lean under a structural
                         certificate; the arms, the prespecification, the verdict
-  bridge-expansion-v1/  the six machine-checked (A, B, bridge) families
+  bridge-expansion-v1/  the six (A, B, bridge) families: Lean checks that each
+                        theorem exists and is sorry-free; the bridge relation
+                        itself is a human judgement, not a certified one
   bridge-conjecture-v1/ a machine-proposed, machine-checked bridge — proposed by
                         the earlier statement ranker, not by the state geometry
   state-object-v1/      the 128-object archive the first AUC 0.786 came from
-  historical-connections-v1/  the initial-State pilot that seeded the six families
+  historical-connections-v1/  the initial-State pilot that seeded four of the
+                        six families; bridge-expansion-v1 added the other two
   encoder-*/, semantic-*/, state-consistency-v1/
                         what the encoder does and does not do: α-rename
                         invariance, a five-encoder comparison, certified
@@ -177,6 +216,7 @@ The analyses read committed artifacts:
 .venv/bin/python scripts/analyze-forward-vocabulary.py      # how much is word overlap?
 .venv/bin/python scripts/analyze-forward-area.py            # is it just a subfield detector?
 .venv/bin/python scripts/analyze-size-confound.py           # proof size on both labels
+.venv/bin/python scripts/build-forward-label.py --check     # the 2026 label's citations are whole names
 .venv/bin/python scripts/analyze-state-bridge.py            # needs the vectors, see below
 ```
 
@@ -232,8 +272,18 @@ what it found. The whole pre-prune tree is one command away:
 git checkout full-research-trail   # tag on 2e56503, the commit before the prune
 ```
 
-2,128 files against the 418 here. `a44f244` is the prune itself: 1,743 files,
-1,663,285 deletions, no new work.
+2,128 files against the 414 here (`git ls-files | wc -l`). `a44f244` is the
+prune itself: 1,743 files, 1,663,285 deletions, no new work.
+
+Two things were never committed and cannot be recovered from the history: the
+script that expanded the 82 seed names into the 2,000-theorem target list
+(its output was committed, and the rule is recorded in
+`docs/state-bridge-run-plan.md`), and the first procedure that turned the
+2026 grep hits into a label (replaced by `scripts/build-forward-label.py` on
+2026-09-22, which found and fixed its matching errors). The Lean sweep that
+produced `results/link-graph-v1/edges.jsonl.gz` names its Mathlib pin only in
+`scripts/setup-state-object-host.sh` and the READMEs; `Deps.lean` itself just
+says `import Mathlib`.
 
 ## License
 

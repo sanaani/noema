@@ -38,6 +38,8 @@ Proof: rewrite by B, unfold circle-angle equality via
 Elaborated on pinned Mathlib (`f0957a75`, Lean 4.9.0) via AWS CPU worker
 (`outputs/aws-cpu-run-noema-bridge-cpu-20260919/`): `lean rc=0`, no errors,
 `#print axioms` = `[propext, Classical.choice, Quot.sound]` for both — no `sorryAx`.
+The worker's `#print axioms` output is committed as
+[`check-conjecture.log`](check-conjecture.log).
 
 ## Polarization over roots of unity (pair #14/15, proved)
 

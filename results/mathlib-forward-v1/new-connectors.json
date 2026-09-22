@@ -1,248 +1,171 @@
 {
- "Mathlib/Algebra/Star/Module.lean::starLinearEquiv_symm_apply": [
-  "IsSelfAdjoint.all",
-  "skewAdjoint.smul_mem"
- ],
- "Mathlib/Analysis/CStarAlgebra/ContinuousFunctionalCalculus/Basic.lean::IsStarNormal.instContinuousFunctionalCalculus": [
-  "StarSubalgebra.coe_subtype",
-  "continuousFunctionalCalculus_map_id"
- ],
- "Mathlib/Analysis/Calculus/LHopital.lean::_root_.HasDerivWithinAt.lhopital_zero_nhdsWithin_convex": [
-  "mem_closure_iff_nhds",
-  "mem_closure_iff_nhdsWithin_neBot"
- ],
- "Mathlib/Analysis/Calculus/VectorField.lean::_root_.exists_continuousLinearEquiv_fderivWithin_symm_eq": [
-  "ContinuousLinearMap.fderivWithin",
-  "fderivWithin_const_apply"
- ],
- "Mathlib/Analysis/Complex/Poisson.lean::hasDerivAt_circleAverage_herglotzRieszKernel_smul": [
-  "HasDerivAt.const_smul",
-  "intervalIntegral.hasDerivAt_integral_of_dominated_loc_of_deriv_le"
- ],
- "Mathlib/Analysis/Convex/Topology.lean::Convex.sdiff_singleton_eventually_mem_nhds": [
-  "mem_closure_iff_nhds",
-  "mem_closure_iff_nhdsWithin_neBot"
- ],
- "Mathlib/Analysis/Fourier/AddCircle.lean::fourierCoeff_fourier": [
-  "coeFn_fourierLp",
-  "coe_fourierBasis",
-  "fourierBasis_repr",
-  "orthonormal_fourier"
- ],
- "Mathlib/Analysis/Fourier/AddCircleMulti.lean::mFourier_norm": [
-  "fourier_apply",
-  "fourier_eval_zero"
- ],
- "Mathlib/Analysis/Fourier/AddCircleMulti.lean::mFourierSubalgebra_coe": [
-  "fourier_add",
-  "fourier_add'",
-  "fourier_apply",
-  "fourier_zero"
- ],
- "Mathlib/Analysis/Fourier/AddCircleMulti.lean::orthonormal_mFourier": [
-  "fourier_add",
-  "fourier_neg",
-  "orthonormal_fourier"
- ],
- "Mathlib/Analysis/Fourier/Inversion.lean::MeasureTheory.Integrable.fourierInv_fourier_eq": [
-  "Real.tendsto_integral_gaussian_smul'",
-  "integral_gaussian"
- ],
- "Mathlib/Analysis/Fourier/PoissonSummation.lean::Real.tsum_eq_tsum_fourier": [
-  "Real.fourierCoeff_tsum_comp_add",
-  "has_pointwise_sum_fourier_series_of_summable"
- ],
- "Mathlib/Analysis/Normed/Field/Basic.lean::nhdsNE_neBot": [
-  "mem_closure_iff_nhds",
-  "mem_closure_iff_nhdsWithin_neBot"
- ],
- "Mathlib/Analysis/Polynomial/Fourier.lean::sum_sq_norm_coeff_eq_circleAverage": [
-  "ContinuousMap.coe_toLp",
-  "fourierCoeff_toLp",
-  "tsum_sq_fourierCoeff"
- ],
- "Mathlib/Analysis/SpecialFunctions/Gaussian/FourierTransform.lean::_root_.fourier_gaussian_pi'": [
-  "Complex.exp_add",
-  "integral_cexp_quadratic"
- ],
- "Mathlib/Analysis/SpecialFunctions/Integrals/Basic.lean::integral_exp_mul_I_eq_sin": [
-  "Complex.cos_neg",
-  "Complex.exp_mul_I"
- ],
- "Mathlib/Analysis/SpecialFunctions/PolarCoord.lean::lintegral_comp_polarCoord_symm": [
-  "hasFDerivAt_polarCoord_symm",
-  "integral_comp_polarCoord_symm"
- ],
- "Mathlib/FieldTheory/Finite/Basic.lean::fieldRange_castHom_eq_bot": [
-  "ZMod.pow_card",
-  "ZMod.pow_card_sub_one_eq_one"
- ],
- "Mathlib/FieldTheory/Finite/GaloisField.lean::_root_.Polynomial.splits_X_pow_nat_card_sub_X": [
-  "FiniteField.card",
-  "IsGalois.of_separable_splitting_field"
- ],
- "Mathlib/FieldTheory/Galois/Basic.lean::sup_right": [
-  "IsGalois.is_separable_splitting_field",
-  "IsGalois.of_separable_splitting_field"
- ],
- "Mathlib/FieldTheory/Galois/Basic.lean::finrank_eq_fixingSubgroup_index": [
-  "IsGalois.card_aut_eq_finrank",
-  "IsGalois.card_fixingSubgroup_eq_finrank"
- ],
- "Mathlib/FieldTheory/KummerExtension.lean::X_pow_sub_C_irreducible_of_prime_pow_of_ne_two": [
-  "X_pow_sub_C_irreducible_of_odd",
-  "X_pow_sub_C_irreducible_of_prime"
- ],
- "Mathlib/FieldTheory/PurelyInseparable/Basic.lean::isSeparable_iff_finInsepDegree_eq_one": [
-  "IntermediateField.finrank_eq_one_iff",
-  "separableClosure.eq_top_iff"
- ],
- "Mathlib/FieldTheory/SeparableClosure.lean::Algebra.IsSeparable.sepDegree_eq": [
-  "IsSeparable.sepDegree_eq",
-  "separableClosure.eq_top_iff"
- ],
- "Mathlib/Geometry/Euclidean/Angle/Unoriented/TriangleInequality.lean::angle_expression_of_angle_eq_angle_sum": [
-  "Real.cos_add",
-  "Real.sin_add"
- ],
- "Mathlib/GroupTheory/FreeGroup/Reduce.lean::toWord_mul_sublist": [
-  "FreeAddGroup.Red.church_rosser",
-  "FreeGroup.Red.church_rosser"
- ],
- "Mathlib/MeasureTheory/Integral/IntervalIntegral/DistLEIntegral.lean::norm_sub_le_integral_of_norm_deriv_le_of_le": [
-  "UniformSpace.Completion.norm_coe",
-  "intervalIntegral.norm_integral_le_of_norm_le"
- ],
- "Mathlib/MeasureTheory/Measure/CharacteristicFunction/Basic.lean::intervalIntegrable_charFun": [
-  "IntervalIntegrable.mono",
-  "IntervalIntegrable.mono_fun",
-  "IntervalIntegrable.mono_fun'"
- ],
- "Mathlib/NumberTheory/ArithmeticFunction/Carmichael.lean::carmichael_two_pow_of_ne_two": [
-  "ZMod.card_units",
-  "dvd_antisymm"
- ],
- "Mathlib/NumberTheory/BernoulliPolynomials.lean::bernoulli_three_eval_one_quarter": [
-  "bernoulli'_three",
-  "bernoulli'_two",
-  "bernoulli_eq_bernoulli'_of_ne_one",
-  "bernoulli_one"
- ],
- "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean::riemannZeta_one": [
-  "ZetaAsymptotics.tendsto_riemannZeta_sub_one_div_Gamma\u211d",
-  "tendsto_riemannZeta_sub_one_div"
- ],
- "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean::riemannZeta_one_ne_zero": [
-  "Real.exp_one_lt_d9",
-  "riemannZeta_one_ne_zero"
- ],
- "Mathlib/NumberTheory/JacobiSum/Basic.lean::jacobiSum_one_nontrivial": [
-  "MulChar.one_apply",
-  "MulChar.sum_one_eq_card_units"
- ],
- "Mathlib/NumberTheory/JacobiSum/Basic.lean::jacobiSum_mul_jacobiSum_inv": [
-  "FiniteField.card",
-  "MulChar.ringHomComp_ne_one_iff"
- ],
- "Mathlib/NumberTheory/LSeries/HurwitzZetaValues.lean::riemannZeta_two_mul_nat'": [
-  "riemannZeta_two",
-  "riemannZeta_two_mul_nat"
- ],
- "Mathlib/NumberTheory/ModularForms/Bounds.lean::UpperHalfPlane.qExpansion_coeff_eq_exp_mul_fourierCoeffOn": [
-  "Complex.exp_add",
-  "Complex.exp_neg",
-  "fourierCoeffOn_eq_integral",
-  "fourier_coe_apply"
- ],
- "Mathlib/NumberTheory/ModularForms/Bounds.lean::UpperHalfPlane.fourierCoeffOn_neg_eq_zero": [
-  "Complex.exp_add",
-  "fourierCoeffOn_eq_integral",
-  "fourier_coe_apply"
- ],
- "Mathlib/NumberTheory/ModularForms/Derivative.lean::normalizedDerivOfComplex_slash": [
-  "zpow_add\u2080",
-  "zpow_sub_one\u2080"
- ],
- "Mathlib/NumberTheory/ModularForms/LFunction.lean::hasSum_": [
-  "Summable.div_const",
-  "hasSum_mellin",
-  "hasSum_mellin_pi_mul"
- ],
- "Mathlib/NumberTheory/MulChar/Basic.lean::ringHomComp_one": [
-  "MulChar.one_apply",
-  "MulChar.ringHomComp_apply"
- ],
- "Mathlib/NumberTheory/MulChar/Basic.lean::isQuadratic_iff_sq_eq_one": [
-  "MulChar.one_apply",
-  "sq_eq_one_iff"
- ],
- "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean::map_eq_span_zeta_sub_one_pow": [
-  "Algebra.algebraMap_intNorm_of_isGalois",
-  "IsGalois.card_aut_eq_finrank"
- ],
- "Mathlib/NumberTheory/ZetaValues.lean::integral_bernoulliFun": [
-  "antideriv_bernoulliFun",
-  "bernoulliFun_eval_one"
- ],
- "Mathlib/NumberTheory/ZetaValues.lean::bernoulliFun_eq_integral": [
-  "hasDerivAt_bernoulliFun",
-  "intervalIntegral.integral_eq_sub_of_hasDerivAt"
- ],
- "Mathlib/NumberTheory/ZetaValues.lean::bernoulliFun_mul": [
-  "hasDerivAt_bernoulliFun",
-  "integral_bernoulliFun_eq_zero"
- ],
- "Mathlib/NumberTheory/ZetaValues.lean::bernoulliFun_eval_half": [
-  "bernoulliFun_eval_one",
-  "bernoulliFun_eval_zero"
- ],
- "Mathlib/Probability/Distributions/Gaussian/Fernique.lean::map_rotation_eq_self_of_forall_strongDual_eq_zero": [
-  "Complex.exp_add",
-  "Real.cos_sq"
- ],
- "Mathlib/Probability/Distributions/Gaussian/Real.lean::complexMGF_id_gaussianReal": [
-  "Complex.exp_add",
-  "integral_cexp_quadratic",
-  "integral_gaussian"
- ],
- "Mathlib/RingTheory/DedekindDomain/Different.lean::dual_eq_dual_mul_dual": [
-  "IsIntegralClosure.isLocalization",
-  "coeSubmodule_differentIdeal"
- ],
- "Mathlib/RingTheory/DedekindDomain/Different.lean::not_dvd_differentIdeal_of_isCoprime_of_isSeparable": [
-  "Algebra.trace_eq_of_algEquiv",
-  "Algebra.trace_ne_zero"
- ],
- "Mathlib/RingTheory/Etale/Field.lean::of_isSeparable": [
-  "IntermediateField.adjoin.finiteDimensional",
-  "IntermediateField.finiteDimensional_adjoin"
- ],
- "Mathlib/RingTheory/Frobenius.lean::exists_of_isInvariant": [
-  "FiniteField.card",
-  "FiniteField.pow_card"
- ],
- "Mathlib/RingTheory/Trace/Basic.lean::Algebra.trace_eq_zero_of_not_isSeparable": [
-  "IntermediateField.finrank_eq_one_iff",
-  "separableClosure.eq_top_iff"
- ],
- "Mathlib/RingTheory/Trace/Basic.lean::Module.Basis.traceDual_powerBasis_eq": [
-  "sum_smul_minpolyDiv_eq_X_pow",
-  "trace_eq_sum_embeddings"
- ],
- "Mathlib/Topology/ClusterPt.lean::notMem_closure_iff_nhdsWithin_eq_bot": [
-  "mem_closure_iff_nhds",
-  "mem_closure_iff_nhdsWithin_neBot"
- ],
- "Mathlib/Topology/ContinuousOn.lean::continuousWithinAt_of_notMem_closure": [
-  "mem_closure_iff_nhds",
-  "mem_closure_iff_nhdsWithin_neBot"
- ],
- "Mathlib/Topology/Neighborhoods.lean::interior_setOfPred_eq": [
-  "interior_eq_nhds",
-  "interior_setOf_eq"
- ],
- "Mathlib/Topology/OpenPartialHomeomorph/IsImage.lean::closure": [
-  "mem_closure_iff_nhds",
-  "mem_closure_iff_nhdsWithin_neBot"
- ]
+  "Mathlib/Analysis/CStarAlgebra/ContinuousFunctionalCalculus/Basic.lean::IsStarNormal.instContinuousFunctionalCalculus": [
+    "StarSubalgebra.coe_subtype",
+    "continuousFunctionalCalculus_map_id"
+  ],
+  "Mathlib/Analysis/Complex/Poisson.lean::hasDerivAt_circleAverage_herglotzRieszKernel_smul": [
+    "HasDerivAt.const_smul",
+    "intervalIntegral.hasDerivAt_integral_of_dominated_loc_of_deriv_le"
+  ],
+  "Mathlib/Analysis/Fourier/AddCircle.lean::fourierCoeff_fourier": [
+    "coeFn_fourierLp",
+    "coe_fourierBasis",
+    "fourierBasis_repr",
+    "orthonormal_fourier"
+  ],
+  "Mathlib/Analysis/Fourier/AddCircleMulti.lean::UnitAddTorus.mFourierSubalgebra_coe": [
+    "fourier_add'",
+    "fourier_apply",
+    "fourier_zero"
+  ],
+  "Mathlib/Analysis/Fourier/AddCircleMulti.lean::UnitAddTorus.mFourier_norm": [
+    "fourier_apply",
+    "fourier_eval_zero"
+  ],
+  "Mathlib/Analysis/Fourier/AddCircleMulti.lean::UnitAddTorus.orthonormal_mFourier": [
+    "fourier_add",
+    "fourier_neg",
+    "orthonormal_fourier"
+  ],
+  "Mathlib/Analysis/Fourier/PoissonSummation.lean::Real.fourierCoeff_tsum_comp_add": [
+    "fourierCoeff_eq_intervalIntegral",
+    "fourier_coe_apply"
+  ],
+  "Mathlib/Analysis/Fourier/PoissonSummation.lean::Real.tsum_eq_tsum_fourier": [
+    "Real.fourierCoeff_tsum_comp_add",
+    "has_pointwise_sum_fourier_series_of_summable"
+  ],
+  "Mathlib/Analysis/Polynomial/Fourier.lean::Polynomial.sum_sq_norm_coeff_eq_circleAverage": [
+    "ContinuousMap.coe_toLp",
+    "fourierCoeff_toLp",
+    "tsum_sq_fourierCoeff"
+  ],
+  "Mathlib/Analysis/SpecialFunctions/Gaussian/FourierTransform.lean::fourierIntegral_gaussian": [
+    "Complex.exp_add",
+    "integral_cexp_quadratic"
+  ],
+  "Mathlib/Analysis/SpecialFunctions/Gaussian/FourierTransform.lean::fourier_gaussian_pi'": [
+    "Complex.exp_add",
+    "integral_cexp_quadratic"
+  ],
+  "Mathlib/Analysis/SpecialFunctions/Integrals/Basic.lean::integral_exp_mul_I_eq_sin": [
+    "Complex.cos_neg",
+    "Complex.exp_mul_I"
+  ],
+  "Mathlib/Analysis/SpecialFunctions/Trigonometric/Chebyshev/ChebyshevGauss.lean::Polynomial.Chebyshev.sum_exp": [
+    "Complex.exp_add",
+    "Complex.exp_neg"
+  ],
+  "Mathlib/FieldTheory/Cardinality.lean::Fintype.nonempty_field_iff": [
+    "Fintype.isPrimePow_card_of_field",
+    "GaloisField.card"
+  ],
+  "Mathlib/FieldTheory/Galois/Basic.lean::IntermediateField.finrank_eq_fixingSubgroup_index": [
+    "IsGalois.card_aut_eq_finrank",
+    "IsGalois.card_fixingSubgroup_eq_finrank"
+  ],
+  "Mathlib/FieldTheory/Galois/Basic.lean::IsGalois.sup_right": [
+    "IsGalois.is_separable_splitting_field",
+    "IsGalois.of_separable_splitting_field"
+  ],
+  "Mathlib/Geometry/Euclidean/Angle/Unoriented/TriangleInequality.lean::InnerProductGeometry.angle_expression_of_angle_eq_angle_sum": [
+    "Real.cos_add",
+    "Real.sin_add"
+  ],
+  "Mathlib/LinearAlgebra/Matrix/Charpoly/FiniteField.lean::FiniteField.trace_pow_card": [
+    "FiniteField.Matrix.charpoly_pow_card",
+    "FiniteField.pow_card"
+  ],
+  "Mathlib/MeasureTheory/Integral/IntervalIntegral/DistLEIntegral.lean::norm_sub_le_integral_of_norm_deriv_le_of_le": [
+    "UniformSpace.Completion.norm_coe",
+    "intervalIntegral.norm_integral_le_of_norm_le"
+  ],
+  "Mathlib/NumberTheory/BernoulliPolynomials.lean::Polynomial.bernoulli_three_eval_one_quarter": [
+    "bernoulli'_three",
+    "bernoulli'_two",
+    "bernoulli_eq_bernoulli'_of_ne_one"
+  ],
+  "Mathlib/NumberTheory/GaussSum.lean::Char.card_pow_card": [
+    "FiniteField.card",
+    "MulChar.ringHomComp_apply"
+  ],
+  "Mathlib/NumberTheory/GaussSum.lean::FiniteField.two_pow_card": [
+    "FiniteField.card",
+    "FiniteField.isSquare_iff"
+  ],
+  "Mathlib/NumberTheory/JacobiSum/Basic.lean::jacobiSum_mul_jacobiSum_inv": [
+    "FiniteField.card",
+    "MulChar.ringHomComp_ne_one_iff"
+  ],
+  "Mathlib/NumberTheory/JacobiSum/Basic.lean::jacobiSum_one_nontrivial": [
+    "MulChar.one_apply",
+    "MulChar.sum_one_eq_card_units"
+  ],
+  "Mathlib/NumberTheory/LSeries/SumCoeff.lean::LSeries_tendsto_sub_mul_nhds_one_of_tendsto_sum_div_aux₃": [
+    "Set.Ioc_union_Ioi_eq_Ioi",
+    "integrableOn_Ioi_cpow_of_lt"
+  ],
+  "Mathlib/NumberTheory/LegendreSymbol/QuadraticChar/GaussSum.lean::FiniteField.isSquare_odd_prime_iff": [
+    "FiniteField.card",
+    "quadraticChar_odd_prime"
+  ],
+  "Mathlib/NumberTheory/ModularForms/Bounds.lean::UpperHalfPlane.fourierCoeffOn_neg_eq_zero": [
+    "Complex.exp_add",
+    "fourierCoeffOn_eq_integral",
+    "fourier_coe_apply"
+  ],
+  "Mathlib/NumberTheory/ModularForms/Bounds.lean::UpperHalfPlane.qExpansion_coeff_eq_exp_mul_fourierCoeffOn": [
+    "Complex.exp_add",
+    "Complex.exp_neg",
+    "fourierCoeffOn_eq_integral",
+    "fourier_coe_apply"
+  ],
+  "Mathlib/NumberTheory/ModularForms/Derivative.lean::Derivative.normalizedDerivOfComplex_slash": [
+    "zpow_add₀",
+    "zpow_sub_one₀"
+  ],
+  "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean::IsCyclotomicExtension.Rat.map_eq_span_zeta_sub_one_pow": [
+    "Algebra.algebraMap_intNorm_of_isGalois",
+    "IsGalois.card_aut_eq_finrank"
+  ],
+  "Mathlib/NumberTheory/ZetaValues.lean::bernoulliFun_eq_integral": [
+    "hasDerivAt_bernoulliFun",
+    "intervalIntegral.integral_eq_sub_of_hasDerivAt"
+  ],
+  "Mathlib/NumberTheory/ZetaValues.lean::bernoulliFun_eval_half": [
+    "bernoulliFun_eval_one",
+    "bernoulliFun_eval_zero"
+  ],
+  "Mathlib/NumberTheory/ZetaValues.lean::bernoulliFun_mul": [
+    "hasDerivAt_bernoulliFun",
+    "integral_bernoulliFun_eq_zero"
+  ],
+  "Mathlib/NumberTheory/ZetaValues.lean::integral_bernoulliFun": [
+    "antideriv_bernoulliFun",
+    "bernoulliFun_eval_one"
+  ],
+  "Mathlib/Order/OmegaCompletePartialOrder.lean::OmegaCompletePartialOrder.ContinuousHom.ωSup_bind": [
+    "Part.bind_le",
+    "Part.mem_ωSup"
+  ],
+  "Mathlib/Probability/Distributions/Gaussian/Real.lean::ProbabilityTheory.complexMGF_id_gaussianReal": [
+    "Complex.exp_add",
+    "integral_cexp_quadratic"
+  ],
+  "Mathlib/RingTheory/DedekindDomain/Different.lean::not_dvd_differentIdeal_of_isCoprime_of_isSeparable": [
+    "Algebra.trace_eq_of_algEquiv",
+    "Algebra.trace_ne_zero"
+  ],
+  "Mathlib/RingTheory/Etale/Field.lean::Algebra.FormallyEtale.of_isSeparable": [
+    "IntermediateField.adjoin.finiteDimensional",
+    "IntermediateField.finiteDimensional_adjoin"
+  ],
+  "Mathlib/RingTheory/Frobenius.lean::IsArithFrobAt.exists_of_isInvariant": [
+    "FiniteField.card",
+    "FiniteField.pow_card"
+  ],
+  "Mathlib/RingTheory/Trace/Basic.lean::Module.Basis.traceDual_powerBasis_eq": [
+    "sum_smul_minpolyDiv_eq_X_pow",
+    "trace_eq_sum_embeddings"
+  ]
 }
