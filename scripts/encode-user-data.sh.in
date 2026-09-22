@@ -1,0 +1,76 @@
+#!/bin/bash
+# Template. scripts/run-encode-aws.sh substitutes @BUCKET@ and @RUN@ and passes
+# the result as EC2 user data.
+#
+# Encodes a frozen input list with the pinned ReProver ByT5 retriever on one
+# GPU, then stops. No training, no model download from anywhere but the pinned
+# reference, and the encoder refuses to run if the acquisition source or the
+# model manifest differs from what was frozen -- so this box cannot silently
+# produce vectors from a different encoder than phase 1 used.
+set -u
+LOG=/var/log/noema-encode.log
+exec > >(tee -a "$LOG") 2>&1
+BKT="@BUCKET@"
+RNAME="@RUN@"
+echo "boot $(date -u +%FT%TZ)"
+
+/usr/sbin/shutdown -h +120
+cat > /etc/systemd/system/noema-expiry.service <<'SVC'
+[Unit]
+Description=Terminate temporary Noema encode worker
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/poweroff
+SVC
+cat > /etc/systemd/system/noema-expiry.timer <<'TMR'
+[Unit]
+Description=Expire temporary encode worker
+[Timer]
+OnBootSec=110min
+Unit=noema-expiry.service
+[Install]
+WantedBy=timers.target
+TMR
+systemctl daemon-reload
+systemctl enable --now noema-expiry.timer
+
+finish() {
+  rc=$?
+  set +e
+  echo "FINISH rc=$rc $(date -u +%FT%TZ)"
+  cp "$LOG" /opt/noema/out/worker.log 2>/dev/null
+  ( cd /opt/noema/out && find . -type f -exec sha256sum {} + > /tmp/SHA256SUMS \
+    && mv /tmp/SHA256SUMS SHA256SUMS )
+  tar czf /tmp/result.tar.gz -C /opt noema/out
+  for i in 1 2 3 4 5; do
+    /opt/nvenv/bin/aws s3 cp /tmp/result.tar.gz \
+      "s3://$BKT/results/$RNAME/result.tar.gz" --region us-east-2 && break || sleep 20
+  done
+  /usr/sbin/shutdown -h now
+  exit $rc
+}
+trap finish EXIT
+set -e
+
+mkdir -p /opt/noema /opt/noema/out
+export DEBIAN_FRONTEND=noninteractive
+for i in $(seq 1 12); do apt-get update -qq && break || sleep 30; done
+for i in 1 2 3; do apt-get install -y -qq python3-venv curl && break || sleep 60; done
+python3 -m venv /opt/nvenv
+/opt/nvenv/bin/pip -q install awscli numpy==2.5.3 ctranslate2==4.8.2
+echo "pydeps-done $(date -u +%FT%TZ)"
+
+/opt/nvenv/bin/aws s3 cp "s3://$BKT/$RNAME-task.tar.gz" /tmp/task.tar.gz --region us-east-2
+tar xzf /tmp/task.tar.gz -C /opt
+export PYTHONPATH=/opt/noema/src
+export LD_LIBRARY_PATH=/usr/local/cuda/lib64:/usr/local/cuda/targets/x86_64-linux/lib:${LD_LIBRARY_PATH:-}
+nvidia-smi --query-gpu=name,memory.total --format=csv,noheader
+
+/opt/nvenv/bin/python /opt/noema/scripts/bootstrap-reprover.py --output /opt/noema/.tools/reprover
+echo "STAGE encode $(date -u +%FT%TZ)"
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 /opt/nvenv/bin/python \
+  /opt/noema/scripts/encode-reprover-gpu.py \
+  --inputs /opt/noema/in/inputs.json \
+  --output /opt/noema/out/vectors \
+  --model /opt/noema/.tools/reprover
+echo "JOB DONE $(date -u +%FT%TZ)"
