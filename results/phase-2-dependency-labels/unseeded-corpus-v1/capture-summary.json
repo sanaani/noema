@@ -1,0 +1,16 @@
+{
+  "records": 11489,
+  "observed": 4697,
+  "synthetic": 6792,
+  "states": 152576,
+  "unique_texts": 37386,
+  "observed_states_median": 18,
+  "observed_states_p90": 64,
+  "files": 335,
+  "requested_files": 350,
+  "failures": 0,
+  "timeouts": 0,
+  "stage_d_seconds": 837,
+  "instance": "m6i.4xlarge",
+  "workers": 6
+}
