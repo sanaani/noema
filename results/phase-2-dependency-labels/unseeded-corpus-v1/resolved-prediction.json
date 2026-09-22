@@ -1,0 +1,8 @@
+{
+  "corpus_theorems": 11489,
+  "connectors": 5326,
+  "pairs": 6627,
+  "positives": 5200,
+  "cross_area_positives": 2562,
+  "note": "recomputed after Lean resolved declaration ranges; 5,219 of the 16,708 drawn names are compiler-generated (.proof_N and kin) with no source span, so they cannot be replayed and leave the corpus"
+}

@@ -43,7 +43,8 @@ launch() {
 
   echo "== packaging the task"
   cp "$CORPUS/modules.txt" "$CORPUS/names.txt" "$CORPUS/sample.json" "$out/task/corpus/"
-  cp "$REPO/results/phase-1-recognition/link-graph-v1/DeclRanges.lean" "$out/task/"
+  cp "$REPO/results/phase-1-recognition/link-graph-v1/DeclRanges.lean" \
+     "$REPO/results/phase-1-recognition/link-graph-v1/InitialGoals.lean" "$out/task/"
   cp "$REPO/scripts/build-state-bridge-selection.py" \
      "$REPO/scripts/replay-state-object-mathlib.py" "$out/task/scripts/"
   cp "$REPO/scripts/state-object-patches/repl-d920817-noema.patch" \

@@ -149,6 +149,18 @@ echo "ranges: $(wc -l < "$WORK/ranges.jsonl") lines, \
 $(grep -c missing "$WORK/ranges.jsonl" || true) missing"
 cp "$WORK/ranges.jsonl" "$OUT/ranges.jsonl"
 
+# Roughly a quarter of Mathlib theorems are term-mode and run no tactics, so a
+# replay captures nothing for them and they get no object at all. Their initial
+# goal is the statement, which is exactly what the retriever encodes. Phase 1
+# rescued its 425 such proofs this way; without it the corpus silently loses a
+# quarter of itself after the expensive part is already paid for.
+(cd mathlib && lake env lean --run /opt/noema/InitialGoals.lean \
+   /opt/noema/corpus/modules.txt /opt/noema/corpus/names.txt \
+   > "$WORK/initial-goals.jsonl")
+gzip -9 -c "$WORK/initial-goals.jsonl" > "$OUT/initial-goals.jsonl.gz"
+echo "initial goals: $(wc -l < "$WORK/initial-goals.jsonl") lines, \
+$(grep -c missing "$WORK/initial-goals.jsonl" || true) missing"
+
 /opt/nvenv/bin/python /opt/noema/scripts/build-state-bridge-selection.py \
   --ranges "$WORK/ranges.jsonl" --mathlib "$WORK/mathlib" --out "$WORK/sel" \
   | tee "$OUT/selection.txt"
