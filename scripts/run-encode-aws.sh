@@ -19,7 +19,11 @@ set -euo pipefail
 
 REGION=us-east-2
 BUCKET=noema-structural-gpu-159976616274-20260917t220221z
-INSTANCE_TYPE=g6e.xlarge
+# In preference order. g6e is an L40S, which is what phase 1 encoded on; the
+# rest are 24 GB cards that comfortably hold this corpus now that no state runs
+# past 8,192 bytes. GPU capacity is scarce and per availability zone, so the
+# launcher walks types and zones rather than failing on the first refusal.
+INSTANCE_TYPES="g6e.xlarge g6.2xlarge g5.2xlarge g6.xlarge g5.xlarge"
 AMI=ami-032e2f7bde5ba7967              # Deep Learning base, us-east-2
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 
@@ -77,9 +81,12 @@ JSON
     --protocol tcp --port 443 --cidr 0.0.0.0/0 >/dev/null
   aws ec2 authorize-security-group-egress --region "$REGION" --group-id "$sg" \
     --protocol tcp --port 80 --cidr 0.0.0.0/0 >/dev/null
-  subnet=$(aws ec2 describe-subnets --region "$REGION" \
+  # Every default subnet, not just the first: GPU capacity runs out per
+  # availability zone, and one zone being full says nothing about the next.
+  local subnets
+  subnets=$(aws ec2 describe-subnets --region "$REGION" \
             --filters Name=vpc-id,Values="$vpc" Name=default-for-az,Values=true \
-            --query 'Subnets[0].SubnetId' --output text)
+            --query 'Subnets[].SubnetId' --output text)
 
   echo "== user data"
   sed -e "s|@BUCKET@|$BUCKET|g" -e "s|@RUN@|$run|g" \
@@ -88,9 +95,12 @@ JSON
   echo "== waiting for the instance profile to propagate"
   sleep 20
 
-  local id
-  id=$(aws ec2 run-instances --region "$REGION" \
-    --image-id "$AMI" --instance-type "$INSTANCE_TYPE" --count 1 \
+  local id="" itype=""
+  for itype in $INSTANCE_TYPES; do
+   for subnet in $subnets; do
+    echo "== trying $itype in $subnet"
+   id=$(aws ec2 run-instances --region "$REGION" \
+    --image-id "$AMI" --instance-type "$itype" --count 1 \
     --iam-instance-profile "Name=$run" \
     --instance-initiated-shutdown-behavior terminate \
     --metadata-options 'HttpTokens=required,HttpEndpoint=enabled,HttpPutResponseHopLimit=1' \
@@ -98,12 +108,23 @@ JSON
     --network-interfaces "[{\"DeviceIndex\":0,\"SubnetId\":\"$subnet\",\"Groups\":[\"$sg\"],\"AssociatePublicIpAddress\":true,\"DeleteOnTermination\":true}]" \
     --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$run},{Key=Project,Value=noema},{Key=Purpose,Value=temporary-state-encode}]" \
     --user-data "file://$out/user-data.sh" \
-    --query 'Instances[0].InstanceId' --output text)
+    --query 'Instances[0].InstanceId' --output text 2>"$out/launch-error.txt") || id=""
+    [ -n "$id" ] && [ "$id" != "None" ] && break
+    echo "   $(tail -1 "$out/launch-error.txt" | grep -o 'InsufficientInstanceCapacity\|[A-Za-z]*Error' | head -1)"
+   done
+   [ -n "$id" ] && [ "$id" != "None" ] && break
+  done
+  if [ -z "$id" ] || [ "$id" = "None" ]; then
+    echo "no zone had capacity for any of: $INSTANCE_TYPES"
+    echo "teardown $run and retry later, or add a type"
+    return 1
+  fi
+  echo "$itype" > "$out/instance-type"
   echo "$id" > "$out/instance-id"
   echo "$sg"  > "$out/security-group-id"
   echo
   echo "run       $run"
-  echo "instance  $id  ($INSTANCE_TYPE, self-terminating)"
+  echo "instance  $id  ($itype, self-terminating)"
   echo "artifacts $out"
   echo
   echo "watch:    scripts/run-encode-aws.sh watch $run"
