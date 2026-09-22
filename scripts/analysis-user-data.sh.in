@@ -109,4 +109,14 @@ $P scripts/analyze-size-confound.py --centroids "$OUT/centroids.npz" \
   --connectors "$OUT/new-connectors.json" --out "$OUT/size-confound.json" \
   | tee "$OUT/size-confound.txt"
 
+# The decisive one: two predictors that need no encoder match or beat the
+# angle on this corpus, so the headline AUC says nothing on its own. Strip both
+# and see what is left.
+echo "STAGE residual $(date -u +%FT%TZ)"
+$P scripts/analyze-forward-residual.py --centroids "$OUT/centroids.npz" \
+  --connectors "$OUT/new-connectors.json" --states "$R/states-augmented.jsonl.gz" \
+  --selection "$R/selection-modules.json.gz" \
+  --edges /opt/noema/results/phase-1-recognition/link-graph-v1/edges.jsonl.gz \
+  --out "$OUT/residual.json" | tee "$OUT/residual.txt"
+
 echo "JOB DONE $(date -u +%FT%TZ)"
