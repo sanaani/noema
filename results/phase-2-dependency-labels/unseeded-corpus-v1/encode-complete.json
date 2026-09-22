@@ -1,0 +1,31 @@
+{
+  "manifest": {
+    "model": "kaiyuy/leandojo-lean4-retriever-byt5-small",
+    "export": "kaiyuy/ct2-leandojo-lean4-retriever-byt5-small",
+    "revision": "8612469b496b72bdb2f0d6ccd5316c100200581e",
+    "checksums": {
+      "model.bin": "311e636b7479e97236de85f5271f2b045e1e40a1de5a431df03b050b2176f827",
+      "config.json": "d3b27bd603df8fb368c641042d2f280d6821066a433f497aa24a2758cc49497c",
+      "vocabulary.json": "60259dce54d4677a043dbadcedb27916fa934567c01a796124dec71bf23a3e09"
+    },
+    "ctranslate2": "4.8.2",
+    "compute_type": "int8_float32",
+    "tokenization": "all UTF-8 bytes +3, append EOS=1; no truncation or length cap",
+    "pooling": "nonpadding mean including EOS, then L2 normalize",
+    "dimension": 1472,
+    "device": "cuda",
+    "output_transfer": "StorageView.to_device(Device.cpu), original NumPy pooling",
+    "numpy": "2.5.3",
+    "source_hashes": {
+      "reprover": "9ea9ad72d5c4715f66b3fe976c0b98b75a562277cd3a4b0737f59b18ba7254d0",
+      "transport": "72d5cdd20d78515618f28c26f6f2c9b4a365b57085ac12faa1c6b087b5563e51",
+      "gpu_encoder": "83d8e273fc47fbcda8a0024a7214ee0d03393bf8fd55790bdf1bea1dc1b231fc"
+    },
+    "input_sha256": "ea74e62fd9f5dcbbcdd682cebc9d99e13cce98f0ae38cb52ae2a2479541d1c5c",
+    "plan_sha256": "e786fa12458a57cb04b683db1f41d47d80281160d01bfcb07a798e3af98ffb2c"
+  },
+  "count": 37375,
+  "seconds_including_checkpoints": 787.940811147,
+  "texts_per_second_including_checkpoints": 47.43376592664806,
+  "vectors_sha256": "23489dc8872e5dc95df295c8bc77a1dd48ed889f7223e644b8faabc4af64ac6e"
+}
