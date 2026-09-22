@@ -121,6 +121,32 @@ def main() -> int:
             {"subset": tag, "pairs": n, "positives": p, "auc_angle": a_ang, "auc_vocab": a_voc}
         )
 
+    # AUC over sixty million pairs is dominated by the bulk, and the bulk is not
+    # what a discovery tool returns. What matters is whether the top of the
+    # ranking is enriched: take the closest k pairs that share no vocabulary and
+    # no subfield, and ask how many are real connections against base rate.
+    print(f"\n{'subset':<44}{'k':>8}{'hits':>7}{'base':>9}{'lift':>8}")
+    tops = []
+    for tag, mask in (
+        ("all eligible", np.ones(len(label), bool)),
+        (
+            f"cross-area AND overlap < {args.vocab_threshold:.0%}",
+            (~same) & (overlap < args.vocab_threshold),
+        ),
+    ):
+        sub_angle, sub_label = angle[mask], label[mask]
+        base = float(sub_label.mean())
+        order = np.argsort(sub_angle)
+        for k in (100, 1000, 10000):
+            if k > len(order):
+                continue
+            hits = int(sub_label[order[:k]].sum())
+            lift = (hits / k) / base if base else float("nan")
+            print(f"{tag:<44}{k:>8,}{hits:>7}{base:>9.5f}{lift:>7.0f}x")
+            tops.append(
+                {"subset": tag, "k": k, "hits": hits, "base_rate": base, "lift": float(lift)}
+            )
+
     last = rows[-1]
     print(
         f"\nWith neither shared subfield nor shared vocabulary, the angle scores "
@@ -136,6 +162,7 @@ def main() -> int:
             json.dumps(
                 {
                     "subsets": rows,
+                    "top_k": tops,
                     "vocab_threshold": args.vocab_threshold,
                     "tokenizer": "identifier-like runs, set per theorem, Jaccard over pairs",
                 },
