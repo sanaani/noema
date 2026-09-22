@@ -1,0 +1,242 @@
+#!/bin/bash
+# Template. scripts/run-capture-aws.sh substitutes @BUCKET@, @RUN@, @PROBE@ and
+# @MAX_REPLAY_HOURS@ and passes the result as EC2 user data.
+#
+# Captures proof states for the pre-registered unseeded corpus, in stages, so
+# the throughput is measured before the bulk of the money is spent:
+#
+#   A  setup      Lean 4.9.0, Mathlib f0957a7 oleans, the patched REPL
+#   B  selection  declaration ranges from Lean, then the replay input
+#   C  probe      replay @PROBE@ files and measure seconds per file
+#   D  full       replay the remaining files, but only if C projects under
+#                 @MAX_REPLAY_HOURS@ instance-hours
+#
+# Stage D is gated on stage C's measurement, not on a guess. If the projection
+# is over budget the host ships the probe and terminates, having spent the
+# setup cost and nothing more.
+set -u
+LOG=/var/log/noema-capture.log
+exec > >(tee -a "$LOG") 2>&1
+BKT="@BUCKET@"
+RNAME="@RUN@"
+PROBE="@PROBE@"
+MAXH="@MAX_REPLAY_HOURS@"
+LEANV=v4.9.0
+MATHLIB_REV=f0957a7575317490107578ebaee9efaf8e62a4ab
+REPL_REV=d920817f334e1d8d27c8ca35e52c736a8c8818b0
+ENVID=lean4.9.0-mathlib-f0957a7-repl-d920817-all-original-before-after
+WORK=/opt/work
+OUT=/opt/noema/out
+echo "boot $(date -u +%FT%TZ) probe=$PROBE max_replay_hours=$MAXH"
+mkdir -p "$OUT" "$WORK"
+
+# Six REPLs each holding a full Mathlib file's allTactics JSON is the memory
+# risk here, and an OOM kill would take the run with it. Track the low-water
+# mark so the probe can say whether six workers is safe for the whole corpus.
+echo 99999999 > $OUT/mem-low-kb.txt
+(while true; do
+  m=$(awk '/MemAvailable/{print $2}' /proc/meminfo)
+  [ "$m" -lt "$(cat $OUT/mem-low-kb.txt)" ] && echo "$m" > $OUT/mem-low-kb.txt
+  echo "ALIVE $(date -u +%FT%TZ) up=$(cut -d. -f1 /proc/uptime)s mem=${m}kB \
+low=$(cat $OUT/mem-low-kb.txt)kB done=$(cat $OUT/proof-count.txt 2>/dev/null || echo 0)"
+  sleep 120
+done &)
+
+/usr/sbin/shutdown -h +330
+cat > /etc/systemd/system/noema-expiry.service <<'SVC'
+[Unit]
+Description=Terminate temporary Noema capture worker
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/poweroff
+SVC
+cat > /etc/systemd/system/noema-expiry.timer <<'TMR'
+[Unit]
+Description=Expire temporary capture worker
+[Timer]
+OnBootSec=320min
+Unit=noema-expiry.service
+[Install]
+WantedBy=timers.target
+TMR
+systemctl daemon-reload
+systemctl enable --now noema-expiry.timer
+
+# The replay checkpoints one JSON file per proof, so a harvest at any moment is
+# a resumable partial result rather than a loss. Phase 1's whole capture was
+# recoverable for this reason; phase 2 keeps it.
+harvest() {
+  set +e
+  local tag="${1:-final}"
+  [ -d "$OUT/replays" ] || return 0
+  ( cd "$OUT" && tar czf replays.tar.gz.part --exclude=replays/file-responses replays ) 2>/dev/null
+  mv "$OUT/replays.tar.gz.part" "$OUT/replays.tar.gz" 2>/dev/null
+  find "$OUT/replays" -maxdepth 1 -regextype posix-extended \
+    -regex '.*/[0-9a-f]{64}\.json' 2>/dev/null | wc -l > "$OUT/proof-count.txt"
+  tail -40 "$WORK/replay.log" > "$OUT/replay-tail.log" 2>/dev/null
+  echo "HARVEST $tag $(date -u +%FT%TZ) proofs=$(cat "$OUT/proof-count.txt" 2>/dev/null)"
+}
+
+upload() {
+  set +e
+  local name="${1:-result.tar.gz}"
+  cp "$LOG" "$OUT/worker.log" 2>/dev/null
+  ( cd "$OUT" && sha256sum ./*.gz ./*.json ./*.txt > SHA256SUMS 2>/dev/null )
+  tar czf "/tmp/$name" --exclude=noema/out/replays -C /opt noema/out
+  for i in 1 2 3 4 5; do
+    /opt/nvenv/bin/aws s3 cp "/tmp/$name" \
+      "s3://$BKT/results/$RNAME/$name" --region us-east-2 && return 0 || sleep 20
+  done
+  return 1
+}
+
+finish() {
+  rc=$?
+  set +e
+  echo "FINISH rc=$rc $(date -u +%FT%TZ)"
+  harvest final
+  upload result.tar.gz
+  /usr/sbin/shutdown -h now
+  exit $rc
+}
+trap finish EXIT
+set -e
+
+echo "STAGE A setup $(date -u +%FT%TZ)"
+export DEBIAN_FRONTEND=noninteractive
+apt-get update -qq
+apt-get install -y -qq python3-venv curl git zstd
+python3 -m venv /opt/nvenv
+# numpy and scipy because noema.state_objects imports them; pinned to the
+# versions phase 1 captured under.
+/opt/nvenv/bin/pip -q install awscli numpy==2.5.3 scipy==1.18.1
+
+/opt/nvenv/bin/aws s3 cp "s3://$BKT/$RNAME-task.tar.gz" /tmp/task.tar.gz --region us-east-2
+mkdir -p /opt/noema && tar xzf /tmp/task.tar.gz -C /opt/noema
+cd "$WORK"
+
+curl --fail --location --retry 3 \
+  "https://github.com/leanprover/lean4/releases/download/$LEANV/lean-${LEANV#v}-linux.tar.zst" \
+  -o lean.tar.zst
+tar --zstd -xf lean.tar.zst
+export PATH="$WORK/lean-${LEANV#v}-linux/bin:$PATH"
+lean --version
+
+mkdir -p mathlib && (cd mathlib && git init -q \
+  && git remote add origin https://github.com/leanprover-community/mathlib4 \
+  && git fetch -q --depth 1 origin "$MATHLIB_REV" && git checkout -q FETCH_HEAD)
+test "$(git -C mathlib rev-parse HEAD)" = "$MATHLIB_REV"
+(cd mathlib && lake exe cache get)
+echo "oleans: $(find mathlib/.lake/build/lib -name '*.olean' | wc -l)"
+
+# Stock REPL returns no post-tactic goals and no alpha arm, so every proof
+# would be recorded as verified_no_states. See scripts/state-object-patches.
+mkdir -p repl && (cd repl && git init -q \
+  && git remote add origin https://github.com/leanprover-community/repl \
+  && git fetch -q --depth 1 origin "$REPL_REV" && git checkout -q FETCH_HEAD)
+test "$(git -C repl rev-parse HEAD)" = "$REPL_REV"
+printf 'leanprover/lean4:v%s\n' "${LEANV#v}" > repl/lean-toolchain
+git -C repl apply /opt/noema/state-object-patches/repl-d920817-noema.patch
+grep -q goalsAfterAlpha repl/REPL/JSON.lean   # the patch really landed
+(cd repl && lake build)
+test -x repl/.lake/build/bin/repl
+
+echo "STAGE B selection $(date -u +%FT%TZ)"
+cp /opt/noema/DeclRanges.lean mathlib/DeclRanges.lean
+(cd mathlib && lake env lean --run DeclRanges.lean \
+   /opt/noema/corpus/modules.txt /opt/noema/corpus/names.txt > "$WORK/ranges.jsonl")
+echo "ranges: $(wc -l < "$WORK/ranges.jsonl") lines, \
+$(grep -c missing "$WORK/ranges.jsonl" || true) missing"
+cp "$WORK/ranges.jsonl" "$OUT/ranges.jsonl"
+
+/opt/nvenv/bin/python /opt/noema/scripts/build-state-bridge-selection.py \
+  --ranges "$WORK/ranges.jsonl" --mathlib "$WORK/mathlib" --out "$WORK/sel" \
+  | tee "$OUT/selection.txt"
+
+# Split the file list: the probe replays a prefix of the shuffled file order,
+# so it is a fair sample of the corpus rather than the alphabetically first
+# files, which are systematically the small ones.
+/opt/nvenv/bin/python - "$WORK/sel/selected.json.gz" "$PROBE" "$WORK" <<'PY'
+import gzip, json, random, sys
+sel_path, probe, work = sys.argv[1], int(sys.argv[2]), sys.argv[3]
+sel = json.load(gzip.open(sel_path))
+files = sorted({p["source_artifact"]["filename"] for p in sel["proofs"]})
+random.Random(20260922).shuffle(files)
+first, rest = set(files[:probe]), set(files[probe:])
+for name, keep in (("probe", first), ("full", rest | first)):
+    out = dict(sel)
+    out["proofs"] = [p for p in sel["proofs"] if p["source_artifact"]["filename"] in keep]
+    with gzip.open(f"{work}/selected-{name}.json.gz", "wt") as f:
+        json.dump(out, f)
+    print(f"{name}: {len(keep)} files, {len(out['proofs'])} proofs", flush=True)
+PY
+
+(
+  set +e
+  while true; do
+    sleep 300
+    harvest checkpoint
+    upload checkpoint.tar.gz
+  done &
+)
+
+replay() {
+  local selected=$1 workers=$2 timeout=$3
+  PYTHONPATH=/opt/noema/src /opt/nvenv/bin/python -u \
+    /opt/noema/scripts/replay-state-object-mathlib.py \
+    --selected "$selected" --proof-sources "$WORK/sel/proof-sources" \
+    --source-prefix noema-declranges --output "$OUT/replays" \
+    --lean-bin "$WORK/lean-${LEANV#v}-linux/bin" --mathlib "$WORK/mathlib" \
+    --repl "$WORK/repl/.lake/build/bin/repl" --environment-id "$ENVID" \
+    --workers "$workers" --timeout "$timeout"
+}
+
+echo "STAGE C probe $(date -u +%FT%TZ)"
+t0=$(date +%s)
+replay "$WORK/selected-probe.json.gz" 6 900 2>&1 | tee -a "$WORK/replay.log" | tail -3
+t1=$(date +%s)
+harvest probe
+
+/opt/nvenv/bin/python - "$OUT" "$PROBE" "$WORK/selected-full.json.gz" $((t1 - t0)) "$MAXH" <<'PY' | tee "$OUT/probe-report.json"
+import gzip, json, re, sys
+from pathlib import Path
+out, probe, full, elapsed, maxh = Path(sys.argv[1]), int(sys.argv[2]), sys.argv[3], int(sys.argv[4]), float(sys.argv[5])
+# The replay drops replay-manifest-*.json and replay-summary.json in the same
+# directory as the per-proof checkpoints. Those carry no status, so match the
+# checkpoint name -- a 64-hex proof id -- rather than every .json present.
+ckpt = re.compile(r"^[0-9a-f]{64}\.json$")
+rows = [json.loads(p.read_text()) for p in out.glob("replays/*.json") if ckpt.match(p.name)]
+status = {}
+for r in rows:
+    status[r["status"]] = status.get(r["status"], 0) + 1
+states = sum(len(r["states"]) for r in rows)
+texts = {s["text"] for r in rows for s in r["states"]}
+total_files = len({p["source_artifact"]["filename"] for p in json.load(gzip.open(full))["proofs"]})
+low = int((out / "mem-low-kb.txt").read_text().strip() or 0)
+per_file = elapsed / max(probe, 1)
+projected_h = per_file * (total_files - probe) / 3600
+keep = status.get("complete", 0) / max(len(rows), 1)
+report = {
+    "probe_files": probe, "probe_seconds": elapsed, "wall_seconds_per_file": round(per_file, 1),
+    "proofs": len(rows), "status": status, "complete_fraction": round(keep, 3),
+    "states": states, "unique_texts": len(texts),
+    "states_per_proof": round(states / max(len(rows), 1), 1),
+    "remaining_files": total_files - probe,
+    "projected_remaining_hours": round(projected_h, 2),
+    "budget_hours": maxh, "proceed": projected_h <= maxh,
+    "mem_available_low_gb": round(low / 1048576, 1),
+}
+print(json.dumps(report, indent=2))
+Path(out / "proceed.txt").write_text("yes" if report["proceed"] else "no")
+PY
+upload probe.tar.gz
+
+if [ "$(cat "$OUT/proceed.txt")" != "yes" ]; then
+  echo "STAGE D skipped: projection exceeds $MAXH instance-hours"
+  exit 0
+fi
+
+echo "STAGE D full $(date -u +%FT%TZ)"
+replay "$WORK/selected-full.json.gz" 6 900 2>&1 | tee -a "$WORK/replay.log" | tail -3
+harvest final
+echo "JOB DONE $(date -u +%FT%TZ)"
