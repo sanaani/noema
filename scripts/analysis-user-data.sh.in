@@ -1,0 +1,112 @@
+#!/bin/bash
+# Template. scripts/run-analysis-aws.sh substitutes @BUCKET@ and @RUN@ and
+# passes the result as EC2 user data.
+#
+# Runs the published forward analyses against a corpus too large to hold in
+# laptop memory: 11,489 centroids make a 66-million-pair upper triangle, and
+# the eligibility test walks it in Python. Nothing here is new analysis code --
+# these are the same scripts phase 1 published, with different inputs.
+set -u
+LOG=/var/log/noema-analysis.log
+exec > >(tee -a "$LOG") 2>&1
+BKT="@BUCKET@"
+RNAME="@RUN@"
+OUT=/opt/noema/out
+echo "boot $(date -u +%FT%TZ)"
+mkdir -p "$OUT"
+
+/usr/sbin/shutdown -h +120
+cat > /etc/systemd/system/noema-expiry.service <<'SVC'
+[Unit]
+Description=Terminate temporary Noema analysis worker
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/poweroff
+SVC
+cat > /etc/systemd/system/noema-expiry.timer <<'TMR'
+[Unit]
+Description=Expire temporary analysis worker
+[Timer]
+OnBootSec=110min
+Unit=noema-expiry.service
+[Install]
+WantedBy=timers.target
+TMR
+systemctl daemon-reload
+systemctl enable --now noema-expiry.timer
+
+(while true; do echo "ALIVE $(date -u +%FT%TZ) mem=$(awk '/MemAvailable/{print $2}' /proc/meminfo)kB"; sleep 60; done &)
+
+finish() {
+  rc=$?
+  set +e
+  echo "FINISH rc=$rc $(date -u +%FT%TZ)"
+  cp "$LOG" "$OUT/worker.log" 2>/dev/null
+  ( cd "$OUT" && find . -type f ! -name SHA256SUMS -exec sha256sum {} + > /tmp/S \
+    && mv /tmp/S SHA256SUMS )
+  tar czf /tmp/result.tar.gz -C /opt noema/out
+  for i in 1 2 3 4 5; do
+    /opt/nvenv/bin/aws s3 cp /tmp/result.tar.gz \
+      "s3://$BKT/results/$RNAME/result.tar.gz" --region us-east-2 && break || sleep 20
+  done
+  /usr/sbin/shutdown -h now
+  exit $rc
+}
+trap finish EXIT
+set -e
+
+export DEBIAN_FRONTEND=noninteractive
+apt-get update -qq
+apt-get install -y -qq python3-venv curl
+python3 -m venv /opt/nvenv
+/opt/nvenv/bin/pip -q install awscli numpy==2.5.3 scipy==1.18.1
+/opt/nvenv/bin/aws s3 cp "s3://$BKT/$RNAME-task.tar.gz" /tmp/task.tar.gz --region us-east-2
+tar xzf /tmp/task.tar.gz -C /opt
+cd /opt/noema
+export PYTHONPATH=/opt/noema/src
+P=/opt/nvenv/bin/python
+R=/opt/noema/results/phase-2-dependency-labels/unseeded-corpus-v1
+E26=/opt/noema/results/phase-2-dependency-labels/link-graph-2026-v1/edges-2026.jsonl.gz
+
+echo "STAGE centroids $(date -u +%FT%TZ)"
+$P scripts/export-forward-centroids.py --vectors /opt/noema/in/reprover-embeddings.npz \
+  --index /opt/noema/in/text-index.jsonl.gz --out "$OUT/centroids.npz" | tee "$OUT/centroids.txt"
+
+echo "STAGE label $(date -u +%FT%TZ)"
+$P scripts/build-dependency-label.py --edges-2026 "$E26" \
+  --centroids "$OUT/centroids.npz" --out "$OUT/new-connectors.json" | tee "$OUT/label.txt"
+
+echo "STAGE forward $(date -u +%FT%TZ)"
+$P scripts/analyze-mathlib-forward.py --vectors /opt/noema/in/reprover-embeddings.npz \
+  --centroids "$OUT/centroids.npz" --index /opt/noema/in/text-index.jsonl.gz \
+  --connectors "$OUT/new-connectors.json" --out "$OUT/band-report.json" \
+  | tee "$OUT/forward.txt"
+
+echo "STAGE independence $(date -u +%FT%TZ)"
+$P scripts/analyze-forward-independence.py --centroids "$OUT/centroids.npz" \
+  --connectors "$OUT/new-connectors.json" --out "$OUT/independence.json" \
+  | tee "$OUT/independence.txt"
+
+echo "STAGE vocabulary $(date -u +%FT%TZ)"
+$P scripts/analyze-forward-vocabulary.py --centroids "$OUT/centroids.npz" \
+  --states "$R/states-augmented.jsonl.gz" \
+  --connectors "$OUT/new-connectors.json" --out "$OUT/vocabulary.json" \
+  | tee "$OUT/vocabulary.txt"
+
+echo "STAGE area $(date -u +%FT%TZ)"
+# selection-modules.json.gz is the theorem->module map rebuilt from the ranges
+# Lean emitted; phase 1 read it out of its own selection file, which this
+# corpus does not have.
+$P scripts/analyze-forward-area.py --centroids "$OUT/centroids.npz" \
+  --selection "$R/selection-modules.json.gz" \
+  --connectors "$OUT/new-connectors.json" --out "$OUT/area-control.json" \
+  | tee "$OUT/area.txt"
+
+# Proof size predicted phase 1's label at AUC 0.740 and is the confound this
+# corpus was drawn to attack: its median proof is a quarter as long.
+echo "STAGE size-confound $(date -u +%FT%TZ)"
+$P scripts/analyze-size-confound.py --centroids "$OUT/centroids.npz" \
+  --connectors "$OUT/new-connectors.json" --out "$OUT/size-confound.json" \
+  | tee "$OUT/size-confound.txt"
+
+echo "JOB DONE $(date -u +%FT%TZ)"
