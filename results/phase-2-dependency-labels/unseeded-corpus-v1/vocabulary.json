@@ -1,0 +1,18 @@
+{
+  "positives": 5200,
+  "eligible_pairs": 65773320,
+  "threshold": 0.05,
+  "mean_overlap_positives": 0.244932621717453,
+  "median_overlap_positives": 0.1875,
+  "mean_overlap_eligible": 0.10077458620071411,
+  "median_overlap_eligible": 0.095238097012043,
+  "positives_below_threshold": 640,
+  "auc_vocabulary_overlap": 0.7360826363722447,
+  "positive_histogram": {
+    "<5%": 640,
+    "5-10%": 588,
+    "10-20%": 1483,
+    "20-40%": 1464,
+    ">=40%": 1025
+  }
+}

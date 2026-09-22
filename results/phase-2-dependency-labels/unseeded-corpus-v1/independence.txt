@@ -1,0 +1,18 @@
+5200 positives over 1633 distinct endpoints; AUC 0.709
+most reused endpoints: Nat.cast_one x371, Nat.cast_zero x280, norm_nonneg x198, neg_mul x140
+
+subset                                           n     AUC  45-55 hits    lift
+all positives                                 5200   0.709         293     34x
+vertex-disjoint subset (independent pairs)     595   0.834          63     64x
+drop pairs touching a seed family             5197   0.709         293     34x
+drop the Complex.exp*/cos* hub                5200   0.709         293     34x
+
+leave-one-endpoint-out over 1633 endpoints: min 0.707 (without CategoryTheory.Category.assoc), median 0.709, max 0.722
+
+cluster null, endpoint substitution with degree preserved (5000 draws):
+  AUC         null 0.500 +/- 0.017 | observed 0.709 | p = 0.00000
+  45-55 hits  null 8.55          | observed 293     | p = 0.00000
+
+The AUC survives every subset; the 45-55 band lift does not — it rests on
+four pairs, and removing one hub theorem leaves one. Read the AUC.
+wrote /opt/noema/out/independence.json

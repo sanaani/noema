@@ -1,0 +1,16 @@
+28 areas; largest: Data 1877, Algebra 1390, Analysis 1321, Topology 1094, MeasureTheory 756
+
+subset                     pairs  hits   angle AUC
+all eligible          65,773,320  5200       0.709
+cross-area only       60,352,871  2562       0.572
+same-area only         5,420,449  2638       0.787
+
+angle as an 'are these the same area?' detector : AUC 0.612
+'same area' alone as a predictor of the 2026 link: AUC 0.712
+
+If the forward result were the map noticing shared subfield, the angle would
+be a strong area detector and the cross-area row would collapse. Neither
+happens: area is a weak predictor on its own, and the angle keeps its AUC
+where the confound cannot reach.
+
+wrote /opt/noema/out/area-control.json

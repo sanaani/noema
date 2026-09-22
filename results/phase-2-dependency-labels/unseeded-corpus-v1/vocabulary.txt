@@ -1,0 +1,20 @@
+positives                 : 5200
+eligible_pairs            : 65773320
+threshold                 : 0.0500
+mean_overlap_positives    : 0.2449
+median_overlap_positives  : 0.1875
+mean_overlap_eligible     : 0.1008
+median_overlap_eligible   : 0.0952
+positives_below_threshold : 640
+auc_vocabulary_overlap    : 0.7361
+
+640 of 5200 connected pairs share under 5% of their state vocabulary.
+
+connected pairs by vocabulary overlap:
+      <5%  640
+    5-10%  588
+   10-20%  1483
+   20-40%  1464
+    >=40%  1025
+
+wrote /opt/noema/out/vocabulary.json

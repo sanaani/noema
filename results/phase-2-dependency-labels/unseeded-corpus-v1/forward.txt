@@ -1,0 +1,28 @@
+eligible pairs (no shared rare lemma in 2024) : 65,773,320
+pairs Mathlib connected by 2026               : 5200
+base rate                                     : 1 in 12,648
+
+        band       pairs  hits    lift
+        0-30       3,584   105    371x
+       30-45      25,516   269    133x
+       45-55     108,424   293     34x
+       55-65   1,287,425   456      4x
+       65-75   4,710,977   760      2x
+       75-85   9,304,597  1140      2x
+       85-95  50,239,024  2162      1x
+      95-180      93,773    15      2x
+
+predictor                             AUC
+proof size alone (bigger=closer)    0.468
+state-geometry angle                0.709
+
+median min-size in 45-55 band: 10 states | all pairs: 1
+
+the closest pairs, for contrast — these are renames, not bridges:
+    0.0  finSuccEquiv'_symm_coe_above                 | finSuccEquiv'_symm_some_above
+    0.0  Multiset.card_lt_card                        | Multiset.card_lt_of_lt
+    0.0  AddGroupSeminorm.toSeminormedAddCommGroup.pr | NormedAddCommGroup.ofAddDist'.proof_1
+    0.0  IsSimpleOrder.eq_bot_of_lt                   | LT.lt.eq_bot
+    0.0  NormedAddCommGroup.ofAddDist.proof_1         | SeminormedAddCommGroup.ofAddDist.proof_1
+
+wrote /opt/noema/out/band-report.json

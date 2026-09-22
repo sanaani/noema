@@ -1,0 +1,22 @@
+{
+  "areas": 28,
+  "subsets": {
+    "all eligible": {
+      "pairs": 65773320,
+      "hits": 5200,
+      "auc": 0.7089158665396057
+    },
+    "cross-area only": {
+      "pairs": 60352871,
+      "hits": 2562,
+      "auc": 0.5719212162721994
+    },
+    "same-area only": {
+      "pairs": 5420449,
+      "hits": 2638,
+      "auc": 0.7873914095619663
+    }
+  },
+  "auc_angle_predicts_same_area": 0.6121889599198922,
+  "auc_same_area_predicts_label": 0.7124651136798147
+}

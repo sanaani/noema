@@ -112,11 +112,27 @@ def main():
     area_predicts = forward.auc(same.astype(float), label)
     print(f"\nangle as an 'are these the same area?' detector : AUC {as_detector:.3f}")
     print(f"'same area' alone as a predictor of the 2026 link: AUC {area_predicts:.3f}")
+    # Say what the numbers say, not what they said once. The first version of
+    # this printed a fixed verdict written against the seeded corpus, and went
+    # on printing it after an unseeded corpus had reversed both of its premises.
+    overall = rows["all eligible"]["auc"]
+    cross = rows["cross-area only"]["auc"]
+    verdict = []
+    verdict.append(
+        f"the angle is a {'strong' if as_detector >= 0.7 else 'weak'} area detector "
+        f"({as_detector:.3f})"
+    )
+    verdict.append(
+        f"area alone predicts the link at {area_predicts:.3f}, "
+        f"{'above' if area_predicts >= overall else 'below'} the angle's {overall:.3f}"
+    )
+    verdict.append(
+        f"cross-area {'holds at' if cross >= overall - 0.02 else 'falls to'} {cross:.3f}"
+    )
     print(
         "\nIf the forward result were the map noticing shared subfield, the angle would"
-        "\nbe a strong area detector and the cross-area row would collapse. Neither"
-        "\nhappens: area is a weak predictor on its own, and the angle keeps its AUC"
-        "\nwhere the confound cannot reach."
+        "\nbe a strong area detector and the cross-area row would collapse."
+        "\n  " + "\n  ".join(verdict)
     )
 
     if args.out:

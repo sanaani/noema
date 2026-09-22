@@ -1,0 +1,44 @@
+{
+  "positives": 5200,
+  "distinct_endpoints": 1633,
+  "max_endpoint_degree": 371,
+  "subsets": {
+    "all positives": {
+      "n": 5200,
+      "auc": 0.7089158665396057,
+      "band_hits": 293,
+      "band_lift": 34.18130310348546
+    },
+    "vertex-disjoint subset (independent pairs)": {
+      "n": 595,
+      "auc": 0.8344466799379635,
+      "band_hits": 63,
+      "band_lift": 64.23147903003894
+    },
+    "drop pairs touching a seed family": {
+      "n": 5197,
+      "auc": 0.7088324676207518,
+      "band_hits": 293,
+      "band_lift": 34.201034469525574
+    },
+    "drop the Complex.exp*/cos* hub": {
+      "n": 5200,
+      "auc": 0.7089158665396057,
+      "band_hits": 293,
+      "band_lift": 34.18130310348546
+    }
+  },
+  "jackknife_auc": {
+    "min": 0.7066096229291513,
+    "median": 0.7088669108155917,
+    "max": 0.7221086660860507
+  },
+  "cluster_null": {
+    "draws": 5000,
+    "auc_mean": 0.5002235734980017,
+    "auc_sd": 0.016658053871332512,
+    "p_auc": 0.0,
+    "band_hits_mean": 8.551,
+    "p_band_hits": 0.0
+  }
+}

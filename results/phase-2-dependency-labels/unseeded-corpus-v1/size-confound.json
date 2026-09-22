@@ -1,0 +1,9 @@
+{
+  "auc_size_on_replication_label": 0.6025763868375726,
+  "auc_size_on_forward_label": 0.4677625530321822,
+  "replication_pairs": 65992816,
+  "replication_positives": 219496,
+  "forward_pairs": 65773320,
+  "forward_positives": 5200,
+  "distinct_size_values": 128
+}

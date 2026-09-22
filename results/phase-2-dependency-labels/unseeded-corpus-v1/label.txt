@@ -1,0 +1,14 @@
+2024 theorems 206,889 | 2026 theorems 281,359
+new since 2024                      : 148,911
+connectors (new, cite >=2 corpus)   : 5,326
+distinct corpus pairs connected      : 6,627
+corpus theorems appearing as endpoint: 1,987
+    1138  CategoryTheory.Category.assoc
+    1025  CategoryTheory.Category.comp_id
+    1001  CategoryTheory.Category.id_comp
+     870  Nat.cast_one
+     577  Nat.cast_zero
+
+wrote /opt/noema/out/new-connectors.json
+eligibility (no shared rare lemma in 2024) is applied by the analysis scripts,
+so the positive count they report will be lower than the pair count above.
