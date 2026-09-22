@@ -166,38 +166,54 @@ That trade flips if this job ever has to run repeatedly. It does not: the
 sweep is corpus-independent, so it is run once per Mathlib revision and reused
 for every corpus size in the table above.
 
-### The blind window, and what actually causes it
+### The blind window: three diagnoses, and the one that was right
 
-The silence at the start of a run is `import Mathlib`, not anything in
-`Deps2026.lean`. Lean's module loader is single-threaded, and on the 2026
-library it runs for tens of minutes before the elaborator gets control. This
-run showed 24 minutes of `log=0B` with exactly one core busy and an empty
-stderr, which is what that looks like from outside.
+This cost three runs and two wrong answers, so it is worth recording in full.
 
-It is worth recording that the first explanation reached for was wrong.
-`env.constants.toList` allocates a cons-list of all 471,260 constants before
-the loop starts, which looks like a plausible culprit -- but `SMap.toList` is
-`fold` with `(a, b) :: es`, so it is O(n) and costs about a second. Checking
-the toolchain source rather than acting on the guess is what caught it.
+**What was observed.** The sweep ran for seventy minutes with `deps.log` at
+zero bytes, one of sixteen cores pegged, empty stderr, flat memory and no disk
+I/O. Every progress mechanism reported nothing.
 
-Two changes went in anyway. Both were verified against core Lean `v4.35.0-rc2`
-by running the edited elaborator over core's own environment, and then running
-the *committed* `toList` version over the same environment and diffing: 28,644
-edges from each, **identical after sorting**. The change provably does not move
-an edge, which is the only property phase 2's comparison against the 2024 graph
-actually requires:
+**The two wrong diagnoses.** First, that `env.constants.toList` blocked on
+materialising every constant. It does not: `SMap.toList` is `fold` with
+`(a, b) :: es`, O(n), and measured at 192ms over 808,723 constants. Second,
+that `import Mathlib` was simply slow, Lean's loader being single-threaded.
+It is not: with oleans warm it takes about **four seconds**. Both explanations
+were written into this file and committed before being checked.
 
-* `SMap.foldM` replaces `toList`, streaming the same entries in the same order
-  and threading the counter. This removes a pointless allocation; it is not a
-  fix for the blind window.
-* A `STAGE` line is emitted once the environment is loaded, carrying
-  `env.constants.map₁.size`. **This** is the fix: an empty log now
-  distinguishes "still importing" from "imported and producing nothing",
-  which is the distinction that cost two restarts.
+**The actual cause.** Lean 4.35 captures a command elaborator's stdout and
+releases it only when the command completes. `IO.println` followed by an
+explicit `(<- IO.getStdout).flush` still writes nothing to the redirect
+target. The decisive measurement was `/proc/<pid>/io`: after seventy minutes
+of CPU the process had written **two bytes**. A local test confirmed it
+directly -- two prints fifteen seconds apart, both withheld until exit.
 
-`SMap.size` does not exist in this toolchain and `map₂.size` does not either;
-`map₁.size` (the imported constants) does. Both were checked before the line
-was written, which is the only reason the next run will start at all.
+Phase 1 ran on Lean 4.9, which streamed. Nothing in phase 1 could have warned
+about this, and the runs that looked dead were computing correctly the whole
+time.
+
+**The fix.** `Deps2026.lean` writes through `IO.FS.Handle` to the path in
+`NOEMA_DEPS_OUT`, which bypasses the capture: 13MB had landed 100 seconds into
+a local run that would otherwise have shown zero. The worker harvests and
+counts from that file rather than from the elaborator's stdout.
+
+**What was measured while chasing this**, all on the 2026 library with oleans
+warm, since these numbers are what any future estimate should start from:
+
+| | |
+|---|---:|
+| `import Mathlib` | ~4s |
+| imported constants | 808,723 |
+| `env.constants.toList` | 192ms |
+| `countNodes`, per theorem | 0-24ms |
+| `getUsedConstants`, per theorem | ~0ms |
+| 20 theorems, end to end | 258ms |
+| implied full sweep | ~60-70min of per-theorem work |
+
+**Equivalence.** Three builds -- the committed `toList`/stdout version, the
+`foldM`/stdout version and the `foldM`/file-handle version -- were each run
+over core Lean's own environment and their edge lists diffed: **28,644 edges
+each, identical**. None of this moved a dependency edge.
 
 ## Status
 

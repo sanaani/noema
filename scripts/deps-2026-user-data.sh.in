@@ -42,6 +42,12 @@ systemctl enable --now noema-expiry.timer
 # by the checkpoint loop, so a run killed at any point still ships its partial
 # edge list rather than nothing. A five-hour job that returns nothing on a
 # timeout is a job you cannot debug and cannot resume.
+# The sweep writes to $EDGES, not to its stdout. Lean 4.35 captures a command
+# elaborator's stdout and releases it only when the command finishes, so
+# deps.log stays empty for the whole run however often the elaborator flushes.
+# Harvesting from deps.log is what made three runs look dead while they worked.
+EDGES=/opt/work/edges.jsonl
+
 harvest() {
   # No command in here may end the caller. grep -c returns 1 on a zero count,
   # which under `set -e` silently killed the progress loop on its first tick:
@@ -49,14 +55,15 @@ harvest() {
   # run was alive is what stopped the reporting.
   set +e
   local tag="${1:-final}"
-  [ -f /opt/work/deps.log ] || return 0
-  grep '^EDGE ' /opt/work/deps.log | sed 's/^EDGE //' \
+  [ -f "$EDGES" ] || return 0
+  grep '^EDGE ' "$EDGES" | sed 's/^EDGE //' \
     | gzip -9 > "/opt/noema/out/edges-2026.jsonl.gz.part" 2>/dev/null
   mv "/opt/noema/out/edges-2026.jsonl.gz.part" /opt/noema/out/edges-2026.jsonl.gz
-  grep -c '^EDGE ' /opt/work/deps.log > /opt/noema/out/edge-count.txt 2>/dev/null
-  grep '^DONE ' /opt/work/deps.log > /opt/noema/out/done.txt 2>/dev/null
-  grep -vE '^(EDGE|THEOREM|PROGRESS) ' /opt/work/deps.log | tail -400 \
+  grep -c '^EDGE ' "$EDGES" > /opt/noema/out/edge-count.txt 2>/dev/null
+  grep '^DONE ' "$EDGES" > /opt/noema/out/done.txt 2>/dev/null
+  grep -vE '^(EDGE|THEOREM|PROGRESS) ' "$EDGES" | tail -400 \
     > /opt/noema/out/deps-tail.log 2>/dev/null
+  cp /opt/work/deps.log /opt/noema/out/lean-stdout.log 2>/dev/null
   echo "HARVEST $tag $(date -u +%FT%TZ) edges=$(cat /opt/noema/out/edge-count.txt 2>/dev/null)"
 }
 
@@ -127,12 +134,12 @@ echo "sweep starting $(date -u +%FT%TZ)"
   while true; do
     sleep 120
     tick=$((tick + 1))
-    n=$(grep -c '^THEOREM ' /opt/work/deps.log 2>/dev/null); n=${n:-0}
-    e=$(grep -c '^EDGE '    /opt/work/deps.log 2>/dev/null); e=${e:-0}
-    b=$(stat -c%s /opt/work/deps.log 2>/dev/null); b=${b:-0}
-    # The sweep's own markers say which stage it is in, so an empty log at two
+    n=$(grep -c '^THEOREM ' "$EDGES" 2>/dev/null); n=${n:-0}
+    e=$(grep -c '^EDGE '    "$EDGES" 2>/dev/null); e=${e:-0}
+    b=$(stat -c%s "$EDGES" 2>/dev/null); b=${b:-0}
+    # The sweep's own markers say which stage it is in, so an empty file at two
     # minutes reads as "still importing" rather than "hung".
-    stage=$(grep -E '^(STAGE|DONE) ' /opt/work/deps.log 2>/dev/null | tail -1)
+    stage=$(grep -E '^(STAGE|DONE) ' "$EDGES" 2>/dev/null | tail -1)
     echo "PROGRESS $(date -u +%FT%TZ) theorems=$n edges=$e log=${b}B stage=${stage:-none}"
     if [ $((tick % 5)) -eq 0 ]; then   # harvest and ship every ten minutes
       harvest checkpoint
@@ -141,7 +148,8 @@ echo "sweep starting $(date -u +%FT%TZ)"
   done &
 )
 
-(cd mathlib && lake env lean Deps2026.lean > /opt/work/deps.log 2>&1) || echo "LEAN_RC=$?"
+(cd mathlib && NOEMA_DEPS_OUT="$EDGES" lake env lean Deps2026.lean \
+   > /opt/work/deps.log 2>&1) || echo "LEAN_RC=$?"
 echo "sweep finished $(date -u +%FT%TZ)"
 harvest final
 echo "JOB DONE $(date -u +%FT%TZ)"

@@ -24,25 +24,29 @@ walker is gone. `NameSet` iteration was replaced for the same reason. The
 node-count pre-screen is kept verbatim, so the same proofs are declared
 oversize.
 
-The third is about visibility rather than semantics. Phase 1 iterated
-`env.constants.toList`, which builds a cons-list of every constant -- 471,260
-of them here -- before the loop can print anything. `SMap.foldM` streams the
-same entries in the same order and threads the counter instead, so nothing is
-allocated up front and the first theorem prints as soon as one is found.
+The third is about visibility, and it is the one that mattered. **Output goes
+to a file handle, not to stdout.** Lean 4.35 captures a command elaborator's
+stdout and releases it only when the command completes, so `IO.println`
+followed by an explicit `(<- IO.getStdout).flush` still leaves the redirect
+target empty for the entire run. Two prints fifteen seconds apart were both
+withheld until process exit; on the real sweep the worker had burned seventy
+minutes of CPU having written exactly two bytes. Phase 1 ran on Lean 4.9,
+which streamed, so nothing in phase 1 warned about this.
 
-Be careful about what that buys. `SMap.toList` is `fold` with `(a, b) :: es`,
-so it is O(n) and costs about a second, not minutes -- it is *not* the reason
-a run sits silent after launch. That silence is `import Mathlib`: Lean's
-module loader is single-threaded and takes tens of minutes on the 2026
-library, and no change in this file affects it. The `STAGE` line below is the
-actual fix, because it fires the moment the environment is up and so
-distinguishes "still importing" from "running but producing nothing".
+`SMap.foldM` also replaces `env.constants.toList`. That one is a cleanup, not
+a fix: `SMap.toList` is `fold` with `(a, b) :: es`, so it is O(n) and measured
+at 192ms over 808,723 constants.
 
-Run it from a built Mathlib worktree:
+For the record, since two runs were torn down over it: none of the obvious
+suspects were slow. Measured on the 2026 library with oleans warm,
+`import Mathlib` takes about four seconds, `getUsedConstants` about zero
+milliseconds per theorem, and twenty theorems complete in 258ms.
 
-    lake env lean --run ../../results/phase-2-dependency-labels/Deps2026.lean
+Run it from a built Mathlib worktree. `NOEMA_DEPS_OUT` names the output file;
+it defaults to `edges-2026.jsonl` in the working directory. Nothing useful
+appears on stdout -- watch the output file instead:
 
-or as a command file with `lake env lean Deps2026.lean`.
+    NOEMA_DEPS_OUT=/opt/work/edges.jsonl lake env lean Deps2026.lean
 -/
 
 open Lean Elab Command
@@ -72,35 +76,44 @@ def depNames (e : Expr) : Array String :=
     if acc.back? == some n then acc else acc.push n
 
 elab "dump_deps" : command => do
+  -- Not stdout. Lean 4.35 captures a command elaborator's stdout and only
+  -- releases it when the command finishes, so `IO.println` plus an explicit
+  -- flush still produces a zero-byte log for the whole run -- verified: two
+  -- prints fifteen seconds apart both appeared only at process exit. Phase 1
+  -- ran on Lean 4.9, which streamed, which is why this never came up before.
+  -- A direct file handle bypasses the capture and writes immediately.
+  let path := (← IO.getEnv "NOEMA_DEPS_OUT").getD "edges-2026.jsonl"
+  let h ← IO.FS.Handle.mk path IO.FS.Mode.write
   let env ← getEnv
-  IO.println s!"STAGE environment loaded, {env.constants.map₁.size} imported constants"
-  (← IO.getStdout).flush
+  h.putStrLn s!"STAGE environment loaded, {env.constants.map₁.size} imported constants"
+  h.flush
   let count ← env.constants.foldM (init := 0) fun count name info => do
     match info with
     | .thmInfo v =>
       if let some idx := env.getModuleIdxFor? name then
         let modName := env.header.moduleNames[idx.toNat]!
         if modName.toString.startsWith "Mathlib." && !name.isInternal then
-          IO.println s!"THEOREM {name}"
+          h.putStrLn s!"THEOREM {name}"
           match countNodes v.value 3000000 with
           | none =>
-            IO.println <| "EDGE " ++ (Json.mkObj [
+            h.putStrLn <| "EDGE " ++ (Json.mkObj [
               ("theorem", toJson name.toString),
               ("module", toJson modName.toString),
               ("skipped", toJson "oversize")]).compress
           | some _ =>
-            IO.println <| "EDGE " ++ (Json.mkObj [
+            h.putStrLn <| "EDGE " ++ (Json.mkObj [
               ("theorem", toJson name.toString),
               ("module", toJson modName.toString),
               ("deps", toJson (depNames v.value))]).compress
           let count := count + 1
           if count % 100 == 0 then
-            IO.println s!"PROGRESS {count}"
-            (← IO.getStdout).flush
+            h.putStrLn s!"PROGRESS {count}"
+            h.flush
           return count
         else return count
       else return count
     | _ => return count
-  IO.println s!"DONE {count}"
+  h.putStrLn s!"DONE {count}"
+  h.flush
 
 dump_deps
