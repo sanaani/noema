@@ -78,7 +78,7 @@ elab "dump_deps" : command => do
               ("module", toJson modName.toString),
               ("deps", toJson (depNames v.value))]).compress
           count := count + 1
-          if count % 1000 == 0 then
+          if count % 100 == 0 then
             IO.println s!"PROGRESS {count}"
             (← IO.getStdout).flush
     | _ => pure ()

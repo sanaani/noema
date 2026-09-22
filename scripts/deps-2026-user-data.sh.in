@@ -43,6 +43,11 @@ systemctl enable --now noema-expiry.timer
 # edge list rather than nothing. A five-hour job that returns nothing on a
 # timeout is a job you cannot debug and cannot resume.
 harvest() {
+  # No command in here may end the caller. grep -c returns 1 on a zero count,
+  # which under `set -e` silently killed the progress loop on its first tick:
+  # the sweep had produced no edges yet, so the very check meant to prove the
+  # run was alive is what stopped the reporting.
+  set +e
   local tag="${1:-final}"
   [ -f /opt/work/deps.log ] || return 0
   grep '^EDGE ' /opt/work/deps.log | sed 's/^EDGE //' \
@@ -56,6 +61,7 @@ harvest() {
 }
 
 upload() {
+  set +e
   local name="${1:-result.tar.gz}"
   cp "$LOG" /opt/noema/out/worker.log 2>/dev/null
   ( cd /opt/noema/out && sha256sum ./* > SHA256SUMS 2>/dev/null )
@@ -116,13 +122,22 @@ echo "sweep starting $(date -u +%FT%TZ)"
 # gigabytes and has to go to a file, so without this the run is opaque from
 # outside for its whole duration and a timeout loses everything.
 (
+  set +e                       # nothing in this loop may terminate it
+  tick=0
   while true; do
-    sleep 600
-    [ -f /opt/work/deps.log ] || continue
-    echo "PROGRESS $(date -u +%FT%TZ) theorems=$(grep -c '^THEOREM ' /opt/work/deps.log 2>/dev/null) \
-edges=$(grep -c '^EDGE ' /opt/work/deps.log 2>/dev/null) log=$(stat -c%s /opt/work/deps.log 2>/dev/null)B"
-    harvest checkpoint
-    upload checkpoint.tar.gz
+    sleep 120
+    tick=$((tick + 1))
+    n=$(grep -c '^THEOREM ' /opt/work/deps.log 2>/dev/null); n=${n:-0}
+    e=$(grep -c '^EDGE '    /opt/work/deps.log 2>/dev/null); e=${e:-0}
+    b=$(stat -c%s /opt/work/deps.log 2>/dev/null); b=${b:-0}
+    # The sweep's own markers say which stage it is in, so an empty log at two
+    # minutes reads as "still importing" rather than "hung".
+    stage=$(grep -E '^(STAGE|DONE) ' /opt/work/deps.log 2>/dev/null | tail -1)
+    echo "PROGRESS $(date -u +%FT%TZ) theorems=$n edges=$e log=${b}B stage=${stage:-none}"
+    if [ $((tick % 5)) -eq 0 ]; then   # harvest and ship every ten minutes
+      harvest checkpoint
+      upload checkpoint.tar.gz
+    fi
   done &
 )
 
