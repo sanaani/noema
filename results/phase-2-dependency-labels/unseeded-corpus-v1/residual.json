@@ -1,0 +1,34 @@
+{
+  "subsets": [
+    {
+      "subset": "all eligible",
+      "pairs": 65773320,
+      "positives": 5200,
+      "auc_angle": 0.7089158665396057,
+      "auc_vocab": 0.7285008318810086
+    },
+    {
+      "subset": "cross-area only",
+      "pairs": 60352871,
+      "positives": 2562,
+      "auc_angle": 0.5719212162721994,
+      "auc_vocab": 0.6228048593622205
+    },
+    {
+      "subset": "vocabulary overlap < 5%",
+      "pairs": 14302860,
+      "positives": 588,
+      "auc_angle": 0.6477449264109688,
+      "auc_vocab": 0.36706839941139385
+    },
+    {
+      "subset": "cross-area AND overlap < 5%",
+      "pairs": 13461679,
+      "positives": 366,
+      "auc_angle": 0.5802502334600615,
+      "auc_vocab": 0.3670245300639583
+    }
+  ],
+  "vocab_threshold": 0.05,
+  "tokenizer": "identifier-like runs, set per theorem, Jaccard over pairs"
+}
