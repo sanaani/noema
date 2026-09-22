@@ -1,0 +1,247 @@
+diff --git a/REPL/Alpha.lean b/REPL/Alpha.lean
+new file mode 100644
+index 0000000..0f1bfd5
+--- /dev/null
++++ b/REPL/Alpha.lean
+@@ -0,0 +1,159 @@
++/-
++α-renaming arm for state capture.
++
++Renames every binder and every local hypothesis, then refuses to emit any state
++Lean has not certified to differ from the original in binder names alone. Free
++variables, constants, literals, universe levels, binder annotations and goal
++order are never touched, so the renamed obligation proves exactly what the
++original proved.
++
++This is the Mathlib-scale version of the transform in
++`results/encoder-invariance-v1/Fixtures.lean`. The certificate is stronger here
++because mid-proof Mathlib states routinely carry unassigned metavariables, on
++which `isDefEq` alone would be unsafe: a definitional check may close a goal by
++assigning a metavariable rather than by the two sides agreeing.
++-/
++import Lean
++import REPL.Lean.InfoTree
++
++open Lean Elab Meta
++
++namespace REPL.Alpha
++
++/-- How to name a binder at a given de Bruijn depth, or a hypothesis at a given
++local-context index. Both are positional, so no scheme can leak the original. -/
++structure Scheme where
++  bound : Nat → Name
++  hyp : Nat → Name
++
++/-- Positional names only. Every theorem is renamed the same way, so no residue
++of the author's naming style survives anywhere in the corpus. -/
++def canonical : Scheme where
++  bound d := Name.mkSimple s!"v{d}"
++  hyp i := Name.mkSimple s!"x{i}"
++
++/-- Rewrite binder names and nothing else. De Bruijn indices already make these
++names semantically inert; `Noema.StateEncoding` carries the kernel-checked
++lemmas (`forall_names`, `lambda_names`) that the structural serializer ignores
++them. `.fvar`, `.const`, `.sort`, `.lit` and `.mvar` are returned untouched. -/
++partial def rename (s : Scheme) (e : Expr) (depth : Nat := 0) : Expr :=
++  let n := s.bound depth
++  match e with
++  | .forallE _ a b bi => .forallE n (rename s a depth) (rename s b (depth + 1)) bi
++  | .lam _ a b bi => .lam n (rename s a depth) (rename s b (depth + 1)) bi
++  | .letE _ t v b nd =>
++    .letE n (rename s t depth) (rename s v depth) (rename s b (depth + 1)) nd
++  | .app f a => .app (rename s f depth) (rename s a depth)
++  | .mdata m b => .mdata m (rename s b depth)
++  | .proj t i b => .proj t i (rename s b depth)
++  | _ => e
++
++/-- Set every binder name to `.anonymous`. Two expressions that are equal after
++this erasure differ in binder names and in nothing else: every other
++constructor, argument, binder annotation and metavariable is compared. -/
++partial def eraseBinderNames : Expr → Expr
++  | .forallE _ a b bi => .forallE .anonymous (eraseBinderNames a) (eraseBinderNames b) bi
++  | .lam _ a b bi => .lam .anonymous (eraseBinderNames a) (eraseBinderNames b) bi
++  | .letE _ t v b nd =>
++    .letE .anonymous (eraseBinderNames t) (eraseBinderNames v) (eraseBinderNames b) nd
++  | .app f a => .app (eraseBinderNames f) (eraseBinderNames a)
++  | .mdata m b => .mdata m (eraseBinderNames b)
++  | .proj t i b => .proj t i (eraseBinderNames b)
++  | e => e
++
++/-- Node count, abandoned once it passes `limit`. Used only to decide whether
++an obligation is small enough to be worth asking `isDefEq` about. -/
++partial def sizeAtMost (limit : Nat) (e : Expr) (acc : Nat := 0) : Nat :=
++  if acc > limit then acc else
++  match e with
++  | .forallE _ a b _ | .lam _ a b _ => sizeAtMost limit b (sizeAtMost limit a (acc + 1))
++  | .letE _ t v b _ => sizeAtMost limit b (sizeAtMost limit v (sizeAtMost limit t (acc + 1)))
++  | .app f a => sizeAtMost limit a (sizeAtMost limit f (acc + 1))
++  | .mdata _ b | .proj _ _ b => sizeAtMost limit b (acc + 1)
++  | _ => acc + 1
++
++/-- Above this many nodes the definitional check is skipped rather than risked. -/
++def definitionalSizeLimit : Nat := 5000
++
++/-- And this many heartbeats, so one check cannot eat the file's whole budget. -/
++def definitionalHeartbeats : Nat := 20000
++
++/-- Close a target over the whole local context, so the certificate covers the
++hypotheses and not only the goal. -/
++def closedGoal (target : Expr) : MetaM Expr := do
++  let xs := (← getLCtx).getFVarIds.map mkFVar
++  instantiateMVars (← mkForallFVars xs target (usedLetOnly := false))
++
++structure Rendered where
++  fmt : Format
++  certified : Bool
++  reason : String
++  /-- Whether the obligation was closed enough to also ask `isDefEq`. -/
++  definitional : Bool
++
++/-- Render one goal under `s`, refusing to return text unless the rename is
++certified. A refusal is reported, never silently dropped or substituted. -/
++def renderGoal (s : Scheme) (goal : MVarId) : MetaM Rendered := goal.withContext do
++  try
++    let target ← instantiateMVars (← goal.getType)
++    let closed ← closedGoal target
++    let mut lctx ← getLCtx
++    for decl in lctx do
++      lctx := lctx.modifyLocalDecl decl.fvarId fun d =>
++        let renamed := (d.setUserName (s.hyp d.index)).setType (rename s d.type)
++        match renamed.value? with
++        | some v => renamed.setValue (rename s v)
++        | none => renamed
++    let target' := rename s target
++    withLCtx lctx (← getLocalInstances) do
++      let transformed ← closedGoal target'
++      -- Structural certificate. Survives unassigned metavariables, which a
++      -- definitional check would not: this compares the two obligations
++      -- constructor by constructor with only the binder names blanked.
++      unless eraseBinderNames closed == eraseBinderNames transformed do
++        return ⟨"", false, "structural mismatch", false⟩
++      -- Definitional certificate, asked only where it is safe to ask. Isolated
++      -- so a check cannot assign a metavariable or disturb the replay.
++      -- `isDefEq` on a large obligation can exhaust Lean's heartbeat budget,
++      -- and that budget is shared with everything downstream: once it is gone
++      -- the *unpatched* original-arm printing throws too, with no handler, and
++      -- the capture process dies. So the check is bounded twice — by obligation
++      -- size and by its own heartbeat allowance — and its exhaustion is
++      -- inconclusive, not a refusal. The structural certificate above is the
++      -- sound one and is total; this is corroboration where it is cheap.
++      let askable := !closed.hasExprMVar && !transformed.hasExprMVar
++        && sizeAtMost definitionalSizeLimit closed ≤ definitionalSizeLimit
++      let verdict : Option Bool ← if askable then
++          try
++            some <$> withoutModifyingState (withCurrHeartbeats (
++              withTheReader Core.Context
++                (fun c => { c with maxHeartbeats := definitionalHeartbeats })
++                (isDefEq closed transformed)))
++          catch _ => pure none
++        else pure none
++      -- A definite `false` means the rename changed the obligation: refuse it.
++      if verdict == some false then
++        return ⟨"", false, "not definitionally equal", true⟩
++      let display ← mkFreshExprMVar target'
++      return ⟨← Meta.ppGoal display.mvarId!, true, "", verdict == some true⟩
++  catch ex =>
++    return ⟨"", false, s!"exception: {← ex.toMessageData.toString}", false⟩
++
++/-- Mirror of `ContextInfo.ppGoals` for a renamed context: same goal order, same
++joining, same printer width, so the two arms differ only by the rename. -/
++def ppGoalsRenamed (ctx : ContextInfo) (goals : List MVarId) (s : Scheme) :
++    IO (String × Bool × String × Bool) :=
++  if goals.isEmpty then
++    return ("no goals", true, "", true)
++  else
++    ctx.runMetaM {} do
++      let rendered ← goals.mapM (renderGoal s)
++      let certified := rendered.all (·.certified)
++      let reason := (rendered.find? (!·.certified)).map (·.reason) |>.getD ""
++      let definitional := rendered.all (·.definitional)
++      let text := if certified then
++          s!"{Std.Format.prefixJoin "\n" (rendered.map (·.fmt))}".trim
++        else ""
++      return (text, certified, reason, definitional)
++
++end REPL.Alpha
+diff --git a/REPL/JSON.lean b/REPL/JSON.lean
+index 10cd880..0e76e89 100644
+--- a/REPL/JSON.lean
++++ b/REPL/JSON.lean
+@@ -101,6 +101,16 @@ structure Tactic where
+   pos : Pos
+   endPos : Pos
+   goals : String
++  goalsAfter : String := ""
++  /-- The same states with every binder and hypothesis renamed positionally.
++  Empty when the rename was not certified; read `alphaCertified` first. -/
++  goalsAlpha : String := ""
++  goalsAfterAlpha : String := ""
++  /-- False if any goal in either state failed its rename certificate. -/
++  alphaCertified : Bool := true
++  /-- True only where every goal was closed enough to also pass `isDefEq`. -/
++  alphaDefinitional : Bool := true
++  alphaReason : String := ""
+   tactic : String
+   proofState : Option Nat
+ deriving ToJson, FromJson
+diff --git a/REPL/Lean/InfoTree.lean b/REPL/Lean/InfoTree.lean
+index ac4ffb6..d2ead54 100644
+--- a/REPL/Lean/InfoTree.lean
++++ b/REPL/Lean/InfoTree.lean
+@@ -158,7 +158,7 @@ partial def findAllInfo (t : InfoTree) (ctx? : Option ContextInfo) (p : Info →
+ each equipped with its relevant `ContextInfo`. -/
+ def findTacticNodes (t : InfoTree) : List (TacticInfo × ContextInfo) :=
+   let infos := t.findAllInfo none fun i => match i with
+-  | .ofTacticInfo i' => i.isOriginal && i'.isSubstantive
++  | .ofTacticInfo _ => i.isOriginal
+   | _ => false
+   infos.filterMap fun p => match p with
+   | (.ofTacticInfo i, some ctx) => (i, ctx)
+diff --git a/REPL/Main.lean b/REPL/Main.lean
+index 47d6065..06f913f 100644
+--- a/REPL/Main.lean
++++ b/REPL/Main.lean
+@@ -11,6 +11,7 @@ import REPL.Lean.Environment
+ import REPL.Lean.InfoTree
+ import REPL.Lean.InfoTree.ToJson
+ import REPL.Snapshots
++import REPL.Alpha
+ 
+ /-!
+ # A REPL for Lean.
+@@ -115,13 +116,28 @@ def ppTactic (ctx : ContextInfo) (stx : Syntax) : IO Format :=
+     pure "<failed to pretty print>"
+ 
+ def tactics (trees : List InfoTree) : M m (List Tactic) :=
+-  trees.bind InfoTree.tactics |>.mapM
+-    fun ⟨ctx, stx, goals, pos, endPos⟩ => do
+-      let proofState := some (← ProofSnapshot.create ctx none none goals)
+-      let goals := s!"{(← ctx.ppGoals goals)}".trim
+-      let tactic := Format.pretty (← ppTactic ctx stx)
+-      let proofStateId ← proofState.mapM recordProofSnapshot
+-      return Tactic.of goals tactic pos endPos proofStateId
++  trees.bind InfoTree.findTacticNodes |>.mapM
++    fun ⟨info, ctx⟩ => do
++      let beforeCtx := { ctx with mctx := info.mctxBefore, ngen := ctx.ngen.mkChild.1 }
++      let afterCtx := { ctx with mctx := info.mctxAfter, ngen := ctx.ngen.mkChild.1 }
++      let goals ← if info.goalsBefore.isEmpty then pure "no goals"
++        else pure s!"{(← beforeCtx.ppGoals info.goalsBefore)}".trim
++      let goalsAfter ← if info.goalsAfter.isEmpty then pure "no goals"
++        else pure s!"{(← afterCtx.ppGoals info.goalsAfter)}".trim
++      let scheme := REPL.Alpha.canonical
++      let (goalsAlpha, okBefore, whyBefore, defBefore) ←
++        REPL.Alpha.ppGoalsRenamed beforeCtx info.goalsBefore scheme
++      let (goalsAfterAlpha, okAfter, whyAfter, defAfter) ←
++        REPL.Alpha.ppGoalsRenamed afterCtx info.goalsAfter scheme
++      let tactic := Format.pretty (← ppTactic beforeCtx info.stx)
++      let (pos, endPos) := stxRange ctx.fileMap info.stx
++      return { (Tactic.of goals tactic pos endPos none) with
++        goalsAfter := goalsAfter
++        goalsAlpha := if okBefore then goalsAlpha else ""
++        goalsAfterAlpha := if okAfter then goalsAfterAlpha else ""
++        alphaCertified := okBefore && okAfter
++        alphaDefinitional := defBefore && defAfter
++        alphaReason := if okBefore then whyAfter else whyBefore }
+ 
+ /-- Record a `ProofSnapshot` and generate a JSON response for it. -/
+ def createProofStepReponse (proofState : ProofSnapshot) (old? : Option ProofSnapshot := none) :
