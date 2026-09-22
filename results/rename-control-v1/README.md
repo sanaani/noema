@@ -8,27 +8,37 @@ leaves the forward test where it was.
 
 | | original | α-renamed |
 |---|---|---:|
-| **forward angle AUC** | **0.958** | **0.964** |
-| vocabulary baseline AUC | 0.764 | 0.610 |
-| proof size AUC | 0.498 | 0.498 |
-| positives / eligible pairs | 22 / 1,530,134 | 22 / 1,530,134 |
+| **forward angle AUC** | **0.973** | **0.974** |
+| vocabulary baseline AUC | 0.691 | 0.547 |
+| proof size AUC | 0.509 | 0.509 |
+| positives / eligible pairs | 17 / 1,530,134 | 17 / 1,530,134 |
 
 Prespecified verdict: **survives** (`A ≥ 0.90` and `A − V ≥ 0.10`; observed
-`A = 0.964`, `A − V = 0.354`). The rule was fixed in
+`A = 0.974`, `A − V = 0.427`). The rule was fixed in
 [`protocol.md`](protocol.md) and committed before any renamed vector existed.
+The ordering rests on commit timestamps from one author on one day (protocol
+14:16, amendment 15:18, verdict 15:59, all −05:00); nothing external witnesses
+it.
 
-The original arm reproduces the published numbers to four decimals — 0.9582,
-0.7636, 0.4976 against 0.958, 0.764, 0.498. That is the evidence that nothing
+**These numbers are on the corrected forward label** (2026-09-22; see
+[`mathlib-forward-v1`](../mathlib-forward-v1/README.md#correction-2026-09-22-the-label-was-rebuilt)).
+`protocol.md` quotes the first label's 0.958 and 0.764 because it was written
+before the correction; the rule it fixes does not depend on them. On the first
+label the two arms scored 0.958 → 0.964 and 0.764 → 0.610, verdict survives;
+on the corrected label 0.973 → 0.974 and 0.691 → 0.547, verdict survives.
+
+The original arm reproduces the published numbers to four decimals — 0.9734,
+0.6914, 0.5092 against 0.973, 0.691, 0.509. That is the evidence that nothing
 but the rename changed between the two columns.
 
 ## Why the ablation is not vacuous
 
 An ablation is only worth the paper it is printed on if it removed something.
 This one did, and the vocabulary control measures how much: stripping variable
-names cost the lexical baseline **0.764 → 0.610**, and the number of positives
-identifiable at low word overlap fell from 3 to 0.
+names cost the lexical baseline **0.691 → 0.547**, and the number of positives
+identifiable at low word overlap fell from 4 to 0.
 
-The geometry did not move with it. It rose slightly, retention 1.012.
+The geometry did not move with it: retention 1.000 (0.9734 → 0.9736).
 
 That is the whole argument. Real information was destroyed; the signal did not
 depend on it.
@@ -53,24 +63,33 @@ on the renamed centroids:
 
 | check | original | α-renamed |
 |---|---:|---:|
-| all positives | 0.958 | 0.964 |
-| vertex-disjoint subset (no theorem twice) | 0.963 | 0.967 |
-| drop pairs touching a seed family | 0.963 | 0.961 |
-| drop the `Complex.exp*` hub | 0.964 | 0.960 |
-| leave-one-endpoint-out, 32 refits | 0.955–0.966 | 0.960–0.968 |
-| cluster null, 5,000 draws | 0.499 ± 0.068 | 0.499 ± 0.069 |
+| all positives | 0.973 | 0.974 |
+| vertex-disjoint subset (no theorem twice) | 0.977 | 0.975 |
+| drop pairs touching a seed family | 0.973 | 0.969 |
+| drop the `Complex.exp*` hub | 0.975 | 0.968 |
+| leave-one-endpoint-out, 24 refits | 0.971–0.980 | 0.970–0.979 |
+| cluster null, 5,000 draws | 0.499 ± 0.075 | 0.499 ± 0.079 |
 
 The observed AUC does not occur in 5,000 draws of the cluster null in either
-arm. The leave-one-out range is *tighter* after renaming.
+arm.
 
 **The band lift is still the fragile number, and renaming moves it.** The 45–55°
-band holds 3 hits instead of 4, and a hit appears in 30–45° that was not there
+band holds 2 hits instead of 4, and a hit appears in 30–45° that was not there
 before. Read the AUC, as the forward test's own README says; the bands rest on
 too few pairs to carry an argument.
 
 ## The secondary tests survive too
 
-The other two measurements in the repository, rerun on both arms.
+The other two measurements in the repository, rerun on both arms. Neither
+carries a prespecified rule — `protocol.md` fixes thresholds for the forward
+AUC only — and neither is produced by `analyze-rename-control.py`, which runs
+the forward, vocabulary and independence scripts. `bridge-original.json` and
+`bridge-alpha.json` come from running the published
+`scripts/analyze-state-bridge.py` once per arm against that arm's vectors and
+text index (`outputs/rename-control-v1/arms/text-index-{original,alpha}.jsonl.gz`),
+and were committed after the verdict (`f13e4be`, ten minutes after
+`544d980`). They do not depend on the forward label, so the 2026-09-22 label
+correction leaves them untouched.
 
 **Betweenness** — does a known bridge theorem sit *between* its two endpoints?
 All six families stay in the top 3.3% of 1,795 objects, and four of six move
@@ -108,9 +127,9 @@ A fresh capture and a fresh encode, scored by the published scripts:
 
 | | published | this run's original arm |
 |---|---:|---:|
-| forward angle AUC | 0.958 | 0.9582 |
-| vocabulary AUC | 0.764 | 0.7636 |
-| proof size AUC | 0.498 | 0.4976 |
+| forward angle AUC | 0.973 | 0.9734 |
+| vocabulary AUC | 0.691 | 0.6914 |
+| proof size AUC | 0.509 | 0.5092 |
 | replication AUC | 0.877 | 0.8775 |
 | cross-area AUC | 0.863 | 0.8625 |
 | betweenness ranks | 25, 78, 9, 6, 69, 11 | 25, 78, 9, 6, 69, 11 |
@@ -124,14 +143,14 @@ list moved by 0.02°, which is why betweenness is untouched.
 
 ## A caveat the protocol required, and why
 
-On the renamed arm, absolute word overlap **rises** — positives share 24.9% of
+On the renamed arm, absolute word overlap **rises** — positives share 22.6% of
 their state vocabulary against 19.8% for an average eligible pair, where the
-original arm had 17.0% against 7.7%. Every theorem now contains `x0`, `v0` and
+original arm had 14.1% against 7.7%. Every theorem now contains `x0`, `v0` and
 their siblings, so all pairs look more alike.
 
-Its *discrimination* nonetheless falls, 0.764 → 0.610. This is why the protocol
+Its *discrimination* nonetheless falls, 0.691 → 0.547. This is why the protocol
 required the lexical baseline to be recomputed on the renamed arm rather than
-carried over: the published 0.764 does not transfer, and comparing 0.964
+carried over: the published 0.691 does not transfer, and comparing 0.974
 against it would have flattered the result.
 
 ## What was renamed
@@ -171,6 +190,14 @@ than by the two sides agreeing.
 
 `isDefEq` runs as corroboration where it is cheap to ask; see the amendment in
 [`protocol.md`](protocol.md) for the bound and why it exists.
+
+**What the certificate is not.** It is a statement about the `Expr`. The
+encoder reads pretty-printed text, and the protocol records that the renamed
+printing loses instance markers (`inst✝`). So "certified in Lean" means the
+two goals differ only in binder names *as terms*; nothing certifies that the
+two texts the encoder saw differ only in names. The structural certificate is
+one level below the input, and the text-level difference is what the
+20.0° median centroid shift measures.
 
 | | |
 |---|---|
@@ -225,10 +252,10 @@ not use.
 
 - **No connection has been discovered.** Every link measured here is one a human
   already made.
-- **Vocabulary still does some of the work.** 0.610 on the renamed arm is well
+- **Vocabulary still does some of the work.** 0.547 on the renamed arm is still
   above chance. The defensible claim remains "still separates where words give
   little", not "vocabulary-independent".
 - Renaming does not test notation, printer layout or constant names. Those are
   separate presentation channels and this control says nothing about them.
-- 22 positives is still a thin base. The AUC is stable across every subset and
+- 17 positives is still a thin base. The AUC is stable across every subset and
   refit tried here; the band lift is not.

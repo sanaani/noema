@@ -28,8 +28,11 @@ SURVIVES_AUC = 0.90
 SURVIVES_MARGIN = 0.10
 FAILS_AUC = 0.80
 FAILS_MARGIN = 0.05
-PUBLISHED_AUC = 0.958
-PUBLISHED_VOCABULARY = 0.764
+# The forward test's published numbers on the corrected label (17 positives,
+# whole-name citations; see scripts/build-forward-label.py). On the first
+# label, 22 positives with prefix-matched citations, these were 0.958 / 0.764.
+PUBLISHED_AUC = 0.973
+PUBLISHED_VOCABULARY = 0.691
 
 
 def run(script, *args):

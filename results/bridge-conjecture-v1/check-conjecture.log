@@ -1,0 +1,6 @@
+'NoemaBridge.oangle_add_left_smul_rotation_ne_odd_mul_pi_div_two' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'NoemaBridge.oangle_sub_right_smul_rotation_ne_odd_mul_pi_div_two' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

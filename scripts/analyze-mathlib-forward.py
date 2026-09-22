@@ -10,25 +10,33 @@ This scores them against a label that is not made of 2024 vocabulary at all:
 between Mathlib `f0957a7` (2024-07-01) and `09712d48` (2026-09-21), did anyone
 write a theorem citing both halves of the pair?
 
-Result at time of writing, over 1,530,134 eligible pairs (base rate 1/69,551):
+The label is `new-connectors.json`, built by `build-forward-label.py` from the
+committed grep hits: a connector is a theorem or lemma new since 2024 whose
+statement or proof cites two corpus theorems by whole name. The first version
+of that file was built by an uncommitted procedure that matched by prefix and
+credited `def` bodies and docstrings; it had 22 positives, of which 9 do not
+survive whole-name matching in theorem bodies, and it missed 4. It scored
+0.958. The numbers below are on the corrected label.
+
+Result at time of writing, over 1,530,134 eligible pairs (base rate 1/90,007):
 
     angle band   pairs       hits   lift
     0-30            26          0      0x     <- the same theorem under two names
     30-45          501          0      0x
-    45-55        2,251          4    124x     <- bridges
-    55-65        8,441          2     16x
-    65-75       34,204          7     14x
-    75-85      182,588          7      3x
-    85-95    1,300,144          2      0x
+    45-55        2,251          4    160x     <- bridges
+    55-65        8,441          1     11x
+    65-75       34,204          8     21x
+    75-85      182,588          4      2x
+    85-95    1,300,144          0      0x
     95-180       1,979          0      0x
 
-READ THE AUC, NOT THE BAND LIFT. 124x rests on four pairs, and those 22
-positives are carried by only 32 theorems — `Complex.exp_add` is in four of
+READ THE AUC, NOT THE BAND LIFT. 160x rests on four pairs, and those 17
+positives are carried by only 24 theorems — `FiniteField.card` is in four of
 them. `analyze-forward-independence.py` takes the clustering apart: the AUC
-holds at 0.963 on a vertex-disjoint subset, 0.963 after dropping every pair
-touching a seed family, 0.964 without the `Complex.exp*` hub, and 0.955-0.966
-across all 32 leave-one-endpoint-out refits, against a degree-preserving
-cluster null at 0.499 +/- 0.068. The band lift does not hold: drop that one
+holds at 0.977 on a vertex-disjoint subset, 0.973 after dropping every pair
+touching a seed family, 0.975 without the `Complex.exp*` hub, and 0.971-0.980
+across all 24 leave-one-endpoint-out refits, against a degree-preserving
+cluster null at 0.499 +/- 0.075. The band lift does not hold: drop that one
 hub and 4 hits become 1.
 
 The six known bridges sat at nearer-endpoint angles 40, 41, 52, 53, 64, 75
@@ -39,19 +47,19 @@ still the wrong rule — the closest pairs are renames.
 STATUS: OPEN, NOT FINAL. This is one measurement, not a conclusion. The band
 edges were fixed with this table visible, and 45-55 is narrower than the
 "40-55" published to issue #1 twenty-five minutes before this ran; over the
-preregistered 40-55 the lift is 108x on the same four hits.
+preregistered 40-55 the lift is 140x on the same four hits.
 
-A sealed 2025-split rerun was considered and REJECTED: splitting 22 positives
+A sealed 2025-split rerun was considered and REJECTED: splitting 17 positives
 across two windows costs more statistical power than the ceremony buys. What
 would actually strengthen this is listed under "What is still open" in
 results/mathlib-forward-v1/README.md.
 
 Three further caveats. The label comes from `git grep` over full names, so it
 misses anything written under an `open` namespace and does not check that a
-citation is load-bearing — both of which make these numbers conservative,
-since noisy labels attenuate. Proof size remains an unmodelled confound: it
-faked AUC 0.740 on the replication target and is not controlled here. And
-vocabulary overlap alone scores 0.764 on this label
+citation is load-bearing; misses attenuate, but the first label showed that a
+loose matcher inflates, so "conservative" is not automatic. Proof size remains
+an unmodelled confound: it faked AUC 0.740 on the replication target and is
+not controlled here. And vocabulary overlap alone scores 0.691 on this label
 (`analyze-forward-vocabulary.py`), so words do part of the work.
 """
 

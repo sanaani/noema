@@ -8,10 +8,50 @@ Reproduce, from the repository alone — no model, no GPU, no Mathlib checkout:
 .venv/bin/python scripts/analyze-mathlib-forward.py        # the band table
 .venv/bin/python scripts/analyze-forward-independence.py   # does the clustering break it?
 .venv/bin/python scripts/analyze-forward-vocabulary.py     # how much is word overlap?
+.venv/bin/python scripts/analyze-forward-area.py           # is it just a subfield detector?
+.venv/bin/python scripts/build-forward-label.py --check    # is every citation a whole name?
 ```
 
-All three read `centroids.npz`, the 9.9 MB collapse of the 272 MB encode, which
-is the only input they need from it.
+All of them read `centroids.npz`, the 9.9 MB collapse of the 272 MB encode,
+which is the only input they need from it, and `new-connectors.json`, the
+label.
+
+## Correction, 2026-09-22: the label was rebuilt
+
+The first version of `new-connectors.json` was produced by a procedure that
+was never committed, and it was wrong in three ways. It credited a theorem
+with citing `Foo.bar` when the line actually said `Foo.bar_baz` (a prefix
+match: `ZMod.card_units` for `ZMod.card_units_eq_totient`, `Real.cos_sq` for
+`Real.cos_sq_add_sin_sq`, `hasSum_mellin` for `hasSum_mellin_pi_mul₀`). It
+attributed hits inside a `def` or `instance` body, and inside docstrings, to a
+neighbouring theorem. And it counted a theorem's own header line as a citation
+of itself when its name contained a corpus name as a substring. One connector
+name was also truncated to `hasSum_`.
+
+[`scripts/build-forward-label.py`](../../scripts/build-forward-label.py)
+replaces it. From the same committed grep output it keeps a citation only when
+the corpus name appears whole — not preceded or followed by an identifier
+character — in the statement or proof of a `theorem` or `lemma` that is new
+since 2024 and is not the cited theorem itself. CI runs its `--check` mode
+against the committed label on every push.
+
+| | first label | corrected label |
+|---|---:|---:|
+| connectors (new theorems citing ≥ 2 targets) | 58 | 40 |
+| positives among eligible pairs | 22 | **17** |
+| base rate | 1 in 69,551 | 1 in 90,007 |
+| **angle AUC** | 0.958 | **0.973** |
+| vocabulary-overlap AUC | 0.764 | 0.691 |
+| proof-size AUC | 0.498 | 0.509 |
+
+13 of the first label's 22 positives survive; 9 do not (prefix matches, hits
+inside `def` bodies or docstrings, and self-citations), and the rebuild found
+4 that the first procedure had missed. The conclusion did not move, but the
+first label's README said label noise could only "attenuate rather than
+inflate", and that was wrong: a loose matcher inflates. Every number in this
+file is on the corrected label. The first label's numbers are in the git
+history before this correction and in
+[`docs/history.md`](../../docs/history.md).
 
 ## Why this exists
 
@@ -29,11 +69,16 @@ all — did anyone later write a theorem citing both halves of the pair.
 | model frozen at | Mathlib `f0957a7`, 2024-07-01 |
 | answer key from | Mathlib `09712d48`, 2026-09-21 |
 | gap | 812 days, 22,961 commits |
-| declarations | 93,420 → 144,857 (**65,368 new names**) |
+| declarations | 93,420 → 144,857 (**65,368 new names**, 13,931 gone) |
 | eligible pairs | 1,530,134 (no shared rare lemma in 2024) |
-| new declarations citing ≥2 targets | 58 |
-| eligible pairs among them | 22 (15 cross-area) |
-| base rate | 1 in 69,551 |
+| new theorems citing ≥2 targets | 40 (89 citations) |
+| eligible pairs among them | 17 (11 cross-area) |
+| base rate | 1 in 90,007 |
+
+The commit count is `git rev-list --count f0957a7..09712d48` on a
+`--shallow-since=2024-06-30` clone of Mathlib master; the declaration counts
+are the two committed name lists, which hold *short* names, so a declaration
+renamed after 2024 is counted as new.
 
 ## Result
 
@@ -41,15 +86,14 @@ all — did anyone later write a theorem citing both halves of the pair.
 |---|---|---|---|
 | 0–30° | 26 | 0 | 0× |
 | 30–45° | 501 | 0 | 0× |
-| **45–55°** | **2,251** | **4** | **124×** |
-| 55–65° | 8,441 | 2 | 16× |
-| 65–75° | 34,204 | 7 | 14× |
-| 75–85° | 182,588 | 7 | 3× |
-| 85–95° | 1,300,144 | 2 | 0.11× |
+| **45–55°** | **2,251** | **4** | **160×** |
+| 55–65° | 8,441 | 1 | 11× |
+| 65–75° | 34,204 | 8 | 21× |
+| 75–85° | 182,588 | 4 | 2× |
+| 85–95° | 1,300,144 | 0 | 0× |
 | 95–180° | 1,979 | 0 | 0× |
 
-(The rows are `band-report.json` verbatim. Earlier versions of this table merged
-the last two into one 85°+ row of 1,302,123 pairs, which is the same 2 hits.)
+(The rows are `band-report.json` verbatim.)
 
 **"Closest" is the wrong rule.** The closest pairs are the same theorem under
 two names — the nearest of all, at 13.5°, is `GaussianInt.abs_natCast_norm`
@@ -61,8 +105,8 @@ duplicates out for free.
 
 | predictor | AUC on the 2026 label |
 |---|---|
-| **proof size alone** (bigger = closer) | **0.498** |
-| **state-geometry angle** | **0.958** |
+| **proof size alone** (bigger = closer) | **0.509** |
+| **state-geometry angle** | **0.973** |
 
 Proof size is the confound that faked AUC 0.740 on the replication target:
 longer proofs cite more lemmas, so they more often share a rare landmark, and
@@ -73,21 +117,19 @@ Here it is a coin flip. This label does not reward length — nobody writes a
 connecting theorem because two proofs were long — so the confound does not
 transfer. That is the point of choosing a label made of different material.
 
-(This row first read 0.515. `min(state count)` takes only 222 distinct values
-over 1.53M pairs, so nearly every comparison is a tie, and the AUC was ordering
-those ties by argsort position — which numpy resolves differently per CPU, 0.515
-here against 0.511 on a CI runner. Averaging tied ranks, as the replication has
-always done, gives 0.498 on any machine. It is more of a coin flip, not less.)
+(`min(state count)` takes only 225 distinct values over 1.53M pairs, so nearly
+every comparison is a tie; the AUC averages tied ranks, as the replication has
+always done, so it is the same on any machine.)
 
 Pairs in the 45–55° band *are* larger than average (median 13 states against 5),
 but since size predicts nothing, that is a passenger rather than the driver.
 
-At AUC 0.958 the honest reading is closer to **"much nearer than typical"**
+At AUC 0.973 the honest reading is closer to **"much nearer than typical"**
 than to a magic window. The corpus median is 89.3° (quartiles 87.3–90.4); the
-hits run 51.5° to 86.3° with a median of 74.0°. 20 of the 22 are below 85°,
-where 14.9% of eligible pairs sit, and 13 are below 75°, where 2.9% do. The
-sub-45° exclusion still matters for precision, since that is where the renames
-are, but it is 527 pairs out of 1.5M — a correction, not the effect.
+hits run 51.5° to 82.5° with a median of 72.7°. All 17 are below 85°, where
+14.9% of eligible pairs sit, and 13 are below 75°, where 3.0% do. The sub-45°
+exclusion still matters for precision, since that is where the renames are,
+but it is 527 pairs out of 1.5M — a correction, not the effect.
 
 ## The band and the known bridges
 
@@ -103,34 +145,37 @@ also sat", which its own six numbers do not support.
 
 ## The hits are not independent, and several sit inside the seed families
 
-Six of the 22 positives, including two of the four in the 45–55° band, have an
-endpoint that is a seed of the six families this corpus was grown around:
-`Complex.exp_mul_I` *is* the Euler family's bridge theorem, and
-`IntermediateField.adjoin.finiteDimensional` is a Galois-family endpoint. And
-one of the four band hits, `Complex.exp_add` | `Complex.exp_neg`, is a pair of
-lemmas about the same function — "someone later cited both" is close to free.
+Five of the 17 positives have an endpoint that is a seed of the six families
+this corpus was grown around: `Complex.exp_mul_I` *is* the Euler family's
+bridge theorem, and `IntermediateField.adjoin.finiteDimensional` is a
+Galois-family endpoint. And three of the four band hits are pairs of sibling
+lemmas about the same object — `Complex.exp_add` | `Complex.exp_neg`,
+`IntermediateField.adjoin.finiteDimensional` |
+`IntermediateField.finiteDimensional_adjoin`, `Complex.cos_neg` |
+`Complex.exp_mul_I` — where "someone later cited both" is close to free.
 
-More generally the 22 pairs are carried by 32 theorems, with `Complex.exp_add`
-in four of them, `Complex.exp_neg` and `FiniteField.card` in three each. They
-are not 22 independent observations, and `scripts/analyze-forward-independence.py`
-takes that apart (`--out independence.json` for the committed copy):
+More generally the 17 pairs are carried by 24 theorems, with
+`FiniteField.card` in four of them and `Complex.exp_add` and `Complex.exp_neg`
+in three each. They are not 17 independent observations, and
+`scripts/analyze-forward-independence.py` takes that apart (`--out
+independence.json` for the committed copy):
 
 | subset | n | AUC | 45–55° hits | lift |
 |---|---|---|---|---|
-| all positives | 22 | 0.958 | 4 | 124× |
-| vertex-disjoint — no theorem used twice | 14 | 0.963 | 2 | 97× |
-| drop every pair touching a seed family | 16 | 0.963 | 2 | 85× |
-| drop the `Complex.exp*`/`cos*` hub | 15 | 0.964 | 1 | 45× |
+| all positives | 17 | 0.973 | 4 | 160× |
+| vertex-disjoint — no theorem used twice | 11 | 0.977 | 3 | 185× |
+| drop every pair touching a seed family | 12 | 0.973 | 2 | 113× |
+| drop the `Complex.exp*`/`cos*` hub | 11 | 0.975 | 1 | 62× |
 
-Leave-one-endpoint-out over all 32 endpoints: AUC 0.955–0.966, median 0.957.
+Leave-one-endpoint-out over all 24 endpoints: AUC 0.971–0.980, median 0.973.
 And against a cluster null that substitutes each endpoint for a random corpus
 theorem while preserving exactly which endpoints pair with which — so the
 degree structure that makes these non-independent is preserved under the null —
-the null sits at **0.499 ± 0.068** and the observed 0.958 does not occur in
+the null sits at **0.499 ± 0.075** and the observed 0.973 does not occur in
 5,000 draws.
 
 **So the clustering does not explain the AUC, but it does eat the band lift.**
-124× rests on four pairs; drop one hub theorem and one remains. The AUC is the
+160× rests on four pairs; drop one hub theorem and one remains. The AUC is the
 number this result rests on.
 
 ## Is it just noticing they share a subfield?
@@ -143,12 +188,12 @@ definition `analyze-state-bridge.py` already uses.
 
 | subset | pairs | hits | angle AUC |
 |---|---|---|---|
-| all eligible | 1,530,134 | 22 | 0.958 |
-| **cross-area only** | 1,394,580 | 13 | **0.955** |
-| same-area only | 135,554 | 9 | 0.920 |
+| all eligible | 1,530,134 | 17 | 0.973 |
+| **cross-area only** | 1,394,580 | 11 | **0.972** |
+| same-area only | 135,554 | 6 | 0.962 |
 
 The angle predicts "same area" at only AUC 0.656, and "same area" predicts the
-2026 label at only 0.660. So area is a weak confound, the angle is not a proxy
+2026 label at only 0.632. So area is a weak confound, the angle is not a proxy
 for it, and the AUC survives intact where the confound cannot operate at all.
 
 This rules out the subfield story. α-rename sensitivity is a different
@@ -162,13 +207,13 @@ between the two theorems' state texts on the same label:
 
 | predictor | AUC on the 2026 label |
 |---|---|
-| proof size alone | 0.498 |
-| **vocabulary overlap alone** | **0.764** |
-| state-geometry angle | **0.958** |
+| proof size alone | 0.509 |
+| **vocabulary overlap alone** | **0.691** |
+| state-geometry angle | **0.973** |
 
-Words are doing real work — connected pairs share 17.0% of their state
+Words are doing real work — connected pairs share 14.1% of their state
 vocabulary against 7.7% for an average eligible pair. The angle is well clear of
-that, and 3 of the 22 hits share under 5%, so the map does still separate where
+that, and 4 of the 17 hits share under 5%, so the map does still separate where
 words give almost nothing. The defensible claim is "still works when vocabulary
 gives little", not "vocabulary-independent".
 
@@ -182,37 +227,44 @@ only showed the 2024 map had ranked those pairs highly beforehand.
 The band edges were fixed with the table above visible, and note that the band
 reported here, 45–55°, is *narrower* than the 40–55° that was preregistered:
 "40–55°" was published to issue #1 at 15:05:53Z and this analysis was committed
-at 15:31:00Z, so the comment and commit timestamps are the preregistration, but
-the reported edge is not the one they fixed. Over the preregistered 40–55° the
-band holds 2,567 pairs and the same 4 hits, a lift of 108×.
+at 15:31:00Z (commit `5443083`, 10:31:00 −05:00), so the comment and commit
+timestamps are the preregistration, but the reported edge is not the one they
+fixed. Over the preregistered 40–55° the band holds 2,567 pairs and the same 4
+hits, a lift of 140×.
 
-A sealed 2025-split rerun was considered and **rejected**. Splitting 22
-positives into two windows of roughly 11 costs more power than the ceremony
+A sealed 2025-split rerun was considered and **rejected**. Splitting 17
+positives into two windows of roughly 8 costs more power than the ceremony
 buys, and the evidence is already thin.
 
 Two more caveats. The label is `git grep` over full names: it misses anything
-written under an `open` namespace and does not check that a citation is
-load-bearing. Both make these numbers conservative, since noisy labels
-attenuate. And proof size is an unmodelled confound — it faked AUC 0.740 on the
-replication target and is not controlled here.
+written under an `open` namespace, misses a target renamed since 2024, and
+does not check that a citation is load-bearing. Misses attenuate — but the
+first label showed that a loose matcher *inflates*, so "conservative" is not
+something a grep label gets for free. And proof size is an unmodelled
+confound — it faked AUC 0.740 on the replication target and is not controlled
+here.
 
 ## Files
 
 | file | what it is |
 |---|---|
-| `new-connectors.json` | the 58 new declarations and which targets each cites |
-| `decls-2024-07-01.txt.gz` | 93,420 theorem/lemma names at `f0957a7` |
-| `decls-2026-09-21.txt.gz` | 144,857 names at `09712d48` |
-| `target-references-2026.txt.gz` | 2,843 raw `git grep` hits, file:line:text |
+| `new-connectors.json` | the 40 new theorems and which targets each cites; built by `scripts/build-forward-label.py` |
+| `decls-2024-07-01.txt.gz` | 93,420 theorem/lemma short names at `f0957a7` |
+| `decls-2026-09-21.txt.gz` | 144,857 short names at `09712d48` |
+| `target-references-2026.txt.gz` | 2,843 raw `git grep` hits, file:line:text — the label's evidence |
 | `band-report.json` | the band table, machine-readable |
 | `centroids.npz` | 1,797 unit centroids + kept-state counts; the only part of the 272 MB encode these analyses need |
 | `independence.json` | the subset, jackknife and cluster-null results |
-| `vocabulary.json` | token-overlap distributions and the 0.764 AUC |
-| `area-control.json` | the cross-area control: 0.955 on 13 cross-area hits |
+| `vocabulary.json` | token-overlap distributions and the 0.691 AUC |
+| `area-control.json` | the cross-area control: 0.972 on 11 cross-area hits |
 
-Regenerating these needs a shallow fetch of current Mathlib into
-`outputs/eligibility-v1/mathlib` (`git fetch --depth=1 origin 09712d48`), which
-is slow. They are committed so a rerun does not have to redo it.
+Rebuilding `new-connectors.json` needs the 2026 Mathlib tree
+(`git fetch --depth=1 origin 09712d48` into `outputs/eligibility-v1/mathlib`,
+then `scripts/build-forward-label.py --mathlib outputs/eligibility-v1/mathlib`)
+because each grep hit has to be attributed to its enclosing declaration.
+Checking the committed label needs only the repository (`--check`), and CI
+does it. The grep itself (`target-references-2026.txt.gz`) was run once and
+committed; the four analyses need nothing but the repository.
 
 ## What is still open
 
@@ -220,23 +272,24 @@ Ordered by how much each would change the picture.
 
 1. **Find a bridge nobody has built.** Untested, and it is the whole point.
    Everything measured so far is recognition of links that already exist.
-2. **Real dependency data instead of `git grep`.** 22 positives is almost
+2. **Real dependency data instead of `git grep`.** 17 positives is almost
    certainly an undercount — grep cannot see a theorem cited under an `open`
    namespace, or one renamed since 2024. Compiling Mathlib would likely turn
-   22 into a hundred-plus in the same window, which is the cheapest route to
-   the statistical power this needs.
+   17 into a hundred-plus in the same window, which is the cheapest route to
+   the statistical power this needs, and would replace the last heuristic in
+   the label.
 3. ~~**Rename robustness** (issue #2).~~ **Done, and it survived.** Renaming
    every binder and hypothesis in all 1,797 theorems, certified in Lean, takes
-   this test from 0.958 to **0.964** while the vocabulary baseline it is scored
-   against drops 0.764 → 0.610. Centroids do move a median 20.0°, so the
+   this test from 0.973 to **0.974** while the vocabulary baseline it is scored
+   against drops 0.691 → 0.547. Centroids do move a median 20.0°, so the
    encoder is not name-blind — but they move together, and the arrangement
    holds ([`rename-control-v1`](../rename-control-v1/README.md)).
 4. **A corpus not seeded on the six families.** This one was built by expanding
    outward from the benchmark seeds, which is correct as a positive control but
    says nothing about whether the band generalizes.
 5. **Vocabulary independence, properly.** Now measured, not asserted: see
-   "How much of it is just shared words?" above. Overlap alone scores AUC 0.764,
-   and only 3 of the 22 hits sit under 5% overlap. The *causal* test that was
+   "How much of it is just shared words?" above. Overlap alone scores AUC 0.691,
+   and only 4 of the 17 hits sit under 5% overlap. The *causal* test that was
    missing here has now been run for the naming half of it: item (3). What it
    does not cover is constant names, which α-renaming leaves untouched.
 

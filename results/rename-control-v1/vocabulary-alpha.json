@@ -1,18 +1,18 @@
 {
-  "positives": 22,
+  "positives": 17,
   "eligible_pairs": 1530134,
   "threshold": 0.05,
-  "mean_overlap_positives": 0.24853014945983887,
-  "median_overlap_positives": 0.24318841099739075,
-  "mean_overlap_eligible": 0.19774557650089264,
+  "mean_overlap_positives": 0.2263091504573822,
+  "median_overlap_positives": 0.19148936867713928,
+  "mean_overlap_eligible": 0.19774596393108368,
   "median_overlap_eligible": 0.1875,
   "positives_below_threshold": 0,
-  "auc_vocabulary_overlap": 0.6098371022394558,
+  "auc_vocabulary_overlap": 0.5465039024889639,
   "positive_histogram": {
     "<5%": 0,
     "5-10%": 3,
     "10-20%": 6,
-    "20-40%": 10,
-    ">=40%": 3
+    "20-40%": 6,
+    ">=40%": 2
   }
 }

@@ -14,7 +14,7 @@ for git. Everything upstream of the encode is committed here:
 | `selected.json.gz` | the 1,797-theorem selection the capture ran against |
 | `text-index.jsonl.gz` | the 23,874 unique texts, in encode order |
 | `report.json` | every number below, machine-readable |
-| `size-confound.json` | proof size against both labels: 0.740 here, 0.498 on the 2026 label |
+| `size-confound.json` | proof size against both labels: 0.740 here, 0.509 on the 2026 label |
 
 Rebuild the vectors with `scripts/build-encode-inputs.py --states
 results/state-bridge-v1/states-augmented.jsonl.gz ...` then
@@ -47,8 +47,14 @@ The encoder's claim is the +0.164 it adds on top.
 ## 2. Betweenness — the decision point
 
 Does each known bridge sit between its endpoints? Scored by detour ratio
-`(d(A,C) + d(C,B)) / d(A,B)` in angular distance, ranked against all 1,795
-other objects in the corpus.
+`(d(A,C) + d(C,B)) / d(A,B)` in angular distance, ranked against the 1,794
+other objects in the corpus (1,797 minus the family's A, B and bridge), so
+the bridge is one of 1,795 candidates and rank 1 means no other object sits
+more nearly between A and B. The percentile is that rank, not a fitted null
+distribution, and no pass threshold was fixed before the ranks were seen:
+the run plan (`docs/state-bridge-run-plan.md`) named this test the decision
+point but did not say what rank would count as passing. "Top 4.3%" and
+"four in the top 1.4%" describe the observed ranks.
 
 | family | detour | t | rank | percentile | control pct |
 |---|---|---|---|---|---|
@@ -87,6 +93,24 @@ matters, not the raw detour.
   of the null and are noisy at n=6. The rank against the 1,795-object corpus is
   the null that carries the weight; the control only rules out the sharing
   structure producing betweenness on its own.
+- **The +0.164 margin is also a single draw.** The shuffled control permutes
+  the vector-to-text assignment once (`SEED + 1`); the 20,000 permutations and
+  z = 368 test the encoder against chance, not against the control. An
+  independent re-capture and re-encode
+  ([`rename-control-v1`](../rename-control-v1/README.md), original arm) gave
+  control 0.710 and margin +0.167, so the margin moves by a few thousandths
+  from draw to draw. It carries no error bar beyond that.
+- **The corpus was grown by the replication label.** The 1,797 theorems were
+  selected by expanding outward from the six families' 82 seed names by a
+  rarity-weighted shared-landmark score over `edges.jsonl`
+  (`docs/state-bridge-run-plan.md`) — "shares a rare lemma, df 2–200", which
+  is the replication label itself. So Test 1 is measured on a corpus enriched
+  for its own positives. Betweenness and the forward test use different
+  labels, but the same seeded corpus. The expansion script was never
+  committed and does not survive in the history; the 2,000-name list it
+  produced was (`824f3c2:results/state-object-v1-targets.json`), and
+  `selected.json.gz` here is the 1,797 of those with a Lean-emitted
+  declaration range.
 - `"no goals"` is excluded from every centroid (`--max-state-df 0.5`). Left in,
   the test scores AUC 0.702 on random vectors. See the script docstring.
 
@@ -104,7 +128,7 @@ following two years. Its README carries the current open questions, which
 supersede the list below.
 
 One number from there belongs here, because it changes how Test 1 should be
-read: **proof size predicts the 2026 label at AUC 0.498** — a coin flip —
-against the angle's 0.958. So the size confound that eats most of Test 1's
+read: **proof size predicts the 2026 label at AUC 0.509** — a coin flip —
+against the angle's 0.973. So the size confound that eats most of Test 1's
 0.877 does not touch the forward result. Test 1 remains the weaker of the two.
 

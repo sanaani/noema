@@ -31,7 +31,13 @@ jobs:
       # need no model download. The 128-object ReProver archive is what the
       # first AUC 0.786 was measured on, so it is checked, not just stored.
       - run: cd results/state-object-v1 && sha256sum -c SHA256SUMS
-      - run: python scripts/verify-state-object-archive.py --corpus results/state-object-v1/corpus.json.gz --analysis results/state-object-v1
+      - run: python scripts/verify-state-object-archive.py --corpus results/state-object-v1/corpus.json.gz --analysis results/state-object-v1 --out "$RUNNER_TEMP/verification.json"
+      - run: cmp "$RUNNER_TEMP/verification.json" results/state-object-v1/verification.json
+
+      # The forward test's label: every citation in new-connectors.json must be a
+      # whole-name hit in the committed grep output, never a prefix of a longer
+      # name. The full rebuild needs a Mathlib checkout; this check does not.
+      - run: python scripts/build-forward-label.py --check
       - run: cd results/historical-connections-v1 && sha256sum -c SHA256SUMS
       - run: cd results/encoder-invariance-v1 && sha256sum -c SHA256SUMS
       - run: cd results/encoder-comparison-v1 && sha256sum -c SHA256SUMS
