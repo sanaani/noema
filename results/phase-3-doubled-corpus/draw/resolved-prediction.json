@@ -1,0 +1,11 @@
+{
+  "corpus_theorems": 24916,
+  "from_phase_2": 11346,
+  "from_new_draw": 13570,
+  "connectors": 10368,
+  "pairs": 26620,
+  "positives": 23583,
+  "cross_area_positives": 12820,
+  "fresh_positives": 18383,
+  "note": "recomputed on the names Lean resolved (652 of the 14,222 drawn had no source span) plus phase 2's 11,346; derived from names and the two edge lists only, before any new state was encoded"
+}
