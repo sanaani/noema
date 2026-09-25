@@ -1,0 +1,57 @@
+{
+  "seed": 20260928,
+  "pairs": 80,
+  "checks": 162,
+  "arms": {
+    "TOP": {
+      "pairs": 40,
+      "pairs_with_hit": 40,
+      "checks": 81,
+      "compiled_checks": 68,
+      "hit_candidates": 67,
+      "pairs_never_written": 0
+    },
+    "RANDOM": {
+      "pairs": 40,
+      "pairs_with_hit": 40,
+      "checks": 81,
+      "compiled_checks": 60,
+      "hit_candidates": 51,
+      "pairs_never_written": 0
+    }
+  },
+  "H5": {
+    "table": [
+      [
+        40,
+        0
+      ],
+      [
+        40,
+        0
+      ]
+    ],
+    "p_one_sided": 1.0,
+    "verdict": "no measurable difference at this size"
+  },
+  "ratings": {
+    "TOP": {
+      "n": 67,
+      "counts": {
+        "0": 25,
+        "1": 42,
+        "2": 0
+      },
+      "mean": 0.6268656716417911
+    },
+    "RANDOM": {
+      "n": 51,
+      "counts": {
+        "0": 41,
+        "1": 10,
+        "2": 0
+      },
+      "mean": 0.19607843137254902
+    }
+  }
+}
