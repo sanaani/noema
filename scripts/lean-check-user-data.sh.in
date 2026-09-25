@@ -1,0 +1,95 @@
+#!/bin/bash
+# Template. scripts/run-lean-check-aws.sh substitutes @BUCKET@, @RUN@,
+# @MATHLIB_REV@ and @LEAN_VERSION@ and passes the result as EC2 user data.
+#
+# Fetches Mathlib at the pinned revision with its prebuilt oleans, installs
+# /opt/check.sh, times a bare `import Mathlib`, and waits for SSM commands
+# from scripts/pilot-check.py until the expiry timer or teardown.
+set -u
+LOG=/var/log/noema-leancheck.log
+exec > >(tee -a "$LOG") 2>&1
+BKT="@BUCKET@"
+RNAME="@RUN@"
+REV="@MATHLIB_REV@"
+LEANV="@LEAN_VERSION@"
+echo "boot $(date -u +%FT%TZ) rev=$REV lean=$LEANV bucket=$BKT run=$RNAME"
+
+(while true; do echo "ALIVE $(date -u +%FT%TZ) up=$(cut -d. -f1 /proc/uptime)s \
+mem=$(awk '/MemAvailable/{print $2}' /proc/meminfo)kB"; sleep 300; done &)
+
+/usr/sbin/shutdown -h +480
+cat > /etc/systemd/system/noema-expiry.service <<'SVC'
+[Unit]
+Description=Terminate temporary Noema lean checker
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/poweroff
+SVC
+cat > /etc/systemd/system/noema-expiry.timer <<'TMR'
+[Unit]
+Description=Expire temporary lean checker
+[Timer]
+OnBootSec=475min
+Unit=noema-expiry.service
+[Install]
+WantedBy=timers.target
+TMR
+systemctl daemon-reload
+systemctl enable --now noema-expiry.timer
+
+set -e
+export DEBIAN_FRONTEND=noninteractive
+for i in $(seq 1 12); do apt-get update -qq && break || sleep 30; done
+apt-get install -y -qq curl git zstd
+mkdir -p /opt/work /opt/checks
+cd /opt/work
+
+curl --fail --location --retry 3 \
+  "https://github.com/leanprover/lean4/releases/download/$LEANV/lean-${LEANV#v}-linux.tar.zst" \
+  -o lean.tar.zst
+tar --zstd -xf lean.tar.zst
+LEANBIN="$PWD/lean-${LEANV#v}-linux/bin"
+export PATH="$LEANBIN:$PATH"
+lean --version
+
+mkdir -p mathlib && cd mathlib
+git init -q
+git remote add origin https://github.com/leanprover-community/mathlib4
+git fetch -q --depth 1 origin "$REV"
+git checkout -q FETCH_HEAD
+cd ..
+test "$(git -C mathlib rev-parse HEAD)" = "$REV"
+(cd mathlib && lake exe cache get)
+echo "oleans: $(find mathlib/.lake/build/lib -name '*.olean' | wc -l)"
+
+cat > /opt/check.sh <<CHK
+#!/bin/bash
+# /opt/check.sh <dir>: compile every <dir>/*.lean, in parallel.
+# main files get 600 s; exact files get 60 s plus the measured import time.
+export PATH="$LEANBIN:\$PATH"
+cd /opt/work/mathlib
+IMPORT=\$(cat /opt/import_seconds)
+run() {
+  f=\$1
+  case "\$f" in *exact*.lean) t=\$((60 + IMPORT)) ;; *) t=600 ;; esac
+  timeout "\$t" lake env lean "\$f" > "\$f.out" 2>&1
+  echo \$? > "\$f.rc"
+}
+export -f run
+export IMPORT
+ls "\$1"/*.lean | xargs -P 8 -I{} bash -c 'run {}'
+for f in "\$1"/*.lean; do
+  echo "=== FILE \$(basename "\$f") RC \$(cat "\$f.rc")"
+  tail -c 6000 "\$f.out"
+done
+CHK
+chmod +x /opt/check.sh
+
+echo 'import Mathlib' > /opt/checks/warm.lean
+(cd mathlib && lake env lean /opt/checks/warm.lean)  # warm the page cache
+s=$(date +%s.%N)
+(cd mathlib && lake env lean /opt/checks/warm.lean)
+e=$(date +%s.%N)
+python3 -c "import math; print(math.ceil($e - $s))" > /opt/import_seconds
+echo "import seconds: $(cat /opt/import_seconds)"
+echo "READY $(date -u +%FT%TZ)"

@@ -1,0 +1,14 @@
+{
+  "seed": 20260928,
+  "arm": 40,
+  "generic_threshold": 200,
+  "generic_endpoints": 32,
+  "absent_2026_endpoints": 3843,
+  "pool_pairs_before_unjoined": 36407370,
+  "joined_pairs_2026": 54275,
+  "random_draws": 288,
+  "top_cosine_range": [
+    0.8367907404899597,
+    1.000000238418579
+  ]
+}
