@@ -21,6 +21,7 @@ that the map is measuring something real.
 | [α-rename control](results/phase-1-recognition/rename-control-v1/README.md) | does any of it survive deleting every variable name? | all three: forward **0.974**, betweenness **6/6 in the top 3.3%**, replication margin **+0.162** |
 | [Exact label](results/phase-2-dependency-labels/link-graph-2026-v1/README.md) | does the forward test survive asking Lean, not grep, who cites whom? | 53 positives instead of 17; angle **AUC 0.898** |
 | [Unseeded corpus](results/phase-2-dependency-labels/unseeded-corpus-v1/README.md) | does it survive a corpus drawn by seed instead of by hand? | 5,200 positives; angle **AUC 0.709**, cluster null 0.500 ± 0.017 |
+| [Doubled corpus](results/phase-3-doubled-corpus/README.md) | on pairs sharing no area and under 5% vocabulary, is the angle above chance? | pre-registered: AUC **0.561**, **3.9 σ**; fresh pairs alone 3.6 σ |
 
 1,797 Mathlib theorems, 99,275 captured proof states, 23,874 unique state texts,
 encoded with the pinned ReProver ByT5 retriever. The corpus was built by
@@ -55,6 +56,14 @@ label at least as well as its proof states (0.773 against 0.726), so the
 premise that a proof's trajectory knows something its statement does not is
 not supported. The phase 2 READMEs carry the tables; the paragraphs below are
 phase 1's reading of phase 1's corpus and are kept as written.
+
+**Phase 3 settled the hard subset.** Doubling the corpus to 24,916 theorems
+(23,583 positives, again predicted to the pair before encoding) and fixing every
+test in advance, the angle scores 0.561 on the hard subset at 3.9 σ under the
+more conservative cluster null, and 3.6 σ on pairs no earlier phase had seen.
+It is real and small: 0.60 with kind-aware ranking, about one true connection
+per thousand among the closest candidates. Proof states against statements is
+still undecided.
 
 **Betweenness is the load-bearing one.** The replication shares a confound with
 its own target: proof size alone predicts "these two proofs share a rare lemma"
@@ -222,6 +231,8 @@ results/                 findings and precompiled data, grouped by research phas
                          exact label scored on phase 1's corpus: 53 positives, 0.898
     unseeded-corpus-v1/  350 files by seed, 11,489 theorems, 5,200 positives, 0.709;
                          the residual and state-source tests; every capture artifact
+  phase-3-doubled-corpus/  CLOSED. 24,916 theorems, 23,583 positives; settles the
+                         hard subset at 3.9 sigma, pre-registered before capture
 viewer/    the centroid cloud flattened onto a globe two ways, with the figures that
            say how much each flattening lies; built by scripts/project-centroids-sphere.py
 scripts/   the pipeline, in order: scan -> filter -> select -> capture -> encode -> analyse

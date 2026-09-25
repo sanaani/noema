@@ -1,0 +1,238 @@
+{
+  "all eligible": {
+    "rows": [
+      {
+        "band": "0-30",
+        "base_pairs": 3477,
+        "base_hits": 105,
+        "lift_base": 372.5035980951749,
+        "fresh_pairs": 11299,
+        "pred_abs": 341.2122519413287,
+        "pred_shape": 319.72391509444736,
+        "observed": 167,
+        "ci95_cluster": [
+          113.72225743931597,
+          239.4623306822064
+        ]
+      },
+      {
+        "band": "30-45",
+        "base_pairs": 25179,
+        "base_hits": 269,
+        "lift_base": 131.78308372819842,
+        "fresh_pairs": 84536,
+        "pred_abs": 903.1408713610549,
+        "pred_shape": 846.264264048228,
+        "observed": 438,
+        "ci95_cluster": [
+          346.9758636993324,
+          561.5510001467061
+        ]
+      },
+      {
+        "band": "45-55",
+        "base_pairs": 107093,
+        "base_hits": 293,
+        "lift_base": 33.74833872464551,
+        "fresh_pairs": 398939,
+        "pred_abs": 1091.4730841418207,
+        "pred_shape": 1022.7359823586854,
+        "observed": 728,
+        "ci95_cluster": [
+          606.4038981898424,
+          866.7956994783685
+        ]
+      },
+      {
+        "band": "55-65",
+        "base_pairs": 1282197,
+        "base_hits": 456,
+        "lift_base": 4.38688197139513,
+        "fresh_pairs": 4787051,
+        "pred_abs": 1702.4647975311125,
+        "pred_shape": 1595.2496057225935,
+        "observed": 1422,
+        "ci95_cluster": [
+          1233.649254468192,
+          1652.6408976362518
+        ]
+      },
+      {
+        "band": "65-75",
+        "base_pairs": 4688316,
+        "base_hits": 760,
+        "lift_base": 1.999597475609907,
+        "fresh_pairs": 17562518,
+        "pred_abs": 2846.9739838355604,
+        "pred_shape": 2667.6816647265573,
+        "observed": 2490,
+        "ci95_cluster": [
+          2204.8428037250314,
+          2824.8640949082605
+        ]
+      },
+      {
+        "band": "75-85",
+        "base_pairs": 9138973,
+        "base_hits": 1140,
+        "lift_base": 1.538697757143205,
+        "fresh_pairs": 35106356,
+        "pred_abs": 4379.18416434757,
+        "pred_shape": 4103.398685067037,
+        "observed": 4056,
+        "ci95_cluster": [
+          3721.1015644384097,
+          4416.268527865675
+        ]
+      },
+      {
+        "band": "85-95",
+        "base_pairs": 48806026,
+        "base_hits": 2162,
+        "lift_base": 0.546421911657132,
+        "fresh_pairs": 187313311,
+        "pred_abs": 8297.56920553212,
+        "pred_shape": 7775.017740617423,
+        "observed": 9049,
+        "ci95_cluster": [
+          8330.54791295768,
+          9735.515222438307
+        ]
+      },
+      {
+        "band": "95-180",
+        "base_pairs": 91730,
+        "base_hits": 15,
+        "lift_base": 2.017092103497723,
+        "fresh_pairs": 345427,
+        "pred_abs": 56.48539191104328,
+        "pred_shape": 52.92814236502957,
+        "observed": 33,
+        "ci95_cluster": [
+          14.330197874355008,
+          56.773583744815284
+        ]
+      }
+    ],
+    "pred_abs_total": 19618.50375060161,
+    "observed_total": 18383
+  },
+  "cross-area AND vocab<5%": {
+    "rows": [
+      {
+        "band": "0-30",
+        "base_pairs": 6,
+        "base_hits": 0,
+        "lift_base": 0.0,
+        "fresh_pairs": 18,
+        "pred_abs": 0.0,
+        "pred_shape": 0.0,
+        "observed": 0,
+        "ci95_cluster": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "band": "30-45",
+        "base_pairs": 451,
+        "base_hits": 1,
+        "lift_base": 83.09145097345329,
+        "fresh_pairs": 1548,
+        "pred_abs": 3.432372505543237,
+        "pred_shape": 5.659876266391584,
+        "observed": 2,
+        "ci95_cluster": [
+          0.0,
+          9.353767279273548
+        ]
+      },
+      {
+        "band": "45-55",
+        "base_pairs": 7023,
+        "base_hits": 1,
+        "lift_base": 5.335931138975856,
+        "fresh_pairs": 23226,
+        "pred_abs": 3.3071337035454937,
+        "pred_shape": 5.453361349402364,
+        "observed": 9,
+        "ci95_cluster": [
+          1.1032354855184687,
+          21.734843653727655
+        ]
+      },
+      {
+        "band": "55-65",
+        "base_pairs": 261421,
+        "base_hits": 11,
+        "lift_base": 1.5768308142012377,
+        "fresh_pairs": 683770,
+        "pred_abs": 28.771483545698317,
+        "pred_shape": 47.44328787338335,
+        "observed": 52,
+        "ci95_cluster": [
+          25.90600384073268,
+          88.07927408967718
+        ]
+      },
+      {
+        "band": "65-75",
+        "base_pairs": 996271,
+        "base_hits": 37,
+        "lift_base": 1.3917368290294658,
+        "fresh_pairs": 2791471,
+        "pred_abs": 103.67101621948245,
+        "pred_shape": 170.9503042766272,
+        "observed": 170,
+        "ci95_cluster": [
+          108.23114954039085,
+          249.598672243218
+        ]
+      },
+      {
+        "band": "75-85",
+        "base_pairs": 1905815,
+        "base_hits": 76,
+        "lift_base": 1.4943961368580292,
+        "fresh_pairs": 5713684,
+        "pred_abs": 227.85001902073392,
+        "pred_shape": 375.71764511853854,
+        "observed": 342,
+        "ci95_cluster": [
+          265.421510515376,
+          431.30928319713996
+        ]
+      },
+      {
+        "band": "85-95",
+        "base_pairs": 11842624,
+        "base_hits": 273,
+        "lift_base": 0.863868406039446,
+        "fresh_pairs": 33304981,
+        "pred_abs": 767.7571974758297,
+        "pred_shape": 1266.00790949321,
+        "observed": 1302,
+        "ci95_cluster": [
+          1163.7303881138555,
+          1419.5358711922424
+        ]
+      },
+      {
+        "band": "95-180",
+        "base_pairs": 13561,
+        "base_hits": 2,
+        "lift_base": 5.52676710995169,
+        "fresh_pairs": 48388,
+        "pred_abs": 7.136346877073962,
+        "pred_shape": 11.767615622447137,
+        "observed": 6,
+        "ci95_cluster": [
+          0.0,
+          15.558041431060552
+        ]
+      }
+    ],
+    "pred_abs_total": 1141.925569347907,
+    "observed_total": 1883
+  }
+}

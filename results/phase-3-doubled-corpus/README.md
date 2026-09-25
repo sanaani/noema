@@ -333,8 +333,55 @@ investigated here; it is recorded as a miss, not explained.
 | `results/capture-summary.json`, `results/capture-probe-report.json` | the new capture's accounting |
 | `results/encode-complete.json` | the encoder's manifest and vector digest |
 | `results/label.txt` | the 2026 label on the union |
+| `results/calibration.json`, `results/calibration.txt` | the exploratory calibration check below, from `scripts/calibrate-phase3.py` |
 
 The union's `centroids.npz` (130 MB) and `statements.npz` (54 MB) are not
 committed: the first exceeds GitHub's 100 MB file limit. Both are rebuilt by
 `scripts/union-corpus.py join` from phase 2's embeddings and this phase's
 encode, then `scripts/export-forward-centroids.py`.
+
+## After the results: a calibration check (exploratory)
+
+Run after everything above was read, and not pre-registered, so it is a
+description, not a test. It asks whether phase 2's curve of hit rate against
+angle predicts where the fresh pairs' connections fall. Phase 2's pairs, after
+rule 1 (5,200 positives over 64.1 M pairs), give a rate per band; times the
+fresh pairs in each band, rescaled to the fresh total, that is the prediction.
+Intervals resample endpoints, 1,000 draws (`results/calibration.txt`).
+
+| band | lift on phase 2's pairs | predicted | observed | 95% cluster interval |
+|---|---:|---:|---:|---|
+| 0–30° | 373× | 320 | 167 | 114 – 239 |
+| 30–45° | 132× | 846 | 438 | 347 – 562 |
+| 45–55° | 34× | 1,023 | 728 | 606 – 867 |
+| 55–65° | 4× | 1,595 | 1,422 | 1,234 – 1,653 |
+| 65–75° | 2× | 2,668 | 2,490 | 2,205 – 2,825 |
+| 75–85° | 2× | 4,103 | 4,056 | 3,721 – 4,416 |
+| 85–95° | 1× | 7,775 | 9,049 | 8,331 – 9,736 |
+| 95–180° | 2× | 53 | 33 | 14 – 57 |
+
+The ordering holds — nearer is likelier at every step — but phase 2's curve is
+about twice too steep below 55°: in the three nearest bands the prediction lies
+outside the observed count's interval. That is the full-set miss
+above, located. It is not explained. On the hard subset the curve is nearly
+flat (lift 1–2× above 55°), the prediction's shape fits within wide
+intervals, and the near bands hold single-digit counts (45–55°: 9 observed, 5.5
+predicted). Hard connections are also commoner on fresh pairs than on phase
+2's (1 in 22,606 against 1 in 37,474), so the literal curve under-predicts
+their total, 1,142 against 1,883.
+
+Half of all fresh connections (9,049 of 18,383) sit at 85–95°, where the angle
+ranks them no better than chance. Whatever predicts those is not the angle.
+
+## Status
+
+**Closed.** The numbers in this file do not move. Handed to the next phase:
+
+- the hard-subset benchmark — 23,583 positives, the eligibility rule, the hard
+  filter, both cluster nulls, and a pre-registration procedure that has now
+  predicted a label count to the pair twice;
+- the H3 hint that proof states beat statements on hard pairs (+0.075,
+  interval includes zero);
+- the calibration result: the angle's curve keeps its order on new theorems
+  but loses about half its strength at close range, and says nothing about
+  the half of connections at ~90°.
