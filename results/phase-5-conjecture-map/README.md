@@ -131,3 +131,91 @@ One CPU worker (m6i.4xlarge), self-terminating: fetch Mathlib `09712d48`
 with its prebuilt oleans, print ~41,000 statements. Encoding with B runs
 locally on CPU. Estimated $1–2, ceiling $10. The role, security group,
 instance and task object are torn down and the teardown verified.
+
+---
+
+## Results
+
+*Appended after the run. Nothing above this line changed.* Numbers from
+`results/phase5.json`, written by `scripts/analyze-phase5.py`. Statements were
+printed by one m6i.4xlarge worker (41,441 printed, 0 missing) and encoded
+locally on CPU by `scripts/encode-b.py`. As a check, CPU re-encodes of 2,000 of
+B's own training texts sit at median 0.16°, max 0.25°, from the GPU vectors.
+All 10,368 connectors were encoded and none were dropped.
+
+### Verdicts
+
+| test | pre-registered prediction | result | verdict |
+|---|---|---|---|
+| **H1** AUC(M), 3,840 bridges vs 5,358 within | real but weak, 0.53–0.60 | **0.568** [0.545, 0.590] | **real but weak** |
+| **H2** AUC(M) − AUC(M_V), paired | no measurable difference | **−0.022** [−0.037, −0.008] | **words do better** |
+| **H3** AUC(M), 743 hard bridges vs 5,358 within | weaker than H1 | **0.581** [0.548, 0.614] | **real but weak** |
+
+**H1 passed as predicted.** The 2024 map tells a future cross-area spot
+from a future within-area spot a little better than a coin flip, and the
+interval clears 0.5.
+
+**H2 went against the prediction.** Mixing measured by plain word overlap
+(M_V 0.590 [0.567, 0.613]) beats mixing measured by B's geometry, and the
+paired interval stays below zero. On this question B's map adds nothing
+beyond the words. It does slightly worse.
+
+**H3 was not weaker.** Hard bridges score 0.581 against H1's 0.568. The
+intervals overlap, so "weaker" is wrong but "stronger" is not shown either.
+
+### Reported, not tested
+
+- **Citation count beats the map.** How many corpus theorems a connector
+  cites predicts "bridge" at AUC **0.689** [0.674, 0.703] on its own, well
+  above M. Within count strata M still separates: 2 cited 0.533 (1,311 vs
+  3,472), 3–5 cited 0.602 (1,891 vs 1,740), 6 or more 0.606 (638 vs 146). So
+  M is not only a proxy for count, but most of the easy signal is count.
+- **Density.** On H1's labels, D scores **0.394** [0.372, 0.416]: bridges
+  land in *sparser* parts of the map than within-area connectors do. New
+  theorems that cite the corpus sit only slightly nearer the map than new
+  theorems that don't (AUC of D 0.534, 10,368 vs 10,000).
+- **Printer drift.** Across the 21,073 surviving corpus theorems, a theorem's
+  2024 and 2026 printings sit at a median of 0.19° apart. The tail is long:
+  the 90th percentile is 22.6°. With the map rebuilt from 2026 printings, H1
+  rises to **0.600**. That point estimate has no interval, and the map it
+  uses has survivors only. This fits drift costing power, as the pre-registration
+  expected. It is not a re-test of H1.
+- **Bridge share by M** (8 bins of roughly equal size, from low M to high): 0.318, 0.403,
+  0.415, 0.486, 0.484, 0.479, 0.481, 0.438. Nearly all of the rise sits in the first
+  bin, where the neighbourhood is almost all one area. Above M ≈ 0.2 the
+  share is flat, and it dips in the top bin.
+- **Top-M bridges.** Several of the ten highest-M bridges qualify through
+  generic lemmas: `Category.comp_id`, `Nat.cast_one`/`Nat.cast_zero`,
+  `Finset.sum_congr`, `Complex.continuous_re`. They are cross-area by the
+  area label, but they are not the kind of bridge a mathematician would call
+  a discovery. The full list is in `phase5.json`.
+
+### What this establishes
+
+- The 2024 map carries a small, real signal about where cross-area theorems
+  will appear (H1, H3).
+- It does **not** beat word overlap at this (H2). The signal is available
+  without the encoder.
+- Citation count, which is known only after the theorem exists, is a
+  stronger predictor than either. A conjecture tool cannot use it.
+
+### What it does not establish
+
+- Whether a different score (another k, a learned placement) would beat
+  words. Only M, M_V and D at k = 50 were scored, as pre-registered.
+- Whether the flat region above M ≈ 0.2 is a ceiling of the map or of the
+  area label, which is coarse (28 areas) and counts generic lemmas as
+  bridges.
+
+### Hands to phase 6
+
+Placement by nearest-neighbour mixing is weak and loses to words. Phase 6
+(`docs/phase-6-jepa-plan.md`) asks the sharper question directly. It trains a
+predictor, on top of a frozen B, to place a theorem's statement from the lemmas
+it cites. Word-overlap placement is the baseline it has to beat.
+
+### Cost and teardown
+
+One m6i.4xlarge worker for the printing, self-terminating. The instance,
+its IAM role and instance profile, the security group and the task object
+were deleted, and the deletion was verified. The bucket is kept, as before.

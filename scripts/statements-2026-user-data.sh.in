@@ -1,0 +1,92 @@
+#!/bin/bash
+# Template. scripts/run-statements-2026-aws.sh substitutes @BUCKET@, @RUN@,
+# @MATHLIB_REV@ and @LEAN_VERSION@ and passes the result as EC2 user data.
+#
+# Fetches Mathlib at the pinned revision with its prebuilt oleans, prints the
+# statements in the committed draw with Statements2026.lean, uploads, stops.
+set -u
+LOG=/var/log/noema-stmt2026.log
+exec > >(tee -a "$LOG") 2>&1
+BKT="@BUCKET@"
+RNAME="@RUN@"
+REV="@MATHLIB_REV@"
+LEANV="@LEAN_VERSION@"
+OUT=/opt/noema/out/statements-2026.jsonl
+echo "boot $(date -u +%FT%TZ) rev=$REV lean=$LEANV"
+
+(while true; do echo "ALIVE $(date -u +%FT%TZ) up=$(cut -d. -f1 /proc/uptime)s \
+mem=$(awk '/MemAvailable/{print $2}' /proc/meminfo)kB \
+printed=$(wc -l < "$OUT" 2>/dev/null || echo 0)"; sleep 60; done &)
+
+/usr/sbin/shutdown -h +180
+cat > /etc/systemd/system/noema-expiry.service <<'SVC'
+[Unit]
+Description=Terminate temporary Noema statement worker
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/poweroff
+SVC
+cat > /etc/systemd/system/noema-expiry.timer <<'TMR'
+[Unit]
+Description=Expire temporary statement worker
+[Timer]
+OnBootSec=175min
+Unit=noema-expiry.service
+[Install]
+WantedBy=timers.target
+TMR
+systemctl daemon-reload
+systemctl enable --now noema-expiry.timer
+
+finish() {
+  rc=$?
+  set +e
+  echo "FINISH rc=$rc $(date -u +%FT%TZ)"
+  [ -f "$OUT" ] && gzip -9 -f "$OUT"
+  cp "$LOG" /opt/noema/out/worker.log 2>/dev/null
+  ( cd /opt/noema/out && sha256sum ./* > /tmp/SHA256SUMS && mv /tmp/SHA256SUMS SHA256SUMS )
+  tar czf /tmp/result.tar.gz -C /opt noema/out
+  for i in 1 2 3 4 5; do
+    /opt/nvenv/bin/aws s3 cp /tmp/result.tar.gz \
+      "s3://$BKT/results/$RNAME/result.tar.gz" --region us-east-2 && break || sleep 20
+  done
+  /usr/sbin/shutdown -h now
+  exit $rc
+}
+trap finish EXIT
+set -e
+
+export DEBIAN_FRONTEND=noninteractive
+for i in $(seq 1 12); do apt-get update -qq && break || sleep 30; done
+apt-get install -y -qq python3-venv curl git zstd
+python3 -m venv /opt/nvenv
+/opt/nvenv/bin/pip -q install awscli
+mkdir -p /opt/noema/out /opt/work
+cd /opt/work
+
+curl --fail --location --retry 3 \
+  "https://github.com/leanprover/lean4/releases/download/$LEANV/lean-${LEANV#v}-linux.tar.zst" \
+  -o lean.tar.zst
+tar --zstd -xf lean.tar.zst
+export PATH="$PWD/lean-${LEANV#v}-linux/bin:$PATH"
+lean --version
+
+mkdir -p mathlib && cd mathlib
+git init -q
+git remote add origin https://github.com/leanprover-community/mathlib4
+git fetch -q --depth 1 origin "$REV"
+git checkout -q FETCH_HEAD
+cd ..
+test "$(git -C mathlib rev-parse HEAD)" = "$REV"
+(cd mathlib && lake exe cache get)
+echo "oleans: $(find mathlib/.lake/build/lib -name '*.olean' | wc -l)"
+
+/opt/nvenv/bin/aws s3 cp "s3://$BKT/$RNAME-task.tar.gz" /tmp/task.tar.gz --region us-east-2
+tar xzf /tmp/task.tar.gz -C /opt/noema
+echo "names: $(wc -l < /opt/noema/draw/names.txt) modules: $(wc -l < /opt/noema/draw/modules.txt)"
+
+echo "STAGE print $(date -u +%FT%TZ)"
+(cd mathlib && lake env lean --run /opt/noema/Statements2026.lean \
+   /opt/noema/draw/modules.txt /opt/noema/draw/names.txt "$OUT")
+echo "printed: $(wc -l < "$OUT") lines, $(grep -c '"missing"' "$OUT" || true) missing"
+echo "JOB DONE $(date -u +%FT%TZ)"

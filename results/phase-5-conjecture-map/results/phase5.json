@@ -1,0 +1,294 @@
+{
+  "k": 50,
+  "boot": 2000,
+  "seed": 20260927,
+  "connectors_encoded": 10368,
+  "connectors_dropped": 0,
+  "H1": {
+    "bridges": 3840,
+    "within": 5358,
+    "auc": 0.5675634953962921,
+    "ci95": [
+      0.5454156921607557,
+      0.5904429667641736
+    ],
+    "verdict": "real but weak"
+  },
+  "H2": {
+    "auc_M": 0.5675634953962921,
+    "auc_M_V": 0.5896033579071793,
+    "difference": -0.022039862510887187,
+    "ci95": [
+      -0.03680976910269503,
+      -0.007593809092813567
+    ],
+    "verdict": "words do better"
+  },
+  "reported_on_H1_labels": {
+    "auc_M_V": {
+      "auc": 0.5896033579071793,
+      "ci95": [
+        0.5667929146739493,
+        0.6128693093548319
+      ]
+    },
+    "auc_D": {
+      "auc": 0.3938371457788976,
+      "ci95": [
+        0.37205860584538514,
+        0.4155943132565874
+      ]
+    },
+    "auc_cited_count": {
+      "auc": 0.6888173204787233,
+      "ci95": [
+        0.673872651313698,
+        0.7034987923057316
+      ]
+    }
+  },
+  "H3": {
+    "hard_bridges": 743,
+    "within": 5358,
+    "auc": 0.5813865833507913,
+    "ci95": [
+      0.54809615871693,
+      0.6142037267209999
+    ],
+    "verdict": "real but weak"
+  },
+  "H1_by_cited_count": {
+    "2": {
+      "bridges": 1311,
+      "within": 3472,
+      "auc_M": 0.5333231395459195
+    },
+    "3-5": {
+      "bridges": 1891,
+      "within": 1740,
+      "auc_M": 0.6019785189372527
+    },
+    "6+": {
+      "bridges": 638,
+      "within": 146,
+      "auc_M": 0.6055900287714175
+    }
+  },
+  "bridge_share_by_M_bin": [
+    {
+      "M_from": 0.0,
+      "M_to": 0.040000000000000036,
+      "connectors": 2499,
+      "bridge_share": 0.31772709083633455
+    },
+    {
+      "M_from": 0.040000000000000036,
+      "M_to": 0.12,
+      "connectors": 1074,
+      "bridge_share": 0.4031657355679702
+    },
+    {
+      "M_from": 0.12,
+      "M_to": 0.19999999999999996,
+      "connectors": 860,
+      "bridge_share": 0.41511627906976745
+    },
+    {
+      "M_from": 0.19999999999999996,
+      "M_to": 0.30000000000000004,
+      "connectors": 967,
+      "bridge_share": 0.4860392967942089
+    },
+    {
+      "M_from": 0.30000000000000004,
+      "M_to": 0.4,
+      "connectors": 966,
+      "bridge_share": 0.484472049689441
+    },
+    {
+      "M_from": 0.4,
+      "M_to": 0.48,
+      "connectors": 827,
+      "bridge_share": 0.4788391777509069
+    },
+    {
+      "M_from": 0.48,
+      "M_to": 0.5800000000000001,
+      "connectors": 1010,
+      "bridge_share": 0.48118811881188117
+    },
+    {
+      "M_from": 0.5800000000000001,
+      "M_to": 0.84,
+      "connectors": 995,
+      "bridge_share": 0.4381909547738693
+    }
+  ],
+  "top_bridges": [
+    {
+      "name": "CategoryTheory.Abelian.SpectralObject.spectralSequenceHomologyData_right_homologyIso_eq_left_homologyIso",
+      "M": 0.8200000000000001,
+      "pairs": [
+        [
+          "CategoryTheory.Category.comp_id",
+          "CategoryTheory.CategoryWithHomology.hasHomology"
+        ],
+        [
+          "CategoryTheory.Category.comp_id",
+          "CategoryTheory.ShortComplex.HomologyData.right_homologyIso_eq_left_homologyIso_trans_iso"
+        ],
+        [
+          "CategoryTheory.CategoryWithHomology.hasHomology",
+          "CategoryTheory.ShortComplex.HomologyData.right_homologyIso_eq_left_homologyIso_trans_iso"
+        ]
+      ]
+    },
+    {
+      "name": "AlgebraicGeometry.instFinitaryExtensiveScheme",
+      "M": 0.8200000000000001,
+      "pairs": [
+        [
+          "CategoryTheory.IsPullback.flip",
+          "IsCompl.map"
+        ]
+      ]
+    },
+    {
+      "name": "Real.continuous_ofDigits",
+      "M": 0.8,
+      "pairs": [
+        [
+          "Nat.cast_one",
+          "Nat.cast_zero"
+        ],
+        [
+          "Nat.cast_one",
+          "continuous_apply"
+        ],
+        [
+          "Nat.cast_one",
+          "continuous_of_discreteTopology"
+        ]
+      ]
+    },
+    {
+      "name": "Nat.le_nth_of_monotoneOn_of_surjOn",
+      "M": 0.8,
+      "pairs": [
+        [
+          "MonotoneOn.reflect_lt",
+          "Nat.succ_le_iff"
+        ],
+        [
+          "MonotoneOn.reflect_lt",
+          "le_csInf"
+        ],
+        [
+          "Nat.succ_le_iff",
+          "le_csInf"
+        ]
+      ]
+    },
+    {
+      "name": "Nat.nth_le_of_strictMonoOn_of_mapsTo",
+      "M": 0.8,
+      "pairs": [
+        [
+          "List.getD_eq_default",
+          "csInf_le"
+        ]
+      ]
+    },
+    {
+      "name": "Chebyshev.psi_eq_sum_mul_log_prime",
+      "M": 0.8,
+      "pairs": [
+        [
+          "Finset.sum_biUnion",
+          "Finset.sum_congr"
+        ],
+        [
+          "Finset.sum_biUnion",
+          "Finset.sum_const"
+        ],
+        [
+          "Finset.sum_biUnion",
+          "Finset.sum_image"
+        ]
+      ]
+    },
+    {
+      "name": "UpperHalfPlane.IsZeroAtImInfty.petersson_exp_decay_left",
+      "M": 0.8,
+      "pairs": [
+        [
+          "Complex.norm_real",
+          "Real.norm_of_nonneg"
+        ],
+        [
+          "Complex.norm_real",
+          "Real.rpow_intCast"
+        ],
+        [
+          "Complex.norm_real",
+          "UpperHalfPlane.im_pos"
+        ]
+      ]
+    },
+    {
+      "name": "Nat.instWfDvdMonoid",
+      "M": 0.8,
+      "pairs": [
+        [
+          "Nat.cast_add",
+          "dvd_and_not_dvd_iff"
+        ],
+        [
+          "Nat.cast_one",
+          "dvd_and_not_dvd_iff"
+        ]
+      ]
+    },
+    {
+      "name": "MeasureTheory.Measure.pi.isFiniteMeasureOnCompacts",
+      "M": 0.78,
+      "pairs": [
+        [
+          "MeasureTheory.measure_mono",
+          "continuous_apply"
+        ]
+      ]
+    },
+    {
+      "name": "ArithmeticFunction.vonMangoldt.LSeries_residueClass_lower_bound",
+      "M": 0.78,
+      "pairs": [
+        [
+          "Complex.continuous_ofReal",
+          "Complex.continuous_re"
+        ],
+        [
+          "Complex.continuous_ofReal",
+          "Complex.ofReal_cpow"
+        ],
+        [
+          "Complex.continuous_ofReal",
+          "Complex.ofReal_tsum"
+        ]
+      ]
+    }
+  ],
+  "density_connectors_vs_sample": {
+    "connectors": 10368,
+    "sample": 10000,
+    "auc_D": 0.5335787760416667
+  },
+  "printer_drift": {
+    "survivors": 21073,
+    "angle_2024_vs_2026_print_deg": {
+      "median": 0.19382664561271667,
+      "p90": 22.58957862854004
+    },
+    "H1_auc_on_2026_printed_map": 0.6003177929031355
+  }
+}

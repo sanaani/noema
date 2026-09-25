@@ -23,6 +23,7 @@ that the map is measuring something real.
 | [Unseeded corpus](results/phase-2-dependency-labels/unseeded-corpus-v1/README.md) | does it survive a corpus drawn by seed instead of by hand? | 5,200 positives; angle **AUC 0.709**, cluster null 0.500 ± 0.017 |
 | [Doubled corpus](results/phase-3-doubled-corpus/README.md) | on pairs sharing no area and under 5% vocabulary, is the angle above chance? | pre-registered: AUC **0.561**, **3.9 σ**; fresh pairs alone 3.6 σ |
 | [Trained encoder](results/phase-4-trained-encoder/README.md) | is ReProver the bottleneck? a proof-state encoder trained on Mathlib, same pairs | pre-registered: hard-subset AUC **0.692** vs 0.598, **+0.095** [+0.044, +0.145]; but ReProver's top 100k holds 3× more hits |
+| [Conjecture map](results/phase-5-conjecture-map/README.md) | does the 2024 map know where a new cross-area theorem will land? | pre-registered: AUC **0.568** [0.545, 0.590], real but weak; **word overlap does better** (−0.022) |
 
 1,797 Mathlib theorems, 99,275 captured proof states, 23,874 unique state texts,
 encoded with the pinned ReProver ByT5 retriever. The corpus was built by
@@ -244,6 +245,8 @@ results/                 findings and precompiled data, grouped by research phas
                          hard subset at 3.9 sigma, pre-registered before capture
   phase-4-trained-encoder/  a self-supervised encoder trained on the corpus's own
                          2024 texts beats ReProver's AUC by 0.09 on the hard subset
+  phase-5-conjecture-map/  can the 2024 map place future bridging theorems? weakly
+                         (0.568), and word overlap places them better
 viewer/    the centroid cloud flattened onto a globe two ways, with the figures that
            say how much each flattening lies; built by scripts/project-centroids-sphere.py
 scripts/   the pipeline, in order: scan -> filter -> select -> capture -> encode -> analyse
