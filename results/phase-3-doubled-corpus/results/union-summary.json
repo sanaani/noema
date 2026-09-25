@@ -1,0 +1,15 @@
+{
+  "theorems": 24916,
+  "from_base": 11346,
+  "from_add": 13570,
+  "generated_dropped": 143,
+  "observed": 10211,
+  "synthetic": 14705,
+  "texts": 88498,
+  "texts_already_encoded": 37242,
+  "texts_to_encode": 51256,
+  "statements": 10211,
+  "statements_missing_goal": 0,
+  "statements_over_max_bytes": 0,
+  "max_bytes": 8192
+}

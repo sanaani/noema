@@ -1,0 +1,14 @@
+2024 theorems 206,889 | 2026 theorems 281,359
+new since 2024                      : 148,911
+connectors (new, cite >=2 corpus)   : 10,368
+distinct corpus pairs connected      : 26,620
+corpus theorems appearing as endpoint: 4,841
+    1265  CategoryTheory.Category.assoc
+    1111  CategoryTheory.Category.comp_id
+    1084  CategoryTheory.Category.id_comp
+    1049  Nat.cast_one
+    1047  Finset.sum_congr
+
+wrote outputs/phase-3-doubled-corpus/union/new-connectors.json
+eligibility (no shared rare lemma in 2024) is applied by the analysis scripts,
+so the positive count they report will be lower than the pair count above.

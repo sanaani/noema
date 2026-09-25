@@ -1,0 +1,13 @@
+{
+  "records": 13570,
+  "observed": 5514,
+  "synthetic": 8056,
+  "states": 168594,
+  "files": 334,
+  "requested_files": 350,
+  "no_range_names": 652,
+  "failures": 0,
+  "timeouts": 0,
+  "instance": "m6i.4xlarge",
+  "wall_minutes_boot_to_done": 22
+}

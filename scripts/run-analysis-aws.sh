@@ -20,6 +20,8 @@ BUCKET=noema-structural-gpu-159976616274-20260917t220221z
 INSTANCE_TYPE=m6i.4xlarge
 AMI=ami-00adec9774170bad2                 # Ubuntu 24.04, us-east-2
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
+# Phase 3 overrides this.
+OUTROOT="${OUTROOT:-$REPO/outputs/phase-2-dependency-labels}"
 
 launch() {
   local vectors=${1:?path to reprover-embeddings.npz}
@@ -27,7 +29,7 @@ launch() {
   local run ts
   ts=$(date -u +%Y%m%d-%H%M%S)
   run="noema-analysis-$ts"
-  local out="$REPO/outputs/phase-2-dependency-labels/$run"
+  local out="$OUTROOT/$run"
   mkdir -p "$out/task/noema/in"
 
   echo "== packaging the task"
@@ -114,7 +116,7 @@ JSON
 }
 
 watch_run() {
-  local run=$1 out="$REPO/outputs/phase-2-dependency-labels/$1"
+  local run=$1 out="$OUTROOT/$1"
   local id; id=$(cat "$out/instance-id")
   echo "instance state : $(aws ec2 describe-instances --region "$REGION" --instance-ids "$id" \
         --query 'Reservations[0].Instances[0].State.Name' --output text 2>/dev/null || echo gone)"
@@ -127,14 +129,14 @@ watch_run() {
 }
 
 fetch() {
-  local run=$1 out="$REPO/outputs/phase-2-dependency-labels/$1"
+  local run=$1 out="$OUTROOT/$1"
   aws s3 cp "s3://$BUCKET/results/$run/result.tar.gz" "$out/result.tar.gz" --region "$REGION"
   tar xzf "$out/result.tar.gz" -C "$out"
   find "$out/noema/out" -type f | sed 's/^/  /'
 }
 
 teardown() {
-  local run=$1 out="$REPO/outputs/phase-2-dependency-labels/$1"
+  local run=$1 out="$OUTROOT/$1"
   local id sg
   id=$(cat "$out/instance-id" 2>/dev/null || true)
   sg=$(cat "$out/security-group-id" 2>/dev/null || true)

@@ -32,13 +32,15 @@ AMI=ami-00adec9774170bad2                 # Ubuntu 24.04, us-east-2
 PROBE_FILES=18
 MAX_REPLAY_HOURS=3.0
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
-CORPUS="$REPO/results/phase-2-dependency-labels/unseeded-corpus-v1"
+# CORPUS and OUTROOT default to phase 2; phase 3 overrides both.
+CORPUS="${CORPUS:-$REPO/results/phase-2-dependency-labels/unseeded-corpus-v1}"
+OUTROOT="${OUTROOT:-$REPO/outputs/phase-2-dependency-labels}"
 
 launch() {
   local run ts
   ts=$(date -u +%Y%m%d-%H%M%S)
   run="noema-capture-$ts"
-  local out="$REPO/outputs/phase-2-dependency-labels/$run"
+  local out="$OUTROOT/$run"
   mkdir -p "$out/task/corpus" "$out/task/scripts" "$out/task/state-object-patches"
 
   echo "== packaging the task"
@@ -127,7 +129,7 @@ JSON
 }
 
 watch_run() {
-  local run=$1 out="$REPO/outputs/phase-2-dependency-labels/$1"
+  local run=$1 out="$OUTROOT/$1"
   local id; id=$(cat "$out/instance-id")
   echo "instance state : $(aws ec2 describe-instances --region "$REGION" --instance-ids "$id" \
         --query 'Reservations[0].Instances[0].State.Name' --output text 2>/dev/null || echo gone)"
@@ -142,13 +144,13 @@ watch_run() {
 # The measurement, pulled out on its own: this is what decides whether the run
 # continues, so it should be readable without unpacking a tarball.
 probe_report() {
-  local run=$1 out="$REPO/outputs/phase-2-dependency-labels/$1"
+  local run=$1 out="$OUTROOT/$1"
   aws s3 cp "s3://$BUCKET/results/$run/probe.tar.gz" "$out/probe.tar.gz" --region "$REGION"
   tar xOzf "$out/probe.tar.gz" noema/out/probe-report.json
 }
 
 shell_run() {
-  local run=$1 out="$REPO/outputs/phase-2-dependency-labels/$1"
+  local run=$1 out="$OUTROOT/$1"
   local id ping; id=$(cat "$out/instance-id")
   ping=$(aws ssm describe-instance-information --region "$REGION" \
     --filters "Key=InstanceIds,Values=$id" \
@@ -161,14 +163,14 @@ shell_run() {
 }
 
 fetch() {
-  local run=$1 out="$REPO/outputs/phase-2-dependency-labels/$1"
+  local run=$1 out="$OUTROOT/$1"
   aws s3 cp "s3://$BUCKET/results/$run/result.tar.gz" "$out/result.tar.gz" --region "$REGION"
   tar xzf "$out/result.tar.gz" -C "$out"
   find "$out/noema/out" -maxdepth 1 -type f | sed 's/^/  /'
 }
 
 teardown() {
-  local run=$1 out="$REPO/outputs/phase-2-dependency-labels/$1"
+  local run=$1 out="$OUTROOT/$1"
   local id sg
   id=$(cat "$out/instance-id" 2>/dev/null || true)
   sg=$(cat "$out/security-group-id" 2>/dev/null || true)

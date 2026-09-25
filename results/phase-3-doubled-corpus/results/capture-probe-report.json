@@ -1,0 +1,19 @@
+{
+  "probe_files": 18,
+  "probe_seconds": 388,
+  "wall_seconds_per_file": 21.6,
+  "proofs": 1131,
+  "status": {
+    "verified_no_states": 736,
+    "complete": 395
+  },
+  "complete_fraction": 0.349,
+  "states": 11504,
+  "unique_texts": 2292,
+  "states_per_proof": 10.2,
+  "remaining_files": 316,
+  "projected_remaining_hours": 1.89,
+  "budget_hours": 3.0,
+  "proceed": true,
+  "mem_available_low_gb": 54.9
+}
