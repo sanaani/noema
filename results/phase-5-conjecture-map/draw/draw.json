@@ -1,0 +1,16 @@
+{
+  "seed": 20260927,
+  "connectors": 10368,
+  "classes": {
+    "bridge": 3840,
+    "within": 5358,
+    "excluded": 1170,
+    "hard bridge": 743
+  },
+  "new_2026_theorems_citing_no_corpus_theorem": 121177,
+  "sample": 10000,
+  "corpus_theorems": 24916,
+  "corpus_survivors_2026": 21073,
+  "names_to_print": 41441,
+  "modules": 5340
+}
