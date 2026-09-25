@@ -155,3 +155,141 @@ One GPU worker (g6e.xlarge or the next type with capacity), self-terminating,
 tokenizer + two trainings + embedding, estimated under an hour: ~$2–5. Ceiling
 $15. The IAM role, security group, instance and task object are torn down
 after, and the teardown is verified.
+
+## Results
+
+**H1: the encoder was the bottleneck.** On the hard subset, a proof-state
+encoder trained on Mathlib alone ranks the 2,284 connections at kind-aware
+AUC **0.692**, against ReProver's 0.598: **+0.095, 95% interval +0.044 to
++0.145**. Replicated on fresh pairs (+0.094). B is above chance on its own at
+**8.3 σ**, against ReProver's 3.9. But the gain is in the body of the ranking,
+not its top: among the closest 100,000 hard pairs ReProver finds 61 true
+connections and B 19. Both are true, and the second decides what B is good for.
+
+### What was run
+
+- **Training:** one g6e.xlarge (L40S), 15 minutes of training
+  (`results/training-report.json`), from the committed inputs
+  (`results/inputs-manifest.json`, checked by digest on the worker). One run per
+  encoder, no divergence, no rerun, last epoch kept. Cost about $0.70. The
+  role, security group, instance and task object were torn down and the
+  teardown verified; no noema instance, role or security group remains.
+- **Scoring:** `scripts/analyze-phase3.py` on B's vectors (H2 and the reported
+  cells); on A's centroids with C's vectors in the statement slot (H3);
+  `scripts/analyze-phase4.py control` and `compare` (the positive control, H1,
+  R1). Run with ReProver in both slots, `compare` returns phase 3's figures
+  exactly (0.5612, 0.5977, 0.5638), and the second `analyze-phase3.py` run
+  reproduces phase 3's H1 z of 3.90.
+- **Deviations from the plan:** none.
+
+### Checks before the result was read
+
+| check | B | C | bar |
+|---|---:|---:|---|
+| held-out masked-token loss, last epoch | 0.311 | 2.667 | below unigram |
+| unigram frequency predictor, same positions | 5.218 | 3.083 | |
+| k-NN anomaly AUC, distance-2 classical vs constructive | 0.758 | **0.722** | C ≥ 0.65 |
+
+Both encoders trained; C reproduces the paper's direction on the 1,423
+labelled theorems it shares with the corpus. ReProver scores 0.804 on the same
+control — higher than either trained encoder, a reminder that this control
+does not separate proof structure from topic here, as the paper's own
+controls did. 1.9% of texts exceeded B's 512-token window and were truncated.
+
+### H1 — B against A on the hard subset
+
+| | positives | A | B | B − A | 95% interval |
+|---|---:|---:|---:|---:|---|
+| **kind-aware (pre-registered)** | 2,284 | 0.598 | **0.692** | **+0.095** | +0.044 – +0.145 |
+| plain angle | 2,284 | 0.561 | 0.654 | +0.093 | +0.045 – +0.141 |
+| R1, fresh pairs, kind-aware | 1,883 | 0.598 | 0.693 | +0.094 | +0.042 – +0.144 |
+
+Verdict by the table fixed in advance: difference ≥ +0.05 with the interval
+above zero — **the encoder was the bottleneck.** The prediction (−0.03 to
++0.05, "not the bottleneck") was wrong.
+
+B is better in every cell, not in one: full set 0.722 against 0.675,
+cross-area 0.634 against 0.580, vocabulary < 5% 0.675 against 0.582, and on
+the hard subset in every pair kind (OO 0.675 against 0.603, OS 0.675 against
+0.596, SS 0.728 against 0.599) (`results/b-phase3.txt`,
+`../phase-3-doubled-corpus/results/phase3.txt`).
+
+### H2 — B above chance on its own
+
+Hard-subset AUC 0.654 plain, 0.692 kind-aware. Cluster null, smaller z of the
+two designs: **8.3 σ** plain (permutation; substitution 13.4), **10.6 σ**
+kind-aware. Supported. Fresh pairs alone: 0.654, 8.2 σ.
+
+### H3 — C, proof style only, against A
+
+On the 309 observed–observed hard-subset positives: C 0.665, A 0.603,
+C − A +0.062, interval −0.055 to +0.143. **Inconclusive.** On all
+observed–observed pairs (2,595 positives) A is better, 0.715 against 0.629
+(interval for A − C +0.014 to +0.168): the sequence of tactic names alone
+knows less than the proof states about which theorems connect overall, and
+whether it knows more on the hard pairs this sample cannot say.
+
+### The top of the ranking (exploratory)
+
+Run after the results above were read (`scripts/topk-phase4.py`,
+`results/topk.txt`). Hard subset, true connections among the k closest pairs:
+
+| k | chance | A plain | B plain | A kind-aware | B kind-aware |
+|---:|---:|---:|---:|---:|---:|
+| 10,000 | 0.4 | 8 | 2 | **16** | 4 |
+| 100,000 | 4 | 26 | 8 | **61** | 19 |
+| 1,000,000 | 40 | 79 | 80 | **238** | 163 |
+| 5,000,000 | 198 | 293 | 367 | 542 | **601** |
+
+AUC averages over the whole ranking; a tool reads the top. ReProver's closest
+pairs are three times richer than B's; B overtakes it only past a million
+pairs, and wins the AUC by ordering the long middle better. So B is the better
+*instrument* — it measures the relation more faithfully across all pairs —
+and ReProver is the better *finder*. They are plainly seeing different things,
+which is the case for combining them.
+
+### Reported, not tested
+
+- **Statement against proof states, under B:** on observed–observed pairs B's
+  statement vector beats B's proof-state centroid, 0.812 against 0.766 overall
+  (interval for proof − statement −0.066 to −0.024) and 0.738 against 0.675 on
+  the hard part (−0.134 to −0.001). Under ReProver phase 3 found no
+  difference. With an encoder trained on Mathlib, the statement is the better
+  object; the premise that the proof's trajectory adds something is now
+  contradicted on these pairs, not just unsupported.
+- **Calibration under B** (`results/calibration-b.txt`): B's angles are
+  compressed (most pairs sit at 55–75°), so phase 2's degree bands do not
+  transfer; the curve is monotone, and in the three nearest bands the fresh
+  pairs' counts are 74–85% of the prediction, against about half under
+  ReProver.
+
+### What this establishes
+
+- **The instrument was holding the project back.** A small encoder trained in
+  15 minutes on the corpus's own 2024 texts, with no label, lifts the
+  hard-subset AUC by 0.09, beyond its interval, on fresh pairs too.
+- **The statement carries more than the proof states** under the encoder
+  that sees the signal best.
+- **Better AUC is not a better short list.** For finding bridges the top of
+  the ranking matters, and there ReProver still leads.
+
+### What it does not establish
+
+- That B's architecture or settings are good ones: they were fixed, not
+  searched. The gain is a floor for what a trained encoder can do.
+- Anything about discovery. Every positive is a connection people made.
+
+### Files added
+
+| file | what it is |
+|---|---|
+| `results/compare.json` | H1 and R1 |
+| `results/b-phase3.json`, `.txt` | H2, every cell, top-k and H3-under-B, for B |
+| `results/ac-phase3.json`, `.txt` | H3 (C in the statement slot) and A re-run |
+| `results/control.json` | the positive control |
+| `results/training-report.json`, `SHA256SUMS`, `inputs-manifest.json`, `c-vocab.json` | the training run |
+| `results/calibration-b.json`, `.txt`, `topk.json`, `.txt` | exploratory |
+
+B's per-text vectors (2.6 GB with their texts), model weights and centroids are in
+`outputs/phase-4-trained-encoder/`, not committed, and are rebuilt by
+`scripts/run-train-aws.sh` then `scripts/analyze-phase4.py prepare`.

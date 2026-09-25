@@ -22,6 +22,7 @@ that the map is measuring something real.
 | [Exact label](results/phase-2-dependency-labels/link-graph-2026-v1/README.md) | does the forward test survive asking Lean, not grep, who cites whom? | 53 positives instead of 17; angle **AUC 0.898** |
 | [Unseeded corpus](results/phase-2-dependency-labels/unseeded-corpus-v1/README.md) | does it survive a corpus drawn by seed instead of by hand? | 5,200 positives; angle **AUC 0.709**, cluster null 0.500 ± 0.017 |
 | [Doubled corpus](results/phase-3-doubled-corpus/README.md) | on pairs sharing no area and under 5% vocabulary, is the angle above chance? | pre-registered: AUC **0.561**, **3.9 σ**; fresh pairs alone 3.6 σ |
+| [Trained encoder](results/phase-4-trained-encoder/README.md) | is ReProver the bottleneck? a proof-state encoder trained on Mathlib, same pairs | pre-registered: hard-subset AUC **0.692** vs 0.598, **+0.095** [+0.044, +0.145]; but ReProver's top 100k holds 3× more hits |
 
 1,797 Mathlib theorems, 99,275 captured proof states, 23,874 unique state texts,
 encoded with the pinned ReProver ByT5 retriever. The corpus was built by
@@ -64,6 +65,14 @@ more conservative cluster null, and 3.6 σ on pairs no earlier phase had seen.
 It is real and small: 0.60 with kind-aware ranking, about one true connection
 per thousand among the closest candidates. Proof states against statements is
 still undecided.
+
+**Phase 4 changed the instrument.** A small Transformer trained for 15 minutes,
+with no label, on the same 2024 proof-state texts ReProver read lifts the
+hard-subset AUC from 0.598 to 0.692 (+0.095, interval +0.044 to +0.145, fresh
+pairs +0.094), at 8.3 σ on its own against ReProver's 3.9. Under it the
+statement beats the proof states. But ReProver's closest hard pairs remain
+three times richer in true connections: the trained encoder orders the whole
+ranking better, ReProver's short list is better.
 
 **Betweenness is the load-bearing one.** The replication shares a confound with
 its own target: proof size alone predicts "these two proofs share a rare lemma"
@@ -233,6 +242,8 @@ results/                 findings and precompiled data, grouped by research phas
                          the residual and state-source tests; every capture artifact
   phase-3-doubled-corpus/  CLOSED. 24,916 theorems, 23,583 positives; settles the
                          hard subset at 3.9 sigma, pre-registered before capture
+  phase-4-trained-encoder/  a self-supervised encoder trained on the corpus's own
+                         2024 texts beats ReProver's AUC by 0.09 on the hard subset
 viewer/    the centroid cloud flattened onto a globe two ways, with the figures that
            say how much each flattening lies; built by scripts/project-centroids-sphere.py
 scripts/   the pipeline, in order: scan -> filter -> select -> capture -> encode -> analyse

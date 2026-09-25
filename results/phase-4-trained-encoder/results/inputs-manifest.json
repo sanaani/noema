@@ -1,0 +1,73 @@
+{
+  "texts": 88498,
+  "texts_sha256": "2fd24b1ac9808dcde3ddb2e017d9e328d07884fcc5ad8d9fb40be15cbccdc782",
+  "observed_theorems": 10211,
+  "theorems_without_heads": 170,
+  "heads_median": 2,
+  "heads_over_62": 5,
+  "distinct_heads": 174,
+  "distinct_heads_seen_5_or_more": 129,
+  "top_heads": [
+    [
+      "rw",
+      7561
+    ],
+    [
+      "simp",
+      6017
+    ],
+    [
+      "exact",
+      5622
+    ],
+    [
+      "refine",
+      2174
+    ],
+    [
+      "have",
+      1631
+    ],
+    [
+      "apply",
+      1546
+    ],
+    [
+      "intro",
+      1316
+    ],
+    [
+      "simpa",
+      1301
+    ],
+    [
+      "rintro",
+      873
+    ],
+    [
+      "obtain",
+      866
+    ],
+    [
+      "ext",
+      842
+    ],
+    [
+      "rcases",
+      803
+    ],
+    [
+      "simp_rw",
+      777
+    ],
+    [
+      "rfl",
+      691
+    ],
+    [
+      "rwa",
+      581
+    ]
+  ],
+  "tactic_heads_sha256": "0045755d1433430fefe0eba22c1f9d3478889e3e8a5c7f19dcbb8b5d38b00987"
+}

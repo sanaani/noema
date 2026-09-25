@@ -1,0 +1,238 @@
+{
+  "all eligible": {
+    "rows": [
+      {
+        "band": "0-30",
+        "base_pairs": 75859,
+        "base_hits": 480,
+        "lift_base": 78.05127245182611,
+        "fresh_pairs": 197665,
+        "pred_abs": 1250.7309613888926,
+        "pred_shape": 1159.3305724259048,
+        "observed": 928,
+        "ci95_cluster": [
+          752.4332627672981,
+          1140.4238353982864
+        ]
+      },
+      {
+        "band": "30-45",
+        "base_pairs": 812157,
+        "base_hits": 776,
+        "lift_base": 11.786031380253212,
+        "fresh_pairs": 3287238,
+        "pred_abs": 3140.8910937171017,
+        "pred_shape": 2911.362380893573,
+        "observed": 2158,
+        "ci95_cluster": [
+          1875.181782769909,
+          2468.000911114615
+        ]
+      },
+      {
+        "band": "45-55",
+        "base_pairs": 4007810,
+        "base_hits": 907,
+        "lift_base": 2.79155395422169,
+        "fresh_pairs": 16154422,
+        "pred_abs": 3655.8770884847336,
+        "pred_shape": 3388.714446634627,
+        "observed": 2888,
+        "ci95_cluster": [
+          2598.563721644173,
+          3200.996063905322
+        ]
+      },
+      {
+        "band": "55-65",
+        "base_pairs": 15148573,
+        "base_hits": 1425,
+        "lift_base": 1.1603499928419252,
+        "fresh_pairs": 60294582,
+        "pred_abs": 5671.806799888015,
+        "pred_shape": 5257.324897995211,
+        "observed": 5329,
+        "ci95_cluster": [
+          4964.6259386707015,
+          5733.834984257705
+        ]
+      },
+      {
+        "band": "65-75",
+        "base_pairs": 31972468,
+        "base_hits": 1419,
+        "lift_base": 0.5474596277226346,
+        "fresh_pairs": 122083686,
+        "pred_abs": 5418.310229726401,
+        "pred_shape": 5022.353243126192,
+        "observed": 6088,
+        "ci95_cluster": [
+          5603.454023823681,
+          6558.174224165005
+        ]
+      },
+      {
+        "band": "75-85",
+        "base_pairs": 11791944,
+        "base_hits": 193,
+        "lift_base": 0.2018913744286908,
+        "fresh_pairs": 42443666,
+        "pred_abs": 694.6799898303452,
+        "pred_shape": 643.91445892449,
+        "observed": 985,
+        "ci95_cluster": [
+          732.6234578485829,
+          1242.2192947914139
+        ]
+      },
+      {
+        "band": "85-95",
+        "base_pairs": 333747,
+        "base_hits": 0,
+        "lift_base": 0.0,
+        "fresh_pairs": 1147242,
+        "pred_abs": 0.0,
+        "pred_shape": 0.0,
+        "observed": 7,
+        "ci95_cluster": [
+          0.0,
+          20.899921651910567
+        ]
+      },
+      {
+        "band": "95-180",
+        "base_pairs": 433,
+        "base_hits": 0,
+        "lift_base": 0.0,
+        "fresh_pairs": 936,
+        "pred_abs": 0.0,
+        "pred_shape": 0.0,
+        "observed": 0,
+        "ci95_cluster": [
+          0.0,
+          0.0
+        ]
+      }
+    ],
+    "pred_abs_total": 19832.29616303549,
+    "observed_total": 18383
+  },
+  "cross-area AND vocab<5%": {
+    "rows": [
+      {
+        "band": "0-30",
+        "base_pairs": 18,
+        "base_hits": 0,
+        "lift_base": 0.0,
+        "fresh_pairs": 39,
+        "pred_abs": 0.0,
+        "pred_shape": 0.0,
+        "observed": 0,
+        "ci95_cluster": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "band": "30-45",
+        "base_pairs": 24691,
+        "base_hits": 0,
+        "lift_base": 0.0,
+        "fresh_pairs": 67987,
+        "pred_abs": 0.0,
+        "pred_shape": 0.0,
+        "observed": 8,
+        "ci95_cluster": [
+          0.8894665121117288,
+          19.625293466578977
+        ]
+      },
+      {
+        "band": "45-55",
+        "base_pairs": 365995,
+        "base_hits": 13,
+        "lift_base": 1.3310705803558973,
+        "fresh_pairs": 1016604,
+        "pred_abs": 36.10937854342273,
+        "pred_shape": 61.25073454499805,
+        "observed": 87,
+        "ci95_cluster": [
+          44.52963979981075,
+          144.71501190168567
+        ]
+      },
+      {
+        "band": "55-65",
+        "base_pairs": 1841987,
+        "base_hits": 106,
+        "lift_base": 2.1565135395835626,
+        "fresh_pairs": 4986588,
+        "pred_abs": 286.9609438068781,
+        "pred_shape": 486.7590997934452,
+        "observed": 407,
+        "ci95_cluster": [
+          312.1228177230832,
+          505.5140369366357
+        ]
+      },
+      {
+        "band": "65-75",
+        "base_pairs": 7464437,
+        "base_hits": 224,
+        "lift_base": 1.124563144299047,
+        "fresh_pairs": 20413323,
+        "pred_abs": 612.5826170145183,
+        "pred_shape": 1039.0966772390186,
+        "observed": 1057,
+        "ci95_cluster": [
+          938.5373783112877,
+          1160.4849911551357
+        ]
+      },
+      {
+        "band": "75-85",
+        "base_pairs": 5114060,
+        "base_hits": 58,
+        "lift_base": 0.4250059980844165,
+        "fresh_pairs": 15380907,
+        "pred_abs": 174.4392138535723,
+        "pred_shape": 295.89348842253827,
+        "observed": 317,
+        "ci95_cluster": [
+          230.51417949570214,
+          424.30825395556263
+        ]
+      },
+      {
+        "band": "85-95",
+        "base_pairs": 215649,
+        "base_hits": 0,
+        "lift_base": 0.0,
+        "fresh_pairs": 700827,
+        "pred_abs": 0.0,
+        "pred_shape": 0.0,
+        "observed": 7,
+        "ci95_cluster": [
+          0.0,
+          20.041842409811256
+        ]
+      },
+      {
+        "band": "95-180",
+        "base_pairs": 335,
+        "base_hits": 0,
+        "lift_base": 0.0,
+        "fresh_pairs": 811,
+        "pred_abs": 0.0,
+        "pred_shape": 0.0,
+        "observed": 0,
+        "ci95_cluster": [
+          0.0,
+          0.0
+        ]
+      }
+    ],
+    "pred_abs_total": 1110.0921532183913,
+    "observed_total": 1883
+  }
+}

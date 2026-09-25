@@ -5,13 +5,15 @@ Exploratory, run after phase 3's results were read; not pre-registered. Phase 2'
 pairs (base-base) give a hit rate per angle band; that rate, times the number of
 fresh pairs in each band, predicts the fresh pairs' hits. Reported literally and
 rescaled to the fresh total (shape only), with a 1,000-draw endpoint bootstrap
-interval on each observed count. Reads the walk's cached histograms.
+interval on each observed count. Reads the walk's cached histograms. Phase 4
+reuses it for its encoder B with --centroids and --hist.
 
     scripts/calibrate-phase3.py results/phase-3-doubled-corpus/results/calibration.json
 """
 
 from __future__ import annotations
 
+import argparse
 import importlib.util
 import json
 import sys
@@ -52,15 +54,20 @@ def boot_counts(ii, jj, bands, total, rng) -> np.ndarray:
 
 
 def main() -> int:
+    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawTextHelpFormatter)
+    ap.add_argument("out", type=Path)
+    ap.add_argument("--centroids", type=Path, default=UNION / "centroids.npz")
+    ap.add_argument("--hist", type=Path, default=HIST, help="the walk's cached histograms")
+    args = ap.parse_args()
     corpus = fb.load_corpus(
-        UNION / "centroids.npz",
+        args.centroids,
         UNION / "new-connectors.json",
         UNION / "states-union.jsonl.gz",
         UNION / "selection-modules.json.gz",
         a3.EDGES,
     )
     observed, fresh_add = a3.load_side(UNION / "text-index.jsonl.gz", corpus.names)
-    H = np.load(HIST)["H"]
+    H = np.load(args.hist)["H"]
     feat = a3.pair_info(corpus, observed, fresh_add, corpus.pos_i, corpus.pos_j)
     masks = fb.subset_masks(feat)
     pb = fb.bin_of(feat["angle"])
@@ -122,7 +129,7 @@ def main() -> int:
             "pred_abs_total": pred_abs.sum(),
             "observed_total": int(kf.sum()),
         }
-    Path(sys.argv[1]).write_text(json.dumps(out, indent=2, default=float) + "\n")
+    args.out.write_text(json.dumps(out, indent=2, default=float) + "\n")
     return 0
 
 
