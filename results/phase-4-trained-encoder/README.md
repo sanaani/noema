@@ -287,7 +287,7 @@ which is the case for combining them.
 | `results/b-phase3.json`, `.txt` | H2, every cell, top-k and H3-under-B, for B |
 | `results/ac-phase3.json`, `.txt` | H3 (C in the statement slot) and A re-run |
 | `results/control.json` | the positive control |
-| `results/training-report.json`, `SHA256SUMS`, `inputs-manifest.json`, `c-vocab.json` | the training run |
+| `results/training-report.json`, `worker-SHA256SUMS`, `inputs-manifest.json`, `c-vocab.json` | the training run; `worker-SHA256SUMS` is the worker's checksum of every file it wrote, most of them in `outputs/`, so CI does not verify it |
 | `results/calibration-b.json`, `.txt`, `topk.json`, `.txt` | exploratory |
 
 B's per-text vectors (2.6 GB with their texts), model weights and centroids are in
