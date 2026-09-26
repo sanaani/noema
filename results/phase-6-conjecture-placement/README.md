@@ -208,8 +208,80 @@ may rate them too, also blind.
 
 ## Results
 
-*Appended after the runs. Nothing above this line changed.* Parts 1–3 are
-added below when the 2024 statement encode finishes. Part 4 is complete.
+*Appended after the runs. Nothing above this line changed.*
+
+### Verdicts
+
+| test | pre-registered prediction | result | verdict |
+|---|---|---|---|
+| **H1** P(PRED) − P(AVG) | learned beats averaging | **+0.085** [+0.077, +0.092] | **learned placement beats averaging** |
+| **H2** P(PRED) − P(WORDS) | no measurable difference | **+0.086** [+0.077, +0.095] | **learned placement beats words** |
+| **H3** AUC(M), clean bridges vs clean within | real but weak | **0.553** [0.531, 0.574] | **real but weak** |
+| **H4** P(PRED+WORDS) − P(WORDS) | combining beats words | **+0.061** [+0.056, +0.066] | **combining beats words** |
+| **H5** pairs with a hit, TOP vs RANDOM | TOP more, not significant | 40/40 vs 40/40, p = 1 | **no measurable difference at this size** |
+
+Four of five went as predicted. H2 did not, in the direction that matters:
+the trained predictor beats word overlap, which phase 5's mixing score could
+not.
+
+### Part 1 — learned placement
+
+Numbers from `results/phase6.json` (`scripts/analyze-phase6.py`) and
+`results/training.json` (`scripts/train-phase6-predictor.py`).
+
+The predictor trained on 147,872 2024 theorems (7,542 held out, in 201
+files). Held-out loss was lowest at epoch 11 of 20 (0.1750), so that model was
+kept. It was then applied to all 10,368 connectors: median 7 cited theorems
+each, 46 capped at 64.
+
+Each connector's true 2026 statement is ranked among all 10,368 connector
+statements. P is the mean percentile (1 = always first, 0.5 = chance).
+
+| method | P | recall at 10 |
+|---|---:|---:|
+| **PRED** (trained predictor) | **0.942** [0.937, 0.946] | **23.9%** |
+| AVG (mean of cited lemmas) | 0.857 [0.847, 0.867] | 11.4% |
+| WORDS (identifier overlap) | 0.856 [0.845, 0.867] | 20.4% |
+| PRED+WORDS (mean rank) | 0.916 [0.910, 0.923] | 27.1% |
+
+In words: told only which 2024 lemmas a new theorem will use, the predictor
+puts the real statement in the top 6% of 10,368 on average, and in the top 10
+for about one theorem in four. Plain averaging and plain word overlap each
+reach the top 14%.
+
+### Part 2 — the clean bridge label
+
+32 corpus theorems are cited by more than 200 theorems in 2024 and count as
+generic. Without them: 2,327 clean bridges, 2,931 clean within-area, 5,110
+excluded (phase 5: 3,840 / 5,358 / 1,170). Removing generic endpoints drops
+about half of phase 5's labelled connectors.
+
+**H3: real but weak**, AUC(M) 0.553 [0.531, 0.574], slightly *below* phase
+5's 0.568. The generic lemmas were not hiding a signal. If anything, they were
+adding a little.
+
+Reported: on clean labels, word-overlap mixing scores 0.558 [0.537, 0.580].
+The geometry-minus-words difference is −0.006 [−0.023, +0.011], so phase 5's
+"words do better" disappears on the clean label. Citation count alone scores
+0.657 [0.637, 0.675], still above both.
+
+### Part 3 — words and geometry together
+
+**H4: combining beats words**, +0.061 [+0.056, +0.066]. Reported, not tested:
+the combination (0.916) is *below* PRED alone (0.942). Averaging in the words
+dilutes the predictor's mean rank. It does lift recall at 10, from 23.9% to
+27.1%: words rescue some cases the predictor misses.
+
+For mixing scores the combination adds nothing: AUC(M+M_V) − AUC(M_V) is
++0.003 [−0.006, +0.011] on clean labels and −0.004 [−0.012, +0.003] on phase
+5's.
+
+### Checks
+
+- On phase 5's labels, the analysis reproduces phase 5's AUC(M) (0.5676) and
+  AUC(M_V) (0.5896) exactly.
+- The GPU training curve matches the laptop's first nine epochs within 0.0001
+  (for example, epoch 9 held loss 0.1761 against 0.1760).
 
 ### Part 4 — writing theorems (pilot)
 
@@ -261,7 +333,16 @@ about the map.
 - **Encode.** The first 2024 encode was killed for lack of memory while
   saving: a fixed-width array of 206,845 texts, the longest 30,692 characters,
   needs about 25 GB. `encode-b.py --texts-json` now writes the texts to a
-  separate file. The vectors are computed exactly as before.
+  separate file. The second was killed on the longest texts. Batches are now
+  capped at 8,192 tokens, which moves a vector by at most 0.04° (checked on
+  150 long texts), and progress is checkpointed.
+- **Where it ran.** The budget planned the predictor training and the
+  analysis for the laptop. Laptop training ran at ~10 minutes an epoch and was
+  killed at epoch 9 when the session closed. Training was rerun from scratch
+  on an AWS GPU (g6e.xlarge, 28 seconds) with settings unchanged; only a CUDA
+  device option was added. The analysis ran on an AWS CPU worker (c7i.8xlarge,
+  43 seconds) after a fix for a slow file read that left the laptop run stuck
+  in its input stage. No number was computed twice with different results.
 
 ### Exploratory, not pre-registered
 
@@ -284,10 +365,33 @@ about the map.
   `smoothTransition` values is positive iff some input is. Nothing here is a
   new theorem in the mathematical sense.
 
+### What this establishes
+
+- Given the lemmas a theorem will use, a small model trained only on 2024
+  Mathlib predicts where its statement lands, far better than averaging the
+  lemmas or matching their words (H1, H2). This is the first result in the
+  project where the map clearly beats word overlap.
+- Neighbourhood mixing stays weak for finding bridge spots, with or without
+  generic lemmas (H3).
+- Writing theorems from the map's top pairs is easy but produces nothing new
+  (H5, ratings).
+
+### What it does not establish
+
+- **A conjecture tool.** The predictor needs the lemmas as input. Choosing
+  *which* lemmas to combine is the open half, and part 4 suggests the map's
+  nearest pairs are the wrong choice: they are look-alikes.
+- **The ranking pool.** The true statement is ranked only among other 2026
+  connectors, not among all possible statements.
+
 ### Cost and teardown
 
-Two m6i.4xlarge workers: the 2024 statement print (about 10 minutes) and the
-Lean checker (about 30 minutes). Both instances, their IAM roles and instance
-profiles, their security groups and their S3 task and result objects were
-deleted, and the deletion was verified. The writers and the rater ran as
-Claude Code subagents.
+Four AWS workers in all:
+- an m6i.4xlarge for the 2024 statement print (about 10 minutes);
+- an m6i.4xlarge for the Lean checker (about 30 minutes);
+- a g6e.xlarge for predictor training (about 5 minutes);
+- a c7i.8xlarge for the analysis (about 3 minutes).
+
+Every instance, IAM role, instance profile, security group, and S3 task and
+result object was deleted, and the deletion was verified. The writers and the
+rater ran as Claude Code subagents.

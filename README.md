@@ -24,6 +24,7 @@ that the map is measuring something real.
 | [Doubled corpus](results/phase-3-doubled-corpus/README.md) | on pairs sharing no area and under 5% vocabulary, is the angle above chance? | pre-registered: AUC **0.561**, **3.9 σ**; fresh pairs alone 3.6 σ |
 | [Trained encoder](results/phase-4-trained-encoder/README.md) | is ReProver the bottleneck? a proof-state encoder trained on Mathlib, same pairs | pre-registered: hard-subset AUC **0.692** vs 0.598, **+0.095** [+0.044, +0.145]; but ReProver's top 100k holds 3× more hits |
 | [Conjecture map](results/phase-5-conjecture-map/README.md) | does the 2024 map know where a new cross-area theorem will land? | pre-registered: AUC **0.568** [0.545, 0.590], real but weak; **word overlap does better** (−0.022) |
+| [Conjecture placement](results/phase-6-conjecture-placement/README.md) | given the lemmas a new theorem uses, can a model trained on 2024 place its statement? | pre-registered: top **6%** of 10,368 on average, **+0.086** over word overlap; theorems written from the map's top pairs compile but none is new |
 
 1,797 Mathlib theorems, 99,275 captured proof states, 23,874 unique state texts,
 encoded with the pinned ReProver ByT5 retriever. The corpus was built by
@@ -247,6 +248,8 @@ results/                 findings and precompiled data, grouped by research phas
                          2024 texts beats ReProver's AUC by 0.09 on the hard subset
   phase-5-conjecture-map/  can the 2024 map place future bridging theorems? weakly
                          (0.568), and word overlap places them better
+  phase-6-conjecture-placement/  a predictor trained on 2024 places new statements
+                         from their lemmas (top 6%), beating words; the writing pilot
 viewer/    the centroid cloud flattened onto a globe two ways, with the figures that
            say how much each flattening lies; built by scripts/project-centroids-sphere.py
 scripts/   the pipeline, in order: scan -> filter -> select -> capture -> encode -> analyse
