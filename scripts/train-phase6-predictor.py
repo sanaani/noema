@@ -87,7 +87,9 @@ def main() -> int:
 
     z = np.load(args.vectors)
     names = [str(n) for n in z["names"]]
-    table = torch.from_numpy(z["vectors"].astype(np.float32))
+    dev = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    print(f"device {dev}", flush=True)
+    table = torch.from_numpy(z["vectors"].astype(np.float32)).to(dev)
     row_of = {n: i for i, n in enumerate(names)}
 
     deg = np.zeros(len(names), dtype=np.int64)
@@ -114,17 +116,19 @@ def main() -> int:
     print(f"2024 statements {len(names):,} | training theorems {len(keep):,} "
           f"(held {held.sum():,} in {len(held_mods)} files)")  # fmt: skip
 
-    model = DeepSets()
+    model = DeepSets().to(dev)
+    idx_t, mask_t = torch.from_numpy(idx).to(dev), torch.from_numpy(mask).to(dev)
+    target_t = torch.from_numpy(target).to(dev)
     opt = torch.optim.AdamW(model.parameters(), lr=LR)
     tr_rows, va_rows = np.where(~held)[0], np.where(held)[0]
 
     def loss_on(rows, train):
         total = 0.0
         for a in range(0, len(rows), BATCH):
-            b = rows[a : a + BATCH]
-            x = table[torch.from_numpy(idx[b])]
-            m = torch.from_numpy(mask[b])
-            y = table[torch.from_numpy(target[b])]
+            b = torch.from_numpy(rows[a : a + BATCH]).to(dev)
+            x = table[idx_t[b]]
+            m = mask_t[b]
+            y = table[target_t[b]]
             loss = (1 - (model(x, m) * y).sum(-1)).mean()
             if train:
                 opt.zero_grad()
@@ -138,7 +142,7 @@ def main() -> int:
     state_path = args.out / "state.pt"
     curve, best, best_epoch, start = [], float("inf"), -1, 1
     if state_path.exists():
-        st = torch.load(state_path, weights_only=False)
+        st = torch.load(state_path, weights_only=False, map_location=dev)
         model.load_state_dict(st["model"])
         opt.load_state_dict(st["opt"])
         rng.bit_generator.state = st["rng"]
@@ -164,7 +168,7 @@ def main() -> int:
                    state_path)  # fmt: skip
 
     # Connectors: cited theorems that exist in 2024, same cap and order.
-    model.load_state_dict(torch.load(args.out / "predictor.pt"))
+    model.load_state_dict(torch.load(args.out / "predictor.pt", map_location=dev))
     model.eval()
     with open(LABELS) as f:
         conn = [json.loads(line)["name"] for line in f]
@@ -177,13 +181,14 @@ def main() -> int:
     csets = input_sets([deps26[c] for c in conn], row_of, deg)
     cidx, cmask = padded(csets)
     with torch.no_grad():
-        pred = model(table[torch.from_numpy(cidx)], torch.from_numpy(cmask)).numpy()
+        ci, cm = torch.from_numpy(cidx).to(dev), torch.from_numpy(cmask).to(dev)
+        pred = model(table[ci], cm).cpu().numpy()
     np.savez_compressed(
         args.out / "connector-predictions.npz",
         names=np.array(conn), pred=pred, idx=cidx, mask=cmask, vector_names=np.array(names),
     )  # fmt: skip
     summary = {
-        "seed": SEED, "cap": CAP, "epochs": EPOCHS, "chosen_epoch": best_epoch,
+        "seed": SEED, "device": str(dev), "cap": CAP, "epochs": EPOCHS, "chosen_epoch": best_epoch,
         "held_loss": best, "training_theorems": len(keep), "held_theorems": int(held.sum()),
         "held_files": len(held_mods), "connectors": len(conn),
         "connector_inputs": {
