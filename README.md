@@ -25,6 +25,7 @@ that the map is measuring something real.
 | [Trained encoder](results/phase-4-trained-encoder/README.md) | is ReProver the bottleneck? a proof-state encoder trained on Mathlib, same pairs | pre-registered: hard-subset AUC **0.692** vs 0.598, **+0.095** [+0.044, +0.145]; but ReProver's top 100k holds 3× more hits |
 | [Conjecture map](results/phase-5-conjecture-map/README.md) | does the 2024 map know where a new cross-area theorem will land? | pre-registered: AUC **0.568** [0.545, 0.590], real but weak; **word overlap does better** (−0.022) |
 | [Conjecture placement](results/phase-6-conjecture-placement/README.md) | given the lemmas a new theorem uses, can a model trained on 2024 place its statement? | pre-registered: top **6%** of 10,368 on average, **+0.086** over word overlap; theorems written from the map's top pairs compile but none is new |
+| [Lemma selection](results/phase-7-lemma-selection/README.md) | can a model trained on 2024 pick which lemmas to combine? | pre-registered: on 2026's new pairs, **popularity (AUC 0.959) beats every picker** (best 0.884), though pickers win within equal popularity; theorems from the picker's pairs are real combinations **25/40 vs random 6/40**, none worth merging |
 
 1,797 Mathlib theorems, 99,275 captured proof states, 23,874 unique state texts,
 encoded with the pinned ReProver ByT5 retriever. The corpus was built by
