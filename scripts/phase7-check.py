@@ -122,11 +122,15 @@ def main() -> int:
     ap.add_argument("--pair", type=int, required=True)
     ap.add_argument("--attempt", type=int, required=True)
     ap.add_argument("--smoke", action="store_true", help="test the checker; do not log")
+    ap.add_argument("--endpoints", nargs=2, metavar=("A", "B"), help="with --smoke: any two lemmas")
     ap.add_argument("candidate", type=Path)
     args = ap.parse_args()
 
-    pairs = {p["pair"]: p for p in map(json.loads, open(PILOT / "pairs.jsonl"))}
-    pair = pairs[args.pair]
+    if args.smoke and args.endpoints:
+        pair = {"pair": args.pair, "a": args.endpoints[0], "b": args.endpoints[1]}
+    else:
+        pairs = {p["pair"]: p for p in map(json.loads, open(PILOT / "pairs.jsonl"))}
+        pair = pairs[args.pair]
     log = PILOT / "checks.jsonl"
     used = 0
     if log.exists():
