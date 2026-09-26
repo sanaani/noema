@@ -268,7 +268,7 @@ about the map.
 - **Quality differs by arm.** Pairs whose best hit was rated at least 1: TOP
   25 of 40, RANDOM 9 of 40 (one-sided Fisher p = 0.0003). This was chosen
   after seeing the ratings. TOP pairs also share endpoints heavily
-  (`FreeRing.coe_surjective` is in eight of them, `Real.arctan_one` in four),
+  (`FreeRing.coe_surjective` is in nine of them; `Real.arctan_one` and Stirling's limit are in four each),
   so the 40 TOP pairs are far fewer than 40 independent draws. It is a lead,
   not a result.
 - **What TOP's closest pairs look like.** The highest-cosine unjoined hard
