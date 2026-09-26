@@ -130,12 +130,23 @@ def main() -> int:
                 opt.zero_grad()
                 loss.backward()
                 opt.step()
-            total += float(loss) * len(b)
+            total += float(loss.detach()) * len(b)
         return total / len(rows)
 
-    curve, best, best_epoch = [], float("inf"), -1
+    # Resumable: the full state is saved after every epoch, so a killed run
+    # continues exactly where it stopped (same model, optimizer, shuffles).
+    state_path = args.out / "state.pt"
+    curve, best, best_epoch, start = [], float("inf"), -1, 1
+    if state_path.exists():
+        st = torch.load(state_path, weights_only=False)
+        model.load_state_dict(st["model"])
+        opt.load_state_dict(st["opt"])
+        rng.bit_generator.state = st["rng"]
+        torch.set_rng_state(st["torch_rng"])
+        curve, best, best_epoch, start = st["curve"], st["best"], st["best_epoch"], st["epoch"] + 1
+        print(f"resuming after epoch {st['epoch']}", flush=True)
     t0 = time.time()
-    for epoch in range(1, EPOCHS + 1):
+    for epoch in range(start, EPOCHS + 1):
         model.train()
         tr_loss = loss_on(rng.permutation(tr_rows), True)
         model.eval()
@@ -147,6 +158,10 @@ def main() -> int:
         if va_loss < best:
             best, best_epoch = va_loss, epoch
             torch.save(model.state_dict(), args.out / "predictor.pt")
+        torch.save({"model": model.state_dict(), "opt": opt.state_dict(),
+                    "rng": rng.bit_generator.state, "torch_rng": torch.get_rng_state(),
+                    "curve": curve, "best": best, "best_epoch": best_epoch, "epoch": epoch},
+                   state_path)  # fmt: skip
 
     # Connectors: cited theorems that exist in 2024, same cap and order.
     model.load_state_dict(torch.load(args.out / "predictor.pt"))
