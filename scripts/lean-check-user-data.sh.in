@@ -4,7 +4,7 @@
 #
 # Fetches Mathlib at the pinned revision with its prebuilt oleans, installs
 # /opt/check.sh, times a bare `import Mathlib`, and waits for SSM commands
-# from scripts/pilot-check.py until the expiry timer or teardown.
+# from scripts/pilot-check.py (phase 7: phase7-check.py, phase7-fit.py) until the expiry timer or teardown.
 set -u
 LOG=/var/log/noema-leancheck.log
 exec > >(tee -a "$LOG") 2>&1
@@ -65,13 +65,14 @@ echo "oleans: $(find mathlib/.lake/build/lib -name '*.olean' | wc -l)"
 cat > /opt/check.sh <<CHK
 #!/bin/bash
 # /opt/check.sh <dir>: compile every <dir>/*.lean, in parallel.
-# main files get 600 s; exact files get 60 s plus the measured import time.
+# main files get 600 s; exact and aesop files (phase 7's rule 5) get 60 s plus
+# the measured import time.
 export PATH="$LEANBIN:\$PATH"
 cd /opt/work/mathlib
 IMPORT=\$(cat /opt/import_seconds)
 run() {
   f=\$1
-  case "\$f" in *exact*.lean) t=\$((60 + IMPORT)) ;; *) t=600 ;; esac
+  case "\$f" in *exact*.lean|*aesop*.lean) t=\$((60 + IMPORT)) ;; *) t=600 ;; esac
   timeout "\$t" lake env lean "\$f" > "\$f.out" 2>&1
   echo \$? > "\$f.rc"
 }

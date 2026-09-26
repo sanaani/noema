@@ -13,6 +13,16 @@
 #   scripts/run-lean-check-aws.sh launch
 #   scripts/run-lean-check-aws.sh watch    <run-name>
 #   scripts/run-lean-check-aws.sh teardown <run-name>
+#
+# Phase 7 (results/phase-7-lemma-selection/README.md) reuses this worker, set
+# by two environment variables; unset, everything is as phase 6 ran it:
+#
+#   NOEMA_PHASE=phase-7-lemma-selection   run artifacts under outputs/<phase>/
+#   NOEMA_LEAN=2024                       Mathlib f0957a7 with Lean v4.9.0 (the
+#                                         2024 graph's pin) instead of 09712d48,
+#                                         for part 1's fit check
+#
+# scripts/phase7-check.py and scripts/phase7-fit.py talk to it over SSM.
 set -euo pipefail
 
 REGION=us-east-2
@@ -21,13 +31,20 @@ INSTANCE_TYPE=m6i.4xlarge
 AMI=ami-00adec9774170bad2                 # Ubuntu 24.04, us-east-2
 MATHLIB_REV=09712d488fdbecc0b1d9248a283cf2aa31081b55
 LEAN_VERSION=v4.35.0-rc2
+PREFIX=noema-leancheck
+if [ "${NOEMA_LEAN:-2026}" = 2024 ]; then
+  MATHLIB_REV=f0957a7575317490107578ebaee9efaf8e62a4ab
+  LEAN_VERSION=v4.9.0
+  PREFIX=noema-leancheck24
+fi
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
+OUTROOT="$REPO/outputs/${NOEMA_PHASE:-phase-6-conjecture-placement}"
 
 launch() {
   local run ts
   ts=$(date -u +%Y%m%d-%H%M%S)
-  run="noema-leancheck-$ts"
-  local out="$REPO/outputs/phase-6-conjecture-placement/$run"
+  run="$PREFIX-$ts"
+  local out="$OUTROOT/$run"
   mkdir -p "$out"
 
   echo "== IAM role, scoped to this run's two keys"
@@ -102,7 +119,7 @@ JSON
 }
 
 watch_run() {
-  local run=$1 out="$REPO/outputs/phase-6-conjecture-placement/$1"
+  local run=$1 out="$OUTROOT/$1"
   local id; id=$(cat "$out/instance-id")
   echo "instance state : $(aws ec2 describe-instances --region "$REGION" --instance-ids "$id" \
         --query 'Reservations[0].Instances[0].State.Name' --output text 2>/dev/null || echo gone)"
@@ -110,7 +127,7 @@ watch_run() {
 }
 
 shell_run() {
-  local run=$1 out="$REPO/outputs/phase-6-conjecture-placement/$1"
+  local run=$1 out="$OUTROOT/$1"
   local id; id=$(cat "$out/instance-id")
   local ping
   ping=$(aws ssm describe-instance-information --region "$REGION" \
@@ -125,7 +142,7 @@ shell_run() {
 }
 
 teardown() {
-  local run=$1 out="$REPO/outputs/phase-6-conjecture-placement/$1"
+  local run=$1 out="$OUTROOT/$1"
   local id sg
   id=$(cat "$out/instance-id" 2>/dev/null || true)
   sg=$(cat "$out/security-group-id" 2>/dev/null || true)
@@ -148,5 +165,5 @@ case "${1:-}" in
   watch)    watch_run "${2:?run name}" ;;
   shell)    shell_run "${2:?run name}" ;;
   teardown) teardown "${2:?run name}" ;;
-  *) sed -n '2,15p' "$0"; exit 2 ;;
+  *) sed -n '2,26p' "$0"; exit 2 ;;
 esac

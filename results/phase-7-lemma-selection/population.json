@@ -1,0 +1,17 @@
+{
+  "seed_note": "no randomness; the population is fixed by the rules alone",
+  "corpus": 24916,
+  "placeable_endpoints": 24916,
+  "generic_endpoints": 32,
+  "absent_2026_endpoints": 3843,
+  "hard": 57594258,
+  "hard_cocited_2024": 4367,
+  "hard_unplaceable": 0,
+  "population": 57589891,
+  "positives": 1661,
+  "non_generic_population": 57500369,
+  "non_generic_positives": 1300,
+  "pool": 36403779,
+  "pool_positives_must_be_zero": 0,
+  "flags": "bit 0 positive, bit 1 generic endpoint, bit 2 part-3 pool"
+}
