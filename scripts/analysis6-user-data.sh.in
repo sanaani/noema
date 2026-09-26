@@ -1,0 +1,71 @@
+#!/bin/bash
+# Template. scripts/run-analysis6-aws.sh substitutes @BUCKET@ and @RUN@ and passes
+# the result as EC2 user data.
+#
+# Runs phase 6's analysis (scripts/analyze-phase6.py) on CPU, uploads and stops.
+set -u
+LOG=/var/log/noema-an6.log
+exec > >(tee -a "$LOG") 2>&1
+BKT="@BUCKET@"
+RNAME="@RUN@"
+echo "boot $(date -u +%FT%TZ)"
+
+/usr/sbin/shutdown -h +180
+cat > /etc/systemd/system/noema-expiry.service <<'SVC'
+[Unit]
+Description=Terminate temporary Noema analysis worker
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/poweroff
+SVC
+cat > /etc/systemd/system/noema-expiry.timer <<'TMR'
+[Unit]
+Description=Expire temporary analysis worker
+[Timer]
+OnBootSec=175min
+Unit=noema-expiry.service
+[Install]
+WantedBy=timers.target
+TMR
+systemctl daemon-reload
+systemctl enable --now noema-expiry.timer
+
+finish() {
+  rc=$?
+  set +e
+  echo "FINISH rc=$rc $(date -u +%FT%TZ)"
+  cp "$LOG" /opt/noema/out/worker.log 2>/dev/null
+  ( cd /opt/noema/out && find . -type f -exec sha256sum {} + > /tmp/SHA256SUMS \
+    && mv /tmp/SHA256SUMS SHA256SUMS )
+  tar czf /tmp/result.tar.gz -C /opt noema/out
+  for i in 1 2 3 4 5; do
+    /opt/nvenv/bin/aws s3 cp /tmp/result.tar.gz \
+      "s3://$BKT/results/$RNAME/result.tar.gz" --region us-east-2 && break || sleep 20
+  done
+  /usr/sbin/shutdown -h now
+  exit $rc
+}
+trap finish EXIT
+set -e
+
+mkdir -p /opt/noema /opt/noema/out
+export DEBIAN_FRONTEND=noninteractive
+for i in $(seq 1 12); do apt-get update -qq && break || sleep 30; done
+for i in 1 2 3; do apt-get install -y -qq python3-venv curl && break || sleep 60; done
+python3 -m venv /opt/nvenv
+/opt/nvenv/bin/pip -q install awscli numpy==2.5.3 scipy==1.18.1
+echo "pydeps-done $(date -u +%FT%TZ)"
+
+/opt/nvenv/bin/aws s3 cp "s3://$BKT/$RNAME-task.tar.gz" /tmp/task.tar.gz --region us-east-2
+tar xzf /tmp/task.tar.gz -C /opt
+nproc
+
+echo "STAGE analyze $(date -u +%FT%TZ)"
+cd /opt/noema
+NOEMA_ROOT=/opt/noema PYTHONPATH=/opt/noema/src PYTHONUNBUFFERED=1 \
+  /opt/nvenv/bin/python scripts/analyze-phase6.py \
+  --pred /opt/noema/in/connector-predictions.npz \
+  --vectors-2024 /opt/noema/outputs/phase-6-conjecture-placement/analysis/b-statements-2024.npz \
+  --out /opt/noema/out/phase6.json 2>&1 | grep --line-buffered -v "placement [0-9]*/10368$" || true
+test -s /opt/noema/out/phase6.json
+echo "JOB DONE $(date -u +%FT%TZ)"

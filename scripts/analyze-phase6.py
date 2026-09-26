@@ -140,7 +140,8 @@ def main() -> int:
     new = np.load(a5.NEW)
     new_at = {str(n): i for i, n in enumerate(new["names"])}
     T = new["vectors"].astype(np.float32)[[new_at[c] for c in conn]]
-    ttexts = [str(new["texts"][new_at[c]]) for c in conn]
+    new_texts = new["texts"]  # read once: each NpzFile access re-reads the array
+    ttexts = [str(new_texts[new_at[c]]) for c in conn]
     module = np.array([r["module"] for r in labels])
     n = len(conn)
 
