@@ -1,0 +1,119 @@
+{
+  "seed": 20260930,
+  "pairs": 160,
+  "checks": 274,
+  "arms": {
+    "WINNER+NOVEL": {
+      "pairs": 40,
+      "pairs_with_hit": 40,
+      "pairs_best_ge1": 25,
+      "pairs_best_2": 0,
+      "checks": 92,
+      "compiled_checks": 73,
+      "hits": 48,
+      "hit_ratings": {
+        "0": 17,
+        "1": 31,
+        "2": 0
+      }
+    },
+    "CLAUDE": {
+      "pairs": 40,
+      "pairs_with_hit": 40,
+      "pairs_best_ge1": 27,
+      "pairs_best_2": 0,
+      "checks": 55,
+      "compiled_checks": 46,
+      "hits": 43,
+      "hit_ratings": {
+        "0": 15,
+        "1": 28,
+        "2": 0
+      }
+    },
+    "NEAREST": {
+      "pairs": 40,
+      "pairs_with_hit": 40,
+      "pairs_best_ge1": 20,
+      "pairs_best_2": 0,
+      "checks": 63,
+      "compiled_checks": 57,
+      "hits": 52,
+      "hit_ratings": {
+        "0": 25,
+        "1": 27,
+        "2": 0
+      }
+    },
+    "RANDOM": {
+      "pairs": 40,
+      "pairs_with_hit": 40,
+      "pairs_best_ge1": 6,
+      "pairs_best_2": 0,
+      "checks": 64,
+      "compiled_checks": 47,
+      "hits": 42,
+      "hit_ratings": {
+        "0": 35,
+        "1": 7,
+        "2": 0
+      }
+    }
+  },
+  "H4": {
+    "table": [
+      [
+        25,
+        15
+      ],
+      [
+        6,
+        34
+      ]
+    ],
+    "p_one_sided": 1.1938673693422414e-05,
+    "verdict": "the picker points at better theorems"
+  },
+  "reported": {
+    "CLAUDE vs RANDOM": {
+      "table": [
+        [
+          27,
+          13
+        ],
+        [
+          6,
+          34
+        ]
+      ],
+      "p_one_sided": 1.5715411710531552e-06
+    },
+    "NEAREST vs RANDOM": {
+      "table": [
+        [
+          20,
+          20
+        ],
+        [
+          6,
+          34
+        ]
+      ],
+      "p_one_sided": 0.000815314973880511
+    },
+    "WINNER+NOVEL vs CLAUDE": {
+      "table": [
+        [
+          25,
+          15
+        ],
+        [
+          27,
+          13
+        ]
+      ],
+      "p_one_sided": 0.7588461808506445
+    }
+  },
+  "rated_2": []
+}

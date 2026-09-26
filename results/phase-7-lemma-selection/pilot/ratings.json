@@ -1,0 +1,927 @@
+[
+ {
+  "id": 1,
+  "rating": 1,
+  "reason": "Injectivity is transported through unsym and PLift.up; a genuine but contrived combination."
+ },
+ {
+  "id": 2,
+  "rating": 0,
+  "reason": "finRotate only supplies a factor of 1; divByNat_self does all the work."
+ },
+ {
+  "id": 3,
+  "rating": 0,
+  "reason": "sInf ∅ = 0 and nhds False = ⊤ are glued into an artificial statement."
+ },
+ {
+  "id": 4,
+  "rating": 1,
+  "reason": "Opens.map_id_eq lets a whiskered unitor become an eqToHom so the lift lemma applies; routine."
+ },
+ {
+  "id": 5,
+  "rating": 1,
+  "reason": "A trivial inequality that uses both lemmas."
+ },
+ {
+  "id": 6,
+  "rating": 1,
+  "reason": "The hypothesis forces x=y=0, so the Bezout expression is trivially 0."
+ },
+ {
+  "id": 7,
+  "rating": 1,
+  "reason": "The cocardinal frequency criterion is combined with MDifferentiable composition; a direct corollary."
+ },
+ {
+  "id": 8,
+  "rating": 0,
+  "reason": "The commutation lemma is applied pointwise inside List.ofFn; ofFn_inj is just glue."
+ },
+ {
+  "id": 9,
+  "rating": 1,
+  "reason": "Contrived injectivity of a composite; the lemmas interact only weakly."
+ },
+ {
+  "id": 10,
+  "rating": 0,
+  "reason": "A ULift surjectivity witness sits next to the smul lemma; the two play no joint role."
+ },
+ {
+  "id": 11,
+  "rating": 0,
+  "reason": "The factorial rewrite is gratuitous; this is just uniqueness from EffectiveEpi."
+ },
+ {
+  "id": 12,
+  "rating": 1,
+  "reason": "infsep of a finite set of naturals is a natural number; contrived but genuinely joint."
+ },
+ {
+  "id": 13,
+  "rating": 1,
+  "reason": "Monotonicity plus a numeric bound gives a routine inequality."
+ },
+ {
+  "id": 14,
+  "rating": 0,
+  "reason": "The rpow fact only decides an if-branch to ⊤."
+ },
+ {
+  "id": 15,
+  "rating": 1,
+  "reason": "NatTrans.congr transports IsIso along the dual/forget commuting square; routine."
+ },
+ {
+  "id": 16,
+  "rating": 0,
+  "reason": "The complete-graph hypothesis is irrelevant packaging around ext_to_X'."
+ },
+ {
+  "id": 17,
+  "rating": 1,
+  "reason": "Composing two surjections gives an induction principle; a direct corollary."
+ },
+ {
+  "id": 18,
+  "rating": 0,
+  "reason": "An artificial Φ-arithmetic statement around mapIso_refl."
+ },
+ {
+  "id": 19,
+  "rating": 0,
+  "reason": "The altitude membership and the coe_sub rewrite are unrelated."
+ },
+ {
+  "id": 20,
+  "rating": 1,
+  "reason": "The norm coercion equates two factorials, then factorial injectivity applies; routine."
+ },
+ {
+  "id": 21,
+  "rating": 1,
+  "reason": "The Stirling limit times sqrt n tends to infinity; a direct corollary."
+ },
+ {
+  "id": 22,
+  "rating": 1,
+  "reason": "A numeric bound that combines the Gamma derivative with the e bound."
+ },
+ {
+  "id": 23,
+  "rating": 0,
+  "reason": "The sign of a swap and vadd coercion are glued together with no interaction."
+ },
+ {
+  "id": 24,
+  "rating": 1,
+  "reason": "A monic integer lift combined with the expNegInvGlue decay; routine."
+ },
+ {
+  "id": 25,
+  "rating": 0,
+  "reason": "The function simplifies to g on Ici 0; the statement is vacuous in content."
+ },
+ {
+  "id": 26,
+  "rating": 1,
+  "reason": "A trivial nat inequality combining both lemmas."
+ },
+ {
+  "id": 27,
+  "rating": 1,
+  "reason": "Direct use of monotonicity with cast nonnegativity."
+ },
+ {
+  "id": 28,
+  "rating": 1,
+  "reason": "Openness of a set via continuity of the composite; routine."
+ },
+ {
+  "id": 29,
+  "rating": 1,
+  "reason": "normSq as an NNReal-valued map tends to atTop along cocompact; a mild corollary."
+ },
+ {
+  "id": 30,
+  "rating": 0,
+  "reason": "arctan x = 0 forces x = 0, adding a vacuous term to the portmanteau lemma."
+ },
+ {
+  "id": 31,
+  "rating": 0,
+  "reason": "arctan 0 = 0 is added to the log 2 bound."
+ },
+ {
+  "id": 32,
+  "rating": 0,
+  "reason": "Same glue as 31 with a trivial hypothesis."
+ },
+ {
+  "id": 33,
+  "rating": 1,
+  "reason": "Antitonicity gives a max on Ici, then restriction to a subset; routine."
+ },
+ {
+  "id": 34,
+  "rating": 1,
+  "reason": "Nilpotent coefficients vanish in a reduced ring, rewritten into nndist; contrived."
+ },
+ {
+  "id": 35,
+  "rating": 0,
+  "reason": "Ordinal.card 1 is just a disguised 1."
+ },
+ {
+  "id": 36,
+  "rating": 1,
+  "reason": "Combines the rpow inequality with strict antitonicity; routine."
+ },
+ {
+  "id": 37,
+  "rating": 0,
+  "reason": "An artificial divisibility indicator glued to IsMaxFilter.sub."
+ },
+ {
+  "id": 38,
+  "rating": 1,
+  "reason": "A numeric comparison of log 4 and Gamma(1/2)."
+ },
+ {
+  "id": 39,
+  "rating": 1,
+  "reason": "map_csInf specialised to the unbounded complement of a range; routine."
+ },
+ {
+  "id": 40,
+  "rating": 0,
+  "reason": "Factorial injectivity only rewrites n into s.prod."
+ },
+ {
+  "id": 41,
+  "rating": 0,
+  "reason": "Rewriting glue with an existential."
+ },
+ {
+  "id": 42,
+  "rating": 1,
+  "reason": "Composing injectivity lemmas; a direct instance."
+ },
+ {
+  "id": 43,
+  "rating": 0,
+  "reason": "The mapIso hypothesis is irrelevant to the bilinear-form conclusion."
+ },
+ {
+  "id": 44,
+  "rating": 0,
+  "reason": "The joinM identity only wraps the arctan limit in Option."
+ },
+ {
+  "id": 45,
+  "rating": 0,
+  "reason": "Artificial ordinal max packaging of the rank bound."
+ },
+ {
+  "id": 46,
+  "rating": 1,
+  "reason": "dcongr_arg specialised to homology π; routine."
+ },
+ {
+  "id": 47,
+  "rating": 1,
+  "reason": "Uniqueness of desc through a gluing isomorphism; routine."
+ },
+ {
+  "id": 48,
+  "rating": 0,
+  "reason": "The Sym.replicate hypothesis just forces y = x."
+ },
+ {
+  "id": 49,
+  "rating": 0,
+  "reason": "cos(tan(kπ/2)) = 1 is a disguised factor of 1."
+ },
+ {
+  "id": 50,
+  "rating": 0,
+  "reason": "Two unrelated bounds are multiplied together."
+ },
+ {
+  "id": 51,
+  "rating": 1,
+  "reason": "The rpow inverse inequality fed into a strict antitone function; routine."
+ },
+ {
+  "id": 52,
+  "rating": 1,
+  "reason": "Comap along an injective fraction-field map preserves a zero product; routine."
+ },
+ {
+  "id": 53,
+  "rating": 1,
+  "reason": "Two bounds give a trivial product inequality."
+ },
+ {
+  "id": 54,
+  "rating": 0,
+  "reason": "sqrt 0 and fastGrowing 0 are trivial rewrites in an iterate count."
+ },
+ {
+  "id": 55,
+  "rating": 0,
+  "reason": "Contrived naturality rewriting with unrelated gluing data."
+ },
+ {
+  "id": 56,
+  "rating": 0,
+  "reason": "The eqToHom lift fact is computed but unused; glue."
+ },
+ {
+  "id": 57,
+  "rating": 0,
+  "reason": "Uniqueness makes a term zero, then the unrelated rpow_le_one applies."
+ },
+ {
+  "id": 58,
+  "rating": 0,
+  "reason": "empty_ext does all the work; eqToIso_map_trans is irrelevant."
+ },
+ {
+  "id": 59,
+  "rating": 1,
+  "reason": "n times the Stirling sequence tends to infinity; a direct corollary."
+ },
+ {
+  "id": 60,
+  "rating": 0,
+  "reason": "coe_bot is a trivial rewrite inside ext."
+ },
+ {
+  "id": 61,
+  "rating": 0,
+  "reason": "Strict sum inequality with an incidental qify cast lemma."
+ },
+ {
+  "id": 62,
+  "rating": 1,
+  "reason": "Sum of replicated singles equals a scalar multiple; routine."
+ },
+ {
+  "id": 63,
+  "rating": 0,
+  "reason": "The rpow_one rewrite is glued to tsub."
+ },
+ {
+  "id": 64,
+  "rating": 1,
+  "reason": "A sup-norm bound using a positive normSq; routine."
+ },
+ {
+  "id": 65,
+  "rating": 1,
+  "reason": "Closedness of a zero set via continuity; routine."
+ },
+ {
+  "id": 66,
+  "rating": 0,
+  "reason": "Artificial ULift wrapper and a map_eq rewrite."
+ },
+ {
+  "id": 67,
+  "rating": 0,
+  "reason": "Same glue as 63."
+ },
+ {
+  "id": 68,
+  "rating": 1,
+  "reason": "Linearity plus the rpow criterion give a contrived bound."
+ },
+ {
+  "id": 69,
+  "rating": 0,
+  "reason": "Pairs two unrelated equalities."
+ },
+ {
+  "id": 70,
+  "rating": 1,
+  "reason": "Haar uniqueness combined with the image-preimage bound; routine."
+ },
+ {
+  "id": 71,
+  "rating": 1,
+  "reason": "The derivative slope is composed with the arctan limit; routine."
+ },
+ {
+  "id": 72,
+  "rating": 0,
+  "reason": "Pairs two unrelated equalities."
+ },
+ {
+  "id": 73,
+  "rating": 0,
+  "reason": "An AM-GM-type fact dressed up with vector and Nonneg glue."
+ },
+ {
+  "id": 74,
+  "rating": 0,
+  "reason": "Two bounds are subtracted."
+ },
+ {
+  "id": 75,
+  "rating": 0,
+  "reason": "The rpow_one rewrite is glued to a division lemma."
+ },
+ {
+  "id": 76,
+  "rating": 0,
+  "reason": "add_sq is expanded inside restrict_ofFunction with no joint role."
+ },
+ {
+  "id": 77,
+  "rating": 1,
+  "reason": "Symmetry is transported through an injective map; routine."
+ },
+ {
+  "id": 78,
+  "rating": 1,
+  "reason": "Injectivity of mapDomain edgeSet on singles; routine."
+ },
+ {
+  "id": 79,
+  "rating": 0,
+  "reason": "Rewriting eqToIso refl away before a StrictMono fact."
+ },
+ {
+  "id": 80,
+  "rating": 0,
+  "reason": "Nat.rec unfolding is glued to add_le_sum."
+ },
+ {
+  "id": 81,
+  "rating": 1,
+  "reason": "A monotone rpow bound for Ico elements; routine."
+ },
+ {
+  "id": 82,
+  "rating": 1,
+  "reason": "ONote cmp combined with StrictAnti mapsTo; routine."
+ },
+ {
+  "id": 83,
+  "rating": 1,
+  "reason": "Evaluates ascPochhammer at toPNat'; a routine combination."
+ },
+ {
+  "id": 84,
+  "rating": 0,
+  "reason": "Two independent rewrites."
+ },
+ {
+  "id": 85,
+  "rating": 0,
+  "reason": "finSuccEquiv only contributes a zero."
+ },
+ {
+  "id": 86,
+  "rating": 0,
+  "reason": "Pairs two unrelated equalities."
+ },
+ {
+  "id": 87,
+  "rating": 1,
+  "reason": "Triangle inequality on spheres with the same centre; routine."
+ },
+ {
+  "id": 88,
+  "rating": 1,
+  "reason": "generateFrom commutes via the semiconjugacy inverse; a genuine but niche corollary."
+ },
+ {
+  "id": 89,
+  "rating": 0,
+  "reason": "Two numeric bounds are glued together."
+ },
+ {
+  "id": 90,
+  "rating": 1,
+  "reason": "Homlift transported along map_comp_obj; routine."
+ },
+ {
+  "id": 91,
+  "rating": 0,
+  "reason": "comp_id rewrite plus an unrelated SignType fact."
+ },
+ {
+  "id": 92,
+  "rating": 1,
+  "reason": "Continuity of Gamma(1/2 + tan x) at 0; routine."
+ },
+ {
+  "id": 93,
+  "rating": 1,
+  "reason": "A unit polynomial over a reduced ring is constant, stated via nndist; routine."
+ },
+ {
+  "id": 94,
+  "rating": 0,
+  "reason": "The toMatrix round-trip is a trivial rewrite on the convolution lemma."
+ },
+ {
+  "id": 95,
+  "rating": 0,
+  "reason": "The graph fact only simplifies a min; measurability is independent."
+ },
+ {
+  "id": 96,
+  "rating": 1,
+  "reason": "Functor rewriting plus the eqToHom lift iff; routine."
+ },
+ {
+  "id": 97,
+  "rating": 0,
+  "reason": "A conjunction of two unrelated facts."
+ },
+ {
+  "id": 98,
+  "rating": 1,
+  "reason": "map_csSup on a truncated complement of a range; routine."
+ },
+ {
+  "id": 99,
+  "rating": 0,
+  "reason": "The sym2 card equation is unrelated to the character-module surjectivity."
+ },
+ {
+  "id": 100,
+  "rating": 0,
+  "reason": "Continuity via a trivial coe rewrite."
+ },
+ {
+  "id": 101,
+  "rating": 1,
+  "reason": "A trivial arithmetic consequence."
+ },
+ {
+  "id": 102,
+  "rating": 0,
+  "reason": "sInf ∅ is a disguised 0."
+ },
+ {
+  "id": 103,
+  "rating": 0,
+  "reason": "Two unrelated facts are added together."
+ },
+ {
+  "id": 104,
+  "rating": 1,
+  "reason": "Nat.find monotone under restricting a measure; routine."
+ },
+ {
+  "id": 105,
+  "rating": 0,
+  "reason": "arctan 0 is a disguised 0."
+ },
+ {
+  "id": 106,
+  "rating": 1,
+  "reason": "Continuity of Gamma composed with the arctan limit; routine."
+ },
+ {
+  "id": 107,
+  "rating": 0,
+  "reason": "Pairs two unrelated equalities."
+ },
+ {
+  "id": 108,
+  "rating": 0,
+  "reason": "finRotate only supplies a zero."
+ },
+ {
+  "id": 109,
+  "rating": 1,
+  "reason": "A Lipschitz bound specialised using strict antitonicity; routine."
+ },
+ {
+  "id": 110,
+  "rating": 0,
+  "reason": "Unrelated if-then-else glue."
+ },
+ {
+  "id": 111,
+  "rating": 1,
+  "reason": "The range of an injective map from a nontrivial set is nontrivial; routine."
+ },
+ {
+  "id": 112,
+  "rating": 1,
+  "reason": "2 ≠ 0 in ZMod n for n > 2; routine."
+ },
+ {
+  "id": 113,
+  "rating": 1,
+  "reason": "Uses the sign of the Gamma derivative and strict concavity of cos; routine."
+ },
+ {
+  "id": 114,
+  "rating": 0,
+  "reason": "Two unrelated evaluations are multiplied."
+ },
+ {
+  "id": 115,
+  "rating": 0,
+  "reason": "The gcd root fact only removes a term."
+ },
+ {
+  "id": 116,
+  "rating": 1,
+  "reason": "n minus sqrt n is nonzero in RCLike; routine."
+ },
+ {
+  "id": 117,
+  "rating": 1,
+  "reason": "Contrived bound on chaar via Nat.find."
+ },
+ {
+  "id": 118,
+  "rating": 1,
+  "reason": "A numeric comparison of two constants."
+ },
+ {
+  "id": 119,
+  "rating": 1,
+  "reason": "Support monotone gives a card bound; routine."
+ },
+ {
+  "id": 120,
+  "rating": 1,
+  "reason": "The arctan sum bound lifted to NNReal; routine."
+ },
+ {
+  "id": 121,
+  "rating": 1,
+  "reason": "A numeric comparison."
+ },
+ {
+  "id": 122,
+  "rating": 0,
+  "reason": "The qify lemma only forces n = m."
+ },
+ {
+  "id": 123,
+  "rating": 0,
+  "reason": "sInf ∅ is a disguised 0."
+ },
+ {
+  "id": 124,
+  "rating": 1,
+  "reason": "Morphisms out of empty schemes agree up to dcongr; routine."
+ },
+ {
+  "id": 125,
+  "rating": 1,
+  "reason": "Antitonicity gives a max, then restriction; routine."
+ },
+ {
+  "id": 126,
+  "rating": 1,
+  "reason": "Uniform continuity of the conjugate of a function with a limit at cocompact; routine."
+ },
+ {
+  "id": 127,
+  "rating": 1,
+  "reason": "Pairwise injectivity combination; routine."
+ },
+ {
+  "id": 128,
+  "rating": 1,
+  "reason": "Monotone root; routine."
+ },
+ {
+  "id": 129,
+  "rating": 0,
+  "reason": "The (1 - x) cancellation is unrelated to Nat.find_add."
+ },
+ {
+  "id": 130,
+  "rating": 0,
+  "reason": "sInf ∅ is a disguised 0."
+ },
+ {
+  "id": 131,
+  "rating": 1,
+  "reason": "Unique preimage through the composite equivalence; routine."
+ },
+ {
+  "id": 132,
+  "rating": 1,
+  "reason": "rpow positivity supplies the unit for the cancellation; routine."
+ },
+ {
+  "id": 133,
+  "rating": 0,
+  "reason": "ciSup over False is a disguised 0."
+ },
+ {
+  "id": 134,
+  "rating": 1,
+  "reason": "DenseRange of toNNReal ∘ tan; routine."
+ },
+ {
+  "id": 135,
+  "rating": 0,
+  "reason": "smoothTransition 0 is a disguised 0."
+ },
+ {
+  "id": 136,
+  "rating": 0,
+  "reason": "Naturality applied to an arbitrary rpow equation; no joint role."
+ },
+ {
+  "id": 137,
+  "rating": 1,
+  "reason": "A numeric derivative bound."
+ },
+ {
+  "id": 138,
+  "rating": 1,
+  "reason": "Image of interior of a product under mul_rpow; routine."
+ },
+ {
+  "id": 139,
+  "rating": 1,
+  "reason": "Partial-sum sup bounded by the geometric series; routine."
+ },
+ {
+  "id": 140,
+  "rating": 1,
+  "reason": "Curried sum with rpow_neg_one rewriting; routine."
+ },
+ {
+  "id": 141,
+  "rating": 0,
+  "reason": "ciSup over False is a disguised 0."
+ },
+ {
+  "id": 142,
+  "rating": 1,
+  "reason": "Derivative slope composed with the arctan limit; routine."
+ },
+ {
+  "id": 143,
+  "rating": 1,
+  "reason": "toNNReal of tan on (0, π/2) is tan; routine."
+ },
+ {
+  "id": 144,
+  "rating": 1,
+  "reason": "A trivial arithmetic consequence."
+ },
+ {
+  "id": 145,
+  "rating": 0,
+  "reason": "The norm hypothesis is irrelevant to the condensed-set equality."
+ },
+ {
+  "id": 146,
+  "rating": 0,
+  "reason": "The finRotate and ascFactorial rewrites are glued together."
+ },
+ {
+  "id": 147,
+  "rating": 0,
+  "reason": "smoothTransition nonnegativity is added to an irrationality fact."
+ },
+ {
+  "id": 148,
+  "rating": 1,
+  "reason": "The product of rpows splits along a filtered sum; routine."
+ },
+ {
+  "id": 149,
+  "rating": 0,
+  "reason": "Coercion rewrites around re ≤ norm."
+ },
+ {
+  "id": 150,
+  "rating": 1,
+  "reason": "rpow_neg feeds the ciSup bound; routine."
+ },
+ {
+  "id": 151,
+  "rating": 0,
+  "reason": "A contrived linear-map inequality."
+ },
+ {
+  "id": 152,
+  "rating": 1,
+  "reason": "toNNReal ∘ tan is strictly monotone on (0, π/2); routine."
+ },
+ {
+  "id": 153,
+  "rating": 0,
+  "reason": "smoothTransition vanishes for x ≤ 0; numeric glue."
+ },
+ {
+  "id": 154,
+  "rating": 0,
+  "reason": "The det of conj is a disguised sign."
+ },
+ {
+  "id": 155,
+  "rating": 0,
+  "reason": "Unrelated disjunction glue."
+ },
+ {
+  "id": 156,
+  "rating": 1,
+  "reason": "A numeric comparison."
+ },
+ {
+  "id": 157,
+  "rating": 0,
+  "reason": "Contrived; set induction and ordinal non-surjectivity barely interact."
+ },
+ {
+  "id": 158,
+  "rating": 0,
+  "reason": "The rpow fact only simplifies a max."
+ },
+ {
+  "id": 159,
+  "rating": 0,
+  "reason": "Two trivial rewrites."
+ },
+ {
+  "id": 160,
+  "rating": 1,
+  "reason": "A combined injectivity map; routine."
+ },
+ {
+  "id": 161,
+  "rating": 0,
+  "reason": "An artificial nhds False hypothesis encoding emptiness."
+ },
+ {
+  "id": 162,
+  "rating": 0,
+  "reason": "A trivial arithmetic glue."
+ },
+ {
+  "id": 163,
+  "rating": 1,
+  "reason": "TendstoIxxClass at 0 in NNReal via the basis; routine."
+ },
+ {
+  "id": 164,
+  "rating": 1,
+  "reason": "congr_hom along the dual/forget commuting square; routine."
+ },
+ {
+  "id": 165,
+  "rating": 0,
+  "reason": "The rpow fact only discharges an arbitrary implication."
+ },
+ {
+  "id": 166,
+  "rating": 0,
+  "reason": "Surjectivity forces G = ⊥; the triangle fact is trivial."
+ },
+ {
+  "id": 167,
+  "rating": 1,
+  "reason": "A nonzero rpow difference gives a unit ideal, hence coprime; routine."
+ },
+ {
+  "id": 168,
+  "rating": 1,
+  "reason": "Product over a subtype of div_rpow; routine."
+ },
+ {
+  "id": 169,
+  "rating": 0,
+  "reason": "A vector equality from add_comm glue."
+ },
+ {
+  "id": 170,
+  "rating": 1,
+  "reason": "An a.e. rpow triangle inequality for Lp simple functions; routine."
+ },
+ {
+  "id": 171,
+  "rating": 1,
+  "reason": "normSq as NNReal tends to atTop along cocompact; routine."
+ },
+ {
+  "id": 172,
+  "rating": 1,
+  "reason": "toNNReal of tan vanishes on negatives; routine."
+ },
+ {
+  "id": 173,
+  "rating": 0,
+  "reason": "Direct specialisation of norm_lt_iff."
+ },
+ {
+  "id": 174,
+  "rating": 1,
+  "reason": "Unique preimage through the composite; routine."
+ },
+ {
+  "id": 175,
+  "rating": 0,
+  "reason": "Pairs unrelated facts."
+ },
+ {
+  "id": 176,
+  "rating": 0,
+  "reason": "Contrived category rewriting."
+ },
+ {
+  "id": 177,
+  "rating": 1,
+  "reason": "Membership in image2 via mul_rpow and interior_prod; routine."
+ },
+ {
+  "id": 178,
+  "rating": 0,
+  "reason": "The factorial only supplies a nonzero scalar."
+ },
+ {
+  "id": 179,
+  "rating": 0,
+  "reason": "Continuity via a trivial coe rewrite."
+ },
+ {
+  "id": 180,
+  "rating": 1,
+  "reason": "Semiconj rewriting inside the dist-to-infinity limit; routine."
+ },
+ {
+  "id": 181,
+  "rating": 1,
+  "reason": "A product bound on invEmbedding values; routine."
+ },
+ {
+  "id": 182,
+  "rating": 0,
+  "reason": "repr_add rewrite plus a trivial ≥1 multiplier."
+ },
+ {
+  "id": 183,
+  "rating": 0,
+  "reason": "The factorial hypothesis is a disguised True."
+ },
+ {
+  "id": 184,
+  "rating": 1,
+  "reason": "Transitivity is transported through an injective map; routine."
+ },
+ {
+  "id": 185,
+  "rating": 0,
+  "reason": "Two unrelated rewrites combined by smul."
+ }
+]

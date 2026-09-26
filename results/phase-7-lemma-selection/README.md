@@ -414,3 +414,108 @@ test pairs (195 positives), re-ranking by NOVEL puts 31 positives in the top
 - **The smoke stage.** The worker first ran the whole pipeline on a slice
   (20,000 graph records, 2 million pairs, one epoch) and only then started the
   real run. The smoke numbers are not results.
+
+### Part 3 — writing theorems
+
+Numbers from `results/pilot.json` (`scripts/score-phase7-pilot.py`). Every
+check is in `pilot/checks.jsonl` and the blind ratings are in `pilot/ratings.json`.
+The arm key was hashed before any writing (`pilot/arm-key.sha256`) and published
+after the model rating. It matches its hash.
+
+**H4: the picker points at better theorems.** WINNER+NOVEL had 25 of 40 pairs
+whose best hit was rated at least 1, against RANDOM's 6 of 40 (one-sided Fisher
+p = 1.2 × 10⁻⁵). The prediction was right.
+
+| | WINNER+NOVEL | CLAUDE | NEAREST | RANDOM |
+|---|---:|---:|---:|---:|
+| pairs | 40 | 40 | 40 | 40 |
+| **pairs whose best hit is rated ≥ 1** | **25** | **27** | **20** | **6** |
+| pairs with at least one hit | 40 | 40 | 40 | 40 |
+| checks run | 92 | 55 | 63 | 64 |
+| checks that compiled | 73 | 46 | 57 | 47 |
+| hits | 48 | 43 | 52 | 42 |
+| hits rated 1 (routine combination) | 31 | 28 | 27 | 7 |
+| hits rated 0 (restates or glues) | 17 | 15 | 25 | 35 |
+| hits rated 2 (worth merging) | 0 | 0 | 0 | 0 |
+
+Reported alongside, not tested: CLAUDE against RANDOM, 27 against 6
+(p = 1.6 × 10⁻⁶). NEAREST against RANDOM, 20 against 6 (p = 0.0008). WINNER+NOVEL
+against CLAUDE, 25 against 27 (p = 0.76), no difference.
+
+In words: all three ways of choosing pairs produce real combinations far more
+often than chance. Random pairs from different areas share nothing, so a
+writer can only glue them together, and 35 of their 42 hits were rated 0. The
+learned picker is as good as Claude reading the statements, and neither is
+clearly better than picking look-alike pairs. **No hit in any arm was rated 2**,
+so none of the 185 theorems is a candidate for Mathlib.
+
+**The stricter hit rule did its job only partly.** Rules 4 and 5 rejected many
+candidates (`aesop` closed statements in every arm), and the writers adapted.
+Some wrapped glue in forms the rules do not catch: an equality of pairs
+`(x, y) = (x', y')` instead of a conjunction, an `if` whose condition uses one
+lemma, or a hypothesis `aesop` cannot use. All 160 pairs still produced a hit,
+so hits alone again separate nothing. The rating separates the arms.
+
+**Human check: pending.** 40 hits drawn by seed (`score-phase7-pilot.py human`)
+are waiting for the project owner's blind ratings. Until they are in, the
+model ratings behind H4 are unchecked.
+
+### What this establishes
+
+- A picker trained on 2024 Mathlib, filtered by a Lean fit check, chooses
+  lemma pairs that yield genuine combinations about four times as often as
+  random pairs (H4).
+- On predicting which pairs 2026 Mathlib joined, nothing learned beats
+  popularity (H1). Within equal popularity, the learned pickers carry real
+  information popularity lacks (reported).
+
+### What it does not establish
+
+- **That the map beats simpler choices.** Claude reading the statements does
+  as well, and nearest pairs nearly as well. The comparison that shows skill
+  is against RANDOM, and RANDOM is a weak control: pairs from different areas
+  that share nothing.
+- **Which part of WINNER+NOVEL does the work.** Its pairs passed three
+  filters: the ENSEMBLE ranking, the novelty re-ranking and the Lean fit check.
+  The fit check alone plausibly accounts for much of the effect, and no arm
+  isolates it.
+- **A new theorem.** Nothing reached a 2.
+
+### Deviations
+
+- **The part 3 candidate list was cut at 3,000 by the code, not the rules.**
+  Only 35 of the top 3,000 WINNER+NOVEL pool pairs passed the fit check, too
+  few to fill the arm. The pre-registration says to walk down the NOVEL order
+  until the arm is full. The first GPU run had saved only 3,000 rows, so
+  scoring and analysis were rerun on a second GPU worker from the same trained
+  models, saving the whole order. The rerun reproduces every part 1 and part 2
+  number (see Checks). The fit check then ran on the first 15,000 pairs, and
+  the arm filled at pair 6,442.
+- **Subagents read their prompts from a file.** The CLAUDE picker and the
+  rater were each given one instruction: read one file holding the fixed
+  prompt, filled in, and use no other tool. The writers were told the same,
+  plus to run the checker. The prompts are unchanged; only the way they were
+  delivered differs from Phase 6's inline text.
+- **The rater's summary miscounted.** Its prose said 94 zeros and 91 ones. Its
+  JSON, which is what is scored, has 92 and 93.
+- **The checker gained `--smoke --endpoints`** to test it against real Mathlib
+  before any pair existed. It does not log.
+- **Fit check interpretation.** "Explicit hypotheses" was read as explicit
+  binders whose type is a proposition, and conclusions were not unfolded
+  (`forallMetaTelescope`, default transparency, as `apply` uses). The reasons
+  are given in `scripts/phase7-fit.py`.
+
+### Cost and teardown
+
+Five AWS workers:
+
+- a g6e.xlarge for training and scoring (about 20 minutes);
+- a g6e.xlarge for the rescore (about 6 minutes);
+- two m6i.4xlarge Lean workers, one at `f0957a7` for part 1's fit check (about
+  15 minutes) and one at `09712d48` for part 3's fit check and all 274 checks
+  (about 4 hours);
+- none for encoding, which Phase 6 had already done.
+
+Every instance, IAM role, instance profile, security group, and S3 task and
+result object was deleted, and the deletion was verified. The writers, the
+picker and the rater ran as Claude Code subagents.

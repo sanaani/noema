@@ -1,0 +1,160 @@
+{"pair": 1, "arm": "RANDOM", "a": "CategoryTheory.CostructuredArrow.homMk'_left", "b": "ENNReal.inv_rpow"}
+{"pair": 2, "arm": "WINNER+NOVEL", "a": "Nat.two_lt_of_ne", "b": "two_ne_zero'", "fit": {"a_into_b": false, "b_into_a": true, "oriented_as": ["Nat.two_lt_of_ne", "two_ne_zero'"]}}
+{"pair": 3, "arm": "CLAUDE", "a": "Complex.UnitDisc.coe_injective", "b": "Set.nontrivial_of_nontrivial"}
+{"pair": 4, "arm": "CLAUDE", "a": "LinearMap.isLinear", "b": "Real.one_lt_rpow_iff"}
+{"pair": 5, "arm": "NEAREST", "a": "Complex.continuous_normSq", "b": "ContinuousMap.coeNNRealReal_apply"}
+{"pair": 6, "arm": "CLAUDE", "a": "NNReal.rpow_neg", "b": "ciSup_mul_le"}
+{"pair": 7, "arm": "WINNER+NOVEL", "a": "CategoryTheory.IsHomLift.lift_comp_eqToHom_iff", "b": "TopologicalSpace.Opens.map_id_eq", "fit": {"a_into_b": false, "b_into_a": true, "oriented_as": ["CategoryTheory.IsHomLift.lift_comp_eqToHom_iff", "TopologicalSpace.Opens.map_id_eq"]}}
+{"pair": 8, "arm": "RANDOM", "a": "Finset.one_le_prod''", "b": "NONote.repr_add"}
+{"pair": 9, "arm": "RANDOM", "a": "CategoryTheory.Comma.coneOfPreserves_\u03c0_app_right", "b": "Equiv.Perm.support_congr"}
+{"pair": 10, "arm": "RANDOM", "a": "Real.arctan_zero", "b": "Real.volume_ball"}
+{"pair": 11, "arm": "WINNER+NOVEL", "a": "Function.Semiconj.inverse_left", "b": "TopologicalSpace.leftInverse_generateFrom", "fit": {"a_into_b": false, "b_into_a": true, "oriented_as": ["Function.Semiconj.inverse_left", "TopologicalSpace.leftInverse_generateFrom"]}}
+{"pair": 12, "arm": "CLAUDE", "a": "Finsupp.sum_filter_add_sum_filter_not", "b": "NNReal.list_prod_map_rpow"}
+{"pair": 13, "arm": "WINNER+NOVEL", "a": "Finsupp.mapDomain_injective", "b": "SimpleGraph.edgeSet_injective", "fit": {"a_into_b": false, "b_into_a": true, "oriented_as": ["Finsupp.mapDomain_injective", "SimpleGraph.edgeSet_injective"]}}
+{"pair": 14, "arm": "WINNER+NOVEL", "a": "CategoryTheory.objDown_objUp", "b": "TopologicalSpace.Opens.map_eq", "fit": {"a_into_b": true, "b_into_a": false, "oriented_as": ["CategoryTheory.objDown_objUp", "TopologicalSpace.Opens.map_eq"]}}
+{"pair": 15, "arm": "WINNER+NOVEL", "a": "Filter.HasBasis.tendstoIxxClass", "b": "NNReal.nhds_zero_basis", "fit": {"a_into_b": false, "b_into_a": true, "oriented_as": ["Filter.HasBasis.tendstoIxxClass", "NNReal.nhds_zero_basis"]}}
+{"pair": 16, "arm": "CLAUDE", "a": "Nat.factorial_inj'", "b": "Subgroup.coe_norm"}
+{"pair": 17, "arm": "WINNER+NOVEL", "a": "IsMaxOn.on_subset", "b": "Real.antitoneOn_rpow_Ioi_of_exponent_nonpos", "fit": {"a_into_b": false, "b_into_a": true, "oriented_as": ["IsMaxOn.on_subset", "Real.antitoneOn_rpow_Ioi_of_exponent_nonpos"]}}
+{"pair": 18, "arm": "WINNER+NOVEL", "a": "AlgebraicGeometry.Scheme.GlueData.\u03b9_isoLocallyRingedSpace_inv", "b": "CategoryTheory.NatTrans.congr", "fit": {"a_into_b": true, "b_into_a": false, "oriented_as": ["AlgebraicGeometry.Scheme.GlueData.\u03b9_isoLocallyRingedSpace_inv", "CategoryTheory.NatTrans.congr"]}}
+{"pair": 19, "arm": "NEAREST", "a": "Real.exp_one_lt_d9", "b": "Real.hasDerivAt_Gamma_one"}
+{"pair": 20, "arm": "WINNER+NOVEL", "a": "CategoryTheory.objUp_objDown", "b": "TopologicalSpace.Opens.map_eq", "fit": {"a_into_b": true, "b_into_a": false, "oriented_as": ["CategoryTheory.objUp_objDown", "TopologicalSpace.Opens.map_eq"]}}
+{"pair": 21, "arm": "RANDOM", "a": "Matrix.rank_le_height", "b": "Ordinal.max_eq_zero"}
+{"pair": 22, "arm": "WINNER+NOVEL", "a": "LipschitzOnWith.mono", "b": "Real.strictAntiOn_rpow_Ioi_of_exponent_neg", "fit": {"a_into_b": false, "b_into_a": true, "oriented_as": ["LipschitzOnWith.mono", "Real.strictAntiOn_rpow_Ioi_of_exponent_neg"]}}
+{"pair": 23, "arm": "NEAREST", "a": "FreeRing.coe_surjective", "b": "SimpleGraph.edgeDisjointTriangles_bot"}
+{"pair": 24, "arm": "WINNER+NOVEL", "a": "CategoryTheory.ShortComplex.abLeftHomologyData_\u03c0", "b": "CategoryTheory.dcongr_arg", "fit": {"a_into_b": true, "b_into_a": false, "oriented_as": ["CategoryTheory.ShortComplex.abLeftHomologyData_\u03c0", "CategoryTheory.dcongr_arg"]}}
+{"pair": 25, "arm": "RANDOM", "a": "Matrix.toLinearMap\u2082_toMatrix\u2082", "b": "MeasureTheory.contDiffOn_convolution_right_with_param"}
+{"pair": 26, "arm": "WINNER+NOVEL", "a": "FreeCommRing.of_injective", "b": "Relation.map_apply_apply", "fit": {"a_into_b": true, "b_into_a": false, "oriented_as": ["FreeCommRing.of_injective", "Relation.map_apply_apply"]}}
+{"pair": 27, "arm": "NEAREST", "a": "Real.arctan_lt_pi_div_two", "b": "Real.log_two_gt_d9"}
+{"pair": 28, "arm": "CLAUDE", "a": "Set.Ioo.one_minus_lt_one", "b": "padicNorm.of_nat"}
+{"pair": 29, "arm": "WINNER+NOVEL", "a": "IsExtrOn.on_subset", "b": "Real.antitoneOn_rpow_Ioi_of_exponent_nonpos", "fit": {"a_into_b": false, "b_into_a": true, "oriented_as": ["IsExtrOn.on_subset", "Real.antitoneOn_rpow_Ioi_of_exponent_nonpos"]}}
+{"pair": 30, "arm": "WINNER+NOVEL", "a": "Nat.one_le_pow'", "b": "add_lt_add_left", "fit": {"a_into_b": true, "b_into_a": false, "oriented_as": ["Nat.one_le_pow'", "add_lt_add_left"]}}
+{"pair": 31, "arm": "CLAUDE", "a": "Nat.sqrt_lt_self", "b": "RCLike.ofReal_ne_zero"}
+{"pair": 32, "arm": "WINNER+NOVEL", "a": "EuclideanQuadrant.ext", "b": "Set.Ici.coe_bot", "fit": {"a_into_b": false, "b_into_a": true, "oriented_as": ["EuclideanQuadrant.ext", "Set.Ici.coe_bot"]}}
+{"pair": 33, "arm": "RANDOM", "a": "MeasureTheory.Submartingale.stronglyMeasurable", "b": "Real.rpow_le_rpow_of_exponent_le"}
+{"pair": 34, "arm": "WINNER+NOVEL", "a": "Matrix.vec2_eq", "b": "Nonneg.mk_add_mk", "fit": {"a_into_b": false, "b_into_a": true, "oriented_as": ["Matrix.vec2_eq", "Nonneg.mk_add_mk"]}}
+{"pair": 35, "arm": "RANDOM", "a": "LinearMap.BilinForm.isCompl_orthogonal_of_restrict_nondegenerate", "b": "TopologicalSpace.Opens.mapIso_inv_app"}
+{"pair": 36, "arm": "NEAREST", "a": "Ordinal.sInf_empty", "b": "nhds_false"}
+{"pair": 37, "arm": "RANDOM", "a": "AddAction.QuotientAction.inv_mul_mem", "b": "Real.rpow_lt_rpow_iff_of_neg"}
+{"pair": 38, "arm": "RANDOM", "a": "DirectSum.list_prod_ofFn_of_eq_dProd", "b": "PadicInt.exists_mem_range_of_norm_rat_le_one"}
+{"pair": 39, "arm": "NEAREST", "a": "Ordinal.sInf_empty", "b": "expNegInvGlue.zero"}
+{"pair": 40, "arm": "NEAREST", "a": "Real.arctan_zero", "b": "Real.log_two_gt_d9"}
+{"pair": 41, "arm": "WINNER+NOVEL", "a": "CategoryTheory.IsHomLift.eqToHom_comp_lift_iff", "b": "TopologicalSpace.Opens.map_id_eq", "fit": {"a_into_b": false, "b_into_a": true, "oriented_as": ["CategoryTheory.IsHomLift.eqToHom_comp_lift_iff", "TopologicalSpace.Opens.map_id_eq"]}}
+{"pair": 42, "arm": "CLAUDE", "a": "Finsupp.sum_curry_index", "b": "Real.rpow_neg_one"}
+{"pair": 43, "arm": "RANDOM", "a": "Affine.Simplex.mem_altitude", "b": "FreeRing.coe_sub"}
+{"pair": 44, "arm": "WINNER+NOVEL", "a": "AlgebraicGeometry.Scheme.GlueData.\u03b9_isoLocallyRingedSpace_inv", "b": "CategoryTheory.EffectiveEpi.uniq", "fit": {"a_into_b": true, "b_into_a": false, "oriented_as": ["AlgebraicGeometry.Scheme.GlueData.\u03b9_isoLocallyRingedSpace_inv", "CategoryTheory.EffectiveEpi.uniq"]}}
+{"pair": 45, "arm": "NEAREST", "a": "Liouville.irrational", "b": "Real.smoothTransition.nonneg"}
+{"pair": 46, "arm": "WINNER+NOVEL", "a": "Complex.continuous_conj", "b": "Continuous.uniformContinuous_of_tendsto_cocompact", "fit": {"a_into_b": true, "b_into_a": false, "oriented_as": ["Complex.continuous_conj", "Continuous.uniformContinuous_of_tendsto_cocompact"]}}
+{"pair": 47, "arm": "RANDOM", "a": "Algebra.intNorm_eq_zero", "b": "LightCondensed.underlying_map"}
+{"pair": 48, "arm": "CLAUDE", "a": "isLUB_ciSup", "b": "summable_geometric_two"}
+{"pair": 49, "arm": "RANDOM", "a": "Finset.add_le_sum", "b": "Nat.rec_add_one"}
+{"pair": 50, "arm": "WINNER+NOVEL", "a": "CategoryTheory.IsHomLift.eqToHom_domain_lift_id", "b": "NonemptyFinLinOrd.Iso.mk_inv", "fit": {"a_into_b": false, "b_into_a": true, "oriented_as": ["CategoryTheory.IsHomLift.eqToHom_domain_lift_id", "NonemptyFinLinOrd.Iso.mk_inv"]}}
+{"pair": 51, "arm": "NEAREST", "a": "Real.arctan_one", "b": "Real.eulerMascheroniConstant_eq_neg_deriv"}
+{"pair": 52, "arm": "NEAREST", "a": "LSeries.abscissaOfAbsConv_one", "b": "Ordinal.card_one"}
+{"pair": 53, "arm": "NEAREST", "a": "ContinuousMap.realToNNReal_apply", "b": "Real.coe_tanPartialHomeomorph"}
+{"pair": 54, "arm": "RANDOM", "a": "Multiset.le_prod_nonempty_of_submultiplicative", "b": "Nat.factorial_inj"}
+{"pair": 55, "arm": "WINNER+NOVEL", "a": "OrderIso.map_csInf", "b": "Ordinal.nonempty_compl_range", "fit": {"a_into_b": false, "b_into_a": true, "oriented_as": ["OrderIso.map_csInf", "Ordinal.nonempty_compl_range"]}}
+{"pair": 56, "arm": "CLAUDE", "a": "ProbabilityTheory.IdentDistrib.evariance_eq", "b": "Real.pow_rpow_inv_natCast"}
+{"pair": 57, "arm": "NEAREST", "a": "CharacterModule.int.divByNat_self", "b": "finRotate_apply_zero"}
+{"pair": 58, "arm": "CLAUDE", "a": "MeasureTheory.le_measure_liminf_of_limsup_measure_compl_le", "b": "Real.arctan_eq_zero_iff"}
+{"pair": 59, "arm": "WINNER+NOVEL", "a": "CategoryTheory.ShortComplex.abLeftHomologyData_f'", "b": "CategoryTheory.eqToIso_map", "fit": {"a_into_b": true, "b_into_a": false, "oriented_as": ["CategoryTheory.ShortComplex.abLeftHomologyData_f'", "CategoryTheory.eqToIso_map"]}}
+{"pair": 60, "arm": "WINNER+NOVEL", "a": "AlgebraicGeometry.Scheme.empty_ext", "b": "CategoryTheory.eqToIso_map_trans", "fit": {"a_into_b": true, "b_into_a": false, "oriented_as": ["AlgebraicGeometry.Scheme.empty_ext", "CategoryTheory.eqToIso_map_trans"]}}
+{"pair": 61, "arm": "WINNER+NOVEL", "a": "ENNReal.rpow_one", "b": "tsub_eq_of_eq_add", "fit": {"a_into_b": true, "b_into_a": false, "oriented_as": ["ENNReal.rpow_one", "tsub_eq_of_eq_add"]}}
+{"pair": 62, "arm": "CLAUDE", "a": "ENNReal.rpow_le_rpow_iff", "b": "Finset.Ico_subset_Iic_self"}
+{"pair": 63, "arm": "WINNER+NOVEL", "a": "CategoryTheory.ShortComplex.abLeftHomologyData_f'", "b": "CategoryTheory.eqToHom_map_comp", "fit": {"a_into_b": true, "b_into_a": false, "oriented_as": ["CategoryTheory.ShortComplex.abLeftHomologyData_f'", "CategoryTheory.eqToHom_map_comp"]}}
+{"pair": 64, "arm": "CLAUDE", "a": "Monotone.comp_monotoneOn", "b": "Real.rpow_inv_natCast_pow"}
+{"pair": 65, "arm": "NEAREST", "a": "Real.eulerMascheroniConstant_eq_neg_deriv", "b": "Stirling.stirlingSeq_one"}
+{"pair": 66, "arm": "NEAREST", "a": "Real.log_two_lt_d9", "b": "Real.neg_pi_div_two_lt_arctan"}
+{"pair": 67, "arm": "NEAREST", "a": "Complex.linearEquiv_det_conjAe", "b": "Real.coe_tanPartialHomeomorph_symm"}
+{"pair": 68, "arm": "CLAUDE", "a": "CauSeq.Completion.ofRat_natCast", "b": "Mathlib.Tactic.Qify.intCast_le"}
+{"pair": 69, "arm": "CLAUDE", "a": "Polynomial.root_right_of_root_gcd", "b": "Real.monotoneOn_rpow_Ici_of_exponent_nonneg"}
+{"pair": 70, "arm": "WINNER+NOVEL", "a": "OrderIso.map_csSup", "b": "Ordinal.nonempty_compl_range", "fit": {"a_into_b": false, "b_into_a": true, "oriented_as": ["OrderIso.map_csSup", "Ordinal.nonempty_compl_range"]}}
+{"pair": 71, "arm": "CLAUDE", "a": "AlgebraicGeometry.functionField_isFractionRing_of_isAffineOpen", "b": "Ideal.le_comap_mul"}
+{"pair": 72, "arm": "RANDOM", "a": "HomologicalComplex.homotopyCofiber.ext_to_X'", "b": "SimpleGraph.completeGraph_eq_top"}
+{"pair": 73, "arm": "CLAUDE", "a": "MeasureTheory.Measure.addHaarMeasure_unique", "b": "Set.mapsTo_image"}
+{"pair": 74, "arm": "WINNER+NOVEL", "a": "Nat.two_lt_of_ne", "b": "two_ne_zero", "fit": {"a_into_b": false, "b_into_a": true, "oriented_as": ["Nat.two_lt_of_ne", "two_ne_zero"]}}
+{"pair": 75, "arm": "NEAREST", "a": "Complex.hasDerivAt_Gamma_one_half", "b": "Real.continuousOn_tan_Ioo"}
+{"pair": 76, "arm": "NEAREST", "a": "Nat.zero_ascFactorial", "b": "finRotate_apply_zero"}
+{"pair": 77, "arm": "NEAREST", "a": "Real.tan_surjective", "b": "continuous_real_toNNReal"}
+{"pair": 78, "arm": "WINNER+NOVEL", "a": "IsUnit.div_eq_of_eq_mul", "b": "NNReal.rpow_one", "fit": {"a_into_b": false, "b_into_a": true, "oriented_as": ["IsUnit.div_eq_of_eq_mul", "NNReal.rpow_one"]}}
+{"pair": 79, "arm": "CLAUDE", "a": "Real.le_rpow_add", "b": "strictAnti_dual_iff"}
+{"pair": 80, "arm": "RANDOM", "a": "Composition.ones_blocks", "b": "Finsupp.smul_single'"}
+{"pair": 81, "arm": "WINNER+NOVEL", "a": "Equiv.Perm.subtypeCongrHom_injective", "b": "Sym2.map.injective", "fit": {"a_into_b": true, "b_into_a": false, "oriented_as": ["Equiv.Perm.subtypeCongrHom_injective", "Sym2.map.injective"]}}
+{"pair": 82, "arm": "NEAREST", "a": "Complex.continuous_im", "b": "ContinuousMap.realToNNReal_apply"}
+{"pair": 83, "arm": "WINNER+NOVEL", "a": "AlgebraicGeometry.Scheme.empty_ext", "b": "CategoryTheory.dcongr_arg", "fit": {"a_into_b": true, "b_into_a": false, "oriented_as": ["AlgebraicGeometry.Scheme.empty_ext", "CategoryTheory.dcongr_arg"]}}
+{"pair": 84, "arm": "RANDOM", "a": "MeasureTheory.SimpleFunc.setToSimpleFunc_mono_left", "b": "Real.arctan_add"}
+{"pair": 85, "arm": "RANDOM", "a": "Nat.factorial_eq_one", "b": "OnePoint.ultrafilter_le_nhds_infty"}
+{"pair": 86, "arm": "RANDOM", "a": "ContinuousWithinAt.nhdsWithin_extChartAt_symm_preimage_inter_range", "b": "Sym.mem_replicate"}
+{"pair": 87, "arm": "RANDOM", "a": "Equiv.Perm.IsSwap.of_subtype_isSwap", "b": "UpperHalfPlane.coe_vadd"}
+{"pair": 88, "arm": "NEAREST", "a": "Int.csInf_empty", "b": "expNegInvGlue.zero"}
+{"pair": 89, "arm": "RANDOM", "a": "MeasureTheory.L1.SimpleFunc.setToL1S_smul_real", "b": "ULift.up_surjective"}
+{"pair": 90, "arm": "NEAREST", "a": "Real.exp_neg_one_lt_d9", "b": "Real.smoothTransition.zero"}
+{"pair": 91, "arm": "RANDOM", "a": "Filter.frequently_cocardinal", "b": "MDifferentiableAt.comp"}
+{"pair": 92, "arm": "NEAREST", "a": "PLift.up_surjective", "b": "SymAlg.unsym_bijective"}
+{"pair": 93, "arm": "RANDOM", "a": "ENNReal.div_rpow_of_nonneg", "b": "Finset.prod_finset_coe"}
+{"pair": 94, "arm": "CLAUDE", "a": "Real.nnnorm_natCast", "b": "Set.Nontrivial.infsep_of_fintype"}
+{"pair": 95, "arm": "CLAUDE", "a": "Real.arctan_add_arctan_lt_pi_div_two", "b": "lt_mul_of_one_le_of_lt"}
+{"pair": 96, "arm": "CLAUDE", "a": "Finset.prod_lt_prod'", "b": "Mathlib.Tactic.Qify.intCast_eq"}
+{"pair": 97, "arm": "WINNER+NOVEL", "a": "CategoryTheory.NatTrans.congr", "b": "nonemptyFinLinOrd_dual_comp_forget_to_linOrd", "fit": {"a_into_b": false, "b_into_a": true, "oriented_as": ["CategoryTheory.NatTrans.congr", "nonemptyFinLinOrd_dual_comp_forget_to_linOrd"]}}
+{"pair": 98, "arm": "CLAUDE", "a": "NNReal.mul_rpow", "b": "interior_prod_eq"}
+{"pair": 99, "arm": "WINNER+NOVEL", "a": "CategoryTheory.IsHomLift.of_fac", "b": "TopologicalSpace.Opens.map_comp_obj", "fit": {"a_into_b": false, "b_into_a": true, "oriented_as": ["CategoryTheory.IsHomLift.of_fac", "TopologicalSpace.Opens.map_comp_obj"]}}
+{"pair": 100, "arm": "NEAREST", "a": "Nat.sqrt_zero", "b": "ONote.fastGrowing_zero"}
+{"pair": 101, "arm": "CLAUDE", "a": "Composition.coe_invEmbedding", "b": "Finset.prod_pair"}
+{"pair": 102, "arm": "RANDOM", "a": "Nat.one_le_pow'", "b": "ciSup_false"}
+{"pair": 103, "arm": "CLAUDE", "a": "BddAbove.convolutionExistsAt", "b": "Nat.dvd_factorial"}
+{"pair": 104, "arm": "NEAREST", "a": "Complex.hasDerivAt_Gamma_one_half", "b": "strictConcaveOn_cos_Icc"}
+{"pair": 105, "arm": "NEAREST", "a": "Real.hasDerivAt_Gamma_one_half", "b": "Real.tendsto_arctan_atBot"}
+{"pair": 106, "arm": "RANDOM", "a": "Function.Semiconj\u2082.comp_eq", "b": "tendsto_dist_right_cocompact_atTop"}
+{"pair": 107, "arm": "RANDOM", "a": "CategoryTheory.RelCat.opEquivalence_inverse", "b": "WithZero.toMulBot_symm_bot"}
+{"pair": 108, "arm": "CLAUDE", "a": "MeasureTheory.OuterMeasure.restrict_ofFunction", "b": "add_sq"}
+{"pair": 109, "arm": "RANDOM", "a": "ENNReal.rpow_le_one", "b": "UniqueMDiffOn.eq"}
+{"pair": 110, "arm": "NEAREST", "a": "Real.deriv_Gamma_nat", "b": "Real.tan_int_mul_pi_div_two"}
+{"pair": 111, "arm": "RANDOM", "a": "Nat.find_add", "b": "Set.Ioo.one_minus_pos"}
+{"pair": 112, "arm": "NEAREST", "a": "Int.gcd_eq_gcd_ab", "b": "Zsqrtd.divides_sq_eq_zero_z"}
+{"pair": 113, "arm": "RANDOM", "a": "ProbabilityTheory.stronglyMeasurable_gammaPDFReal", "b": "SimpleGraph.farFromTriangleFree_iff"}
+{"pair": 114, "arm": "WINNER+NOVEL", "a": "NNReal.rpow_le_rpow", "b": "Nat.cast_nonneg", "fit": {"a_into_b": false, "b_into_a": true, "oriented_as": ["NNReal.rpow_le_rpow", "Nat.cast_nonneg"]}}
+{"pair": 115, "arm": "NEAREST", "a": "CharacterModule.int.divByNat_self", "b": "finSuccEquiv_symm_none"}
+{"pair": 116, "arm": "NEAREST", "a": "Real.hasDerivAt_Gamma_one_half", "b": "Real.tendsto_arctan_atTop"}
+{"pair": 117, "arm": "CLAUDE", "a": "Nat.set_induction_bounded", "b": "not_surjective_of_ordinal"}
+{"pair": 118, "arm": "CLAUDE", "a": "abs_le_of_sq_le_sq'", "b": "finRotate_last'"}
+{"pair": 119, "arm": "NEAREST", "a": "Polynomial.bernoulli_eval_zero", "b": "descPochhammer_eq_ascPochhammer"}
+{"pair": 120, "arm": "CLAUDE", "a": "Real.rpow_inv_lt_iff_of_neg", "b": "StrictAnti.dual"}
+{"pair": 121, "arm": "NEAREST", "a": "PLift.up_injective", "b": "SymAlg.unsym_surjective"}
+{"pair": 122, "arm": "WINNER+NOVEL", "a": "Matrix.vec3_eq", "b": "Nonneg.mk_add_mk", "fit": {"a_into_b": false, "b_into_a": true, "oriented_as": ["Matrix.vec3_eq", "Nonneg.mk_add_mk"]}}
+{"pair": 123, "arm": "NEAREST", "a": "Real.Gamma_one_half_eq", "b": "Real.log_two_lt_d9"}
+{"pair": 124, "arm": "CLAUDE", "a": "Nat.findGreatest_is_greatest", "b": "RingHom.fieldRange_eq_map"}
+{"pair": 125, "arm": "CLAUDE", "a": "Nat.toPNat'_coe", "b": "ascPochhammer_nat_eq_descFactorial"}
+{"pair": 126, "arm": "WINNER+NOVEL", "a": "ContinuousMap.norm_lt_iff", "b": "UpperHalfPlane.normSq_pos", "fit": {"a_into_b": false, "b_into_a": true, "oriented_as": ["ContinuousMap.norm_lt_iff", "UpperHalfPlane.normSq_pos"]}}
+{"pair": 127, "arm": "WINNER+NOVEL", "a": "CategoryTheory.eqToIso_refl", "b": "NonemptyFinLinOrd.Iso.mk_inv", "fit": {"a_into_b": false, "b_into_a": true, "oriented_as": ["CategoryTheory.eqToIso_refl", "NonemptyFinLinOrd.Iso.mk_inv"]}}
+{"pair": 128, "arm": "RANDOM", "a": "CategoryTheory.Over.ConstructProducts.conesEquivInverse_obj", "b": "ProbabilityTheory.cond_apply'"}
+{"pair": 129, "arm": "CLAUDE", "a": "Ideal.isCoprime_iff_sup_eq", "b": "Real.rpow_lt_rpow_of_exponent_lt"}
+{"pair": 130, "arm": "NEAREST", "a": "Real.exp_neg_one_lt_d9", "b": "Real.smoothTransition.one"}
+{"pair": 131, "arm": "CLAUDE", "a": "CharacterModule.dual_surjective_of_injective", "b": "Finset.card_sym2"}
+{"pair": 132, "arm": "CLAUDE", "a": "IsMaxFilter.sub", "b": "Nat.dvd_add_self_left"}
+{"pair": 133, "arm": "CLAUDE", "a": "SimpleGraph.support_mono", "b": "lt_add_of_lt_of_pos'"}
+{"pair": 134, "arm": "NEAREST", "a": "FreeRing.coe_surjective", "b": "SymAlg.sym_bijective"}
+{"pair": 135, "arm": "RANDOM", "a": "ManyOneDegree.add_le", "b": "NNReal.orderIsoRpow_symm_eq"}
+{"pair": 136, "arm": "CLAUDE", "a": "ENNReal.rpow_pos", "b": "IsUnit.mul_div_cancel"}
+{"pair": 137, "arm": "RANDOM", "a": "CategoryTheory.eqToHom_iso_hom_naturality", "b": "ENNReal.rpow_sub"}
+{"pair": 138, "arm": "NEAREST", "a": "Int.csInf_empty", "b": "nhds_false"}
+{"pair": 139, "arm": "RANDOM", "a": "LSeries_deriv_eqOn", "b": "RatFunc.toFractionRingRingEquiv_symm_eq"}
+{"pair": 140, "arm": "NEAREST", "a": "Real.tendsto_toNNReal_atTop", "b": "Stirling.stirlingSeq_has_pos_limit_a"}
+{"pair": 141, "arm": "CLAUDE", "a": "MeasureTheory.Measure.haar.chaar_mem_haarProduct", "b": "Nat.find_le_iff"}
+{"pair": 142, "arm": "RANDOM", "a": "CategoryTheory.EffectiveEpi.uniq", "b": "Nat.factorial_succ"}
+{"pair": 143, "arm": "NEAREST", "a": "ContinuousMap.coeNNRealReal_apply", "b": "RCLike.re_eq_complex_re"}
+{"pair": 144, "arm": "WINNER+NOVEL", "a": "CategoryTheory.NatTrans.vcomp_app'", "b": "TopologicalSpace.Opens.mapIso_refl", "fit": {"a_into_b": true, "b_into_a": false, "oriented_as": ["CategoryTheory.NatTrans.vcomp_app'", "TopologicalSpace.Opens.mapIso_refl"]}}
+{"pair": 145, "arm": "RANDOM", "a": "Polynomial.coeff_isUnit_isNilpotent_of_isUnit", "b": "nndist_eq_nnnorm_div"}
+{"pair": 146, "arm": "CLAUDE", "a": "MeasureTheory.Lp.simpleFunc.add_toSimpleFunc", "b": "Real.rpow_le_rpow_iff"}
+{"pair": 147, "arm": "NEAREST", "a": "Complex.tendsto_normSq_cocompact_atTop", "b": "NNReal.comap_coe_atTop"}
+{"pair": 148, "arm": "WINNER+NOVEL", "a": "ENNReal.rpow_one", "b": "tsub_eq_of_eq_add_rev", "fit": {"a_into_b": true, "b_into_a": false, "oriented_as": ["ENNReal.rpow_one", "tsub_eq_of_eq_add_rev"]}}
+{"pair": 149, "arm": "CLAUDE", "a": "Polynomial.lifts_and_degree_eq_and_monic", "b": "expNegInvGlue.tendsto_polynomial_inv_mul_zero"}
+{"pair": 150, "arm": "WINNER+NOVEL", "a": "CategoryTheory.CostructuredArrow.proj_obj", "b": "TopologicalSpace.Opens.mapIso_refl", "fit": {"a_into_b": true, "b_into_a": false, "oriented_as": ["CategoryTheory.CostructuredArrow.proj_obj", "TopologicalSpace.Opens.mapIso_refl"]}}
+{"pair": 151, "arm": "WINNER+NOVEL", "a": "CategoryTheory.Functor.congr_hom", "b": "nonemptyFinLinOrd_dual_comp_forget_to_linOrd", "fit": {"a_into_b": false, "b_into_a": true, "oriented_as": ["CategoryTheory.Functor.congr_hom", "nonemptyFinLinOrd_dual_comp_forget_to_linOrd"]}}
+{"pair": 152, "arm": "RANDOM", "a": "ONote.cmp_compares", "b": "StrictAnti.mapsTo_Ioo"}
+{"pair": 153, "arm": "RANDOM", "a": "CliffordAlgebra.map_mul_map_of_isOrtho_of_mem_evenOdd", "b": "List.ofFn_inj"}
+{"pair": 154, "arm": "RANDOM", "a": "BoundedLatticeHom.comp_id", "b": "SignType.not_one_lt"}
+{"pair": 155, "arm": "NEAREST", "a": "Stirling.stirlingSeq_has_pos_limit_a", "b": "tendsto_real_toNNReal_atTop"}
+{"pair": 156, "arm": "NEAREST", "a": "PLift.up_injective", "b": "SymAlg.unsym_bijective"}
+{"pair": 157, "arm": "CLAUDE", "a": "Set.mem_diagonal_iff", "b": "mem_sphere_iff_norm'"}
+{"pair": 158, "arm": "RANDOM", "a": "Real.tendsto_arctan_atTop", "b": "joinM_map_map"}
+{"pair": 159, "arm": "RANDOM", "a": "Mathlib.Meta.NormNum.jacobiSymNat.double_even", "b": "NonUnitalAlgHom.toMulHom_eq_coe"}
+{"pair": 160, "arm": "CLAUDE", "a": "MeasureTheory.Measure.restrict_apply_le", "b": "Nat.find_mono"}
