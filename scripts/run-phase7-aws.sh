@@ -7,7 +7,7 @@
 # check. It uploads the result and powers off; the instance terminates on
 # shutdown and a 5-hour timer backs that up.
 #
-#   scripts/run-phase7-aws.sh launch
+#   scripts/run-phase7-aws.sh launch             (MODELS_FROM=<out> reuses trained models)
 #   scripts/run-phase7-aws.sh watch    <run-name>
 #   scripts/run-phase7-aws.sh fetch    <run-name>
 #   scripts/run-phase7-aws.sh teardown <run-name>
@@ -41,6 +41,12 @@ launch() {
   cp "$p6/noema-pred-20260926-182322/noema/out/predictor.pt" "$t/in/"
   cp "$OUTROOT/population/"{i.int32,j.int32,flags.uint8,names.json,population.json} "$t/in/population/"
   cp "$REPO/scripts/"{run-phase7.py,train-encoders-gpu.py,train-phase6-predictor.py} "$t/scripts/"
+  # MODELS_FROM=<a previous run's noema/out>: reuse its trained models; the
+  # run then only scores and analyses (every model with a .done file loads).
+  if [ -n "${MODELS_FROM:-}" ]; then
+    mkdir -p "$t/in/models"
+    cp "$MODELS_FROM"/{GNN,GNN-noB,JEPA,JEPA-multi,CLASSIFIER,RERANK}.{pt,done} "$t/in/models/"
+  fi
   cp "$REPO/results/phase-1-recognition/link-graph-v1/edges.jsonl.gz" \
      "$t/results/phase-1-recognition/link-graph-v1/"
   ( cd "$t" && find . -type f -exec sha256sum {} + > "$out/task-SHA256SUMS" )

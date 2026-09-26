@@ -980,7 +980,8 @@ def main() -> int:
     top_p = pool_idx[wp.topk(min(NOVEL_TOP, len(pool_idx))).indices]
     nov_p, rch_p = novelty_reach(A[top_p], B[top_p])
     novel_p = (avg_rank(S[winner][top_p]) + avg_rank(nov_p) + avg_rank(rch_p)) / 3
-    order = top_p[novel_p.argsort(descending=True)][:3000].cpu().numpy()
+    # the whole NOVEL order: part 3 walks it until 40 pairs pass the fit check
+    order = top_p[novel_p.argsort(descending=True)].cpu().numpy()
     near = pool_idx[S["NEAREST"][pool_idx].topk(min(5000, len(pool_idx))).indices].cpu().numpy()
 
     def rows(ix, key):

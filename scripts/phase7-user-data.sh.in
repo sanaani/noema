@@ -63,6 +63,7 @@ nvidia-smi --query-gpu=name,memory.total --format=csv,noheader
 /opt/nvenv/bin/python -c "import torch; assert torch.cuda.is_available(), 'no CUDA'; print('cuda', torch.version.cuda)"
 
 cd /opt/noema
+if [ -d /opt/noema/in/models ]; then mkdir -p /opt/noema/out && cp /opt/noema/in/models/* /opt/noema/out/; fi
 # A slice of everything, one epoch, first: a bug fails here in minutes, not
 # after an hour of training. Its outputs are kept apart from the real run.
 echo "STAGE smoke $(date -u +%FT%TZ)"

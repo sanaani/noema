@@ -1,0 +1,26 @@
+{
+  "seed": 20260930,
+  "arm": 40,
+  "lemma_cap": 2,
+  "pool_pairs": 36403779,
+  "random_draws_walked": 40,
+  "claude_offer": 400,
+  "list_depth_used": {
+    "CLAUDE": 40,
+    "NEAREST": 53,
+    "WINNER+NOVEL": 6442
+  },
+  "skipped": {
+    "RANDOM": {},
+    "CLAUDE": {},
+    "NEAREST": {
+      "lemma cap": 13
+    },
+    "WINNER+NOVEL": {
+      "failed the fit check": 5984,
+      "lemma cap": 418
+    }
+  },
+  "fit_checked_in_winner_list": 15000,
+  "arm_key_sha256": "14d852fcb0345f1c80febdd146f9264fbc4f0aa1261412a198203d09beaaf25a"
+}

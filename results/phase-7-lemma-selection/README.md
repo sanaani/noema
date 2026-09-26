@@ -307,3 +307,110 @@ rated 2, in full.
 ## Results
 
 *Appended after the runs. Nothing above this line changes.*
+
+### Verdicts, parts 1 and 2
+
+| test | pre-registered prediction | result | verdict |
+|---|---|---|---|
+| **H1** best picker − best baseline (AUC) | GNN passes | best picker ENSEMBLE 0.884 against POPULAR 0.959: **−0.076** [−0.099, −0.051]; every picker's interval is below 0 | **the baselines do better** |
+| **H2** GNN − GNN-noB | the geometry adds | **+0.273** [+0.232, +0.317] | **the geometry adds to the citation network** (see the caveat below) |
+| **H3** NOVEL − winner, positives in the top 10,000 | no measurable difference | 31 against 23: **+8** [−17, +34] | **no measurable difference** |
+
+H1 went against the prediction: no picker passes, and every picker's
+interval sits below zero. The strongest baseline was popularity, as
+predicted, and it was far stronger than expected. The winner that Part 3 uses
+is therefore the highest-AUC picker, ENSEMBLE, with the caveat the
+pre-registration requires: it does not beat the baselines.
+
+### Part 1 — the picker race
+
+Numbers from `results/phase7.json` (`scripts/run-phase7.py`).
+
+**The population.** 57,589,891 hard pairs are placeable and not already co-cited in 2024.
+1,661 of them are positives, spread over 794 distinct endpoints. The rule removed
+4,367 hard pairs that some 2024 theorem already cites together. 623 of those
+were positives: 14% of them, against a base rate of 1 in 35,000 in the
+population. A pair already joined in 2024 is very likely to be joined again,
+and phase 4's 2,284 hard positives included them.
+
+| method | AUC | AUC, non-generic | positives in top 1,000 | top 10,000 | top 100,000 |
+|---|---:|---:|---:|---:|---:|
+| **POPULAR** (baseline) | **0.959** | **0.949** | **12** | **93** | **690** |
+| ENSEMBLE | 0.884 | 0.880 | 0 | 23 | 195 |
+| JEPA-multi | 0.866 | 0.857 | 4 | 22 | 107 |
+| CLASSIFIER | 0.852 | 0.837 | 0 | 8 | 66 |
+| JEPA | 0.839 | 0.833 | 0 | 7 | 85 |
+| GNN | 0.753 | 0.768 | 0 | 0 | 4 |
+| NEAREST (baseline) | 0.732 | 0.736 | 0 | 1 | 18 |
+| GRAPH (baseline) | 0.511 | 0.504 | 0 | 10 | 36 |
+| GNN-noB | 0.480 | 0.497 | 0 | 0 | 0 |
+| WORDS (baseline) | 0.417 | 0.418 | 0 | 1 | 2 |
+| *chance* | 0.5 | | 0.03 | 0.29 | 2.9 |
+
+In words: the single best predictor of which two lemmas a 2026 theorem will
+combine is how popular both lemmas already are. Summing their log citation
+counts ranks the true pair above 96% of the others. Every learned picker beats
+the map's plain nearest-neighbour rule (0.732), and the best geometry-only
+model, JEPA-multi, reaches 0.866. None comes close to popularity.
+
+**Where the pickers do beat popularity** (reported, not tested): within
+bands of equal popularity. Split the population into quintiles of summed 2024
+in-degree, and popularity has little left to rank with inside a band:
+
+| AUC within quintile of summed in-degree | 1 (least cited) | 2 | 3 | 4 | 5 (most cited) |
+|---|---:|---:|---:|---:|---:|
+| POPULAR | 0.541 | 0.643 | 0.586 | 0.595 | 0.918 |
+| ENSEMBLE | 0.788 | 0.851 | 0.879 | 0.847 | 0.868 |
+| CLASSIFIER | 0.820 | 0.867 | 0.902 | 0.820 | 0.833 |
+| JEPA-multi | 0.781 | 0.865 | 0.858 | 0.834 | 0.841 |
+| NEAREST | 0.531 | 0.559 | 0.615 | 0.709 | 0.722 |
+
+Among pairs of equally popular lemmas, the learned pickers rank the true pair
+above 79–90% of the others, where popularity manages 54–64% in four of the
+five bands. So the pickers carry real information that popularity does not.
+Across bands, most of the ranking comes from popularity itself. This was
+chosen as a reported row in advance, but no test was fixed on it. It is the
+lead phase 8 should test.
+
+**The H2 caveat.** GNN-noB, with no map positions, scores 0.480, below chance.
+Its input is popularity and Mathlib area, and every test pair is cross-area by
+construction, so the area input actively misleads it. "The geometry adds" is
+true as registered. It mostly measures the GNN-noB failure, not a strong GNN.
+The GNN with map positions (0.753) is the weakest learned picker. JEPA and
+CLASSIFIER, which never see the graph, both do better. In this design the
+citation network did not help the geometry; popularity used directly did.
+
+**RERANK** (reported): re-ranking each picker's top 10,000 by the
+cross-encoder raises positives in the top 1,000 for every picker that had any
+to find: ENSEMBLE 0 → 8, CLASSIFIER 0 → 6, JEPA 0 → 3, JEPA-multi 4 → 7 (GNN
+had none in its top 10,000). Reading the two statements adds something the
+frozen vectors lose. It still leaves every picker far below POPULAR's 12.
+
+**Lean fit check, Part 1** (reported): of each picker's top 1,000, the share
+where one lemma's conclusion unifies with an explicit hypothesis of the other
+at Mathlib `f0957a7` is JEPA 38, JEPA-multi 51, CLASSIFIER 41, ENSEMBLE 29,
+GNN 0. None of the pairs that fit is a positive. The fit filter selects pairs
+that plug together, not the pairs 2026 Mathlib combined.
+
+**Training** (`training` in `phase7.json`). Every model's held-out loss fell
+and flattened. The chosen epochs were GNN 5, GNN-noB 12, JEPA 19, JEPA-multi
+19 and CLASSIFIER 19 of 20. The GNN overfits after epoch 5, and its held-out
+loss (0.59 against 0.69 for a coin flip) says it learned little from 81,373
+supervision pairs. RERANK finished one pass of 2,000,000 examples at a running
+loss of 0.377.
+
+### Part 2 — novelty
+
+**H3: no measurable difference**, as predicted. Within ENSEMBLE's top 100,000
+test pairs (195 positives), re-ranking by NOVEL puts 31 positives in the top
+10,000 against the winner's own 23, with interval −17 to +34.
+
+### Checks
+
+- **Reproduction.** The scoring and analysis ran twice on separate GPU
+  workers from the same trained models (see Deviations). Every AUC agrees to
+  within 3 × 10⁻⁹, every interval within 10⁻⁹, and every top-k count, H3 and
+  the RERANK rows match exactly.
+- **The smoke stage.** The worker first ran the whole pipeline on a slice
+  (20,000 graph records, 2 million pairs, one epoch) and only then started the
+  real run. The smoke numbers are not results.
