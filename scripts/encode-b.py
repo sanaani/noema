@@ -44,22 +44,49 @@ def load(model_dir: Path):
     return tok, model
 
 
-def encode(tok, model, texts: list[str], batch: int = 64) -> np.ndarray:
+def batches(order: np.ndarray, lengths: np.ndarray, rows: int, tokens: int):
+    """Consecutive slices of `order` with at most `rows` rows and `rows * L <= tokens`.
+
+    Texts are sorted by length, so the long tail gets small batches: a batch of
+    64 texts at 512 tokens needs more memory than the laptop has. Batch size does
+    not change a text's vector (padding is masked and excluded from the mean).
+    """
+    out, a = [], 0
+    while a < len(order):
+        b = a + 1
+        while b < len(order) and b - a < rows and (b - a + 1) * lengths[order[b]] <= tokens:
+            b += 1
+        out.append(order[a:b])
+        a = b
+    return out
+
+
+def encode(tok, model, texts: list[str], batch: int = 64, tokens: int = 8192,
+           checkpoint: Path | None = None) -> np.ndarray:  # fmt: skip
     ids, _, _ = tr.tokenize(tok, texts, tr.B_CFG["max_len"])
     lengths = np.array([len(x) for x in ids])
     out = np.zeros((len(texts), tr.B_CFG["d"]), dtype=np.float32)
+    done_mask = np.zeros(len(texts), dtype=bool)
+    if checkpoint is not None and checkpoint.exists():
+        z = np.load(checkpoint)
+        if len(z["done"]) == len(texts):
+            out, done_mask = z["vectors"].copy(), z["done"].copy()
+            print(f"  resuming: {done_mask.sum():,} already encoded", flush=True)
     t0 = time.time()
+    order = np.argsort(lengths, kind="stable")
+    todo = [c for c in batches(order, lengths, batch, tokens) if not done_mask[c].all()]
     with torch.no_grad():
-        order = np.argsort(lengths, kind="stable")
-        for n, c in enumerate(np.array_split(order, max(1, len(order) // batch))):
+        for n, c in enumerate(todo):
             L = max(len(ids[i]) for i in c)
             x = np.zeros((len(c), L), dtype=np.int64)
             for r, i in enumerate(c):
                 x[r, : len(ids[i])] = ids[i]
             out[c] = F.normalize(model.pooled(torch.from_numpy(x)), dim=1).numpy()
-            if n % 100 == 0:
-                done = min((n + 1) * batch, len(texts))
-                print(f"  {done:>7}/{len(texts)} {time.time() - t0:.0f}s", flush=True)
+            done_mask[c] = True
+            if n % 100 == 0 or n == len(todo) - 1:
+                print(f"  {done_mask.sum():>7}/{len(texts)} {time.time() - t0:.0f}s", flush=True)
+                if checkpoint is not None:
+                    np.savez(checkpoint, vectors=out, done=done_mask)
     return out
 
 
@@ -106,7 +133,7 @@ def main() -> int:
             names.append(r["name"])
             texts.append(r["goal"])
     print(f"{len(texts):,} statements, {missing:,} missing")
-    vecs = encode(tok, model, texts)
+    vecs = encode(tok, model, texts, checkpoint=args.out.with_suffix(".partial.npz"))
     if args.texts_json:
         with gzip.open(args.out.with_suffix(".texts.json.gz"), "wt") as f:
             json.dump(texts, f)
