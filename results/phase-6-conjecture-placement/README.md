@@ -203,3 +203,91 @@ may rate them too, also blind.
 - The writer runs as Claude Code subagents: no API key and no AWS.
 - AWS ceiling: $25. Every role, security group, instance and task object is
   torn down and the teardown verified.
+
+---
+
+## Results
+
+*Appended after the runs. Nothing above this line changed.* Parts 1–3 are
+added below when the 2024 statement encode finishes. Part 4 is complete.
+
+### Part 4 — writing theorems (pilot)
+
+Numbers from `results/pilot.json`, written by `scripts/score-phase6-pilot.py`.
+Every check is in `pilot/checks.jsonl`, the blind ratings in
+`pilot/ratings.json`. The arm key was hashed before writing
+(`pilot/arm-key.sha256`) and published only after the ratings were in; it
+matches its hash.
+
+| | TOP | RANDOM |
+|---|---:|---:|
+| pairs | 40 | 40 |
+| pairs with at least one hit | **40** | **40** |
+| checks run | 81 | 81 |
+| checks that compiled | 68 | 60 |
+| hits (candidates passing all three rules) | 67 | 51 |
+| hits rated 2 (worth merging) | 0 | 0 |
+| hits rated 1 (routine combination) | 42 | 10 |
+| hits rated 0 (restates or glues) | 25 | 41 |
+
+**H5: no measurable difference at this size** (40/40 against 40/40, one-sided
+Fisher p = 1). The prediction was "TOP has more hits, but not
+significantly". The outcome is weaker than that: the hit rule does not
+separate the arms at all, because every pair in both arms produced one. The
+rule was too easy. A conjunction of the two lemmas, or a rewrite chain that
+names both, compiles, cites both endpoints and defeats `exact?`. That is a flaw
+in the test's design, fixed in advance and not changed here, not a finding
+about the map.
+
+**No hit is worth merging.** The blind rater gave 0 of 118 hits a 2.
+
+### Deviations
+
+- **Pool.** Before any writing, the pool gained one condition the
+  pre-registration does not list: both endpoints must exist by name in the
+  2026 graph. The first draw had 17 of 80 pairs with an endpoint renamed or
+  removed by 2026. Those pairs could not be written against Mathlib
+  `09712d48`, and a hit must cite both endpoints there. The condition is in
+  `scripts/select-phase6-pairs.py` and was committed with the pairs, before
+  the first writer ran.
+- **Checker axiom rule.** With `open Classical`, Lean prints the choice axiom
+  as `choice`, not `Classical.choice`. The checker read that as a forbidden
+  axiom. Three RANDOM checks (pairs 36 and 49) failed on this alone, and both
+  writers repaired it within budget, so every pair still ended with a hit and
+  H5 is unaffected.
+- **Checker environment.** Lean ran on one m6i.4xlarge worker, not locally:
+  `import Mathlib` at `09712d48` does not fit in the laptop's memory. This is
+  one of the two options the budget allowed.
+- **Encode.** The first 2024 encode was killed for lack of memory while
+  saving: a fixed-width array of 206,845 texts, the longest 30,692 characters,
+  needs about 25 GB. `encode-b.py --texts-json` now writes the texts to a
+  separate file. The vectors are computed exactly as before.
+
+### Exploratory, not pre-registered
+
+- **Quality differs by arm.** Pairs whose best hit was rated at least 1: TOP
+  25 of 40, RANDOM 9 of 40 (one-sided Fisher p = 0.0003). This was chosen
+  after seeing the ratings. TOP pairs also share endpoints heavily
+  (`FreeRing.coe_surjective` is in eight of them, `Real.arctan_one` in four),
+  so the 40 TOP pairs are far fewer than 40 independent draws. It is a lead,
+  not a result.
+- **What TOP's closest pairs look like.** The highest-cosine unjoined hard
+  pairs are near-duplicates in different areas: `Nat.bot_eq_zero` with
+  `Ordinal.bot_eq_zero`, `Int.csInf_empty` with `Ordinal.sInf_empty`,
+  surjectivity lemmas with surjectivity lemmas. B finds statements with the
+  same *shape*. Two such lemmas combine easily, which explains more
+  compilations and more rated-1 hits. It is also why nothing reaches a 2:
+  combining two same-shaped facts rarely says anything new.
+- **The best TOP hits** (rated 1) are small real results. Examples: e < π from
+  `Real.exp_one_lt_d9` and `Real.arctan_one`; n!/(n/e)^n → ∞ from Stirling's
+  limit; |z|² sublevel sets in ℂ are bounded; a finite sum of
+  `smoothTransition` values is positive iff some input is. Nothing here is a
+  new theorem in the mathematical sense.
+
+### Cost and teardown
+
+Two m6i.4xlarge workers: the 2024 statement print (about 10 minutes) and the
+Lean checker (about 30 minutes). Both instances, their IAM roles and instance
+profiles, their security groups and their S3 task and result objects were
+deleted, and the deletion was verified. The writers and the rater ran as
+Claude Code subagents.

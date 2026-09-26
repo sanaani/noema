@@ -70,6 +70,12 @@ def main() -> int:
     ap.add_argument("--out", type=Path)
     ap.add_argument("--check", type=int, default=0)
     ap.add_argument("--texts", type=Path, help="B's training texts (texts.json.gz), for --check")
+    ap.add_argument(
+        "--texts-json",
+        action="store_true",
+        help="write texts to <out>.texts.json.gz instead of into the npz (a fixed-width "
+        "array of 200k statements, the longest 30k characters, needs ~25 GB)",
+    )
     args = ap.parse_args()
     torch.set_num_threads(max(1, torch.get_num_threads()))
     tok, model = load(args.model_dir)
@@ -101,7 +107,12 @@ def main() -> int:
             texts.append(r["goal"])
     print(f"{len(texts):,} statements, {missing:,} missing")
     vecs = encode(tok, model, texts)
-    np.savez_compressed(args.out, names=np.array(names), texts=np.array(texts), vectors=vecs)
+    if args.texts_json:
+        with gzip.open(args.out.with_suffix(".texts.json.gz"), "wt") as f:
+            json.dump(texts, f)
+        np.savez_compressed(args.out, names=np.array(names), vectors=vecs)
+    else:
+        np.savez_compressed(args.out, names=np.array(names), texts=np.array(texts), vectors=vecs)
     print(f"wrote {args.out}")
     return 0
 

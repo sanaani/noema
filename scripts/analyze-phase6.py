@@ -135,7 +135,8 @@ def main() -> int:
     pred, cidx, cmask = z["pred"], z["idx"], z["mask"]
     v24 = np.load(args.vectors_2024)
     table = v24["vectors"].astype(np.float32)
-    texts24 = [str(t) for t in v24["texts"]]
+    with gzip.open(args.vectors_2024.with_suffix(".texts.json.gz"), "rt") as f:
+        texts24 = json.load(f)
     new = np.load(a5.NEW)
     new_at = {str(n): i for i, n in enumerate(new["names"])}
     T = new["vectors"].astype(np.float32)[[new_at[c] for c in conn]]
