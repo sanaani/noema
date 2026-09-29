@@ -382,6 +382,7 @@ def window_cells(P, H, o0, o1, X, min_cites, min_pos):
         "area_col": ar,
         "X": np.column_stack([feats[f][tr, ar] for f in BASE + ["shape"]]),
         "xlist": xlist[tr, ar],
+        "outcome": out_count[tr, ar],
         "pos": out_count[tr, ar] >= min_pos,
         "counts": {
             "history_papers": len(hist),
