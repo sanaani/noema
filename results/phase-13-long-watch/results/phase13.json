@@ -1,0 +1,383 @@
+{
+  "seed": 20261004,
+  "boot": 1000,
+  "smoke": false,
+  "window": [
+    2006,
+    2007,
+    2021
+  ],
+  "counts": {
+    "history_papers": 45894,
+    "outcome_papers": 357822,
+    "popular_tools": 2241,
+    "areas": 28,
+    "cells": 50163,
+    "positives": 4704
+  },
+  "ladder": {
+    "history_papers_with_authors": 42604,
+    "history_papers": 45894,
+    "authors": 21180,
+    "flow_threshold": 0.026319200655641403
+  },
+  "rungs": {
+    "1 shared paper": {
+      "cells": 6474,
+      "positives": 1984,
+      "rate": 0.30645659561322214
+    },
+    "2 shared author": {
+      "cells": 13388,
+      "positives": 1694,
+      "rate": 0.12653122198984165
+    },
+    "3 second-hand": {
+      "cells": 472,
+      "positives": 43,
+      "rate": 0.09110169491525423
+    },
+    "4 neighbouring field": {
+      "cells": 5129,
+      "positives": 255,
+      "rate": 0.04971729381945798
+    },
+    "5 cold": {
+      "cells": 24700,
+      "positives": 728,
+      "rate": 0.029473684210526315
+    }
+  },
+  "H1": {
+    "auc_BASE": 0.7763735461518292,
+    "auc_BASE+SHAPE": 0.8433642477579154,
+    "difference": 0.06699070160608622,
+    "ci95": [
+      0.054238595930564217,
+      0.0794373331074445
+    ],
+    "positives": 728,
+    "cells": 24700,
+    "top": {
+      "100": {
+        "BASE": 37,
+        "BASE+SHAPE": 39,
+        "chance": 2.9473684210526314
+      },
+      "1000": {
+        "BASE": 172,
+        "BASE+SHAPE": 213,
+        "chance": 29.473684210526315
+      }
+    },
+    "verdict": "shape predicts cold jumps"
+  },
+  "H2": {
+    "auc_BASE": 0.8184137060591851,
+    "auc_BASE+SHAPE": 0.8856653890225958,
+    "difference": 0.06725168296341077,
+    "ci95": [
+      0.0431643312017167,
+      0.09532046140876452
+    ],
+    "positives": 126,
+    "cells": 24700,
+    "top": {
+      "100": {
+        "BASE": 12,
+        "BASE+SHAPE": 13,
+        "chance": 0.5101214574898786
+      },
+      "1000": {
+        "BASE": 39,
+        "BASE+SHAPE": 49,
+        "chance": 5.101214574898785
+      }
+    },
+    "verdict": "shape predicts cold jumps"
+  },
+  "strongest_cold_jumps": [
+    {
+      "tool": "W1550918041",
+      "area": "math.OC",
+      "outcome_papers": 26,
+      "percentile_BASE": 0.20087044534412957,
+      "percentile_BASE+SHAPE": 0.6607085020242915
+    },
+    {
+      "tool": "W2798707604",
+      "area": "math.ST",
+      "outcome_papers": 23,
+      "percentile_BASE": 0.9943117408906883,
+      "percentile_BASE+SHAPE": 0.9761336032388664
+    },
+    {
+      "tool": "W3040586665",
+      "area": "math.FA",
+      "outcome_papers": 21,
+      "percentile_BASE": 0.9997773279352227,
+      "percentile_BASE+SHAPE": 0.9999797570850203
+    },
+    {
+      "tool": "W2802739963",
+      "area": "math.NT",
+      "outcome_papers": 18,
+      "percentile_BASE": 0.967834008097166,
+      "percentile_BASE+SHAPE": 0.9897368421052631
+    },
+    {
+      "tool": "W1480714962",
+      "area": "math.MG",
+      "outcome_papers": 17,
+      "percentile_BASE": 0.6488461538461539,
+      "percentile_BASE+SHAPE": 0.8083603238866397
+    },
+    {
+      "tool": "W4301258660",
+      "area": "math.DS",
+      "outcome_papers": 16,
+      "percentile_BASE": 0.8698178137651822,
+      "percentile_BASE+SHAPE": 0.9860121457489879
+    },
+    {
+      "tool": "W1544375930",
+      "area": "math.CV",
+      "outcome_papers": 15,
+      "percentile_BASE": 0.6898582995951417,
+      "percentile_BASE+SHAPE": 0.9224898785425101
+    },
+    {
+      "tool": "W1547644141",
+      "area": "math.AP",
+      "outcome_papers": 15,
+      "percentile_BASE": 0.6600202429149797,
+      "percentile_BASE+SHAPE": 0.9492105263157895
+    },
+    {
+      "tool": "W1995522593",
+      "area": "math.AP",
+      "outcome_papers": 14,
+      "percentile_BASE": 0.8794534412955466,
+      "percentile_BASE+SHAPE": 0.9919230769230769
+    },
+    {
+      "tool": "W1559907478",
+      "area": "math.ST",
+      "outcome_papers": 13,
+      "percentile_BASE": 0.9855263157894737,
+      "percentile_BASE+SHAPE": 0.9738663967611336
+    },
+    {
+      "tool": "W217710249",
+      "area": "math.NA",
+      "outcome_papers": 13,
+      "percentile_BASE": 0.9173886639676113,
+      "percentile_BASE+SHAPE": 0.9405465587044535
+    },
+    {
+      "tool": "W3021722416",
+      "area": "math.ST",
+      "outcome_papers": 13,
+      "percentile_BASE": 0.9978340080971659,
+      "percentile_BASE+SHAPE": 0.9977125506072875
+    },
+    {
+      "tool": "W3039948875",
+      "area": "math.NA",
+      "outcome_papers": 13,
+      "percentile_BASE": 0.9703846153846154,
+      "percentile_BASE+SHAPE": 0.9026518218623482
+    },
+    {
+      "tool": "W4249274673",
+      "area": "math.CA",
+      "outcome_papers": 13,
+      "percentile_BASE": 0.23180161943319838,
+      "percentile_BASE+SHAPE": 0.4881983805668016
+    },
+    {
+      "tool": "W1593038947",
+      "area": "math.ST",
+      "outcome_papers": 12,
+      "percentile_BASE": 0.9458906882591093,
+      "percentile_BASE+SHAPE": 0.9559311740890688
+    },
+    {
+      "tool": "W2000270556",
+      "area": "math.GR",
+      "outcome_papers": 12,
+      "percentile_BASE": 0.5181578947368422,
+      "percentile_BASE+SHAPE": 0.486497975708502
+    },
+    {
+      "tool": "W2022806724",
+      "area": "math.OC",
+      "outcome_papers": 12,
+      "percentile_BASE": 0.8370647773279353,
+      "percentile_BASE+SHAPE": 0.9369028340080972
+    },
+    {
+      "tool": "W2029948740",
+      "area": "math.PR",
+      "outcome_papers": 12,
+      "percentile_BASE": 0.9832591093117409,
+      "percentile_BASE+SHAPE": 0.9787651821862349
+    },
+    {
+      "tool": "W2080803951",
+      "area": "math.OC",
+      "outcome_papers": 12,
+      "percentile_BASE": 0.7628947368421053,
+      "percentile_BASE+SHAPE": 0.7432591093117409
+    },
+    {
+      "tool": "W1525296983",
+      "area": "math.PR",
+      "outcome_papers": 11,
+      "percentile_BASE": 0.9662145748987854,
+      "percentile_BASE+SHAPE": 0.9918825910931174
+    }
+  ],
+  "top_20_BASE+SHAPE": [
+    {
+      "tool": "W3040586665",
+      "area": "math.FA",
+      "outcome_papers": 21,
+      "percentile_BASE": 0.9997773279352227,
+      "percentile_BASE+SHAPE": 0.9999797570850203
+    },
+    {
+      "tool": "W3043060850",
+      "area": "math.GN",
+      "outcome_papers": 0,
+      "percentile_BASE": 0.9998178137651822,
+      "percentile_BASE+SHAPE": 0.9999392712550608
+    },
+    {
+      "tool": "W3043060850",
+      "area": "math.NA",
+      "outcome_papers": 6,
+      "percentile_BASE": 0.9998987854251012,
+      "percentile_BASE+SHAPE": 0.9998987854251012
+    },
+    {
+      "tool": "W1584901588",
+      "area": "math.OA",
+      "outcome_papers": 3,
+      "percentile_BASE": 0.9951214574898786,
+      "percentile_BASE+SHAPE": 0.9998582995951417
+    },
+    {
+      "tool": "W1983894121",
+      "area": "math.GN",
+      "outcome_papers": 1,
+      "percentile_BASE": 0.9987246963562753,
+      "percentile_BASE+SHAPE": 0.9998178137651822
+    },
+    {
+      "tool": "W4253118785",
+      "area": "math.RT",
+      "outcome_papers": 6,
+      "percentile_BASE": 0.9897368421052631,
+      "percentile_BASE+SHAPE": 0.9997773279352227
+    },
+    {
+      "tool": "W1828839365",
+      "area": "math.MG",
+      "outcome_papers": 6,
+      "percentile_BASE": 0.9989271255060729,
+      "percentile_BASE+SHAPE": 0.9997368421052631
+    },
+    {
+      "tool": "W3038830718",
+      "area": "math.AG",
+      "outcome_papers": 8,
+      "percentile_BASE": 0.999574898785425,
+      "percentile_BASE+SHAPE": 0.9996963562753036
+    },
+    {
+      "tool": "W1565930783",
+      "area": "math.FA",
+      "outcome_papers": 2,
+      "percentile_BASE": 0.9969433198380567,
+      "percentile_BASE+SHAPE": 0.9996558704453441
+    },
+    {
+      "tool": "W1496351075",
+      "area": "math.OA",
+      "outcome_papers": 0,
+      "percentile_BASE": 0.9665789473684211,
+      "percentile_BASE+SHAPE": 0.9996153846153846
+    },
+    {
+      "tool": "W1496383623",
+      "area": "math.CV",
+      "outcome_papers": 2,
+      "percentile_BASE": 0.9985222672064777,
+      "percentile_BASE+SHAPE": 0.999574898785425
+    },
+    {
+      "tool": "W2128978199",
+      "area": "math.LO",
+      "outcome_papers": 0,
+      "percentile_BASE": 0.9997368421052631,
+      "percentile_BASE+SHAPE": 0.9995344129554656
+    },
+    {
+      "tool": "W2081257302",
+      "area": "math.QA",
+      "outcome_papers": 6,
+      "percentile_BASE": 0.9977125506072875,
+      "percentile_BASE+SHAPE": 0.9994939271255061
+    },
+    {
+      "tool": "W2801179766",
+      "area": "math.OC",
+      "outcome_papers": 11,
+      "percentile_BASE": 0.9987651821862348,
+      "percentile_BASE+SHAPE": 0.9994534412955466
+    },
+    {
+      "tool": "W1493137254",
+      "area": "math.OA",
+      "outcome_papers": 1,
+      "percentile_BASE": 0.9670647773279353,
+      "percentile_BASE+SHAPE": 0.9994129554655871
+    },
+    {
+      "tool": "W1597292016",
+      "area": "math.FA",
+      "outcome_papers": 4,
+      "percentile_BASE": 0.9877125506072875,
+      "percentile_BASE+SHAPE": 0.9993724696356275
+    },
+    {
+      "tool": "W4248269519",
+      "area": "math.FA",
+      "outcome_papers": 2,
+      "percentile_BASE": 0.9982388663967612,
+      "percentile_BASE+SHAPE": 0.999331983805668
+    },
+    {
+      "tool": "W4248269519",
+      "area": "math.OA",
+      "outcome_papers": 2,
+      "percentile_BASE": 0.9980364372469636,
+      "percentile_BASE+SHAPE": 0.9992914979757085
+    },
+    {
+      "tool": "W1567200859",
+      "area": "math.OA",
+      "outcome_papers": 1,
+      "percentile_BASE": 0.9752834008097166,
+      "percentile_BASE+SHAPE": 0.999251012145749
+    },
+    {
+      "tool": "W1594563152",
+      "area": "math.AT",
+      "outcome_papers": 3,
+      "percentile_BASE": 0.9974696356275303,
+      "percentile_BASE+SHAPE": 0.9992105263157894
+    }
+  ]
+}

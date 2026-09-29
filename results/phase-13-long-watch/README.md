@@ -95,3 +95,75 @@ smoke pass first. Estimated 15 minutes, under $1; ceiling $3. Teardown
 verified.
 
 ---
+
+## Results
+
+*Appended after the run. Nothing above this line changed.* Run
+`noema-p12-20260929-200701` (launched with the Phase 12 launcher,
+`USERDATA=phase13`), one m6i.4xlarge, 6 minutes, about $0.15. Numbers from
+`results/phase13.json`; tool titles looked up in OpenAlex afterwards
+(`results/titles.json`).
+
+### The ladder at 15 years (history ≤ 2006, 2,241 popular tools)
+
+| rung | cells | jumps | rate |
+|---|---:|---:|---:|
+| 1 shared paper | 6,474 | 1,984 | 31% |
+| 2 shared author | 13,388 | 1,694 | 13% |
+| 3 second-hand | 472 | 43 | 9.1% |
+| 4 neighbouring field | 5,129 | 255 | 5.0% |
+| **5 cold** | **24,700** | **728** | **2.9%** |
+
+### Verdict
+
+| test | positives | AUC BASE → BASE+SHAPE | gain [95% CI] | verdict |
+|---|---:|---|---|---|
+| **H1** cold jumps | 728 | 0.776 → 0.843 | **+0.067** [+0.054, +0.079] | **shape predicts cold jumps** |
+| **H2** cold jumps that took hold | 126 | 0.818 → 0.886 | **+0.067** [+0.043, +0.095] | **shape predicts cold jumps** |
+
+Both predictions held. With a five-year watch (Phase 12) shape's gain on cold
+cells was +0.023; with fifteen it is +0.067, the same size as Phase 11's
+gain on all cells.
+
+### Reported, not tested
+
+| | top 100 | top 1,000 |
+|---|---:|---:|
+| cold jumps: BASE+SHAPE / BASE / chance | 39 / 37 / 2.9 | **213** / 172 / 29 |
+| took hold: BASE+SHAPE / BASE / chance | 13 / 12 / 0.5 | **49** / 39 / 5.1 |
+
+Shape's gain is in the middle of the list, not the top: the top 100 are
+nearly the same under both models.
+
+**The 20 strongest cold jumps** (most outcome papers) are mostly standard
+references adopted by a new area: *Matrix Analysis* into statistics (23
+papers), *Large Deviations Techniques* into dynamical systems (16), *Banach
+Lattices and Positive Operators* into PDE (15), *Functions of Bounded
+Variation* into metric geometry (17). Shape moved several of them up sharply:
+*Global Stability of Dynamical Systems* into optimisation, the strongest (26
+papers), from the 20th percentile under BASE to the 66th; *Banach Lattices*
+from the 66th to the 95th; *Nonlinear Potential Theory* into complex
+analysis from the 69th to the 92nd.
+
+**The top 20 under BASE+SHAPE** are graduate textbooks (algebraic topology,
+Lie groups, algebraic geometry) predicted for neighbouring structural areas;
+12 of the 20 became jumps.
+
+### What this establishes
+
+- Given a long enough watch, the demand profile predicts where a popular
+  tool will appear in an area it had **no visible route into**, beyond
+  popularity and citation habits, and it predicts the jumps that took hold
+  as well as the ones that merely happened.
+- Phase 12's small cold-cell gain was a short-watch effect: cold jumps are
+  slow, and five years counted most of them as misses.
+
+### What it does not establish
+
+- **That these jumps are surprising ideas.** At the level of 28 arXiv areas
+  and tools cited by 20+ papers, the cold jumps that happen are mostly
+  textbooks being adopted by a new field. Valuable, yes, but not the
+  Viazovska kind. Finding those needs a finer grain than arXiv categories.
+- **Forward prediction in the strict sense.** Cross-validation by tool
+  keeps each tool's outcome away from its model, but all tools share one
+  period; a period-specific trend could help every fold at once.
