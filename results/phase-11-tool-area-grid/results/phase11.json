@@ -1,0 +1,391 @@
+{
+  "seed": 20261002,
+  "boot": 1000,
+  "smoke": false,
+  "coverage_by_year": {
+    "1992": {
+      "papers": 275,
+      "with_refs": 167
+    },
+    "1993": {
+      "papers": 220,
+      "with_refs": 148
+    },
+    "1994": {
+      "papers": 313,
+      "with_refs": 214
+    },
+    "1995": {
+      "papers": 330,
+      "with_refs": 211
+    },
+    "1996": {
+      "papers": 325,
+      "with_refs": 206
+    },
+    "1997": {
+      "papers": 413,
+      "with_refs": 282
+    },
+    "1998": {
+      "papers": 2072,
+      "with_refs": 1612
+    },
+    "1999": {
+      "papers": 2449,
+      "with_refs": 1953
+    },
+    "2000": {
+      "papers": 2963,
+      "with_refs": 2319
+    },
+    "2001": {
+      "papers": 3217,
+      "with_refs": 2578
+    },
+    "2002": {
+      "papers": 4228,
+      "with_refs": 3419
+    },
+    "2003": {
+      "papers": 5165,
+      "with_refs": 4250
+    },
+    "2004": {
+      "papers": 6602,
+      "with_refs": 5298
+    },
+    "2005": {
+      "papers": 7749,
+      "with_refs": 6443
+    },
+    "2006": {
+      "papers": 9573,
+      "with_refs": 8049
+    },
+    "2007": {
+      "papers": 11133,
+      "with_refs": 9072
+    },
+    "2008": {
+      "papers": 12112,
+      "with_refs": 10123
+    },
+    "2009": {
+      "papers": 13738,
+      "with_refs": 11250
+    },
+    "2010": {
+      "papers": 15783,
+      "with_refs": 11901
+    },
+    "2011": {
+      "papers": 18004,
+      "with_refs": 13743
+    },
+    "2012": {
+      "papers": 20407,
+      "with_refs": 15889
+    },
+    "2013": {
+      "papers": 22919,
+      "with_refs": 17563
+    },
+    "2014": {
+      "papers": 24835,
+      "with_refs": 18525
+    },
+    "2015": {
+      "papers": 26944,
+      "with_refs": 18210
+    },
+    "2016": {
+      "papers": 28229,
+      "with_refs": 18731
+    },
+    "2017": {
+      "papers": 29905,
+      "with_refs": 19631
+    },
+    "2018": {
+      "papers": 31856,
+      "with_refs": 20304
+    },
+    "2019": {
+      "papers": 33149,
+      "with_refs": 21105
+    },
+    "2020": {
+      "papers": 34870,
+      "with_refs": 21203
+    },
+    "2021": {
+      "papers": 33938,
+      "with_refs": 18397
+    },
+    "2022": {
+      "papers": 34072,
+      "with_refs": 7127
+    },
+    "2023": {
+      "papers": 35843,
+      "with_refs": 6196
+    },
+    "2024": {
+      "papers": 39143,
+      "with_refs": 4781
+    },
+    "2025": {
+      "papers": 42031,
+      "with_refs": 2218
+    },
+    "2026": {
+      "papers": 43055,
+      "with_refs": 596
+    }
+  },
+  "coverage_by_area": {
+    "math.AP": {
+      "papers": 60450,
+      "with_refs": 28136
+    },
+    "math.CO": {
+      "papers": 56540,
+      "with_refs": 26023
+    },
+    "math.PR": {
+      "papers": 45663,
+      "with_refs": 23525
+    },
+    "math.AG": {
+      "papers": 41527,
+      "with_refs": 22074
+    },
+    "math.OC": {
+      "papers": 41145,
+      "with_refs": 17239
+    },
+    "math.NT": {
+      "papers": 39020,
+      "with_refs": 19312
+    },
+    "math.NA": {
+      "papers": 38013,
+      "with_refs": 18134
+    },
+    "math.DG": {
+      "papers": 33707,
+      "with_refs": 19259
+    },
+    "math.DS": {
+      "papers": 26825,
+      "with_refs": 14259
+    },
+    "math.FA": {
+      "papers": 23638,
+      "with_refs": 11672
+    },
+    "math.GT": {
+      "papers": 17763,
+      "with_refs": 10359
+    },
+    "math.RT": {
+      "papers": 17657,
+      "with_refs": 9416
+    },
+    "math.ST": {
+      "papers": 17360,
+      "with_refs": 9018
+    },
+    "math.CA": {
+      "papers": 17183,
+      "with_refs": 9645
+    },
+    "math.GR": {
+      "papers": 16620,
+      "with_refs": 8450
+    },
+    "math.RA": {
+      "papers": 12703,
+      "with_refs": 6874
+    },
+    "math.CV": {
+      "papers": 12139,
+      "with_refs": 6595
+    },
+    "math.LO": {
+      "papers": 11503,
+      "with_refs": 5437
+    },
+    "math.AT": {
+      "papers": 10267,
+      "with_refs": 5691
+    },
+    "math.QA": {
+      "papers": 9861,
+      "with_refs": 6438
+    },
+    "math.AC": {
+      "papers": 9826,
+      "with_refs": 5017
+    },
+    "math.OA": {
+      "papers": 9091,
+      "with_refs": 5357
+    },
+    "math.MG": {
+      "papers": 7145,
+      "with_refs": 3621
+    },
+    "math.SG": {
+      "papers": 5467,
+      "with_refs": 3180
+    },
+    "math.SP": {
+      "papers": 5393,
+      "with_refs": 2915
+    },
+    "math.CT": {
+      "papers": 4886,
+      "with_refs": 2515
+    },
+    "math.GN": {
+      "papers": 3754,
+      "with_refs": 1915
+    },
+    "math.KT": {
+      "papers": 2714,
+      "with_refs": 1638
+    }
+  },
+  "counts_fit": {
+    "history_papers": 98660,
+    "outcome_papers": 113109,
+    "popular_tools": 6578,
+    "areas": 28,
+    "cells": 148381,
+    "positives": 2359
+  },
+  "counts_test": {
+    "history_papers": 211769,
+    "outcome_papers": 158009,
+    "popular_tools": 17647,
+    "areas": 28,
+    "cells": 403587,
+    "positives": 3330
+  },
+  "coefficients_BASE": {
+    "cites": -0.846520095530234,
+    "recent": 1.0343926589037609,
+    "reach": 0.6333807750502906,
+    "size": 0.5501282795425367,
+    "flow": 0.6329331492783595
+  },
+  "coefficients_BASE+SHAPE": {
+    "cites": -0.9709257631310322,
+    "recent": 1.1301387639128264,
+    "reach": 0.23468607977984854,
+    "size": 0.5147502827212262,
+    "flow": 0.3426623934883817,
+    "shape": 1.0048144229690903
+  },
+  "H1": {
+    "auc_BASE": 0.8131988346886525,
+    "auc_BASE+SHAPE": 0.8703179535976964,
+    "difference": 0.057119118909043864,
+    "ci95": [
+      0.05281718730127514,
+      0.06176437883589684
+    ],
+    "verdict": "the demand profile adds to popularity and citation habits"
+  },
+  "auc_single_feature": {
+    "cites": 0.6004328510223472,
+    "recent": 0.6471241780459358,
+    "reach": 0.65234936853372,
+    "size": 0.6558348408294817,
+    "flow": 0.7435357587554801,
+    "shape": 0.8457280611621447
+  },
+  "top_k": {
+    "BASE": {
+      "1000": 87,
+      "10000": 610
+    },
+    "BASE+SHAPE": {
+      "1000": 245,
+      "10000": 1034
+    },
+    "chance": {
+      "1000": 8.251009076109984,
+      "10000": 82.51009076109983
+    }
+  },
+  "H1_by_BASE_quintile": [
+    {
+      "quintile": 1,
+      "positives": 72,
+      "cells": 80718,
+      "auc_BASE": 0.6026556046039343,
+      "auc_BASE+SHAPE": 0.7897612198166473
+    },
+    {
+      "quintile": 2,
+      "positives": 122,
+      "cells": 80717,
+      "auc_BASE": 0.5952014677719706,
+      "auc_BASE+SHAPE": 0.7948656457759349
+    },
+    {
+      "quintile": 3,
+      "positives": 308,
+      "cells": 80717,
+      "auc_BASE": 0.5526710197362736,
+      "auc_BASE+SHAPE": 0.7667755176336305
+    },
+    {
+      "quintile": 4,
+      "positives": 623,
+      "cells": 80717,
+      "auc_BASE": 0.5717321974128232,
+      "auc_BASE+SHAPE": 0.7694309507356144
+    },
+    {
+      "quintile": 5,
+      "positives": 2205,
+      "cells": 80718,
+      "auc_BASE": 0.6516507268189883,
+      "auc_BASE+SHAPE": 0.777993788338936
+    }
+  ],
+  "landmarks": {
+    "1603.04246": {
+      "paper": "Viazovska, sphere packing in dimension 8",
+      "area": "math.NT",
+      "references": 26,
+      "test_cells": []
+    },
+    "1603.06518": {
+      "paper": "Cohn, Kumar, Miller, Radchenko, Viazovska, dimension 24",
+      "area": "math.NT",
+      "references": 22,
+      "test_cells": []
+    },
+    "1605.01506": {
+      "paper": "Croot, Lev, Pach",
+      "area": "math.NT",
+      "references": 9,
+      "test_cells": []
+    },
+    "1605.09223": {
+      "paper": "Ellenberg, Gijswijt",
+      "area": "math.CO",
+      "references": 5,
+      "test_cells": []
+    },
+    "1907.00847": {
+      "paper": "Huang, sensitivity conjecture",
+      "status": "no references"
+    }
+  }
+}
