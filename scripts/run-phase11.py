@@ -195,8 +195,8 @@ def snapshot(out: Path, files: Path, smoke: bool) -> None:
         if p["doi"] and re.fullmatch(r"10\.\d{4,9}/[^\s|,]+", p["doi"]):
             owner.setdefault(p["doi"], i)
     paths = [ln.strip() for ln in files.read_text().splitlines() if ln.strip().endswith(".parquet")]
-    if smoke:
-        paths = paths[:3]
+    if smoke:  # the newest partitions: the oldest hold none of these papers
+        paths = paths[-3:]
     con = duckdb.connect()
     con.sql(f"SET home_directory = '{out.resolve()}'")  # cloud-init has no $HOME
     con.sql("INSTALL httpfs; LOAD httpfs; SET threads = 16")
@@ -223,6 +223,8 @@ def snapshot(out: Path, files: Path, smoke: bool) -> None:
             refs[i].update(r.rsplit("/", 1)[-1] for r in rw or ())
         log(f"snapshot {min(k + 20, len(paths)):,} / {len(paths):,} files, "
             f"{len(oa_ids):,} papers found")  # fmt: skip
+    if smoke and not oa_ids:
+        raise RuntimeError("smoke: the join found no papers in the newest snapshot files")
     with gzip.open(out / "refs.jsonl.gz", "wt") as f:
         for i, p in enumerate(papers):
             f.write(json.dumps({"id": p["id"], "openalex": sorted(oa_ids.get(i, ())),
@@ -299,7 +301,7 @@ def window_cells(P, H, o0, o1, X, min_cites, min_pos):
     hist_pos = {k: r for r, k in enumerate(hist)}
     Xh = X[hist]
     inc = sp.csr_matrix((np.ones(len(rows)), (rows, [hist_pos[c] for c in cols])), shape=(nt, len(hist)))
-    inc = normalize(inc, "l1")
+    inc = normalize(inc, "l1") if nt else inc
     rec_rows = [ai[P[k]["area"]] for k in recent]
     ainc = normalize(sp.csr_matrix((np.ones(len(recent)), (rec_rows, [hist_pos[k] for k in recent])),
                                    shape=(na, len(hist))), "l1")  # fmt: skip
