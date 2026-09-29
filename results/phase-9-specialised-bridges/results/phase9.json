@@ -1,0 +1,1917 @@
+{
+  "k": 50,
+  "boot": 2000,
+  "seed": 20260929,
+  "specialisation_median_2024": 6.544534738394918,
+  "corpus_without_2024_statement": 0,
+  "counts_A": {
+    "rare": 94,
+    "ordinary": 3746,
+    "within": 5358,
+    "connectors_dropped": 0
+  },
+  "A1": {
+    "rare_bridges": 94,
+    "within": 5358,
+    "auc": 0.5517738438445593,
+    "ci95": [
+      0.47971223281254727,
+      0.6186677430234478
+    ],
+    "verdict": "not supported"
+  },
+  "reported_on_A1_labels": {
+    "M_V": {
+      "auc": 0.5475923852183651,
+      "ci95": [
+        0.4766386746316149,
+        0.6139796469057335
+      ]
+    },
+    "S": {
+      "auc": 0.6277618276111283,
+      "ci95": [
+        0.5583325735666927,
+        0.6961602186213047
+      ]
+    },
+    "cited": {
+      "auc": 0.8283815015129494,
+      "ci95": [
+        0.7749001034269017,
+        0.878652262709436
+      ]
+    },
+    "M_minus_M_V": {
+      "difference": 0.004181458626194234,
+      "ci95": [
+        -0.037865364111085924,
+        0.043778247900005736
+      ]
+    }
+  },
+  "A2": {
+    "rare_bridges": 94,
+    "ordinary_bridges": 3746,
+    "M": {
+      "auc": 0.4862378025922686,
+      "ci95": [
+        0.4146073032931326,
+        0.5548130617803988
+      ],
+      "p_one_sided": 0.6545,
+      "holm_pass": false,
+      "verdict": "no measurable difference"
+    },
+    "S": {
+      "auc": 0.525337665140689,
+      "ci95": [
+        0.45341110658507205,
+        0.5942195221408543
+      ],
+      "p_one_sided": 0.247,
+      "holm_pass": false,
+      "verdict": "no measurable difference"
+    }
+  },
+  "reported_on_A2_labels": {
+    "cited": {
+      "auc": 0.686215651304654,
+      "ci95": [
+        0.624853597879609,
+        0.7443547828067525
+      ]
+    }
+  },
+  "A2_by_cited_count": {
+    "2": {
+      "rare": 15,
+      "ordinary": 1296,
+      "auc_M": 0.5446502057613168,
+      "auc_S": 0.4684156378600823
+    },
+    "3-5": {
+      "rare": 37,
+      "ordinary": 1854,
+      "auc_M": 0.4658080410507595,
+      "auc_S": 0.5674946791451646
+    },
+    "6+": {
+      "rare": 42,
+      "ordinary": 596,
+      "auc_M": 0.46234819431128155,
+      "auc_S": 0.43927772451262387
+    }
+  },
+  "A1_rare_share_by_S_decile": [
+    {
+      "S_from": 0.009212672710418701,
+      "S_to": 0.11746886372566223,
+      "connectors": 546,
+      "rare_share": 0.014652014652014652
+    },
+    {
+      "S_from": 0.11746886372566223,
+      "S_to": 0.14995936155319214,
+      "connectors": 545,
+      "rare_share": 0.007339449541284404
+    },
+    {
+      "S_from": 0.14995936155319214,
+      "S_to": 0.17630739212036134,
+      "connectors": 545,
+      "rare_share": 0.005504587155963303
+    },
+    {
+      "S_from": 0.17630739212036134,
+      "S_to": 0.1979454278945923,
+      "connectors": 545,
+      "rare_share": 0.009174311926605505
+    },
+    {
+      "S_from": 0.1979454278945923,
+      "S_to": 0.21765729784965515,
+      "connectors": 545,
+      "rare_share": 0.01651376146788991
+    },
+    {
+      "S_from": 0.21765729784965515,
+      "S_to": 0.2390931010246277,
+      "connectors": 545,
+      "rare_share": 0.012844036697247707
+    },
+    {
+      "S_from": 0.2390931010246277,
+      "S_to": 0.26240008473396303,
+      "connectors": 545,
+      "rare_share": 0.025688073394495414
+    },
+    {
+      "S_from": 0.26240008473396303,
+      "S_to": 0.2906990647315979,
+      "connectors": 545,
+      "rare_share": 0.01834862385321101
+    },
+    {
+      "S_from": 0.2906990647315979,
+      "S_to": 0.33174319267272956,
+      "connectors": 545,
+      "rare_share": 0.027522935779816515
+    },
+    {
+      "S_from": 0.33174319267272956,
+      "S_to": 0.49899667501449585,
+      "connectors": 546,
+      "rare_share": 0.0347985347985348
+    }
+  ],
+  "all_specialised_bridges_by_S": [
+    {
+      "name": "EisensteinSeries.G2_slash_action",
+      "module": "Mathlib.NumberTheory.ModularForms.EisensteinSeries.E2.Transform",
+      "S": 0.44405537843704224,
+      "M": 0.7,
+      "rare_pairs": [
+        [
+          "ModularForm.SL_slash",
+          "UpperHalfPlane.modular_S_smul"
+        ],
+        [
+          "SlashAction.add_slash",
+          "UpperHalfPlane.modular_S_smul"
+        ],
+        [
+          "SlashAction.neg_slash",
+          "UpperHalfPlane.modular_S_smul"
+        ],
+        [
+          "SlashAction.slash_mul",
+          "UpperHalfPlane.modular_S_smul"
+        ],
+        [
+          "SlashAction.slash_one",
+          "UpperHalfPlane.modular_S_smul"
+        ]
+      ]
+    },
+    {
+      "name": "UpperHalfPlane.fourierCoeffOn_neg_eq_zero",
+      "module": "Mathlib.NumberTheory.ModularForms.Bounds",
+      "S": 0.4339134693145752,
+      "M": 0.54,
+      "rare_pairs": [
+        [
+          "MDifferentiable.comp",
+          "UpperHalfPlane.mdifferentiable_coe"
+        ]
+      ]
+    },
+    {
+      "name": "UpperHalfPlane.sum_range_norm_sq_qExpansion_coeff_le",
+      "module": "Mathlib.NumberTheory.ModularForms.Bounds",
+      "S": 0.41199803352355957,
+      "M": 0.54,
+      "rare_pairs": [
+        [
+          "Nat.mono_cast",
+          "even_two_mul"
+        ]
+      ]
+    },
+    {
+      "name": "Rat.instStarOrderedRing",
+      "module": "Mathlib.Data.Rat.Star",
+      "S": 0.4109744429588318,
+      "M": 0.52,
+      "rare_pairs": [
+        [
+          "Rat.addSubmonoid_closure_range_mul_self",
+          "TrivialStar.star_trivial"
+        ]
+      ]
+    },
+    {
+      "name": "ModularGroup.isCompact_truncatedFundamentalDomain",
+      "module": "Mathlib.NumberTheory.Modular",
+      "S": 0.395315945148468,
+      "M": 0.38,
+      "rare_pairs": [
+        [
+          "Complex.continuous_im",
+          "even_two_mul"
+        ]
+      ]
+    },
+    {
+      "name": "Unitary.continuousOn_argSelfAdjoint",
+      "module": "Mathlib.Analysis.CStarAlgebra.Unitary.Connected",
+      "S": 0.391559898853302,
+      "M": 0.5,
+      "rare_pairs": [
+        [
+          "Complex.continuous_ofReal",
+          "even_two_mul"
+        ]
+      ]
+    },
+    {
+      "name": "CuspFormClass.exists_sum_range_norm_sq_qExpansion_coeff_le_of_mem_strictPeriods",
+      "module": "Mathlib.NumberTheory.ModularForms.Bounds",
+      "S": 0.39108580350875854,
+      "M": 0.6599999999999999,
+      "rare_pairs": [
+        [
+          "Complex.continuous_ofReal",
+          "even_two_mul"
+        ],
+        [
+          "UpperHalfPlane.im_pos",
+          "even_two_mul"
+        ]
+      ]
+    },
+    {
+      "name": "rieszContentAux_union",
+      "module": "Mathlib.MeasureTheory.Integral.RieszMarkovKakutani.Basic",
+      "S": 0.3760034441947937,
+      "M": 0.18000000000000005,
+      "rare_pairs": [
+        [
+          "HasCompactSupport.isCompact",
+          "RightDistribClass.right_distrib"
+        ]
+      ]
+    },
+    {
+      "name": "UpperHalfPlane.mdifferentiableAt_iff",
+      "module": "Mathlib.Analysis.Complex.UpperHalfPlane.Manifold",
+      "S": 0.37470120191574097,
+      "M": 0.62,
+      "rare_pairs": [
+        [
+          "MDifferentiableAt.comp",
+          "UpperHalfPlane.im_pos"
+        ]
+      ]
+    },
+    {
+      "name": "UpperHalfPlane.instSMulInvariantMeasureGeneralLinearGroupFinOfNatNatRealVolume",
+      "module": "Mathlib.Analysis.Complex.UpperHalfPlane.Measure",
+      "S": 0.3667762279510498,
+      "M": 0.43999999999999995,
+      "rare_pairs": [
+        [
+          "MeasureTheory.smulInvariantMeasure_tfae",
+          "UpperHalfPlane.denom_ne_zero"
+        ],
+        [
+          "MeasureTheory.smulInvariantMeasure_tfae",
+          "UpperHalfPlane.im_pos"
+        ],
+        [
+          "MeasureTheory.smulInvariantMeasure_tfae",
+          "UpperHalfPlane.im_smul_eq_div_normSq"
+        ],
+        [
+          "MeasureTheory.smulInvariantMeasure_tfae",
+          "sign_neg"
+        ],
+        [
+          "MeasureTheory.smulInvariantMeasure_tfae",
+          "sign_pos"
+        ],
+        [
+          "UpperHalfPlane.denom_ne_zero",
+          "sign_neg"
+        ],
+        [
+          "UpperHalfPlane.denom_ne_zero",
+          "sign_pos"
+        ],
+        [
+          "UpperHalfPlane.im_pos",
+          "sign_neg"
+        ],
+        [
+          "UpperHalfPlane.im_pos",
+          "sign_pos"
+        ],
+        [
+          "UpperHalfPlane.im_smul_eq_div_normSq",
+          "sign_neg"
+        ],
+        [
+          "UpperHalfPlane.im_smul_eq_div_normSq",
+          "sign_pos"
+        ]
+      ]
+    },
+    {
+      "name": "RCLike.restrict_toContinuousMap_eq_toContinuousMapStar_restrict",
+      "module": "Mathlib.Analysis.RCLike.BoundedContinuous",
+      "S": 0.36278146505355835,
+      "M": 0.14,
+      "rare_pairs": [
+        [
+          "AlgHom.compLeftContinuous_apply_apply",
+          "RCLike.continuous_ofReal"
+        ]
+      ]
+    },
+    {
+      "name": "ZLattice.sum_piFinset_Icc_rpow_le",
+      "module": "Mathlib.Algebra.Module.ZLattice.Summable",
+      "S": 0.35765111446380615,
+      "M": 0.74,
+      "rare_pairs": [
+        [
+          "Finset.Icc_self",
+          "Nat.mono_cast"
+        ]
+      ]
+    },
+    {
+      "name": "Real.one_div_one_sub_rpow_hasFPowerSeriesOnBall_zero",
+      "module": "Mathlib.Analysis.Analytic.Binomial",
+      "S": 0.3462092876434326,
+      "M": 0.48,
+      "rare_pairs": [
+        [
+          "Complex.ofRealCLM_nnnorm",
+          "ContinuousLinearMap.compContinuousMultilinearMap_coe"
+        ]
+      ]
+    },
+    {
+      "name": "InfiniteGalois.fixingSubgroup_fixedField",
+      "module": "Mathlib.FieldTheory.Galois.Infinite",
+      "S": 0.3420135974884033,
+      "M": 0.62,
+      "rare_pairs": [
+        [
+          "GroupFilterBasis.nhds_eq",
+          "IntermediateField.fixingSubgroup_fixedField"
+        ],
+        [
+          "GroupFilterBasis.nhds_eq",
+          "IntermediateField.le_iff_le"
+        ],
+        [
+          "GroupFilterBasis.nhds_eq",
+          "IsGalois.to_normal"
+        ]
+      ]
+    },
+    {
+      "name": "UpperHalfPlane.gl_smul_eq_self_iff_dist_sq_eq",
+      "module": "Mathlib.Analysis.Complex.UpperHalfPlane.FixedPoints",
+      "S": 0.3397091031074524,
+      "M": 0.12,
+      "rare_pairs": [
+        [
+          "UpperHalfPlane.im_pos",
+          "even_two_mul"
+        ]
+      ]
+    },
+    {
+      "name": "DividedPowers.dpow_sum'",
+      "module": "Mathlib.RingTheory.DividedPowers.Basic",
+      "S": 0.3361596465110779,
+      "M": 0.24,
+      "rare_pairs": [
+        [
+          "Finset.Nat.sum_antidiagonal_eq_sum_range_succ_mk",
+          "Finset.sym_filterNe_mem"
+        ],
+        [
+          "Finset.Nat.sum_antidiagonal_eq_sum_range_succ_mk",
+          "Sym.count_coe_fill_of_ne"
+        ],
+        [
+          "Finset.Nat.sum_antidiagonal_eq_sum_range_succ_mk",
+          "Sym.fill_filterNe"
+        ],
+        [
+          "Finset.Nat.sum_antidiagonal_eq_sum_range_succ_mk",
+          "Sym.filter_ne_fill"
+        ],
+        [
+          "Finset.sum_sigma'",
+          "Finset.sym_filterNe_mem"
+        ],
+        [
+          "Finset.sum_sigma'",
+          "Sym.count_coe_fill_of_ne"
+        ],
+        [
+          "Finset.sum_sigma'",
+          "Sym.fill_filterNe"
+        ],
+        [
+          "Finset.sum_sigma'",
+          "Sym.filter_ne_fill"
+        ]
+      ]
+    },
+    {
+      "name": "NumberField.exists_not_isUnramifiedAt_int_of_isGalois",
+      "module": "Mathlib.NumberTheory.NumberField.ExistsRamified",
+      "S": 0.33584028482437134,
+      "M": 0.6599999999999999,
+      "rare_pairs": [
+        [
+          "IsGalois.to_isSeparable",
+          "IsIntegralClosure.isFractionRing_of_finite_extension"
+        ],
+        [
+          "IsGalois.to_normal",
+          "IsIntegralClosure.isFractionRing_of_finite_extension"
+        ]
+      ]
+    },
+    {
+      "name": "Real.one_div_sub_pow_hasFPowerSeriesOnBall_zero",
+      "module": "Mathlib.Analysis.Analytic.Binomial",
+      "S": 0.33523714542388916,
+      "M": 0.28,
+      "rare_pairs": [
+        [
+          "Complex.ofRealCLM_nnnorm",
+          "ContinuousLinearMap.compContinuousMultilinearMap_coe"
+        ]
+      ]
+    },
+    {
+      "name": "Complex.norm_exp_sub_sum_le_norm_mul_exp",
+      "module": "Mathlib.Analysis.Complex.Exponential",
+      "S": 0.33386415243148804,
+      "M": 0.07999999999999996,
+      "rare_pairs": [
+        [
+          "CauSeq.lim_le",
+          "Nat.mono_cast"
+        ]
+      ]
+    },
+    {
+      "name": "UpperHalfPlane.contMDiff_smul",
+      "module": "Mathlib.Analysis.Complex.UpperHalfPlane.Manifold",
+      "S": 0.3289802670478821,
+      "M": 0.38,
+      "rare_pairs": [
+        [
+          "UpperHalfPlane.im_pos",
+          "contMDiffAt_iff_target"
+        ]
+      ]
+    },
+    {
+      "name": "Finset.kruskal_katona_lovasz_form",
+      "module": "Mathlib.Combinatorics.SetFamily.KruskalKatona",
+      "S": 0.32477903366088867,
+      "M": 0.30000000000000004,
+      "rare_pairs": [
+        [
+          "Finset.Colex.toColex_image_lt_toColex_image",
+          "Finset.card_attachFin"
+        ],
+        [
+          "Finset.Colex.toColex_image_lt_toColex_image",
+          "Finset.mem_attachFin"
+        ],
+        [
+          "Finset.card_attachFin",
+          "Finset.mem_shadow_iterate_iff_exists_sdiff"
+        ],
+        [
+          "Finset.mem_attachFin",
+          "Finset.mem_shadow_iterate_iff_exists_sdiff"
+        ]
+      ]
+    },
+    {
+      "name": "isCompact_setOfPred_finiteMeasure_mass_le_compl_isCompact_le",
+      "module": "Mathlib.MeasureTheory.Measure.Prokhorov",
+      "S": 0.32400983572006226,
+      "M": 0.4,
+      "rare_pairs": [
+        [
+          "Filter.Tendsto.mass",
+          "disjoint_disjointed"
+        ],
+        [
+          "MeasureTheory.FiniteMeasure.ennreal_mass",
+          "disjoint_disjointed"
+        ],
+        [
+          "MeasureTheory.FiniteMeasure.restrict_mass",
+          "disjoint_disjointed"
+        ]
+      ]
+    },
+    {
+      "name": "LSeries.iteratedDeriv_alternating",
+      "module": "Mathlib.NumberTheory.LSeries.Positivity",
+      "S": 0.3239549398422241,
+      "M": 0.52,
+      "rare_pairs": [
+        [
+          "Complex.orderClosedTopology",
+          "LSeries_iteratedDeriv"
+        ]
+      ]
+    },
+    {
+      "name": "UpperHalfPlane.volume_eq_lintegral",
+      "module": "Mathlib.Analysis.Complex.UpperHalfPlane.Measure",
+      "S": 0.3204219341278076,
+      "M": 0.06000000000000005,
+      "rare_pairs": [
+        [
+          "MeasurableEmbedding.map_comap",
+          "UpperHalfPlane.im_pos"
+        ]
+      ]
+    },
+    {
+      "name": "FirstOrder.Language.presburger.isSemilinearSet_boundedFormula_realize",
+      "module": "Mathlib.ModelTheory.Arithmetic.Presburger.Definability",
+      "S": 0.31891584396362305,
+      "M": 0.52,
+      "rare_pairs": [
+        [
+          "Matrix.cons_mulVec",
+          "finSumFinEquiv_symm_last"
+        ]
+      ]
+    },
+    {
+      "name": "Function.hasTemperateGrowth_one_add_norm_sq_rpow",
+      "module": "Mathlib.Analysis.Distribution.TemperateGrowth",
+      "S": 0.3147861957550049,
+      "M": 0.14,
+      "rare_pairs": [
+        [
+          "Nat.mono_cast",
+          "even_two_mul"
+        ]
+      ]
+    },
+    {
+      "name": "AlgebraicGeometry.isOpenImmersion_SpecMap_iff_of_surjective",
+      "module": "Mathlib.AlgebraicGeometry.Morphisms.OpenImmersion",
+      "S": 0.3064913749694824,
+      "M": 0.24,
+      "rare_pairs": [
+        [
+          "CategoryTheory.Functor.preimageIso_inv",
+          "RingHom.ker_eq_comap_bot"
+        ]
+      ]
+    },
+    {
+      "name": "Polynomial.exists_monic_span_sup_map_eq",
+      "module": "Mathlib.RingTheory.Ideal.MonicSpan",
+      "S": 0.30382370948791504,
+      "M": 0.48,
+      "rare_pairs": [
+        [
+          "Ideal.map_comap_le",
+          "Polynomial.lifts_and_natDegree_eq_and_monic"
+        ],
+        [
+          "Ideal.map_span",
+          "Polynomial.lifts_and_natDegree_eq_and_monic"
+        ]
+      ]
+    },
+    {
+      "name": "UpperHalfPlane.analyticAt_smul",
+      "module": "Mathlib.Analysis.Complex.UpperHalfPlane.Manifold",
+      "S": 0.29866713285446167,
+      "M": 0.19999999999999996,
+      "rare_pairs": [
+        [
+          "MDifferentiable.comp",
+          "UpperHalfPlane.im_pos"
+        ],
+        [
+          "MDifferentiable.comp",
+          "UpperHalfPlane.mdifferentiable_coe"
+        ]
+      ]
+    },
+    {
+      "name": "isStarNormal_iff_forall_exp_mul_exp_mem_unitary",
+      "module": "Mathlib.Analysis.CStarAlgebra.Fuglede",
+      "S": 0.29574745893478394,
+      "M": 0.36,
+      "rare_pairs": [
+        [
+          "NormedSpace.exp_add_of_commute",
+          "StarMul.star_mul"
+        ],
+        [
+          "NormedSpace.exp_add_of_commute",
+          "TrivialStar.star_trivial"
+        ],
+        [
+          "NormedSpace.exp_zero",
+          "StarMul.star_mul"
+        ],
+        [
+          "NormedSpace.exp_zero",
+          "TrivialStar.star_trivial"
+        ]
+      ]
+    },
+    {
+      "name": "cfc\u2099_tsub",
+      "module": "Mathlib.Analysis.CStarAlgebra.ContinuousFunctionalCalculus.Order",
+      "S": 0.29501426219940186,
+      "M": 0.26,
+      "rare_pairs": [
+        [
+          "QuasispectrumRestricts.nnreal_of_nonneg",
+          "continuous_real_toNNReal"
+        ]
+      ]
+    },
+    {
+      "name": "MvPowerSeries.truncTotal_subst_eq_truncTotal_subst_truncTotal_of_le",
+      "module": "Mathlib.RingTheory.MvPowerSeries.Substitution",
+      "S": 0.29372239112854004,
+      "M": 0.4,
+      "rare_pairs": [
+        [
+          "Finset.mem_finsuppAntidiag",
+          "MvPowerSeries.coeff_prod"
+        ]
+      ]
+    },
+    {
+      "name": "InfiniteGalois.isOpen_iff_finite",
+      "module": "Mathlib.FieldTheory.Galois.Infinite",
+      "S": 0.292891263961792,
+      "M": 0.64,
+      "rare_pairs": [
+        [
+          "GroupFilterBasis.nhds_one_eq",
+          "IntermediateField.le_iff_le"
+        ]
+      ]
+    },
+    {
+      "name": "Equiv.Perm.monotone_iff",
+      "module": "Mathlib.Data.Fin.Tuple.Sort",
+      "S": 0.29144203662872314,
+      "M": 0.48,
+      "rare_pairs": [
+        [
+          "Equiv.Perm.one_def",
+          "Tuple.sort_eq_refl_iff_monotone"
+        ]
+      ]
+    },
+    {
+      "name": "Matrix.permMatrix_mul",
+      "module": "Mathlib.LinearAlgebra.Matrix.Permutation",
+      "S": 0.2813963294029236,
+      "M": 0.4,
+      "rare_pairs": [
+        [
+          "Equiv.Perm.mul_def",
+          "Equiv.toPEquiv_trans"
+        ]
+      ]
+    },
+    {
+      "name": "MeasureTheory.addContent_le_sum_of_subset_sUnion",
+      "module": "Mathlib.MeasureTheory.Measure.AddContent",
+      "S": 0.2808659076690674,
+      "M": 0.14,
+      "rare_pairs": [
+        [
+          "MeasureTheory.IsSetRing.isSetSemiring",
+          "disjoint_disjointed"
+        ]
+      ]
+    },
+    {
+      "name": "Equiv.Perm.count_le_one_of_centralizer_le_alternating",
+      "module": "Mathlib.GroupTheory.SpecificGroups.Alternating.Centralizer",
+      "S": 0.276034414768219,
+      "M": 0.19999999999999996,
+      "rare_pairs": [
+        [
+          "Equiv.swap_mul_self",
+          "Multiset.eq_replicate_card"
+        ]
+      ]
+    },
+    {
+      "name": "IsMultiplyPretransitive.alternatingGroup_le",
+      "module": "Mathlib.GroupTheory.GroupAction.MultipleTransitivity",
+      "S": 0.27046912908554077,
+      "M": 0.07999999999999996,
+      "rare_pairs": [
+        [
+          "Nat.factorial_two",
+          "Subgroup.index_mul_card"
+        ]
+      ]
+    },
+    {
+      "name": "IsCyclotomicExtension.Rat.map_eq_span_zeta_sub_one_pow",
+      "module": "Mathlib.NumberTheory.NumberField.Cyclotomic.Ideal",
+      "S": 0.26984208822250366,
+      "M": 0.5,
+      "rare_pairs": [
+        [
+          "Algebra.intNorm_eq_norm",
+          "IsGalois.to_isSeparable"
+        ],
+        [
+          "Ideal.map_span",
+          "IsGalois.to_isSeparable"
+        ]
+      ]
+    },
+    {
+      "name": "Stirling.log_stirlingSeq_sdiff_le",
+      "module": "Mathlib.Analysis.SpecialFunctions.Stirling",
+      "S": 0.2688886523246765,
+      "M": 0.31999999999999995,
+      "rare_pairs": [
+        [
+          "Nat.mono_cast",
+          "Stirling.stirlingSeq_one"
+        ],
+        [
+          "Nat.mono_cast",
+          "Stirling.stirlingSeq_zero"
+        ]
+      ]
+    },
+    {
+      "name": "spectralNorm.spectralNorm_pow_natDegree_eq_prod_roots",
+      "module": "Mathlib.Analysis.Normed.Unbundled.SpectralNorm",
+      "S": 0.26440805196762085,
+      "M": 0.6599999999999999,
+      "rare_pairs": [
+        [
+          "Multiset.count_replicate",
+          "Polynomial.mapAlg_eq_map"
+        ]
+      ]
+    },
+    {
+      "name": "Equiv.Perm.closure_cycleType_eq_two_two_eq_alternatingGroup",
+      "module": "Mathlib.GroupTheory.SpecificGroups.Alternating",
+      "S": 0.26419758796691895,
+      "M": 0.16000000000000003,
+      "rare_pairs": [
+        [
+          "Equiv.swap_mul_self_mul",
+          "Multiset.card_singleton"
+        ]
+      ]
+    },
+    {
+      "name": "MeasureTheory.measureReal_abs_inner_gt_le_integral_charFun",
+      "module": "Mathlib.MeasureTheory.Measure.IntegralCharFun",
+      "S": 0.2633429169654846,
+      "M": 0.54,
+      "rare_pairs": [
+        [
+          "Complex.continuous_ofReal",
+          "conj_trivial"
+        ]
+      ]
+    },
+    {
+      "name": "Manifold.exists_lt_locally_constant_of_riemannianEDist_lt",
+      "module": "Mathlib.Geometry.Manifold.Riemannian.PathELength",
+      "S": 0.26334071159362793,
+      "M": 0.0,
+      "rare_pairs": [
+        [
+          "ContMDiffOn.mdifferentiableOn",
+          "Real.smoothTransition.contDiff"
+        ],
+        [
+          "Real.smoothTransition.contDiff",
+          "contMDiffOn_univ"
+        ]
+      ]
+    },
+    {
+      "name": "ErgodicVAdd.trans_isMinimal",
+      "module": "Mathlib.Dynamics.Ergodic.Action.OfMinimal",
+      "S": 0.26109933853149414,
+      "M": 0.5,
+      "rare_pairs": [
+        [
+          "AddAction.dense_orbit",
+          "MeasureTheory.VAddInvariantMeasure.measure_preimage_vadd"
+        ]
+      ]
+    },
+    {
+      "name": "cfc_tsub",
+      "module": "Mathlib.Analysis.CStarAlgebra.ContinuousFunctionalCalculus.Order",
+      "S": 0.2604348659515381,
+      "M": 0.31999999999999995,
+      "rare_pairs": [
+        [
+          "SpectrumRestricts.nnreal_of_nonneg",
+          "continuous_real_toNNReal"
+        ]
+      ]
+    },
+    {
+      "name": "deriv_riemannZeta_zero",
+      "module": "Mathlib.NumberTheory.Harmonic.ZetaAsymp",
+      "S": 0.2599092125892639,
+      "M": 0.38,
+      "rare_pairs": [
+        [
+          "Complex.hasDerivAt_Gamma_one",
+          "RCLike.toStarOrderedRing"
+        ]
+      ]
+    },
+    {
+      "name": "SimpleGraph.free_killCopies",
+      "module": "Mathlib.Combinatorics.SimpleGraph.Copy",
+      "S": 0.2596140503883362,
+      "M": 0.0,
+      "rare_pairs": [
+        [
+          "SimpleGraph.edgeSet_sdiff_sdiff_isDiag",
+          "Sym2.map_map"
+        ]
+      ]
+    },
+    {
+      "name": "Matrix.exists_rank_normal_form",
+      "module": "Mathlib.LinearAlgebra.Matrix.Rank",
+      "S": 0.2593799829483032,
+      "M": 0.31999999999999995,
+      "rare_pairs": [
+        [
+          "Matrix.Pivot.exists_list_transvec_mul_diagonal_mul_list_transvec",
+          "Matrix.rank_mul_eq_left_of_isUnit_det"
+        ],
+        [
+          "Matrix.Pivot.exists_list_transvec_mul_diagonal_mul_list_transvec",
+          "Matrix.rank_mul_eq_right_of_isUnit_det"
+        ],
+        [
+          "Matrix.TransvectionStruct.prod_mul_reverse_inv_prod",
+          "Matrix.rank_diagonal"
+        ],
+        [
+          "Matrix.TransvectionStruct.prod_mul_reverse_inv_prod",
+          "Matrix.rank_mul_eq_left_of_isUnit_det"
+        ],
+        [
+          "Matrix.TransvectionStruct.prod_mul_reverse_inv_prod",
+          "Matrix.rank_mul_eq_right_of_isUnit_det"
+        ],
+        [
+          "Matrix.TransvectionStruct.reverse_inv_prod_mul_prod",
+          "Matrix.rank_diagonal"
+        ],
+        [
+          "Matrix.TransvectionStruct.reverse_inv_prod_mul_prod",
+          "Matrix.rank_mul_eq_left_of_isUnit_det"
+        ],
+        [
+          "Matrix.TransvectionStruct.reverse_inv_prod_mul_prod",
+          "Matrix.rank_mul_eq_right_of_isUnit_det"
+        ]
+      ]
+    },
+    {
+      "name": "IsCyclotomicExtension.Rat.torsionOrder_eq",
+      "module": "Mathlib.NumberTheory.NumberField.Cyclotomic.Basic",
+      "S": 0.2583215832710266,
+      "M": 0.43999999999999995,
+      "rare_pairs": [
+        [
+          "IsCyclic.exists_ofOrder_eq_natCard",
+          "NeZero.of_pos"
+        ]
+      ]
+    },
+    {
+      "name": "Ideal.IsFractionRing.normal",
+      "module": "Mathlib.RingTheory.Invariant.Galois",
+      "S": 0.2571001648902893,
+      "M": 0.28,
+      "rare_pairs": [
+        [
+          "Polynomial.lifts_and_natDegree_eq_and_monic",
+          "isAlgebraic_of_isFractionRing"
+        ]
+      ]
+    },
+    {
+      "name": "cyclotomicCharacter.continuous",
+      "module": "Mathlib.NumberTheory.Cyclotomic.CyclotomicCharacter",
+      "S": 0.2557675242424011,
+      "M": 0.54,
+      "rare_pairs": [
+        [
+          "GroupFilterBasis.nhds_one_hasBasis",
+          "Nat.mono_cast"
+        ],
+        [
+          "GroupFilterBasis.nhds_one_hasBasis",
+          "PadicInt.ker_toZModPow"
+        ],
+        [
+          "Nat.mono_cast",
+          "PadicInt.ker_toZModPow"
+        ]
+      ]
+    },
+    {
+      "name": "Matrix.instStarOrderedRing",
+      "module": "Mathlib.Analysis.Matrix.Order",
+      "S": 0.254180908203125,
+      "M": 0.52,
+      "rare_pairs": [
+        [
+          "QuasispectrumRestricts.nnreal_of_nonneg",
+          "add_le_add_right"
+        ],
+        [
+          "RCLike.toStarOrderedRing",
+          "add_le_add_right"
+        ]
+      ]
+    },
+    {
+      "name": "Equiv.Perm.subgroup_eq_top_of_isPreprimitive_of_isSwap_mem",
+      "module": "Mathlib.GroupTheory.GroupAction.Jordan",
+      "S": 0.24982672929763794,
+      "M": 0.0,
+      "rare_pairs": [
+        [
+          "Equiv.Perm.card_support_eq_two",
+          "Nat.factorial_two"
+        ]
+      ]
+    },
+    {
+      "name": "CategoryTheory.Functor.preservesFiniteColimits_tfae",
+      "module": "Mathlib.Algebra.Homology.ShortComplex.ExactFunctor",
+      "S": 0.24719274044036865,
+      "M": 0.06000000000000005,
+      "rare_pairs": [
+        [
+          "CategoryTheory.Abelian.image.fac",
+          "CategoryTheory.CategoryWithHomology.hasHomology"
+        ]
+      ]
+    },
+    {
+      "name": "lipschitzGroup.involute_act_\u03b9_mem_range_\u03b9",
+      "module": "Mathlib.LinearAlgebra.CliffordAlgebra.SpinGroup",
+      "S": 0.24420785903930664,
+      "M": 0.26,
+      "rare_pairs": [
+        [
+          "CliffordAlgebra.invOf_\u03b9_mul_\u03b9_mul_\u03b9",
+          "invOf_neg"
+        ],
+        [
+          "CliffordAlgebra.invOf_\u03b9_mul_\u03b9_mul_\u03b9",
+          "map_invOf"
+        ],
+        [
+          "CliffordAlgebra.\u03b9_mul_\u03b9_mul_invOf_\u03b9",
+          "invOf_neg"
+        ],
+        [
+          "CliffordAlgebra.\u03b9_mul_\u03b9_mul_invOf_\u03b9",
+          "map_invOf"
+        ]
+      ]
+    },
+    {
+      "name": "DirectedSystem.rTensor",
+      "module": "Mathlib.RingTheory.TensorProduct.DirectLimitFG",
+      "S": 0.24295079708099365,
+      "M": 0.52,
+      "rare_pairs": [
+        [
+          "LinearMap.id_apply",
+          "TensorProduct.AlgebraTensorModule.curry_apply"
+        ],
+        [
+          "LinearMap.id_apply",
+          "TensorProduct.AlgebraTensorModule.curry_injective"
+        ]
+      ]
+    },
+    {
+      "name": "IntermediateField.finrank_eq_fixingSubgroup_index",
+      "module": "Mathlib.FieldTheory.Galois.Basic",
+      "S": 0.24069952964782715,
+      "M": 0.5,
+      "rare_pairs": [
+        [
+          "IsGalois.card_fixingSubgroup_eq_finrank",
+          "Subgroup.index_mul_card"
+        ],
+        [
+          "IsGalois.to_isSeparable",
+          "Subgroup.index_mul_card"
+        ],
+        [
+          "IsGalois.to_normal",
+          "Subgroup.index_mul_card"
+        ]
+      ]
+    },
+    {
+      "name": "MeasureTheory.le_integral_rnDeriv_of_ac",
+      "module": "Mathlib.MeasureTheory.Measure.Decomposition.IntegralRNDeriv",
+      "S": 0.23594355583190918,
+      "M": 0.06000000000000005,
+      "rare_pairs": [
+        [
+          "ConvexOn.map_average_le",
+          "MeasureTheory.Measure.integral_toReal_rnDeriv"
+        ]
+      ]
+    },
+    {
+      "name": "Manifold.pathELength_comp_of_monotoneOn",
+      "module": "Mathlib.Geometry.Manifold.Riemannian.PathELength",
+      "S": 0.23223817348480225,
+      "M": 0.0,
+      "rare_pairs": [
+        [
+          "DifferentiableWithinAt.hasDerivWithinAt",
+          "mfderivWithin_comp"
+        ]
+      ]
+    },
+    {
+      "name": "Manifold.pathELength_comp_of_antitoneOn",
+      "module": "Mathlib.Geometry.Manifold.Riemannian.PathELength",
+      "S": 0.22959494590759277,
+      "M": 0.0,
+      "rare_pairs": [
+        [
+          "DifferentiableWithinAt.hasDerivWithinAt",
+          "mfderivWithin_comp"
+        ]
+      ]
+    },
+    {
+      "name": "DirectedSystem.lTensor",
+      "module": "Mathlib.RingTheory.TensorProduct.DirectLimitFG",
+      "S": 0.2287335991859436,
+      "M": 0.4,
+      "rare_pairs": [
+        [
+          "LinearMap.id_apply",
+          "TensorProduct.AlgebraTensorModule.curry_apply"
+        ],
+        [
+          "LinearMap.id_apply",
+          "TensorProduct.AlgebraTensorModule.curry_injective"
+        ]
+      ]
+    },
+    {
+      "name": "CategoryTheory.ShortComplex.epi_homologyMap_iff_up_to_refinements",
+      "module": "Mathlib.CategoryTheory.Abelian.Refinements",
+      "S": 0.22679108381271362,
+      "M": 0.07999999999999996,
+      "rare_pairs": [
+        [
+          "CategoryTheory.ShortComplex.homology\u03c0_naturality",
+          "CategoryTheory.epi_iff_surjective_up_to_refinements"
+        ]
+      ]
+    },
+    {
+      "name": "MeasureTheory.Measure.ext_of_complexMGF_eq",
+      "module": "Mathlib.Probability.Moments.ComplexMGF",
+      "S": 0.222415030002594,
+      "M": 0.040000000000000036,
+      "rare_pairs": [
+        [
+          "Complex.continuous_ofReal",
+          "conj_trivial"
+        ]
+      ]
+    },
+    {
+      "name": "groupCohomology.exists_mul_galRestrict_of_norm_eq_one",
+      "module": "Mathlib.RepresentationTheory.Homological.GroupCohomology.Hilbert90",
+      "S": 0.21872472763061523,
+      "M": 0.26,
+      "rare_pairs": [
+        [
+          "IsGalois.to_isSeparable",
+          "algebraMap_galRestrictHom_apply"
+        ]
+      ]
+    },
+    {
+      "name": "CategoryTheory.Abelian.mono_cokernel_map_of_isPullback",
+      "module": "Mathlib.CategoryTheory.Abelian.CommSq",
+      "S": 0.2137182354927063,
+      "M": 0.0,
+      "rare_pairs": [
+        [
+          "CategoryTheory.CategoryWithHomology.hasHomology",
+          "CategoryTheory.ShortComplex.Exact.exact_up_to_refinements"
+        ]
+      ]
+    },
+    {
+      "name": "IsMIntegralCurveOn.hasDerivWithinAt",
+      "module": "Mathlib.Geometry.Manifold.IntegralCurve.Basic",
+      "S": 0.21210825443267822,
+      "M": 0.0,
+      "rare_pairs": [
+        [
+          "HasMFDerivWithinAt.comp",
+          "hasDerivWithinAt_iff_hasFDerivWithinAt"
+        ],
+        [
+          "HasMFDerivWithinAt.congr_mfderiv",
+          "hasDerivWithinAt_iff_hasFDerivWithinAt"
+        ],
+        [
+          "extChartAt_source",
+          "hasDerivWithinAt_iff_hasFDerivWithinAt"
+        ]
+      ]
+    },
+    {
+      "name": "Matrix.PosDef.submatrix",
+      "module": "Mathlib.LinearAlgebra.Matrix.PosDef",
+      "S": 0.2117854356765747,
+      "M": 0.52,
+      "rare_pairs": [
+        [
+          "Matrix.IsHermitian.submatrix",
+          "StarAddMonoid.star_add"
+        ]
+      ]
+    },
+    {
+      "name": "CategoryTheory.Abelian.epi_kernel_map_of_isPushout",
+      "module": "Mathlib.CategoryTheory.Abelian.CommSq",
+      "S": 0.21090370416641235,
+      "M": 0.0,
+      "rare_pairs": [
+        [
+          "CategoryTheory.CategoryWithHomology.hasHomology",
+          "CategoryTheory.ShortComplex.Exact.exact_up_to_refinements"
+        ]
+      ]
+    },
+    {
+      "name": "Module.Basis.SmithNormalForm.toAddSubgroup_index_eq_pow_mul_prod",
+      "module": "Mathlib.LinearAlgebra.FreeModule.Int",
+      "S": 0.20951879024505615,
+      "M": 0.24,
+      "rare_pairs": [
+        [
+          "AddSubgroup.index_comap_of_surjective",
+          "Finset.prod_dite"
+        ]
+      ]
+    },
+    {
+      "name": "HomologicalComplex.instRespectsIsoQuasiIso",
+      "module": "Mathlib.Algebra.Homology.QuasiIso",
+      "S": 0.20772749185562134,
+      "M": 0.12,
+      "rare_pairs": [
+        [
+          "CategoryTheory.CategoryWithHomology.hasHomology",
+          "CategoryTheory.MorphismProperty.respectsIso_of_isStableUnderComposition"
+        ]
+      ]
+    },
+    {
+      "name": "LinearMap.BilinForm.posDef_toQuadraticMap_iff_matrix",
+      "module": "Mathlib.LinearAlgebra.Matrix.PosDef",
+      "S": 0.20520895719528198,
+      "M": 0.28,
+      "rare_pairs": [
+        [
+          "LinearMap.BilinForm.IsSymm.eq",
+          "TrivialStar.star_trivial"
+        ]
+      ]
+    },
+    {
+      "name": "RKHS.posSemidef_kernel",
+      "module": "Mathlib.Analysis.InnerProductSpace.Reproducing",
+      "S": 0.20106542110443115,
+      "M": 0.06000000000000005,
+      "rare_pairs": [
+        [
+          "ContinuousLinearMap.adjoint_inner_left",
+          "StarMul.star_mul"
+        ],
+        [
+          "RCLike.toStarOrderedRing",
+          "StarMul.star_mul"
+        ]
+      ]
+    },
+    {
+      "name": "Ideal.exists_comap_galRestrict_eq",
+      "module": "Mathlib.NumberTheory.RamificationInertia.Galois",
+      "S": 0.20020192861557007,
+      "M": 0.38,
+      "rare_pairs": [
+        [
+          "IsGalois.to_isSeparable",
+          "IsIntegralClosure.isFractionRing_of_finite_extension"
+        ]
+      ]
+    },
+    {
+      "name": "not_dvd_differentIdeal_of_intTrace_not_mem",
+      "module": "Mathlib.RingTheory.DedekindDomain.Different",
+      "S": 0.19722962379455566,
+      "M": 0.18000000000000005,
+      "rare_pairs": [
+        [
+          "Algebra.algebraMap_intTrace",
+          "Algebra.linearMap_apply"
+        ],
+        [
+          "Algebra.linearMap_apply",
+          "Ideal.map_le_iff_le_comap"
+        ]
+      ]
+    },
+    {
+      "name": "Submodule.baseChange_mono",
+      "module": "Mathlib.LinearAlgebra.TensorProduct.Tower",
+      "S": 0.1910993456840515,
+      "M": 0.54,
+      "rare_pairs": [
+        [
+          "LinearMap.id_comp",
+          "TensorProduct.AlgebraTensorModule.map_comp"
+        ]
+      ]
+    },
+    {
+      "name": "LieIdeal.isCompl_killingCompl",
+      "module": "Mathlib.Algebra.Lie.Killing",
+      "S": 0.19001734256744385,
+      "M": 0.06000000000000005,
+      "rare_pairs": [
+        [
+          "LieAlgebra.IsKilling.killingForm_nondegenerate",
+          "LinearMap.BilinForm.isCompl_orthogonal_iff_disjoint"
+        ],
+        [
+          "LieIdeal.mem_killingCompl",
+          "LinearMap.BilinForm.isCompl_orthogonal_iff_disjoint"
+        ],
+        [
+          "LieIdeal.toSubmodule_killingCompl",
+          "LinearMap.BilinForm.isCompl_orthogonal_iff_disjoint"
+        ],
+        [
+          "LieModule.traceForm_apply_lie_apply",
+          "LinearMap.BilinForm.isCompl_orthogonal_iff_disjoint"
+        ],
+        [
+          "LieModule.traceForm_comm",
+          "LinearMap.BilinForm.isCompl_orthogonal_iff_disjoint"
+        ],
+        [
+          "LieModule.traceForm_isSymm",
+          "LinearMap.BilinForm.isCompl_orthogonal_iff_disjoint"
+        ]
+      ]
+    },
+    {
+      "name": "exists_isMIntegralCurveAt_of_contMDiffAt",
+      "module": "Mathlib.Geometry.Manifold.IntegralCurve.ExistUnique",
+      "S": 0.18441832065582275,
+      "M": 0.0,
+      "rare_pairs": [
+        [
+          "HasDerivWithinAt.hasFDerivWithinAt",
+          "HasMFDerivAt.hasMFDerivWithinAt"
+        ]
+      ]
+    },
+    {
+      "name": "MvPowerSeries.coeff_eq_zero_of_constantCoeff_nilpotent",
+      "module": "Mathlib.RingTheory.MvPowerSeries.Basic",
+      "S": 0.17638254165649414,
+      "M": 0.0,
+      "rare_pairs": [
+        [
+          "Finset.mem_finsuppAntidiag",
+          "MvPowerSeries.coeff_zero_eq_constantCoeff"
+        ]
+      ]
+    },
+    {
+      "name": "CategoryTheory.Limits.CokernelCofork.IsColimit.comp_\u03c0_eq_zero_iff_up_to_refinements",
+      "module": "Mathlib.CategoryTheory.Abelian.Refinements",
+      "S": 0.172698974609375,
+      "M": 0.0,
+      "rare_pairs": [
+        [
+          "CategoryTheory.CategoryWithHomology.hasHomology",
+          "CategoryTheory.ShortComplex.exact_iff_exact_up_to_refinements"
+        ]
+      ]
+    },
+    {
+      "name": "Algebra.isInvariant_of_isGalois",
+      "module": "Mathlib.RingTheory.Invariant.Galois",
+      "S": 0.16283410787582397,
+      "M": 0.19999999999999996,
+      "rare_pairs": [
+        [
+          "IsGalois.tfae",
+          "algebraMap_galRestrict_apply"
+        ]
+      ]
+    },
+    {
+      "name": "SimpleGraph.Walk.IsPath.isCycles_spanningCoe_toSubgraph_sup_edge",
+      "module": "Mathlib.Combinatorics.SimpleGraph.Matching",
+      "S": 0.1605815887451172,
+      "M": 0.0,
+      "rare_pairs": [
+        [
+          "SimpleGraph.Subgraph.spanningCoe_adj",
+          "Sym2.map_id"
+        ],
+        [
+          "SimpleGraph.subgraphOfAdj_adj",
+          "Sym2.map_id"
+        ]
+      ]
+    },
+    {
+      "name": "Finset.prod_eq_prod_range_sdiff",
+      "module": "Mathlib.Algebra.Order.BigOperators.Group.LocallyFinite",
+      "S": 0.14601731300354004,
+      "M": 0.020000000000000018,
+      "rare_pairs": [
+        [
+          "Finset.prod_disjiUnion",
+          "Finset.sup_Iic"
+        ],
+        [
+          "Finset.prod_disjiUnion",
+          "disjoint_disjointed"
+        ]
+      ]
+    },
+    {
+      "name": "Finset.sum_eq_sum_range_sdiff",
+      "module": "Mathlib.Algebra.Order.BigOperators.Group.LocallyFinite",
+      "S": 0.13925981521606445,
+      "M": 0.0,
+      "rare_pairs": [
+        [
+          "Finset.sum_disjiUnion",
+          "Finset.sup_Iic"
+        ],
+        [
+          "Finset.sum_disjiUnion",
+          "disjoint_disjointed"
+        ]
+      ]
+    },
+    {
+      "name": "RCLike.instStarModuleReal",
+      "module": "Mathlib.Analysis.RCLike.Basic",
+      "S": 0.13663184642791748,
+      "M": 0.020000000000000018,
+      "rare_pairs": [
+        [
+          "RCLike.conj_im",
+          "TrivialStar.star_trivial"
+        ],
+        [
+          "RCLike.conj_re",
+          "TrivialStar.star_trivial"
+        ],
+        [
+          "RCLike.ext",
+          "TrivialStar.star_trivial"
+        ]
+      ]
+    },
+    {
+      "name": "LinearMap.ker_inf_smul_top_eq_smul_of_flat",
+      "module": "Mathlib.RingTheory.Smooth.Quotient",
+      "S": 0.12586814165115356,
+      "M": 0.31999999999999995,
+      "rare_pairs": [
+        [
+          "Submodule.smul_induction_on'",
+          "TensorProduct.AlgebraTensorModule.curry_apply"
+        ],
+        [
+          "Submodule.smul_induction_on'",
+          "TensorProduct.AlgebraTensorModule.curry_injective"
+        ]
+      ]
+    },
+    {
+      "name": "CategoryTheory.Pretriangulated.instIsHomologicalOppositeAddCommGrpCatObjFunctorPreadditiveYoneda",
+      "module": "Mathlib.CategoryTheory.Triangulated.Yoneda",
+      "S": 0.10758405923843384,
+      "M": 0.0,
+      "rare_pairs": [
+        [
+          "CategoryTheory.Pretriangulated.unop_distinguished",
+          "CategoryTheory.ShortComplex.ab_exact_iff"
+        ]
+      ]
+    },
+    {
+      "name": "Affine.Triangle.altitudeFoot_mem_ninePointCircle",
+      "module": "Mathlib.Geometry.Euclidean.NinePointCircle",
+      "S": 0.10446745157241821,
+      "M": 0.0,
+      "rare_pairs": [
+        [
+          "Affine.Simplex.mem_altitude",
+          "Submodule.IsOrtho.ge"
+        ],
+        [
+          "Affine.Triangle.orthocenter_eq_mongePoint",
+          "Submodule.IsOrtho.ge"
+        ],
+        [
+          "Affine.Triangle.orthocenter_mem_altitude",
+          "Submodule.IsOrtho.ge"
+        ]
+      ]
+    },
+    {
+      "name": "CategoryTheory.subsingleton_preadditive_of_hasBinaryBiproducts",
+      "module": "Mathlib.CategoryTheory.Preadditive.Biproducts",
+      "S": 0.09791338443756104,
+      "M": 0.040000000000000036,
+      "rare_pairs": [
+        [
+          "AddCommGroup.ext",
+          "CategoryTheory.Limits.biprod.add_eq_lift_id_desc"
+        ],
+        [
+          "AddCommGroup.ext",
+          "CategoryTheory.Preadditive.ext"
+        ]
+      ]
+    },
+    {
+      "name": "HomologicalComplex.homotopyCofiber.inrX_mapHomologicalComplexObjXIso_inv",
+      "module": "Mathlib.Algebra.Homology.HomotopyCofiber",
+      "S": 0.09370696544647217,
+      "M": 0.0,
+      "rare_pairs": [
+        [
+          "CategoryTheory.Functor.mapBinaryBicone_inl",
+          "HomologicalComplex.HasHomotopyCofiber.hasBinaryBiproduct"
+        ],
+        [
+          "CategoryTheory.Functor.mapBinaryBicone_inr",
+          "HomologicalComplex.HasHomotopyCofiber.hasBinaryBiproduct"
+        ]
+      ]
+    },
+    {
+      "name": "CategoryTheory.instIsIsoAppToRightDerivedZeroOfInjective",
+      "module": "Mathlib.CategoryTheory.Abelian.RightDerived",
+      "S": 0.0920940637588501,
+      "M": 0.0,
+      "rare_pairs": [
+        [
+          "CategoryTheory.CategoryWithHomology.hasHomology",
+          "CategoryTheory.InjectiveResolution.toRightDerivedZero_eq"
+        ]
+      ]
+    },
+    {
+      "name": "LieModule.isNilpotent_derivedSeries_of_traceForm_eq_zero",
+      "module": "Mathlib.Algebra.Lie.CartanCriterion",
+      "S": 0.08973723649978638,
+      "M": 0.0,
+      "rare_pairs": [
+        [
+          "LieModule.isNilpotent_iff_forall'",
+          "Submodule.tmul_mem_baseChange_of_mem"
+        ]
+      ]
+    },
+    {
+      "name": "HomologicalComplex.homotopyCofiber.inlX_mapHomologicalComplexObjXIso_inv",
+      "module": "Mathlib.Algebra.Homology.HomotopyCofiber",
+      "S": 0.07863855361938477,
+      "M": 0.0,
+      "rare_pairs": [
+        [
+          "CategoryTheory.Functor.mapBinaryBicone_inl",
+          "HomologicalComplex.HasHomotopyCofiber.hasBinaryBiproduct"
+        ],
+        [
+          "CategoryTheory.Functor.mapBinaryBicone_inr",
+          "HomologicalComplex.HasHomotopyCofiber.hasBinaryBiproduct"
+        ]
+      ]
+    },
+    {
+      "name": "MDifferentiableWithinAt.mpullbackWithin_vectorField_inter",
+      "module": "Mathlib.Geometry.Manifold.VectorField.Pullback",
+      "S": 0.06467574834823608,
+      "M": 0.0,
+      "rare_pairs": [
+        [
+          "ContMDiffAt.mdifferentiableAt",
+          "ContinuousLinearMap.inCoordinates_eq"
+        ],
+        [
+          "ContMDiffWithinAt.mdifferentiableWithinAt",
+          "ContinuousLinearMap.inCoordinates_eq"
+        ],
+        [
+          "ContinuousLinearMap.inCoordinates_eq",
+          "MDifferentiableWithinAt.comp"
+        ]
+      ]
+    }
+  ],
+  "counts_B": {
+    "population": 9765,
+    "positives": 184,
+    "rare_pair_ends_outside_population": 0
+  },
+  "B1": {
+    "auc": 0.5320320902329339,
+    "ci95": [
+      0.4686065972699549,
+      0.5995354592185783
+    ],
+    "p_one_sided": 0.1665,
+    "holm_pass": false,
+    "verdict": "no measurable difference"
+  },
+  "B2": {
+    "auc": 0.5030435576752903,
+    "ci95": [
+      0.43053305926540475,
+      0.576171428321976
+    ],
+    "p_one_sided": 0.437,
+    "holm_pass": false,
+    "verdict": "no measurable difference"
+  },
+  "reported_on_B_labels": {
+    "citations": {
+      "auc": 0.712287226076973,
+      "ci95": [
+        0.6632333125141497,
+        0.7568221244332788
+      ]
+    },
+    "specialisation": {
+      "auc": 0.416781912117733,
+      "ci95": [
+        0.36702392642787635,
+        0.4686714596587742
+      ]
+    }
+  },
+  "B_by_citations": {
+    "0": {
+      "positives": 37,
+      "negatives": 4540,
+      "auc_M": 0.5466990117871176,
+      "auc_S": 0.5606411477556852
+    },
+    "1-2": {
+      "positives": 68,
+      "negatives": 3728,
+      "auc_M": 0.5746773226457965,
+      "auc_S": 0.5587328010603383
+    },
+    "3-10": {
+      "positives": 51,
+      "negatives": 1195,
+      "auc_M": 0.5117811141192878,
+      "auc_S": 0.4677496103043728
+    },
+    "11+": {
+      "positives": 28,
+      "negatives": 118,
+      "auc_M": 0.5455508474576272,
+      "auc_S": 0.4406779661016949
+    }
+  },
+  "top_B_positives_by_S": [
+    {
+      "name": "Rat.addSubmonoid_closure_range_mul_self",
+      "module": "Mathlib.Data.Rat.Star",
+      "S": 0.39341527223587036,
+      "M": 0.5800000000000001,
+      "citations_2024": 0,
+      "specialisation": 7.628854827248005
+    },
+    {
+      "name": "Complex.orderClosedTopology",
+      "module": "Mathlib.Analysis.Complex.Basic",
+      "S": 0.38043057918548584,
+      "M": 0.33999999999999997,
+      "citations_2024": 0,
+      "specialisation": 7.015425672357683
+    },
+    {
+      "name": "UpperHalfPlane.mdifferentiable_coe",
+      "module": "Mathlib.Analysis.Complex.UpperHalfPlane.Manifold",
+      "S": 0.3568006753921509,
+      "M": 0.4,
+      "citations_2024": 2,
+      "specialisation": 8.123243182096832
+    },
+    {
+      "name": "ModularForm.SL_slash",
+      "module": "Mathlib.NumberTheory.ModularForms.SlashActions",
+      "S": 0.33317995071411133,
+      "M": 0.45999999999999996,
+      "citations_2024": 2,
+      "specialisation": 7.221262330680027
+    },
+    {
+      "name": "LSeries_iteratedDeriv",
+      "module": "Mathlib.NumberTheory.LSeries.Deriv",
+      "S": 0.3254111409187317,
+      "M": 0.30000000000000004,
+      "citations_2024": 0,
+      "specialisation": 9.256906335376836
+    },
+    {
+      "name": "Nat.factorial_two",
+      "module": "Mathlib.Data.Nat.Factorial.Basic",
+      "S": 0.310822069644928,
+      "M": 0.5,
+      "citations_2024": 1,
+      "specialisation": 10.293814850436704
+    },
+    {
+      "name": "CategoryTheory.ShortComplex.ab_exact_iff",
+      "module": "Mathlib.Algebra.Homology.ShortComplex.Ab",
+      "S": 0.30532896518707275,
+      "M": 0.12,
+      "citations_2024": 2,
+      "specialisation": 6.7058588725002375
+    },
+    {
+      "name": "MeasureTheory.smulInvariantMeasure_tfae",
+      "module": "Mathlib.MeasureTheory.Group.Action",
+      "S": 0.2928234338760376,
+      "M": 0.040000000000000036,
+      "citations_2024": 2,
+      "specialisation": 8.63495052158291
+    },
+    {
+      "name": "Complex.hasDerivAt_Gamma_one",
+      "module": "Mathlib.NumberTheory.Harmonic.GammaDeriv",
+      "S": 0.29042381048202515,
+      "M": 0.26,
+      "citations_2024": 1,
+      "specialisation": 7.894995770658483
+    },
+    {
+      "name": "Finset.card_attachFin",
+      "module": "Mathlib.Data.Finset.Fin",
+      "S": 0.289692223072052,
+      "M": 0.38,
+      "citations_2024": 0,
+      "specialisation": 7.378886392053488
+    },
+    {
+      "name": "Real.smoothTransition.contDiff",
+      "module": "Mathlib.Analysis.SpecialFunctions.SmoothTransition",
+      "S": 0.2885066270828247,
+      "M": 0.45999999999999996,
+      "citations_2024": 2,
+      "specialisation": 7.450791932883287
+    },
+    {
+      "name": "AddCommGroup.ext",
+      "module": "Mathlib.Algebra.Group.Ext",
+      "S": 0.28797459602355957,
+      "M": 0.42000000000000004,
+      "citations_2024": 2,
+      "specialisation": 9.00899091131516
+    },
+    {
+      "name": "Finset.mem_attachFin",
+      "module": "Mathlib.Data.Finset.Fin",
+      "S": 0.2827622890472412,
+      "M": 0.16000000000000003,
+      "citations_2024": 0,
+      "specialisation": 6.937823801282654
+    },
+    {
+      "name": "CategoryTheory.ShortComplex.exact_iff_exact_up_to_refinements",
+      "module": "Mathlib.CategoryTheory.Abelian.Refinements",
+      "S": 0.27967917919158936,
+      "M": 0.31999999999999995,
+      "citations_2024": 4,
+      "specialisation": 7.763508723182102
+    },
+    {
+      "name": "Submodule.smul_induction_on'",
+      "module": "Mathlib.RingTheory.Ideal.Operations",
+      "S": 0.2740364074707031,
+      "M": 0.42000000000000004,
+      "citations_2024": 0,
+      "specialisation": 9.256949650734358
+    }
+  ],
+  "top_B_negatives_by_S": [
+    {
+      "name": "UpperHalfPlane.exists_SL2_smul_eq_of_apply_zero_one_ne_zero",
+      "module": "Mathlib.Analysis.Complex.UpperHalfPlane.Basic",
+      "S": 0.4306187629699707,
+      "M": 0.72,
+      "citations_2024": 0,
+      "specialisation": 7.277570386612548
+    },
+    {
+      "name": "Relator.rel_not",
+      "module": "Mathlib.Logic.Relator",
+      "S": 0.4274740219116211,
+      "M": 0.72,
+      "citations_2024": 1,
+      "specialisation": 9.613546934111897
+    },
+    {
+      "name": "FreeCommRing.induction_on",
+      "module": "Mathlib.RingTheory.FreeCommRing",
+      "S": 0.4240117073059082,
+      "M": 0.54,
+      "citations_2024": 3,
+      "specialisation": 7.531682676150222
+    },
+    {
+      "name": "Nat.isCompl_even_odd",
+      "module": "Mathlib.Algebra.Order.Ring.Nat",
+      "S": 0.4133265018463135,
+      "M": 0.74,
+      "citations_2024": 2,
+      "specialisation": 6.930927457665874
+    },
+    {
+      "name": "HenselianLocalRing.TFAE",
+      "module": "Mathlib.RingTheory.Henselian",
+      "S": 0.40928900241851807,
+      "M": 0.38,
+      "citations_2024": 0,
+      "specialisation": 11.337041599124612
+    },
+    {
+      "name": "ManyOneDegree.ind_on",
+      "module": "Mathlib.Computability.Reduce",
+      "S": 0.4053499102592468,
+      "M": 0.6,
+      "citations_2024": 2,
+      "specialisation": 8.406539500414926
+    },
+    {
+      "name": "Continuous.homeoOfEquivCompactToT2.t1_counterexample",
+      "module": "Mathlib.Topology.Compactification.OnePoint",
+      "S": 0.404028058052063,
+      "M": 0.54,
+      "citations_2024": 0,
+      "specialisation": 8.897351628498216
+    },
+    {
+      "name": "isReduced_ofLocalizationMaximal",
+      "module": "Mathlib.RingTheory.LocalProperties",
+      "S": 0.4002761244773865,
+      "M": 0.62,
+      "citations_2024": 0,
+      "specialisation": 10.8979411025803
+    },
+    {
+      "name": "Complex.uniformContinuous_ringHom_eq_id_or_conj",
+      "module": "Mathlib.Topology.Instances.Complex",
+      "S": 0.3994401693344116,
+      "M": 0.31999999999999995,
+      "citations_2024": 1,
+      "specialisation": 6.708501588296404
+    },
+    {
+      "name": "Multiset.recOn_cons",
+      "module": "Mathlib.Data.Multiset.Basic",
+      "S": 0.3954628109931946,
+      "M": 0.12,
+      "citations_2024": 3,
+      "specialisation": 7.8849944179756974
+    },
+    {
+      "name": "Multiset.recOn_0",
+      "module": "Mathlib.Data.Multiset.Basic",
+      "S": 0.3951224684715271,
+      "M": 0.12,
+      "citations_2024": 0,
+      "specialisation": 8.578141598535643
+    },
+    {
+      "name": "Nat.xgcdAux_fst",
+      "module": "Mathlib.Data.Int.GCD",
+      "S": 0.3945998549461365,
+      "M": 0.6599999999999999,
+      "citations_2024": 1,
+      "specialisation": 6.813436540661864
+    },
+    {
+      "name": "Rat.castHom_rat",
+      "module": "Mathlib.Data.Rat.Cast.Order",
+      "S": 0.38600754737854004,
+      "M": 0.36,
+      "citations_2024": 0,
+      "specialisation": 7.17775880569743
+    },
+    {
+      "name": "Liouville.exists_pos_real_of_irrational_root",
+      "module": "Mathlib.NumberTheory.Liouville.Basic",
+      "S": 0.385292112827301,
+      "M": 0.74,
+      "citations_2024": 1,
+      "specialisation": 6.710690070872537
+    },
+    {
+      "name": "Complex.equivRealProdCLM_symm_apply",
+      "module": "Mathlib.Analysis.Complex.Basic",
+      "S": 0.38477349281311035,
+      "M": 0.56,
+      "citations_2024": 1,
+      "specialisation": 7.698339556445528
+    }
+  ]
+}

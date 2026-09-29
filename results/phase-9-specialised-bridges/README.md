@@ -76,3 +76,63 @@ Bootstrap, verdict rows and Holm as Phase 8. Seed **20260929**.
 As Phase 8. The Navier–Stokes test uses Part B's map only if B1 or B2 passes.
 
 ---
+
+## Results
+
+*Appended after the run. Nothing above this line changed.* Numbers from
+`results/phase9.json` (`scripts/analyze-phase9.py`), laptop CPU, no AWS.
+Counts as expected: 94 specialised bridges, 3,746 ordinary, 5,358 within-area;
+Part B 9,765 specialised lemmas present in 2026, 184 positives.
+
+### Verdicts
+
+| test | prediction | result | verdict |
+|---|---|---|---|
+| **A1** AUC(M), specialised bridges vs within-area | real but weak | 0.552 [0.480, 0.619] | **not supported** |
+| **A2** AUC(M), specialised vs ordinary bridges | — | 0.486 [0.415, 0.555], p = 0.65 | **no measurable difference** |
+| **A2** AUC(S) | passes | 0.525 [0.453, 0.594], p = 0.25 | **no measurable difference** |
+| **B1** AUC(M), future jump lemmas | — | 0.532 [0.469, 0.600], p = 0.17 | **no measurable difference** |
+| **B2** AUC(S) | passes | 0.503 [0.431, 0.576], p = 0.44 | **no measurable difference** |
+
+Every test failed. With 94 and 184 positives the intervals are wide (about
+±0.07), so small effects cannot be ruled out, but none of the pre-registered
+predictions held.
+
+### Reported, not tested
+
+- **Sparsity on A1: 0.628** [0.558, 0.696]. Specialised bridges land in
+  emptier parts of the map than within-area theorems, as in Phases 5 and 8.
+  A2 shows ordinary bridges do too.
+- **Popularity wins again.** Connector citation count: 0.828 on A1. In Part B,
+  a specialised lemma's 2024 citation count scores 0.712 [0.663, 0.757].
+- **Specialisation itself scores 0.417** [0.367, 0.469] in Part B: among
+  specialised lemmas, the *less* specialised ones become jump ends more often.
+- Within citation strata, B's M and S sit at 0.44–0.57.
+- Word mixing on A1 0.548; M − M_V +0.004 [−0.038, +0.044].
+
+### Exploratory
+
+- **The label is better, not clean.** The 94 specialised bridges
+  (`all_specialised_bridges_by_S`) read as real cross-area work much more
+  often than Phase 8's list: Eisenstein series and the slash action, Galois
+  theory with filter bases, Kruskal–Katona, Riesz content, number-field
+  ramification. But `even_two_mul`, `Nat.mono_cast` and `Nat.factorial_two`
+  still pass as specialised. Rare notation (`n !`) and rare simple
+  predicates (`Even`) carry a high IDF.
+- **Rare jumps cluster in a few active projects.** Modular forms and the upper
+  half plane account for about a third of the top 25 by sparsity. Where people
+  were building in 2024–26 may predict rare jumps better than any static
+  property of the map. Untested.
+
+### What this establishes
+
+- Only 2.4% of new cross-area theorems join two specialised lemmas.
+- Neither mixing nor sparsity of the 2024 map predicts where those
+  theorems land, or which specialised lemmas they will join.
+- Across Phases 5, 7, 8 and 9, how much a lemma is already used beats the
+  map every time.
+
+### Hands to the Navier–Stokes test
+
+B1 and B2 did not pass; as pre-registered, the map is not carried to the
+Navier–Stokes proof.

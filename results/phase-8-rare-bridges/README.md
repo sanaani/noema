@@ -208,3 +208,13 @@ and suggests the next step.
 
 Part B did not pass, so as pre-registered, its map is not carried to the
 Navier–Stokes proof.
+
+### Correction (2026-09-29)
+
+The exploratory section's explanation was wrong. The 2024 dependency graph
+reads each theorem's whole proof term, so lemmas that `simp` or `norm_num` use
+*are* counted. `four_ne_zero`, `div_le_iff₀` and `Nat.cast_pos'` are rarely
+cited because they are rarely used names for common facts: `div_le_iff₀` had
+just replaced `div_le_iff` (72 citations), and `four_ne_zero` has 1 citation
+against `two_ne_zero`'s 187. The conclusion stands (a citation count is a poor
+measure of rarity), and Phase 9 replaces it with one based on the statement.
