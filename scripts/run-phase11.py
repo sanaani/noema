@@ -4,11 +4,13 @@
 Everything is fixed in results/phase-11-tool-area-grid/README.md.
 
     harvest    arXiv OAI-PMH, set=math           -> papers.jsonl.gz
-    openalex   references by arXiv and journal DOI -> refs.jsonl.gz
+    openalex   references by arXiv and journal DOI -> refs.jsonl.gz (API)
+    snapshot   the same, from the OpenAlex parquet snapshot (no rate limit)
     analyze    cells, features, BASE vs BASE+SHAPE -> phase11.json
 
     scripts/run-phase11.py harvest  --out DIR [--smoke]
     scripts/run-phase11.py openalex --out DIR
+    scripts/run-phase11.py snapshot --out DIR --files works-files.txt [--smoke]
     scripts/run-phase11.py analyze  --out DIR [--smoke]
 """
 
@@ -164,9 +166,64 @@ def openalex(out: Path) -> None:
         time.sleep(0.15)
     with gzip.open(out / "refs.jsonl.gz", "wt") as f:
         for i, p in enumerate(papers):
-            f.write(json.dumps({"id": p["id"], "openalex": sorted(oa_ids[i]),
-                                "refs": sorted(refs[i])}) + "\n")  # fmt: skip
+            f.write(json.dumps({"id": p["id"], "openalex": sorted(oa_ids.get(i, ())),
+                                "refs": sorted(refs.get(i, ()))}) + "\n")  # fmt: skip
     log(f"openalex done: {len(oa_ids):,} of {len(papers):,} papers found, "
+        f"{sum(1 for i in refs if refs[i]):,} with references")  # fmt: skip
+
+
+SNAPSHOT = "https://openalex.s3.amazonaws.com/"
+
+
+def snapshot(out: Path, files: Path, smoke: bool) -> None:
+    """refs.jsonl.gz from the OpenAlex parquet snapshot, as `openalex` does from the API.
+
+    The API's daily limit stopped the first run at 40,000 of 717,075 DOIs; the
+    quarterly snapshot holds the same records with no limit. Only the id, doi
+    and referenced_works columns are read.
+    """
+    import duckdb
+
+    with gzip.open(out / "papers.jsonl.gz", "rt") as f:
+        papers = [json.loads(line) for line in f]
+    owner: dict[str, int] = {}
+    for i, p in enumerate(papers):
+        owner["10.48550/arxiv." + p["id"].lower()] = i
+        if p["doi"] and re.fullmatch(r"10\.\d{4,9}/[^\s|,]+", p["doi"]):
+            owner.setdefault(p["doi"], i)
+    paths = [ln.strip() for ln in files.read_text().splitlines() if ln.strip().endswith(".parquet")]
+    if smoke:
+        paths = paths[:3]
+    con = duckdb.connect()
+    con.sql("INSTALL httpfs; LOAD httpfs; SET threads = 16")
+    want = out / "want-dois.txt"
+    want.write_text("".join("https://doi.org/" + d + "\n" for d in owner))
+    con.execute(
+        "CREATE TABLE want AS SELECT column0 AS doi FROM read_csv(?, header = false, "
+        "delim = '\\t', quote = '', columns = {'column0': 'VARCHAR'})",
+        [str(want)],
+    )
+    log(f"{con.sql('SELECT count(*) FROM want').fetchone()[0]:,} DOIs to find")
+    refs: dict[int, set[str]] = collections.defaultdict(set)
+    oa_ids: dict[int, set[str]] = collections.defaultdict(set)
+    for k in range(0, len(paths), 20):
+        urls = [SNAPSHOT + p for p in paths[k : k + 20]]
+        rows = con.execute(
+            "SELECT w.id, lower(w.doi), w.referenced_works "
+            "FROM read_parquet(?, union_by_name = true) w JOIN want ON lower(w.doi) = want.doi",
+            [urls],
+        ).fetchall()
+        for wid, doi, rw in rows:
+            i = owner[doi.replace("https://doi.org/", "")]
+            oa_ids[i].add(wid.rsplit("/", 1)[-1])
+            refs[i].update(r.rsplit("/", 1)[-1] for r in rw or ())
+        log(f"snapshot {min(k + 20, len(paths)):,} / {len(paths):,} files, "
+            f"{len(oa_ids):,} papers found")  # fmt: skip
+    with gzip.open(out / "refs.jsonl.gz", "wt") as f:
+        for i, p in enumerate(papers):
+            f.write(json.dumps({"id": p["id"], "openalex": sorted(oa_ids.get(i, ())),
+                                "refs": sorted(refs.get(i, ()))}) + "\n")  # fmt: skip
+    log(f"snapshot done: {len(oa_ids):,} of {len(papers):,} papers found, "
         f"{sum(1 for i in refs if refs[i]):,} with references")  # fmt: skip
 
 
@@ -239,12 +296,17 @@ def window_cells(P, H, o0, o1, X, min_cites, min_pos):
     Xh = X[hist]
     inc = sp.csr_matrix((np.ones(len(rows)), (rows, [hist_pos[c] for c in cols])), shape=(nt, len(hist)))
     inc = normalize(inc, "l1")
-    T_prof = normalize(inc @ Xh)
     rec_rows = [ai[P[k]["area"]] for k in recent]
     ainc = normalize(sp.csr_matrix((np.ones(len(recent)), (rec_rows, [hist_pos[k] for k in recent])),
                                    shape=(na, len(hist))), "l1")  # fmt: skip
     A_prof = normalize(ainc @ Xh)
-    shape = np.asarray((T_prof @ A_prof.T).todense())
+    # cosine(normalize(inc @ Xh), A_prof), in chunks of tools: the tool profiles
+    # are means of many abstracts, too dense to hold all at once
+    shape = np.zeros((nt, na))
+    for c in range(0, nt, 2000):
+        T = inc[c : c + 2000] @ Xh
+        norm = np.sqrt(np.asarray(T.multiply(T).sum(1))).ravel()
+        shape[c : c + 2000] = np.asarray((T @ A_prof.T).todense()) / np.maximum(norm, 1e-12)[:, None]
 
     feats = {
         "cites": np.log1p(hist_count.sum(1))[:, None].repeat(na, 1),
@@ -396,7 +458,8 @@ def analyze(out: Path, smoke: bool) -> None:
 
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawTextHelpFormatter)
-    ap.add_argument("stage", choices=["harvest", "openalex", "analyze"])
+    ap.add_argument("stage", choices=["harvest", "openalex", "snapshot", "analyze"])
+    ap.add_argument("--files", type=Path, help="snapshot: parquet paths, one per line")
     ap.add_argument("--out", type=Path, required=True)
     ap.add_argument("--smoke", action="store_true")
     args = ap.parse_args()
@@ -405,6 +468,8 @@ def main() -> int:
         harvest(args.out, args.smoke)
     elif args.stage == "openalex":
         openalex(args.out)
+    elif args.stage == "snapshot":
+        snapshot(args.out, args.files, args.smoke)
     else:
         analyze(args.out, args.smoke)
     return 0

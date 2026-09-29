@@ -4,7 +4,7 @@
 # The worker runs scripts/run-phase11.py (every setting fixed in the phase 11
 # README): harvests arXiv math, looks up references in OpenAlex, analyses.
 # Smoke pass first. Each stage's data is uploaded as it finishes; the instance
-# terminates on shutdown and a 20-hour timer backs that up.
+# terminates on shutdown and an 8-hour timer backs that up.
 #
 #   scripts/run-phase11-aws.sh launch
 #   scripts/run-phase11-aws.sh watch    <run-name>
@@ -18,7 +18,7 @@ BUCKET=noema-structural-gpu-159976616274-20260917t220221z
 # rest are 24 GB cards that comfortably hold this corpus now that no state runs
 # past 8,192 bytes. GPU capacity is scarce and per availability zone, so the
 # launcher walks types and zones rather than failing on the first refusal.
-INSTANCE_TYPES="m6i.2xlarge m7i.2xlarge m6a.2xlarge r6i.xlarge"
+INSTANCE_TYPES="m6i.4xlarge m7i.4xlarge m6a.4xlarge r6i.2xlarge"
 AMI=ami-032e2f7bde5ba7967              # Deep Learning base, us-east-2
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 OUTROOT="${OUTROOT:-$REPO/outputs/phase-11-tool-area-grid}"
@@ -33,6 +33,10 @@ launch() {
 
   echo "== packaging the task"
   cp "$REPO/scripts/run-phase11.py" "$t/scripts/"
+  # arXiv was harvested by the first run; the second reads references from
+  # the OpenAlex snapshot after the API's daily limit stopped the first.
+  mkdir -p "$t/in"
+  cp "$OUTROOT/data/papers.jsonl.gz" "$OUTROOT/data/works-files.txt" "$t/in/"
   ( cd "$t" && find . -type f -exec sha256sum {} + > "$out/task-SHA256SUMS" )
   tar czf "$out/task.tar.gz" -C "$out/task" noema
   aws s3 cp "$out/task.tar.gz" "s3://$BUCKET/$run-task.tar.gz" --region "$REGION"
@@ -131,7 +135,7 @@ watch_run() {
   echo "console:"
   aws ec2 get-console-output --region "$REGION" --instance-id "$id" --latest \
     --query Output --output text 2>/dev/null \
-    | grep -E "(boot|pydeps-done|STAGE|harvest|openalex|fit:|test:|H1|SMOKE|UPLOADED|JOB DONE|FINISH|Error|Traceback)" | tail -12
+    | grep -E "(boot|pydeps-done|STAGE|snapshot|fit:|test:|H1|SMOKE|UPLOADED|JOB DONE|FINISH|Error|Traceback)" | tail -12
   echo "s3:"
   aws s3 ls "s3://$BUCKET/results/$run/" --region "$REGION" 2>/dev/null || echo "  (not yet)"
 }
