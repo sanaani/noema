@@ -36,6 +36,7 @@ OPENALEX = "https://api.openalex.org/works"
 NS = {"o": "http://www.openarchives.org/OAI/2.0/", "a": "http://arxiv.org/OAI/arXiv/"}
 EXCLUDED_AREAS = {"math.GM", "math.HO"}
 SMOKE_DATES = ("2016-03-01", "2016-03-10")
+MAX_WAIT = 600  # longest server-requested wait honoured, seconds
 
 MIN_CITES = 20
 MIN_POSITIVE = 2
@@ -67,6 +68,8 @@ def get(url: str, tries: int = 12) -> bytes:
             if e.code == 400:
                 raise
             wait = int(e.headers.get("Retry-After") or 0) or min(300, 10 * 2**k)
+            if wait > MAX_WAIT:  # a quota, not a hiccup: fail so the worker uploads and stops
+                raise RuntimeError(f"http {e.code} asks for {wait}s; over the {MAX_WAIT}s limit")
             log(f"http {e.code}, waiting {wait}s")
         except (urllib.error.URLError, TimeoutError, ConnectionError) as e:
             wait = min(300, 10 * 2**k)
@@ -195,6 +198,7 @@ def snapshot(out: Path, files: Path, smoke: bool) -> None:
     if smoke:
         paths = paths[:3]
     con = duckdb.connect()
+    con.sql(f"SET home_directory = '{out.resolve()}'")  # cloud-init has no $HOME
     con.sql("INSTALL httpfs; LOAD httpfs; SET threads = 16")
     want = out / "want-dois.txt"
     want.write_text("".join("https://doi.org/" + d + "\n" for d in owner))

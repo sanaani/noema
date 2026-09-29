@@ -31,6 +31,24 @@ TMR
 systemctl daemon-reload
 systemctl enable --now noema-expiry.timer
 
+# Idle watchdog: if the log has not grown for 30 minutes, stop the job so the
+# EXIT trap uploads what exists and powers off; power off outright 10 minutes
+# later if that did not happen.
+cat > /usr/local/bin/noema-watchdog <<'WD'
+#!/bin/bash
+LOG=/var/log/noema-p11.log
+while sleep 300; do
+  if [ -z "$(find "$LOG" -mmin -30)" ]; then
+    echo "WATCHDOG: log idle 30 min, stopping $(date -u +%FT%TZ)" >> "$LOG"
+    pkill -f run-phase11.py
+    sleep 600
+    /usr/sbin/poweroff
+  fi
+done
+WD
+chmod +x /usr/local/bin/noema-watchdog
+systemd-run --unit=noema-watchdog /usr/local/bin/noema-watchdog
+
 finish() {
   rc=$?
   set +e
@@ -60,6 +78,7 @@ echo "pydeps-done $(date -u +%FT%TZ)"
 /opt/nvenv/bin/aws s3 cp "s3://$BKT/$RNAME-task.tar.gz" /tmp/task.tar.gz --region us-east-2
 tar xzf /tmp/task.tar.gz -C /opt
 cd /opt/noema
+export HOME=/root
 PY="/opt/nvenv/bin/python scripts/run-phase11.py"
 up() { /opt/nvenv/bin/aws s3 cp "$1" "s3://$BKT/results/$RNAME/$(basename "$1")" --region us-east-2 && echo "UPLOADED $(basename "$1")"; }
 mkdir -p out/smoke && cp in/papers.jsonl.gz out/ && cp in/papers.jsonl.gz out/smoke/
