@@ -270,12 +270,16 @@ def window_cells(P, H, o0, o1, X, min_cites, min_pos):
             home[o] = ai[p["area"]]
 
     hist_count = np.zeros((nt, na))
+    xlist = np.zeros((nt, na))  # history papers citing T with A as a secondary category
     recent_count = np.zeros(nt)
     rows, cols = [], []
     for t in tools:
         r = ti[t]
         for k in citers[t]:
             hist_count[r, ai[P[k]["area"]]] += 1
+            for c in P[k]["categories"][1:]:
+                if c in ai and c != P[k]["area"]:
+                    xlist[r, ai[c]] += 1
             recent_count[r] += P[k]["year"] > H - RECENT
             rows.append(r)
             cols.append(k)
@@ -330,6 +334,7 @@ def window_cells(P, H, o0, o1, X, min_cites, min_pos):
     return {
         "tools": tools, "areas": areas, "tool_row": tr, "area_col": ar,
         "X": np.column_stack([feats[f][tr, ar] for f in BASE + ["shape"]]),
+        "xlist": xlist[tr, ar],
         "pos": out_count[tr, ar] >= min_pos,
         "counts": {"history_papers": len(hist), "outcome_papers": len(outc),
                    "popular_tools": nt, "areas": na, "cells": int(len(tr)),
@@ -337,7 +342,7 @@ def window_cells(P, H, o0, o1, X, min_cites, min_pos):
     }  # fmt: skip
 
 
-def analyze(out: Path, smoke: bool) -> None:
+def analyze(out: Path, smoke: bool, check: bool = False) -> None:
     from sklearn.feature_extraction.text import TfidfVectorizer
     from sklearn.linear_model import LogisticRegression
     from sklearn.pipeline import make_pipeline
@@ -460,6 +465,69 @@ def analyze(out: Path, smoke: bool) -> None:
 
     (out / "phase11.json").write_text(json.dumps(report, indent=2) + "\n")
     log(f"wrote {out / 'phase11.json'}")
+    if check:
+        check_xlist(out, fit, test, smoke)
+
+
+def compare(fit_X, fit_pos, test_X, test_pos, test_tool, n_tools, boot, rng):
+    """AUC without and with the last column, and a tool-bootstrap interval on the gain."""
+    from sklearn.linear_model import LogisticRegression
+    from sklearn.pipeline import make_pipeline
+    from sklearn.preprocessing import StandardScaler
+
+    scores = []
+    for cols in (slice(0, fit_X.shape[1] - 1), slice(0, fit_X.shape[1])):
+        m = make_pipeline(StandardScaler(), LogisticRegression(C=1.0, max_iter=1000))
+        m.fit(fit_X[:, cols], fit_pos)
+        scores.append(m.decision_function(test_X[:, cols]))
+    inv = [np.unique(s_, return_inverse=True)[1] for s_ in scores]
+    draws = np.empty((boot, 2))
+    for d in range(boot):
+        w = np.bincount(rng.integers(0, n_tools, n_tools), minlength=n_tools)[test_tool].astype(float)
+        for j in range(2):
+            n = inv[j].max() + 1
+            draws[d, j] = rank_auc(inv[j], np.bincount(inv[j], w * test_pos, n),
+                                   np.bincount(inv[j], w * ~test_pos, n))  # fmt: skip
+    diff = draws[:, 1] - draws[:, 0]
+    a0, a1 = auc(scores[0], test_pos), auc(scores[1], test_pos)
+    return {"auc_without_shape": a0, "auc_with_shape": a1, "difference": a1 - a0,
+            "ci95": [float(x) for x in np.percentile(diff, [2.5, 97.5])],
+            "positives": int(test_pos.sum()), "cells": int(len(test_pos)),
+            "top_1000_with_shape": int(test_pos[np.argsort(-scores[1], kind="stable")[:1000]].sum()),
+            "top_1000_without_shape": int(test_pos[np.argsort(-scores[0], kind="stable")[:1000]].sum())}  # fmt: skip
+
+
+def check_xlist(out: Path, fit: dict, test: dict, smoke: bool) -> None:
+    """Exploratory: is shape only seeing use by papers cross-listed in the area?
+
+    X1  add xlist = log(1 + history papers citing T with A as a secondary
+        category) to BASE; compare BASE+X with BASE+X+SHAPE.
+    X2  keep only cells with xlist = 0 (no cross-listed use at all); compare
+        BASE with BASE+SHAPE there, models fitted on the fit window's xlist = 0 cells.
+    """
+    rng = np.random.default_rng(SEED + 1)
+    boot = 20 if smoke else BOOT
+    nb = len(BASE)
+    rep = {"seed": SEED + 1, "boot": boot,
+           "share_of_test_cells_with_xlist": float((test["xlist"] > 0).mean()),
+           "share_of_test_positives_with_xlist": float((test["xlist"][test["pos"]] > 0).mean())}  # fmt: skip
+
+    def with_x(w):
+        return np.column_stack([w["X"][:, :nb], np.log1p(w["xlist"]), w["X"][:, nb]])
+
+    nt = len(test["tools"])
+    rep["X1"] = compare(with_x(fit), fit["pos"], with_x(test), test["pos"],
+                        test["tool_row"], nt, boot, rng)  # fmt: skip
+    rep["X1"]["auc_xlist_alone"] = auc(test["xlist"], test["pos"])
+    f0, t0 = fit["xlist"] == 0, test["xlist"] == 0
+    rep["X2"] = compare(fit["X"][f0], fit["pos"][f0], test["X"][t0], test["pos"][t0],
+                        test["tool_row"][t0], nt, boot, rng)  # fmt: skip
+    for k in ("X1", "X2"):
+        r = rep[k]
+        log(f"{k}: {r['auc_without_shape']:.4f} -> {r['auc_with_shape']:.4f} "
+            f"({r['difference']:+.4f} {r['ci95']}), {r['positives']} positives in {r['cells']:,} cells")  # fmt: skip
+    (out / "phase11-xlist.json").write_text(json.dumps(rep, indent=2) + "\n")
+    log(f"wrote {out / 'phase11-xlist.json'}")
 
 
 def main() -> int:
@@ -468,6 +536,8 @@ def main() -> int:
     ap.add_argument("--files", type=Path, help="snapshot: parquet paths, one per line")
     ap.add_argument("--out", type=Path, required=True)
     ap.add_argument("--smoke", action="store_true")
+    ap.add_argument("--check-xlist", action="store_true",
+                    help="analyze: also run the cross-listing check (README, exploratory)")
     args = ap.parse_args()
     args.out.mkdir(parents=True, exist_ok=True)
     if args.stage == "harvest":
@@ -477,7 +547,7 @@ def main() -> int:
     elif args.stage == "snapshot":
         snapshot(args.out, args.files, args.smoke)
     else:
-        analyze(args.out, args.smoke)
+        analyze(args.out, args.smoke, args.check_xlist)
     return 0
 
 

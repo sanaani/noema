@@ -243,3 +243,22 @@ About $4 in total: roughly $3.60 for the first worker (m6i.2xlarge, about
 9.3 hours, 6.5 of them idle), then three m6i.4xlarge launches of 2, 2 and 17
 minutes. Every instance, role, instance profile, security group and task
 object was deleted, and the deletion was verified.
+
+### Exploratory: is shape only seeing use next door? (planned before the run)
+
+*Written and committed before the check was run. Not pre-registered with
+the phase; reported as exploratory, as the rules above require.*
+
+A cell is empty by *primary* category. A paper listed under area A as a
+*secondary* category may already cite the tool, and its abstract would make
+the tool's profile look like A. Two checks, same data, windows, models and
+seed + 1 (`run-phase11.py analyze --check-xlist`):
+
+- **X1.** Add `xlist` = log(1 + history papers citing T with A as a secondary
+  category) to BASE. Compare BASE+X with BASE+X+SHAPE.
+- **X2.** Keep only cells with no such paper at all (xlist = 0), in both
+  windows. Compare BASE with BASE+SHAPE there.
+
+Reading: if shape's gain stays at 0.03 or more with its interval above 0 in
+both, shape is not mainly detecting next-door use. If it falls near 0, it
+was.

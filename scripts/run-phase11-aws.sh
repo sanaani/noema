@@ -37,6 +37,8 @@ launch() {
   # the OpenAlex snapshot after the API's daily limit stopped the first.
   mkdir -p "$t/in"
   cp "$OUTROOT/data/papers.jsonl.gz" "$OUTROOT/data/works-files.txt" "$t/in/"
+  # CHECK=1: analysis only, from saved references (the cross-listing check)
+  if [ -n "${CHECK:-}" ]; then cp "$OUTROOT/data/refs.jsonl.gz" "$t/in/"; fi
   ( cd "$t" && find . -type f -exec sha256sum {} + > "$out/task-SHA256SUMS" )
   tar czf "$out/task.tar.gz" -C "$out/task" noema
   aws s3 cp "$out/task.tar.gz" "s3://$BUCKET/$run-task.tar.gz" --region "$REGION"
@@ -87,7 +89,7 @@ JSON
 
   echo "== user data"
   sed -e "s|@BUCKET@|$BUCKET|g" -e "s|@RUN@|$run|g" \
-      "$REPO/scripts/phase11-user-data.sh.in" > "$out/user-data.sh"
+      "$REPO/scripts/phase11-${CHECK:+check-}user-data.sh.in" > "$out/user-data.sh"
 
   echo "== waiting for the instance profile to propagate"
   sleep 20
