@@ -166,7 +166,11 @@ def main() -> int:
             if r["theorem"] in old or GENERATED.search(r["theorem"]):
                 continue
             ids = sorted(
-                {at[d] for d in r.get("deps") or () if d in at and specialised[at[d]] and areas[at[d]]}
+                {
+                    at[d]
+                    for d in r.get("deps") or ()
+                    if d in at and specialised[at[d]] and areas[at[d]]
+                }
             )
             joined = False
             for x in range(len(ids)):
@@ -232,16 +236,26 @@ def main() -> int:
     top = pop[pos][np.argsort(-S[pos], kind="stable")[:TOP]]
     at_pop = {i: r for r, i in enumerate(pop)}
     report["top_positives_by_S"] = [
-        {"name": names[i], "module": module[i], "S": float(S[at_pop[i]]),
-         "M": float(M[at_pop[i]]), "citations_2024": int(cites[i]),
-         "specialisation": float(spec[i])}  # fmt: skip
+        {
+            "name": names[i],
+            "module": module[i],
+            "S": float(S[at_pop[i]]),
+            "M": float(M[at_pop[i]]),
+            "citations_2024": int(cites[i]),
+            "specialisation": float(spec[i]),
+        }
         for i in top
     ]
     pa = collections.Counter(areas[i] for i in pop)
     ppos = collections.Counter(areas[i] for i in pop[pos])
     report["areas_by_positives"] = [
-        {"area": a, "positives": n, "population": pa[a],
-         "share_of_positives": n / pos.sum(), "share_of_population": pa[a] / len(pop)}  # fmt: skip
+        {
+            "area": a,
+            "positives": n,
+            "population": pa[a],
+            "share_of_positives": n / pos.sum(),
+            "share_of_population": pa[a] / len(pop),
+        }
         for a, n in ppos.most_common(15)
     ]
 

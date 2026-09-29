@@ -69,7 +69,9 @@ def get(url: str, tries: int = 12) -> bytes:
                 raise
             wait = int(e.headers.get("Retry-After") or 0) or min(300, 10 * 2**k)
             if wait > MAX_WAIT:  # a quota, not a hiccup: fail so the worker uploads and stops
-                raise RuntimeError(f"http {e.code} asks for {wait}s; over the {MAX_WAIT}s limit")
+                raise RuntimeError(
+                    f"http {e.code} asks for {wait}s; over the {MAX_WAIT}s limit"
+                ) from e
             log(f"http {e.code}, waiting {wait}s")
         except (urllib.error.URLError, TimeoutError, ConnectionError) as e:
             wait = min(300, 10 * 2**k)
@@ -101,7 +103,7 @@ def harvest(out: Path, smoke: bool) -> None:
                 if meta is None:
                     continue
                 seen += 1
-                text = lambda t: (meta.findtext(f"a:{t}", "", NS) or "").strip()  # noqa: E731
+                text = lambda t, m=meta: (m.findtext(f"a:{t}", "", NS) or "").strip()  # noqa: E731
                 cats = text("categories").split()
                 if not cats or not cats[0].startswith("math.") or cats[0] in EXCLUDED_AREAS:
                     continue
@@ -120,12 +122,18 @@ def harvest(out: Path, smoke: bool) -> None:
                 kept += 1
             tok = root.find(".//o:resumptionToken", NS)
             if tok is not None and (tok.text or "").strip():
-                url = OAI + "?" + urllib.parse.urlencode(
-                    {"verb": "ListRecords", "resumptionToken": tok.text.strip()}
+                url = (
+                    OAI
+                    + "?"
+                    + urllib.parse.urlencode(
+                        {"verb": "ListRecords", "resumptionToken": tok.text.strip()}
+                    )
                 )
                 if pages % 20 == 0:
-                    log(f"harvest page {pages}: {seen:,} records, {kept:,} kept "
-                        f"(list size {tok.get('completeListSize')})")  # fmt: skip
+                    log(
+                        f"harvest page {pages}: {seen:,} records, {kept:,} kept "
+                        f"(list size {tok.get('completeListSize')})"
+                    )
                 time.sleep(3)
             else:
                 url = None
@@ -135,8 +143,12 @@ def harvest(out: Path, smoke: bool) -> None:
 # ---------------------------------------------------------------- openalex
 def openalex_batch(dois: list[str]) -> list[dict]:
     q = "|".join("https://doi.org/" + d for d in dois)
-    url = OPENALEX + "?" + urllib.parse.urlencode(
-        {"filter": "doi:" + q, "per_page": 100, "select": "id,doi,referenced_works"}
+    url = (
+        OPENALEX
+        + "?"
+        + urllib.parse.urlencode(
+            {"filter": "doi:" + q, "per_page": 100, "select": "id,doi,referenced_works"}
+        )
     )
     try:
         return json.loads(get(url))["results"]
@@ -169,10 +181,20 @@ def openalex(out: Path) -> None:
         time.sleep(0.15)
     with gzip.open(out / "refs.jsonl.gz", "wt") as f:
         for i, p in enumerate(papers):
-            f.write(json.dumps({"id": p["id"], "openalex": sorted(oa_ids.get(i, ())),
-                                "refs": sorted(refs.get(i, ()))}) + "\n")  # fmt: skip
-    log(f"openalex done: {len(oa_ids):,} of {len(papers):,} papers found, "
-        f"{sum(1 for i in refs if refs[i]):,} with references")  # fmt: skip
+            f.write(
+                json.dumps(
+                    {
+                        "id": p["id"],
+                        "openalex": sorted(oa_ids.get(i, ())),
+                        "refs": sorted(refs.get(i, ())),
+                    }
+                )
+                + "\n"
+            )
+    log(
+        f"openalex done: {len(oa_ids):,} of {len(papers):,} papers found, "
+        f"{sum(1 for i in refs if refs[i]):,} with references"
+    )
 
 
 SNAPSHOT = "https://openalex.s3.amazonaws.com/"
@@ -221,22 +243,36 @@ def snapshot(out: Path, files: Path, smoke: bool) -> None:
             i = owner[doi.replace("https://doi.org/", "")]
             oa_ids[i].add(wid.rsplit("/", 1)[-1])
             refs[i].update(r.rsplit("/", 1)[-1] for r in rw or ())
-        log(f"snapshot {min(k + 20, len(paths)):,} / {len(paths):,} files, "
-            f"{len(oa_ids):,} papers found")  # fmt: skip
+        log(
+            f"snapshot {min(k + 20, len(paths)):,} / {len(paths):,} files, "
+            f"{len(oa_ids):,} papers found"
+        )
     if smoke and not oa_ids:
         raise RuntimeError("smoke: the join found no papers in the newest snapshot files")
     with gzip.open(out / "refs.jsonl.gz", "wt") as f:
         for i, p in enumerate(papers):
-            f.write(json.dumps({"id": p["id"], "openalex": sorted(oa_ids.get(i, ())),
-                                "refs": sorted(refs.get(i, ()))}) + "\n")  # fmt: skip
-    log(f"snapshot done: {len(oa_ids):,} of {len(papers):,} papers found, "
-        f"{sum(1 for i in refs if refs[i]):,} with references")  # fmt: skip
+            f.write(
+                json.dumps(
+                    {
+                        "id": p["id"],
+                        "openalex": sorted(oa_ids.get(i, ())),
+                        "refs": sorted(refs.get(i, ())),
+                    }
+                )
+                + "\n"
+            )
+    log(
+        f"snapshot done: {len(oa_ids):,} of {len(papers):,} papers found, "
+        f"{sum(1 for i in refs if refs[i]):,} with references"
+    )
 
 
 # ---------------------------------------------------------------- analyze
 def rank_auc(inv, counts_pos, counts_neg):
     below = np.concatenate(([0.0], np.cumsum(counts_neg)[:-1]))
-    return float((counts_pos * (below + 0.5 * counts_neg)).sum() / (counts_pos.sum() * counts_neg.sum()))
+    return float(
+        (counts_pos * (below + 0.5 * counts_neg)).sum() / (counts_pos.sum() * counts_neg.sum())
+    )
 
 
 def auc(score, pos, w=None):
@@ -248,8 +284,8 @@ def auc(score, pos, w=None):
 
 def window_cells(P, H, o0, o1, X, min_cites, min_pos):
     """Cells and features for one window, from history papers only."""
-    from sklearn.preprocessing import normalize
     import scipy.sparse as sp
+    from sklearn.preprocessing import normalize
 
     areas = sorted({p["area"] for p in P})
     ai = {a: k for k, a in enumerate(areas)}
@@ -304,11 +340,17 @@ def window_cells(P, H, o0, o1, X, min_cites, min_pos):
     # shape: tool demand profile vs area profile, TF-IDF of titles + abstracts
     hist_pos = {k: r for r, k in enumerate(hist)}
     Xh = X[hist]
-    inc = sp.csr_matrix((np.ones(len(rows)), (rows, [hist_pos[c] for c in cols])), shape=(nt, len(hist)))
+    inc = sp.csr_matrix(
+        (np.ones(len(rows)), (rows, [hist_pos[c] for c in cols])), shape=(nt, len(hist))
+    )
     inc = normalize(inc, "l1") if nt else inc
     rec_rows = [ai[P[k]["area"]] for k in recent]
-    ainc = normalize(sp.csr_matrix((np.ones(len(recent)), (rec_rows, [hist_pos[k] for k in recent])),
-                                   shape=(na, len(hist))), "l1")  # fmt: skip
+    ainc = normalize(
+        sp.csr_matrix(
+            (np.ones(len(recent)), (rec_rows, [hist_pos[k] for k in recent])), shape=(na, len(hist))
+        ),
+        "l1",
+    )
     A_prof = normalize(ainc @ Xh)
     # cosine(normalize(inc @ Xh), A_prof), in chunks of tools: the tool profiles
     # are means of many abstracts, too dense to hold all at once
@@ -316,7 +358,9 @@ def window_cells(P, H, o0, o1, X, min_cites, min_pos):
     for c in range(0, nt, 2000):
         T = inc[c : c + 2000] @ Xh
         norm = np.sqrt(np.asarray(T.multiply(T).sum(1))).ravel()
-        shape[c : c + 2000] = np.asarray((T @ A_prof.T).todense()) / np.maximum(norm, 1e-12)[:, None]
+        shape[c : c + 2000] = (
+            np.asarray((T @ A_prof.T).todense()) / np.maximum(norm, 1e-12)[:, None]
+        )
 
     feats = {
         "cites": np.log1p(hist_count.sum(1))[:, None].repeat(na, 1),
@@ -332,14 +376,22 @@ def window_cells(P, H, o0, o1, X, min_cites, min_pos):
             cell[ti[t], home[t]] = False
     tr, ar = np.nonzero(cell)
     return {
-        "tools": tools, "areas": areas, "tool_row": tr, "area_col": ar,
+        "tools": tools,
+        "areas": areas,
+        "tool_row": tr,
+        "area_col": ar,
         "X": np.column_stack([feats[f][tr, ar] for f in BASE + ["shape"]]),
         "xlist": xlist[tr, ar],
         "pos": out_count[tr, ar] >= min_pos,
-        "counts": {"history_papers": len(hist), "outcome_papers": len(outc),
-                   "popular_tools": nt, "areas": na, "cells": int(len(tr)),
-                   "positives": int((out_count[tr, ar] >= min_pos).sum())},
-    }  # fmt: skip
+        "counts": {
+            "history_papers": len(hist),
+            "outcome_papers": len(outc),
+            "popular_tools": nt,
+            "areas": na,
+            "cells": int(len(tr)),
+            "positives": int((out_count[tr, ar] >= min_pos).sum()),
+        },
+    }
 
 
 def analyze(out: Path, smoke: bool, check: bool = False) -> None:
@@ -369,9 +421,10 @@ def analyze(out: Path, smoke: bool, check: bool = False) -> None:
     res = {}
     for name, (H, o0, o1) in windows.items():
         texts = [p["title"] + ". " + p["abstract"] for p in P]
-        vec = TfidfVectorizer(sublinear_tf=True, min_df=1 if smoke else 5, max_df=0.5,
-                              stop_words="english")  # fmt: skip
-        vec.fit([t for t, p in zip(texts, P) if p["year"] <= H])
+        vec = TfidfVectorizer(
+            sublinear_tf=True, min_df=1 if smoke else 5, max_df=0.5, stop_words="english"
+        )
+        vec.fit([t for t, p in zip(texts, P, strict=True) if p["year"] <= H])
         X = vec.transform(texts)
         res[name] = window_cells(P, H, o0, o1, X, min_cites, min_pos)
         report[f"counts_{name}"] = res[name]["counts"]
@@ -405,22 +458,33 @@ def analyze(out: Path, smoke: bool, check: bool = False) -> None:
         w = np.bincount(rng.integers(0, nt, nt), minlength=nt)[tool].astype(float)
         for j, k in enumerate(("BASE", "BASE+SHAPE")):
             n = inv[k].max() + 1
-            draws[d, j] = rank_auc(inv[k], np.bincount(inv[k], w * pos, n),
-                                   np.bincount(inv[k], w * ~pos, n))  # fmt: skip
+            draws[d, j] = rank_auc(
+                inv[k], np.bincount(inv[k], w * pos, n), np.bincount(inv[k], w * ~pos, n)
+            )
     diff = draws[:, 1] - draws[:, 0]
     lo, hi = np.percentile(diff, [2.5, 97.5])
     d_obs = a_shape - a_base
     if lo > 0:
-        verdict = ("the demand profile adds to popularity and citation habits" if d_obs >= 0.01
-                   else "detectable, too small to matter")  # fmt: skip
+        verdict = (
+            "the demand profile adds to popularity and citation habits"
+            if d_obs >= 0.01
+            else "detectable, too small to matter"
+        )
     elif hi < 0:
         verdict = "the demand profile hurts"
     else:
         verdict = "no measurable difference"
-    report["H1"] = {"auc_BASE": a_base, "auc_BASE+SHAPE": a_shape, "difference": d_obs,
-                    "ci95": [float(lo), float(hi)], "verdict": verdict}  # fmt: skip
-    log(f"H1: BASE {a_base:.4f}, BASE+SHAPE {a_shape:.4f}, diff {d_obs:+.4f} "
-        f"[{lo:+.4f}, {hi:+.4f}] -> {verdict}")  # fmt: skip
+    report["H1"] = {
+        "auc_BASE": a_base,
+        "auc_BASE+SHAPE": a_shape,
+        "difference": d_obs,
+        "ci95": [float(lo), float(hi)],
+        "verdict": verdict,
+    }
+    log(
+        f"H1: BASE {a_base:.4f}, BASE+SHAPE {a_shape:.4f}, diff {d_obs:+.4f} "
+        f"[{lo:+.4f}, {hi:+.4f}] -> {verdict}"
+    )
 
     names = BASE + ["shape"]
     report["auc_single_feature"] = {f: auc(test["X"][:, j], pos) for j, f in enumerate(names)}
@@ -437,15 +501,22 @@ def analyze(out: Path, smoke: bool, check: bool = False) -> None:
         m = band == b
         if pos[m].any() and (~pos[m]).any():
             report["H1_by_BASE_quintile"].append(
-                {"quintile": b + 1, "positives": int(pos[m].sum()), "cells": int(m.sum()),
-                 "auc_BASE": auc(s_base[m], pos[m]), "auc_BASE+SHAPE": auc(s_shape[m], pos[m])}
-            )  # fmt: skip
+                {
+                    "quintile": b + 1,
+                    "positives": int(pos[m].sum()),
+                    "cells": int(m.sum()),
+                    "auc_BASE": auc(s_base[m], pos[m]),
+                    "auc_BASE+SHAPE": auc(s_shape[m], pos[m]),
+                }
+            )
 
     # landmark cells
     by_id = {p["id"]: p for p in P}
     trow = {t: r for r, t in enumerate(test["tools"])}
     acol = {a: c for c, a in enumerate(test["areas"])}
-    where = {(r, c): k for k, (r, c) in enumerate(zip(test["tool_row"], test["area_col"], strict=True))}
+    where = {
+        (r, c): k for k, (r, c) in enumerate(zip(test["tool_row"], test["area_col"], strict=True))
+    }
     pct = {k: (np.argsort(np.argsort(s)) + 0.5) / len(s) for k, s in models.items()}
     land = {}
     for aid, label in LANDMARKS.items():
@@ -457,10 +528,19 @@ def analyze(out: Path, smoke: bool, check: bool = False) -> None:
         for t in p["refs"]:
             k = where.get((trow.get(t), acol.get(p["area"])))
             if k is not None:
-                cells.append({"tool": t, "positive": bool(pos[k]),
-                              **{f"percentile_{m}": float(pct[m][k]) for m in models}})  # fmt: skip
-        land[aid] = {"paper": label, "area": p["area"], "references": len(p["refs"]),
-                     "test_cells": sorted(cells, key=lambda c: -c["percentile_BASE+SHAPE"])}  # fmt: skip
+                cells.append(
+                    {
+                        "tool": t,
+                        "positive": bool(pos[k]),
+                        **{f"percentile_{m}": float(pct[m][k]) for m in models},
+                    }
+                )
+        land[aid] = {
+            "paper": label,
+            "area": p["area"],
+            "references": len(p["refs"]),
+            "test_cells": sorted(cells, key=lambda c: -c["percentile_BASE+SHAPE"]),
+        }
     report["landmarks"] = land
 
     (out / "phase11.json").write_text(json.dumps(report, indent=2) + "\n")
@@ -483,18 +563,26 @@ def compare(fit_X, fit_pos, test_X, test_pos, test_tool, n_tools, boot, rng):
     inv = [np.unique(s_, return_inverse=True)[1] for s_ in scores]
     draws = np.empty((boot, 2))
     for d in range(boot):
-        w = np.bincount(rng.integers(0, n_tools, n_tools), minlength=n_tools)[test_tool].astype(float)
+        w = np.bincount(rng.integers(0, n_tools, n_tools), minlength=n_tools)[test_tool].astype(
+            float
+        )
         for j in range(2):
             n = inv[j].max() + 1
-            draws[d, j] = rank_auc(inv[j], np.bincount(inv[j], w * test_pos, n),
-                                   np.bincount(inv[j], w * ~test_pos, n))  # fmt: skip
+            draws[d, j] = rank_auc(
+                inv[j], np.bincount(inv[j], w * test_pos, n), np.bincount(inv[j], w * ~test_pos, n)
+            )
     diff = draws[:, 1] - draws[:, 0]
     a0, a1 = auc(scores[0], test_pos), auc(scores[1], test_pos)
-    return {"auc_without_shape": a0, "auc_with_shape": a1, "difference": a1 - a0,
-            "ci95": [float(x) for x in np.percentile(diff, [2.5, 97.5])],
-            "positives": int(test_pos.sum()), "cells": int(len(test_pos)),
-            "top_1000_with_shape": int(test_pos[np.argsort(-scores[1], kind="stable")[:1000]].sum()),
-            "top_1000_without_shape": int(test_pos[np.argsort(-scores[0], kind="stable")[:1000]].sum())}  # fmt: skip
+    return {
+        "auc_without_shape": a0,
+        "auc_with_shape": a1,
+        "difference": a1 - a0,
+        "ci95": [float(x) for x in np.percentile(diff, [2.5, 97.5])],
+        "positives": int(test_pos.sum()),
+        "cells": int(len(test_pos)),
+        "top_1000_with_shape": int(test_pos[np.argsort(-scores[1], kind="stable")[:1000]].sum()),
+        "top_1000_without_shape": int(test_pos[np.argsort(-scores[0], kind="stable")[:1000]].sum()),
+    }
 
 
 def check_xlist(out: Path, fit: dict, test: dict, smoke: bool) -> None:
@@ -508,24 +596,39 @@ def check_xlist(out: Path, fit: dict, test: dict, smoke: bool) -> None:
     rng = np.random.default_rng(SEED + 1)
     boot = 20 if smoke else BOOT
     nb = len(BASE)
-    rep = {"seed": SEED + 1, "boot": boot,
-           "share_of_test_cells_with_xlist": float((test["xlist"] > 0).mean()),
-           "share_of_test_positives_with_xlist": float((test["xlist"][test["pos"]] > 0).mean())}  # fmt: skip
+    rep = {
+        "seed": SEED + 1,
+        "boot": boot,
+        "share_of_test_cells_with_xlist": float((test["xlist"] > 0).mean()),
+        "share_of_test_positives_with_xlist": float((test["xlist"][test["pos"]] > 0).mean()),
+    }
 
     def with_x(w):
         return np.column_stack([w["X"][:, :nb], np.log1p(w["xlist"]), w["X"][:, nb]])
 
     nt = len(test["tools"])
-    rep["X1"] = compare(with_x(fit), fit["pos"], with_x(test), test["pos"],
-                        test["tool_row"], nt, boot, rng)  # fmt: skip
+    rep["X1"] = compare(
+        with_x(fit), fit["pos"], with_x(test), test["pos"], test["tool_row"], nt, boot, rng
+    )
     rep["X1"]["auc_xlist_alone"] = auc(test["xlist"], test["pos"])
     f0, t0 = fit["xlist"] == 0, test["xlist"] == 0
-    rep["X2"] = compare(fit["X"][f0], fit["pos"][f0], test["X"][t0], test["pos"][t0],
-                        test["tool_row"][t0], nt, boot, rng)  # fmt: skip
+    rep["X2"] = compare(
+        fit["X"][f0],
+        fit["pos"][f0],
+        test["X"][t0],
+        test["pos"][t0],
+        test["tool_row"][t0],
+        nt,
+        boot,
+        rng,
+    )
     for k in ("X1", "X2"):
         r = rep[k]
-        log(f"{k}: {r['auc_without_shape']:.4f} -> {r['auc_with_shape']:.4f} "
-            f"({r['difference']:+.4f} {r['ci95']}), {r['positives']} positives in {r['cells']:,} cells")  # fmt: skip
+        log(
+            f"{k}: {r['auc_without_shape']:.4f} -> {r['auc_with_shape']:.4f} "
+            f"({r['difference']:+.4f} {r['ci95']}), "
+            f"{r['positives']} positives in {r['cells']:,} cells"
+        )
     (out / "phase11-xlist.json").write_text(json.dumps(rep, indent=2) + "\n")
     log(f"wrote {out / 'phase11-xlist.json'}")
 
@@ -536,8 +639,11 @@ def main() -> int:
     ap.add_argument("--files", type=Path, help="snapshot: parquet paths, one per line")
     ap.add_argument("--out", type=Path, required=True)
     ap.add_argument("--smoke", action="store_true")
-    ap.add_argument("--check-xlist", action="store_true",
-                    help="analyze: also run the cross-listing check (README, exploratory)")
+    ap.add_argument(
+        "--check-xlist",
+        action="store_true",
+        help="analyze: also run the cross-listing check (README, exploratory)",
+    )
     args = ap.parse_args()
     args.out.mkdir(parents=True, exist_ok=True)
     if args.stage == "harvest":

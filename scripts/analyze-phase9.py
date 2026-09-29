@@ -122,7 +122,7 @@ def main() -> int:
     names24 = [str(x) for x in np.load(P6)["names"]]
     all_spec = np.array(specialisation(texts24))
     threshold = float(np.median(all_spec))
-    spec_of = dict(zip(names24, all_spec))
+    spec_of = dict(zip(names24, all_spec, strict=True))
     spec = np.array([spec_of.get(nm, 0.0) for nm in names])
     rare = spec > threshold
     report["specialisation_median_2024"] = threshold
@@ -146,9 +146,7 @@ def main() -> int:
     for r in labels:
         rp = [p for p in r["pairs"] if is_rare_pair(*p)] if r["class"] == "bridge" else []
         r["rare_pairs"] = rp
-        r["kind"] = (
-            ("rare" if rp else "ordinary") if r["class"] == "bridge" else r["class"]
-        )
+        r["kind"] = ("rare" if rp else "ordinary") if r["class"] == "bridge" else r["class"]
         for a, b in rp:
             ends.update((a, b))
 
@@ -174,15 +172,20 @@ def main() -> int:
     s = {"M": M[sel], "M_V": MV[sel], "S": S[sel], "cited": cited[sel]}
     obs = {k: p5.weighted_auc(v, pos, np.ones(sel.sum())) for k, v in s.items()}
     boot = p5.bootstrap(s, pos, module[sel], rng)
-    a1 = {"rare_bridges": int(pos.sum()), "within": int((~pos).sum()), "auc": obs["M"],
-          "ci95": p5.ci(boot["M"])}  # fmt: skip
+    a1 = {
+        "rare_bridges": int(pos.sum()),
+        "within": int((~pos).sum()),
+        "auc": obs["M"],
+        "ci95": p5.ci(boot["M"]),
+    }
     a1["verdict"] = p5.verdict_auc(a1["auc"], a1["ci95"]).replace("bridge", "rare-bridge")
     report["A1"] = a1
     report["reported_on_A1_labels"] = {
         k: {"auc": obs[k], "ci95": p5.ci(boot[k])} for k in ("M_V", "S", "cited")
     }
     report["reported_on_A1_labels"]["M_minus_M_V"] = {
-        "difference": obs["M"] - obs["M_V"], "ci95": p5.ci(boot["M"] - boot["M_V"])
+        "difference": obs["M"] - obs["M_V"],
+        "ci95": p5.ci(boot["M"] - boot["M_V"]),
     }
     print(f"A1: AUC(M) {a1['auc']:.4f} {a1['ci95']} -> {a1['verdict']}")
 
@@ -195,39 +198,59 @@ def main() -> int:
     passed = holm(ps)
     a2 = {"rare_bridges": int(pos2.sum()), "ordinary_bridges": int((~pos2).sum())}
     for k in ("M", "S"):
-        a2[k] = {"auc": obs2[k], "ci95": p5.ci(boot2[k]), "p_one_sided": ps[k],
-                 "holm_pass": passed[k]}  # fmt: skip
+        a2[k] = {
+            "auc": obs2[k],
+            "ci95": p5.ci(boot2[k]),
+            "p_one_sided": ps[k],
+            "holm_pass": passed[k],
+        }
         a2[k]["verdict"] = verdict_split(
-            passed[k], a2[k]["ci95"],
+            passed[k],
+            a2[k]["ci95"],
             "the map tells rare jumps from ordinary crossings",
             "rare jumps sit on the other side",
-        )  # fmt: skip
+        )
         print(f"A2 {k}: AUC {obs2[k]:.4f} {a2[k]['ci95']} p={ps[k]:.4f} -> {a2[k]['verdict']}")
     report["A2"] = a2
-    report["reported_on_A2_labels"] = {"cited": {"auc": obs2["cited"],
-                                                 "ci95": p5.ci(boot2["cited"])}}  # fmt: skip
+    report["reported_on_A2_labels"] = {
+        "cited": {"auc": obs2["cited"], "ci95": p5.ci(boot2["cited"])}
+    }
     strata = {}
     for tag, lo, hi in (("2", 2, 2), ("3-5", 3, 5), ("6+", 6, 10**9)):
         m = sel2 & (cited >= lo) & (cited <= hi)
         p = kind[m] == "rare"
         if p.any() and (~p).any():
-            strata[tag] = {"rare": int(p.sum()), "ordinary": int((~p).sum()),
-                           **{f"auc_{k}": p5.weighted_auc(v[m], p, np.ones(m.sum()))
-                              for k, v in (("M", M), ("S", S))}}  # fmt: skip
+            strata[tag] = {
+                "rare": int(p.sum()),
+                "ordinary": int((~p).sum()),
+                **{
+                    f"auc_{k}": p5.weighted_auc(v[m], p, np.ones(m.sum()))
+                    for k, v in (("M", M), ("S", S))
+                },
+            }
     report["A2_by_cited_count"] = strata
 
     qs = np.unique(np.quantile(S[sel], np.linspace(0, 1, 11)))
     bins = np.clip(np.searchsorted(qs, S[sel], side="right") - 1, 0, len(qs) - 2)
     report["A1_rare_share_by_S_decile"] = [
-        {"S_from": float(qs[b]), "S_to": float(qs[b + 1]), "connectors": int((bins == b).sum()),
-         "rare_share": float(pos[bins == b].mean())}  # fmt: skip
+        {
+            "S_from": float(qs[b]),
+            "S_to": float(qs[b + 1]),
+            "connectors": int((bins == b).sum()),
+            "rare_share": float(pos[bins == b].mean()),
+        }
         for b in range(len(qs) - 1)
         if (bins == b).any()
     ]
     rb = np.where(kind == "rare")[0]
     report["all_specialised_bridges_by_S"] = [
-        {"name": conn[i]["name"], "module": conn[i]["module"], "S": float(S[i]),
-         "M": float(M[i]), "rare_pairs": conn[i]["rare_pairs"]}  # fmt: skip
+        {
+            "name": conn[i]["name"],
+            "module": conn[i]["module"],
+            "S": float(S[i]),
+            "M": float(M[i]),
+            "rare_pairs": conn[i]["rare_pairs"],
+        }
         for i in rb[np.argsort(-S[rb], kind="stable")]
     ]
 
@@ -241,24 +264,40 @@ def main() -> int:
     MB, SB = self_excluded_scores(V, area_code, na)
     idx = np.where(popB)[0]
     posB = posB_all[idx]
-    report["counts_B"] = {"population": int(len(idx)), "positives": int(posB.sum()),
-                          "rare_pair_ends_outside_population": int(len(ends) - posB.sum())}  # fmt: skip
+    report["counts_B"] = {
+        "population": int(len(idx)),
+        "positives": int(posB.sum()),
+        "rare_pair_ends_outside_population": int(len(ends) - posB.sum()),
+    }
     print("B counts", report["counts_B"])
-    sB = {"M": MB[idx], "S": SB[idx], "citations": cites[idx].astype(float),
-          "specialisation": spec[idx]}
+    sB = {
+        "M": MB[idx],
+        "S": SB[idx],
+        "citations": cites[idx].astype(float),
+        "specialisation": spec[idx],
+    }
     obsB = {k: p5.weighted_auc(v, posB, np.ones(len(idx))) for k, v in sB.items()}
     bootB = p5.bootstrap(sB, posB, np.array([mod24[names[i]] for i in idx]), rng)
     psB = {k: one_sided_p(bootB[k]) for k in ("M", "S")}
     underpowered = posB.sum() < 100
     passedB = holm(psB) if not underpowered else {"M": False, "S": False}
     for h, k in (("B1", "M"), ("B2", "S")):
-        r = {"auc": obsB[k], "ci95": p5.ci(bootB[k]), "p_one_sided": psB[k],
-             "holm_pass": passedB[k]}  # fmt: skip
-        r["verdict"] = "underpowered" if underpowered else verdict_split(
-            passedB[k], r["ci95"],
-            "the 2024 map marks where rare jumps will start",
-            "rare jumps sit on the other side",
-        )  # fmt: skip
+        r = {
+            "auc": obsB[k],
+            "ci95": p5.ci(bootB[k]),
+            "p_one_sided": psB[k],
+            "holm_pass": passedB[k],
+        }
+        r["verdict"] = (
+            "underpowered"
+            if underpowered
+            else verdict_split(
+                passedB[k],
+                r["ci95"],
+                "the 2024 map marks where rare jumps will start",
+                "rare jumps sit on the other side",
+            )
+        )
         report[h] = r
         print(f"{h} {k}: AUC {r['auc']:.4f} {r['ci95']} p={r['p_one_sided']:.4f} -> {r['verdict']}")
     report["reported_on_B_labels"] = {
@@ -269,23 +308,45 @@ def main() -> int:
         m = (cites[idx] >= lo) & (cites[idx] <= hi)
         p = posB[m]
         if p.any() and (~p).any():
-            stratB[tag] = {"positives": int(p.sum()), "negatives": int((~p).sum()),
-                           **{f"auc_{k}": p5.weighted_auc(sB[k][m], p, np.ones(m.sum()))
-                              for k in ("M", "S")}}  # fmt: skip
+            stratB[tag] = {
+                "positives": int(p.sum()),
+                "negatives": int((~p).sum()),
+                **{f"auc_{k}": p5.weighted_auc(sB[k][m], p, np.ones(m.sum())) for k in ("M", "S")},
+            }
     report["B_by_citations"] = stratB
 
     def top(mask):
         j = idx[mask]
-        return [{"name": names[i], "module": mod24[names[i]], "S": float(SB[i]),
-                 "M": float(MB[i]), "citations_2024": int(cites[i]), "specialisation": float(spec[i])}
-                for i in j[np.argsort(-SB[j], kind="stable")[:TOP]]]  # fmt: skip
+        return [
+            {
+                "name": names[i],
+                "module": mod24[names[i]],
+                "S": float(SB[i]),
+                "M": float(MB[i]),
+                "citations_2024": int(cites[i]),
+                "specialisation": float(spec[i]),
+            }
+            for i in j[np.argsort(-SB[j], kind="stable")[:TOP]]
+        ]
 
     report["top_B_positives_by_S"] = top(posB)
     report["top_B_negatives_by_S"] = top(~posB)
 
-    print(json.dumps({k: report[k] for k in ("reported_on_A1_labels", "reported_on_A2_labels",
-                                              "A2_by_cited_count", "reported_on_B_labels",
-                                              "B_by_citations")}, indent=1))  # fmt: skip
+    print(
+        json.dumps(
+            {
+                k: report[k]
+                for k in (
+                    "reported_on_A1_labels",
+                    "reported_on_A2_labels",
+                    "A2_by_cited_count",
+                    "reported_on_B_labels",
+                    "B_by_citations",
+                )
+            },
+            indent=1,
+        )
+    )
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(report, indent=2) + "\n")
     print(f"wrote {args.out}")
