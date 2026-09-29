@@ -1,0 +1,202 @@
+[
+ {
+  "item": "i0225",
+  "label": "used",
+  "reason": "A standard large deviation result from the book is applied to bound a probability in the proof."
+ },
+ {
+  "item": "i0226",
+  "label": "passing",
+  "reason": "Cited only as further reading on topological tensor products."
+ },
+ {
+  "item": "i0227",
+  "label": "used",
+  "reason": "Corollary on tube volumes is applied in the proof of a lemma."
+ },
+ {
+  "item": "i0228",
+  "label": "passing",
+  "reason": "Cited historically for discovering bubbling."
+ },
+ {
+  "item": "i0229",
+  "label": "used",
+  "reason": "The standard Dirichlet form on the Sierpinski gasket from the book is used to build an example."
+ },
+ {
+  "item": "i0230",
+  "label": "passing",
+  "reason": "Pointer for more information on the transportation metric."
+ },
+ {
+  "item": "i0231",
+  "label": "used",
+  "reason": "A lemma is proved directly from Theorem 6.20 of the cited work."
+ },
+ {
+  "item": "i0232",
+  "label": "used",
+  "reason": "Proofs of the Langlands classification and a lemma cite specific results from the book."
+ },
+ {
+  "item": "i0233",
+  "label": "passing",
+  "reason": "Background on the magnetic tape motivation."
+ },
+ {
+  "item": "i0234",
+  "label": "passing",
+  "reason": "General reference on projective limits in category theory."
+ },
+ {
+  "item": "i0235",
+  "label": "used",
+  "reason": "Magma computations produce the paper's computational results."
+ },
+ {
+  "item": "i0236",
+  "label": "used",
+  "reason": "Anosov's closing lemma from the book is a tool in the proof."
+ },
+ {
+  "item": "i0237",
+  "label": "unclear",
+  "reason": "Contexts do not clearly show which citation is this work or how it is used."
+ },
+ {
+  "item": "i0238",
+  "label": "passing",
+  "reason": "Pointer for more information on fractal dimensions."
+ },
+ {
+  "item": "i0239",
+  "label": "used",
+  "reason": "The proof follows Alexander's argument."
+ },
+ {
+  "item": "i0240",
+  "label": "passing",
+  "reason": "Listed among researchers studying the cosine transform."
+ },
+ {
+  "item": "i0241",
+  "label": "passing",
+  "reason": "Cited as related work and speculation about removing a hypothesis."
+ },
+ {
+  "item": "i0242",
+  "label": "used",
+  "reason": "A step follows at once from specific formulas of the book."
+ },
+ {
+  "item": "i0243",
+  "label": "used",
+  "reason": "Schur orthogonality from the book is used in a proof, and root conventions follow it."
+ },
+ {
+  "item": "i0244",
+  "label": "passing",
+  "reason": "Reference for background details on C*-algebras."
+ },
+ {
+  "item": "i0245",
+  "label": "passing",
+  "reason": "Quoted as the source of an example in a philosophical discussion."
+ },
+ {
+  "item": "i0246",
+  "label": "passing",
+  "reason": "Cited as origin of iterated integrals in the introduction."
+ },
+ {
+  "item": "i0247",
+  "label": "used",
+  "reason": "Relies on the result that tensor products of vertex algebras are vertex algebras for the construction."
+ },
+ {
+  "item": "i0248",
+  "label": "used",
+  "reason": "The fact that the Monge-Kantorovich metric induces the weak* topology is used in a density step."
+ },
+ {
+  "item": "i0249",
+  "label": "used",
+  "reason": "Taubes' theorem is applied to conclude the examples are not symplectic."
+ },
+ {
+  "item": "i0250",
+  "label": "used",
+  "reason": "Irreducibility and nonsingularity of the variety are deduced from cited results."
+ },
+ {
+  "item": "i0251",
+  "label": "passing",
+  "reason": "Remark pointing to Wall's realizability criteria."
+ },
+ {
+  "item": "i0252",
+  "label": "used",
+  "reason": "General RKHS theory is used to reduce the proof to one dimension."
+ },
+ {
+  "item": "i0253",
+  "label": "used",
+  "reason": "Perelman's theorem is applied in the proof of a lemma."
+ },
+ {
+  "item": "i0254",
+  "label": "passing",
+  "reason": "Mentioned as an alternative construction and pointer for details."
+ },
+ {
+  "item": "i0255",
+  "label": "passing",
+  "reason": "Background definitions of groupoids recalled."
+ },
+ {
+  "item": "i0256",
+  "label": "passing",
+  "reason": "Historical mention of prior study of the group."
+ },
+ {
+  "item": "i0257",
+  "label": "passing",
+  "reason": "Pointer for a thorough description of the processes."
+ },
+ {
+  "item": "i0258",
+  "label": "used",
+  "reason": "The classification result and definition of u(D,lambda,mu) are recalled and then applied."
+ },
+ {
+  "item": "i0259",
+  "label": "used",
+  "reason": "The Tanaka-Webster connection is used to construct the vector fields for the SDE."
+ },
+ {
+  "item": "i0260",
+  "label": "passing",
+  "reason": "Cited historically for the definition and continuity of rough paths."
+ },
+ {
+  "item": "i0261",
+  "label": "passing",
+  "reason": "Cited as background on the Bott-Borel-Weil theorem."
+ },
+ {
+  "item": "i0262",
+  "label": "passing",
+  "reason": "Cited as background on the Gromov-Lawson conjecture."
+ },
+ {
+  "item": "i0263",
+  "label": "used",
+  "reason": "The Gartner-Ellis theorem is applied to prove the LDP."
+ },
+ {
+  "item": "i0264",
+  "label": "passing",
+  "reason": "Cited as inspiration only."
+ }
+]

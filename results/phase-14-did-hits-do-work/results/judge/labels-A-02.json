@@ -1,0 +1,227 @@
+[
+ {
+  "item": "i0090",
+  "label": "passing",
+  "reason": "Cited only as a rigorous introduction to simplicial rings for background."
+ },
+ {
+  "item": "i0091",
+  "label": "used",
+  "reason": "Proof invokes the fact that vector fields preserving a commutative parallelism form a commutative Lie algebra."
+ },
+ {
+  "item": "i0092",
+  "label": "passing",
+  "reason": "Pointer for further reading on Jacobi polynomials."
+ },
+ {
+  "item": "i0093",
+  "label": "passing",
+  "reason": "Background citation in a list and for formulation of the derivation problem."
+ },
+ {
+  "item": "i0094",
+  "label": "passing",
+  "reason": "Kapouleas's CMC constructions described as background and geometric analogy."
+ },
+ {
+  "item": "i0095",
+  "label": "passing",
+  "reason": "Mentioned as related work on off-diagonal/endpoint estimates."
+ },
+ {
+  "item": "i0096",
+  "label": "passing",
+  "reason": "Footnote pointer for precise definitions of categories."
+ },
+ {
+  "item": "i0097",
+  "label": "passing",
+  "reason": "Rough paths cited as background for signatures."
+ },
+ {
+  "item": "i0098",
+  "label": "passing",
+  "reason": "Suggested reading for algebraic topology prerequisites."
+ },
+ {
+  "item": "i0099",
+  "label": "used",
+  "reason": "The notion and structure of analytic sets from Chirka underpin the smoothness remark and proof."
+ },
+ {
+  "item": "i0100",
+  "label": "passing",
+  "reason": "Kodaira-Spencer theory cited only as the spirit of the deformation statement."
+ },
+ {
+  "item": "i0101",
+  "label": "used",
+  "reason": "Weyl's monomial integration formula over the sphere is applied in the computation."
+ },
+ {
+  "item": "i0102",
+  "label": "used",
+  "reason": "Lemma on fundamental solutions is taken from Wasow Chapter 2 and used."
+ },
+ {
+  "item": "i0103",
+  "label": "passing",
+  "reason": "Pointer for more information on graphs."
+ },
+ {
+  "item": "i0104",
+  "label": "used",
+  "reason": "Proof of the stable homology theorem rests on Harer's result."
+ },
+ {
+  "item": "i0105",
+  "label": "used",
+  "reason": "Lyons's continuity of the RDE solution map is stated as a theorem for use."
+ },
+ {
+  "item": "i0106",
+  "label": "used",
+  "reason": "Weyl's unitary trick (Knapp Prop 7.15) is applied in the proof of the inequality."
+ },
+ {
+  "item": "i0107",
+  "label": "used",
+  "reason": "Magma was used to carry out the explicit computations."
+ },
+ {
+  "item": "i0108",
+  "label": "passing",
+  "reason": "Rapoport-Zink cited as background on the Lubin-Tate tower."
+ },
+ {
+  "item": "i0109",
+  "label": "used",
+  "reason": "Stable-center manifold theorem from Shub is applied in the proof."
+ },
+ {
+  "item": "i0110",
+  "label": "passing",
+  "reason": "Background reference on the Ornstein-Uhlenbeck process."
+ },
+ {
+  "item": "i0111",
+  "label": "used",
+  "reason": "Keel-Tao argument is applied to obtain the endpoint Strichartz estimate."
+ },
+ {
+  "item": "i0112",
+  "label": "passing",
+  "reason": "Reference for the standard definition of Euler products."
+ },
+ {
+  "item": "i0113",
+  "label": "passing",
+  "reason": "Listed among constructions of symplectic capacities."
+ },
+ {
+  "item": "i0114",
+  "label": "used",
+  "reason": "Gartner-Ellis theorem from Dembo-Zeitouni is applied to get large deviation results."
+ },
+ {
+  "item": "i0115",
+  "label": "passing",
+  "reason": "Literature/history remark on barycentric subdivision."
+ },
+ {
+  "item": "i0116",
+  "label": "passing",
+  "reason": "Notes relation of meshes to CW complexes only."
+ },
+ {
+  "item": "i0117",
+  "label": "used",
+  "reason": "Corollary follows from Bourgain's local well-posedness for quintic NLS."
+ },
+ {
+  "item": "i0118",
+  "label": "passing",
+  "reason": "Cited as background on partition theory in statistical mechanics."
+ },
+ {
+  "item": "i0119",
+  "label": "passing",
+  "reason": "Background citation about Segal-Bargmann-Fock spaces in free analysis."
+ },
+ {
+  "item": "i0120",
+  "label": "used",
+  "reason": "Heat kernel and volume estimates on fractals from Kigami are used to verify the main assumptions for examples."
+ },
+ {
+  "item": "i0121",
+  "label": "passing",
+  "reason": "Cited as background on error terms in the i.i.d. setting."
+ },
+ {
+  "item": "i0122",
+  "label": "passing",
+  "reason": "Standard fact about smoothness of model metrics, pointer for details."
+ },
+ {
+  "item": "i0123",
+  "label": "passing",
+  "reason": "Background on the moment problem and Hankel tensors."
+ },
+ {
+  "item": "i0124",
+  "label": "passing",
+  "reason": "Root system of a quiver recalled with a cf. reference."
+ },
+ {
+  "item": "i0125",
+  "label": "passing",
+  "reason": "Analogy with the fundamental groupoid of a space."
+ },
+ {
+  "item": "i0126",
+  "label": "passing",
+  "reason": "Historical account of KdV well-posedness results."
+ },
+ {
+  "item": "i0127",
+  "label": "used",
+  "reason": "The Tanaka-Webster connection is used to build the vector fields for the SDE."
+ },
+ {
+  "item": "i0128",
+  "label": "used",
+  "reason": "A lemma is proved as a variant of the smooth variation theorem from Bingham et al."
+ },
+ {
+  "item": "i0129",
+  "label": "passing",
+  "reason": "Brin-Squier cited as background on PL groups lacking free subgroups."
+ },
+ {
+  "item": "i0130",
+  "label": "passing",
+  "reason": "Equivalent reformulation cited with cf., not relied on."
+ },
+ {
+  "item": "i0131",
+  "label": "passing",
+  "reason": "Survey remark that resolution of singularities is available."
+ },
+ {
+  "item": "i0132",
+  "label": "used",
+  "reason": "Birkhoff's theorem via Villani is used in the proof of the proposition."
+ },
+ {
+  "item": "i0133",
+  "label": "used",
+  "reason": "Proof follows the methods of Stanley's Corollary 4.7."
+ },
+ {
+  "item": "i0134",
+  "label": "used",
+  "reason": "Tits's surjectivity result and classification of local indices are used in computations."
+ }
+]

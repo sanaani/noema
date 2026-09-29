@@ -1,0 +1,227 @@
+[
+ {
+  "item": "i0090",
+  "label": "passing",
+  "reason": "Cited only as rigorous background on simplicial rings."
+ },
+ {
+  "item": "i0091",
+  "label": "used",
+  "reason": "Fact that vector fields preserving a commutative parallelism form a commutative Lie algebra finishes the proof."
+ },
+ {
+  "item": "i0092",
+  "label": "passing",
+  "reason": "Pointer for more information on Jacobi polynomials."
+ },
+ {
+  "item": "i0093",
+  "label": "passing",
+  "reason": "Background list and motivation for the derivation problem."
+ },
+ {
+  "item": "i0094",
+  "label": "passing",
+  "reason": "Kapouleas constructions mentioned as related work."
+ },
+ {
+  "item": "i0095",
+  "label": "passing",
+  "reason": "Keel-Tao cited as related off-diagonal estimates."
+ },
+ {
+  "item": "i0096",
+  "label": "passing",
+  "reason": "Footnote pointer for category definitions."
+ },
+ {
+  "item": "i0097",
+  "label": "passing",
+  "reason": "Cited as background on rough paths."
+ },
+ {
+  "item": "i0098",
+  "label": "passing",
+  "reason": "Suggested reading for prerequisites."
+ },
+ {
+  "item": "i0099",
+  "label": "used",
+  "reason": "Notion and structure of analytic sets from the book underpin the remark and proof."
+ },
+ {
+  "item": "i0100",
+  "label": "passing",
+  "reason": "Deformation theory cited as the spirit of the statement."
+ },
+ {
+  "item": "i0101",
+  "label": "used",
+  "reason": "Weyl formula for integrating monomials over the sphere applied in the computation."
+ },
+ {
+  "item": "i0102",
+  "label": "used",
+  "reason": "Well-known existence of fundamental solution from Chapter 2 is stated as a lemma and used."
+ },
+ {
+  "item": "i0103",
+  "label": "passing",
+  "reason": "Pointer for basic graph definitions."
+ },
+ {
+  "item": "i0104",
+  "label": "used",
+  "reason": "Harer stability theorem invoked as proof of the stated theorem."
+ },
+ {
+  "item": "i0105",
+  "label": "used",
+  "reason": "Lyons continuity theorem stated and relied on."
+ },
+ {
+  "item": "i0106",
+  "label": "used",
+  "reason": "Weyl unitary trick from the book applied in the proof."
+ },
+ {
+  "item": "i0107",
+  "label": "used",
+  "reason": "Magma used for explicit computations."
+ },
+ {
+  "item": "i0108",
+  "label": "passing",
+  "reason": "Cited as a reference on the Lubin-Tate tower."
+ },
+ {
+  "item": "i0109",
+  "label": "used",
+  "reason": "Stable-center manifold theorem applied in the proof."
+ },
+ {
+  "item": "i0110",
+  "label": "passing",
+  "reason": "Background reference on the Ornstein-Uhlenbeck process."
+ },
+ {
+  "item": "i0111",
+  "label": "used",
+  "reason": "Keel-Tao argument yields the endpoint Strichartz estimate used in the proof."
+ },
+ {
+  "item": "i0112",
+  "label": "passing",
+  "reason": "Pointer for Euler product background."
+ },
+ {
+  "item": "i0113",
+  "label": "passing",
+  "reason": "Listed among constructions of symplectic capacities."
+ },
+ {
+  "item": "i0114",
+  "label": "used",
+  "reason": "Gartner-Ellis theorem applied to obtain the large deviation results."
+ },
+ {
+  "item": "i0115",
+  "label": "passing",
+  "reason": "Literature remark on barycentric subdivision."
+ },
+ {
+  "item": "i0116",
+  "label": "passing",
+  "reason": "Notion of CW complex mentioned as related."
+ },
+ {
+  "item": "i0117",
+  "label": "used",
+  "reason": "Bourgain local well-posedness result combined to prove the corollary."
+ },
+ {
+  "item": "i0118",
+  "label": "passing",
+  "reason": "Cited as statistical mechanics background."
+ },
+ {
+  "item": "i0119",
+  "label": "unclear",
+  "reason": "Contexts do not clearly show a citation of the tool."
+ },
+ {
+  "item": "i0120",
+  "label": "passing",
+  "reason": "Pointer to fractal examples satisfying the assumptions."
+ },
+ {
+  "item": "i0121",
+  "label": "passing",
+  "reason": "Cited for discussion of known error terms."
+ },
+ {
+  "item": "i0122",
+  "label": "passing",
+  "reason": "Standard fact about rotationally symmetric metrics, pointer for details."
+ },
+ {
+  "item": "i0123",
+  "label": "passing",
+  "reason": "Background on moment problems in introduction."
+ },
+ {
+  "item": "i0124",
+  "label": "passing",
+  "reason": "Pointer for root systems of quivers."
+ },
+ {
+  "item": "i0125",
+  "label": "passing",
+  "reason": "Cited by analogy for the fundamental groupoid."
+ },
+ {
+  "item": "i0126",
+  "label": "passing",
+  "reason": "History of KdV well-posedness results."
+ },
+ {
+  "item": "i0127",
+  "label": "used",
+  "reason": "Tanaka-Webster connection used to build the diffusion construction."
+ },
+ {
+  "item": "i0128",
+  "label": "used",
+  "reason": "Lemma is a variant of the smooth variation theorem from the book."
+ },
+ {
+  "item": "i0129",
+  "label": "passing",
+  "reason": "Brin-Squier result cited as background."
+ },
+ {
+  "item": "i0130",
+  "label": "passing",
+  "reason": "Equivalent reformulation noted with cf."
+ },
+ {
+  "item": "i0131",
+  "label": "passing",
+  "reason": "Mentioned in a digression on resolution of singularities."
+ },
+ {
+  "item": "i0132",
+  "label": "used",
+  "reason": "Birkhoff theorem from the book used in the proof."
+ },
+ {
+  "item": "i0133",
+  "label": "used",
+  "reason": "Proof follows the methods of Stanley paper."
+ },
+ {
+  "item": "i0134",
+  "label": "used",
+  "reason": "Tits surjectivity and classification of local indices used in computation."
+ }
+]

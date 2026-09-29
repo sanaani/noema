@@ -1,0 +1,227 @@
+[
+ {
+  "item": "i0045",
+  "label": "used",
+  "reason": "Boundary regularity of the Riemann map (C-infinity boundary diffeomorphism) is relied on to set up the electrodes."
+ },
+ {
+  "item": "i0046",
+  "label": "passing",
+  "reason": "Only remarks that the paper's own proof resembles Lemma 6.8 of Hitchin, for comparison."
+ },
+ {
+  "item": "i0047",
+  "label": "used",
+  "reason": "Lemma 10.1.6 is invoked to derive a proposition about the algebra A_+."
+ },
+ {
+  "item": "i0048",
+  "label": "passing",
+  "reason": "Corollary cited for a background fact in the introduction."
+ },
+ {
+  "item": "i0049",
+  "label": "used",
+  "reason": "Results on analytic sets and irreducible components from the book are used in proving a key proposition."
+ },
+ {
+  "item": "i0050",
+  "label": "used",
+  "reason": "The Curve Selection Lemma is applied in the proof."
+ },
+ {
+  "item": "i0051",
+  "label": "used",
+  "reason": "The paper reproves the g-vector results in close analogy to Stanley's method."
+ },
+ {
+  "item": "i0052",
+  "label": "used",
+  "reason": "The Curve Selection Lemma is recalled explicitly for use in the paper."
+ },
+ {
+  "item": "i0053",
+  "label": "passing",
+  "reason": "Cited with others as a general reference for infinite jet space theory."
+ },
+ {
+  "item": "i0054",
+  "label": "used",
+  "reason": "The fundamental cut notion is used as a step of the delay-reduction construction."
+ },
+ {
+  "item": "i0055",
+  "label": "passing",
+  "reason": "Cited to attribute a well-known fact about Higgs moduli."
+ },
+ {
+  "item": "i0056",
+  "label": "used",
+  "reason": "Theorem 3.3.3 and hypergeometric identities are applied in the computation."
+ },
+ {
+  "item": "i0057",
+  "label": "used",
+  "reason": "A stochastic-integral martingale fact is used in the proof of a lemma."
+ },
+ {
+  "item": "i0058",
+  "label": "passing",
+  "reason": "Listed as recommended background reading on operads."
+ },
+ {
+  "item": "i0059",
+  "label": "used",
+  "reason": "The Jones isomorphism is recalled just before and fed into the main proof."
+ },
+ {
+  "item": "i0060",
+  "label": "passing",
+  "reason": "Cited as background on extreme value theory in the introduction."
+ },
+ {
+  "item": "i0061",
+  "label": "passing",
+  "reason": "Cited for the standard definition of rational singularities in a review section."
+ },
+ {
+  "item": "i0062",
+  "label": "used",
+  "reason": "Proposition 5.3.2 supports the strong continuity of functional calculus used in the argument."
+ },
+ {
+  "item": "i0063",
+  "label": "passing",
+  "reason": "Attributes shear coordinates and laminations; definitions are taken from another source."
+ },
+ {
+  "item": "i0064",
+  "label": "passing",
+  "reason": "Cited for the Geometrization Conjecture in a history of the Singer Conjecture."
+ },
+ {
+  "item": "i0065",
+  "label": "used",
+  "reason": "Kac's theorem (Theorem 1.10) is applied to conclude beta is a positive root."
+ },
+ {
+  "item": "i0066",
+  "label": "passing",
+  "reason": "Cited to attribute standard noncommutative symplectic notions and the necklace bracket."
+ },
+ {
+  "item": "i0067",
+  "label": "used",
+  "reason": "The compactness theorem is applied to extract a convergent subsequence."
+ },
+ {
+  "item": "i0068",
+  "label": "passing",
+  "reason": "Pointer for further reading on point process consequences."
+ },
+ {
+  "item": "i0069",
+  "label": "used",
+  "reason": "The stable manifold theorem from p.65 is stated for use in the analysis."
+ },
+ {
+  "item": "i0070",
+  "label": "passing",
+  "reason": "Cited in the introduction as background on Sobolev capacity."
+ },
+ {
+  "item": "i0071",
+  "label": "used",
+  "reason": "Proposition 2.1 is used to show a cohomology group vanishes."
+ },
+ {
+  "item": "i0072",
+  "label": "used",
+  "reason": "Beilinson's conjecture and its motive conventions (Section 2.4) are worked with explicitly to compare with the paper's conjecture."
+ },
+ {
+  "item": "i0073",
+  "label": "passing",
+  "reason": "Smale's rationality theorem is recalled as background in the introduction."
+ },
+ {
+  "item": "i0074",
+  "label": "passing",
+  "reason": "Cited for the known fact that U(H) is extremely amenable, as an example."
+ },
+ {
+  "item": "i0075",
+  "label": "passing",
+  "reason": "Cited for comparison with a similar, more general isoperimetric bound."
+ },
+ {
+  "item": "i0076",
+  "label": "used",
+  "reason": "Standard algebraic topology results from Bredon are used to prove surjectivity."
+ },
+ {
+  "item": "i0077",
+  "label": "passing",
+  "reason": "Historical origin of ISS in the introduction."
+ },
+ {
+  "item": "i0078",
+  "label": "passing",
+  "reason": "Background remark that SH(2) is a Thurston geometry."
+ },
+ {
+  "item": "i0079",
+  "label": "used",
+  "reason": "Theorem 2.1.11 (chain rule) is applied repeatedly in proofs."
+ },
+ {
+  "item": "i0080",
+  "label": "used",
+  "reason": "Konig's Lemma is applied to prove surjectivity."
+ },
+ {
+  "item": "i0081",
+  "label": "used",
+  "reason": "The Cheeger-Colding splitting theorem is combined with other results to derive a new theorem."
+ },
+ {
+  "item": "i0082",
+  "label": "used",
+  "reason": "Propositions from the cited source give the Groebner basis method used for the computations."
+ },
+ {
+  "item": "i0083",
+  "label": "passing",
+  "reason": "Cited as the usual graph complex differential, a standard notion."
+ },
+ {
+  "item": "i0084",
+  "label": "passing",
+  "reason": "Pointer to proofs of existence and saturation of nonstandard extensions in a background section."
+ },
+ {
+  "item": "i0085",
+  "label": "used",
+  "reason": "The Gromov-Lawson surgery theorem underlies the psc metric constructions."
+ },
+ {
+  "item": "i0086",
+  "label": "used",
+  "reason": "Theorem 328 bound on phi(n) is applied in the proof."
+ },
+ {
+  "item": "i0087",
+  "label": "passing",
+  "reason": "Listed among general references on measure concentration."
+ },
+ {
+  "item": "i0088",
+  "label": "passing",
+  "reason": "Background mention of compact quantum metric spaces."
+ },
+ {
+  "item": "i0089",
+  "label": "used",
+  "reason": "Problem 3 of Chapter 2.7 is applied to obtain polynomial bracketing numbers."
+ }
+]

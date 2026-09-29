@@ -1,0 +1,227 @@
+[
+ {
+  "item": "i0045",
+  "label": "used",
+  "reason": "Cited for the boundary-diffeomorphism property of the conformal map on which the electrode construction relies."
+ },
+ {
+  "item": "i0046",
+  "label": "passing",
+  "reason": "Remark noting the paper's own proof resembles Hitchin's Lemma 6.8, plus a discussion comment."
+ },
+ {
+  "item": "i0047",
+  "label": "used",
+  "reason": "Proposition derived as a consequence of Kadison-Ringrose Lemma 10.1.6."
+ },
+ {
+  "item": "i0048",
+  "label": "passing",
+  "reason": "Wall's finiteness results recalled in the introduction as background."
+ },
+ {
+  "item": "i0049",
+  "label": "used",
+  "reason": "Terminology and results from Chirka on analytic sets are summarized for use in proving a proposition."
+ },
+ {
+  "item": "i0050",
+  "label": "used",
+  "reason": "Curve Selection Lemma from Milnor is applied in the proof."
+ },
+ {
+  "item": "i0051",
+  "label": "used",
+  "reason": "Paper reproduces Stanley's proof in close analogy within its own setting."
+ },
+ {
+  "item": "i0052",
+  "label": "used",
+  "reason": "Curve Selection Lemma from Milnor is stated for use in the paper."
+ },
+ {
+  "item": "i0053",
+  "label": "passing",
+  "reason": "Cited as general reference for infinite jet bundle theory."
+ },
+ {
+  "item": "i0054",
+  "label": "used",
+  "reason": "Fundamental cut notion from Diestel is used in the spanning-tree construction."
+ },
+ {
+  "item": "i0055",
+  "label": "passing",
+  "reason": "Cited as attribution of a well-known fact about Higgs moduli."
+ },
+ {
+  "item": "i0056",
+  "label": "used",
+  "reason": "Theorem 3.3.3 of Andrews et al. applied to transform a hypergeometric series."
+ },
+ {
+  "item": "i0057",
+  "label": "used",
+  "reason": "Revuz-Yor invoked to conclude a stochastic integral is a martingale in a proof."
+ },
+ {
+  "item": "i0058",
+  "label": "passing",
+  "reason": "Listed as recommended background reading on operads."
+ },
+ {
+  "item": "i0059",
+  "label": "used",
+  "reason": "Jones's isomorphisms recalled and used in proving the main theorem."
+ },
+ {
+  "item": "i0060",
+  "label": "passing",
+  "reason": "Cited in the introduction as background on extreme value theory."
+ },
+ {
+  "item": "i0061",
+  "label": "passing",
+  "reason": "Cited as reference for the standard definition of rational singularities in a review section."
+ },
+ {
+  "item": "i0062",
+  "label": "used",
+  "reason": "Proposition 5.3.2 cited to justify strong continuity of functional calculus in the argument."
+ },
+ {
+  "item": "i0063",
+  "label": "passing",
+  "reason": "W. Thurston cited as pointer for further details on laminations and shear coordinates."
+ },
+ {
+  "item": "i0064",
+  "label": "passing",
+  "reason": "Perelman cited as background for geometrization implying the Singer conjecture for n=3."
+ },
+ {
+  "item": "i0065",
+  "label": "used",
+  "reason": "Kac's theorem (Theorem 1.10) is applied in a proof."
+ },
+ {
+  "item": "i0066",
+  "label": "passing",
+  "reason": "Kontsevich cited among others as attribution for the necklace bracket and notions reviewed."
+ },
+ {
+  "item": "i0067",
+  "label": "used",
+  "reason": "Hamilton's compactness theorem applied to extract a convergent subsequence."
+ },
+ {
+  "item": "i0068",
+  "label": "passing",
+  "reason": "Resnick cited as an example reference for point-process techniques."
+ },
+ {
+  "item": "i0069",
+  "label": "used",
+  "reason": "Center-stable manifold theorem from Shub stated as a tool for the paper's analysis."
+ },
+ {
+  "item": "i0070",
+  "label": "passing",
+  "reason": "Ziemer cited in introduction as background on Sobolev capacity."
+ },
+ {
+  "item": "i0071",
+  "label": "used",
+  "reason": "Shioda's Proposition 2.1 used to show a cohomology term vanishes."
+ },
+ {
+  "item": "i0072",
+  "label": "used",
+  "reason": "Paper works with Beilinson's conjecture and motive conventions, explicitly relating its conjecture to it."
+ },
+ {
+  "item": "i0073",
+  "label": "passing",
+  "reason": "Smale's rationality theorem recalled in the introduction as background."
+ },
+ {
+  "item": "i0074",
+  "label": "passing",
+  "reason": "Gromov-Milman cited for known examples of extremely amenable groups."
+ },
+ {
+  "item": "i0075",
+  "label": "passing",
+  "reason": "Gromov's isoperimetric result cited only for comparison with the paper's own bound."
+ },
+ {
+  "item": "i0076",
+  "label": "used",
+  "reason": "Standard results from Bredon's algebraic topology used to prove surjectivity."
+ },
+ {
+  "item": "i0077",
+  "label": "passing",
+  "reason": "Sontag cited as the historical origin of ISS."
+ },
+ {
+  "item": "i0078",
+  "label": "passing",
+  "reason": "Thurston cited as background for SH(2) being a Thurston geometry."
+ },
+ {
+  "item": "i0079",
+  "label": "used",
+  "reason": "Ziemer's Theorem 2.1.11 chain rule applied in the arguments."
+ },
+ {
+  "item": "i0080",
+  "label": "used",
+  "reason": "Konig's Lemma from Diestel is used to prove surjectivity."
+ },
+ {
+  "item": "i0081",
+  "label": "passing",
+  "reason": "Cheeger-Colding splitting theorem recounted as ingredient of prior work in a further-directions section."
+ },
+ {
+  "item": "i0082",
+  "label": "unclear",
+  "reason": "Contexts only show citations of a different reference; the tool's role is not visible."
+ },
+ {
+  "item": "i0083",
+  "label": "passing",
+  "reason": "Cited for the standard graph complex differential as a description."
+ },
+ {
+  "item": "i0084",
+  "label": "used",
+  "reason": "Chang-Keisler cited for existence and saturation of nonstandard extensions that the paper assumes and relies on."
+ },
+ {
+  "item": "i0085",
+  "label": "used",
+  "reason": "Gromov-Lawson surgery theorem described as the basis of the paper's metric constructions."
+ },
+ {
+  "item": "i0086",
+  "label": "used",
+  "reason": "Theorem 328 of Hardy-Wright applied to bound Euler phi in the proof."
+ },
+ {
+  "item": "i0087",
+  "label": "passing",
+  "reason": "Talagrand cited in lists of general concentration-of-measure literature."
+ },
+ {
+  "item": "i0088",
+  "label": "passing",
+  "reason": "Rieffel cited as background on compact quantum metric spaces."
+ },
+ {
+  "item": "i0089",
+  "label": "used",
+  "reason": "Problem 3 in Chapter 2.7 of van der Vaart-Wellner applied to obtain bracketing numbers."
+ }
+]

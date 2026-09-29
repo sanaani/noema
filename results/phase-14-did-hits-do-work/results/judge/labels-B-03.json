@@ -1,0 +1,227 @@
+[
+ {
+  "item": "i0135",
+  "label": "passing",
+  "reason": "Only a pointer for details on bundle correspondence."
+ },
+ {
+  "item": "i0136",
+  "label": "passing",
+  "reason": "Cited for the historical formulation of the derivation problem."
+ },
+ {
+  "item": "i0137",
+  "label": "passing",
+  "reason": "Background reference for topological terminology."
+ },
+ {
+  "item": "i0138",
+  "label": "used",
+  "reason": "Wolstenholme theorem (Thm 116) applied in a congruence computation."
+ },
+ {
+  "item": "i0139",
+  "label": "used",
+  "reason": "Surjective map from compact dual cohomology taken from Borel-Wallach in the bound argument."
+ },
+ {
+  "item": "i0140",
+  "label": "used",
+  "reason": "Measurable selector lemma and diagonalization proof pattern from DPZ applied."
+ },
+ {
+  "item": "i0141",
+  "label": "passing",
+  "reason": "Cited as background on RH asymptotics and a possible extension."
+ },
+ {
+  "item": "i0142",
+  "label": "passing",
+  "reason": "Standard groupoid definitions recalled as background."
+ },
+ {
+  "item": "i0143",
+  "label": "used",
+  "reason": "Minimal fibration lemma (Cor 11.7) invoked in the Kan fibrancy proof."
+ },
+ {
+  "item": "i0144",
+  "label": "passing",
+  "reason": "Viterbo capacity mentioned in a side remark, not used in proofs."
+ },
+ {
+  "item": "i0145",
+  "label": "passing",
+  "reason": "Cited among background applications of ribbon graphs."
+ },
+ {
+  "item": "i0146",
+  "label": "used",
+  "reason": "Osin Theorem 1.4(2) applied in the proof of the corollary."
+ },
+ {
+  "item": "i0147",
+  "label": "used",
+  "reason": "Standard equality from Petersen invoked in the example argument."
+ },
+ {
+  "item": "i0148",
+  "label": "passing",
+  "reason": "Saturation theorem mentioned as background fact."
+ },
+ {
+  "item": "i0149",
+  "label": "passing",
+  "reason": "Rudolph result mentioned as something generalized, background."
+ },
+ {
+  "item": "i0150",
+  "label": "used",
+  "reason": "R-matrix from Jimbo is used as the paper's working object."
+ },
+ {
+  "item": "i0151",
+  "label": "used",
+  "reason": "Sacks-Uhlenbeck results invoked to conclude conformality in the existence argument."
+ },
+ {
+  "item": "i0152",
+  "label": "used",
+  "reason": "Frechet-Shohat, Cramer-Wold and Carleman results from Serfling applied in the proof."
+ },
+ {
+  "item": "i0153",
+  "label": "used",
+  "reason": "Stanley definition and Gorenstein criterion used in the proof."
+ },
+ {
+  "item": "i0154",
+  "label": "used",
+  "reason": "Univalent implies log g' in Bloch, from Pommerenke, applied in a remark."
+ },
+ {
+  "item": "i0155",
+  "label": "passing",
+  "reason": "Background reference for topological terminology."
+ },
+ {
+  "item": "i0156",
+  "label": "passing",
+  "reason": "Historical citation for quandles."
+ },
+ {
+  "item": "i0157",
+  "label": "passing",
+  "reason": "Cited as origin of ISS concept and survey pointers."
+ },
+ {
+  "item": "i0158",
+  "label": "passing",
+  "reason": "Rough path theory mentioned in a remark as background."
+ },
+ {
+  "item": "i0159",
+  "label": "used",
+  "reason": "Proof of Riemann-sum proposition follows Doob Theorem I-2.8."
+ },
+ {
+  "item": "i0160",
+  "label": "used",
+  "reason": "Tanaka-Webster connection reviewed and then worked with."
+ },
+ {
+  "item": "i0161",
+  "label": "used",
+  "reason": "Ito-Nisio theorem (Prop 2.11) from Da Prato-Zabczyk applied."
+ },
+ {
+  "item": "i0162",
+  "label": "used",
+  "reason": "Theorem 1.4.3 on index of regular variation used in the proof."
+ },
+ {
+  "item": "i0163",
+  "label": "passing",
+  "reason": "Well-known fact on isometry groups cited as motivation."
+ },
+ {
+  "item": "i0164",
+  "label": "used",
+  "reason": "Koszul homology computations carried out with Singular."
+ },
+ {
+  "item": "i0165",
+  "label": "used",
+  "reason": "Joyce Theorem 11.6.1 and Prop 10.3.5 are main tools in the proof."
+ },
+ {
+  "item": "i0166",
+  "label": "used",
+  "reason": "Boundary extension results from Pommerenke used in the argument."
+ },
+ {
+  "item": "i0167",
+  "label": "used",
+  "reason": "Distribution theory results from Treves used for the integration by parts proof."
+ },
+ {
+  "item": "i0168",
+  "label": "used",
+  "reason": "Poincare inequality and Sobolev results from Ziemer applied in proofs."
+ },
+ {
+  "item": "i0169",
+  "label": "used",
+  "reason": "Weyl tube theorem is the starting point relied on in the paper."
+ },
+ {
+  "item": "i0170",
+  "label": "used",
+  "reason": "Brownian loop path decomposition from LSW used in the derivation."
+ },
+ {
+  "item": "i0171",
+  "label": "passing",
+  "reason": "Keel-Tao mentioned as background on mixed norm spaces."
+ },
+ {
+  "item": "i0172",
+  "label": "used",
+  "reason": "Resultant elimination theory from Cox applied to prove the proposition."
+ },
+ {
+  "item": "i0173",
+  "label": "passing",
+  "reason": "Thurston compactification mentioned as an analogy."
+ },
+ {
+  "item": "i0174",
+  "label": "used",
+  "reason": "Kigami energy form construction recalled and used."
+ },
+ {
+  "item": "i0175",
+  "label": "used",
+  "reason": "Kronecker density theorem (Prop 1.5.1) applied in the proof."
+ },
+ {
+  "item": "i0176",
+  "label": "used",
+  "reason": "Gromov-Lawson surgery theorem applied to construct a PSC manifold."
+ },
+ {
+  "item": "i0177",
+  "label": "used",
+  "reason": "Anosov closing lemma from Shub used in the proof."
+ },
+ {
+  "item": "i0178",
+  "label": "passing",
+  "reason": "Pointer relating meshes to CW complexes."
+ },
+ {
+  "item": "i0179",
+  "label": "used",
+  "reason": "Kodaira Theorem 7.2 used to get self-adjointness."
+ }
+]

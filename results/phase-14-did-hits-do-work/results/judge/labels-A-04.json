@@ -1,0 +1,227 @@
+[
+ {
+  "item": "i0180",
+  "label": "passing",
+  "reason": "Cited in the introduction as background: spectral triples are examples of unbounded Kasparov modules."
+ },
+ {
+  "item": "i0181",
+  "label": "passing",
+  "reason": "Reader is referred to Cheeger-Colding for studies of Gromov-Hausdorff limits."
+ },
+ {
+  "item": "i0182",
+  "label": "passing",
+  "reason": "The paper explicitly gives a proof independent of Knutson-Tao's hive model."
+ },
+ {
+  "item": "i0183",
+  "label": "passing",
+  "reason": "Listed as one example of hyperkahler manifolds in background."
+ },
+ {
+  "item": "i0184",
+  "label": "passing",
+  "reason": "Blum-Shub-Smale machine given as an example of the computational model; nothing from it is applied."
+ },
+ {
+  "item": "i0185",
+  "label": "passing",
+  "reason": "Cited in open questions as an example of a two-sided limit shape."
+ },
+ {
+  "item": "i0186",
+  "label": "used",
+  "reason": "The modified algebra with support projections is built along the lines of Lusztig, Chapter 23."
+ },
+ {
+  "item": "i0187",
+  "label": "used",
+  "reason": "The proof uses the same rectangular-diagram argument as Alexander's theorem."
+ },
+ {
+  "item": "i0188",
+  "label": "passing",
+  "reason": "The computed monodromy is only compared with Kodaira's table."
+ },
+ {
+  "item": "i0189",
+  "label": "used",
+  "reason": "A lemma taken from Bourbaki (consequence of the Axiom of Choice) is used to prove a proposition."
+ },
+ {
+  "item": "i0190",
+  "label": "used",
+  "reason": "Caratheodory's theorem from Pommerenke is used to extend the Riemann maps to the boundary."
+ },
+ {
+  "item": "i0191",
+  "label": "passing",
+  "reason": "Pointer to Bowen for precise definitions of topological entropy."
+ },
+ {
+  "item": "i0192",
+  "label": "used",
+  "reason": "Kodaira's formula for the canonical divisor [Kod, Th. 12] is applied in the proof."
+ },
+ {
+  "item": "i0193",
+  "label": "passing",
+  "reason": "Cited as part of the literature on product measures."
+ },
+ {
+  "item": "i0194",
+  "label": "used",
+  "reason": "The topological Poincare conjecture (Freedman) is applied in the proof that the space is a ball."
+ },
+ {
+  "item": "i0195",
+  "label": "used",
+  "reason": "Bonahon's Tameness Theorem is applied to get strong convergence and M_infty = Sigma_g x R."
+ },
+ {
+  "item": "i0196",
+  "label": "passing",
+  "reason": "Cited as background that SDP can decide PSD-ness."
+ },
+ {
+  "item": "i0197",
+  "label": "passing",
+  "reason": "Pointer to FHL for the definition of the dual module."
+ },
+ {
+  "item": "i0198",
+  "label": "passing",
+  "reason": "Cited as related in spirit and for a future connection to Brownian loop measures."
+ },
+ {
+  "item": "i0199",
+  "label": "passing",
+  "reason": "Pointer to an easy proof of Brouwer's theorem in motivation."
+ },
+ {
+  "item": "i0200",
+  "label": "passing",
+  "reason": "Only cited in the introduction's background on connections and conformal field theory."
+ },
+ {
+  "item": "i0201",
+  "label": "used",
+  "reason": "Munkres Theorem 34.3 is used to identify singular and simplicial homology in the argument."
+ },
+ {
+  "item": "i0202",
+  "label": "used",
+  "reason": "The standard resummation theory from these books is relied on for the existence of canonical sectorial solutions."
+ },
+ {
+  "item": "i0203",
+  "label": "passing",
+  "reason": "Cited as a standard text for basic definitions of Green's relations."
+ },
+ {
+  "item": "i0204",
+  "label": "passing",
+  "reason": "Reader is pointed to the book for details on relative cohomology."
+ },
+ {
+  "item": "i0205",
+  "label": "used",
+  "reason": "Bishop comparison estimates from Petersen are used to bound det Y and tr K in the proof."
+ },
+ {
+  "item": "i0206",
+  "label": "used",
+  "reason": "Knapp's Proposition 9.72 is applied in the proof of a lemma."
+ },
+ {
+  "item": "i0207",
+  "label": "used",
+  "reason": "Theorems on metacyclic groups and Sylow's theorem from Robinson are used in the proofs."
+ },
+ {
+  "item": "i0208",
+  "label": "used",
+  "reason": "The Division Algorithm for modules from Cox-Little-O'Shea is applied to write the vector field."
+ },
+ {
+  "item": "i0209",
+  "label": "unclear",
+  "reason": "A known theorem is quoted before a lemma extending it, but the contexts do not show whether the proof relies on it."
+ },
+ {
+  "item": "i0210",
+  "label": "passing",
+  "reason": "Historical mention of Smale's work on solenoids as attractors."
+ },
+ {
+  "item": "i0211",
+  "label": "passing",
+  "reason": "Background reference on Nichols algebras in a remark."
+ },
+ {
+  "item": "i0212",
+  "label": "used",
+  "reason": "The Buchberger criterion from Cox-Little-O'Shea is used to verify a Groebner basis."
+ },
+ {
+  "item": "i0213",
+  "label": "used",
+  "reason": "Smale's alpha-theorem from BCSS Chapter 8 is used to certify solutions."
+ },
+ {
+  "item": "i0214",
+  "label": "passing",
+  "reason": "Background mention linking covariantly constant spinors to special holonomy."
+ },
+ {
+  "item": "i0215",
+  "label": "passing",
+  "reason": "Lojasiewicz inequality mentioned in the outlook as a possible approach to an open problem."
+ },
+ {
+  "item": "i0216",
+  "label": "used",
+  "reason": "Milnor's curve selection lemma is stated and used in the proof of convergence."
+ },
+ {
+  "item": "i0217",
+  "label": "used",
+  "reason": "Villani's formula for the Wasserstein distance on R (Remarks 2.19) is stated to play an important role in the sequel."
+ },
+ {
+  "item": "i0218",
+  "label": "used",
+  "reason": "Osin's Corollary 2.4 is applied to conclude the group is finitely presented."
+ },
+ {
+  "item": "i0219",
+  "label": "used",
+  "reason": "Several results (Slutsky lemma, Lemma 1.7.5, Corollary 2.10.13) are applied in the proofs."
+ },
+ {
+  "item": "i0220",
+  "label": "passing",
+  "reason": "Cited as another description of the tame symbol."
+ },
+ {
+  "item": "i0221",
+  "label": "unclear",
+  "reason": "The contexts do not show a citation that clearly refers to this book."
+ },
+ {
+  "item": "i0222",
+  "label": "used",
+  "reason": "Large deviation techniques and the contraction principle from Dembo-Zeitouni are adapted and used."
+ },
+ {
+  "item": "i0223",
+  "label": "passing",
+  "reason": "Cited as historical background on quasicategories."
+ },
+ {
+  "item": "i0224",
+  "label": "passing",
+  "reason": "Cited in a remark about Hausdorff dimension of Ahlfors regular measures."
+ }
+]

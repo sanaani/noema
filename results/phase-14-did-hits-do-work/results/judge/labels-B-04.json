@@ -1,0 +1,227 @@
+[
+ {
+  "item": "i0180",
+  "label": "passing",
+  "reason": "Cited as background that spectral triples are unbounded Kasparov modules."
+ },
+ {
+  "item": "i0181",
+  "label": "passing",
+  "reason": "Pointer to Cheeger-Colding for studies of Gromov-Hausdorff limits."
+ },
+ {
+  "item": "i0182",
+  "label": "passing",
+  "reason": "Paper explicitly gives a proof independent of Knutson-Tao's hive model."
+ },
+ {
+  "item": "i0183",
+  "label": "passing",
+  "reason": "Listed as a source of examples of hyperkahler manifolds."
+ },
+ {
+  "item": "i0184",
+  "label": "passing",
+  "reason": "BSS machine cited as an example of the real computational model."
+ },
+ {
+  "item": "i0185",
+  "label": "passing",
+  "reason": "Cited in open questions as prior limit-shape results."
+ },
+ {
+  "item": "i0186",
+  "label": "used",
+  "reason": "Construction of the modified algebra follows Lusztig's Chapter 23."
+ },
+ {
+  "item": "i0187",
+  "label": "used",
+  "reason": "Proof applies the argument of Alexander's theorem to arrange diagrams as braid closures."
+ },
+ {
+  "item": "i0188",
+  "label": "passing",
+  "reason": "Computed monodromy is only compared with Kodaira's list."
+ },
+ {
+  "item": "i0189",
+  "label": "used",
+  "reason": "Lemma from Bourbaki (consequence of AC) is used to prove the next proposition."
+ },
+ {
+  "item": "i0190",
+  "label": "used",
+  "reason": "Caratheodory's theorem from the book is invoked to extend the Riemann maps to the boundary."
+ },
+ {
+  "item": "i0191",
+  "label": "passing",
+  "reason": "Cited for precise definitions of topological entropy in a footnote/background."
+ },
+ {
+  "item": "i0192",
+  "label": "used",
+  "reason": "Kodaira's canonical bundle formula [Th. 12] is used in the proof."
+ },
+ {
+  "item": "i0193",
+  "label": "passing",
+  "reason": "Cited as part of literature on product measures."
+ },
+ {
+  "item": "i0194",
+  "label": "used",
+  "reason": "Topological Poincare conjecture is invoked in the proof that the space is a ball."
+ },
+ {
+  "item": "i0195",
+  "label": "used",
+  "reason": "Bonahon's Tameness Theorem is applied in the convergence argument."
+ },
+ {
+  "item": "i0196",
+  "label": "passing",
+  "reason": "Cited as a reference for SDP approach to PSD testing."
+ },
+ {
+  "item": "i0197",
+  "label": "passing",
+  "reason": "Pointer for the definition of the dual module."
+ },
+ {
+  "item": "i0198",
+  "label": "passing",
+  "reason": "Result described as related in spirit; connection deferred to future work."
+ },
+ {
+  "item": "i0199",
+  "label": "passing",
+  "reason": "Pointer to a nice demonstration of Brouwer's theorem in motivation."
+ },
+ {
+  "item": "i0200",
+  "label": "passing",
+  "reason": "Background citation on connections in conformal field theory."
+ },
+ {
+  "item": "i0201",
+  "label": "used",
+  "reason": "Theorem 34.3 is used to identify singular and simplicial homology in the argument."
+ },
+ {
+  "item": "i0202",
+  "label": "used",
+  "reason": "Standard resummation theory from these books supplies the sectorial solutions used."
+ },
+ {
+  "item": "i0203",
+  "label": "passing",
+  "reason": "Standard text cited for basic semigroup notions and definitions."
+ },
+ {
+  "item": "i0204",
+  "label": "passing",
+  "reason": "Pointer for details on relative cohomology."
+ },
+ {
+  "item": "i0205",
+  "label": "used",
+  "reason": "Bishop comparison estimates from Petersen are applied in the proof."
+ },
+ {
+  "item": "i0206",
+  "label": "used",
+  "reason": "Proposition 9.72 of Knapp is applied in the proof of the lemma."
+ },
+ {
+  "item": "i0207",
+  "label": "used",
+  "reason": "Theorems on metacyclic groups and Sylow's theorem from Robinson are used in proofs."
+ },
+ {
+  "item": "i0208",
+  "label": "used",
+  "reason": "The Division Algorithm for modules from the book is applied."
+ },
+ {
+  "item": "i0209",
+  "label": "used",
+  "reason": "Thm 3.5 of Pommerenke is the basis extended in the appendix lemma."
+ },
+ {
+  "item": "i0210",
+  "label": "passing",
+  "reason": "Historical mention of Smale's solenoid attractors."
+ },
+ {
+  "item": "i0211",
+  "label": "passing",
+  "reason": "Background reference on Nichols algebras."
+ },
+ {
+  "item": "i0212",
+  "label": "used",
+  "reason": "Buchberger criterion from the book is used to verify the Groebner basis."
+ },
+ {
+  "item": "i0213",
+  "label": "used",
+  "reason": "The alpha-theorem of BCSS Chapter 8 is used to certify solutions."
+ },
+ {
+  "item": "i0214",
+  "label": "passing",
+  "reason": "Background on special holonomy."
+ },
+ {
+  "item": "i0215",
+  "label": "passing",
+  "reason": "Cited for Lojasiewicz inequality in an open-problem outlook."
+ },
+ {
+  "item": "i0216",
+  "label": "used",
+  "reason": "Milnor's curve selection lemma is used in the proof."
+ },
+ {
+  "item": "i0217",
+  "label": "used",
+  "reason": "The quantile formula from Villani's Remarks 2.19 plays a key role in the sequel."
+ },
+ {
+  "item": "i0218",
+  "label": "used",
+  "reason": "Osin's Cor. 2.4 is used to conclude finite presentability."
+ },
+ {
+  "item": "i0219",
+  "label": "used",
+  "reason": "Lemmas and corollaries from van der Vaart-Wellner are applied in proofs."
+ },
+ {
+  "item": "i0220",
+  "label": "passing",
+  "reason": "Cited as an alternative description of the tame symbol."
+ },
+ {
+  "item": "i0221",
+  "label": "unclear",
+  "reason": "Vague citation for a property of correlation functions; reliance not clear."
+ },
+ {
+  "item": "i0222",
+  "label": "used",
+  "reason": "Large deviation techniques and contraction principle from the book are used."
+ },
+ {
+  "item": "i0223",
+  "label": "passing",
+  "reason": "Cited as history/background of the quasicategory model."
+ },
+ {
+  "item": "i0224",
+  "label": "passing",
+  "reason": "Cited for a remark about Hausdorff dimension of Ahlfors regular supports."
+ }
+]

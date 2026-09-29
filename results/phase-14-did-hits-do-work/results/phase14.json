@@ -1,0 +1,135 @@
+{
+  "seed": 20261005,
+  "boot": 2000,
+  "coverage": {
+    "G1": {
+      "cells": 60,
+      "papers": 152,
+      "ok": 79,
+      "no source": 2,
+      "no match": 67,
+      "no citation": 4,
+      "judged_cells": 42
+    },
+    "G2": {
+      "cells": 60,
+      "papers": 148,
+      "ok": 86,
+      "no source": 0,
+      "no match": 59,
+      "no citation": 3,
+      "judged_cells": 45
+    },
+    "G3": {
+      "cells": 60,
+      "papers": 161,
+      "ok": 100,
+      "no source": 3,
+      "no match": 52,
+      "no citation": 6,
+      "judged_cells": 48
+    }
+  },
+  "labels": {
+    "G1": {
+      "used": 42,
+      "passing": 36,
+      "unclear": 0,
+      "judges disagree": 1
+    },
+    "G2": {
+      "used": 37,
+      "passing": 43,
+      "unclear": 1,
+      "judges disagree": 5
+    },
+    "G3": {
+      "used": 42,
+      "passing": 53,
+      "unclear": 1,
+      "judges disagree": 4
+    }
+  },
+  "share_real_work": {
+    "G1": 0.6666666666666666,
+    "G2": 0.4888888888888889,
+    "G3": 0.6041666666666666
+  },
+  "H1": {
+    "share": 0.6666666666666666,
+    "judged_cells": 42,
+    "verdict": "the hits mostly did real work"
+  },
+  "H2": {
+    "difference": 0.17777777777777776,
+    "ci95": [
+      -0.02857142857142858,
+      0.3634920634920635
+    ],
+    "verdict": "no measurable difference"
+  },
+  "G1_minus_G3": {
+    "difference": 0.0625,
+    "ci95": [
+      -0.1339285714285714,
+      0.2590029761904758
+    ]
+  },
+  "agreement": {
+    "items": 265,
+    "share": 0.9622641509433962,
+    "kappa": 0.9268157967412317
+  },
+  "examples_G1_real_work": [
+    {
+      "tool": "Transformation Groups in Differential Geometry",
+      "area": "math.DS",
+      "paper": "1007.1257",
+      "paper_title": "Decomposition of stochastic flows with automorphism of subbundles component",
+      "context": {
+        "section": "Geometric set up",
+        "text": "be the connected component of the identity of $G(M)$. We remark also that the component $\\xi_t$ illustrates, for $r=1$ the stochastic calculus of order $r$ for diffusions in $M$ which are automorphisms of $G$-structures of contact order $r$, cf. Akiyama \\cite{Akiyama}. \\section{Geometric set up}\\label{nocoesGeometria} In this section we introduce the geometrical objects involved in the general technique of decomposition of flows given a group of automorphisms of a subbundle of a principal bundle, which most of interesting case are G-structure. We refer mainly to the classical Kobayashi \\cite{Kobayashi} or Kobayashi and Nomizu \\cite{Kobayashi-Nomizu}. Let $M$ be a smooth connected $n$-dimensional manifold $M$. We shall denote by $GL(M)$ the principal bundle of linear frames in each tangent space of $M$, i.e. the set of linear isomorphisms $u:\\R^{n} \\rightarrow T_{x}M$ for all $x\\in M$ with the natural projection $\\pi:GL(M) \\seta M$ where $Gl(n,\\R)$ is the structural group. We shall consider a"
+      }
+    },
+    {
+      "tool": "Transformation Groups in Differential Geometry",
+      "area": "math.DS",
+      "paper": "0803.3951",
+      "paper_title": "Dynamics of rational symplectic mappings and difference Galois theory",
+      "context": {
+        "section": "Malgrange groupoid of an integrable symplectic map",
+        "text": "ge groupoid must preserve $n + \\ell$ independent functions $H_{1}, \\dots , H_{n + \\ell}$: $X H_{i} = 0$. Because they preserve $H_{i}$ and the symplectic form $\\omega$, they must preserve the symplectic gradients $X_{{i}}$. On the subvarieties $H_{i}=c_{i}$ the integrable map preserves a parallelism given by $X_{H_{1}}, \\dots, X_{H_{n-\\ell}}$. This parallelism is commutative : $[X_{H_{i}}, X_{H_{j}}] = X_{H_{j}} H_i= 0$ for all $1 \\leq i \\leq n+ \\ell$ and $1 \\leq j \\leq n-\\ell$. Because the Lie algebra of vector fields preserving a commutative parallelism is commutative (see for instance \\cite{kobayashi}), the theorem is proved. \\end{proof} For Liouville integrable Hamiltonian vector fields, this theorem was already proved along same lines by Ramis \\cite{moralesramissimo}. \\section{Linear difference equations} \\label{lineaire} \\subsection{Basic concepts} For the convenience of the reader, we recall some well-known concepts from difference equations theory. \\begin{defi} Let $\\phi$ be a non-"
+      }
+    },
+    {
+      "tool": "Stability of the Homology of the Mapping Class Groups of Orientable Surfaces",
+      "area": "math.NT",
+      "paper": "1410.7373",
+      "paper_title": "A heuristic for the distribution of point counts for random curves over a finite field",
+      "context": {
+        "section": "Stability and tautological classes: singular cohomology",
+        "text": "ohomology of $M_{g,n,\\CC}^{\\an}$. These results are typically stated without marked points; we must add a bit of extra analysis to deal with the markings. \\begin{theorem} \\label{T:stable homology} For any nonnegative integers $g,n,i$ with $i \\leq \\frac{2g-2}{3}$, there exists an isomorphism $H_i(M_{g,n,\\CC}^{\\an}, \\QQ) \\to H_i(M_{g+1,n,\\CC}^{\\an}, \\QQ)$. By the universal coefficient theorem, this gives rise to an isomorphism $H^i(M_{g,n,\\CC}^{\\an}, \\QQ) \\to H^i(M_{g+1,n,\\CC}^{\\an}, \\QQ)$. \\end{theorem} \\begin{proof} This was first proved with a slightly more restrictive bound on $i$ by Harer \\cite{Harer:stability-orientable, Harer:stability-spin}. The statement as given includes results of several authors; see \\cite[Theorem 1.1]{Wahl:stability-handbook}. \\end{proof} The proof of this result is ultimately topological: by Teichm\\\"uller theory, one may identify $M_{g,n,\\CC}^{\\an}$ up to homotopy with a classifying space of the mapping class group $\\Gamma_{g,n}$ of a compact Riemann surface (without boundary) of genus $g$ with $n$ marked poi"
+      }
+    },
+    {
+      "tool": "Regular Variation",
+      "area": "math.CA",
+      "paper": "1801.03491",
+      "paper_title": "Note on the absence of remainders in the Wiener-Ikehara theorem",
+      "context": {
+        "section": "Some lemmas",
+        "text": "sform satisfies suitable growth assumptions. We point out that the problem of determining such growth conditions on the Laplace transform has been extensively studied in recent times \\cite{B-B-T2016,Chill-Seifert2016,Seifert2015} and such results have numerous applications in operator theory and in the study of the asymptotic behavior of solutions to various evolution equations. \\section{Some lemmas} We start with some preparatory lemmas that play a role in our constructions. The first one is a variant of the so-called smooth variation theorem from the theory of regularly varying functions \\cite[Thm. 1.8.2, p. 45]{binghambook}. \\begin{lemma} \\label{lemregularization abserrorW-I} Let $\\ell$ be a positive non-increasing function on $[0,\\infty)$ such that $\\ell(x)=o(1)$ (as $x\\to\\infty$). Then, there is a positive smooth function $L$ such that $$ \\ell(x)\\ll L(x) = o(1),$$ and, for some positive $C$,$A$ and $B$, \\begin{equation} \\label{eqreg abserrorW-I} \\left|L^{(n)}(x)\\right| \\leq CA^{n}n!x^{-n}, \\qquad \\text{for"
+      }
+    },
+    {
+      "tool": "Regular Variation",
+      "area": "math.CA",
+      "paper": "1311.6405",
+      "paper_title": "The Play Operator, the Truncated Variation and the Generalisation of the Jordan Decomposition",
+      "context": {
+        "section": "Appendix. Proof of Lemma \\ref{lema1",
+        "text": "{1}+\\psi_{2}-\\psi_{2},\\left[0;t\\right]\\right)\\leq TV^{\\delta c}\\left(\\psi_{1}+\\psi_{2},\\left[0;t\\right]\\right)+TV^{\\left(1-\\delta\\right)c}\\left(-\\psi_{2},\\left[0;t\\right]\\right), \\] which simplifies to \\begin{equation} TV^{\\delta c}\\left(\\psi_{1}+\\psi_{2},\\left[0;t\\right]\\right)\\geq TV^{c}\\left(\\psi_{1},\\left[0;t\\right]\\right)-TV^{\\left(1-\\delta\\right)c}\\left(\\psi_{2},\\left[0;t\\right]\\right).\\label{eq:estt2} \\end{equation} Now, let $\\theta$ be the index of the function $\\varphi,$ which means that $\\lim_{c\\downarrow0}\\varphi\\left(c\\right)/\\varphi\\left(\\delta c\\right)=\\delta^{-\\theta}$ (c.f. \\cite[p. 18, Theorem 1.4.3 and definitions above]{BGT}). Since $\\varphi$ is non-decreasing, we have $\\theta\\geq0.$ Now, from (\\ref{eq:estt1}) we get \\[ \\limsup_{c\\downarrow0}\\varphi\\left(c\\right)\\cdot TV^{c}\\left(\\psi_{1}+\\psi_{2},\\left[0;t\\right]\\right)\\leq\\delta^{-\\theta}\\limsup_{c\\downarrow0}\\varphi\\left(c\\right)\\cdot TV^{c}\\left(\\psi_{1},\\left[0;t\\right]\\right) \\] and from (\\ref{eq:estt2}) we get \\[ \\liminf_{c\\downarrow0}\\varphi\\left(c\\right)\\c"
+      }
+    }
+  ]
+}

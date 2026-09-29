@@ -1,0 +1,227 @@
+[
+ {
+  "item": "i0000",
+  "label": "passing",
+  "reason": "Cited only for the historical origin of the entropy definition."
+ },
+ {
+  "item": "i0001",
+  "label": "passing",
+  "reason": "Cited as background that SH(2) gives Thurston's Sol geometry."
+ },
+ {
+  "item": "i0002",
+  "label": "passing",
+  "reason": "Cited as a pointer for the general notion of transport of structure."
+ },
+ {
+  "item": "i0003",
+  "label": "passing",
+  "reason": "Expository discussion of Tate modules; no result applied."
+ },
+ {
+  "item": "i0004",
+  "label": "passing",
+  "reason": "Listed among background applications of toric varieties."
+ },
+ {
+  "item": "i0005",
+  "label": "used",
+  "reason": "Theorem IV.4.1 is applied in a proof to get the adjoint equivalence."
+ },
+ {
+  "item": "i0006",
+  "label": "passing",
+  "reason": "Cited within a proof as a pointer to a nice treatment of Barsotti-Tate modules."
+ },
+ {
+  "item": "i0007",
+  "label": "used",
+  "reason": "The Tanaka connection is reviewed and then worked with in the paper."
+ },
+ {
+  "item": "i0008",
+  "label": "passing",
+  "reason": "Listed among general references for recalled VOA results."
+ },
+ {
+  "item": "i0009",
+  "label": "passing",
+  "reason": "Cited as background that SDP can decide SOS."
+ },
+ {
+  "item": "i0010",
+  "label": "passing",
+  "reason": "Cited for the original statement of Beilinson's conjecture as background."
+ },
+ {
+  "item": "i0011",
+  "label": "passing",
+  "reason": "Cited in a list of areas where ribbon graphs appear."
+ },
+ {
+  "item": "i0012",
+  "label": "passing",
+  "reason": "Historical attribution of the notion of FP_n modules."
+ },
+ {
+  "item": "i0013",
+  "label": "passing",
+  "reason": "Cited as background on Seiberg-Witten obstructions."
+ },
+ {
+  "item": "i0014",
+  "label": "used",
+  "reason": "Tits [2.6] building embedding is used in the proof of Lemma 7.3."
+ },
+ {
+  "item": "i0015",
+  "label": "passing",
+  "reason": "Cited as background on q-commutator structures."
+ },
+ {
+  "item": "i0016",
+  "label": "passing",
+  "reason": "Cited as background fact that abelian cancellative semigroups embed in groups."
+ },
+ {
+  "item": "i0017",
+  "label": "used",
+  "reason": "Thurston's shear coordinates are defined and used for laminations."
+ },
+ {
+  "item": "i0018",
+  "label": "used",
+  "reason": "Existence and saturation of nonstandard extensions are taken from specific results."
+ },
+ {
+  "item": "i0019",
+  "label": "passing",
+  "reason": "Cited as background on the Bost-Connes algebra."
+ },
+ {
+  "item": "i0020",
+  "label": "used",
+  "reason": "The proof modifies Robinson's proof of Schur-Zassenhaus (9.1.2)."
+ },
+ {
+  "item": "i0021",
+  "label": "passing",
+  "reason": "Cited as an application of cyclic objects to free loop spaces."
+ },
+ {
+  "item": "i0022",
+  "label": "passing",
+  "reason": "Cited in a survey of uniform convexity results for C_p spaces."
+ },
+ {
+  "item": "i0023",
+  "label": "used",
+  "reason": "Shioda's result on maximal Picard number is invoked in a proof."
+ },
+ {
+  "item": "i0024",
+  "label": "used",
+  "reason": "Known representation theory facts from [GW, 5.2.2] are used in the section."
+ },
+ {
+  "item": "i0025",
+  "label": "passing",
+  "reason": "Listed among related functional analysis references."
+ },
+ {
+  "item": "i0026",
+  "label": "used",
+  "reason": "Singular was used to perform the paper's Groebner-basis computations."
+ },
+ {
+  "item": "i0027",
+  "label": "used",
+  "reason": "Results on dimension of isometry/affine groups are invoked in proofs."
+ },
+ {
+  "item": "i0028",
+  "label": "passing",
+  "reason": "Listed as background on convergence problems in probability."
+ },
+ {
+  "item": "i0029",
+  "label": "used",
+  "reason": "Slice-Bennequin inequality is applied to narrow the knot candidates."
+ },
+ {
+  "item": "i0030",
+  "label": "passing",
+  "reason": "Historical origin of Hecke C*-algebras and naming conventions."
+ },
+ {
+  "item": "i0031",
+  "label": "passing",
+  "reason": "Cited as background for the desingularization method."
+ },
+ {
+  "item": "i0032",
+  "label": "used",
+  "reason": "Robinson 5.3.7 on Hamiltonian groups is applied in a proof case."
+ },
+ {
+  "item": "i0033",
+  "label": "passing",
+  "reason": "Cited only for Kodaira symbol notation."
+ },
+ {
+  "item": "i0034",
+  "label": "used",
+  "reason": "Proofs of jet bundle lemmas are taken from Saunders, Chapter 6."
+ },
+ {
+  "item": "i0035",
+  "label": "used",
+  "reason": "Section 1.5.2 of Rudin supplies part (a) of a lemma in a proof."
+ },
+ {
+  "item": "i0036",
+  "label": "used",
+  "reason": "The Frechet-Shohat method of moments from Serfling is applied in the main proof."
+ },
+ {
+  "item": "i0037",
+  "label": "passing",
+  "reason": "Cited as related work on quantum metric spaces."
+ },
+ {
+  "item": "i0038",
+  "label": "used",
+  "reason": "Magma was used to run the paper's computations."
+ },
+ {
+  "item": "i0039",
+  "label": "passing",
+  "reason": "Pointer for standard facts about Hausdorff measure."
+ },
+ {
+  "item": "i0040",
+  "label": "passing",
+  "reason": "Cited as background that Lojasiewicz's inequality relies on it."
+ },
+ {
+  "item": "i0041",
+  "label": "passing",
+  "reason": "Slice-Bennequin inequality cited as background context."
+ },
+ {
+  "item": "i0042",
+  "label": "passing",
+  "reason": "Cited as background on Hardy-Schatten system norms."
+ },
+ {
+  "item": "i0043",
+  "label": "used",
+  "reason": "The Brownian loop measure and restriction computation from it are used."
+ },
+ {
+  "item": "i0044",
+  "label": "passing",
+  "reason": "Standard reference for the definition of basic hypergeometric function."
+ }
+]
