@@ -33,7 +33,8 @@ launch() {
 
   echo "== packaging the task"
   cp "$REPO/scripts/run-phase11.py" "$REPO/scripts/run-phase12.py" \
-     "$REPO/scripts/count-horizons.py" "$REPO/scripts/run-phase13.py" "$t/scripts/"
+     "$REPO/scripts/count-horizons.py" "$REPO/scripts/run-phase13.py" \
+     "$REPO/scripts/run-phase14.py" "$t/scripts/"
   # Phase 11's papers, references and snapshot file list
   local data="$REPO/outputs/phase-11-tool-area-grid/data"
   mkdir -p "$t/in"
@@ -90,7 +91,7 @@ JSON
 
   echo "== user data"
   sed -e "s|@BUCKET@|$BUCKET|g" -e "s|@RUN@|$run|g" \
-      "$REPO/scripts/$( [ "${USERDATA:-}" = phase13 ] && echo phase13 || echo "phase12${USERDATA:+-$USERDATA}")-user-data.sh.in" > "$out/user-data.sh"
+      "$REPO/scripts/$(case "${USERDATA:-}" in phase1[34]) echo "$USERDATA" ;; *) echo "phase12${USERDATA:+-$USERDATA}" ;; esac)-user-data.sh.in" > "$out/user-data.sh"
 
   echo "== waiting for the instance profile to propagate"
   sleep 20
