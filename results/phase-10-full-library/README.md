@@ -83,3 +83,51 @@ Part A of Phases 8–9 (scores at the new theorem's own statement), because the
 k or score. The Navier–Stokes test.
 
 ---
+
+## Results
+
+*Appended after the run. Nothing above this line changed.* Numbers from
+`results/phase10.json`, one m6i.4xlarge run (smoke pass, then about 4
+minutes). A first launch failed before any instance started (disk set below
+the image's 75 GB snapshot) and was torn down; the rerun used 100 GB.
+
+**Counts.** 4,793 new 2026 theorems join 17,598 specialised pairs.
+Population 65,848 specialised lemmas; **5,253 positives**, 29× Phase 9's.
+
+| test | prediction | result | verdict |
+|---|---|---|---|
+| **B1** AUC(M) | no difference, or too small | **0.542** [0.527, 0.558] | **detectable, too small to guide a search** |
+| **B2** AUC(S) | no difference, or too small | **0.464** [0.448, 0.480] | **rare jumps sit on the other side** |
+
+With enough data the map's signal is measurable, and it is small. Lemmas
+whose map neighbourhood mixes several areas are slightly likelier to become
+the end of a rare jump (0.542). Sparsity reverses Phase 5's direction:
+future jump ends sit in slightly *denser* parts of the map (0.464).
+
+### Reported, not tested
+
+- **Citation count: 0.710** [0.699, 0.721]. Popularity wins again, now
+  within the specialised half of Mathlib.
+- **Specialisation: 0.401.** The most specialised lemmas are the *least*
+  likely to become jump ends. Rare jumps run through moderately specialised
+  lemmas, not the most esoteric ones.
+- **M holds within popularity.** Within citation strata M scores 0.547–0.618,
+  stratum-weighted 0.560, rising with citations; S sits at 0.46–0.50
+  except the 171 most cited lemmas. The mixing signal is not a proxy for
+  popularity. It is small.
+- **Areas.** RingTheory holds 14.7% of positives against 5.8% of the
+  population; LinearAlgebra and NumberTheory are also over-represented.
+  CategoryTheory holds 4.0% against 12.3%.
+
+### What this establishes
+
+- The data question is settled: with 5,253 positives, the 2024 map carries a
+  real but small signal (mixing, 0.54–0.56 at fixed popularity) about which
+  specialised lemmas will start a rare cross-area jump.
+- It is far weaker than popularity (0.71), and too small on its own to point
+  a search at the right lemmas.
+
+### Teardown
+
+Instance terminated, IAM role, instance profile, security group and task
+object deleted; verified.

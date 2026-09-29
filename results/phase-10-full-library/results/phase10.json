@@ -1,0 +1,396 @@
+{
+  "k": 50,
+  "boot": 2000,
+  "seed": 20261001,
+  "smoke": false,
+  "map_statements": 206845,
+  "specialisation_median": 6.544534738394918,
+  "counts": {
+    "new_2026_theorems_joining_a_specialised_pair": 4793,
+    "specialised_pairs": 17598,
+    "population": 65848,
+    "positives": 5253,
+    "ends_outside_population": 11
+  },
+  "B1": {
+    "auc": 0.5421623786718004,
+    "ci95": [
+      0.5273944676127681,
+      0.5580373562968668
+    ],
+    "p_one_sided": 0.0,
+    "holm_pass": true,
+    "verdict": "detectable, too small to guide a search"
+  },
+  "B2": {
+    "auc": 0.4638271794425441,
+    "ci95": [
+      0.4477760052168751,
+      0.48035077839799517
+    ],
+    "p_one_sided": 1.0,
+    "holm_pass": false,
+    "verdict": "rare jumps sit on the other side"
+  },
+  "reported": {
+    "citations": {
+      "auc": 0.7098528321224449,
+      "ci95": [
+        0.699185442436488,
+        0.7206343511320819
+      ]
+    },
+    "specialisation": {
+      "auc": 0.40105264270695135,
+      "ci95": [
+        0.38835064100762823,
+        0.41394023493747767
+      ]
+    }
+  },
+  "by_citations": {
+    "0": {
+      "positives": 1234,
+      "negatives": 31263,
+      "auc_M": 0.560492190192154,
+      "auc_S": 0.5012522764597999
+    },
+    "1-2": {
+      "positives": 1836,
+      "negatives": 21999,
+      "auc_M": 0.54741031752186,
+      "auc_S": 0.4605044188481136
+    },
+    "3-10": {
+      "positives": 1563,
+      "negatives": 6757,
+      "auc_M": 0.5614042014768978,
+      "auc_S": 0.4751895879924906
+    },
+    "11-50": {
+      "positives": 490,
+      "negatives": 535,
+      "auc_M": 0.5814953271028037,
+      "auc_S": 0.4972572954415411
+    },
+    "51+": {
+      "positives": 130,
+      "negatives": 41,
+      "auc_M": 0.6176360225140713,
+      "auc_S": 0.6105065666041276
+    }
+  },
+  "stratum_weighted_auc": {
+    "M": 0.5595646041848178,
+    "S": 0.4815866507926298
+  },
+  "top_positives_by_S": [
+    {
+      "name": "Fintype.induction_subsingleton_or_nontrivial",
+      "module": "Mathlib.Data.Fintype.Card",
+      "S": 0.3507049083709717,
+      "M": 0.5,
+      "citations_2024": 1,
+      "specialisation": 8.26251306621588
+    },
+    {
+      "name": "EisensteinSeries.summand_bound_of_mem_verticalStrip",
+      "module": "Mathlib.NumberTheory.ModularForms.EisensteinSeries.UniformConvergence",
+      "S": 0.3493102192878723,
+      "M": 0.43999999999999995,
+      "citations_2024": 1,
+      "specialisation": 9.152460448303652
+    },
+    {
+      "name": "differentiable_completedZeta\u2080",
+      "module": "Mathlib.NumberTheory.LSeries.RiemannZeta",
+      "S": 0.3486902713775635,
+      "M": 0.54,
+      "citations_2024": 0,
+      "specialisation": 6.940203809350069
+    },
+    {
+      "name": "Cubic.ext",
+      "module": "Mathlib.Algebra.CubicDiscriminant",
+      "S": 0.346657395362854,
+      "M": 0.6,
+      "citations_2024": 2,
+      "specialisation": 8.096590273100485
+    },
+    {
+      "name": "tsum_sq_fourierCoeff",
+      "module": "Mathlib.Analysis.Fourier.AddCircle",
+      "S": 0.3339844346046448,
+      "M": 0.52,
+      "citations_2024": 0,
+      "specialisation": 9.294024862437764
+    },
+    {
+      "name": "bernsteinApproximation.apply",
+      "module": "Mathlib.Analysis.SpecialFunctions.Bernstein",
+      "S": 0.33079636096954346,
+      "M": 0.76,
+      "citations_2024": 0,
+      "specialisation": 10.779049454600724
+    },
+    {
+      "name": "AddCircle.scaled_exp_map_periodic",
+      "module": "Mathlib.Analysis.SpecialFunctions.Complex.Circle",
+      "S": 0.3279566764831543,
+      "M": 0.24,
+      "citations_2024": 3,
+      "specialisation": 7.078609461007378
+    },
+    {
+      "name": "CoxeterSystem.alternatingWord_succ'",
+      "module": "Mathlib.GroupTheory.Coxeter.Basic",
+      "S": 0.3274024724960327,
+      "M": 0.56,
+      "citations_2024": 2,
+      "specialisation": 7.267974041299716
+    },
+    {
+      "name": "GromovHausdorff.GHSpace.toGHSpace_rep",
+      "module": "Mathlib.Topology.MetricSpace.GromovHausdorff",
+      "S": 0.32392168045043945,
+      "M": 0.6799999999999999,
+      "citations_2024": 3,
+      "specialisation": 9.073750853016142
+    },
+    {
+      "name": "SimplexCategory.const_eq_id",
+      "module": "Mathlib.AlgebraicTopology.SimplexCategory",
+      "S": 0.3192768096923828,
+      "M": 0.48,
+      "citations_2024": 3,
+      "specialisation": 6.551743271134011
+    },
+    {
+      "name": "EisensteinSeries.summand_bound",
+      "module": "Mathlib.NumberTheory.ModularForms.EisensteinSeries.UniformConvergence",
+      "S": 0.318997323513031,
+      "M": 0.19999999999999996,
+      "citations_2024": 1,
+      "specialisation": 8.09484981951472
+    },
+    {
+      "name": "UpperHalfPlane.ModularGroup_T_zpow_mem_verticalStrip",
+      "module": "Mathlib.Analysis.Complex.UpperHalfPlane.Topology",
+      "S": 0.3177332878112793,
+      "M": 0.78,
+      "citations_2024": 0,
+      "specialisation": 8.750655270940145
+    },
+    {
+      "name": "catalan_succ'",
+      "module": "Mathlib.Combinatorics.Enumerative.Catalan",
+      "S": 0.3176572322845459,
+      "M": 0.64,
+      "citations_2024": 1,
+      "specialisation": 9.162031713176793
+    },
+    {
+      "name": "AddCircle.volume_closedBall",
+      "module": "Mathlib.MeasureTheory.Integral.Periodic",
+      "S": 0.315959095954895,
+      "M": 0.54,
+      "citations_2024": 4,
+      "specialisation": 6.919337966240536
+    },
+    {
+      "name": "Nat.Iio_eq_range",
+      "module": "Mathlib.Order.Interval.Finset.Nat",
+      "S": 0.3125876784324646,
+      "M": 0.28,
+      "citations_2024": 4,
+      "specialisation": 6.958496358844773
+    },
+    {
+      "name": "hasFDerivAt_polarCoord_symm",
+      "module": "Mathlib.Analysis.SpecialFunctions.PolarCoord",
+      "S": 0.3097665309906006,
+      "M": 0.5800000000000001,
+      "citations_2024": 1,
+      "specialisation": 10.126271898249433
+    },
+    {
+      "name": "rieszContentAux_sup_le",
+      "module": "Mathlib.MeasureTheory.Integral.RieszMarkovKakutani",
+      "S": 0.30946052074432373,
+      "M": 0.16000000000000003,
+      "citations_2024": 0,
+      "specialisation": 8.24906858149881
+    },
+    {
+      "name": "Mathlib.Tactic.ComputeDegree.degree_eq_of_le_of_coeff_ne_zero'",
+      "module": "Mathlib.Tactic.ComputeDegree",
+      "S": 0.3077097535133362,
+      "M": 0.64,
+      "citations_2024": 1,
+      "specialisation": 7.427620723941831
+    },
+    {
+      "name": "bernstein_apply",
+      "module": "Mathlib.Analysis.SpecialFunctions.Bernstein",
+      "S": 0.30694764852523804,
+      "M": 0.5,
+      "citations_2024": 3,
+      "specialisation": 8.051622874847718
+    },
+    {
+      "name": "Nat.Partrec.Code.encode_lt_prec",
+      "module": "Mathlib.Computability.PartrecCode",
+      "S": 0.30617856979370117,
+      "M": 0.56,
+      "citations_2024": 1,
+      "specialisation": 8.69260197801327
+    },
+    {
+      "name": "catalan_zero",
+      "module": "Mathlib.Combinatorics.Enumerative.Catalan",
+      "S": 0.3048909902572632,
+      "M": 0.62,
+      "citations_2024": 3,
+      "specialisation": 9.841829726693646
+    },
+    {
+      "name": "YoungDiagram.rowLens.eq_1",
+      "module": "Mathlib.Combinatorics.Young.YoungDiagram",
+      "S": 0.3031841516494751,
+      "M": 0.62,
+      "citations_2024": 1,
+      "specialisation": 10.165532910134894
+    },
+    {
+      "name": "ModularGroup.exists_smul_mem_fd",
+      "module": "Mathlib.NumberTheory.Modular",
+      "S": 0.3020646572113037,
+      "M": 0.5,
+      "citations_2024": 0,
+      "specialisation": 7.939069648905968
+    },
+    {
+      "name": "CanLift.prf",
+      "module": "Mathlib.Tactic.Lift",
+      "S": 0.3020586371421814,
+      "M": 0.6799999999999999,
+      "citations_2024": 312,
+      "specialisation": 7.824250479698929
+    },
+    {
+      "name": "ModularForm.gradedMonoid_eq_of_cast",
+      "module": "Mathlib.NumberTheory.ModularForms.Basic",
+      "S": 0.30098897218704224,
+      "M": 0.8,
+      "citations_2024": 8,
+      "specialisation": 9.421285736925967
+    }
+  ],
+  "areas_by_positives": [
+    {
+      "area": "Algebra",
+      "positives": 800,
+      "population": 11159,
+      "share_of_positives": 0.15229392727964972,
+      "share_of_population": 0.16946604300813997
+    },
+    {
+      "area": "RingTheory",
+      "positives": 770,
+      "population": 3838,
+      "share_of_positives": 0.14658290500666285,
+      "share_of_population": 0.05828574899769166
+    },
+    {
+      "area": "Analysis",
+      "positives": 565,
+      "population": 5704,
+      "share_of_positives": 0.10755758614125262,
+      "share_of_population": 0.08662373952132184
+    },
+    {
+      "area": "Data",
+      "positives": 449,
+      "population": 6626,
+      "share_of_positives": 0.08547496668570341,
+      "share_of_population": 0.10062568339205442
+    },
+    {
+      "area": "Topology",
+      "positives": 427,
+      "population": 5207,
+      "share_of_positives": 0.08128688368551304,
+      "share_of_population": 0.07907605394241284
+    },
+    {
+      "area": "LinearAlgebra",
+      "positives": 371,
+      "population": 3234,
+      "share_of_positives": 0.07062630877593756,
+      "share_of_population": 0.049113108978252946
+    },
+    {
+      "area": "MeasureTheory",
+      "positives": 244,
+      "population": 2898,
+      "share_of_positives": 0.04644964782029316,
+      "share_of_population": 0.0440104483051877
+    },
+    {
+      "area": "CategoryTheory",
+      "positives": 211,
+      "population": 8132,
+      "share_of_positives": 0.040167523320007614,
+      "share_of_population": 0.12349653748025756
+    },
+    {
+      "area": "NumberTheory",
+      "positives": 202,
+      "population": 1851,
+      "share_of_positives": 0.038454216638111556,
+      "share_of_population": 0.02811019317215405
+    },
+    {
+      "area": "GroupTheory",
+      "positives": 201,
+      "population": 3113,
+      "share_of_positives": 0.03826384922901199,
+      "share_of_population": 0.047275543676345524
+    },
+    {
+      "area": "Order",
+      "positives": 178,
+      "population": 3031,
+      "share_of_positives": 0.033885398819722065,
+      "share_of_population": 0.04603025148827603
+    },
+    {
+      "area": "Geometry",
+      "positives": 161,
+      "population": 1626,
+      "share_of_positives": 0.030649152865029505,
+      "share_of_population": 0.02469323290001215
+    },
+    {
+      "area": "AlgebraicGeometry",
+      "positives": 150,
+      "population": 1092,
+      "share_of_positives": 0.028555111364934323,
+      "share_of_population": 0.016583647187462035
+    },
+    {
+      "area": "FieldTheory",
+      "positives": 139,
+      "population": 807,
+      "share_of_positives": 0.026461069864839138,
+      "share_of_population": 0.012255497509415623
+    },
+    {
+      "area": "Combinatorics",
+      "positives": 96,
+      "population": 1819,
+      "share_of_positives": 0.018275271273557967,
+      "share_of_population": 0.02762422548900498
+    }
+  ]
+}
