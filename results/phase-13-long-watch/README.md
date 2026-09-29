@@ -147,7 +147,7 @@ analysis from the 69th to the 92nd.
 
 **The top 20 under BASE+SHAPE** are graduate textbooks (algebraic topology,
 Lie groups, algebraic geometry) predicted for neighbouring structural areas;
-12 of the 20 became jumps.
+14 of the 20 became jumps.
 
 ### What this establishes
 
