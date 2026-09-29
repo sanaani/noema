@@ -1,0 +1,725 @@
+{
+  "k": 50,
+  "boot": 2000,
+  "seed": 20260928,
+  "rare_max_citations": 10,
+  "counts_A": {
+    "rare": 596,
+    "ordinary": 3244,
+    "within": 5358,
+    "connectors_dropped": 0
+  },
+  "A1": {
+    "rare_bridges": 596,
+    "within": 5358,
+    "auc": 0.5605493948708699,
+    "ci95": [
+      0.530078039304814,
+      0.5928113750620141
+    ],
+    "verdict": "real but weak"
+  },
+  "reported_on_A1_labels": {
+    "M_V": {
+      "auc": 0.5717477597320446,
+      "ci95": [
+        0.5388925120765886,
+        0.6046413218681893
+      ]
+    },
+    "S": {
+      "auc": 0.6168534287310451,
+      "ci95": [
+        0.583959891050669,
+        0.6480763412390383
+      ]
+    },
+    "cited": {
+      "auc": 0.8150061314574456,
+      "ci95": [
+        0.7879883820586415,
+        0.8385331072797417
+      ]
+    },
+    "M_minus_M_V": {
+      "difference": -0.011198364861174759,
+      "ci95": [
+        -0.0345543758080782,
+        0.012262503120194621
+      ]
+    }
+  },
+  "A2": {
+    "rare_bridges": 596,
+    "ordinary_bridges": 3244,
+    "M": {
+      "auc": 0.4915740158392572,
+      "ci95": [
+        0.46062457397647644,
+        0.5222872479336572
+      ],
+      "p_one_sided": 0.699,
+      "holm_pass": false,
+      "verdict": "no measurable difference"
+    },
+    "S": {
+      "auc": 0.5166326682610747,
+      "ci95": [
+        0.48298842876023296,
+        0.5486948276397229
+      ],
+      "p_one_sided": 0.15,
+      "holm_pass": false,
+      "verdict": "no measurable difference"
+    }
+  },
+  "reported_on_A2_labels": {
+    "cited": {
+      "auc": 0.6918901389452081,
+      "ci95": [
+        0.6632435241481309,
+        0.7195564085157317
+      ]
+    }
+  },
+  "A2_by_cited_count": {
+    "2": {
+      "rare": 108,
+      "ordinary": 1203,
+      "auc_M": 0.4473961700686555,
+      "auc_S": 0.4285890212739756
+    },
+    "3-5": {
+      "rare": 253,
+      "ordinary": 1638,
+      "auc_M": 0.4745496049843876,
+      "auc_S": 0.4988344988344988
+    },
+    "6+": {
+      "rare": 235,
+      "ordinary": 403,
+      "auc_M": 0.5158439364341904,
+      "auc_S": 0.5044928990021647
+    }
+  },
+  "A1_rare_share_by_S_decile": [
+    {
+      "S_from": 0.009212672710418701,
+      "S_to": 0.1195276141166687,
+      "connectors": 596,
+      "rare_share": 0.05201342281879195
+    },
+    {
+      "S_from": 0.1195276141166687,
+      "S_to": 0.15160670280456542,
+      "connectors": 595,
+      "rare_share": 0.08235294117647059
+    },
+    {
+      "S_from": 0.15160670280456542,
+      "S_to": 0.17797757387161256,
+      "connectors": 595,
+      "rare_share": 0.07394957983193277
+    },
+    {
+      "S_from": 0.17797757387161256,
+      "S_to": 0.1998694658279419,
+      "connectors": 596,
+      "rare_share": 0.07718120805369127
+    },
+    {
+      "S_from": 0.1998694658279419,
+      "S_to": 0.22111690044403076,
+      "connectors": 595,
+      "rare_share": 0.05714285714285714
+    },
+    {
+      "S_from": 0.22111690044403076,
+      "S_to": 0.24202978610992432,
+      "connectors": 595,
+      "rare_share": 0.08739495798319327
+    },
+    {
+      "S_from": 0.24202978610992432,
+      "S_to": 0.2667800486087799,
+      "connectors": 596,
+      "rare_share": 0.1040268456375839
+    },
+    {
+      "S_from": 0.2667800486087799,
+      "S_to": 0.2950433492660523,
+      "connectors": 595,
+      "rare_share": 0.12436974789915967
+    },
+    {
+      "S_from": 0.2950433492660523,
+      "S_to": 0.3345868647098541,
+      "connectors": 595,
+      "rare_share": 0.16134453781512606
+    },
+    {
+      "S_from": 0.3345868647098541,
+      "S_to": 0.5165896713733673,
+      "connectors": 596,
+      "rare_share": 0.18120805369127516
+    }
+  ],
+  "top_rare_bridges_by_S": [
+    {
+      "name": "AlgebraicGeometry.specializingMap_isZariskiLocalAtTarget",
+      "module": "Mathlib.AlgebraicGeometry.Morphisms.UnderlyingMap",
+      "S": 0.5165896713733673,
+      "M": 0.72,
+      "rare_pairs": [
+        [
+          "Set.restrictPreimage_coe",
+          "closure_subtype"
+        ]
+      ]
+    },
+    {
+      "name": "Int.isFundamentalDiscr_iff_squarefree",
+      "module": "Mathlib.NumberTheory.FundamentalDiscriminant",
+      "S": 0.4998859167098999,
+      "M": 0.54,
+      "rare_pairs": [
+        [
+          "IsCoprime.pow",
+          "four_ne_zero"
+        ]
+      ]
+    },
+    {
+      "name": "EisensteinSeries.G2_slash_action",
+      "module": "Mathlib.NumberTheory.ModularForms.EisensteinSeries.E2.Transform",
+      "S": 0.44405537843704224,
+      "M": 0.7,
+      "rare_pairs": [
+        [
+          "ModularForm.SL_slash",
+          "UpperHalfPlane.im_inv_neg_coe_pos"
+        ],
+        [
+          "ModularForm.SL_slash",
+          "UpperHalfPlane.modular_S_smul"
+        ],
+        [
+          "SlashAction.add_slash",
+          "UpperHalfPlane.im_inv_neg_coe_pos"
+        ],
+        [
+          "SlashAction.add_slash",
+          "UpperHalfPlane.modular_S_smul"
+        ],
+        [
+          "SlashAction.neg_slash",
+          "UpperHalfPlane.im_inv_neg_coe_pos"
+        ],
+        [
+          "SlashAction.neg_slash",
+          "UpperHalfPlane.modular_S_smul"
+        ],
+        [
+          "SlashAction.slash_mul",
+          "UpperHalfPlane.im_inv_neg_coe_pos"
+        ],
+        [
+          "SlashAction.slash_mul",
+          "UpperHalfPlane.modular_S_smul"
+        ],
+        [
+          "SlashAction.slash_one",
+          "UpperHalfPlane.im_inv_neg_coe_pos"
+        ],
+        [
+          "SlashAction.slash_one",
+          "UpperHalfPlane.modular_S_smul"
+        ]
+      ]
+    },
+    {
+      "name": "isCusp_SL2Z_iff",
+      "module": "Mathlib.NumberTheory.ModularForms.Cusps",
+      "S": 0.4413812756538391,
+      "M": 0.64,
+      "rare_pairs": [
+        [
+          "Matrix.trace_fin_two",
+          "RingHom.algebraMap_toAlgebra"
+        ],
+        [
+          "Matrix.trace_fin_two",
+          "zero_ne_one'"
+        ]
+      ]
+    },
+    {
+      "name": "Real.hasDerivAt_sigmoid",
+      "module": "Mathlib.Analysis.SpecialFunctions.Sigmoid",
+      "S": 0.4344337582588196,
+      "M": 0.18000000000000005,
+      "rare_pairs": [
+        [
+          "HasDerivAt.inv",
+          "add_pos'"
+        ]
+      ]
+    },
+    {
+      "name": "UpperHalfPlane.fourierCoeffOn_neg_eq_zero",
+      "module": "Mathlib.NumberTheory.ModularForms.Bounds",
+      "S": 0.4339134693145752,
+      "M": 0.54,
+      "rare_pairs": [
+        [
+          "MDifferentiable.comp",
+          "UpperHalfPlane.mdifferentiable_coe"
+        ],
+        [
+          "MDifferentiable.mul",
+          "UpperHalfPlane.mdifferentiable_coe"
+        ]
+      ]
+    },
+    {
+      "name": "trapezoidal_integral_symm",
+      "module": "Mathlib.MeasureTheory.Integral.IntervalIntegral.TrapezoidalRule",
+      "S": 0.4320744276046753,
+      "M": 0.54,
+      "rare_pairs": [
+        [
+          "Nat.cast_pos'",
+          "tsub_tsub"
+        ]
+      ]
+    },
+    {
+      "name": "summable_prod_eisSummand",
+      "module": "Mathlib.NumberTheory.ModularForms.EisensteinSeries.QExpansion",
+      "S": 0.4305242896080017,
+      "M": 0.64,
+      "rare_pairs": [
+        [
+          "List.ofFn_inj",
+          "finTwoArrowEquiv_apply"
+        ],
+        [
+          "List.ofFn_inj",
+          "piFinTwoEquiv_apply"
+        ]
+      ]
+    },
+    {
+      "name": "LindemannWeierstrass.exp_polynomial_approx",
+      "module": "Mathlib.NumberTheory.Transcendental.Lindemann.AnalyticalPart",
+      "S": 0.4280819892883301,
+      "M": 0.6599999999999999,
+      "rare_pairs": [
+        [
+          "Multiset.mem_map_of_mem",
+          "tsub_right_comm"
+        ],
+        [
+          "Nat.mul_factorial_pred",
+          "tsub_right_comm"
+        ]
+      ]
+    },
+    {
+      "name": "UpperHalfPlane.hasSum_norm_sq_qExpansion_coeff_mul_exp",
+      "module": "Mathlib.NumberTheory.ModularForms.Bounds",
+      "S": 0.42264318466186523,
+      "M": 0.74,
+      "rare_pairs": [
+        [
+          "HasSum.nat_add_neg_add_one",
+          "MDifferentiable.continuous"
+        ]
+      ]
+    },
+    {
+      "name": "Multiset.bell_mul_eq",
+      "module": "Mathlib.Combinatorics.Enumerative.Bell",
+      "S": 0.4225805401802063,
+      "M": 0.6,
+      "rare_pairs": [
+        [
+          "Finset.prod_multiset_map_count",
+          "Nat.mul_right_inj"
+        ],
+        [
+          "Finset.sum_multiset_count",
+          "Nat.mul_right_inj"
+        ]
+      ]
+    },
+    {
+      "name": "SimpleGraph.antitoneOn_extremalNumber_div_choose_two",
+      "module": "Mathlib.Combinatorics.SimpleGraph.Extremal.TuranDensity",
+      "S": 0.4220585823059082,
+      "M": 0.56,
+      "rare_pairs": [
+        [
+          "Nat.cast_nonneg'",
+          "div_le_iff\u2080"
+        ],
+        [
+          "Nat.cast_pos'",
+          "div_le_iff\u2080"
+        ]
+      ]
+    },
+    {
+      "name": "GromovHausdorff.instCompleteSpaceGHSpace",
+      "module": "Mathlib.Topology.MetricSpace.GromovHausdorff",
+      "S": 0.4193246364593506,
+      "M": 0.36,
+      "rare_pairs": [
+        [
+          "GromovHausdorff.isometry_optimalGHInjl",
+          "cauchySeq_of_le_geometric"
+        ],
+        [
+          "Isometry.comp",
+          "cauchySeq_of_le_geometric"
+        ],
+        [
+          "Metric.hausdorffDist_image",
+          "cauchySeq_of_le_geometric"
+        ],
+        [
+          "Metric.toGlueL_isometry",
+          "cauchySeq_of_le_geometric"
+        ],
+        [
+          "Metric.toGlueR_isometry",
+          "cauchySeq_of_le_geometric"
+        ],
+        [
+          "Metric.toInductiveLimit_commute",
+          "cauchySeq_of_le_geometric"
+        ],
+        [
+          "Metric.toInductiveLimit_isometry",
+          "cauchySeq_of_le_geometric"
+        ],
+        [
+          "UniformSpace.Completion.coe_isometry",
+          "cauchySeq_of_le_geometric"
+        ]
+      ]
+    },
+    {
+      "name": "MeasureTheory.isTightMeasureSet_of_isCompact_closure",
+      "module": "Mathlib.MeasureTheory.Measure.Prokhorov",
+      "S": 0.4167506694793701,
+      "M": 0.43999999999999995,
+      "rare_pairs": [
+        [
+          "Left.mul_le_one",
+          "MeasureTheory.ProbabilityMeasure.apply_mono"
+        ],
+        [
+          "Left.mul_le_one",
+          "StrictAnti.antitone"
+        ],
+        [
+          "MeasureTheory.ProbabilityMeasure.apply_mono",
+          "StrictAnti.antitone"
+        ],
+        [
+          "MeasureTheory.ProbabilityMeasure.apply_mono",
+          "tsub_le_iff_tsub_le"
+        ],
+        [
+          "StrictAnti.antitone",
+          "tsub_le_iff_tsub_le"
+        ]
+      ]
+    },
+    {
+      "name": "FirstOrder.Field.finite_ACF_prime_not_realize_of_ACF_zero_realize",
+      "module": "Mathlib.ModelTheory.Algebra.Field.IsAlgClosed",
+      "S": 0.41673433780670166,
+      "M": 0.6,
+      "rare_pairs": [
+        [
+          "CharP.charP_iff_prime_eq_zero",
+          "FirstOrder.Field.charP_of_model_fieldOfChar"
+        ],
+        [
+          "CharP.eq",
+          "FirstOrder.Field.charP_of_model_fieldOfChar"
+        ]
+      ]
+    }
+  ],
+  "counts_B": {
+    "population": 20116,
+    "positives": 1060,
+    "rare_pair_ends_outside_population": 34
+  },
+  "B1": {
+    "auc": 0.4931862197614182,
+    "ci95": [
+      0.4656258724633787,
+      0.5240636087990133
+    ],
+    "p_one_sided": 0.674,
+    "holm_pass": false,
+    "verdict": "no measurable difference"
+  },
+  "B2": {
+    "auc": 0.4740477421066806,
+    "ci95": [
+      0.445309278032664,
+      0.507253978761585
+    ],
+    "p_one_sided": 0.9445,
+    "holm_pass": false,
+    "verdict": "no measurable difference"
+  },
+  "reported_on_B_labels": {
+    "citations": {
+      "auc": 0.7057267903537537,
+      "ci95": [
+        0.6837186718512578,
+        0.7272510405898833
+      ]
+    }
+  },
+  "B_by_citations": {
+    "0": {
+      "positives": 201,
+      "negatives": 8429,
+      "auc_M": 0.5570495487918103,
+      "auc_S": 0.5417104181311971
+    },
+    "1-2": {
+      "positives": 372,
+      "negatives": 7646,
+      "auc_M": 0.5075895330751338,
+      "auc_S": 0.49669849861759185
+    },
+    "3-10": {
+      "positives": 487,
+      "negatives": 2981,
+      "auc_M": 0.4909949874186067,
+      "auc_S": 0.4594533344997441
+    }
+  },
+  "top_B_positives_by_S": [
+    {
+      "name": "UpperHalfPlane.exists_SL2_smul_eq_of_apply_zero_one_ne_zero",
+      "module": "Mathlib.Analysis.Complex.UpperHalfPlane.Basic",
+      "S": 0.4306187629699707,
+      "M": 0.72,
+      "citations_2024": 0
+    },
+    {
+      "name": "UpperHalfPlane.exists_SL2_smul_eq_of_apply_zero_one_eq_zero",
+      "module": "Mathlib.Analysis.Complex.UpperHalfPlane.Basic",
+      "S": 0.3942452073097229,
+      "M": 0.7,
+      "citations_2024": 0
+    },
+    {
+      "name": "Complex.orderClosedTopology",
+      "module": "Mathlib.Analysis.Complex.Basic",
+      "S": 0.38043057918548584,
+      "M": 0.33999999999999997,
+      "citations_2024": 0
+    },
+    {
+      "name": "ENNReal.exists_pos_sum_of_countable'",
+      "module": "Mathlib.Analysis.SpecificLimits.Basic",
+      "S": 0.36674386262893677,
+      "M": 0.48,
+      "citations_2024": 3
+    },
+    {
+      "name": "UpperHalfPlane.mdifferentiable_coe",
+      "module": "Mathlib.Analysis.Complex.UpperHalfPlane.Manifold",
+      "S": 0.3568006753921509,
+      "M": 0.4,
+      "citations_2024": 2
+    },
+    {
+      "name": "Complex.card_rootsOfUnity",
+      "module": "Mathlib.RingTheory.RootsOfUnity.Complex",
+      "S": 0.3479105234146118,
+      "M": 0.7,
+      "citations_2024": 0
+    },
+    {
+      "name": "Complex.norm_eq_one_of_mem_rootsOfUnity",
+      "module": "Mathlib.RingTheory.RootsOfUnity.Complex",
+      "S": 0.34254103899002075,
+      "M": 0.43999999999999995,
+      "citations_2024": 1
+    },
+    {
+      "name": "Metric.toInductiveLimit_isometry",
+      "module": "Mathlib.Topology.MetricSpace.Gluing",
+      "S": 0.3423464894294739,
+      "M": 0.6,
+      "citations_2024": 0
+    },
+    {
+      "name": "IsPrimitiveRoot.self_sub_one_pow_dvd_order",
+      "module": "Mathlib.RingTheory.RootsOfUnity.Lemmas",
+      "S": 0.340285062789917,
+      "M": 0.43999999999999995,
+      "citations_2024": 0
+    },
+    {
+      "name": "WeierstrassCurve.Projective.fin3_def",
+      "module": "Mathlib.AlgebraicGeometry.EllipticCurve.Projective",
+      "S": 0.33993828296661377,
+      "M": 0.43999999999999995,
+      "citations_2024": 2
+    },
+    {
+      "name": "Metric.toInductiveLimit_commute",
+      "module": "Mathlib.Topology.MetricSpace.Gluing",
+      "S": 0.338634192943573,
+      "M": 0.7,
+      "citations_2024": 0
+    },
+    {
+      "name": "Polynomial.bernoulli_zero",
+      "module": "Mathlib.NumberTheory.BernoulliPolynomials",
+      "S": 0.33632904291152954,
+      "M": 0.5800000000000001,
+      "citations_2024": 2
+    },
+    {
+      "name": "ModularForm.SL_slash",
+      "module": "Mathlib.NumberTheory.ModularForms.SlashActions",
+      "S": 0.33317995071411133,
+      "M": 0.45999999999999996,
+      "citations_2024": 2
+    },
+    {
+      "name": "LSeries_iteratedDeriv",
+      "module": "Mathlib.NumberTheory.LSeries.Deriv",
+      "S": 0.3254111409187317,
+      "M": 0.30000000000000004,
+      "citations_2024": 0
+    },
+    {
+      "name": "Real.hasSum_log_one_add_inv",
+      "module": "Mathlib.Analysis.SpecialFunctions.Log.Deriv",
+      "S": 0.3219473361968994,
+      "M": 0.24,
+      "citations_2024": 1
+    }
+  ],
+  "top_B_negatives_by_S": [
+    {
+      "name": "nhds_true",
+      "module": "Mathlib.Topology.Order",
+      "S": 0.4546871781349182,
+      "M": 0.8200000000000001,
+      "citations_2024": 2
+    },
+    {
+      "name": "isOpen_singleton_true",
+      "module": "Mathlib.Topology.Order",
+      "S": 0.4427988529205322,
+      "M": 0.6799999999999999,
+      "citations_2024": 2
+    },
+    {
+      "name": "Relator.rel_not",
+      "module": "Mathlib.Logic.Relator",
+      "S": 0.4274740219116211,
+      "M": 0.72,
+      "citations_2024": 1
+    },
+    {
+      "name": "FreeCommRing.induction_on",
+      "module": "Mathlib.RingTheory.FreeCommRing",
+      "S": 0.4240117073059082,
+      "M": 0.54,
+      "citations_2024": 3
+    },
+    {
+      "name": "Nat.xgcdAux_rec",
+      "module": "Mathlib.Data.Int.GCD",
+      "S": 0.42081594467163086,
+      "M": 0.76,
+      "citations_2024": 2
+    },
+    {
+      "name": "Nat.isCompl_even_odd",
+      "module": "Mathlib.Algebra.Order.Ring.Nat",
+      "S": 0.4133265018463135,
+      "M": 0.74,
+      "citations_2024": 2
+    },
+    {
+      "name": "Zsqrtd.sqLe_mul",
+      "module": "Mathlib.NumberTheory.Zsqrtd.Basic",
+      "S": 0.41075950860977173,
+      "M": 0.56,
+      "citations_2024": 1
+    },
+    {
+      "name": "ContinuousMap.toNNReal_mul_add_neg_mul_add_mul_neg_eq",
+      "module": "Mathlib.Topology.ContinuousFunction.UniqueCFC",
+      "S": 0.41017889976501465,
+      "M": 0.64,
+      "citations_2024": 2
+    },
+    {
+      "name": "HenselianLocalRing.TFAE",
+      "module": "Mathlib.RingTheory.Henselian",
+      "S": 0.40928900241851807,
+      "M": 0.38,
+      "citations_2024": 0
+    },
+    {
+      "name": "TsirelsonInequality.sqrt_two_inv_mul_self",
+      "module": "Mathlib.Algebra.Star.CHSH",
+      "S": 0.4084213972091675,
+      "M": 0.28,
+      "citations_2024": 1
+    },
+    {
+      "name": "not_summable_one_div_on_primes",
+      "module": "Mathlib.NumberTheory.SumPrimeReciprocals",
+      "S": 0.4080864191055298,
+      "M": 0.74,
+      "citations_2024": 2
+    },
+    {
+      "name": "Nat.xgcd_zero_left",
+      "module": "Mathlib.Data.Int.GCD",
+      "S": 0.40778154134750366,
+      "M": 0.78,
+      "citations_2024": 6
+    },
+    {
+      "name": "Liouville.exists_one_le_pow_mul_dist",
+      "module": "Mathlib.NumberTheory.Liouville.Basic",
+      "S": 0.4054933786392212,
+      "M": 0.5,
+      "citations_2024": 1
+    },
+    {
+      "name": "ManyOneDegree.ind_on",
+      "module": "Mathlib.Computability.Reduce",
+      "S": 0.4053499102592468,
+      "M": 0.6,
+      "citations_2024": 2
+    },
+    {
+      "name": "Continuous.homeoOfEquivCompactToT2.t1_counterexample",
+      "module": "Mathlib.Topology.Compactification.OnePoint",
+      "S": 0.404028058052063,
+      "M": 0.54,
+      "citations_2024": 0
+    }
+  ]
+}

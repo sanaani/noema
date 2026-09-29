@@ -132,3 +132,79 @@ source file. Seed **20260928**.
   Part B passes.
 
 ---
+
+## Results
+
+*Appended after the run. Nothing above this line changed.* Numbers from
+`results/phase8.json`, written by `scripts/analyze-phase8.py`, run once on a
+laptop CPU from Phase 3–5 artifacts. No AWS.
+
+**Counts.** 596 rare bridges, 3,244 ordinary bridges, 5,358 within-area
+connectors, none dropped. Part B: 20,116 rare lemmas present in 2026, 1,060 of
+them ends of a rare pair joined by 2026.
+
+### Verdicts
+
+| test | prediction | result | verdict |
+|---|---|---|---|
+| **A1** AUC(M), rare bridges vs within-area | real but weak, 0.55–0.62 | **0.561** [0.530, 0.593] | **real but weak** |
+| **A2** AUC(M), rare vs ordinary bridges | no measurable difference | 0.492 [0.461, 0.522], p = 0.70 | **no measurable difference** |
+| **A2** AUC(S), rare vs ordinary bridges | passes | 0.517 [0.483, 0.549], p = 0.15 | **no measurable difference** |
+| **B1** AUC(M), future rare-jump lemmas | real but weak | 0.493 [0.466, 0.524], p = 0.67 | **no measurable difference** |
+| **B2** AUC(S), future rare-jump lemmas | passes | 0.474 [0.445, 0.507], p = 0.94 | **no measurable difference** |
+
+Only A1 went as predicted, and it repeats Phase 5: the map tells a spot where a
+new theorem joins two areas from one where it stays in one area, a little
+better than chance. It does not tell a rare jump from an ordinary crossing
+(A2), and from 2024 alone it cannot say which rarely cited lemmas will become
+the ends of a rare jump (B1, B2). Three of the four predictions for the new
+questions failed.
+
+### Reported, not tested
+
+- **Sparsity on A1's labels: 0.617** [0.584, 0.648]. Rare bridges land in
+  emptier parts of the map than within-area theorems. The rare-bridge share
+  rises from about 5–9% in the densest six tenths of the map to 18% in the
+  emptiest tenth. This is Phase 5's density finding again. A2 shows it is
+  true of bridges in general, not of rare ones in particular.
+- **Word mixing on A1: 0.572** [0.539, 0.605]; M − M_V −0.011 [−0.035,
+  +0.012], no measurable difference.
+- **Citation count wins again.** How many corpus lemmas a connector cites
+  scores 0.815 on A1 and 0.692 on A2. Within count strata, A2's M and S sit
+  at 0.43–0.52. In Part B, a rare lemma's own 2024 count (0 to 10) scores
+  0.706: even among rarely cited lemmas, the less rare ones are likelier to
+  become jump ends. Within count strata, B's M and S sit at 0.46–0.56; the
+  highest is M among never-cited lemmas, 0.557 (201 positives).
+
+### Exploratory: the rarity label is itself weak
+
+The 15 rare bridges with the highest sparsity (`top_rare_bridges_by_S`)
+include real cross-area work (Eisenstein series with the upper half plane,
+Gromov–Hausdorff completeness, Lindemann–Weierstrass). But many of their rare
+pairs pass through lemmas that are basic, not rare: `four_ne_zero`,
+`Nat.cast_pos'`, `tsub_tsub`, `div_le_iff₀`. These have few *explicit*
+citations in the 2024 graph because tactics (`simp`, `norm_num`, `positivity`)
+use them without naming them. Counting citations in the dependency graph
+does not measure rarity in the sense this project means. This was not tested
+and suggests the next step.
+
+### What this establishes
+
+- The 2024 map's weak signal for cross-area spots (Phase 5) holds for rare
+  bridges too (A1), and sits mostly in sparsity.
+- Neither mixing nor sparsity separates rare jumps from ordinary crossings, or
+  predicts from 2024 which rare lemmas will start one.
+- Popularity, even within the rare band, again beats the map.
+
+### What it does not establish
+
+- That rare jumps are unpredictable. The rarity label counts explicit
+  citations, which undercounts tactic-used lemmas and mixes basic facts into
+  "rare". A label measuring rarity by what a lemma *says* (how specialised its
+  statement is) may behave differently.
+- Anything about a learned score. Only M and S were tested.
+
+### Hands to the Navier–Stokes test
+
+Part B did not pass, so as pre-registered, its map is not carried to the
+Navier–Stokes proof.
