@@ -171,3 +171,29 @@ Fit window cold cells: 68,753 with 151 positives, so H1 is powered.
   data: 2 took hold. The top of the cold list is textbooks, not
   surprising ideas. A test of "rare and valuable" needs a finer target
   (sub-areas or topics, not 28 arXiv categories) or a longer horizon.
+
+### Sizing: would a longer watch give enough cold jumps? (after the results)
+
+`scripts/count-horizons.py` (run `noema-p12-20260929-164945`, about $0.05;
+counts only, no model scores; `results/horizons.json`). Cold cells that
+became a jump (≥ 2 papers) / took hold (≥ 5), by history cutoff, watched to
+2021. Reference coverage is 54–68% through 2021, then collapses (21% in
+2022, 5% in 2025), so 2021 is the last usable outcome year.
+
+| history ≤ | popular tools | watch | cold jumps | took hold |
+|---|---:|---:|---:|---:|
+| 2000 | 154 | 21 years | 291 | 99 |
+| 2002 | 440 | 19 | 448 | 148 |
+| 2004 | 1,078 | 17 | 679 | **171** |
+| 2006 | 2,241 | 15 | **728** | 126 |
+| 2008 | 4,051 | 13 | 645 | 70 |
+| 2010 | 6,578 | 11 | 541 | 45 |
+| 2015 | 17,647 | 6 | 173 | 6 |
+
+A longer watch makes a jump far more likely to take hold (2% of cold jumps
+at 5 years, about 25% at 15+). But the corpus has a fixed clock: arXiv
+math is thin before 2004 and references stop in 2021. Every extra year of
+watching is a year taken from history, so cold jumps peak at about 730
+(one window) and took-hold jumps at about 170. A pre-registered test needs
+two separate windows (fit, then test); the best split (≤ 2000 → 2001–10,
+≤ 2010 → 2011–21) gives 128 and 541 cold jumps, 23 and 45 took hold.
