@@ -1,0 +1,301 @@
+{
+  "seed": 20261003,
+  "boot": 1000,
+  "smoke": false,
+  "ladder_fit": {
+    "history_papers_with_authors": 86926,
+    "history_papers": 98660,
+    "authors": 40126,
+    "flow_threshold": 0.021052631578947368
+  },
+  "rungs_fit": {
+    "1 shared paper": {
+      "cells": 17655,
+      "positives": 1188,
+      "rate": 0.06728971962616823
+    },
+    "2 shared author": {
+      "cells": 47308,
+      "positives": 914,
+      "rate": 0.019320199543417602
+    },
+    "3 second-hand": {
+      "cells": 1775,
+      "positives": 25,
+      "rate": 0.014084507042253521
+    },
+    "4 neighbouring field": {
+      "cells": 12890,
+      "positives": 81,
+      "rate": 0.006283941039565554
+    },
+    "5 cold": {
+      "cells": 68753,
+      "positives": 151,
+      "rate": 0.0021962677992233065
+    }
+  },
+  "ladder_test": {
+    "history_papers_with_authors": 172192,
+    "history_papers": 211769,
+    "authors": 78964,
+    "flow_threshold": 0.01836027953999534
+  },
+  "rungs_test": {
+    "1 shared paper": {
+      "cells": 43508,
+      "positives": 1797,
+      "rate": 0.041302748919738896
+    },
+    "2 shared author": {
+      "cells": 143510,
+      "positives": 1337,
+      "rate": 0.009316423942582398
+    },
+    "3 second-hand": {
+      "cells": 4549,
+      "positives": 21,
+      "rate": 0.004616399208617278
+    },
+    "4 neighbouring field": {
+      "cells": 29137,
+      "positives": 53,
+      "rate": 0.0018189930329134778
+    },
+    "5 cold": {
+      "cells": 182883,
+      "positives": 122,
+      "rate": 0.0006670931688565914
+    }
+  },
+  "H1": {
+    "auc_without_shape": 0.8457709167961992,
+    "auc_with_shape": 0.8684969826668727,
+    "difference": 0.022726065870673495,
+    "ci95": [
+      0.005211432799011742,
+      0.04089970386223041
+    ],
+    "positives": 122,
+    "cells": 182883,
+    "verdict": "detectable on cold cells, small",
+    "top_1000": {
+      "BASE": 10,
+      "BASE+SHAPE": 16,
+      "chance": 0.6670931688565913
+    },
+    "took_hold": {
+      "cells": 2,
+      "top_1000_BASE": 0,
+      "top_1000_BASE+SHAPE": 0,
+      "chance": 0.010935953587812974
+    },
+    "top_20": [
+      {
+        "tool": "W2567165719",
+        "title": null,
+        "area": "math.DS",
+        "outcome_papers": 1
+      },
+      {
+        "tool": "W4292159986",
+        "title": null,
+        "area": "math.GN",
+        "outcome_papers": 0
+      },
+      {
+        "tool": "W391578156",
+        "title": null,
+        "area": "math.NT",
+        "outcome_papers": 0
+      },
+      {
+        "tool": "W4235853207",
+        "title": null,
+        "area": "math.DS",
+        "outcome_papers": 0
+      },
+      {
+        "tool": "W2625043690",
+        "title": null,
+        "area": "math.LO",
+        "outcome_papers": 0
+      },
+      {
+        "tool": "W4243521626",
+        "title": null,
+        "area": "math.DS",
+        "outcome_papers": 0
+      },
+      {
+        "tool": "W2487893106",
+        "title": null,
+        "area": "math.GN",
+        "outcome_papers": 0
+      },
+      {
+        "tool": "W2025299391",
+        "title": null,
+        "area": "math.DS",
+        "outcome_papers": 0
+      },
+      {
+        "tool": "W6634019601",
+        "title": null,
+        "area": "math.OA",
+        "outcome_papers": 0
+      },
+      {
+        "tool": "W6792319336",
+        "title": null,
+        "area": "math.OA",
+        "outcome_papers": 1
+      },
+      {
+        "tool": "W1502291261",
+        "title": null,
+        "area": "math.DS",
+        "outcome_papers": 0
+      },
+      {
+        "tool": "W1596298884",
+        "title": null,
+        "area": "math.OA",
+        "outcome_papers": 0
+      },
+      {
+        "tool": "W6819958385",
+        "title": null,
+        "area": "math.RT",
+        "outcome_papers": 0
+      },
+      {
+        "tool": "W3039194946",
+        "title": null,
+        "area": "math.CV",
+        "outcome_papers": 0
+      },
+      {
+        "tool": "W2567165719",
+        "title": null,
+        "area": "math.OC",
+        "outcome_papers": 0
+      },
+      {
+        "tool": "W1522382323",
+        "title": null,
+        "area": "math.NT",
+        "outcome_papers": 1
+      },
+      {
+        "tool": "W4246446534",
+        "title": null,
+        "area": "math.CV",
+        "outcome_papers": 1
+      },
+      {
+        "tool": "W4293176479",
+        "title": null,
+        "area": "math.OA",
+        "outcome_papers": 0
+      },
+      {
+        "tool": "W4212889321",
+        "title": null,
+        "area": "math.RA",
+        "outcome_papers": 0
+      },
+      {
+        "tool": "W1592457332",
+        "title": null,
+        "area": "math.GN",
+        "outcome_papers": 0
+      }
+    ]
+  },
+  "H2": {
+    "rates": {
+      "1 shared paper": 0.041302748919738896,
+      "2 shared author": 0.009316423942582398,
+      "3 second-hand": 0.004616399208617278,
+      "4 neighbouring field": 0.0018189930329134778,
+      "5 cold": 0.0006670931688565914
+    },
+    "passes": true,
+    "falls_1_to_5": true
+  },
+  "gain_by_rung": {
+    "1 shared paper": {
+      "auc_without_shape": 0.6782854828772703,
+      "auc_with_shape": 0.7329592965838938,
+      "difference": 0.0546738137066235,
+      "ci95": [
+        0.04667682852117797,
+        0.06231971867967417
+      ],
+      "positives": 1797,
+      "cells": 43508
+    },
+    "2 shared author": {
+      "auc_without_shape": 0.7628160790823063,
+      "auc_with_shape": 0.8109295310530087,
+      "difference": 0.04811345197070238,
+      "ci95": [
+        0.039937332017555865,
+        0.05613884730855506
+      ],
+      "positives": 1337,
+      "cells": 143510
+    },
+    "3 second-hand": {
+      "auc_without_shape": 0.6643530203600875,
+      "auc_with_shape": 0.7390522463402323,
+      "difference": 0.07469922598014478,
+      "ci95": [
+        0.031059969295985725,
+        0.11699707039226487
+      ],
+      "positives": 21,
+      "cells": 4549
+    },
+    "4 neighbouring field": {
+      "auc_without_shape": 0.7161413394643492,
+      "auc_with_shape": 0.8257811466072249,
+      "difference": 0.10963980714287569,
+      "ci95": [
+        0.06413979298017349,
+        0.1566613319227093
+      ],
+      "positives": 53,
+      "cells": 29137
+    },
+    "5 cold": {
+      "auc_without_shape": 0.8457709167961992,
+      "auc_with_shape": 0.8684969826668727,
+      "difference": 0.022726065870673495,
+      "ci95": [
+        0.005211432799011742,
+        0.04089970386223041
+      ],
+      "positives": 122,
+      "cells": 182883,
+      "verdict": "detectable on cold cells, small",
+      "top_1000": {
+        "BASE": 10,
+        "BASE+SHAPE": 16,
+        "chance": 0.6670931688565913
+      }
+    }
+  },
+  "all_cells_ladder_controlled": {
+    "auc_without_shape": 0.8743019948271824,
+    "auc_with_shape": 0.8942934517425407,
+    "difference": 0.019991456915358308,
+    "ci95": [
+      0.01742825731330349,
+      0.022503585350872955
+    ],
+    "positives": 3330,
+    "cells": 403587
+  }
+}

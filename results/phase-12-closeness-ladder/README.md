@@ -109,3 +109,65 @@ security group, instance and task object are torn down and the teardown
 verified.
 
 ---
+
+## Results
+
+*Appended after the run. Nothing above this line changed.* Run
+`noema-p12-20260929-160858`, one m6i.4xlarge, 23 minutes, about $0.35.
+Numbers from `results/phase12.json`.
+
+**Authors.** 526,506 of 597,860 papers have OpenAlex author ids (the same
+papers that have references). History papers with authors: 88% (fit), 81%
+(test).
+
+### The ladder (test window: ≤ 2015 → 2016–20)
+
+| rung | cells | positives | rate | shape's gain [95% CI] |
+|---|---:|---:|---:|---|
+| 1 shared paper | 43,508 | 1,797 | 4.1% | +0.055 [+0.047, +0.062] |
+| 2 shared author | 143,510 | 1,337 | 0.93% | +0.048 [+0.040, +0.056] |
+| 3 second-hand | 4,549 | 21 | 0.46% | +0.075 [+0.031, +0.117] |
+| 4 neighbouring field | 29,137 | 53 | 0.18% | +0.110 [+0.064, +0.157] |
+| **5 cold** | **182,883** | **122** | **0.067%** | **+0.023 [+0.005, +0.041]** |
+
+Fit window cold cells: 68,753 with 151 positives, so H1 is powered.
+
+### Verdict
+
+| test | prediction | result | verdict |
+|---|---|---|---|
+| **H1** shape on cold cells | shape predicts cold jumps | 0.846 → 0.868, **+0.023** [+0.005, +0.041] | **detectable on cold cells, small** |
+| **H2** cold rate below every rung | passes, falling 1 → 5 | 4.1% → 0.93% → 0.46% → 0.18% → 0.067% | **passes; falls at every step** |
+
+### Reported, not tested
+
+- **Cold short list:** positives in the top 1,000 cold cells: BASE 10,
+  BASE+SHAPE 16, chance 0.7.
+- **Cold jumps that took hold** (≥ 5 outcome papers in A): **2** of 182,883
+  cold cells. Neither is in either model's top 1,000.
+- **All cells, ladder controlled:** BASE + rung indicators 0.874 → with
+  shape 0.894, +0.020 [+0.017, +0.023].
+- **Top 20 cold predictions** (titles in `results/top20-titles.json`): none
+  was a positive. They are standard textbooks in areas that had not cited
+  them: *Harmonic Analysis in Phase Space*, *Geometric Measure Theory*,
+  *Matrix Analysis*, *Sobolev Spaces*, *Algebraic Topology*.
+
+### What this establishes
+
+- **The ladder is a real distance.** Each rung down is 2–5× less likely to
+  fill, and cold cells fill 60× less often than shared-paper cells. Cold
+  cells are 45% of all cells but hold 3.7% of positives.
+- **Almost every jump had a visible route.** 96% of the tools that entered
+  a new area in 2016–20 were already one step away, by a shared paper, a
+  shared author, a second-hand citation or a neighbouring field.
+- **Shape still helps on cold cells, a little.** The interval is above 0 but
+  the gain is under the 0.03 bar, and 16 hits in 1,000 is too few to be
+  useful as a list. Shape's larger gains are on the near rungs.
+
+### What it does not establish
+
+- **That shape finds valuable cold jumps.** At this grain (popular tools,
+  28 arXiv areas, five years) valuable cold jumps barely exist in the
+  data: 2 took hold. The top of the cold list is textbooks, not
+  surprising ideas. A test of "rare and valuable" needs a finer target
+  (sub-areas or topics, not 28 arXiv categories) or a longer horizon.
