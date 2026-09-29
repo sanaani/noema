@@ -1,0 +1,78 @@
+#!/bin/bash
+# Template. scripts/run-phase11-aws.sh substitutes @BUCKET@ and @RUN@ and passes
+# the result as EC2 user data.
+#
+# Runs phase 11 with scripts/run-phase11.py on one CPU worker, uploads
+# and stops.
+set -u
+LOG=/var/log/noema-p11.log
+exec > >(tee -a "$LOG") 2>&1
+BKT="@BUCKET@"
+RNAME="@RUN@"
+echo "boot $(date -u +%FT%TZ)"
+
+/usr/sbin/shutdown -h +1200
+cat > /etc/systemd/system/noema-expiry.service <<'SVC'
+[Unit]
+Description=Terminate temporary Noema phase 11 worker
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/poweroff
+SVC
+cat > /etc/systemd/system/noema-expiry.timer <<'TMR'
+[Unit]
+Description=Expire temporary phase 11 worker
+[Timer]
+OnBootSec=1195min
+Unit=noema-expiry.service
+[Install]
+WantedBy=timers.target
+TMR
+systemctl daemon-reload
+systemctl enable --now noema-expiry.timer
+
+finish() {
+  rc=$?
+  set +e
+  echo "FINISH rc=$rc $(date -u +%FT%TZ)"
+  cp "$LOG" /opt/noema/out/worker.log 2>/dev/null
+  ( cd /opt/noema/out && find . -type f -exec sha256sum {} + > /tmp/SHA256SUMS \
+    && mv /tmp/SHA256SUMS SHA256SUMS )
+  tar czf /tmp/result.tar.gz -C /opt noema/out
+  for i in 1 2 3 4 5; do
+    /opt/nvenv/bin/aws s3 cp /tmp/result.tar.gz \
+      "s3://$BKT/results/$RNAME/result.tar.gz" --region us-east-2 && break || sleep 20
+  done
+  /usr/sbin/shutdown -h now
+  exit $rc
+}
+trap finish EXIT
+set -e
+
+mkdir -p /opt/noema /opt/noema/out
+export DEBIAN_FRONTEND=noninteractive
+for i in $(seq 1 12); do apt-get update -qq && break || sleep 30; done
+for i in 1 2 3; do apt-get install -y -qq python3-venv curl && break || sleep 60; done
+python3 -m venv /opt/nvenv
+/opt/nvenv/bin/pip -q install awscli numpy==2.4.4 scipy scikit-learn
+echo "pydeps-done $(date -u +%FT%TZ)"
+
+/opt/nvenv/bin/aws s3 cp "s3://$BKT/$RNAME-task.tar.gz" /tmp/task.tar.gz --region us-east-2
+tar xzf /tmp/task.tar.gz -C /opt
+cd /opt/noema
+PY="/opt/nvenv/bin/python scripts/run-phase11.py"
+up() { /opt/nvenv/bin/aws s3 cp "$1" "s3://$BKT/results/$RNAME/$(basename "$1")" --region us-east-2 && echo "UPLOADED $(basename "$1")"; }
+echo "STAGE smoke $(date -u +%FT%TZ)"
+$PY harvest --out out/smoke --smoke
+$PY openalex --out out/smoke
+$PY analyze --out out/smoke --smoke
+echo "SMOKE PASSED $(date -u +%FT%TZ)"
+echo "STAGE harvest $(date -u +%FT%TZ)"
+$PY harvest --out out
+up out/papers.jsonl.gz
+echo "STAGE openalex $(date -u +%FT%TZ)"
+$PY openalex --out out
+up out/refs.jsonl.gz
+echo "STAGE analyze $(date -u +%FT%TZ)"
+$PY analyze --out out
+echo "JOB DONE $(date -u +%FT%TZ)"
