@@ -33,13 +33,13 @@ launch() {
 
   echo "== packaging the task"
   cp "$REPO/scripts/run-phase11.py" "$REPO/scripts/run-phase12.py" \
-     "$REPO/scripts/count-horizons.py" "$t/scripts/"
+     "$REPO/scripts/count-horizons.py" "$REPO/scripts/run-phase13.py" "$t/scripts/"
   # Phase 11's papers, references and snapshot file list
   local data="$REPO/outputs/phase-11-tool-area-grid/data"
   mkdir -p "$t/in"
   cp "$data/papers.jsonl.gz" "$data/refs.jsonl.gz" "$data/works-files.txt" "$t/in/"
-  # USERDATA=horizons: the watch-length count, from saved author ids
-  if [ "${USERDATA:-}" = horizons ]; then cp "$data/authors.jsonl.gz" "$t/in/"; fi
+  # USERDATA=horizons (the watch-length count) or phase13: from saved author ids
+  if [ -n "${USERDATA:-}" ]; then cp "$data/authors.jsonl.gz" "$t/in/"; fi
   ( cd "$t" && find . -type f -exec sha256sum {} + > "$out/task-SHA256SUMS" )
   tar czf "$out/task.tar.gz" -C "$out/task" noema
   aws s3 cp "$out/task.tar.gz" "s3://$BUCKET/$run-task.tar.gz" --region "$REGION"
@@ -90,7 +90,7 @@ JSON
 
   echo "== user data"
   sed -e "s|@BUCKET@|$BUCKET|g" -e "s|@RUN@|$run|g" \
-      "$REPO/scripts/phase12${USERDATA:+-$USERDATA}-user-data.sh.in" > "$out/user-data.sh"
+      "$REPO/scripts/$( [ "${USERDATA:-}" = phase13 ] && echo phase13 || echo "phase12${USERDATA:+-$USERDATA}")-user-data.sh.in" > "$out/user-data.sh"
 
   echo "== waiting for the instance profile to propagate"
   sleep 20
