@@ -262,3 +262,23 @@ seed + 1 (`run-phase11.py analyze --check-xlist`):
 Reading: if shape's gain stays at 0.03 or more with its interval above 0 in
 both, shape is not mainly detecting next-door use. If it falls near 0, it
 was.
+
+#### Result (run `noema-p11-20260929-144842`, about $0.30)
+
+| | cells | positives | AUC without shape | with shape | gain [95% CI] | top-1000 hits without → with |
+|---|---:|---:|---:|---:|---|---|
+| H1 (for reference) | 403,587 | 3,330 | | | +0.057 [+0.053, +0.062] | 87 → 245 |
+| X1: xlist added to BASE | 403,587 | 3,330 | 0.858 | 0.887 | **+0.029** [+0.025, +0.033] | 202 → 270 |
+| X2: cells with no next-door citer | 360,079 | 1,533 | 0.825 | 0.871 | **+0.046** [+0.040, +0.053] | 51 → 153 |
+
+Next-door use is common: 11% of test cells, but **54% of positives**, already
+had a history paper cross-listed in A that cited T. On its own, xlist
+scores AUC 0.726.
+
+Reading, by the rule written above: **X2 passes; X1 falls just short**
+(0.029 against the 0.03 bar, interval above 0). Neither outcome stated in
+the rule applies exactly. Shape's gain did not fall near 0, so it is not
+*mainly* next-door use. But about half of H1's +0.057 was next-door use
+that xlist now explains directly. On the harder question, the cold cells
+where no paper in A has touched T even as a secondary listing, shape still
+triples the top-1000 hits (51 → 153; chance is about 4).

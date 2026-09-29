@@ -1,0 +1,33 @@
+{
+  "seed": 20261003,
+  "boot": 1000,
+  "share_of_test_cells_with_xlist": 0.10780327413915711,
+  "share_of_test_positives_with_xlist": 0.5396396396396397,
+  "X1": {
+    "auc_without_shape": 0.8580647043133646,
+    "auc_with_shape": 0.8874022712179197,
+    "difference": 0.029337566904555135,
+    "ci95": [
+      0.025392538885476077,
+      0.033063052713109324
+    ],
+    "positives": 3330,
+    "cells": 403587,
+    "top_1000_with_shape": 270,
+    "top_1000_without_shape": 202,
+    "auc_xlist_alone": 0.7255462595762703
+  },
+  "X2": {
+    "auc_without_shape": 0.824915358384727,
+    "auc_with_shape": 0.8708498052849963,
+    "difference": 0.04593444690026938,
+    "ci95": [
+      0.04004139793378804,
+      0.05300213649506711
+    ],
+    "positives": 1533,
+    "cells": 360079,
+    "top_1000_with_shape": 153,
+    "top_1000_without_shape": 51
+  }
+}
