@@ -1,0 +1,7 @@
+#!/bin/sh
+# Enabled by: git config core.hooksPath .githooks
+set -e
+top="$(git rev-parse --show-toplevel)"
+"$top/scripts/lint.sh"
+py="$top/.venv/bin/python"; [ -x "$py" ] || py=python3
+cd "$top" && "$py" -m pytest -q

@@ -23,8 +23,7 @@ jobs:
           cache-dependency-path: requirements.lock
       - run: python -m pip install -r requirements.lock
       - run: python -m pip install --no-deps -e .
-      - run: ruff check .
-      - run: ruff format --check .
+      - run: scripts/lint.sh  # the same command the local git hooks run
       - run: python -m pytest
 
       # Archived evidence. Every SHA256SUMS in every phase, so a new phase's

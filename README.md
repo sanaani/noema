@@ -277,7 +277,8 @@ phase awareness.
 python3 -m venv .venv && source .venv/bin/activate
 python -m pip install -r requirements.lock
 python -m pip install --no-deps -e .
-ruff check . && python -m pytest
+git config core.hooksPath .githooks   # lint before commit, tests before push
+scripts/lint.sh && python -m pytest
 ```
 
 The analyses read committed artifacts:
