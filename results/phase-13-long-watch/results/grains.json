@@ -1,0 +1,355 @@
+{
+ "window": [
+  2006,
+  2007,
+  2021
+ ],
+ "smoke": false,
+ "grains": {
+  "arxiv": {
+   "papers": 597860,
+   "history_papers": 45894,
+   "areas": 28,
+   "popular_tools": 2241,
+   "cells": 50163,
+   "rungs": {
+    "1 shared paper": {
+     "cells": 6474,
+     "jumps": 1984,
+     "took_hold": 728
+    },
+    "2 shared author": {
+     "cells": 13388,
+     "jumps": 1694,
+     "took_hold": 432
+    },
+    "3 second-hand": {
+     "cells": 472,
+     "jumps": 43,
+     "took_hold": 7
+    },
+    "4 neighbouring field": {
+     "cells": 5129,
+     "jumps": 255,
+     "took_hold": 66
+    },
+    "5 cold": {
+     "cells": 24700,
+     "jumps": 728,
+     "took_hold": 126
+    }
+   },
+   "cold_jumps": 728,
+   "cold_took_hold": 126,
+   "ladder": {
+    "history_papers_with_authors": 42604,
+    "history_papers": 45894,
+    "authors": 21180,
+    "flow_threshold": 0.026319200655641403
+   },
+   "large_enough": false,
+   "positive_flow_rule": {
+    "flow_threshold": 0.027371933862998507,
+    "cold_cells": 24986,
+    "cold_jumps": 738,
+    "cold_took_hold": 128,
+    "large_enough": false
+   },
+   "landmarks": {
+    "1603.04246": {
+     "paper": "Viazovska, sphere packing in dimension 8",
+     "area": "math.NT",
+     "references": 26,
+     "popular_references": 2,
+     "cells": []
+    },
+    "1603.06518": {
+     "paper": "Cohn, Kumar, Miller, Radchenko, Viazovska, dimension 24",
+     "area": "math.NT",
+     "references": 22,
+     "popular_references": 1,
+     "cells": []
+    },
+    "1605.01506": {
+     "paper": "Croot, Lev, Pach",
+     "area": "math.NT",
+     "references": 9,
+     "popular_references": 2,
+     "cells": []
+    },
+    "1605.09223": {
+     "paper": "Ellenberg, Gijswijt",
+     "area": "math.CO",
+     "references": 5,
+     "popular_references": 0,
+     "cells": []
+    },
+    "1907.00847": {
+     "paper": "Huang, sensitivity conjecture",
+     "area": "math.CO",
+     "references": 0,
+     "popular_references": 0,
+     "cells": []
+    }
+   }
+  },
+  "msc2": {
+   "papers": 325389,
+   "history_papers": 33154,
+   "areas": 91,
+   "popular_tools": 1316,
+   "cells": 110360,
+   "rungs": {
+    "1 shared paper": {
+     "cells": 7608,
+     "jumps": 1762,
+     "took_hold": 501
+    },
+    "2 shared author": {
+     "cells": 9900,
+     "jumps": 937,
+     "took_hold": 173
+    },
+    "3 second-hand": {
+     "cells": 287,
+     "jumps": 27,
+     "took_hold": 1
+    },
+    "4 neighbouring field": {
+     "cells": 16758,
+     "jumps": 438,
+     "took_hold": 49
+    },
+    "5 cold": {
+     "cells": 75807,
+     "jumps": 367,
+     "took_hold": 42
+    }
+   },
+   "cold_jumps": 367,
+   "cold_took_hold": 42,
+   "ladder": {
+    "history_papers_with_authors": 30692,
+    "history_papers": 33154,
+    "authors": 17426,
+    "flow_threshold": 0.01358234295415959
+   },
+   "large_enough": false,
+   "positive_flow_rule": {
+    "flow_threshold": 0.03349282296650717,
+    "cold_cells": 84859,
+    "cold_jumps": 599,
+    "cold_took_hold": 71,
+    "large_enough": false
+   },
+   "landmarks": {
+    "1603.04246": {
+     "paper": "Viazovska, sphere packing in dimension 8",
+     "status": "no label at this grain"
+    },
+    "1603.06518": {
+     "paper": "Cohn, Kumar, Miller, Radchenko, Viazovska, dimension 24",
+     "status": "no label at this grain"
+    },
+    "1605.01506": {
+     "paper": "Croot, Lev, Pach",
+     "status": "no label at this grain"
+    },
+    "1605.09223": {
+     "paper": "Ellenberg, Gijswijt",
+     "status": "no label at this grain"
+    },
+    "1907.00847": {
+     "paper": "Huang, sensitivity conjecture",
+     "status": "no label at this grain"
+    }
+   }
+  },
+  "oa_subfield": {
+   "papers": 526505,
+   "history_papers": 45418,
+   "areas": 248,
+   "popular_tools": 2241,
+   "cells": 539849,
+   "rungs": {
+    "1 shared paper": {
+     "cells": 18321,
+     "jumps": 3473,
+     "took_hold": 957
+    },
+    "2 shared author": {
+     "cells": 28720,
+     "jumps": 1894,
+     "took_hold": 304
+    },
+    "3 second-hand": {
+     "cells": 2008,
+     "jumps": 104,
+     "took_hold": 12
+    },
+    "4 neighbouring field": {
+     "cells": 115744,
+     "jumps": 897,
+     "took_hold": 37
+    },
+    "5 cold": {
+     "cells": 375056,
+     "jumps": 1275,
+     "took_hold": 106
+    }
+   },
+   "cold_jumps": 1275,
+   "cold_took_hold": 106,
+   "ladder": {
+    "history_papers_with_authors": 42604,
+    "history_papers": 45418,
+    "authors": 21180,
+    "flow_threshold": 0.12991094814038762
+   },
+   "large_enough": false,
+   "positive_flow_rule": {
+    "flow_threshold": 0.24166666666666664,
+    "cold_cells": 428744,
+    "cold_jumps": 1924,
+    "cold_took_hold": 137,
+    "large_enough": false
+   },
+   "landmarks": {
+    "1603.04246": {
+     "paper": "Viazovska, sphere packing in dimension 8",
+     "area": "2604",
+     "references": 26,
+     "popular_references": 2,
+     "cells": []
+    },
+    "1603.06518": {
+     "paper": "Cohn, Kumar, Miller, Radchenko, Viazovska, dimension 24",
+     "area": "1605",
+     "references": 22,
+     "popular_references": 1,
+     "cells": [
+      {
+       "tool": "W593145558",
+       "rung": 4,
+       "outcome_papers": 2
+      }
+     ]
+    },
+    "1605.01506": {
+     "paper": "Croot, Lev, Pach",
+     "area": "2607",
+     "references": 9,
+     "popular_references": 2,
+     "cells": []
+    },
+    "1605.09223": {
+     "paper": "Ellenberg, Gijswijt",
+     "area": "2607",
+     "references": 5,
+     "popular_references": 0,
+     "cells": []
+    },
+    "1907.00847": {
+     "paper": "Huang, sensitivity conjecture",
+     "status": "no label at this grain"
+    }
+   }
+  },
+  "oa_topic": {
+   "papers": 526505,
+   "history_papers": 45418,
+   "areas": 3455,
+   "popular_tools": 2241,
+   "cells": 7718748,
+   "rungs": {
+    "1 shared paper": {
+     "cells": 39971,
+     "jumps": 5454,
+     "took_hold": 1389
+    },
+    "2 shared author": {
+     "cells": 66081,
+     "jumps": 2449,
+     "took_hold": 379
+    },
+    "3 second-hand": {
+     "cells": 3562,
+     "jumps": 93,
+     "took_hold": 13
+    },
+    "4 neighbouring field": {
+     "cells": 7609134,
+     "jumps": 3115,
+     "took_hold": 280
+    },
+    "5 cold": {
+     "cells": 0,
+     "jumps": 0,
+     "took_hold": 0
+    }
+   },
+   "cold_jumps": 0,
+   "cold_took_hold": 0,
+   "ladder": {
+    "history_papers_with_authors": 42604,
+    "history_papers": 45418,
+    "authors": 21180,
+    "flow_threshold": 0.0
+   },
+   "large_enough": false,
+   "positive_flow_rule": {
+    "flow_threshold": 0.07407407407407407,
+    "cold_cells": 7483643,
+    "cold_jumps": 2943,
+    "cold_took_hold": 275,
+    "large_enough": true
+   },
+   "landmarks": {
+    "1603.04246": {
+     "paper": "Viazovska, sphere packing in dimension 8",
+     "area": "T11830",
+     "references": 26,
+     "popular_references": 2,
+     "cells": [
+      {
+       "tool": "W593145558",
+       "rung": 2,
+       "outcome_papers": 1
+      }
+     ]
+    },
+    "1603.06518": {
+     "paper": "Cohn, Kumar, Miller, Radchenko, Viazovska, dimension 24",
+     "area": "T13124",
+     "references": 22,
+     "popular_references": 1,
+     "cells": [
+      {
+       "tool": "W593145558",
+       "rung": 4,
+       "outcome_papers": 1
+      }
+     ]
+    },
+    "1605.01506": {
+     "paper": "Croot, Lev, Pach",
+     "area": "T11329",
+     "references": 9,
+     "popular_references": 2,
+     "cells": []
+    },
+    "1605.09223": {
+     "paper": "Ellenberg, Gijswijt",
+     "area": "T11329",
+     "references": 5,
+     "popular_references": 0,
+     "cells": []
+    },
+    "1907.00847": {
+     "paper": "Huang, sensitivity conjecture",
+     "status": "no label at this grain"
+    }
+   }
+  }
+ }
+}

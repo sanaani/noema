@@ -167,3 +167,30 @@ Lie groups, algebraic geometry) predicted for neighbouring structural areas;
 - **Forward prediction in the strict sense.** Cross-validation by tool
   keeps each tool's outcome away from its model, but all tools share one
   period; a period-specific trend could help every fold at once.
+
+### Sizing: a finer grain than 28 areas (counts only, no scores)
+
+*Thresholds set before the run (`scripts/count-grains.py`): 600 cold jumps
+and 150 that took hold.* Same window (≤ 2006 → 2007–21) and ladder; a paper's
+area from four labellings. Runs `noema-p12-20260930-024413` (topics from the
+OpenAlex snapshot) and `noema-p12-20260930-025942` (count), about $0.40.
+
+At the topic grain the registered rung-4 rule breaks: most cells have flow 0,
+so its 75th percentile is 0 and every cell lands on rung 4 (0 cold cells).
+The **positive-flow rule** takes the percentile over cells with flow > 0 and
+never counts flow 0 as neighbouring. Both are reported; the rule was changed
+for this mechanical reason, before any score.
+
+| grain | areas | cold jumps (registered rule) | took hold | cold jumps (positive-flow rule) | took hold | large enough |
+|---|---:|---:|---:|---:|---:|---|
+| arXiv category | 28 | 728 | 126 | 738 | 128 | no |
+| MSC, 2 digits | 91 | 367 | 42 | 599 | 71 | no |
+| OpenAlex subfield | 248 | 1,275 | 106 | 1,924 | 137 | no |
+| **OpenAlex topic** | **3,455** | 0 (rule breaks) | 0 | **2,943** | **275** | **yes** |
+
+**Landmarks stay unscorable at every grain.** They cite almost no tool that
+was popular (≥ 20 citing arXiv papers) by 2006: Viazovska 2 of 26 references,
+Croot–Lev–Pach 2 of 9, Ellenberg–Gijswijt 0 of 5, Huang none in OpenAlex.
+MSC codes are missing on all five. OpenAlex topics do place them on the
+problem side (Viazovska: point processes and geometric inequalities;
+Croot–Lev–Pach: graph theory), not the tool's home.
