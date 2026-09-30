@@ -1,0 +1,259 @@
+{
+  "smoke": true,
+  "cutoff": 2005,
+  "candidate_pairs": 58573,
+  "by_threshold": [
+    {
+      "span_at_least": 0.0,
+      "knocking": {
+        "pairs": 4048,
+        "crossed": 1328,
+        "important_jumps": 1328,
+        "works_with_a_jump": 971
+      },
+      "next door": {
+        "pairs": 12343,
+        "crossed": 1760,
+        "important_jumps": 1760,
+        "works_with_a_jump": 948
+      },
+      "surprising": {
+        "pairs": 42182,
+        "crossed": 1809,
+        "important_jumps": 1809,
+        "works_with_a_jump": 1010
+      }
+    },
+    {
+      "span_at_least": 3.0,
+      "knocking": {
+        "pairs": 3978,
+        "crossed": 1306,
+        "important_jumps": 1306,
+        "works_with_a_jump": 955
+      },
+      "next door": {
+        "pairs": 12265,
+        "crossed": 1749,
+        "important_jumps": 1749,
+        "works_with_a_jump": 944
+      },
+      "surprising": {
+        "pairs": 42182,
+        "crossed": 1809,
+        "important_jumps": 1809,
+        "works_with_a_jump": 1010
+      }
+    },
+    {
+      "span_at_least": 3.5,
+      "knocking": {
+        "pairs": 3746,
+        "crossed": 1228,
+        "important_jumps": 1228,
+        "works_with_a_jump": 898
+      },
+      "next door": {
+        "pairs": 11975,
+        "crossed": 1679,
+        "important_jumps": 1679,
+        "works_with_a_jump": 911
+      },
+      "surprising": {
+        "pairs": 42065,
+        "crossed": 1796,
+        "important_jumps": 1796,
+        "works_with_a_jump": 1004
+      }
+    },
+    {
+      "span_at_least": 4.0,
+      "knocking": {
+        "pairs": 3303,
+        "crossed": 1062,
+        "important_jumps": 1062,
+        "works_with_a_jump": 794
+      },
+      "next door": {
+        "pairs": 11498,
+        "crossed": 1580,
+        "important_jumps": 1580,
+        "works_with_a_jump": 860
+      },
+      "surprising": {
+        "pairs": 41211,
+        "crossed": 1701,
+        "important_jumps": 1701,
+        "works_with_a_jump": 958
+      }
+    },
+    {
+      "span_at_least": 4.25,
+      "knocking": {
+        "pairs": 3054,
+        "crossed": 970,
+        "important_jumps": 970,
+        "works_with_a_jump": 735
+      },
+      "next door": {
+        "pairs": 10951,
+        "crossed": 1490,
+        "important_jumps": 1490,
+        "works_with_a_jump": 818
+      },
+      "surprising": {
+        "pairs": 40588,
+        "crossed": 1637,
+        "important_jumps": 1637,
+        "works_with_a_jump": 926
+      }
+    },
+    {
+      "span_at_least": 4.5,
+      "knocking": {
+        "pairs": 2712,
+        "crossed": 846,
+        "important_jumps": 846,
+        "works_with_a_jump": 660
+      },
+      "next door": {
+        "pairs": 10156,
+        "crossed": 1358,
+        "important_jumps": 1358,
+        "works_with_a_jump": 751
+      },
+      "surprising": {
+        "pairs": 39776,
+        "crossed": 1580,
+        "important_jumps": 1580,
+        "works_with_a_jump": 901
+      }
+    },
+    {
+      "span_at_least": 4.65,
+      "knocking": {
+        "pairs": 2526,
+        "crossed": 778,
+        "important_jumps": 778,
+        "works_with_a_jump": 616
+      },
+      "next door": {
+        "pairs": 9752,
+        "crossed": 1279,
+        "important_jumps": 1279,
+        "works_with_a_jump": 716
+      },
+      "surprising": {
+        "pairs": 39296,
+        "crossed": 1541,
+        "important_jumps": 1541,
+        "works_with_a_jump": 878
+      }
+    },
+    {
+      "span_at_least": 5.0,
+      "knocking": {
+        "pairs": 1991,
+        "crossed": 573,
+        "important_jumps": 573,
+        "works_with_a_jump": 468
+      },
+      "next door": {
+        "pairs": 8367,
+        "crossed": 1053,
+        "important_jumps": 1053,
+        "works_with_a_jump": 628
+      },
+      "surprising": {
+        "pairs": 37581,
+        "crossed": 1390,
+        "important_jumps": 1390,
+        "works_with_a_jump": 812
+      }
+    },
+    {
+      "span_at_least": 5.25,
+      "knocking": {
+        "pairs": 1609,
+        "crossed": 418,
+        "important_jumps": 418,
+        "works_with_a_jump": 346
+      },
+      "next door": {
+        "pairs": 7276,
+        "crossed": 883,
+        "important_jumps": 883,
+        "works_with_a_jump": 554
+      },
+      "surprising": {
+        "pairs": 35869,
+        "crossed": 1241,
+        "important_jumps": 1241,
+        "works_with_a_jump": 749
+      }
+    },
+    {
+      "span_at_least": 5.5,
+      "knocking": {
+        "pairs": 1215,
+        "crossed": 306,
+        "important_jumps": 306,
+        "works_with_a_jump": 265
+      },
+      "next door": {
+        "pairs": 6168,
+        "crossed": 702,
+        "important_jumps": 702,
+        "works_with_a_jump": 470
+      },
+      "surprising": {
+        "pairs": 33658,
+        "crossed": 1086,
+        "important_jumps": 1086,
+        "works_with_a_jump": 683
+      }
+    },
+    {
+      "span_at_least": 5.84,
+      "knocking": {
+        "pairs": 878,
+        "crossed": 193,
+        "important_jumps": 193,
+        "works_with_a_jump": 173
+      },
+      "next door": {
+        "pairs": 4768,
+        "crossed": 490,
+        "important_jumps": 490,
+        "works_with_a_jump": 355
+      },
+      "surprising": {
+        "pairs": 30632,
+        "crossed": 844,
+        "important_jumps": 844,
+        "works_with_a_jump": 574
+      }
+    },
+    {
+      "span_at_least": 6.0,
+      "knocking": {
+        "pairs": 736,
+        "crossed": 153,
+        "important_jumps": 153,
+        "works_with_a_jump": 137
+      },
+      "next door": {
+        "pairs": 4279,
+        "crossed": 425,
+        "important_jumps": 425,
+        "works_with_a_jump": 315
+      },
+      "surprising": {
+        "pairs": 29048,
+        "crossed": 747,
+        "important_jumps": 747,
+        "works_with_a_jump": 521
+      }
+    }
+  ]
+}
