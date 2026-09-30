@@ -1,0 +1,372 @@
+{
+  "seed": 20261014,
+  "smoke": false,
+  "cutoff": 2005,
+  "candidate_pairs": 401302,
+  "important_jumps": 2528,
+  "curated_eligible": 12,
+  "curated_in_candidates": 12,
+  "H1": {
+    "median_percentile_BASE+SIM": 92.3193754329657,
+    "median_percentile_BASE": 86.53258643116656,
+    "median_percentile_SIM_alone": 94.34615327110257,
+    "in_top": {
+      "100": {
+        "BASE": 0,
+        "BASE+SIM": 0,
+        "SIM alone": 0
+      },
+      "1000": {
+        "BASE": 0,
+        "BASE+SIM": 1,
+        "SIM alone": 1
+      },
+      "4013": {
+        "BASE": 2,
+        "BASE+SIM": 4,
+        "SIM alone": 2
+      },
+      "40130": {
+        "BASE": 5,
+        "BASE+SIM": 6,
+        "SIM alone": 8
+      }
+    },
+    "verdict": "flags them, not sharply"
+  },
+  "H2": {
+    "improved": 11,
+    "worsened": 1,
+    "sign_test_p": 0.00634765625,
+    "mean_difference": 9.228149872166098,
+    "ci95": [
+      2.7261482624058675,
+      18.367034054153727
+    ],
+    "verdict": "similarity lifts known breakthroughs"
+  },
+  "comparison_all_important_jumps": {
+    "BASE": 94.03566391396006,
+    "BASE+SIM": 97.16522718551116,
+    "SIM alone": 95.30515671489303
+  },
+  "comparison_surprising_important_jumps": {
+    "BASE": 82.52625204957862,
+    "BASE+SIM": 89.97924256544947,
+    "SIM alone": 88.76768618147929
+  },
+  "pairs": [
+    {
+      "programme": "rough paths -> singular SPDE",
+      "work": "Differential equations driven by rough signals",
+      "year": 1998,
+      "target": "math.AP",
+      "openalex": "W2004095444",
+      "candidate": true,
+      "home_area": "math.PR",
+      "citers_up_to_2005": 17,
+      "span_bits": 5.026416733488587,
+      "similarity": 0.5064432123996275,
+      "label": "next door",
+      "papers_2006_2015": 9,
+      "important_jump": true,
+      "percentile": {
+        "BASE": 96.17208486376843,
+        "BASE+SIM": 99.56105376997873,
+        "SIM alone": 98.21044998529786
+      },
+      "rank": {
+        "BASE": 15362,
+        "BASE+SIM": 1762,
+        "SIM alone": 7182
+      },
+      "percentile_in_target_area_BASE+SIM": 98.80027500859401
+    },
+    {
+      "programme": "optimal transport -> metric geometry",
+      "work": "The geometry of dissipative evolution equations: the porous medium equation",
+      "year": 2001,
+      "target": "math.MG",
+      "openalex": "W2054723044",
+      "candidate": true,
+      "home_area": "math.AP",
+      "citers_up_to_2005": 8,
+      "span_bits": 5.897077043997517,
+      "similarity": 0.41721839808946476,
+      "label": "knocking",
+      "papers_2006_2015": 7,
+      "important_jump": true,
+      "percentile": {
+        "BASE": 74.02293036167276,
+        "BASE+SIM": 86.47963379200702,
+        "SIM alone": 91.66375946294811
+      },
+      "rank": {
+        "BASE": 104247,
+        "BASE+SIM": 54258,
+        "SIM alone": 33454
+      },
+      "percentile_in_target_area_BASE+SIM": 91.91842900302115
+    },
+    {
+      "programme": "cluster algebras -> low-dimensional topology",
+      "work": "Cluster algebras I: Foundations",
+      "year": 2002,
+      "target": "math.GT",
+      "openalex": "W1898987871",
+      "candidate": true,
+      "home_area": "math.RT",
+      "citers_up_to_2005": 39,
+      "span_bits": 4.039177765973055,
+      "similarity": 0.3433307987661179,
+      "label": "knocking",
+      "papers_2006_2015": 6,
+      "important_jump": true,
+      "percentile": {
+        "BASE": 88.13973017826974,
+        "BASE+SIM": 87.68097343148054,
+        "SIM alone": 76.91576418756947
+      },
+      "rank": {
+        "BASE": 47596,
+        "BASE+SIM": 49437,
+        "SIM alone": 92638
+      },
+      "percentile_in_target_area_BASE+SIM": 85.82692457080712
+    },
+    {
+      "programme": "random projections -> numerical linear algebra",
+      "work": "Extensions of Lipschitz mappings into a Hilbert space",
+      "year": 1984,
+      "target": "math.NA",
+      "openalex": "W2979473749",
+      "candidate": true,
+      "home_area": "math.MG",
+      "citers_up_to_2005": 10,
+      "span_bits": 5.33209503440644,
+      "similarity": 0.44593731631427364,
+      "label": "next door",
+      "papers_2006_2015": 5,
+      "important_jump": true,
+      "percentile": {
+        "BASE": 98.5039944979093,
+        "BASE+SIM": 99.30015300197856,
+        "SIM alone": 94.73052713417826
+      },
+      "rank": {
+        "BASE": 6004,
+        "BASE+SIM": 2809,
+        "SIM alone": 21147
+      },
+      "percentile_in_target_area_BASE+SIM": 98.83720930232558
+    },
+    {
+      "programme": "sparse representation -> probability",
+      "work": "Atomic decomposition by basis pursuit",
+      "year": 1998,
+      "target": "math.PR",
+      "openalex": "W1986931325",
+      "candidate": true,
+      "home_area": "math.CA",
+      "citers_up_to_2005": 9,
+      "span_bits": 3.6656123370279543,
+      "similarity": 0.5409982967049904,
+      "label": "knocking",
+      "papers_2006_2015": 4,
+      "important_jump": false,
+      "percentile": {
+        "BASE": 99.71430493742868,
+        "BASE+SIM": 99.97420894986818,
+        "SIM alone": 99.09232946758301
+      },
+      "rank": {
+        "BASE": 1147,
+        "BASE+SIM": 104,
+        "SIM alone": 3643
+      },
+      "percentile_in_target_area_BASE+SIM": 99.95336155557149
+    },
+    {
+      "programme": "o-minimality -> number theory",
+      "work": "Tame topology and o-minimal structures",
+      "year": 1998,
+      "target": "math.NT",
+      "openalex": "W2162052349",
+      "candidate": true,
+      "home_area": "math.LO",
+      "citers_up_to_2005": 15,
+      "span_bits": 4.144148413010469,
+      "similarity": 0.4811601513200803,
+      "label": "knocking",
+      "papers_2006_2015": 5,
+      "important_jump": true,
+      "percentile": {
+        "BASE": 99.09133271202238,
+        "BASE+SIM": 99.49128088073321,
+        "SIM alone": 97.1344523575761
+      },
+      "rank": {
+        "BASE": 3647,
+        "BASE+SIM": 2042,
+        "SIM alone": 11500
+      },
+      "percentile_in_target_area_BASE+SIM": 99.69671019767358
+    },
+    {
+      "programme": "regularity lemma -> model theory",
+      "work": "Regular partitions of graphs",
+      "year": 1978,
+      "target": "math.LO",
+      "openalex": "W2116537669",
+      "candidate": true,
+      "home_area": "math.CO",
+      "citers_up_to_2005": 5,
+      "span_bits": 6.890770930245242,
+      "similarity": 0.44636302579363285,
+      "label": "surprising",
+      "papers_2006_2015": 1,
+      "important_jump": false,
+      "percentile": {
+        "BASE": 32.874119740245504,
+        "BASE+SIM": 83.43604068756198,
+        "SIM alone": 94.76915141215343
+      },
+      "rank": {
+        "BASE": 269374,
+        "BASE+SIM": 66472,
+        "SIM alone": 20992
+      },
+      "percentile_in_target_area_BASE+SIM": 97.03329904859861
+    },
+    {
+      "programme": "Hitchin fibration -> Langlands (fundamental lemma)",
+      "work": "Stable bundles and integrable systems",
+      "year": 1987,
+      "target": "math.NT",
+      "openalex": "W2012538600",
+      "candidate": true,
+      "home_area": "math.AG",
+      "citers_up_to_2005": 26,
+      "span_bits": 3.547841524335984,
+      "similarity": 0.4375373713919246,
+      "label": "next door",
+      "papers_2006_2015": 0,
+      "important_jump": false,
+      "percentile": {
+        "BASE": 96.30091551998245,
+        "BASE+SIM": 96.77836143353386,
+        "SIM alone": 93.96177940802689
+      },
+      "rank": {
+        "BASE": 14845,
+        "BASE+SIM": 12929,
+        "SIM alone": 24232
+      },
+      "percentile_in_target_area_BASE+SIM": 96.70662955826732
+    },
+    {
+      "programme": "sofic groups -> dynamics",
+      "work": "Endomorphisms of symbolic algebraic varieties",
+      "year": 1999,
+      "target": "math.DS",
+      "openalex": "W2061789246",
+      "candidate": true,
+      "home_area": "math.AG",
+      "citers_up_to_2005": 10,
+      "span_bits": 4.9809536661546625,
+      "similarity": 0.3876262761809816,
+      "label": "knocking",
+      "papers_2006_2015": 17,
+      "important_jump": true,
+      "percentile": {
+        "BASE": 74.24445928502725,
+        "BASE+SIM": 87.86038943239754,
+        "SIM alone": 87.13948597315738
+      },
+      "rank": {
+        "BASE": 103358,
+        "BASE+SIM": 48717,
+        "SIM alone": 51610
+      },
+      "percentile_in_target_area_BASE+SIM": 76.64609774910596
+    },
+    {
+      "programme": "operator algebras -> model theory",
+      "work": "Classification of injective factors",
+      "year": 1976,
+      "target": "math.LO",
+      "openalex": "W2328912295",
+      "candidate": true,
+      "home_area": "math.OA",
+      "citers_up_to_2005": 9,
+      "span_bits": 6.687526732835923,
+      "similarity": 0.3270847049635728,
+      "label": "surprising",
+      "papers_2006_2015": 1,
+      "important_jump": false,
+      "percentile": {
+        "BASE": 26.977563032329773,
+        "BASE+SIM": 42.05523520939343,
+        "SIM alone": 72.03440301817584
+      },
+      "rank": {
+        "BASE": 293041,
+        "BASE+SIM": 232534,
+        "SIM alone": 112227
+      },
+      "percentile_in_target_area_BASE+SIM": 69.60979686294677
+    },
+    {
+      "programme": "lasso -> optimization",
+      "work": "Regression shrinkage and selection via the lasso",
+      "year": 1996,
+      "target": "math.OC",
+      "openalex": "W2135046866",
+      "candidate": true,
+      "home_area": "math.ST",
+      "citers_up_to_2005": 7,
+      "span_bits": 6.178405495096036,
+      "similarity": 0.6474271830910179,
+      "label": "surprising",
+      "papers_2006_2015": 83,
+      "important_jump": true,
+      "percentile": {
+        "BASE": 84.92544268406338,
+        "BASE+SIM": 97.5625588708753,
+        "SIM alone": 99.93309278299137
+      },
+      "rank": {
+        "BASE": 60495,
+        "BASE+SIM": 9782,
+        "SIM alone": 269
+      },
+      "percentile_in_target_area_BASE+SIM": 96.40608941418294
+    },
+    {
+      "programme": "decoupling origins -> Vinogradov",
+      "work": "Local smoothing type estimates on Lp for large p",
+      "year": 2000,
+      "target": "math.NT",
+      "openalex": "W2027195458",
+      "candidate": true,
+      "home_area": "math.CA",
+      "citers_up_to_2005": 5,
+      "span_bits": 4.363785997092047,
+      "similarity": 0.3059448534223645,
+      "label": "surprising",
+      "papers_2006_2015": 1,
+      "important_jump": false,
+      "percentile": {
+        "BASE": 80.10064739273665,
+        "BASE+SIM": 81.6254342116411,
+        "SIM alone": 64.69678695845025
+      },
+      "rank": {
+        "BASE": 79857,
+        "BASE+SIM": 73738,
+        "SIM alone": 141673
+      },
+      "percentile_in_target_area_BASE+SIM": 72.24363091415114
+    }
+  ]
+}

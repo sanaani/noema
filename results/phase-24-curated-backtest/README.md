@@ -133,3 +133,77 @@ Any other cutoff, list, or model. The 15 ineligible entries are not scored.
 One AWS m6i.4xlarge via the Phase 12 launcher (`USERDATA=phase24`),
 self-terminating, idle-log watchdog, 2-hour power-off; smoke pass first. About
 10 minutes, under $0.30. Teardown verified.
+
+---
+
+## Results
+
+*Appended after the run. Nothing above this line changed.* Run
+`noema-p12-20260930-203814` (`USERDATA=phase24`), one m6i.4xlarge, about 3
+minutes, under $0.10, torn down and verified. Numbers from
+`results/phase24.json`.
+
+Population: 401,302 unconnected pairs at 2005, 2,528 important jumps. All 12
+eligible curated pairs were in it.
+
+### Verdict
+
+| test | result | verdict |
+|---|---|---|
+| **H1** | median BASE+SIM percentile **92.3** (BASE 86.5, similarity alone 94.3) | **flags them, not sharply** (as predicted) |
+| **H2** | similarity raised **11 of 12**, lowered 1; sign test p = 0.006; mean +9.2 points [+2.7, +18.4] | **similarity lifts known breakthroughs** (predicted: no clear effect) |
+
+Curated pairs near the top (BASE / BASE+SIM / similarity alone): top 100
+0 / 0 / 0; top 1,000 0 / 1 / 1; top 1% (4,013) 2 / 4 / 2; top 10% 5 / 6 / 8.
+
+For comparison, the median BASE+SIM percentile is 97.2 for all important jumps
+and 90.0 for surprising important jumps. The curated breakthroughs sit with
+the surprising jumps, below the typical jump.
+
+### The twelve
+
+| work → target | label | papers 2006–15 | BASE | BASE+SIM | sim alone |
+|---|---|---:|---:|---:|---:|
+| basis pursuit → PR | knocking | 4 | 99.7 | **100.0** (rank 104) | 99.1 |
+| rough paths → AP | next door | 9 | 96.2 | **99.6** | 98.2 |
+| o-minimality → NT | knocking | 5 | 99.1 | **99.5** | 97.1 |
+| Johnson–Lindenstrauss → NA | next door | 5 | 98.5 | **99.3** | 94.7 |
+| lasso → OC | surprising | **83** | 84.9 | **97.6** | 99.9 |
+| Hitchin → NT | next door | 0 | 96.3 | 96.8 | 94.0 |
+| Gromov sofic → DS | knocking | 17 | 74.2 | 87.9 | 87.1 |
+| cluster algebras → GT | knocking | 6 | 88.1 | 87.7 | 76.9 |
+| Otto → MG | knocking | 7 | 74.0 | 86.5 | 91.7 |
+| Szemerédi regularity → LO | surprising | 1 | 32.9 | **83.4** | 94.8 |
+| Wolff local smoothing → NT | surprising | 1 | 80.1 | 81.6 | 64.7 |
+| Connes injective factors → LO | surprising | 1 | 27.0 | 42.1 | 72.0 |
+
+### What this establishes
+
+- **Similarity moves real breakthroughs up.** 11 of 12 moved up, with the
+  largest gains on the surprising ones: Szemerédi → logic from the 33rd to the
+  83rd percentile, the lasso → optimization from 85th to 98th. This is the
+  first check against breakthroughs chosen from the history of mathematics,
+  not from our own jump label, and it agrees with Phases 21–23.
+- **But not sharply enough to be a shortlist.** The typical breakthrough
+  lands in the top 8% of 401,302 pairs, about 31,000 pairs deep. Four of 12
+  make the top 1% (about 4,000 pairs); none makes the top 100.
+- **Similarity alone does as well as the full model on these** (median 94.3
+  vs 92.3), because BASE rewards works already close to the target, and the
+  real breakthroughs are often not.
+
+### What it does not establish
+
+- Twelve pairs, one cutoff, and a list drawn from one person's memory of the
+  literature. 15 of 27 could not be tested (already connected, too few arXiv
+  citers by 2005, or not found).
+- **Our jump label misses some real breakthroughs.** 5 of the 12 do not count
+  as important jumps in our data. Hitchin → number theory has 0 target-area
+  papers because Ngô's work is filed under algebraic geometry. The arXiv
+  primary category is a coarse stand-in for "which community adopted it".
+
+### Next
+
+The ranking is too coarse at the top. Two ways to sharpen it: a finer grain
+than 28 arXiv areas (so "target" means a community, not a whole field), or a
+second signal that says *when* a pair is ripe (for example, a rise in
+similarity over the years before the jump).

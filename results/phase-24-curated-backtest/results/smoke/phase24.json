@@ -1,0 +1,174 @@
+{
+  "seed": 20261014,
+  "smoke": true,
+  "cutoff": 2005,
+  "candidate_pairs": 58573,
+  "important_jumps": 4897,
+  "curated_eligible": 12,
+  "curated_in_candidates": 1,
+  "H1": {
+    "median_percentile_BASE+SIM": 79.7679818346337,
+    "median_percentile_BASE": 83.33447151417889,
+    "median_percentile_SIM_alone": 55.71765147764328,
+    "in_top": {
+      "100": {
+        "BASE": 0,
+        "BASE+SIM": 0,
+        "SIM alone": 0
+      },
+      "1000": {
+        "BASE": 0,
+        "BASE+SIM": 0,
+        "SIM alone": 0
+      },
+      "585": {
+        "BASE": 0,
+        "BASE+SIM": 0,
+        "SIM alone": 0
+      },
+      "5857": {
+        "BASE": 0,
+        "BASE+SIM": 0,
+        "SIM alone": 0
+      }
+    },
+    "verdict": "underpowered"
+  },
+  "H2": {
+    "improved": 0,
+    "worsened": 1,
+    "sign_test_p": 1.0,
+    "mean_difference": -3.5664896795451853,
+    "ci95": [
+      -3.5664896795451853,
+      -3.5664896795451853
+    ],
+    "verdict": "underpowered"
+  },
+  "comparison_all_important_jumps": {
+    "BASE": 84.52443958820616,
+    "BASE+SIM": 87.60435695627679,
+    "SIM alone": 81.88329093609684
+  },
+  "comparison_surprising_important_jumps": {
+    "BASE": 69.55167056493606,
+    "BASE+SIM": 75.94540146483875,
+    "SIM alone": 73.73107062981238
+  },
+  "pairs": [
+    {
+      "programme": "rough paths -> singular SPDE",
+      "work": "Differential equations driven by rough signals",
+      "year": 1998,
+      "target": "math.AP",
+      "openalex": "W2004095444",
+      "candidate": false
+    },
+    {
+      "programme": "optimal transport -> metric geometry",
+      "work": "The geometry of dissipative evolution equations: the porous medium equation",
+      "year": 2001,
+      "target": "math.MG",
+      "openalex": "W2054723044",
+      "candidate": false
+    },
+    {
+      "programme": "cluster algebras -> low-dimensional topology",
+      "work": "Cluster algebras I: Foundations",
+      "year": 2002,
+      "target": "math.GT",
+      "openalex": "W1898987871",
+      "candidate": true,
+      "home_area": "math.RT",
+      "citers_up_to_2005": 9,
+      "span_bits": 4.6234379701150825,
+      "similarity": 0.4483824460807453,
+      "label": "knocking",
+      "papers_2006_2015": 2,
+      "important_jump": true,
+      "percentile": {
+        "BASE": 83.33447151417889,
+        "BASE+SIM": 79.7679818346337,
+        "SIM alone": 55.71765147764328
+      },
+      "rank": {
+        "BASE": 9762,
+        "BASE+SIM": 11851,
+        "SIM alone": 25938
+      },
+      "percentile_in_target_area_BASE+SIM": 68.57862339115837
+    },
+    {
+      "programme": "random projections -> numerical linear algebra",
+      "work": "Extensions of Lipschitz mappings into a Hilbert space",
+      "year": 1984,
+      "target": "math.NA",
+      "openalex": "W2979473749",
+      "candidate": false
+    },
+    {
+      "programme": "sparse representation -> probability",
+      "work": "Atomic decomposition by basis pursuit",
+      "year": 1998,
+      "target": "math.PR",
+      "openalex": "W1986931325",
+      "candidate": false
+    },
+    {
+      "programme": "o-minimality -> number theory",
+      "work": "Tame topology and o-minimal structures",
+      "year": 1998,
+      "target": "math.NT",
+      "openalex": "W2162052349",
+      "candidate": false
+    },
+    {
+      "programme": "regularity lemma -> model theory",
+      "work": "Regular partitions of graphs",
+      "year": 1978,
+      "target": "math.LO",
+      "openalex": "W2116537669",
+      "candidate": false
+    },
+    {
+      "programme": "Hitchin fibration -> Langlands (fundamental lemma)",
+      "work": "Stable bundles and integrable systems",
+      "year": 1987,
+      "target": "math.NT",
+      "openalex": "W2012538600",
+      "candidate": false
+    },
+    {
+      "programme": "sofic groups -> dynamics",
+      "work": "Endomorphisms of symbolic algebraic varieties",
+      "year": 1999,
+      "target": "math.DS",
+      "openalex": "W2061789246",
+      "candidate": false
+    },
+    {
+      "programme": "operator algebras -> model theory",
+      "work": "Classification of injective factors",
+      "year": 1976,
+      "target": "math.LO",
+      "openalex": "W2328912295",
+      "candidate": false
+    },
+    {
+      "programme": "lasso -> optimization",
+      "work": "Regression shrinkage and selection via the lasso",
+      "year": 1996,
+      "target": "math.OC",
+      "openalex": "W2135046866",
+      "candidate": false
+    },
+    {
+      "programme": "decoupling origins -> Vinogradov",
+      "work": "Local smoothing type estimates on Lp for large p",
+      "year": 2000,
+      "target": "math.NT",
+      "openalex": "W2027195458",
+      "candidate": false
+    }
+  ]
+}
