@@ -35,6 +35,8 @@ import re
 import sys
 from pathlib import Path
 
+import numpy as np
+
 
 def load(name):
     spec = importlib.util.spec_from_file_location(name, Path(__file__).with_name(name + ".py"))
@@ -187,6 +189,23 @@ def count(out: Path, smoke: bool) -> None:
         rep["large_enough"] = bool(
             rep["cold_jumps"] >= ENOUGH_JUMPS and rep["cold_took_hold"] >= ENOUGH_HOLD
         )
+        # At a fine grain most cells have flow 0, the 75th percentile is 0, and the
+        # registered rule puts every cell on rung 4. The positive-flow rule takes
+        # the percentile over cells with flow > 0 and never calls flow 0 neighbouring.
+        flow = w["X"][:, p11.BASE.index("flow")]
+        thr = float(np.quantile(flow[flow > 0], p12.FLOW_QUANTILE)) if (flow > 0).any() else 0.0
+        cold_pf = (rung == 5) | ((rung == 4) & ~((flow > 0) & (flow >= thr)))
+        rep["positive_flow_rule"] = {
+            "flow_threshold": thr,
+            "cold_cells": int(cold_pf.sum()),
+            "cold_jumps": int((cold_pf & (outc >= 2)).sum()),
+            "cold_took_hold": int((cold_pf & (outc >= 5)).sum()),
+        }
+        rep["positive_flow_rule"]["large_enough"] = bool(
+            rep["positive_flow_rule"]["cold_jumps"] >= ENOUGH_JUMPS
+            and rep["positive_flow_rule"]["cold_took_hold"] >= ENOUGH_HOLD
+        )
+        log(f"{grain}: positive-flow rule {rep['positive_flow_rule']}")
         ti = {t: r for r, t in enumerate(w["tools"])}
         ai = {a: c for c, a in enumerate(w["areas"])}
         cell = {

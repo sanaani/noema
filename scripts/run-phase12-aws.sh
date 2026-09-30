@@ -41,6 +41,8 @@ launch() {
   cp "$data/papers.jsonl.gz" "$data/refs.jsonl.gz" "$data/works-files.txt" "$t/in/"
   # USERDATA=horizons (the watch-length count) or phase13: from saved author ids
   if [ -n "${USERDATA:-}" ]; then cp "$data/authors.jsonl.gz" "$t/in/"; fi
+  # USERDATA=grains-count: the grain count again, from saved topics
+  if [ "${USERDATA:-}" = grains-count ]; then cp "$data/topics.jsonl.gz" "$t/in/"; fi
   ( cd "$t" && find . -type f -exec sha256sum {} + > "$out/task-SHA256SUMS" )
   tar czf "$out/task.tar.gz" -C "$out/task" noema
   aws s3 cp "$out/task.tar.gz" "s3://$BUCKET/$run-task.tar.gz" --region "$REGION"
