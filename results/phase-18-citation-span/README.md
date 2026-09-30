@@ -179,3 +179,136 @@ arrivals in the area. Reported:
 One AWS m6i.4xlarge, self-terminating, idle-log watchdog, 2-hour power-off;
 smoke pass first (every 4th paper, small SVD). Estimated 20–40 minutes, under
 $1; ceiling $3. Teardown verified.
+
+---
+
+## Results
+
+*Appended after the run. Nothing above this line changed.* Run
+`noema-p12-20260930-134915` (the Phase 12 launcher with `USERDATA=phase18`),
+one m6i.4xlarge, 6 minutes, about $0.10, torn down and verified. Numbers from
+`results/phase18.json`; titles of non-arXiv works looked up from OpenAlex in
+`results/names.json`.
+
+### The time window, measured
+
+2,948 cells arrived in 1998–2002; 1,181 caught on within 13 years. Years from
+arrival to the fifth follow-on paper:
+
+| years | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| cells | 7 | 69 | 93 | 136 | 118 | 129 | 122 | 124 | 99 | 78 | 85 | 57 | 64 |
+
+Median 7 years, 80th percentile **T = 10**, 90th percentile 12. Catching on is
+slow and spread out: no single year dominates. With T = 10, the learn window
+is arrivals up to 2005.
+
+### Sample size: too small
+
+197,770 eligible cells in all years, but only 9,699 in the learn window
+(arrivals 1994–2005; arXiv math was small then). Its top 1% is 97 cells, of
+which **6 caught on**. The peek (arrivals up to 2015, judged to 2025) has 867
+top-1% cells and **12 caught on**. Both are far under 100.
+
+### Verdict
+
+| test | result | verdict |
+|---|---|---|
+| **H1** span vs content similarity, cell level | Spearman −0.18 | **different things** |
+| **H2** content closeness among the top 1% (peek) | −0.012 [−0.132, +0.078], 12 caught on | **underpowered** |
+
+H1's prediction (related but different) was slightly off: at the level of
+single citations, how far apart two areas are by citation says little about
+how similar the papers are in content.
+
+### Reported, not tested
+
+- **Area level**: Spearman −0.77 between co-citation distance and content
+  distance over the 378 area pairs. Areas that rarely share references also
+  write about different things; individual long-reaching citations often do
+  not.
+- **Catch-on falls with span** (learn window, lowest to highest decile): 30%,
+  33%, 29%, 31%, 28%, 23%, 25%, 18%, 18%, 12%; top 1%: 6%. Long reaches are
+  rarely followed.
+- **Hidden bridges**: 35 of the 97 top-1% cells are at or above median content
+  similarity. 4 of them caught on (11%), against 2 of the other 62 (3%). The
+  direction the hypothesis expects, on six cells.
+- **Groundbreaking cells** (peek, 12 in all, highest span first):
+
+  | work | from → to | arrived | follow-on |
+  |---|---|---:|---:|
+  | Santos, *Higher Lawrence configurations* | OC → AC | 2013 | 5 |
+  | Kahle, *Random Geometric Complexes* | PR → AT | 2015 | 5 |
+  | Kallenberg, *Foundations of Modern Probability* | PR → LO | 2009 | 5 |
+  | Vapnik–Chervonenkis, *Uniform Convergence of Relative Frequencies* | ST → LO | 2010 | 7 |
+  | Joyal, *Une théorie combinatoire des séries formelles* (species) | CO → CT | 2007 | 10 |
+  | Harary, *Graph Theory* | CO → GN | 2008 | 5 |
+  | Geiger–Meek–Sturmfels, *On the toric algebra of graphical models* | ST → AC | 2008 | 7 |
+  | van den Dries–Miller, *Geometric categories and o-minimal structures* | AG → LO | 2005 | 11 |
+  | Furstenberg, *Recurrence in Ergodic Theory and Combinatorial Number Theory* | DS → GN | 2014 | 5 |
+  | Écalle, *Fonctions analysables et … conjecture de Dulac* | DS → LO | 2011 | 5 |
+  | Rudin, *Principles of Mathematical Analysis* | CA → LO | 2011 | 6 |
+  | Tao, *Norm convergence of multiple ergodic averages* | DS → LO | 2009 | 7 |
+
+  Most are recognised cross-field programmes, not textbooks: VC dimension
+  entering model theory (NIP theories), Tao's finitary ergodic theorem
+  entering proof mining, random complexes entering topological data analysis,
+  graphical models entering algebraic statistics, Joyal's species entering
+  category theory, Écalle's transseries entering logic. Three are generic
+  textbooks (Kallenberg, Harary, Rudin).
+
+### The landmarks
+
+Rank of each reference by span within its own bibliography (references with
+at least 5 prior citers), and the span's percentile among all cells arriving
+the same year.
+
+| landmark | area used | decisive reference | rank | percentile |
+|---|---|---|---:|---:|
+| Viazovska | NT (primary) | Zagier; Diamond–Shurman | 12, 14 of 15 | 0th |
+| Viazovska | MG (secondary) | Zagier; Diamond–Shurman | **3, 2 of 15** | 94th, 95th |
+| CKMRV | NT (primary) | Zagier | 10 of 11 | 0th |
+| CKMRV | MG (secondary) | Zagier | **1 of 11** | 94th |
+| Ellenberg–Gijswijt | CO | Croot–Lev–Pach | not scored (no prior citers) | — |
+| Huang | CO | Fisk (interlacing) | 1 of 1 | 4th |
+| Croot–Lev–Pach | — | none cited | — | — |
+
+With sphere packing (MG) as the area, the five highest-span references in
+Viazovska's bibliography are all modular-form or theta-function works (Borcherds,
+Diamond–Shurman, Zagier, Mumford's *Tata Lectures on Theta*, the Selberg
+trace formula): the greatest-span rule picks out the bridge exactly. Filed
+under number theory, as arXiv files it, the same references are home ground.
+Huang's interlacing reference had already been used in combinatorics, so it
+is not far.
+
+### What this establishes
+
+- **Catching on takes about 10 years** (80% of routes that catch on have done
+  so by then; median 7). A window chosen by hand at 5 years would have missed
+  most of them.
+- **Distance by citation is not distance by content** for single citations
+  (Spearman −0.18), though the two agree for whole areas (−0.77). The two
+  must be measured separately.
+- **The greatest-span reference can be the decisive one**: for both
+  sphere-packing papers, scored against sphere packing, the modular-form
+  references rank at or near the top of the bibliography.
+- **The longest reaches that caught on look like real cross-field
+  programmes**, not the textbook noise of Phases 15–16.
+
+### What it does not establish
+
+- **Whether content closeness predicts which far routes catch on (H2).**
+  Twelve cases: underpowered. The citing side is arXiv math only, and arXiv
+  math before 2006 is small; a 10-year window leaves little to judge by 2015.
+- **Label dependence.** The sphere-packing result turns on which arXiv
+  category is the paper's area. The primary category (number theory) hides
+  the bridge. A rule for choosing the area was not fixed in advance beyond
+  "primary, then first secondary".
+- **Huang and Croot–Lev–Pach**: the rule cannot see a decisive idea that is
+  cited from nearby or not cited at all.
+
+### Next, to fix the sample size
+
+The graph needs more citing papers before 2016, not more years: all of
+OpenAlex's mathematics (journals, not only arXiv), labelled by OpenAlex
+subfield or MSC. That is roughly ten times the papers in the learn window.

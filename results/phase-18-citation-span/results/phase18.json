@@ -1,0 +1,1651 @@
+{
+  "seed": 20261008,
+  "smoke": false,
+  "papers": 597860,
+  "eligible_cells": 197770,
+  "time_window": {
+    "cohort_cells": 2948,
+    "caught_on_within_13": 1181,
+    "years_to_catch_on": {
+      "1": 7,
+      "2": 69,
+      "3": 93,
+      "4": 136,
+      "5": 118,
+      "6": 129,
+      "7": 122,
+      "8": 124,
+      "9": 99,
+      "10": 78,
+      "11": 85,
+      "12": 57,
+      "13": 64
+    },
+    "median": 7.0,
+    "p80": 10.0,
+    "p90": 12.0,
+    "T": 10,
+    "note": null
+  },
+  "learn_window": {
+    "arrival_years": [
+      1994,
+      2005
+    ],
+    "cells": 9699,
+    "caught_on": 2397,
+    "top1_threshold_bits": 5.843380321823952,
+    "top1_cells": 97,
+    "groundbreaking": 6
+  },
+  "H1": {
+    "spearman_span_vs_similarity": -0.1760742631733834,
+    "verdict": "different things",
+    "area_level_spearman": -0.7651429535698483
+  },
+  "catch_on_by_span_decile": [
+    0.3,
+    0.33298969072164947,
+    0.28865979381443296,
+    0.30721649484536084,
+    0.2845360824742268,
+    0.23402061855670103,
+    0.2536082474226804,
+    0.177319587628866,
+    0.17525773195876287,
+    0.11764705882352941
+  ],
+  "catch_on_top1": 0.061855670103092786,
+  "hidden_bridges": {
+    "median_similarity": 0.3036520481109619,
+    "cells": 35,
+    "caught_on_rate": 0.11428571428571428,
+    "other_top1_rate": 0.03225806451612903
+  },
+  "peek": {
+    "arrival_years_up_to": 2015,
+    "top1_threshold_bits": 6.054345381643316,
+    "top1_cells": 867,
+    "caught_on": 12,
+    "judged_up_to_year": 2025
+  },
+  "H2": {
+    "population": "peek (caught-on judged past 2015)",
+    "cells": 867,
+    "caught_on": 12,
+    "auc_BASE": 0.37173489278752436,
+    "difference": -0.01208576998050681,
+    "ci95": [
+      -0.13167517006802718,
+      0.07829226126234162
+    ],
+    "positives": 12,
+    "top": {
+      "100": {
+        "BASE": 0,
+        "chance": 1.384083044982699,
+        "BASE+CONTENT": 0
+      },
+      "1000": {
+        "BASE": 12,
+        "chance": 13.84083044982699,
+        "BASE+CONTENT": 12
+      }
+    },
+    "auc_BASE+CONTENT": 0.35964912280701755,
+    "verdict": "underpowered",
+    "auc_similarity_alone": 0.40555555555555556
+  },
+  "top_50_groundbreaking": [
+    {
+      "work": "W2025336071",
+      "work_title_if_arxiv": "math/0209326 Higher Lawrence configurations",
+      "home_area": "math.OC",
+      "target_area": "math.AC",
+      "year": 2013,
+      "prior_citers": 5,
+      "first_arriving": "1303.2303 Minimal Generating Sets of Lattice Ideals",
+      "follow_on_within_T": 5,
+      "span_bits": 7.115892347032993,
+      "similarity": 0.18914607167243958
+    },
+    {
+      "work": "W2120672285",
+      "work_title_if_arxiv": "0910.1649 Random geometric complexes",
+      "home_area": "math.PR",
+      "target_area": "math.AT",
+      "year": 2015,
+      "prior_citers": 12,
+      "first_arriving": "1506.08903 A roadmap for the computation of persistent homology",
+      "follow_on_within_T": 5,
+      "span_bits": 7.099782430957303,
+      "similarity": 0.4398495852947235
+    },
+    {
+      "work": "W2017170340",
+      "work_title_if_arxiv": null,
+      "home_area": "math.PR",
+      "target_area": "math.LO",
+      "year": 2009,
+      "prior_citers": 77,
+      "first_arriving": "0912.1072 Computable de Finetti measures",
+      "follow_on_within_T": 5,
+      "span_bits": 6.828469497194981,
+      "similarity": 0.44727033376693726
+    },
+    {
+      "work": "W2029538739",
+      "work_title_if_arxiv": null,
+      "home_area": "math.ST",
+      "target_area": "math.LO",
+      "year": 2010,
+      "prior_citers": 11,
+      "first_arriving": "1011.4016 Nowhere dense graph classes, stability, and the independence property",
+      "follow_on_within_T": 7,
+      "span_bits": 6.599158838103807,
+      "similarity": 0.14275549352169037
+    },
+    {
+      "work": "W2050396985",
+      "work_title_if_arxiv": null,
+      "home_area": "math.CO",
+      "target_area": "math.CT",
+      "year": 2007,
+      "prior_citers": 7,
+      "first_arriving": "0706.1068 Rota-Baxter Categories",
+      "follow_on_within_T": 10,
+      "span_bits": 6.582716413361619,
+      "similarity": 0.0763416588306427
+    },
+    {
+      "work": "W2799004609",
+      "work_title_if_arxiv": null,
+      "home_area": "math.CO",
+      "target_area": "math.GN",
+      "year": 2008,
+      "prior_citers": 52,
+      "first_arriving": "0806.4009 Recognizing indecomposable subcontinua of surfaces from their complements",
+      "follow_on_within_T": 5,
+      "span_bits": 6.408676974659201,
+      "similarity": 0.14082427322864532
+    },
+    {
+      "work": "W2171712069",
+      "work_title_if_arxiv": "math/0608054 On the toric algebra of graphical models",
+      "home_area": "math.ST",
+      "target_area": "math.AC",
+      "year": 2008,
+      "prior_citers": 8,
+      "first_arriving": "0811.3830 Specializations of multigradings and the arithmetical rank of lattice ideals",
+      "follow_on_within_T": 7,
+      "span_bits": 6.279616793914719,
+      "similarity": 0.13213737308979034
+    },
+    {
+      "work": "W1996195522",
+      "work_title_if_arxiv": null,
+      "home_area": "math.AG",
+      "target_area": "math.LO",
+      "year": 2005,
+      "prior_citers": 5,
+      "first_arriving": "math/0506109 On o-minimality of extensions of $\\R$ by restricted generic smooth functions",
+      "follow_on_within_T": 11,
+      "span_bits": 6.249611388110268,
+      "similarity": 0.10242946445941925
+    },
+    {
+      "work": "W1549382427",
+      "work_title_if_arxiv": null,
+      "home_area": "math.DS",
+      "target_area": "math.GN",
+      "year": 2014,
+      "prior_citers": 159,
+      "first_arriving": "1404.6686 Iterates of dynamical systems on compact metrizable countable spaces",
+      "follow_on_within_T": 5,
+      "span_bits": 6.1457402508391015,
+      "similarity": 0.3619421720504761
+    },
+    {
+      "work": "W102382135",
+      "work_title_if_arxiv": null,
+      "home_area": "math.DS",
+      "target_area": "math.LO",
+      "year": 2011,
+      "prior_citers": 17,
+      "first_arriving": "1112.4189 Comparison of Exponential-Logarithmic and Logarithmic-Exponential series",
+      "follow_on_within_T": 5,
+      "span_bits": 6.1005504707243645,
+      "similarity": 0.3183135390281677
+    },
+    {
+      "work": "W2097415784",
+      "work_title_if_arxiv": null,
+      "home_area": "math.CA",
+      "target_area": "math.LO",
+      "year": 2011,
+      "prior_citers": 50,
+      "first_arriving": "1101.3825 Another Proof of the Existence a Dedekind Complete Totally Ordered Field",
+      "follow_on_within_T": 6,
+      "span_bits": 6.075877643510435,
+      "similarity": 0.26575419306755066
+    },
+    {
+      "work": "W2962941654",
+      "work_title_if_arxiv": null,
+      "home_area": "math.DS",
+      "target_area": "math.LO",
+      "year": 2009,
+      "prior_citers": 5,
+      "first_arriving": "0903.1529 Proof mining in metric fixed point theory and ergodic theory",
+      "follow_on_within_T": 7,
+      "span_bits": 6.073852409731686,
+      "similarity": 0.3168826103210449
+    }
+  ],
+  "landmarks": {
+    "1603.04246": {
+      "year": 2016,
+      "areas": {
+        "primary math.NT": {
+          "scored_references": 15,
+          "references": [
+            {
+              "work": "W116915404",
+              "title_if_arxiv": null,
+              "prior_citers": 11,
+              "first_arrival": false,
+              "home_area": "math.NT",
+              "span_bits": 0.7881527383124225,
+              "similarity": 0.043476689606904984,
+              "span_percentile_same_year": 0.0,
+              "decisive": true,
+              "span_rank": 12
+            },
+            {
+              "work": "W1537136047",
+              "title_if_arxiv": null,
+              "prior_citers": 32,
+              "first_arrival": false,
+              "home_area": "math.NT",
+              "span_bits": 0.30691091027990425,
+              "similarity": 0.06608221679925919,
+              "span_percentile_same_year": 0.0,
+              "decisive": true,
+              "span_rank": 14
+            },
+            {
+              "work": "W1879145692",
+              "title_if_arxiv": "math/0607446 Universally optimal distribution of points on spheres",
+              "prior_citers": 17,
+              "first_arrival": true,
+              "home_area": "math.MG",
+              "span_bits": 3.9546514334933085,
+              "similarity": 0.5055660605430603,
+              "span_percentile_same_year": 0.6404522198382572,
+              "decisive": false,
+              "span_rank": 3
+            },
+            {
+              "work": "W1980956835",
+              "title_if_arxiv": null,
+              "prior_citers": 8,
+              "first_arrival": false,
+              "home_area": "math.MG",
+              "span_bits": 2.404132177951425,
+              "similarity": 0.6322134733200073,
+              "span_percentile_same_year": 0.033751444132695166,
+              "decisive": false,
+              "span_rank": 9
+            },
+            {
+              "work": "W2039661402",
+              "title_if_arxiv": null,
+              "prior_citers": 1,
+              "first_arrival": true,
+              "home_area": "math.CO",
+              "span_bits": 3.8077988509931204,
+              "similarity": 0.07826700806617737,
+              "span_percentile_same_year": 0.5392804093084668,
+              "decisive": false
+            },
+            {
+              "work": "W2059054152",
+              "title_if_arxiv": null,
+              "prior_citers": 4,
+              "first_arrival": false,
+              "home_area": "math.NT",
+              "span_bits": -0.0,
+              "similarity": 0.07458581030368805,
+              "span_percentile_same_year": 0.0,
+              "decisive": false
+            },
+            {
+              "work": "W2091041793",
+              "title_if_arxiv": null,
+              "prior_citers": 3,
+              "first_arrival": true,
+              "home_area": "math.MG",
+              "span_bits": 3.7748831851764053,
+              "similarity": 0.36773115396499634,
+              "span_percentile_same_year": 0.5200528139957089,
+              "decisive": false
+            },
+            {
+              "work": "W2159130720",
+              "title_if_arxiv": null,
+              "prior_citers": 28,
+              "first_arrival": false,
+              "home_area": "math.MG",
+              "span_bits": 2.942839636168928,
+              "similarity": 0.6508164405822754,
+              "span_percentile_same_year": 0.12510315233536887,
+              "decisive": false,
+              "span_rank": 8
+            },
+            {
+              "work": "W2299997029",
+              "title_if_arxiv": "1603.04759 Some properties of optimal functions for sphere packing in dimensions 8 and 24",
+              "prior_citers": 2,
+              "first_arrival": true,
+              "home_area": "math.MG",
+              "span_bits": 3.7748831851764053,
+              "similarity": 0.3657672703266144,
+              "span_percentile_same_year": 0.5200528139957089,
+              "decisive": false
+            },
+            {
+              "work": "W2332568642",
+              "title_if_arxiv": null,
+              "prior_citers": 1,
+              "first_arrival": false,
+              "home_area": "math.NT",
+              "span_bits": -0.0,
+              "similarity": 0.12520118057727814,
+              "span_percentile_same_year": 0.0,
+              "decisive": false
+            },
+            {
+              "work": "W2584020404",
+              "title_if_arxiv": null,
+              "prior_citers": 111,
+              "first_arrival": false,
+              "home_area": "math.CO",
+              "span_bits": 3.5660552325817267,
+              "similarity": 0.47389739751815796,
+              "span_percentile_same_year": 0.41813830665126256,
+              "decisive": false,
+              "span_rank": 4
+            },
+            {
+              "work": "W2949579053",
+              "title_if_arxiv": null,
+              "prior_citers": 1,
+              "first_arrival": true,
+              "home_area": "math.MG",
+              "span_bits": 3.7748831851764053,
+              "similarity": 0.37192997336387634,
+              "span_percentile_same_year": 0.5200528139957089,
+              "decisive": false
+            },
+            {
+              "work": "W2963662240",
+              "prior_citers": 0
+            },
+            {
+              "work": "W2964178386",
+              "title_if_arxiv": null,
+              "prior_citers": 10,
+              "first_arrival": true,
+              "home_area": "math.MG",
+              "span_bits": 4.477965550632751,
+              "similarity": 0.43589887022972107,
+              "span_percentile_same_year": 0.8280244264730153,
+              "decisive": false,
+              "span_rank": 1
+            },
+            {
+              "work": "W3098594158",
+              "prior_citers": 0
+            },
+            {
+              "work": "W3100495456",
+              "title_if_arxiv": "1603.06518 The sphere packing problem in dimension 24",
+              "prior_citers": 2,
+              "first_arrival": true,
+              "home_area": "math.MG",
+              "span_bits": 3.7748831851764053,
+              "similarity": 0.3657672703266144,
+              "span_percentile_same_year": 0.5200528139957089,
+              "decisive": false
+            },
+            {
+              "work": "W3101529914",
+              "title_if_arxiv": null,
+              "prior_citers": 16,
+              "first_arrival": false,
+              "home_area": "math.MG",
+              "span_bits": 1.725054299108842,
+              "similarity": 0.6062057614326477,
+              "span_percentile_same_year": 0.001980524839082357,
+              "decisive": false,
+              "span_rank": 10
+            },
+            {
+              "work": "W3103274847",
+              "title_if_arxiv": null,
+              "prior_citers": 34,
+              "first_arrival": false,
+              "home_area": "math.MG",
+              "span_bits": 3.129752109064608,
+              "similarity": 0.4156993329524994,
+              "span_percentile_same_year": 0.19796996203994058,
+              "decisive": false,
+              "span_rank": 6
+            },
+            {
+              "work": "W3104302389",
+              "title_if_arxiv": "math/0110009 New upper bounds on sphere packings I",
+              "prior_citers": 29,
+              "first_arrival": false,
+              "home_area": "math.MG",
+              "span_bits": 1.4885296641777899,
+              "similarity": 0.6154022216796875,
+              "span_percentile_same_year": 0.0005776530780656874,
+              "decisive": false,
+              "span_rank": 11
+            },
+            {
+              "work": "W3118768391",
+              "title_if_arxiv": null,
+              "prior_citers": 4,
+              "first_arrival": true,
+              "home_area": "math.MG",
+              "span_bits": 4.110351312154069,
+              "similarity": 0.5175966024398804,
+              "span_percentile_same_year": 0.7099356329427299,
+              "decisive": false
+            },
+            {
+              "work": "W313412277",
+              "title_if_arxiv": null,
+              "prior_citers": 55,
+              "first_arrival": false,
+              "home_area": "math.NT",
+              "span_bits": 0.17468777761805324,
+              "similarity": 0.07670722156763077,
+              "span_percentile_same_year": 0.0,
+              "decisive": false,
+              "span_rank": 15
+            },
+            {
+              "work": "W4211028935",
+              "title_if_arxiv": null,
+              "prior_citers": 40,
+              "first_arrival": false,
+              "home_area": "math.QA",
+              "span_bits": 2.9611162399965902,
+              "similarity": 0.10335125029087067,
+              "span_percentile_same_year": 0.13087968311602574,
+              "decisive": false,
+              "span_rank": 7
+            },
+            {
+              "work": "W4235178139",
+              "title_if_arxiv": null,
+              "prior_citers": 5,
+              "first_arrival": true,
+              "home_area": "math.AT",
+              "span_bits": 4.331856488603808,
+              "similarity": 0.07137519121170044,
+              "span_percentile_same_year": 0.7913847169499918,
+              "decisive": false,
+              "span_rank": 2
+            },
+            {
+              "work": "W4285719527",
+              "title_if_arxiv": null,
+              "prior_citers": 3679,
+              "first_arrival": false,
+              "home_area": "math.AP",
+              "span_bits": 3.2877646742526765,
+              "similarity": 0.20708130300045013,
+              "span_percentile_same_year": 0.27248720911041424,
+              "decisive": false,
+              "span_rank": 5
+            },
+            {
+              "work": "W585488260",
+              "prior_citers": 0
+            },
+            {
+              "work": "W593145558",
+              "title_if_arxiv": null,
+              "prior_citers": 98,
+              "first_arrival": false,
+              "home_area": "math.NT",
+              "span_bits": 0.4115911081385605,
+              "similarity": 0.15708327293395996,
+              "span_percentile_same_year": 0.0,
+              "decisive": false,
+              "span_rank": 13
+            }
+          ]
+        },
+        "secondary math.MG": {
+          "scored_references": 15,
+          "references": [
+            {
+              "work": "W116915404",
+              "title_if_arxiv": null,
+              "prior_citers": 11,
+              "first_arrival": true,
+              "home_area": "math.NT",
+              "span_bits": 5.182627148219836,
+              "similarity": 0.043476689606904984,
+              "span_percentile_same_year": 0.9384386862518568,
+              "decisive": true,
+              "span_rank": 3
+            },
+            {
+              "work": "W1537136047",
+              "title_if_arxiv": null,
+              "prior_citers": 32,
+              "first_arrival": true,
+              "home_area": "math.NT",
+              "span_bits": 5.2713759914893235,
+              "similarity": 0.06608221679925919,
+              "span_percentile_same_year": 0.9459481762667107,
+              "decisive": true,
+              "span_rank": 2
+            },
+            {
+              "work": "W1879145692",
+              "title_if_arxiv": "math/0607446 Universally optimal distribution of points on spheres",
+              "prior_citers": 17,
+              "first_arrival": false,
+              "home_area": "math.MG",
+              "span_bits": 0.7334516737736467,
+              "similarity": 0.5055660605430603,
+              "span_percentile_same_year": 0.0,
+              "decisive": false,
+              "span_rank": 13
+            },
+            {
+              "work": "W1980956835",
+              "title_if_arxiv": null,
+              "prior_citers": 8,
+              "first_arrival": false,
+              "home_area": "math.MG",
+              "span_bits": 0.1876170202233339,
+              "similarity": 0.6322134733200073,
+              "span_percentile_same_year": 0.0,
+              "decisive": false,
+              "span_rank": 15
+            },
+            {
+              "work": "W2039661402",
+              "title_if_arxiv": null,
+              "prior_citers": 1,
+              "first_arrival": true,
+              "home_area": "math.CO",
+              "span_bits": 4.375694803034778,
+              "similarity": 0.07826700806617737,
+              "span_percentile_same_year": 0.8027727347747153,
+              "decisive": false
+            },
+            {
+              "work": "W2059054152",
+              "title_if_arxiv": null,
+              "prior_citers": 4,
+              "first_arrival": true,
+              "home_area": "math.NT",
+              "span_bits": 5.354679765415395,
+              "similarity": 0.07458581030368805,
+              "span_percentile_same_year": 0.9523023601254332,
+              "decisive": false
+            },
+            {
+              "work": "W2091041793",
+              "title_if_arxiv": null,
+              "prior_citers": 3,
+              "first_arrival": false,
+              "home_area": "math.MG",
+              "span_bits": -0.0,
+              "similarity": 0.36773115396499634,
+              "span_percentile_same_year": 0.0,
+              "decisive": false
+            },
+            {
+              "work": "W2159130720",
+              "title_if_arxiv": null,
+              "prior_citers": 28,
+              "first_arrival": false,
+              "home_area": "math.MG",
+              "span_bits": 0.469844173816885,
+              "similarity": 0.6508164405822754,
+              "span_percentile_same_year": 0.0,
+              "decisive": false,
+              "span_rank": 14
+            },
+            {
+              "work": "W2299997029",
+              "title_if_arxiv": "1603.04759 Some properties of optimal functions for sphere packing in dimensions 8 and 24",
+              "prior_citers": 2,
+              "first_arrival": false,
+              "home_area": "math.MG",
+              "span_bits": -0.0,
+              "similarity": 0.3657672703266144,
+              "span_percentile_same_year": 0.0,
+              "decisive": false
+            },
+            {
+              "work": "W2332568642",
+              "title_if_arxiv": null,
+              "prior_citers": 1,
+              "first_arrival": true,
+              "home_area": "math.NT",
+              "span_bits": 5.354679765415395,
+              "similarity": 0.12520118057727814,
+              "span_percentile_same_year": 0.9523023601254332,
+              "decisive": false
+            },
+            {
+              "work": "W2584020404",
+              "title_if_arxiv": null,
+              "prior_citers": 111,
+              "first_arrival": false,
+              "home_area": "math.CO",
+              "span_bits": 1.8237790756064554,
+              "similarity": 0.47389739751815796,
+              "span_percentile_same_year": 0.002888265390328437,
+              "decisive": false,
+              "span_rank": 8
+            },
+            {
+              "work": "W2949579053",
+              "title_if_arxiv": null,
+              "prior_citers": 1,
+              "first_arrival": false,
+              "home_area": "math.MG",
+              "span_bits": -0.0,
+              "similarity": 0.37192997336387634,
+              "span_percentile_same_year": 0.0,
+              "decisive": false
+            },
+            {
+              "work": "W2963662240",
+              "prior_citers": 0
+            },
+            {
+              "work": "W2964178386",
+              "title_if_arxiv": null,
+              "prior_citers": 10,
+              "first_arrival": false,
+              "home_area": "math.MG",
+              "span_bits": 0.9787622323939107,
+              "similarity": 0.43589887022972107,
+              "span_percentile_same_year": 0.0,
+              "decisive": false,
+              "span_rank": 10
+            },
+            {
+              "work": "W3098594158",
+              "prior_citers": 0
+            },
+            {
+              "work": "W3100495456",
+              "title_if_arxiv": "1603.06518 The sphere packing problem in dimension 24",
+              "prior_citers": 2,
+              "first_arrival": false,
+              "home_area": "math.MG",
+              "span_bits": -0.0,
+              "similarity": 0.3657672703266144,
+              "span_percentile_same_year": 0.0,
+              "decisive": false
+            },
+            {
+              "work": "W3101529914",
+              "title_if_arxiv": null,
+              "prior_citers": 16,
+              "first_arrival": false,
+              "home_area": "math.MG",
+              "span_bits": 0.7936270782138463,
+              "similarity": 0.6062057614326477,
+              "span_percentile_same_year": 0.0,
+              "decisive": false,
+              "span_rank": 12
+            },
+            {
+              "work": "W3103274847",
+              "title_if_arxiv": null,
+              "prior_citers": 34,
+              "first_arrival": false,
+              "home_area": "math.MG",
+              "span_bits": 1.0360373876499058,
+              "similarity": 0.4156993329524994,
+              "span_percentile_same_year": 0.0,
+              "decisive": false,
+              "span_rank": 9
+            },
+            {
+              "work": "W3104302389",
+              "title_if_arxiv": "math/0110009 New upper bounds on sphere packings I",
+              "prior_citers": 29,
+              "first_arrival": false,
+              "home_area": "math.MG",
+              "span_bits": 0.9119455086032235,
+              "similarity": 0.6154022216796875,
+              "span_percentile_same_year": 0.0,
+              "decisive": false,
+              "span_rank": 11
+            },
+            {
+              "work": "W3118768391",
+              "title_if_arxiv": null,
+              "prior_citers": 4,
+              "first_arrival": false,
+              "home_area": "math.MG",
+              "span_bits": 0.40351631199669896,
+              "similarity": 0.5175966024398804,
+              "span_percentile_same_year": 0.0,
+              "decisive": false
+            },
+            {
+              "work": "W313412277",
+              "title_if_arxiv": null,
+              "prior_citers": 55,
+              "first_arrival": true,
+              "home_area": "math.NT",
+              "span_bits": 5.342929947023078,
+              "similarity": 0.07670722156763077,
+              "span_percentile_same_year": 0.9517247070473676,
+              "decisive": false,
+              "span_rank": 1
+            },
+            {
+              "work": "W4211028935",
+              "title_if_arxiv": null,
+              "prior_citers": 40,
+              "first_arrival": true,
+              "home_area": "math.QA",
+              "span_bits": 5.112169103659296,
+              "similarity": 0.10335125029087067,
+              "span_percentile_same_year": 0.9312592837101832,
+              "decisive": false,
+              "span_rank": 4
+            },
+            {
+              "work": "W4235178139",
+              "title_if_arxiv": null,
+              "prior_citers": 5,
+              "first_arrival": true,
+              "home_area": "math.AT",
+              "span_bits": 4.644470698007731,
+              "similarity": 0.07137519121170044,
+              "span_percentile_same_year": 0.8649942234692194,
+              "decisive": false,
+              "span_rank": 6
+            },
+            {
+              "work": "W4285719527",
+              "title_if_arxiv": null,
+              "prior_citers": 3679,
+              "first_arrival": false,
+              "home_area": "math.AP",
+              "span_bits": 4.384245779741476,
+              "similarity": 0.20708130300045013,
+              "span_percentile_same_year": 0.8072289156626506,
+              "decisive": false,
+              "span_rank": 7
+            },
+            {
+              "work": "W585488260",
+              "prior_citers": 0
+            },
+            {
+              "work": "W593145558",
+              "title_if_arxiv": null,
+              "prior_citers": 98,
+              "first_arrival": true,
+              "home_area": "math.NT",
+              "span_bits": 5.044116741354583,
+              "similarity": 0.15708327293395996,
+              "span_percentile_same_year": 0.922677009407493,
+              "decisive": false,
+              "span_rank": 5
+            }
+          ]
+        }
+      }
+    },
+    "1603.06518": {
+      "year": 2016,
+      "areas": {
+        "primary math.NT": {
+          "scored_references": 11,
+          "references": [
+            {
+              "work": "W116915404",
+              "title_if_arxiv": null,
+              "prior_citers": 11,
+              "first_arrival": false,
+              "home_area": "math.NT",
+              "span_bits": 0.7881527383124225,
+              "similarity": 0.11449906975030899,
+              "span_percentile_same_year": 0.0,
+              "decisive": true,
+              "span_rank": 10
+            },
+            {
+              "work": "W1825294361",
+              "prior_citers": 0
+            },
+            {
+              "work": "W1980956835",
+              "title_if_arxiv": null,
+              "prior_citers": 8,
+              "first_arrival": false,
+              "home_area": "math.MG",
+              "span_bits": 2.404132177951425,
+              "similarity": 0.521537721157074,
+              "span_percentile_same_year": 0.033751444132695166,
+              "decisive": false,
+              "span_rank": 6
+            },
+            {
+              "work": "W2011352281",
+              "title_if_arxiv": "math/0403263 Optimality and uniqueness of the Leech lattice among lattices",
+              "prior_citers": 10,
+              "first_arrival": false,
+              "home_area": "math.MG",
+              "span_bits": 2.5709735216000413,
+              "similarity": 0.5995910167694092,
+              "span_percentile_same_year": 0.04984320845023931,
+              "decisive": false,
+              "span_rank": 5
+            },
+            {
+              "work": "W2059054152",
+              "title_if_arxiv": null,
+              "prior_citers": 4,
+              "first_arrival": false,
+              "home_area": "math.NT",
+              "span_bits": -0.0,
+              "similarity": 0.09646374732255936,
+              "span_percentile_same_year": 0.0,
+              "decisive": false
+            },
+            {
+              "work": "W2091041793",
+              "title_if_arxiv": null,
+              "prior_citers": 3,
+              "first_arrival": true,
+              "home_area": "math.MG",
+              "span_bits": 3.7748831851764053,
+              "similarity": 0.2587044835090637,
+              "span_percentile_same_year": 0.5200528139957089,
+              "decisive": false
+            },
+            {
+              "work": "W2159130720",
+              "title_if_arxiv": null,
+              "prior_citers": 28,
+              "first_arrival": false,
+              "home_area": "math.MG",
+              "span_bits": 2.942839636168928,
+              "similarity": 0.5530209541320801,
+              "span_percentile_same_year": 0.12510315233536887,
+              "decisive": false,
+              "span_rank": 4
+            },
+            {
+              "work": "W2299997029",
+              "title_if_arxiv": "1603.04759 Some properties of optimal functions for sphere packing in dimensions 8 and 24",
+              "prior_citers": 2,
+              "first_arrival": true,
+              "home_area": "math.MG",
+              "span_bits": 3.7748831851764053,
+              "similarity": 0.3448697030544281,
+              "span_percentile_same_year": 0.5200528139957089,
+              "decisive": false
+            },
+            {
+              "work": "W2301261742",
+              "title_if_arxiv": "1603.04246 The sphere packing problem in dimension 8",
+              "prior_citers": 2,
+              "first_arrival": true,
+              "home_area": "math.MG",
+              "span_bits": 3.7748831851764053,
+              "similarity": 0.3448697030544281,
+              "span_percentile_same_year": 0.5200528139957089,
+              "decisive": false
+            },
+            {
+              "work": "W2332568642",
+              "title_if_arxiv": null,
+              "prior_citers": 1,
+              "first_arrival": false,
+              "home_area": "math.NT",
+              "span_bits": -0.0,
+              "similarity": 0.1503278613090515,
+              "span_percentile_same_year": 0.0,
+              "decisive": false
+            },
+            {
+              "work": "W2552248576",
+              "prior_citers": 0
+            },
+            {
+              "work": "W2584020404",
+              "title_if_arxiv": null,
+              "prior_citers": 111,
+              "first_arrival": false,
+              "home_area": "math.CO",
+              "span_bits": 3.5660552325817267,
+              "similarity": 0.4839623272418976,
+              "span_percentile_same_year": 0.41813830665126256,
+              "decisive": false,
+              "span_rank": 2
+            },
+            {
+              "work": "W2744757217",
+              "title_if_arxiv": null,
+              "prior_citers": 1,
+              "first_arrival": true,
+              "home_area": "math.MG",
+              "span_bits": 3.7748831851764053,
+              "similarity": 0.2993890047073364,
+              "span_percentile_same_year": 0.5200528139957089,
+              "decisive": false
+            },
+            {
+              "work": "W2964178386",
+              "title_if_arxiv": null,
+              "prior_citers": 10,
+              "first_arrival": true,
+              "home_area": "math.MG",
+              "span_bits": 4.477965550632751,
+              "similarity": 0.45757511258125305,
+              "span_percentile_same_year": 0.8280244264730153,
+              "decisive": false,
+              "span_rank": 1
+            },
+            {
+              "work": "W3098594158",
+              "prior_citers": 0
+            },
+            {
+              "work": "W3101529914",
+              "title_if_arxiv": null,
+              "prior_citers": 16,
+              "first_arrival": false,
+              "home_area": "math.MG",
+              "span_bits": 1.725054299108842,
+              "similarity": 0.59935462474823,
+              "span_percentile_same_year": 0.001980524839082357,
+              "decisive": false,
+              "span_rank": 8
+            },
+            {
+              "work": "W3103274847",
+              "title_if_arxiv": null,
+              "prior_citers": 34,
+              "first_arrival": false,
+              "home_area": "math.MG",
+              "span_bits": 3.129752109064608,
+              "similarity": 0.4992062747478485,
+              "span_percentile_same_year": 0.19796996203994058,
+              "decisive": false,
+              "span_rank": 3
+            },
+            {
+              "work": "W3104302389",
+              "title_if_arxiv": "math/0110009 New upper bounds on sphere packings I",
+              "prior_citers": 29,
+              "first_arrival": false,
+              "home_area": "math.MG",
+              "span_bits": 1.4885296641777899,
+              "similarity": 0.6263489127159119,
+              "span_percentile_same_year": 0.0005776530780656874,
+              "decisive": false,
+              "span_rank": 9
+            },
+            {
+              "work": "W4233469339",
+              "prior_citers": 0
+            },
+            {
+              "work": "W4292408570",
+              "title_if_arxiv": null,
+              "prior_citers": 70,
+              "first_arrival": false,
+              "home_area": "math.MG",
+              "span_bits": 2.2781947850740987,
+              "similarity": 0.5437367558479309,
+              "span_percentile_same_year": 0.02104307641525004,
+              "decisive": false,
+              "span_rank": 7
+            },
+            {
+              "work": "W4297815924",
+              "prior_citers": 0
+            },
+            {
+              "work": "W593145558",
+              "title_if_arxiv": null,
+              "prior_citers": 98,
+              "first_arrival": false,
+              "home_area": "math.NT",
+              "span_bits": 0.4115911081385605,
+              "similarity": 0.17535048723220825,
+              "span_percentile_same_year": 0.0,
+              "decisive": false,
+              "span_rank": 11
+            }
+          ]
+        },
+        "secondary math.MG": {
+          "scored_references": 11,
+          "references": [
+            {
+              "work": "W116915404",
+              "title_if_arxiv": null,
+              "prior_citers": 11,
+              "first_arrival": true,
+              "home_area": "math.NT",
+              "span_bits": 5.182627148219836,
+              "similarity": 0.11449906975030899,
+              "span_percentile_same_year": 0.9384386862518568,
+              "decisive": true,
+              "span_rank": 1
+            },
+            {
+              "work": "W1825294361",
+              "prior_citers": 0
+            },
+            {
+              "work": "W1980956835",
+              "title_if_arxiv": null,
+              "prior_citers": 8,
+              "first_arrival": false,
+              "home_area": "math.MG",
+              "span_bits": 0.1876170202233339,
+              "similarity": 0.521537721157074,
+              "span_percentile_same_year": 0.0,
+              "decisive": false,
+              "span_rank": 11
+            },
+            {
+              "work": "W2011352281",
+              "title_if_arxiv": "math/0403263 Optimality and uniqueness of the Leech lattice among lattices",
+              "prior_citers": 10,
+              "first_arrival": false,
+              "home_area": "math.MG",
+              "span_bits": 0.3067285947338908,
+              "similarity": 0.5995910167694092,
+              "span_percentile_same_year": 0.0,
+              "decisive": false,
+              "span_rank": 10
+            },
+            {
+              "work": "W2059054152",
+              "title_if_arxiv": null,
+              "prior_citers": 4,
+              "first_arrival": true,
+              "home_area": "math.NT",
+              "span_bits": 5.354679765415395,
+              "similarity": 0.09646374732255936,
+              "span_percentile_same_year": 0.9523023601254332,
+              "decisive": false
+            },
+            {
+              "work": "W2091041793",
+              "title_if_arxiv": null,
+              "prior_citers": 3,
+              "first_arrival": false,
+              "home_area": "math.MG",
+              "span_bits": -0.0,
+              "similarity": 0.2587044835090637,
+              "span_percentile_same_year": 0.0,
+              "decisive": false
+            },
+            {
+              "work": "W2159130720",
+              "title_if_arxiv": null,
+              "prior_citers": 28,
+              "first_arrival": false,
+              "home_area": "math.MG",
+              "span_bits": 0.469844173816885,
+              "similarity": 0.5530209541320801,
+              "span_percentile_same_year": 0.0,
+              "decisive": false,
+              "span_rank": 9
+            },
+            {
+              "work": "W2299997029",
+              "title_if_arxiv": "1603.04759 Some properties of optimal functions for sphere packing in dimensions 8 and 24",
+              "prior_citers": 2,
+              "first_arrival": false,
+              "home_area": "math.MG",
+              "span_bits": -0.0,
+              "similarity": 0.3448697030544281,
+              "span_percentile_same_year": 0.0,
+              "decisive": false
+            },
+            {
+              "work": "W2301261742",
+              "title_if_arxiv": "1603.04246 The sphere packing problem in dimension 8",
+              "prior_citers": 2,
+              "first_arrival": false,
+              "home_area": "math.MG",
+              "span_bits": -0.0,
+              "similarity": 0.3448697030544281,
+              "span_percentile_same_year": 0.0,
+              "decisive": false
+            },
+            {
+              "work": "W2332568642",
+              "title_if_arxiv": null,
+              "prior_citers": 1,
+              "first_arrival": true,
+              "home_area": "math.NT",
+              "span_bits": 5.354679765415395,
+              "similarity": 0.1503278613090515,
+              "span_percentile_same_year": 0.9523023601254332,
+              "decisive": false
+            },
+            {
+              "work": "W2552248576",
+              "prior_citers": 0
+            },
+            {
+              "work": "W2584020404",
+              "title_if_arxiv": null,
+              "prior_citers": 111,
+              "first_arrival": false,
+              "home_area": "math.CO",
+              "span_bits": 1.8237790756064554,
+              "similarity": 0.4839623272418976,
+              "span_percentile_same_year": 0.002888265390328437,
+              "decisive": false,
+              "span_rank": 3
+            },
+            {
+              "work": "W2744757217",
+              "title_if_arxiv": null,
+              "prior_citers": 1,
+              "first_arrival": false,
+              "home_area": "math.MG",
+              "span_bits": -0.0,
+              "similarity": 0.2993890047073364,
+              "span_percentile_same_year": 0.0,
+              "decisive": false
+            },
+            {
+              "work": "W2964178386",
+              "title_if_arxiv": null,
+              "prior_citers": 10,
+              "first_arrival": false,
+              "home_area": "math.MG",
+              "span_bits": 0.9787622323939107,
+              "similarity": 0.45757511258125305,
+              "span_percentile_same_year": 0.0,
+              "decisive": false,
+              "span_rank": 6
+            },
+            {
+              "work": "W3098594158",
+              "prior_citers": 0
+            },
+            {
+              "work": "W3101529914",
+              "title_if_arxiv": null,
+              "prior_citers": 16,
+              "first_arrival": false,
+              "home_area": "math.MG",
+              "span_bits": 0.7936270782138463,
+              "similarity": 0.59935462474823,
+              "span_percentile_same_year": 0.0,
+              "decisive": false,
+              "span_rank": 8
+            },
+            {
+              "work": "W3103274847",
+              "title_if_arxiv": null,
+              "prior_citers": 34,
+              "first_arrival": false,
+              "home_area": "math.MG",
+              "span_bits": 1.0360373876499058,
+              "similarity": 0.4992062747478485,
+              "span_percentile_same_year": 0.0,
+              "decisive": false,
+              "span_rank": 5
+            },
+            {
+              "work": "W3104302389",
+              "title_if_arxiv": "math/0110009 New upper bounds on sphere packings I",
+              "prior_citers": 29,
+              "first_arrival": false,
+              "home_area": "math.MG",
+              "span_bits": 0.9119455086032235,
+              "similarity": 0.6263489127159119,
+              "span_percentile_same_year": 0.0,
+              "decisive": false,
+              "span_rank": 7
+            },
+            {
+              "work": "W4233469339",
+              "prior_citers": 0
+            },
+            {
+              "work": "W4292408570",
+              "title_if_arxiv": null,
+              "prior_citers": 70,
+              "first_arrival": false,
+              "home_area": "math.MG",
+              "span_bits": 1.3045508024531154,
+              "similarity": 0.5437367558479309,
+              "span_percentile_same_year": 8.252186829509821e-05,
+              "decisive": false,
+              "span_rank": 4
+            },
+            {
+              "work": "W4297815924",
+              "prior_citers": 0
+            },
+            {
+              "work": "W593145558",
+              "title_if_arxiv": null,
+              "prior_citers": 98,
+              "first_arrival": true,
+              "home_area": "math.NT",
+              "span_bits": 5.044116741354583,
+              "similarity": 0.17535048723220825,
+              "span_percentile_same_year": 0.922677009407493,
+              "decisive": false,
+              "span_rank": 2
+            }
+          ]
+        }
+      }
+    },
+    "1605.01506": {
+      "year": 2016,
+      "areas": {
+        "primary math.NT": {
+          "scored_references": 7,
+          "references": [
+            {
+              "work": "W1996922551",
+              "title_if_arxiv": null,
+              "prior_citers": 70,
+              "first_arrival": false,
+              "home_area": "math.NT",
+              "span_bits": 0.7632620506505451,
+              "similarity": 0.5357910394668579,
+              "span_percentile_same_year": 0.0,
+              "decisive": false,
+              "span_rank": 6
+            },
+            {
+              "work": "W2027344634",
+              "title_if_arxiv": null,
+              "prior_citers": 5,
+              "first_arrival": false,
+              "home_area": "math.NT",
+              "span_bits": 0.6698715739324824,
+              "similarity": 0.49999815225601196,
+              "span_percentile_same_year": 0.0,
+              "decisive": false,
+              "span_rank": 7
+            },
+            {
+              "work": "W2041824078",
+              "title_if_arxiv": null,
+              "prior_citers": 31,
+              "first_arrival": false,
+              "home_area": "math.NT",
+              "span_bits": 0.8591135876242053,
+              "similarity": 0.5689175724983215,
+              "span_percentile_same_year": 0.0,
+              "decisive": false,
+              "span_rank": 5
+            },
+            {
+              "work": "W2108900323",
+              "title_if_arxiv": null,
+              "prior_citers": 98,
+              "first_arrival": false,
+              "home_area": "math.NT",
+              "span_bits": 1.064816340533761,
+              "similarity": 0.5596802830696106,
+              "span_percentile_same_year": 0.0,
+              "decisive": false,
+              "span_rank": 4
+            },
+            {
+              "work": "W2115630228",
+              "title_if_arxiv": null,
+              "prior_citers": 6,
+              "first_arrival": false,
+              "home_area": "math.CO",
+              "span_bits": 1.3923729064259334,
+              "similarity": 0.5471886396408081,
+              "span_percentile_same_year": 0.000412609341475491,
+              "decisive": false,
+              "span_rank": 2
+            },
+            {
+              "work": "W2962996730",
+              "title_if_arxiv": null,
+              "prior_citers": 1,
+              "first_arrival": true,
+              "home_area": "math.CO",
+              "span_bits": 3.8077988509931204,
+              "similarity": 0.007769793272018433,
+              "span_percentile_same_year": 0.5392804093084668,
+              "decisive": false
+            },
+            {
+              "work": "W3098198158",
+              "title_if_arxiv": null,
+              "prior_citers": 5,
+              "first_arrival": false,
+              "home_area": "math.CO",
+              "span_bits": 1.9541564232297388,
+              "similarity": 0.5071966052055359,
+              "span_percentile_same_year": 0.00552896517577158,
+              "decisive": false,
+              "span_rank": 1
+            },
+            {
+              "work": "W3100139723",
+              "title_if_arxiv": null,
+              "prior_citers": 24,
+              "first_arrival": false,
+              "home_area": "math.CO",
+              "span_bits": 1.2528132903699847,
+              "similarity": 0.5468536019325256,
+              "span_percentile_same_year": 0.0,
+              "decisive": false,
+              "span_rank": 3
+            },
+            {
+              "work": "W3105325455",
+              "title_if_arxiv": null,
+              "prior_citers": 1,
+              "first_arrival": true,
+              "home_area": "math.CO",
+              "span_bits": 3.8077988509931204,
+              "similarity": 0.23295241594314575,
+              "span_percentile_same_year": 0.5392804093084668,
+              "decisive": false
+            }
+          ]
+        },
+        "secondary math.CO": {
+          "scored_references": 7,
+          "references": [
+            {
+              "work": "W1996922551",
+              "title_if_arxiv": null,
+              "prior_citers": 70,
+              "first_arrival": false,
+              "home_area": "math.NT",
+              "span_bits": 1.67380855065015,
+              "similarity": 0.5357910394668579,
+              "span_percentile_same_year": 0.001650437365901964,
+              "decisive": false,
+              "span_rank": 1
+            },
+            {
+              "work": "W2027344634",
+              "title_if_arxiv": null,
+              "prior_citers": 5,
+              "first_arrival": false,
+              "home_area": "math.NT",
+              "span_bits": 1.1160765733218423,
+              "similarity": 0.49999815225601196,
+              "span_percentile_same_year": 0.0,
+              "decisive": false,
+              "span_rank": 3
+            },
+            {
+              "work": "W2041824078",
+              "title_if_arxiv": null,
+              "prior_citers": 31,
+              "first_arrival": false,
+              "home_area": "math.NT",
+              "span_bits": 1.2622356055986426,
+              "similarity": 0.5689175724983215,
+              "span_percentile_same_year": 0.0,
+              "decisive": false,
+              "span_rank": 2
+            },
+            {
+              "work": "W2108900323",
+              "title_if_arxiv": null,
+              "prior_citers": 98,
+              "first_arrival": false,
+              "home_area": "math.NT",
+              "span_bits": 1.080663503744861,
+              "similarity": 0.5596802830696106,
+              "span_percentile_same_year": 0.0,
+              "decisive": false,
+              "span_rank": 4
+            },
+            {
+              "work": "W2115630228",
+              "title_if_arxiv": null,
+              "prior_citers": 6,
+              "first_arrival": false,
+              "home_area": "math.CO",
+              "span_bits": 0.5130319626315666,
+              "similarity": 0.5471886396408081,
+              "span_percentile_same_year": 0.0,
+              "decisive": false,
+              "span_rank": 7
+            },
+            {
+              "work": "W2962996730",
+              "title_if_arxiv": null,
+              "prior_citers": 1,
+              "first_arrival": false,
+              "home_area": "math.CO",
+              "span_bits": -0.0,
+              "similarity": 0.007769793272018433,
+              "span_percentile_same_year": 0.0,
+              "decisive": false
+            },
+            {
+              "work": "W3098198158",
+              "title_if_arxiv": null,
+              "prior_citers": 5,
+              "first_arrival": false,
+              "home_area": "math.CO",
+              "span_bits": 0.6555253762430507,
+              "similarity": 0.5071966052055359,
+              "span_percentile_same_year": 0.0,
+              "decisive": false,
+              "span_rank": 5
+            },
+            {
+              "work": "W3100139723",
+              "title_if_arxiv": null,
+              "prior_citers": 24,
+              "first_arrival": false,
+              "home_area": "math.CO",
+              "span_bits": 0.5921758202908847,
+              "similarity": 0.5468536019325256,
+              "span_percentile_same_year": 0.0,
+              "decisive": false,
+              "span_rank": 6
+            },
+            {
+              "work": "W3105325455",
+              "title_if_arxiv": null,
+              "prior_citers": 1,
+              "first_arrival": false,
+              "home_area": "math.CO",
+              "span_bits": -0.0,
+              "similarity": 0.23295241594314575,
+              "span_percentile_same_year": 0.0,
+              "decisive": false
+            }
+          ]
+        }
+      }
+    },
+    "1605.09223": {
+      "year": 2016,
+      "areas": {
+        "primary math.CO": {
+          "scored_references": 2,
+          "references": [
+            {
+              "work": "W1513028911",
+              "title_if_arxiv": null,
+              "prior_citers": 4,
+              "first_arrival": false,
+              "home_area": "math.CO",
+              "span_bits": 0.36668755901173855,
+              "similarity": 0.500919759273529,
+              "span_percentile_same_year": 0.0,
+              "decisive": false
+            },
+            {
+              "work": "W1995051300",
+              "title_if_arxiv": null,
+              "prior_citers": 4,
+              "first_arrival": false,
+              "home_area": "math.CO",
+              "span_bits": 0.839398748991104,
+              "similarity": 0.1975289136171341,
+              "span_percentile_same_year": 0.0,
+              "decisive": false
+            },
+            {
+              "work": "W2023600080",
+              "title_if_arxiv": null,
+              "prior_citers": 26,
+              "first_arrival": false,
+              "home_area": "math.CO",
+              "span_bits": 0.9816464918370181,
+              "similarity": 0.5572267770767212,
+              "span_percentile_same_year": 0.0,
+              "decisive": false,
+              "span_rank": 1
+            },
+            {
+              "work": "W2120534643",
+              "title_if_arxiv": null,
+              "prior_citers": 3,
+              "first_arrival": true,
+              "home_area": "math.PR",
+              "span_bits": 3.7346931402870553,
+              "similarity": 0.08576361835002899,
+              "span_percentile_same_year": 0.49430599108763823,
+              "decisive": false
+            },
+            {
+              "work": "W2963019803",
+              "title_if_arxiv": null,
+              "prior_citers": 7,
+              "first_arrival": false,
+              "home_area": "math.CO",
+              "span_bits": 0.42759834734229385,
+              "similarity": 0.5227946639060974,
+              "span_percentile_same_year": 0.0,
+              "decisive": false,
+              "span_rank": 2
+            }
+          ]
+        },
+        "secondary math.NT": {
+          "scored_references": 2,
+          "references": [
+            {
+              "work": "W1513028911",
+              "title_if_arxiv": null,
+              "prior_citers": 4,
+              "first_arrival": false,
+              "home_area": "math.CO",
+              "span_bits": 1.719970411282319,
+              "similarity": 0.500919759273529,
+              "span_percentile_same_year": 0.001980524839082357,
+              "decisive": false
+            },
+            {
+              "work": "W1995051300",
+              "title_if_arxiv": null,
+              "prior_citers": 4,
+              "first_arrival": false,
+              "home_area": "math.CO",
+              "span_bits": 1.6881676706497108,
+              "similarity": 0.1975289136171341,
+              "span_percentile_same_year": 0.0017329592341970622,
+              "decisive": false
+            },
+            {
+              "work": "W2023600080",
+              "title_if_arxiv": null,
+              "prior_citers": 26,
+              "first_arrival": false,
+              "home_area": "math.CO",
+              "span_bits": 1.6422869292469549,
+              "similarity": 0.5572267770767212,
+              "span_percentile_same_year": 0.001650437365901964,
+              "decisive": false,
+              "span_rank": 1
+            },
+            {
+              "work": "W2120534643",
+              "title_if_arxiv": null,
+              "prior_citers": 3,
+              "first_arrival": true,
+              "home_area": "math.PR",
+              "span_bits": 5.259709274023306,
+              "similarity": 0.08576361835002899,
+              "span_percentile_same_year": 0.9449579138471695,
+              "decisive": false
+            },
+            {
+              "work": "W2963019803",
+              "title_if_arxiv": null,
+              "prior_citers": 7,
+              "first_arrival": false,
+              "home_area": "math.CO",
+              "span_bits": 1.5703829779367429,
+              "similarity": 0.5227946639060974,
+              "span_percentile_same_year": 0.0007426968146558838,
+              "decisive": false,
+              "span_rank": 2
+            }
+          ]
+        }
+      }
+    },
+    "1907.00847": {
+      "year": 2019,
+      "areas": {
+        "primary math.CO": {
+          "scored_references": 1,
+          "references": [
+            {
+              "work": "W2156858248",
+              "title_if_arxiv": "math/0502408 A very short proof of Cauchy's interlace theorem for eigenvalues of Hermitian matrices",
+              "prior_citers": 10,
+              "first_arrival": false,
+              "home_area": "math.NT",
+              "span_bits": 2.5084937596914285,
+              "similarity": 0.10770363360643387,
+              "span_percentile_same_year": 0.039303727395743636,
+              "decisive": true,
+              "span_rank": 1
+            }
+          ]
+        }
+      }
+    }
+  }
+}
