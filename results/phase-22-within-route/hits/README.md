@@ -49,3 +49,48 @@ Prediction: mostly knocking or next door, at a higher share than overall.
 
 One AWS m6i.4xlarge (the Phase 12 launcher, `USERDATA=phase22hits`), smoke
 first, under $0.50, teardown verified.
+
+---
+
+## Results
+
+*Appended after the run. Nothing above this line changed.* Run
+`noema-p12-20260930-193955`, one m6i.4xlarge, 4 minutes, torn down and
+verified. Numbers from `results/hits.json`; titles and record types from
+OpenAlex in `results/names.json`. The top 100 holds 31 important jumps, as in
+Phase 22, so the list is the one Phase 22 scored.
+
+### Labels
+
+| | knocking | next door | surprising | total |
+|---|---:|---:|---:|---:|
+| important jumps in the model's top 100 | 17 | 12 | **2** | 31 |
+| all important jumps | 59 | 75 | **95** | 229 |
+
+Surprising jumps are **41%** of all real jumps but **6%** of the model's top
+hits. Median rank among the 146,938 far pairs: knocking 857, next door 873,
+**surprising 3,244**.
+
+### What the hits are
+
+Nearly all are standard references reaching optimization and control: Feller's
+*Introduction to Probability Theory*, Gilbarg–Trudinger, Federer's *Geometric
+Measure Theory*, Rockafellar's *Convex Analysis*, Cover–Thomas, Shannon,
+Billingsley, Evans–Gariepy, Stanley's *Enumerative Combinatorics*, the
+Abramowitz–Stegun handbook. 13 of 31 are books, 4 book chapters. The two
+surprising hits are both on **backward stochastic differential equations**
+(Pardoux–Peng 1990; El Karoui–Peng–Quenez 1997) reaching control, and BSDEs
+also lead the best-ranked surprising jumps overall.
+
+### Verdict
+
+The prediction held: **the model's hits are mostly predictable spread** (29
+of 31 knocking or next door), at a far higher share than among real jumps
+(94% against 59%). Similarity forecasts the kind of jump the project cares
+least about.
+
+### Next
+
+Make "surprising" part of the target: count surprising jumps at the far and
+wide thresholds, then (if enough) test whether similarity ranks surprising
+jumps among pairs that are neither knocking nor next door.
