@@ -1,0 +1,211 @@
+{
+  "thresholds_bits": [
+    3.5,
+    4.0,
+    4.25,
+    4.5,
+    4.65,
+    4.75,
+    5.0,
+    5.25,
+    5.5,
+    5.84,
+    6.0,
+    6.5,
+    7.0
+  ],
+  "arrival_p90": 4.65,
+  "arrival_p99": 5.84,
+  "2005": {
+    "candidate_pairs": 401302,
+    "by_threshold": [
+      {
+        "threshold_bits": 3.5,
+        "pairs": 374139,
+        "share_of_candidates": 0.9323128217651544,
+        "crossed": 25236,
+        "important_jumps": 2093
+      },
+      {
+        "threshold_bits": 4.0,
+        "pairs": 344173,
+        "share_of_candidates": 0.8576408789390534,
+        "crossed": 20798,
+        "important_jumps": 1647
+      },
+      {
+        "threshold_bits": 4.25,
+        "pairs": 320075,
+        "share_of_candidates": 0.7975913401876891,
+        "crossed": 17494,
+        "important_jumps": 1341
+      },
+      {
+        "threshold_bits": 4.5,
+        "pairs": 293765,
+        "share_of_candidates": 0.7320297431859298,
+        "crossed": 14366,
+        "important_jumps": 1035
+      },
+      {
+        "threshold_bits": 4.65,
+        "pairs": 276425,
+        "share_of_candidates": 0.6888203896317486,
+        "crossed": 12590,
+        "important_jumps": 888
+      },
+      {
+        "threshold_bits": 4.75,
+        "pairs": 266001,
+        "share_of_candidates": 0.6628449397212075,
+        "crossed": 11425,
+        "important_jumps": 789
+      },
+      {
+        "threshold_bits": 5.0,
+        "pairs": 234557,
+        "share_of_candidates": 0.5844899850985044,
+        "crossed": 8802,
+        "important_jumps": 605
+      },
+      {
+        "threshold_bits": 5.25,
+        "pairs": 206675,
+        "share_of_candidates": 0.5150111387433902,
+        "crossed": 6672,
+        "important_jumps": 433
+      },
+      {
+        "threshold_bits": 5.5,
+        "pairs": 179094,
+        "share_of_candidates": 0.44628235094766533,
+        "crossed": 4997,
+        "important_jumps": 336
+      },
+      {
+        "threshold_bits": 5.84,
+        "pairs": 146938,
+        "share_of_candidates": 0.3661531714270051,
+        "crossed": 3569,
+        "important_jumps": 229
+      },
+      {
+        "threshold_bits": 6.0,
+        "pairs": 134565,
+        "share_of_candidates": 0.3353210300471964,
+        "crossed": 3038,
+        "important_jumps": 197
+      },
+      {
+        "threshold_bits": 6.5,
+        "pairs": 91475,
+        "share_of_candidates": 0.22794553727616607,
+        "crossed": 1288,
+        "important_jumps": 53
+      },
+      {
+        "threshold_bits": 7.0,
+        "pairs": 59848,
+        "share_of_candidates": 0.14913456698446556,
+        "crossed": 533,
+        "important_jumps": 9
+      }
+    ]
+  },
+  "2015": {
+    "candidate_pairs": 3150607,
+    "by_threshold": [
+      {
+        "threshold_bits": 3.5,
+        "pairs": 2787865,
+        "share_of_candidates": 0.8848659956636927,
+        "crossed": 49456,
+        "important_jumps": 841
+      },
+      {
+        "threshold_bits": 4.0,
+        "pairs": 2359146,
+        "share_of_candidates": 0.7487909472682566,
+        "crossed": 28208,
+        "important_jumps": 328
+      },
+      {
+        "threshold_bits": 4.25,
+        "pairs": 2110878,
+        "share_of_candidates": 0.6699908938182388,
+        "crossed": 20065,
+        "important_jumps": 198
+      },
+      {
+        "threshold_bits": 4.5,
+        "pairs": 1875480,
+        "share_of_candidates": 0.595275767494962,
+        "crossed": 14393,
+        "important_jumps": 116
+      },
+      {
+        "threshold_bits": 4.65,
+        "pairs": 1740036,
+        "share_of_candidates": 0.5522859563252415,
+        "crossed": 11734,
+        "important_jumps": 88
+      },
+      {
+        "threshold_bits": 4.75,
+        "pairs": 1655911,
+        "share_of_candidates": 0.5255847523985061,
+        "crossed": 10207,
+        "important_jumps": 75
+      },
+      {
+        "threshold_bits": 5.0,
+        "pairs": 1442529,
+        "share_of_candidates": 0.4578574858749441,
+        "crossed": 7267,
+        "important_jumps": 53
+      },
+      {
+        "threshold_bits": 5.25,
+        "pairs": 1244927,
+        "share_of_candidates": 0.3951387780196007,
+        "crossed": 5098,
+        "important_jumps": 36
+      },
+      {
+        "threshold_bits": 5.5,
+        "pairs": 1043744,
+        "share_of_candidates": 0.3312834637896761,
+        "crossed": 3446,
+        "important_jumps": 21
+      },
+      {
+        "threshold_bits": 5.84,
+        "pairs": 813798,
+        "share_of_candidates": 0.25829879766026037,
+        "crossed": 2013,
+        "important_jumps": 11
+      },
+      {
+        "threshold_bits": 6.0,
+        "pairs": 719923,
+        "share_of_candidates": 0.22850295197084244,
+        "crossed": 1524,
+        "important_jumps": 9
+      },
+      {
+        "threshold_bits": 6.5,
+        "pairs": 453213,
+        "share_of_candidates": 0.14384942330160505,
+        "crossed": 570,
+        "important_jumps": 1
+      },
+      {
+        "threshold_bits": 7.0,
+        "pairs": 296353,
+        "share_of_candidates": 0.0940621918252578,
+        "crossed": 262,
+        "important_jumps": 1
+      }
+    ]
+  }
+}
