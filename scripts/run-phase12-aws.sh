@@ -34,7 +34,7 @@ launch() {
   echo "== packaging the task"
   cp "$REPO/scripts/run-phase11.py" "$REPO/scripts/run-phase12.py" \
      "$REPO/scripts/count-horizons.py" "$REPO/scripts/run-phase13.py" \
-     "$REPO/scripts/run-phase14.py" "$t/scripts/"
+     "$REPO/scripts/run-phase14.py" "$REPO/scripts/count-grains.py" "$t/scripts/"
   # Phase 11's papers, references and snapshot file list
   local data="$REPO/outputs/phase-11-tool-area-grid/data"
   mkdir -p "$t/in"
