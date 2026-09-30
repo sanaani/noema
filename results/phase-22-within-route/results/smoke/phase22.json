@@ -1,0 +1,327 @@
+{
+  "seed": 20261012,
+  "smoke": true,
+  "cutoff": 2005,
+  "far_bits": 5.84,
+  "population_primary": {
+    "far_pairs": 36278,
+    "important_jumps": 1527,
+    "usable_strata_and_jumps": {
+      "route": [
+        344,
+        1524
+      ],
+      "target area": [
+        28,
+        1527
+      ]
+    },
+    "grain": "route",
+    "by_target_area": {
+      "math.MG": {
+        "far_pairs": 2247,
+        "important_jumps": 142
+      },
+      "math.NA": {
+        "far_pairs": 2279,
+        "important_jumps": 124
+      },
+      "math.OC": {
+        "far_pairs": 2282,
+        "important_jumps": 109
+      },
+      "math.KT": {
+        "far_pairs": 1882,
+        "important_jumps": 99
+      },
+      "math.CT": {
+        "far_pairs": 2198,
+        "important_jumps": 93
+      },
+      "math.CV": {
+        "far_pairs": 1402,
+        "important_jumps": 92
+      },
+      "math.ST": {
+        "far_pairs": 2250,
+        "important_jumps": 87
+      },
+      "math.SP": {
+        "far_pairs": 2042,
+        "important_jumps": 80
+      },
+      "math.AC": {
+        "far_pairs": 1951,
+        "important_jumps": 78
+      },
+      "math.FA": {
+        "far_pairs": 1640,
+        "important_jumps": 75
+      },
+      "math.LO": {
+        "far_pairs": 2294,
+        "important_jumps": 71
+      },
+      "math.GR": {
+        "far_pairs": 1104,
+        "important_jumps": 59
+      },
+      "math.OA": {
+        "far_pairs": 1032,
+        "important_jumps": 54
+      },
+      "math.AP": {
+        "far_pairs": 1607,
+        "important_jumps": 51
+      },
+      "math.NT": {
+        "far_pairs": 872,
+        "important_jumps": 50
+      },
+      "math.RA": {
+        "far_pairs": 1036,
+        "important_jumps": 49
+      },
+      "math.PR": {
+        "far_pairs": 1455,
+        "important_jumps": 48
+      },
+      "math.CA": {
+        "far_pairs": 1021,
+        "important_jumps": 39
+      },
+      "math.GN": {
+        "far_pairs": 2307,
+        "important_jumps": 33
+      },
+      "math.SG": {
+        "far_pairs": 667,
+        "important_jumps": 23
+      },
+      "math.DS": {
+        "far_pairs": 728,
+        "important_jumps": 22
+      },
+      "math.AT": {
+        "far_pairs": 599,
+        "important_jumps": 15
+      },
+      "math.RT": {
+        "far_pairs": 356,
+        "important_jumps": 12
+      },
+      "math.CO": {
+        "far_pairs": 338,
+        "important_jumps": 10
+      },
+      "math.GT": {
+        "far_pairs": 216,
+        "important_jumps": 5
+      },
+      "math.QA": {
+        "far_pairs": 223,
+        "important_jumps": 3
+      },
+      "math.AG": {
+        "far_pairs": 183,
+        "important_jumps": 2
+      },
+      "math.DG": {
+        "far_pairs": 67,
+        "important_jumps": 2
+      }
+    },
+    "top_routes": [
+      {
+        "route": "math.DG -> math.MG",
+        "important_jumps": 28,
+        "far_pairs": 274
+      },
+      {
+        "route": "math.AG -> math.KT",
+        "important_jumps": 27,
+        "far_pairs": 377
+      },
+      {
+        "route": "math.AP -> math.NA",
+        "important_jumps": 26,
+        "far_pairs": 66
+      },
+      {
+        "route": "math.AG -> math.CT",
+        "important_jumps": 22,
+        "far_pairs": 407
+      },
+      {
+        "route": "math.AG -> math.CA",
+        "important_jumps": 21,
+        "far_pairs": 352
+      },
+      {
+        "route": "math.AG -> math.CV",
+        "important_jumps": 21,
+        "far_pairs": 153
+      },
+      {
+        "route": "math.DG -> math.KT",
+        "important_jumps": 21,
+        "far_pairs": 270
+      },
+      {
+        "route": "math.PR -> math.NA",
+        "important_jumps": 21,
+        "far_pairs": 84
+      },
+      {
+        "route": "math.DG -> math.NA",
+        "important_jumps": 20,
+        "far_pairs": 286
+      },
+      {
+        "route": "math.DG -> math.SP",
+        "important_jumps": 19,
+        "far_pairs": 256
+      },
+      {
+        "route": "math.QA -> math.CT",
+        "important_jumps": 19,
+        "far_pairs": 250
+      },
+      {
+        "route": "math.DG -> math.FA",
+        "important_jumps": 18,
+        "far_pairs": 223
+      },
+      {
+        "route": "math.CA -> math.NA",
+        "important_jumps": 16,
+        "far_pairs": 62
+      },
+      {
+        "route": "math.DG -> math.OC",
+        "important_jumps": 16,
+        "far_pairs": 282
+      },
+      {
+        "route": "math.PR -> math.OC",
+        "important_jumps": 16,
+        "far_pairs": 84
+      }
+    ]
+  },
+  "H1_primary": {
+    "auc_BASE": 0.733066541890361,
+    "auc_BASE+SIM": 0.7915431217061518,
+    "difference": 0.0584765798157908,
+    "auc_SIM_alone": 0.7715854799783284,
+    "positives": 1527,
+    "pairs": 36278,
+    "ci95": [
+      0.04444536198681835,
+      0.070915347139855
+    ],
+    "grain": "route",
+    "verdict": "similarity picks the pair",
+    "other_grain": {
+      "auc_BASE": 0.7989876560756751,
+      "auc_BASE+SIM": 0.8369745327680765,
+      "difference": 0.03798687669240142,
+      "auc_SIM_alone": 0.8078235790041058,
+      "positives": 1527,
+      "pairs": 36278
+    },
+    "no_strata": {
+      "auc_BASE": 0.8053807990185279,
+      "auc_BASE+SIM": 0.8397039150847652,
+      "difference": 0.03432311606623728,
+      "auc_SIM_alone": 0.7846010358245734,
+      "positives": 1527,
+      "pairs": 36278
+    },
+    "top": {
+      "100": {
+        "BASE": 48,
+        "BASE+SIM": 55,
+        "chance": 4.209162577870886
+      },
+      "1000": {
+        "BASE": 281,
+        "BASE+SIM": 363,
+        "chance": 42.09162577870886
+      }
+    },
+    "without_breadth": {
+      "auc_BASE": 0.6941117076294143,
+      "auc_BASE+SIM": 0.78470669359208,
+      "difference": 0.09059498596266569,
+      "auc_SIM_alone": 0.7715854799783284,
+      "positives": 1527,
+      "pairs": 36278
+    },
+    "without_area_indicators": {
+      "auc_BASE": 0.7395064768753387,
+      "auc_BASE+SIM": 0.7998571639659163,
+      "difference": 0.06035068709057767,
+      "auc_SIM_alone": 0.7715854799783284,
+      "positives": 1527,
+      "pairs": 36278
+    }
+  },
+  "population_wide": {
+    "far_pairs": 51574,
+    "important_jumps": 3598,
+    "usable_strata_and_jumps": {
+      "route": [
+        516,
+        3595
+      ],
+      "target area": [
+        28,
+        3598
+      ]
+    },
+    "grain": "route"
+  },
+  "H1_wide": {
+    "auc_BASE": 0.7137660680834571,
+    "auc_BASE+SIM": 0.7841890866223112,
+    "difference": 0.07042301853885413,
+    "auc_SIM_alone": 0.7618300255151476,
+    "positives": 3598,
+    "pairs": 51574,
+    "ci95": [
+      0.05722653275338845,
+      0.07621234482634989
+    ],
+    "grain": "route",
+    "verdict": "similarity picks the pair",
+    "other_grain": {
+      "auc_BASE": 0.7916140327852118,
+      "auc_BASE+SIM": 0.8303439111485397,
+      "difference": 0.03872987836332786,
+      "auc_SIM_alone": 0.7989948523608232,
+      "positives": 3598,
+      "pairs": 51574
+    },
+    "no_strata": {
+      "auc_BASE": 0.8092239502649231,
+      "auc_BASE+SIM": 0.8425595915893838,
+      "difference": 0.03333564132446065,
+      "auc_SIM_alone": 0.7786744696000029,
+      "positives": 3598,
+      "pairs": 51574
+    },
+    "top": {
+      "100": {
+        "BASE": 64,
+        "BASE+SIM": 86,
+        "chance": 6.976383449024702
+      },
+      "1000": {
+        "BASE": 463,
+        "BASE+SIM": 554,
+        "chance": 69.76383449024702
+      }
+    }
+  }
+}
