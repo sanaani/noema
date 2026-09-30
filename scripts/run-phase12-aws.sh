@@ -36,7 +36,7 @@ launch() {
      "$REPO/scripts/count-horizons.py" "$REPO/scripts/run-phase13.py" \
      "$REPO/scripts/run-phase14.py" "$REPO/scripts/count-grains.py" \
      "$REPO/scripts/run-phase15.py" "$REPO/scripts/run-phase16.py" \
-     "$REPO/scripts/run-phase18.py" "$t/scripts/"
+     "$REPO/scripts/run-phase18.py" "$REPO/scripts/run-phase19.py" "$t/scripts/"
   # Phase 11's papers, references and snapshot file list
   local data="$REPO/outputs/phase-11-tool-area-grid/data"
   mkdir -p "$t/in"
@@ -100,7 +100,7 @@ JSON
 
   echo "== user data"
   sed -e "s|@BUCKET@|$BUCKET|g" -e "s|@RUN@|$run|g" \
-      "$REPO/scripts/$(case "${USERDATA:-}" in phase1[34568]) echo "$USERDATA" ;; *) echo "phase12${USERDATA:+-$USERDATA}" ;; esac)-user-data.sh.in" > "$out/user-data.sh"
+      "$REPO/scripts/$(case "${USERDATA:-}" in phase1[345689]) echo "$USERDATA" ;; *) echo "phase12${USERDATA:+-$USERDATA}" ;; esac)-user-data.sh.in" > "$out/user-data.sh"
 
   echo "== waiting for the instance profile to propagate"
   sleep 20
