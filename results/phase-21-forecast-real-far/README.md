@@ -140,3 +140,98 @@ the run.
 One AWS m6i.4xlarge, self-terminating, idle-log watchdog, 2-hour power-off;
 smoke pass first (every 4th paper, catch-on lowered to 1 paper). Estimated
 20–40 minutes, under $1. Teardown verified.
+
+---
+
+## Results
+
+*Appended after the run. Nothing above this line changed.* Run
+`noema-p12-20260930-171525` (the Phase 12 launcher with `USERDATA=phase21`),
+one m6i.4xlarge, 8 minutes, about $0.10, torn down and verified. Numbers from
+`results/phase21.json`.
+
+### Counts
+
+| cutoff | candidate pairs | far pairs (≥ 5.84 bits) | crossed at all | important jumps |
+|---|---:|---:|---:|---:|
+| 2005 | 401,302 | 146,938 | 3,569 | **229** |
+| 2011 | 1,609,057 | 435,700 | 2,285 | **35** |
+| 2021 | 6,399,483 | 1,746,955 | — | — |
+
+At 2011, works new since 2005 held 20 important jumps (under 100), so H2 was
+scored on all works, as pre-registered. Both are under 100: H2 is
+underpowered.
+
+### Verdict
+
+| test | AUC BASE → BASE+SIM | difference [95%] | verdict |
+|---|---|---|---|
+| **H1** (2005, cross-validated, 229 positives) | 0.855 → 0.925 | **+0.070 [+0.054, +0.087]** | **similarity forecasts important jumps** |
+| **H2** (2011, all works, 35 positives) | 0.805 → 0.930 | +0.125 [+0.061, +0.197] | **underpowered** |
+| H2, new works only (20 positives) | 0.693 → 0.911 | +0.218 [+0.114, +0.334] | underpowered |
+| H1 at the wider far (≥ 4.65 bits, 888 positives) | 0.819 → 0.920 | +0.102 [+0.091, +0.113] | similarity forecasts important jumps |
+
+Similarity alone: AUC 0.918 (H1), 0.921 (H2).
+
+Important jumps found in the top of each ranking:
+
+| | chance | BASE | BASE+SIM | similarity alone |
+|---|---:|---:|---:|---:|
+| H1 top 100 | 0.16 | 8 | **25** | 21 |
+| H1 top 1,000 | 1.6 | 29 | **81** | 72 |
+| H1 wide, top 100 | 0.3 | 12 | **37** | 37 |
+| H2 top 100 | 0.008 | 2 | 1 | 2 |
+| H2 top 1,000 | 0.08 | 6 | 7 | 6 |
+
+Model trained on all of 2005 (standardised coefficients): similarity +1.21,
+span −0.58, recent citers +0.51, total citers −0.03, target area size +0.00.
+
+### Landmark check (2011)
+
+- Zagier → metric geometry: fewer than 5 citers by 2011 in this data; not
+  scored.
+- Diamond–Shurman → metric geometry: unconnected, span 5.42 (not far),
+  similarity at the 59th percentile, 0 papers citing it 2012–2021.
+- Fisk → combinatorics: fewer than 5 citers by 2011; not scored.
+
+### The lists
+
+Every entry of both top-50 lists targets **logic (math.LO) or general
+topology (math.GN)**: 35 LO + 15 GN at 2011, 19 LO + 31 GN at 2021. The works
+are mostly standard textbooks (e.g. *A Course in Metric Geometry*,
+*Functional Analysis*, *Geometric Measure Theory*, *Differential Topology*,
+*Linear Representations of Finite Groups*, the Magma manual), with a few
+research papers (Gowers's two new proofs of Szemerédi's theorem, Rota's
+Möbius-function paper, Bergelson–Furstenberg–McCutcheon on IP-systems).
+
+- 2011 top 50: 17 crossed by 2021, 1 became an important jump.
+- 2021 forecast list, rough early look (2022 on, undercounted): 2% of the
+  top 50 and 1.0% of the top 1,000 already cited by the target area, against
+  0.03% of all far pairs.
+
+### What this establishes
+
+- **At 2005, similarity forecasts which far, not-yet-connected pairs will
+  become important jumps**, clearly beyond distance and size alone: it
+  triples the hits in the top 100 (8 → 25) and 1,000 (29 → 81), where chance
+  finds under 2. It is the model's largest coefficient. The primary test
+  passed at the pre-registered strength, and again at the wider threshold.
+- The 2011 forward test points the same way, but with 35 positives it is not
+  a test.
+
+### What it does not establish
+
+- **Whether similarity picks the right pair or only the right target area.**
+  Both lists send everything to logic or general topology. If similarity
+  mostly tells areas apart (some areas absorb far works more readily, and
+  their text happens to sit closer to everything), the AUC gain would be an
+  area effect, not a pair-level forecast. H1 was not split by target area.
+- That the forecasts work after 2011: too few positives with the data's
+  thinning references.
+- That the top of the lists are breakthroughs: they are mostly textbooks.
+
+### Next
+
+Exploratory, to be pre-registered: repeat H1 with the target area held fixed
+(area indicators in BASE, or AUC within each target area), to see whether
+similarity still ranks pairs once the area is known.
