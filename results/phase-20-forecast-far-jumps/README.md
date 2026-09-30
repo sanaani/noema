@@ -127,3 +127,73 @@ the run.
 One AWS m6i.4xlarge, self-terminating, idle-log watchdog, 2-hour power-off;
 smoke pass first (every 4th paper). Estimated 20–40 minutes, under $1.
 Teardown verified.
+
+---
+
+## Results
+
+*Appended after the run. Nothing above this line changed.* Run
+`noema-p12-20260930-152830` (the Phase 12 launcher with `USERDATA=phase20`),
+one m6i.4xlarge, 7 minutes, about $0.10, torn down and verified. Numbers from
+`results/phase20.json`.
+
+### Counts: almost no important jumps among far, unconnected pairs
+
+| cutoff | candidate pairs | far pairs (top 10%) | span threshold | crossed at all | important jumps |
+|---|---:|---:|---:|---:|---:|
+| 2005 | 401,302 | 40,150 | 7.37 bits | 272 | **5** |
+| 2015 | 3,150,607 | 315,062 | 6.94 bits | 292 | **1** |
+| 2025 | 7,125,852 | 712,646 | 7.25 bits | — | — |
+
+At 2005 the counts by tier were 0 (1%), 2 (5%) and 5 (10%), so the rule
+chose 10% and marked the run **underpowered**.
+
+### Verdict
+
+| test | result | verdict |
+|---|---|---|
+| **H1** (2005, cross-validated) | 5 positives; AUC 0.70 → 0.79, interval not computable | **underpowered** |
+| **H2** (2015, forward) | 1 positive; not computed | **underpowered** |
+
+### Landmark check (2015)
+
+All three pairs were still unconnected at 2015, and **none was far** under
+this phase's threshold:
+
+| pair | span | far threshold | A-papers citing it 2016–2025 |
+|---|---:|---:|---:|
+| Zagier → metric geometry | 5.18 | 6.94 | 1 |
+| Diamond–Shurman → metric geometry | 5.27 | 6.94 | 0 |
+| Fisk (interlacing) → combinatorics | 3.49 | 6.94 | 4 |
+
+(The sphere-packing papers themselves are filed under number theory, so they
+do not count as metric-geometry citers.)
+
+### The lists
+
+The 2015 top 50 and the 2025 live list come from a model trained on 5
+positives. Nearly every entry is an analysis or PDE work paired with logic
+(math.LO). They are noise and are not forecasts.
+
+### What this establishes
+
+- **"Far" was defined against the wrong set.** Ranking all possible
+  unconnected pairs puts the far threshold at about 7 bits. Pairs that far
+  apart almost never meet: 272 of 40,150 were crossed at all within 10
+  years, and 5 caught on. Real important jumps happen closer: Phase 18's top
+  1% of *actual* arrivals starts at 5.8 bits, and the sphere-packing bridge
+  (Zagier → metric geometry) sits at 5.2 bits, below this phase's cut but in
+  the 94th percentile of actual arrivals (Phase 18).
+- Forecasting from all possible pairs is therefore a search for roughly 1 in
+  10,000. With arXiv math alone there are too few positives to test it.
+
+### What it does not establish
+
+- Whether similarity forecasts important jumps. Not tested: too few
+  positives.
+
+### Next
+
+Define far by where real arrivals happen (Phase 18's arrival-span
+distribution, fixed before looking), not by the tail of all possible pairs,
+and count positives before scoring.

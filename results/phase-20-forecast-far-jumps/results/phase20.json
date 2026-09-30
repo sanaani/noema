@@ -1,0 +1,1141 @@
+{
+  "seed": 20261010,
+  "smoke": false,
+  "cutoffs": {
+    "train": 2005,
+    "forward": 2015,
+    "live": 2025
+  },
+  "tier": {
+    "counts_2005": {
+      "1%": 0,
+      "5%": 2,
+      "10%": 5
+    },
+    "chosen": 0.1,
+    "underpowered": true
+  },
+  "population_train": {
+    "candidate_pairs": 401302,
+    "far_pairs": 40150,
+    "span_threshold_bits": 7.3672089741882285,
+    "important_jumps": 5,
+    "far_pairs_crossed_any": 272
+  },
+  "population_forward": {
+    "candidate_pairs": 3150607,
+    "far_pairs": 315062,
+    "span_threshold_bits": 6.9382757200738325,
+    "important_jumps": 1,
+    "far_pairs_crossed_any": 292
+  },
+  "population_live": {
+    "candidate_pairs": 7125852,
+    "far_pairs": 712646,
+    "span_threshold_bits": 7.250621421492826
+  },
+  "H1": {
+    "auc_BASE": 0.7027450491966621,
+    "difference": 0.09222319093286835,
+    "ci95": [
+      NaN,
+      NaN
+    ],
+    "positives": 5,
+    "cells": 40150,
+    "top": {
+      "100": {
+        "BASE": 0,
+        "chance": 0.012453300124533,
+        "BASE+SIM": 0,
+        "SIM_alone": 0
+      },
+      "1000": {
+        "BASE": 0,
+        "chance": 0.12453300124533001,
+        "BASE+SIM": 0,
+        "SIM_alone": 0
+      }
+    },
+    "auc_BASE+SIM": 0.7949682401295305,
+    "auc_SIM_alone": 0.8793075102752522,
+    "verdict": "underpowered"
+  },
+  "top_50_2015": [
+    {
+      "work": "W3021722416",
+      "work_title_if_arxiv": null,
+      "home_area": "math.AP",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 668,
+      "span_bits": 7.186433477183371,
+      "similarity": 0.5016136984582686,
+      "score": -5.062189516363165,
+      "outcome_papers": 0
+    },
+    {
+      "work": "W1866311589",
+      "work_title_if_arxiv": null,
+      "home_area": "math.AP",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 1443,
+      "span_bits": 7.450633388820863,
+      "similarity": 0.4638339488238082,
+      "score": -5.074543184226158,
+      "outcome_papers": 0
+    },
+    {
+      "work": "W3157341860",
+      "work_title_if_arxiv": null,
+      "home_area": "math.OC",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 98,
+      "span_bits": 7.009486596471089,
+      "similarity": 0.5467725417027692,
+      "score": -5.183777853462809,
+      "outcome_papers": 0
+    },
+    {
+      "work": "W2251490743",
+      "work_title_if_arxiv": null,
+      "home_area": "math.AP",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 112,
+      "span_bits": 7.091853911866459,
+      "similarity": 0.5416733449393016,
+      "score": -5.339876108608648,
+      "outcome_papers": 1
+    },
+    {
+      "work": "W4210427261",
+      "work_title_if_arxiv": null,
+      "home_area": "math.PR",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 22,
+      "span_bits": 6.962240093709167,
+      "similarity": 0.6243775749883853,
+      "score": -5.341753194156762,
+      "outcome_papers": 0
+    },
+    {
+      "work": "W1653619892",
+      "work_title_if_arxiv": null,
+      "home_area": "math.OC",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 124,
+      "span_bits": 6.974063395427633,
+      "similarity": 0.5355837660838513,
+      "score": -5.365328213664811,
+      "outcome_papers": 0
+    },
+    {
+      "work": "W1489458628",
+      "work_title_if_arxiv": null,
+      "home_area": "math.AP",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 140,
+      "span_bits": 7.085698596699569,
+      "similarity": 0.546554114388312,
+      "score": -5.3653400687928166,
+      "outcome_papers": 0
+    },
+    {
+      "work": "W2021268474",
+      "work_title_if_arxiv": null,
+      "home_area": "math.AP",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 170,
+      "span_bits": 7.0987336619417905,
+      "similarity": 0.5260377370219007,
+      "score": -5.372427815403872,
+      "outcome_papers": 0
+    },
+    {
+      "work": "W1527296550",
+      "work_title_if_arxiv": null,
+      "home_area": "math.AP",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 467,
+      "span_bits": 6.966340573113945,
+      "similarity": 0.4514171316358957,
+      "score": -5.421443464906117,
+      "outcome_papers": 0
+    },
+    {
+      "work": "W1545370368",
+      "work_title_if_arxiv": null,
+      "home_area": "math.PR",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 669,
+      "span_bits": 6.965141097672341,
+      "similarity": 0.44602288594782763,
+      "score": -5.458171851742921,
+      "outcome_papers": 0
+    },
+    {
+      "work": "W1522699118",
+      "work_title_if_arxiv": null,
+      "home_area": "math.AP",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 148,
+      "span_bits": 6.943981421870544,
+      "similarity": 0.5044575730869582,
+      "score": -5.472206328815729,
+      "outcome_papers": 0
+    },
+    {
+      "work": "W2088703872",
+      "work_title_if_arxiv": null,
+      "home_area": "math.AP",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 78,
+      "span_bits": 7.314816462852468,
+      "similarity": 0.5371730744888802,
+      "score": -5.492729474109375,
+      "outcome_papers": 0
+    },
+    {
+      "work": "W1547403762",
+      "work_title_if_arxiv": null,
+      "home_area": "math.AP",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 112,
+      "span_bits": 7.00530990363674,
+      "similarity": 0.5073375219699598,
+      "score": -5.51690485235406,
+      "outcome_papers": 1
+    },
+    {
+      "work": "W2000985550",
+      "work_title_if_arxiv": null,
+      "home_area": "math.OC",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 23,
+      "span_bits": 7.088890878028739,
+      "similarity": 0.5921006323420083,
+      "score": -5.536574826159561,
+      "outcome_papers": 0
+    },
+    {
+      "work": "W1604436244",
+      "work_title_if_arxiv": null,
+      "home_area": "math.AP",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 167,
+      "span_bits": 7.137137494313722,
+      "similarity": 0.5052943750059642,
+      "score": -5.54169767585798,
+      "outcome_papers": 0
+    },
+    {
+      "work": "W1680579736",
+      "work_title_if_arxiv": null,
+      "home_area": "math.AP",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 122,
+      "span_bits": 6.982193785709238,
+      "similarity": 0.5164518220022662,
+      "score": -5.557606719539467,
+      "outcome_papers": 0
+    },
+    {
+      "work": "W1582617215",
+      "work_title_if_arxiv": null,
+      "home_area": "math.AP",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 165,
+      "span_bits": 7.2553196987888375,
+      "similarity": 0.48645184362488664,
+      "score": -5.604735966790385,
+      "outcome_papers": 0
+    },
+    {
+      "work": "W1992651491",
+      "work_title_if_arxiv": null,
+      "home_area": "math.PR",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 9,
+      "span_bits": 7.045892537011875,
+      "similarity": 0.609033659119324,
+      "score": -5.608633637882818,
+      "outcome_papers": 0
+    },
+    {
+      "work": "W1580561995",
+      "work_title_if_arxiv": null,
+      "home_area": "math.PR",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 503,
+      "span_bits": 7.01133254893438,
+      "similarity": 0.43623370542705153,
+      "score": -5.616953339698419,
+      "outcome_papers": 0
+    },
+    {
+      "work": "W2126794261",
+      "work_title_if_arxiv": null,
+      "home_area": "math.PR",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 431,
+      "span_bits": 6.949766849556205,
+      "similarity": 0.4380482050923112,
+      "score": -5.62821429561645,
+      "outcome_papers": 0
+    },
+    {
+      "work": "W598051755",
+      "work_title_if_arxiv": null,
+      "home_area": "math.NA",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 74,
+      "span_bits": 7.024106154028358,
+      "similarity": 0.4914976015792038,
+      "score": -5.634130532353803,
+      "outcome_papers": 0
+    },
+    {
+      "work": "W2032916024",
+      "work_title_if_arxiv": null,
+      "home_area": "math.PR",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 49,
+      "span_bits": 6.969985085733638,
+      "similarity": 0.5379955603547744,
+      "score": -5.636448048755503,
+      "outcome_papers": 0
+    },
+    {
+      "work": "W2075085615",
+      "work_title_if_arxiv": null,
+      "home_area": "math.AP",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 114,
+      "span_bits": 6.9941478774499615,
+      "similarity": 0.5042921231671396,
+      "score": -5.66533999991819,
+      "outcome_papers": 0
+    },
+    {
+      "work": "W656727543",
+      "work_title_if_arxiv": null,
+      "home_area": "math.AP",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 109,
+      "span_bits": 7.287288398862274,
+      "similarity": 0.5117669699792441,
+      "score": -5.673783989179935,
+      "outcome_papers": 0
+    },
+    {
+      "work": "W1544375930",
+      "work_title_if_arxiv": null,
+      "home_area": "math.AP",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 121,
+      "span_bits": 6.946844194994713,
+      "similarity": 0.4883833511661513,
+      "score": -5.696701693871326,
+      "outcome_papers": 0
+    },
+    {
+      "work": "W2296616510",
+      "work_title_if_arxiv": null,
+      "home_area": "math.NA",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 250,
+      "span_bits": 7.055560571983181,
+      "similarity": 0.44786661818357565,
+      "score": -5.713032208566956,
+      "outcome_papers": 0
+    },
+    {
+      "work": "W1855169650",
+      "work_title_if_arxiv": null,
+      "home_area": "math.AP",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 73,
+      "span_bits": 7.6813700866793795,
+      "similarity": 0.4980919183904631,
+      "score": -5.726614046498661,
+      "outcome_papers": 0
+    },
+    {
+      "work": "W1546851689",
+      "work_title_if_arxiv": null,
+      "home_area": "math.PR",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 124,
+      "span_bits": 6.967780641794333,
+      "similarity": 0.49251947957219233,
+      "score": -5.735750036772903,
+      "outcome_papers": 0
+    },
+    {
+      "work": "W2015410655",
+      "work_title_if_arxiv": null,
+      "home_area": "math.OC",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 86,
+      "span_bits": 7.149031559209051,
+      "similarity": 0.4985553140430117,
+      "score": -5.740063814986085,
+      "outcome_papers": 0
+    },
+    {
+      "work": "W4233371490",
+      "work_title_if_arxiv": null,
+      "home_area": "math.AP",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 39,
+      "span_bits": 7.680506709487594,
+      "similarity": 0.5346403937489798,
+      "score": -5.75977027776997,
+      "outcome_papers": 0
+    },
+    {
+      "work": "W1534416612",
+      "work_title_if_arxiv": null,
+      "home_area": "math.OC",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 47,
+      "span_bits": 7.172356593266874,
+      "similarity": 0.524586773254707,
+      "score": -5.76268287669099,
+      "outcome_papers": 0
+    },
+    {
+      "work": "W2095487918",
+      "work_title_if_arxiv": null,
+      "home_area": "math.PR",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 32,
+      "span_bits": 6.984036043205687,
+      "similarity": 0.5626990575727655,
+      "score": -5.777582025231562,
+      "outcome_papers": 0
+    },
+    {
+      "work": "W2165807407",
+      "work_title_if_arxiv": null,
+      "home_area": "math.OC",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 14,
+      "span_bits": 6.957752782490941,
+      "similarity": 0.5536335413711406,
+      "score": -5.781195259579529,
+      "outcome_papers": 0
+    },
+    {
+      "work": "W1537639429",
+      "work_title_if_arxiv": null,
+      "home_area": "math.AP",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 64,
+      "span_bits": 7.272557432476085,
+      "similarity": 0.5210510610863556,
+      "score": -5.782622595137443,
+      "outcome_papers": 0
+    },
+    {
+      "work": "W2133469585",
+      "work_title_if_arxiv": null,
+      "home_area": "math.OC",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 14,
+      "span_bits": 7.155263236859071,
+      "similarity": 0.5619920228651443,
+      "score": -5.785692372816792,
+      "outcome_papers": 0
+    },
+    {
+      "work": "W2081877251",
+      "work_title_if_arxiv": null,
+      "home_area": "math.PR",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 359,
+      "span_bits": 7.019820920742511,
+      "similarity": 0.42679776041940776,
+      "score": -5.797217021340712,
+      "outcome_papers": 0
+    },
+    {
+      "work": "W2033287169",
+      "work_title_if_arxiv": null,
+      "home_area": "math.AP",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 95,
+      "span_bits": 7.0129538831654825,
+      "similarity": 0.5031192895985898,
+      "score": -5.813085905302719,
+      "outcome_papers": 0
+    },
+    {
+      "work": "W2162870748",
+      "work_title_if_arxiv": null,
+      "home_area": "math.ST",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 83,
+      "span_bits": 7.0285678875293796,
+      "similarity": 0.48446717376582105,
+      "score": -5.822403278217401,
+      "outcome_papers": 0
+    },
+    {
+      "work": "W1975980877",
+      "work_title_if_arxiv": null,
+      "home_area": "math.PR",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 26,
+      "span_bits": 7.073329686840095,
+      "similarity": 0.5394169277297903,
+      "score": -5.824757438607524,
+      "outcome_papers": 0
+    },
+    {
+      "work": "W2123838014",
+      "work_title_if_arxiv": null,
+      "home_area": "math.ST",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 42,
+      "span_bits": 6.970998564787727,
+      "similarity": 0.5170740194917228,
+      "score": -5.840309750519772,
+      "outcome_papers": 0
+    },
+    {
+      "work": "W2022820481",
+      "work_title_if_arxiv": null,
+      "home_area": "math.PR",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 43,
+      "span_bits": 6.983096987835681,
+      "similarity": 0.5260353583462141,
+      "score": -5.853902956312822,
+      "outcome_papers": 0
+    },
+    {
+      "work": "W1965761421",
+      "work_title_if_arxiv": null,
+      "home_area": "math.ST",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 14,
+      "span_bits": 7.062881780724072,
+      "similarity": 0.5674795641545085,
+      "score": -5.8596027746731325,
+      "outcome_papers": 0
+    },
+    {
+      "work": "W1601741115",
+      "work_title_if_arxiv": null,
+      "home_area": "math.OC",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 52,
+      "span_bits": 7.146519891632102,
+      "similarity": 0.4861319118460905,
+      "score": -5.878748784224902,
+      "outcome_papers": 0
+    },
+    {
+      "work": "W2041550349",
+      "work_title_if_arxiv": null,
+      "home_area": "math.PR",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 20,
+      "span_bits": 6.9924019855189625,
+      "similarity": 0.5625222913337452,
+      "score": -5.878910795456331,
+      "outcome_papers": 0
+    },
+    {
+      "work": "W1494380031",
+      "work_title_if_arxiv": null,
+      "home_area": "math.AP",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 82,
+      "span_bits": 7.119803334418686,
+      "similarity": 0.48332828347218093,
+      "score": -5.879281604763483,
+      "outcome_papers": 0
+    },
+    {
+      "work": "W207373900",
+      "work_title_if_arxiv": null,
+      "home_area": "math.AP",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 19,
+      "span_bits": 7.006433154399299,
+      "similarity": 0.5330418194530319,
+      "score": -5.880975933988812,
+      "outcome_papers": 0
+    },
+    {
+      "work": "W2052197092",
+      "work_title_if_arxiv": null,
+      "home_area": "math.PR",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 164,
+      "span_bits": 7.009551055966894,
+      "similarity": 0.4578004518654433,
+      "score": -5.890720571099338,
+      "outcome_papers": 0
+    },
+    {
+      "work": "W2145096794",
+      "work_title_if_arxiv": null,
+      "home_area": "math.NA",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 196,
+      "span_bits": 7.062810318783451,
+      "similarity": 0.4376218464479802,
+      "score": -5.8922334523553905,
+      "outcome_papers": 0
+    },
+    {
+      "work": "W1516681311",
+      "work_title_if_arxiv": null,
+      "home_area": "math.AP",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 73,
+      "span_bits": 7.3029367552249935,
+      "similarity": 0.48023624588053715,
+      "score": -5.907639321847178,
+      "outcome_papers": 0
+    },
+    {
+      "work": "W2135046866",
+      "work_title_if_arxiv": null,
+      "home_area": "math.ST",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 432,
+      "span_bits": 7.414679550861311,
+      "similarity": 0.39723218522144305,
+      "score": -5.915630443341033,
+      "outcome_papers": 0
+    }
+  ],
+  "landmark_check_2015": [
+    {
+      "pair": "Zagier, Elliptic Modular Forms -> metric geometry",
+      "status": "unconnected at 2015",
+      "span_bits": 5.183876249985463,
+      "far": false,
+      "outcome_papers": 1
+    },
+    {
+      "pair": "Diamond-Shurman, A First Course in Modular Forms -> metric geometry",
+      "status": "unconnected at 2015",
+      "span_bits": 5.272546040102309,
+      "far": false,
+      "outcome_papers": 0
+    },
+    {
+      "pair": "Fisk, interlacing note -> combinatorics",
+      "status": "unconnected at 2015",
+      "span_bits": 3.487999973378144,
+      "far": false,
+      "outcome_papers": 4
+    }
+  ],
+  "live_top_50_2025": [
+    {
+      "work": "W1855169650",
+      "work_title_if_arxiv": null,
+      "home_area": "math.AP",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 452,
+      "span_bits": 7.289288353921071,
+      "similarity": 0.48426539135263746,
+      "score": -4.74796641644673
+    },
+    {
+      "work": "W140204898",
+      "work_title_if_arxiv": null,
+      "home_area": "math.AP",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 68,
+      "span_bits": 7.275231358285059,
+      "similarity": 0.5516292510054343,
+      "score": -4.9623634873044695
+    },
+    {
+      "work": "W2004765086",
+      "work_title_if_arxiv": null,
+      "home_area": "math.AP",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 56,
+      "span_bits": 7.567921932989858,
+      "similarity": 0.5467059434623923,
+      "score": -5.209595530363561
+    },
+    {
+      "work": "W1969799749",
+      "work_title_if_arxiv": null,
+      "home_area": "math.NA",
+      "target_area": "math.SG",
+      "citers_up_to_cutoff": 6,
+      "span_bits": 7.546397934402761,
+      "similarity": 0.628771336496838,
+      "score": -5.2159360366065926
+    },
+    {
+      "work": "W1494982173",
+      "work_title_if_arxiv": null,
+      "home_area": "math.AP",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 126,
+      "span_bits": 7.3071344776070015,
+      "similarity": 0.47471972573649507,
+      "score": -5.290511435228506
+    },
+    {
+      "work": "W4292360407",
+      "work_title_if_arxiv": null,
+      "home_area": "math.AP",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 385,
+      "span_bits": 7.372931620691178,
+      "similarity": 0.4552290877037274,
+      "score": -5.291033600251278
+    },
+    {
+      "work": "W6639179668",
+      "work_title_if_arxiv": null,
+      "home_area": "math.AP",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 110,
+      "span_bits": 7.352315007662528,
+      "similarity": 0.4844794214872711,
+      "score": -5.294057628993455
+    },
+    {
+      "work": "W2092425184",
+      "work_title_if_arxiv": "1411.3367 Explicit methods in extended phase space for inseparable Hamiltonian problems",
+      "home_area": "math.NA",
+      "target_area": "math.SG",
+      "citers_up_to_cutoff": 8,
+      "span_bits": 7.546397934402761,
+      "similarity": 0.6106282312680535,
+      "score": -5.299877274857806
+    },
+    {
+      "work": "W2014212235",
+      "work_title_if_arxiv": null,
+      "home_area": "math.AP",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 49,
+      "span_bits": 7.394295377918757,
+      "similarity": 0.5267550301763119,
+      "score": -5.308001656202446
+    },
+    {
+      "work": "W4233371490",
+      "work_title_if_arxiv": null,
+      "home_area": "math.AP",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 100,
+      "span_bits": 7.27810696342291,
+      "similarity": 0.49109993568633353,
+      "score": -5.322345114521048
+    },
+    {
+      "work": "W1545761024",
+      "work_title_if_arxiv": null,
+      "home_area": "math.AP",
+      "target_area": "math.GN",
+      "citers_up_to_cutoff": 844,
+      "span_bits": 7.371992968711015,
+      "similarity": 0.46876654184742567,
+      "score": -5.328776914596212
+    },
+    {
+      "work": "W2478963760",
+      "work_title_if_arxiv": null,
+      "home_area": "math.OC",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 22,
+      "span_bits": 7.5017078792022485,
+      "similarity": 0.5117071390563561,
+      "score": -5.368289864963549
+    },
+    {
+      "work": "W2084113519",
+      "work_title_if_arxiv": null,
+      "home_area": "math.AP",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 29,
+      "span_bits": 7.676788617836382,
+      "similarity": 0.49943564168404,
+      "score": -5.4252516570942415
+    },
+    {
+      "work": "W2885473730",
+      "work_title_if_arxiv": null,
+      "home_area": "math.OC",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 50,
+      "span_bits": 7.2896037011193044,
+      "similarity": 0.4936769478025228,
+      "score": -5.44918343336764
+    },
+    {
+      "work": "W1978018044",
+      "work_title_if_arxiv": null,
+      "home_area": "math.AP",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 23,
+      "span_bits": 7.860109942588699,
+      "similarity": 0.5165676315113258,
+      "score": -5.451357559608035
+    },
+    {
+      "work": "W333643410",
+      "work_title_if_arxiv": null,
+      "home_area": "math.NA",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 87,
+      "span_bits": 7.536201979832364,
+      "similarity": 0.49148162230440484,
+      "score": -5.467823198848336
+    },
+    {
+      "work": "W4301021743",
+      "work_title_if_arxiv": null,
+      "home_area": "math.OC",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 126,
+      "span_bits": 7.442235689069657,
+      "similarity": 0.4831967484661395,
+      "score": -5.498442894441791
+    },
+    {
+      "work": "W1601741115",
+      "work_title_if_arxiv": null,
+      "home_area": "math.OC",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 236,
+      "span_bits": 7.335177453444243,
+      "similarity": 0.45689585425459706,
+      "score": -5.507745637183952
+    },
+    {
+      "work": "W2795744704",
+      "work_title_if_arxiv": null,
+      "home_area": "math.AP",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 129,
+      "span_bits": 7.367203173780962,
+      "similarity": 0.474328046506989,
+      "score": -5.521422150538736
+    },
+    {
+      "work": "W4236261452",
+      "work_title_if_arxiv": null,
+      "home_area": "math.AP",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 23,
+      "span_bits": 7.320347674958281,
+      "similarity": 0.4762120763242367,
+      "score": -5.543358978275638
+    },
+    {
+      "work": "W4250589301",
+      "work_title_if_arxiv": null,
+      "home_area": "math.OC",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 400,
+      "span_bits": 7.31841284330225,
+      "similarity": 0.4110185432879492,
+      "score": -5.582050190466341
+    },
+    {
+      "work": "W1977601222",
+      "work_title_if_arxiv": null,
+      "home_area": "math.NA",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 11,
+      "span_bits": 7.627281312608868,
+      "similarity": 0.5199927827991401,
+      "score": -5.583850588066284
+    },
+    {
+      "work": "W2105340951",
+      "work_title_if_arxiv": null,
+      "home_area": "math.AP",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 145,
+      "span_bits": 7.564503950070673,
+      "similarity": 0.46842869201981935,
+      "score": -5.588882934902351
+    },
+    {
+      "work": "W2504943536",
+      "work_title_if_arxiv": null,
+      "home_area": "math.AP",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 108,
+      "span_bits": 7.542147156530654,
+      "similarity": 0.4624272707684368,
+      "score": -5.591705861711912
+    },
+    {
+      "work": "W4205811183",
+      "work_title_if_arxiv": null,
+      "home_area": "math.AP",
+      "target_area": "math.GN",
+      "citers_up_to_cutoff": 11,
+      "span_bits": 7.648315434466883,
+      "similarity": 0.5922645224705388,
+      "score": -5.614142213213885
+    },
+    {
+      "work": "W2150593711",
+      "work_title_if_arxiv": null,
+      "home_area": "math.OC",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 81,
+      "span_bits": 7.252805565252726,
+      "similarity": 0.4659004082417098,
+      "score": -5.617003338360723
+    },
+    {
+      "work": "W2087584322",
+      "work_title_if_arxiv": null,
+      "home_area": "math.AP",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 54,
+      "span_bits": 7.66547487608225,
+      "similarity": 0.5177114784715467,
+      "score": -5.618640355241306
+    },
+    {
+      "work": "W1586623601",
+      "work_title_if_arxiv": null,
+      "home_area": "math.AP",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 549,
+      "span_bits": 7.617910482128836,
+      "similarity": 0.4171223911415676,
+      "score": -5.622720965941714
+    },
+    {
+      "work": "W2046904024",
+      "work_title_if_arxiv": null,
+      "home_area": "math.AP",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 146,
+      "span_bits": 7.458368982249997,
+      "similarity": 0.4640016282347617,
+      "score": -5.6240658272323945
+    },
+    {
+      "work": "W309412643",
+      "work_title_if_arxiv": null,
+      "home_area": "math.AP",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 42,
+      "span_bits": 7.525975183652232,
+      "similarity": 0.5099001209708219,
+      "score": -5.636446188645988
+    },
+    {
+      "work": "W4312258136",
+      "work_title_if_arxiv": null,
+      "home_area": "math.NA",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 132,
+      "span_bits": 7.314208441652652,
+      "similarity": 0.41008312044588635,
+      "score": -5.642532791149251
+    },
+    {
+      "work": "W2493549790",
+      "work_title_if_arxiv": null,
+      "home_area": "math.AP",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 37,
+      "span_bits": 7.258807520674098,
+      "similarity": 0.4507515760281845,
+      "score": -5.646237293095734
+    },
+    {
+      "work": "W2030579135",
+      "work_title_if_arxiv": null,
+      "home_area": "math.AP",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 60,
+      "span_bits": 7.526006399227637,
+      "similarity": 0.5081927736625826,
+      "score": -5.6472478113698354
+    },
+    {
+      "work": "W2080797205",
+      "work_title_if_arxiv": null,
+      "home_area": "math.AP",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 29,
+      "span_bits": 7.6976198761308385,
+      "similarity": 0.47857633876489375,
+      "score": -5.656498843757671
+    },
+    {
+      "work": "W3100209397",
+      "work_title_if_arxiv": null,
+      "home_area": "math.NA",
+      "target_area": "math.SG",
+      "citers_up_to_cutoff": 6,
+      "span_bits": 7.546397934402761,
+      "similarity": 0.5634693517698884,
+      "score": -5.6759741545905875
+    },
+    {
+      "work": "W1516681311",
+      "work_title_if_arxiv": null,
+      "home_area": "math.AP",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 192,
+      "span_bits": 7.505860122582813,
+      "similarity": 0.4511030099077933,
+      "score": -5.6865537096279795
+    },
+    {
+      "work": "W3099645558",
+      "work_title_if_arxiv": null,
+      "home_area": "math.OC",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 17,
+      "span_bits": 7.558918585894182,
+      "similarity": 0.4962580804029875,
+      "score": -5.7093552369623195
+    },
+    {
+      "work": "W2080849219",
+      "work_title_if_arxiv": null,
+      "home_area": "math.AP",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 37,
+      "span_bits": 7.376572859316401,
+      "similarity": 0.5067886394200609,
+      "score": -5.724994431088978
+    },
+    {
+      "work": "W4300580367",
+      "work_title_if_arxiv": null,
+      "home_area": "math.NA",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 92,
+      "span_bits": 7.535156313135524,
+      "similarity": 0.4681905979453645,
+      "score": -5.72989793462465
+    },
+    {
+      "work": "W2279871042",
+      "work_title_if_arxiv": "1602.04935 Set Regularities and Feasibility Problems",
+      "home_area": "math.OC",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 20,
+      "span_bits": 7.558918585894182,
+      "similarity": 0.5016437989168614,
+      "score": -5.732496944659459
+    },
+    {
+      "work": "W1991113069",
+      "work_title_if_arxiv": null,
+      "home_area": "math.NA",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 227,
+      "span_bits": 7.726982329322607,
+      "similarity": 0.43221723657528544,
+      "score": -5.736491736088933
+    },
+    {
+      "work": "W2103559027",
+      "work_title_if_arxiv": null,
+      "home_area": "math.NA",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 479,
+      "span_bits": 7.465168984668107,
+      "similarity": 0.4249496780604696,
+      "score": -5.74341643601484
+    },
+    {
+      "work": "W2488917107",
+      "work_title_if_arxiv": null,
+      "home_area": "math.OC",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 44,
+      "span_bits": 7.530752131033136,
+      "similarity": 0.4502515884148852,
+      "score": -5.746141997302097
+    },
+    {
+      "work": "W2981026721",
+      "work_title_if_arxiv": null,
+      "home_area": "math.NA",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 12,
+      "span_bits": 7.7135088792339115,
+      "similarity": 0.48967940418180056,
+      "score": -5.754219402122878
+    },
+    {
+      "work": "W1866311589",
+      "work_title_if_arxiv": null,
+      "home_area": "math.AP",
+      "target_area": "math.GN",
+      "citers_up_to_cutoff": 2948,
+      "span_bits": 7.452925515356513,
+      "similarity": 0.4151564696103614,
+      "score": -5.754803651055347
+    },
+    {
+      "work": "W2619881549",
+      "work_title_if_arxiv": null,
+      "home_area": "math.AP",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 13,
+      "span_bits": 7.359720431948237,
+      "similarity": 0.513739444465238,
+      "score": -5.761561444565397
+    },
+    {
+      "work": "W2280869971",
+      "work_title_if_arxiv": null,
+      "home_area": "math.AP",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 16,
+      "span_bits": 7.865860664705514,
+      "similarity": 0.5251055414334386,
+      "score": -5.765371192439057
+    },
+    {
+      "work": "W2111027538",
+      "work_title_if_arxiv": "1207.3367 Geometric Generalisations of SHAKE and RATTLE",
+      "home_area": "math.NA",
+      "target_area": "math.SG",
+      "citers_up_to_cutoff": 6,
+      "span_bits": 7.546397934402761,
+      "similarity": 0.5783932438434359,
+      "score": -5.7749620728562965
+    },
+    {
+      "work": "W2049266244",
+      "work_title_if_arxiv": null,
+      "home_area": "math.AP",
+      "target_area": "math.LO",
+      "citers_up_to_cutoff": 45,
+      "span_bits": 7.375642696809992,
+      "similarity": 0.4821290712271135,
+      "score": -5.777013610032462
+    },
+    {
+      "work": "W2519905446",
+      "work_title_if_arxiv": "1609.02212 Explicit symplectic approximation of nonseparable Hamiltonians: algorithm and long time performance",
+      "home_area": "math.NA",
+      "target_area": "math.SG",
+      "citers_up_to_cutoff": 16,
+      "span_bits": 7.37275386320409,
+      "similarity": 0.5422200472760462,
+      "score": -5.778843487335002
+    }
+  ]
+}
