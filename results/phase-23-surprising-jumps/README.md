@@ -99,3 +99,75 @@ Prediction: detectable, small.
 One AWS m6i.4xlarge (the Phase 12 launcher, `USERDATA=phase23`),
 self-terminating, idle-log watchdog; smoke pass first (every 4th paper,
 catch-on lowered to 1 paper). Under $1. Teardown verified.
+
+---
+
+## Results
+
+*Appended after the run. Nothing above this line changed.* Run
+`noema-p12-20260930-200148` (the Phase 12 launcher with `USERDATA=phase23`),
+one m6i.4xlarge, 9 minutes, about $0.15, torn down and verified. Numbers from
+`results/phase23.json`; titles and record types from OpenAlex in
+`results/names.json`.
+
+236,656 surprising pairs at span ≥ 4.65 bits, 255 important jumps, on 133
+usable routes: grain **route**.
+
+### Verdict
+
+| test | within-route AUC, BASE → BASE+SIM | difference [95%] | verdict |
+|---|---|---|---|
+| **H1** (span ≥ 4.65, 255 jumps) | 0.705 → 0.816 | **+0.111 [+0.075, +0.147]** | **similarity forecasts surprising jumps** |
+| span ≥ 5.84 (95 jumps) | 0.665 → 0.805 | +0.141 [+0.085, +0.196] | underpowered |
+| no span threshold (493 jumps) | 0.705 → 0.819 | +0.114 [+0.087, +0.139] | similarity forecasts surprising jumps |
+
+Similarity alone, within route: 0.824. The prediction (detectable, small) was
+too cautious: the gain is larger than in Phase 22 (+0.064), where knocking and
+next-door pairs were included.
+
+### Reported, not tested (primary)
+
+- Difference within target area +0.058; with no strata +0.038.
+- Important jumps in the top 100: BASE 3, **BASE+SIM 13**, chance 0.11. Top
+  1,000: 34 and **59**, chance 1.1.
+- Targets of the jumps: optimization and control 44, dynamical systems 28,
+  numerical analysis 23, rings and algebras 17, classical analysis 16. Top
+  routes: probability → dynamical systems 17, probability → optimization 16,
+  PDE → optimization 11.
+
+### What the top 100 looks like
+
+More research papers than before (57 articles, 35 books), and the list reads
+as a map of real cross-field movements of 2006–2015, not only textbooks:
+
+- **Backward stochastic differential equations** into control, PDE and
+  numerical analysis: Pardoux–Peng (1990), El Karoui–Peng–Quenez (1997),
+  Ma–Protter–Yong (1994). 4 of the 13 hits, and more BSDE pairs just below.
+- **Mathematical finance** reaching optimization (minimal entropy martingale
+  measures, optional decomposition, no-arbitrage valuation): ranked high, did
+  not catch on in arXiv math.OC.
+- Others: symbolic dynamics into ring theory (Lind–Marcus, a hit), Knutson–Tao
+  honeycombs into classical analysis, Jerrum–Sinclair's permanent, Smale's
+  problems for the next century, Flaschka–Newell deformations.
+- Hits that are textbooks: Hartman's *ODEs*, Ladyzhenskaya's parabolic
+  equations, Brézis's maximal monotone operators, Rockafellar's *Convex
+  Analysis* (probability → dynamical systems), Ellis's *Entropy, Large
+  Deviations*, Karatzas–Shreve, Hoeffding's inequality.
+
+### What this establishes
+
+- **Among pairs with no prior contact and no neighbouring contact,
+  similarity forecasts which will catch on**, within a route, with a larger
+  gain than on all far pairs. The surprising jumps are where similarity does
+  the most work, not the least.
+- The top of the list now contains real cross-field programmes (BSDEs, the
+  finance-to-optimization wave), alongside textbooks.
+
+### What it does not establish
+
+- **Independence of the hits.** 4 of the 13 top-100 hits are one research
+  programme (BSDEs, 3 works). The count "13 against 3" is partly one theme.
+- **Anything after 2015.** One cutoff, one window.
+- **That these are breakthroughs.** "Surprising" here is a mechanical rule
+  about prior contact, and catching on still means 5 papers. Several top
+  entries are textbooks.
