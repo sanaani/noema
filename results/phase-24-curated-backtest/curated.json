@@ -1,0 +1,191 @@
+[
+ {
+  "programme": "rough paths -> singular SPDE",
+  "work": "Differential equations driven by rough signals",
+  "year": 1998,
+  "target": "math.AP",
+  "why": "Hairer's KPZ solution (2013) and regularity structures (2014) carried Lyons's rough paths into PDE."
+ },
+ {
+  "programme": "sum-product -> groups",
+  "work": "A sum-product estimate in finite fields, and applications",
+  "year": 2004,
+  "target": "math.GR",
+  "why": "Helfgott, Bourgain-Gamburd expansion, Breuillard-Green-Tao approximate groups (2008-2012)."
+ },
+ {
+  "programme": "polynomial method -> harmonic analysis",
+  "work": "Combinatorial Nullstellensatz",
+  "year": 1999,
+  "target": "math.CA",
+  "why": "Dvir's finite-field Kakeya (2008), Guth's polynomial partitioning in restriction theory (2010-2015)."
+ },
+ {
+  "programme": "model categories -> logic (homotopy type theory)",
+  "work": "Model categories",
+  "year": 1999,
+  "target": "math.LO",
+  "why": "Awodey-Warren, Voevodsky univalent foundations, HoTT book (2006-2013)."
+ },
+ {
+  "programme": "optimal transport -> metric geometry",
+  "work": "The geometry of dissipative evolution equations: the porous medium equation",
+  "year": 2001,
+  "target": "math.MG",
+  "why": "Lott-Villani and Sturm synthetic Ricci curvature (2006-2009), RCD spaces (2010-2015)."
+ },
+ {
+  "programme": "persistent homology -> algebraic topology",
+  "work": "Topological persistence and simplification",
+  "year": 2002,
+  "target": "math.AT",
+  "why": "Topological data analysis: Carlsson (2009), stability and interleavings (2007-2015)."
+ },
+ {
+  "programme": "cluster algebras -> low-dimensional topology",
+  "work": "Cluster algebras I: Foundations",
+  "year": 2002,
+  "target": "math.GT",
+  "why": "Fomin-Shapiro-Thurston cluster algebras from surfaces (2008), Teichmuller and triangulations."
+ },
+ {
+  "programme": "moment relaxations -> real algebraic geometry",
+  "work": "Global optimization with polynomials and the problem of moments",
+  "year": 2001,
+  "target": "math.AG",
+  "why": "Convex algebraic geometry: Blekherman, Nie, Scheiderer (2006-2015)."
+ },
+ {
+  "programme": "ergodic nilsystems -> additive number theory",
+  "work": "Nonconventional ergodic averages and nilmanifolds",
+  "year": 2005,
+  "target": "math.NT",
+  "why": "Green-Tao linear equations in primes and nilsequences (2006-2012)."
+ },
+ {
+  "programme": "graph limits -> 3-manifolds and lattices",
+  "work": "Recurrence of distributional limits of finite planar graphs",
+  "year": 2001,
+  "target": "math.GT",
+  "why": "Benjamini-Schramm convergence in Abert et al. growth of L2-invariants (2012)."
+ },
+ {
+  "programme": "random projections -> numerical linear algebra",
+  "work": "Extensions of Lipschitz mappings into a Hilbert space",
+  "year": 1984,
+  "target": "math.NA",
+  "why": "Randomized numerical linear algebra: Halko-Martinsson-Tropp (2009-2011)."
+ },
+ {
+  "programme": "random graphs -> random topology",
+  "work": "On the evolution of random graphs",
+  "year": 1960,
+  "target": "math.AT",
+  "why": "Linial-Meshulam random complexes (2006), Kahle random topology (2009-2014)."
+ },
+ {
+  "programme": "Groebner bases -> statistics",
+  "work": "Algebraic algorithms for sampling from conditional distributions",
+  "year": 1998,
+  "target": "math.ST",
+  "why": "Algebraic statistics: Markov bases, Drton-Sturmfels-Sullivant (2005-2015)."
+ },
+ {
+  "programme": "symmetric functions -> integrable probability",
+  "work": "Symmetric functions and Hall polynomials",
+  "year": 1995,
+  "target": "math.PR",
+  "why": "Borodin-Corwin Macdonald processes (2011) and integrable probability."
+ },
+ {
+  "programme": "sparse representation -> probability",
+  "work": "Atomic decomposition by basis pursuit",
+  "year": 1998,
+  "target": "math.PR",
+  "why": "Compressed sensing (2006-2015): random matrices proving restricted isometry."
+ },
+ {
+  "programme": "Kakeya maximal bounds -> combinatorics",
+  "work": "An improved bound for Kakeya type maximal functions",
+  "year": 1995,
+  "target": "math.CO",
+  "why": "Finite-field Kakeya (Dvir 2008), Guth-Katz joints and distinct distances (2008-2015)."
+ },
+ {
+  "programme": "locally compact groups -> approximate groups",
+  "work": "Groups without small subgroups",
+  "year": 1952,
+  "target": "math.CO",
+  "why": "Hrushovski (2012) and Breuillard-Green-Tao structure of approximate groups used Gleason-Yamabe."
+ },
+ {
+  "programme": "o-minimality -> number theory",
+  "work": "Tame topology and o-minimal structures",
+  "year": 1998,
+  "target": "math.NT",
+  "why": "Pila-Wilkie counting (2006) and Pila-Zannier, Pila's Andre-Oort proofs (2008-2014)."
+ },
+ {
+  "programme": "propagation of chaos -> mean field games",
+  "work": "Topics in propagation of chaos",
+  "year": 1991,
+  "target": "math.OC",
+  "why": "Lasry-Lions mean field games (2006-2007), Carmona-Delarue (2013-2015)."
+ },
+ {
+  "programme": "VC dimension -> model theory (NIP)",
+  "work": "On the uniform convergence of relative frequencies of events to their probabilities",
+  "year": 1971,
+  "target": "math.LO",
+  "why": "NIP theories: Hrushovski-Peterzil-Pillay, Hrushovski-Pillay, Simon, Chernikov (2008-2015)."
+ },
+ {
+  "programme": "regularity lemma -> model theory",
+  "work": "Regular partitions of graphs",
+  "year": 1978,
+  "target": "math.LO",
+  "why": "Malliaris-Shelah stable regularity (2011-2014), model-theoretic regularity lemmas."
+ },
+ {
+  "programme": "Hitchin fibration -> Langlands (fundamental lemma)",
+  "work": "Stable bundles and integrable systems",
+  "year": 1987,
+  "target": "math.NT",
+  "why": "Ngo's proof of the fundamental lemma (2006-2010) used the Hitchin fibration."
+ },
+ {
+  "programme": "sofic groups -> dynamics",
+  "work": "Endomorphisms of symbolic algebraic varieties",
+  "year": 1999,
+  "target": "math.DS",
+  "why": "Bowen's sofic entropy (2010), Kerr-Li (2011-2015)."
+ },
+ {
+  "programme": "operator algebras -> model theory",
+  "work": "Classification of injective factors",
+  "year": 1976,
+  "target": "math.LO",
+  "why": "Model theory of operator algebras, Connes embedding (Farah-Hart-Sherman 2009-2015)."
+ },
+ {
+  "programme": "lasso -> optimization",
+  "work": "Regression shrinkage and selection via the lasso",
+  "year": 1996,
+  "target": "math.OC",
+  "why": "Sparse optimization and first-order methods (FISTA 2009, 2006-2015)."
+ },
+ {
+  "programme": "metric geometry -> random maps",
+  "work": "A course in metric geometry",
+  "year": 2001,
+  "target": "math.PR",
+  "why": "Brownian map and Gromov-Hausdorff scaling limits (Le Gall, Miermont 2006-2013)."
+ },
+ {
+  "programme": "decoupling origins -> Vinogradov",
+  "work": "Local smoothing type estimates on Lp for large p",
+  "year": 2000,
+  "target": "math.NT",
+  "why": "Bourgain-Demeter decoupling (2014) and Bourgain-Demeter-Guth Vinogradov mean value (2015)."
+ }
+]
