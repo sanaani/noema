@@ -34,7 +34,8 @@ launch() {
   echo "== packaging the task"
   cp "$REPO/scripts/run-phase11.py" "$REPO/scripts/run-phase12.py" \
      "$REPO/scripts/count-horizons.py" "$REPO/scripts/run-phase13.py" \
-     "$REPO/scripts/run-phase14.py" "$REPO/scripts/count-grains.py" "$t/scripts/"
+     "$REPO/scripts/run-phase14.py" "$REPO/scripts/count-grains.py" \
+     "$REPO/scripts/run-phase15.py" "$t/scripts/"
   # Phase 11's papers, references and snapshot file list
   local data="$REPO/outputs/phase-11-tool-area-grid/data"
   mkdir -p "$t/in"
@@ -42,7 +43,7 @@ launch() {
   # USERDATA=horizons (the watch-length count) or phase13: from saved author ids
   if [ -n "${USERDATA:-}" ]; then cp "$data/authors.jsonl.gz" "$t/in/"; fi
   # USERDATA=grains-count: the grain count again, from saved topics
-  if [ "${USERDATA:-}" = grains-count ]; then cp "$data/topics.jsonl.gz" "$t/in/"; fi
+  case "${USERDATA:-}" in grains-count|phase15) cp "$data/topics.jsonl.gz" "$t/in/" ;; esac
   ( cd "$t" && find . -type f -exec sha256sum {} + > "$out/task-SHA256SUMS" )
   tar czf "$out/task.tar.gz" -C "$out/task" noema
   aws s3 cp "$out/task.tar.gz" "s3://$BUCKET/$run-task.tar.gz" --region "$REGION"
@@ -93,7 +94,7 @@ JSON
 
   echo "== user data"
   sed -e "s|@BUCKET@|$BUCKET|g" -e "s|@RUN@|$run|g" \
-      "$REPO/scripts/$(case "${USERDATA:-}" in phase1[34]) echo "$USERDATA" ;; *) echo "phase12${USERDATA:+-$USERDATA}" ;; esac)-user-data.sh.in" > "$out/user-data.sh"
+      "$REPO/scripts/$(case "${USERDATA:-}" in phase1[345]) echo "$USERDATA" ;; *) echo "phase12${USERDATA:+-$USERDATA}" ;; esac)-user-data.sh.in" > "$out/user-data.sh"
 
   echo "== waiting for the instance profile to propagate"
   sleep 20
