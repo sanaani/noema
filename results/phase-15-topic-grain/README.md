@@ -107,3 +107,95 @@ smoke pass first. Estimated 30–45 minutes, under $1; ceiling $3. Teardown
 verified.
 
 ---
+
+## Results
+
+*Appended after the run. Nothing above this line changed.* Run
+`noema-p12-20260930-092256` (the Phase 12 launcher with `USERDATA=phase15`),
+one m6i.4xlarge, 11 minutes, about $0.15, torn down and verified. Numbers from
+`results/phase15.json`; tool and topic names looked up from OpenAlex in
+`results/names.json`.
+
+### Cells and the ladder
+
+2,241 popular tools × 3,455 topics: 7,718,748 cells, 11,111 cold jumps in all.
+248 subfields. Positive-flow threshold 0.074.
+
+| rung | cells | jumps | took hold | jump rate |
+|---|---:|---:|---:|---:|
+| 1 shared paper | 39,971 | 5,454 | 1,389 | 13.6% |
+| 2 shared author | 66,081 | 2,449 | 379 | 3.7% |
+| 3 second-hand | 3,562 | 93 | 13 | 2.6% |
+| 4 same subfield | 306,981 | 977 | 113 | 0.32% |
+| 5 neighbouring field | 117,576 | 153 | 4 | 0.13% |
+| 6 cold | 7,184,577 | 1,985 | 163 | 0.028% |
+
+The rate falls down every step of the ladder. Rung 6 met both targets (1,985
+≥ 600 jumps, 163 ≥ 150 took hold), so the tested population is **rung 6
+(cold)**.
+
+### Verdict
+
+| test | AUC BASE → BASE+SHAPE | difference [95%] | verdict |
+|---|---|---|---|
+| **H1** cold jump | 0.969 → 0.976 | +0.0065 [+0.0042, +0.0086] | **detectable on cold cells, small** |
+| **H2** took hold | 0.980 → 0.991 | +0.0114 [+0.0073, +0.0156] | **detectable on cold cells, small** |
+
+Both predictions ("shape predicts") were too strong: shape helps, reliably,
+but by less than the 0.03 bar. The AUCs are near 1 because most of the 7.2
+million cold cells are obviously dead (an unpopular tool, a tiny topic), and
+BASE already ranks those last.
+
+### Reported, not tested
+
+- **Top of the list** (cold jumps among the top N cold cells; chance is the
+  base rate × N):
+
+  | | top 100 | top 1,000 |
+  |---|---:|---:|
+  | BASE | 12 | 28 |
+  | BASE+SHAPE | 14 | **75** |
+  | chance | 0.03 | 0.28 |
+
+  About 1 in 13 of shape's top 1,000 cold picks became a jump, 2.7 times
+  BASE's count and about 270 times chance. For took hold: 8 against BASE's 1
+  (chance 0.02).
+- **Shape's gain within the other rungs**: shared paper +0.081 [+0.075,
+  +0.087]; shared author +0.083 [+0.076, +0.091]; second-hand +0.009 [−0.047,
+  +0.046]; same subfield +0.033 [+0.027, +0.040]; neighbouring field +0.006
+  [−0.000, +0.012].
+- **Strongest cold jumps** (outcome papers): Triebel's *Theory of Function
+  Spaces*, from harmonic analysis to stochastic processes in finance (25);
+  Lasserre's *Global Optimization with Polynomials* to tensor decomposition
+  (24); Horn and Johnson's *Matrix Analysis* to tensor decomposition (22); the
+  *Handbook of Mathematical Functions* to fractional differential equations
+  (16); Sato's *Lévy Processes* to fractional differential equations (12); Cox,
+  Little and O'Shea's *Ideals, Varieties, and Algorithms* to tensor
+  decomposition (11). All 20 were in the top 1.2% under BASE+SHAPE.
+- **Top 20 under BASE+SHAPE**: all 20 are one tool, `W4285719527`, paired with
+  20 topics. OpenAlex no longer serves this record (404). Its 577 history
+  citers span free probability, n-categories and quantum thermodynamics, so it
+  is a catch-all record that many unrelated references were resolved to, not
+  a real work. Its 20 cells produced 16 outcome citations in total.
+
+### What this establishes
+
+- At the topic grain, with same-subfield moves no longer counted as cold,
+  shape still adds a small but clearly nonzero lift. The lift is concentrated
+  where it matters for a lead list: the top 1,000 cold picks hold 75 real
+  jumps against 28 for BASE.
+- The ladder is a real distance at this grain too: each rung's jump rate is
+  lower than the one above.
+
+### What it does not establish
+
+- **Mis-tagged topics.** OpenAlex topics are assigned by a classifier built for
+  all of science. Some targets are implausible for arXiv math papers (for
+  example *Functions of Bounded Variation* into "Species Distribution and
+  Climate Change"). Some cold jumps are therefore jumps into a wrong label,
+  not a new problem.
+- **Junk tool records.** At least one catch-all record reaches the top of the
+  list. How many of the top 1,000's 75 hits come from such records is not
+  known without a rerun that excludes them (exploratory, not done).
+- **Real work.** Phase 14's reading check was at the arXiv-area grain; it was
+  not repeated here.

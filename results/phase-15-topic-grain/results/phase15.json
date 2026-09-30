@@ -1,0 +1,594 @@
+{
+  "seed": 20261006,
+  "boot": 1000,
+  "smoke": false,
+  "window": [
+    2006,
+    2007,
+    2021
+  ],
+  "counts": {
+    "history_papers": 45418,
+    "outcome_papers": 298899,
+    "popular_tools": 2241,
+    "areas": 3455,
+    "cells": 7718748,
+    "positives": 11111
+  },
+  "ladder": {
+    "history_papers_with_authors": 42604,
+    "history_papers": 45418,
+    "authors": 21180,
+    "flow_threshold": 0.0,
+    "subfields": 248,
+    "positive_flow_threshold": 0.07407407407407407
+  },
+  "rungs": {
+    "1 shared paper": {
+      "cells": 39971,
+      "jumps": 5454,
+      "took_hold": 1389,
+      "rate": 0.13644892547096646
+    },
+    "2 shared author": {
+      "cells": 66081,
+      "jumps": 2449,
+      "took_hold": 379,
+      "rate": 0.03706057717044234
+    },
+    "3 second-hand": {
+      "cells": 3562,
+      "jumps": 93,
+      "took_hold": 13,
+      "rate": 0.026108927568781585
+    },
+    "4 same subfield": {
+      "cells": 306981,
+      "jumps": 977,
+      "took_hold": 113,
+      "rate": 0.0031826073926399354
+    },
+    "5 neighbouring field": {
+      "cells": 117576,
+      "jumps": 153,
+      "took_hold": 4,
+      "rate": 0.0013012859767299449
+    },
+    "6 cold": {
+      "cells": 7184577,
+      "jumps": 1985,
+      "took_hold": 163,
+      "rate": 0.0002762862726643475
+    }
+  },
+  "population": "rung 6 (cold)",
+  "H1": {
+    "auc_BASE": 0.9690460573556112,
+    "auc_BASE+SHAPE": 0.975551328652072,
+    "difference": 0.006505271296460724,
+    "ci95": [
+      0.00418104385423824,
+      0.008624100103367118
+    ],
+    "positives": 1985,
+    "cells": 7184577,
+    "top": {
+      "100": {
+        "BASE": 12,
+        "BASE+SHAPE": 14,
+        "chance": 0.027628627266434752
+      },
+      "1000": {
+        "BASE": 28,
+        "BASE+SHAPE": 75,
+        "chance": 0.2762862726643475
+      }
+    },
+    "verdict": "detectable on cold cells, small"
+  },
+  "H2": {
+    "auc_BASE": 0.9799390339593357,
+    "auc_BASE+SHAPE": 0.9913777539440136,
+    "difference": 0.011438719984677936,
+    "ci95": [
+      0.007278334158544781,
+      0.015623800725433417
+    ],
+    "positives": 163,
+    "cells": 7184577,
+    "top": {
+      "100": {
+        "BASE": 1,
+        "BASE+SHAPE": 1,
+        "chance": 0.002268748737747539
+      },
+      "1000": {
+        "BASE": 1,
+        "BASE+SHAPE": 8,
+        "chance": 0.022687487377475387
+      }
+    },
+    "verdict": "detectable on cold cells, small"
+  },
+  "gain_by_rung": {
+    "1 shared paper": {
+      "auc_BASE": 0.7535320228626469,
+      "auc_BASE+SHAPE": 0.8343163924508259,
+      "difference": 0.08078436958817903,
+      "ci95": [
+        0.07469006436795188,
+        0.08674576798651594
+      ],
+      "positives": 5454,
+      "cells": 39971,
+      "top": {
+        "100": {
+          "BASE": 66,
+          "BASE+SHAPE": 66,
+          "chance": 13.644892547096646
+        },
+        "1000": {
+          "BASE": 365,
+          "BASE+SHAPE": 587,
+          "chance": 136.44892547096646
+        }
+      }
+    },
+    "2 shared author": {
+      "auc_BASE": 0.7923221183863154,
+      "auc_BASE+SHAPE": 0.8751157315548479,
+      "difference": 0.08279361316853251,
+      "ci95": [
+        0.07562407646068119,
+        0.09079022298075996
+      ],
+      "positives": 2449,
+      "cells": 66081,
+      "top": {
+        "100": {
+          "BASE": 44,
+          "BASE+SHAPE": 47,
+          "chance": 3.7060577170442337
+        },
+        "1000": {
+          "BASE": 192,
+          "BASE+SHAPE": 388,
+          "chance": 37.060577170442336
+        }
+      }
+    },
+    "3 second-hand": {
+      "auc_BASE": 0.8773034279036752,
+      "auc_BASE+SHAPE": 0.8864504970289848,
+      "difference": 0.009147069125309604,
+      "ci95": [
+        -0.047441981492063925,
+        0.046437501617579896
+      ],
+      "positives": 93,
+      "cells": 3562,
+      "top": {
+        "100": {
+          "BASE": 10,
+          "BASE+SHAPE": 27,
+          "chance": 2.6108927568781586
+        },
+        "1000": {
+          "BASE": 86,
+          "BASE+SHAPE": 83,
+          "chance": 26.108927568781585
+        }
+      }
+    },
+    "4 same subfield": {
+      "auc_BASE": 0.9127464192338612,
+      "auc_BASE+SHAPE": 0.9459473235322872,
+      "difference": 0.033200904298425926,
+      "ci95": [
+        0.02669967147127499,
+        0.03962521994773318
+      ],
+      "positives": 977,
+      "cells": 306981,
+      "top": {
+        "100": {
+          "BASE": 24,
+          "BASE+SHAPE": 19,
+          "chance": 0.31826073926399356
+        },
+        "1000": {
+          "BASE": 62,
+          "BASE+SHAPE": 65,
+          "chance": 3.182607392639935
+        }
+      }
+    },
+    "5 neighbouring field": {
+      "auc_BASE": 0.9470208512111316,
+      "auc_BASE+SHAPE": 0.9533192632034376,
+      "difference": 0.006298411992306074,
+      "ci95": [
+        -0.0004055657442835006,
+        0.012108616287598408
+      ],
+      "positives": 153,
+      "cells": 117576,
+      "top": {
+        "100": {
+          "BASE": 11,
+          "BASE+SHAPE": 20,
+          "chance": 0.13012859767299448
+        },
+        "1000": {
+          "BASE": 56,
+          "BASE+SHAPE": 70,
+          "chance": 1.301285976729945
+        }
+      }
+    }
+  },
+  "strongest_cold_jumps": [
+    {
+      "tool": "W1594572592",
+      "main_topic_of_use": "T11210",
+      "target_topic": "T10067",
+      "rung": 6,
+      "outcome_papers": 25,
+      "percentile_BASE": 0.9987880288568137,
+      "percentile_BASE+SHAPE": 0.9996704746848701
+    },
+    {
+      "tool": "W1967344706",
+      "main_topic_of_use": "T10963",
+      "target_topic": "T12303",
+      "rung": 6,
+      "outcome_papers": 24,
+      "percentile_BASE": 0.989930722435016,
+      "percentile_BASE+SHAPE": 0.9891312320822785
+    },
+    {
+      "tool": "W2610857016",
+      "main_topic_of_use": "T11476",
+      "target_topic": "T12303",
+      "rung": 6,
+      "outcome_papers": 22,
+      "percentile_BASE": 0.9941426614259963,
+      "percentile_BASE+SHAPE": 0.9988785004322454
+    },
+    {
+      "tool": "W2801179766",
+      "main_topic_of_use": "T11191",
+      "target_topic": "T10288",
+      "rung": 6,
+      "outcome_papers": 16,
+      "percentile_BASE": 0.9876529265397253,
+      "percentile_BASE+SHAPE": 0.9993495093726464
+    },
+    {
+      "tool": "W1480714962",
+      "main_topic_of_use": "T12100",
+      "target_topic": "T10895",
+      "rung": 6,
+      "outcome_papers": 15,
+      "percentile_BASE": 0.9962596962910969,
+      "percentile_BASE+SHAPE": 0.9992132452613425
+    },
+    {
+      "tool": "W3091814460",
+      "main_topic_of_use": "T10940",
+      "target_topic": "T11087",
+      "rung": 6,
+      "outcome_papers": 15,
+      "percentile_BASE": 0.9007179545852178,
+      "percentile_BASE+SHAPE": 0.9988961771862143
+    },
+    {
+      "tool": "W560409768",
+      "main_topic_of_use": "T11049",
+      "target_topic": "T10339",
+      "rung": 6,
+      "outcome_papers": 14,
+      "percentile_BASE": 0.9864834770369919,
+      "percentile_BASE+SHAPE": 0.9979789345983765
+    },
+    {
+      "tool": "W2798461040",
+      "main_topic_of_use": "T11716",
+      "target_topic": "T10928",
+      "rung": 6,
+      "outcome_papers": 13,
+      "percentile_BASE": 0.9967770545155268,
+      "percentile_BASE+SHAPE": 0.9995031718638411
+    },
+    {
+      "tool": "W2072685235",
+      "main_topic_of_use": "T10940",
+      "target_topic": "T10482",
+      "rung": 6,
+      "outcome_papers": 12,
+      "percentile_BASE": 0.9817165993210177,
+      "percentile_BASE+SHAPE": 0.9995269728475316
+    },
+    {
+      "tool": "W2072685235",
+      "main_topic_of_use": "T10940",
+      "target_topic": "T10895",
+      "rung": 6,
+      "outcome_papers": 12,
+      "percentile_BASE": 0.9975494033956348,
+      "percentile_BASE+SHAPE": 0.9997148753503512
+    },
+    {
+      "tool": "W2073370369",
+      "main_topic_of_use": "T10229",
+      "target_topic": "T11829",
+      "rung": 6,
+      "outcome_papers": 12,
+      "percentile_BASE": 0.9747852239596012,
+      "percentile_BASE+SHAPE": 0.9981349632692363
+    },
+    {
+      "tool": "W2610857016",
+      "main_topic_of_use": "T11476",
+      "target_topic": "T11612",
+      "rung": 6,
+      "outcome_papers": 12,
+      "percentile_BASE": 0.976072564884474,
+      "percentile_BASE+SHAPE": 0.9932187378602805
+    },
+    {
+      "tool": "W2797641211",
+      "main_topic_of_use": "T10067",
+      "target_topic": "T10288",
+      "rung": 6,
+      "outcome_papers": 12,
+      "percentile_BASE": 0.9865075563947606,
+      "percentile_BASE+SHAPE": 0.9963267844439554
+    },
+    {
+      "tool": "W3021722416",
+      "main_topic_of_use": "T10229",
+      "target_topic": "T10928",
+      "rung": 6,
+      "outcome_papers": 12,
+      "percentile_BASE": 0.9973638670724804,
+      "percentile_BASE+SHAPE": 0.999791149847792
+    },
+    {
+      "tool": "W1518341038",
+      "main_topic_of_use": "T11435",
+      "target_topic": "T12303",
+      "rung": 6,
+      "outcome_papers": 11,
+      "percentile_BASE": 0.9968363481941943,
+      "percentile_BASE+SHAPE": 0.998717461027977
+    },
+    {
+      "tool": "W1533889494",
+      "main_topic_of_use": "T11654",
+      "target_topic": "T10339",
+      "rung": 6,
+      "outcome_papers": 11,
+      "percentile_BASE": 0.9848373119252533,
+      "percentile_BASE+SHAPE": 0.9982172228093595
+    },
+    {
+      "tool": "W1539838732",
+      "main_topic_of_use": "T10061",
+      "target_topic": "T12303",
+      "rung": 6,
+      "outcome_papers": 11,
+      "percentile_BASE": 0.9949336613693471,
+      "percentile_BASE+SHAPE": 0.996286420202609
+    },
+    {
+      "tool": "W1594759473",
+      "main_topic_of_use": "T11110",
+      "target_topic": "T11829",
+      "rung": 6,
+      "outcome_papers": 11,
+      "percentile_BASE": 0.9758854975038892,
+      "percentile_BASE+SHAPE": 0.9997730555327057
+    },
+    {
+      "tool": "W2798707604",
+      "main_topic_of_use": "T11564",
+      "target_topic": "T10500",
+      "rung": 6,
+      "outcome_papers": 11,
+      "percentile_BASE": 0.9820701344003968,
+      "percentile_BASE+SHAPE": 0.9963802322669797
+    },
+    {
+      "tool": "W1480714962",
+      "main_topic_of_use": "T12100",
+      "target_topic": "T10067",
+      "rung": 6,
+      "outcome_papers": 10,
+      "percentile_BASE": 0.9987877504827355,
+      "percentile_BASE+SHAPE": 0.9968360698201161
+    }
+  ],
+  "top_20_BASE+SHAPE": [
+    {
+      "tool": "W4285719527",
+      "main_topic_of_use": "T10304",
+      "target_topic": "T11405",
+      "rung": 6,
+      "outcome_papers": 3,
+      "percentile_BASE": 0.9999979817879326,
+      "percentile_BASE+SHAPE": 0.9999999304064804
+    },
+    {
+      "tool": "W4285719527",
+      "main_topic_of_use": "T10304",
+      "target_topic": "T10062",
+      "rung": 6,
+      "outcome_papers": 6,
+      "percentile_BASE": 0.9999992344712848,
+      "percentile_BASE+SHAPE": 0.9999997912194413
+    },
+    {
+      "tool": "W4285719527",
+      "main_topic_of_use": "T10304",
+      "target_topic": "T10221",
+      "rung": 6,
+      "outcome_papers": 0,
+      "percentile_BASE": 0.9999951980471502,
+      "percentile_BASE+SHAPE": 0.9999996520324022
+    },
+    {
+      "tool": "W4285719527",
+      "main_topic_of_use": "T10304",
+      "target_topic": "T10334",
+      "rung": 6,
+      "outcome_papers": 1,
+      "percentile_BASE": 0.9999999304064804,
+      "percentile_BASE+SHAPE": 0.999999512845363
+    },
+    {
+      "tool": "W4285719527",
+      "main_topic_of_use": "T10304",
+      "target_topic": "T10450",
+      "rung": 6,
+      "outcome_papers": 0,
+      "percentile_BASE": 0.9999925534934068,
+      "percentile_BASE+SHAPE": 0.9999993736583239
+    },
+    {
+      "tool": "W4285719527",
+      "main_topic_of_use": "T10304",
+      "target_topic": "T10542",
+      "rung": 6,
+      "outcome_papers": 0,
+      "percentile_BASE": 0.9999943629249154,
+      "percentile_BASE+SHAPE": 0.9999992344712848
+    },
+    {
+      "tool": "W4285719527",
+      "main_topic_of_use": "T10304",
+      "target_topic": "T12897",
+      "rung": 6,
+      "outcome_papers": 0,
+      "percentile_BASE": 0.9999970074786588,
+      "percentile_BASE+SHAPE": 0.9999990952842457
+    },
+    {
+      "tool": "W4285719527",
+      "main_topic_of_use": "T10304",
+      "target_topic": "T10290",
+      "rung": 6,
+      "outcome_papers": 1,
+      "percentile_BASE": 0.9999897697526242,
+      "percentile_BASE+SHAPE": 0.9999989560972066
+    },
+    {
+      "tool": "W4285719527",
+      "main_topic_of_use": "T10304",
+      "target_topic": "T11739",
+      "rung": 6,
+      "outcome_papers": 0,
+      "percentile_BASE": 0.999994919673072,
+      "percentile_BASE+SHAPE": 0.9999988169101675
+    },
+    {
+      "tool": "W4285719527",
+      "main_topic_of_use": "T10304",
+      "target_topic": "T10631",
+      "rung": 6,
+      "outcome_papers": 0,
+      "percentile_BASE": 0.9999982601620109,
+      "percentile_BASE+SHAPE": 0.9999986777231283
+    },
+    {
+      "tool": "W4285719527",
+      "main_topic_of_use": "T10304",
+      "target_topic": "T10676",
+      "rung": 6,
+      "outcome_papers": 3,
+      "percentile_BASE": 0.9999965899175414,
+      "percentile_BASE+SHAPE": 0.9999985385360892
+    },
+    {
+      "tool": "W4285719527",
+      "main_topic_of_use": "T10304",
+      "target_topic": "T11965",
+      "rung": 6,
+      "outcome_papers": 0,
+      "percentile_BASE": 0.9999904656878199,
+      "percentile_BASE+SHAPE": 0.9999983993490501
+    },
+    {
+      "tool": "W4285719527",
+      "main_topic_of_use": "T10304",
+      "target_topic": "T12043",
+      "rung": 6,
+      "outcome_papers": 0,
+      "percentile_BASE": 0.9999931102415632,
+      "percentile_BASE+SHAPE": 0.9999982601620109
+    },
+    {
+      "tool": "W4285719527",
+      "main_topic_of_use": "T10304",
+      "target_topic": "T10029",
+      "rung": 6,
+      "outcome_papers": 1,
+      "percentile_BASE": 0.9999917183711721,
+      "percentile_BASE+SHAPE": 0.9999981209749718
+    },
+    {
+      "tool": "W4285719527",
+      "main_topic_of_use": "T10304",
+      "target_topic": "T13619",
+      "rung": 6,
+      "outcome_papers": 0,
+      "percentile_BASE": 0.9999932494286025,
+      "percentile_BASE+SHAPE": 0.9999979817879326
+    },
+    {
+      "tool": "W4285719527",
+      "main_topic_of_use": "T10304",
+      "target_topic": "T10396",
+      "rung": 6,
+      "outcome_papers": 0,
+      "percentile_BASE": 0.9999997912194413,
+      "percentile_BASE+SHAPE": 0.9999978426008935
+    },
+    {
+      "tool": "W4285719527",
+      "main_topic_of_use": "T10304",
+      "target_topic": "T12575",
+      "rung": 6,
+      "outcome_papers": 0,
+      "percentile_BASE": 0.999997146665698,
+      "percentile_BASE+SHAPE": 0.9999977034138544
+    },
+    {
+      "tool": "W4285719527",
+      "main_topic_of_use": "T10304",
+      "target_topic": "T13203",
+      "rung": 6,
+      "outcome_papers": 0,
+      "percentile_BASE": 0.9999960331693849,
+      "percentile_BASE+SHAPE": 0.9999975642268153
+    },
+    {
+      "tool": "W4285719527",
+      "main_topic_of_use": "T10304",
+      "target_topic": "T11683",
+      "rung": 6,
+      "outcome_papers": 0,
+      "percentile_BASE": 0.9999936669897198,
+      "percentile_BASE+SHAPE": 0.9999974250397762
+    },
+    {
+      "tool": "W4285719527",
+      "main_topic_of_use": "T10304",
+      "target_topic": "T12577",
+      "rung": 6,
+      "outcome_papers": 0,
+      "percentile_BASE": 0.9999789131635725,
+      "percentile_BASE+SHAPE": 0.9999972858527371
+    }
+  ]
+}
