@@ -103,3 +103,71 @@ Prediction: predicts more follow-on.
 One AWS m6i.4xlarge, self-terminating, idle-log watchdog, 2-hour power-off;
 smoke pass first (every 4th paper). Estimated 10–15 minutes, under $1.
 Teardown verified.
+
+---
+
+## Results
+
+*Appended after the run. Nothing above this line changed.* Run
+`noema-p12-20260930-143059` (the Phase 12 launcher with `USERDATA=phase19`),
+one m6i.4xlarge, 10 minutes, about $0.15, torn down and verified. Numbers
+from `results/phase19.json`.
+
+Learn window: 9,674 cells (arrivals up to 2005), 37,998 follow-on papers,
+2,374 cells with 5 or more.
+
+### Verdict
+
+| test | coefficient [95%] | verdict |
+|---|---|---|
+| **H1** span × similarity | +0.047 [+0.014, +0.082] | **content closeness matters more the farther the reach** |
+| **H2** similarity | +0.058 [+0.020, +0.095] | **predicts more follow-on** |
+
+Both predictions held.
+
+### Reported, not tested
+
+- **Coefficients** (per SD for span and similarity): log prior citers +0.24
+  [+0.17, +0.30]; year −0.12 [−0.15, −0.09]; log area size −0.19 [−0.26,
+  −0.12]; span **−0.35** [−0.40, −0.30].
+- **Implied effect of +1 SD of similarity on follow-on**:
+
+  | at | span (bits) | follow-on ratio [95%] |
+  |---|---:|---|
+  | median span | 3.6 | ×1.06 [1.02, 1.10] |
+  | top-1% span | 5.8 | **×1.21** [1.09, 1.35] |
+
+- **By span decile** (Spearman of similarity with follow-on; mean follow-on,
+  high against low similarity): lowest decile +0.10 (5.3 vs 4.0); deciles 2–7
+  between −0.01 and +0.04, with mixed means; deciles 8, 9, 10: +0.06 (3.3 vs
+  2.5), +0.02 (2.8 vs 2.4), +0.07 (2.0 vs 1.7). The per-decile view is noisy
+  and not monotone; the lowest decile also shows an effect.
+- **Tail check** (peek top 1%, 866 cells, 12 with 5 or more follow-ons):
+  Spearman +0.04. Positive, as the slope predicts, and weak.
+- **Label sensitivity** (span as the largest over the arriving papers'
+  categories): span × similarity +0.041 [+0.005, +0.074], same verdict;
+  +1 SD similarity at top-1% span ×1.20 [1.08, 1.32].
+
+### What this establishes
+
+- **Far reaches are followed much less** (span −0.35 per SD: each SD
+  farther cuts follow-on by about 30%), confirming Phase 18's gradient on the
+  count outcome with controls.
+- **Among far reaches, the ones whose papers say similar things to the work's
+  existing users are followed more**, and this effect grows with distance:
+  about +6% per SD of similarity at an ordinary reach, about +21% at the
+  top-1% reach. This is the hidden-bridge pattern, now on 9,674 cells rather
+  than six.
+- The result does not depend on which arXiv category is taken as the area.
+
+### What it does not establish
+
+- **Size.** The effect is real but modest: similarity shifts follow-on by
+  tens of percent, while span alone shifts it by a factor of several. It
+  ranks far reaches; it does not pick breakthroughs by itself.
+- **The tail directly.** The top-1% value is the model's extrapolation of a
+  linear interaction; the direct tail check is weak (+0.04), and the decile
+  view is not monotone.
+- **Cause.** Similar content may make a borrowed tool easier to use, or
+  papers that already speak the new area's language may be better placed to
+  be read there. The data do not separate these.

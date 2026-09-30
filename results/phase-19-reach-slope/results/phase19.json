@@ -1,0 +1,252 @@
+{
+  "seed": 20261009,
+  "smoke": false,
+  "T": 10,
+  "learn_cells": 9674,
+  "learn_follow_on_total": 37998,
+  "learn_caught_on_5": 2374,
+  "span_mean_sd": [
+    3.6668987147205123,
+    0.796058653730492
+  ],
+  "sim_mean_sd": [
+    0.31892353433814763,
+    0.14466927245858885
+  ],
+  "primary": {
+    "intercept": 2.0511545574004875,
+    "coefficients": {
+      "log_prior": {
+        "estimate": 0.2404482342174544,
+        "ci95": [
+          0.1734808087296886,
+          0.2984514446662523
+        ]
+      },
+      "year": {
+        "estimate": -0.1190397844964306,
+        "ci95": [
+          -0.1478133203190818,
+          -0.09075132523934838
+        ]
+      },
+      "log_size": {
+        "estimate": -0.18582572814901263,
+        "ci95": [
+          -0.25620646303714556,
+          -0.11825800758121034
+        ]
+      },
+      "span": {
+        "estimate": -0.34786149213169765,
+        "ci95": [
+          -0.39681024452115987,
+          -0.2994433460376229
+        ]
+      },
+      "sim": {
+        "estimate": 0.05821540605013682,
+        "ci95": [
+          0.020368558466916445,
+          0.09538991944391298
+        ]
+      },
+      "span_x_sim": {
+        "estimate": 0.047383845421419164,
+        "ci95": [
+          0.014469610868482882,
+          0.08164137324331679
+        ]
+      }
+    },
+    "sim_ratio_at_median_span": {
+      "span_bits": 3.644686876360363,
+      "ratio": 1.058542846739395,
+      "ci95": [
+        1.0191213620170476,
+        1.098767594142025
+      ]
+    },
+    "sim_ratio_at_top1_span": {
+      "span_bits": 5.846370112659063,
+      "ratio": 1.2067661861636483,
+      "ci95": [
+        1.0943390033013187,
+        1.3482408737042089
+      ]
+    },
+    "H1": "content closeness matters more the farther the reach",
+    "H2": "predicts more follow-on"
+  },
+  "by_span_decile": [
+    {
+      "cells": 968,
+      "span_range": [
+        1.2870509654686728,
+        2.6815892027717063
+      ],
+      "spearman_sim_followon": 0.09721467344204172,
+      "mean_followon_high_sim": 5.262396694214876,
+      "mean_followon_low_sim": 3.977272727272727
+    },
+    {
+      "cells": 967,
+      "span_range": [
+        2.6815892027717063,
+        3.002117476716171
+      ],
+      "spearman_sim_followon": 0.01473878794322038,
+      "mean_followon_high_sim": 5.066115702479339,
+      "mean_followon_low_sim": 5.801242236024844
+    },
+    {
+      "cells": 968,
+      "span_range": [
+        3.002117476716171,
+        3.242696707882951
+      ],
+      "spearman_sim_followon": -0.008485060632386706,
+      "mean_followon_high_sim": 4.731404958677686,
+      "mean_followon_low_sim": 4.832644628099174
+    },
+    {
+      "cells": 967,
+      "span_range": [
+        3.243013917103039,
+        3.444996897467951
+      ],
+      "spearman_sim_followon": 0.0360047266665106,
+      "mean_followon_high_sim": 5.31198347107438,
+      "mean_followon_low_sim": 4.316770186335404
+    },
+    {
+      "cells": 967,
+      "span_range": [
+        3.445010436985036,
+        3.6446364438871526
+      ],
+      "spearman_sim_followon": 0.039421140790898555,
+      "mean_followon_high_sim": 4.6921487603305785,
+      "mean_followon_low_sim": 4.298136645962733
+    },
+    {
+      "cells": 968,
+      "span_range": [
+        3.6447373088335735,
+        3.819109526594041
+      ],
+      "spearman_sim_followon": 0.032157778013807294,
+      "mean_followon_high_sim": 3.543388429752066,
+      "mean_followon_low_sim": 3.840909090909091
+    },
+    {
+      "cells": 967,
+      "span_range": [
+        3.8194747806452423,
+        4.03138874350274
+      ],
+      "spearman_sim_followon": 0.009644542750403114,
+      "mean_followon_high_sim": 4.5578512396694215,
+      "mean_followon_low_sim": 3.606625258799172
+    },
+    {
+      "cells": 968,
+      "span_range": [
+        4.031437454321875,
+        4.285990021306407
+      ],
+      "spearman_sim_followon": 0.05656961293683382,
+      "mean_followon_high_sim": 3.260330578512397,
+      "mean_followon_low_sim": 2.5165289256198347
+    },
+    {
+      "cells": 967,
+      "span_range": [
+        4.2866780095978365,
+        4.650091215611758
+      ],
+      "spearman_sim_followon": 0.015612623379674733,
+      "mean_followon_high_sim": 2.834710743801653,
+      "mean_followon_low_sim": 2.4182194616977224
+    },
+    {
+      "cells": 967,
+      "span_range": [
+        4.6512280361540475,
+        7.298683759842663
+      ],
+      "spearman_sim_followon": 0.06608660254950573,
+      "mean_followon_high_sim": 1.9545454545454546,
+      "mean_followon_low_sim": 1.730848861283644
+    }
+  ],
+  "tail_check_peek_top1": {
+    "cells": 866,
+    "caught_on_5": 12,
+    "spearman_sim_followon": 0.0374265703898504
+  },
+  "label_sensitivity_span_any": {
+    "intercept": 1.7784161503355913,
+    "coefficients": {
+      "log_prior": {
+        "estimate": 0.21980812331864502,
+        "ci95": [
+          0.16055912239590925,
+          0.2818719774585507
+        ]
+      },
+      "year": {
+        "estimate": -0.1380766532837703,
+        "ci95": [
+          -0.16366003764758502,
+          -0.11035852478640304
+        ]
+      },
+      "log_size": {
+        "estimate": -0.1101603081764124,
+        "ci95": [
+          -0.17479096296909177,
+          -0.04649345318231743
+        ]
+      },
+      "span": {
+        "estimate": -0.2610269661581066,
+        "ci95": [
+          -0.311261521481528,
+          -0.21032864844180463
+        ]
+      },
+      "sim": {
+        "estimate": 0.07634399886716679,
+        "ci95": [
+          0.04142577591043744,
+          0.11240008450388025
+        ]
+      },
+      "span_x_sim": {
+        "estimate": 0.04070665991672674,
+        "ci95": [
+          0.004787828010037261,
+          0.07377282110533415
+        ]
+      }
+    },
+    "sim_ratio_at_median_span": {
+      "span_bits": 3.766384414902477,
+      "ratio": 1.0774115443006769,
+      "ci95": [
+        1.0408777203511843,
+        1.1171526367563251
+      ]
+    },
+    "sim_ratio_at_top1_span": {
+      "span_bits": 5.99177780444461,
+      "ratio": 1.2035174057798657,
+      "ci95": [
+        1.0819773549854481,
+        1.323225524233462
+      ]
+    },
+    "H1": "content closeness matters more the farther the reach"
+  }
+}
