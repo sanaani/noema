@@ -92,3 +92,87 @@ self-terminating, idle-log watchdog, 2-hour power-off; smoke pass first.
 About 20 minutes, under $1. Teardown verified.
 
 ---
+
+## Results
+
+*Appended after the run. Nothing above this line changed.* Run
+`noema-p12-20260930-095137` (the Phase 12 launcher with `USERDATA=phase16`),
+one m6i.4xlarge, 8 minutes, about $0.10, torn down and verified. Numbers from
+`results/phase16.json`; names from `data/`.
+
+### Phase 15's 75 hits
+
+The recomputation matched Phase 15 exactly (AUCs 0.9690 → 0.9756, 75 jumps in
+the top 1,000).
+
+| of Phase 15's top 1,000 cold cells | cells | jumps |
+|---|---:|---:|
+| broken tool | 867 | 29 |
+| good tool, off-field topic | 96 | 44 |
+| good tool, near-math topic (B) | 37 | **2** |
+
+Phase 15's top list was almost entirely noise: 87% of it came from broken
+records (mostly the one catch-all), and 73 of its 75 hits were broken or
+off-field.
+
+### Verdict (population B: good tools, near-math topics; model refitted)
+
+2,053,698 cold cells, 969 cold jumps, 106 that took hold.
+
+| test | AUC BASE → BASE+SHAPE | difference [95%] | verdict |
+|---|---|---|---|
+| **H1** cold jump | 0.958 → 0.972 | +0.014 [+0.011, +0.017] | **detectable on cold cells, small** |
+| **H2** took hold | 0.964 → 0.982 | +0.018 [+0.010, +0.028] | **detectable on cold cells, small** |
+
+Both as predicted. Shape's lift doubled compared with Phase 15 (+0.0065), but
+it is still under the 0.03 bar.
+
+### Reported, not tested
+
+- **Top of the list**, jumps among each model's top N (chance = base rate × N):
+
+  | population | cold jumps | top 100 BASE / +SHAPE | top 1,000 BASE / +SHAPE | chance (1,000) |
+  |---|---:|---|---|---:|
+  | B near-math | 969 | 2 / **22** | 21 / **126** | 0.47 |
+  | A good tools, any topic | 1,929 | 2 / 41 | 27 / 203 | 0.27 |
+  | C mathematics topics | 260 | 5 / 17 | 32 / 90 | 3.3 |
+
+  Took hold, B: top 100, 0 / 8; top 1,000, 3 / 24.
+- **A**: +0.006 [+0.004, +0.008], detectable, small; took hold +0.010
+  [+0.007, +0.013]. **C**: +0.073 [+0.058, +0.092] and +0.057 [+0.025,
+  +0.090], both **underpowered** (260 < 400 jumps, 36 < 100 took hold).
+- **B's 126 hits** come from 88 tools and 52 topics. The target fields are
+  Mathematics 31, Computer Science 28, Engineering 22, Physics 22, Decision
+  Sciences 13, and Economics 10. The strongest:
+  - *Handbook of Mathematical Functions* → fractional differential equations
+    (16).
+  - Loève's *Probability Theory* → probabilistic engineering design (13).
+  - Témam's *Infinite-Dimensional Dynamical Systems* → tumour-growth models
+    (11).
+  - Kloeden and Platen's *Numerical Solution of SDEs* → numerical methods for
+    differential equations (10).
+  - Horn and Johnson's *Matrix Analysis* → financial risk and volatility
+    (10).
+  - Stein's *Singular Integrals* → tumour-growth models (9).
+- **B's top 20**: 3 became cold jumps (10, 3 and 2 outcome papers); 17 did
+  not.
+
+### What this establishes
+
+- Phase 15's headline list (75 hits in the top 1,000) was an artefact of
+  label noise; only 2 of those hits were clean.
+- With the noise removed and the model refitted, shape's lift is real and
+  larger: its top 1,000 clean cold cells hold 126 jumps (1 in 8), against 21
+  for BASE and 0.5 by chance. Its top 100 hold 22, against 2.
+
+### What it does not establish
+
+- **Noise left over.** The rules catch dead records and far-off fields only.
+  Series titles ("Graduate Texts in Mathematics", 3 hits) still pass as tools,
+  and some near-math topics are still mis-tags for math papers ("Research Data
+  Management Practices" is the target of 13 hits).
+- **Surprise.** Most clean hits are classic analysis and probability
+  textbooks reaching applied topics (numerics, mathematical biology, finance,
+  engineering design). They are real cold jumps between topics, but not
+  unexpected ones to a mathematician.
+- **Real work.** Not checked at this grain (Phase 14 was at arXiv areas).

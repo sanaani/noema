@@ -1,0 +1,965 @@
+{
+  "seed": 20261007,
+  "boot": 1000,
+  "smoke": false,
+  "window": [
+    2006,
+    2007,
+    2021
+  ],
+  "counts": {
+    "history_papers": 45418,
+    "outcome_papers": 298899,
+    "popular_tools": 2241,
+    "areas": 3455,
+    "cells": 7718748,
+    "positives": 11111
+  },
+  "ladder": {
+    "history_papers_with_authors": 42604,
+    "history_papers": 45418,
+    "authors": 21180,
+    "flow_threshold": 0.0,
+    "subfields": 248,
+    "positive_flow_threshold": 0.07407407407407407
+  },
+  "broken_tools": [
+    "W122881644",
+    "W151432335",
+    "W1534043326",
+    "W153923367",
+    "W1569878307",
+    "W1849976071",
+    "W190761553",
+    "W1974354188",
+    "W1986119538",
+    "W2077270594",
+    "W2144092610",
+    "W2146168872",
+    "W2153525410",
+    "W2168175751",
+    "W2302541945",
+    "W2384675828",
+    "W2565059094",
+    "W2953354501",
+    "W2962962624",
+    "W2963006044",
+    "W2963065874",
+    "W2963236490",
+    "W2963355744",
+    "W2964156117",
+    "W2964290280",
+    "W3037983013",
+    "W3098353648",
+    "W3098822487",
+    "W3100469840",
+    "W3101225833",
+    "W3135593729",
+    "W3151048661",
+    "W4206666514",
+    "W4231009334",
+    "W4253118785",
+    "W4285719527",
+    "W86492130"
+  ],
+  "phase15_check": {
+    "auc_BASE": 0.9690460573556112,
+    "auc_BASE+SHAPE": 0.975551328652072,
+    "top_1000_jumps": 75
+  },
+  "phase15_hits": {
+    "total": 75,
+    "broken_tool": 29,
+    "off_field_target": 44,
+    "survive_B": 2,
+    "survive_C": 2,
+    "top_1000_broken_tool_cells": 867,
+    "top_1000_off_field_cells": 96
+  },
+  "populations": {
+    "B near-math topics": {
+      "H1": {
+        "auc_BASE": 0.9583831285441339,
+        "auc_BASE+SHAPE": 0.972139993470325,
+        "difference": 0.013756864926191104,
+        "ci95": [
+          0.010947931822422055,
+          0.016784457054959318
+        ],
+        "positives": 969,
+        "cells": 2053698,
+        "top": {
+          "100": {
+            "BASE": 2,
+            "BASE+SHAPE": 22,
+            "chance": 0.04718317883155167
+          },
+          "1000": {
+            "BASE": 21,
+            "BASE+SHAPE": 126,
+            "chance": 0.4718317883155167
+          }
+        },
+        "verdict": "detectable on cold cells, small"
+      },
+      "H2": {
+        "auc_BASE": 0.9642390338673582,
+        "auc_BASE+SHAPE": 0.9821937311205172,
+        "difference": 0.017954697253159013,
+        "ci95": [
+          0.00971937181394048,
+          0.027932752768097056
+        ],
+        "positives": 106,
+        "cells": 2053698,
+        "top": {
+          "100": {
+            "BASE": 0,
+            "BASE+SHAPE": 8,
+            "chance": 0.005161421007373042
+          },
+          "1000": {
+            "BASE": 3,
+            "BASE+SHAPE": 24,
+            "chance": 0.05161421007373042
+          }
+        },
+        "verdict": "detectable on cold cells, small"
+      },
+      "top_20_BASE+SHAPE": [
+        {
+          "tool": "W1594563152",
+          "target_topic": "T10025",
+          "outcome_papers": 0
+        },
+        {
+          "tool": "W1594759473",
+          "target_topic": "T12727",
+          "outcome_papers": 0
+        },
+        {
+          "tool": "W1575104486",
+          "target_topic": "T11416",
+          "outcome_papers": 10
+        },
+        {
+          "tool": "W1575147392",
+          "target_topic": "T12170",
+          "outcome_papers": 0
+        },
+        {
+          "tool": "W1520114710",
+          "target_topic": "T11245",
+          "outcome_papers": 0
+        },
+        {
+          "tool": "W3038830718",
+          "target_topic": "T10025",
+          "outcome_papers": 1
+        },
+        {
+          "tool": "W1527329021",
+          "target_topic": "T11245",
+          "outcome_papers": 0
+        },
+        {
+          "tool": "W2021964921",
+          "target_topic": "T12451",
+          "outcome_papers": 0
+        },
+        {
+          "tool": "W2128978199",
+          "target_topic": "T10996",
+          "outcome_papers": 0
+        },
+        {
+          "tool": "W3091814460",
+          "target_topic": "T11416",
+          "outcome_papers": 1
+        },
+        {
+          "tool": "W3141151088",
+          "target_topic": "T11205",
+          "outcome_papers": 1
+        },
+        {
+          "tool": "W1489554514",
+          "target_topic": "T11720",
+          "outcome_papers": 0
+        },
+        {
+          "tool": "W2802739963",
+          "target_topic": "T11245",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W2072685235",
+          "target_topic": "T12727",
+          "outcome_papers": 3
+        },
+        {
+          "tool": "W1594563152",
+          "target_topic": "T13080",
+          "outcome_papers": 1
+        },
+        {
+          "tool": "W2032316144",
+          "target_topic": "T10248",
+          "outcome_papers": 0
+        },
+        {
+          "tool": "W3043060850",
+          "target_topic": "T10622",
+          "outcome_papers": 0
+        },
+        {
+          "tool": "W2751862591",
+          "target_topic": "T10901",
+          "outcome_papers": 0
+        },
+        {
+          "tool": "W3016843226",
+          "target_topic": "T11245",
+          "outcome_papers": 1
+        },
+        {
+          "tool": "W3148800415",
+          "target_topic": "T12451",
+          "outcome_papers": 0
+        }
+      ],
+      "top_1000_hits": [
+        {
+          "tool": "W1575104486",
+          "target_topic": "T11416",
+          "outcome_papers": 10
+        },
+        {
+          "tool": "W2802739963",
+          "target_topic": "T11245",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W2072685235",
+          "target_topic": "T12727",
+          "outcome_papers": 3
+        },
+        {
+          "tool": "W3021722416",
+          "target_topic": "T10928",
+          "outcome_papers": 12
+        },
+        {
+          "tool": "W1594759473",
+          "target_topic": "T11416",
+          "outcome_papers": 3
+        },
+        {
+          "tool": "W2056099894",
+          "target_topic": "T11270",
+          "outcome_papers": 3
+        },
+        {
+          "tool": "W1488877410",
+          "target_topic": "T11829",
+          "outcome_papers": 9
+        },
+        {
+          "tool": "W1594759473",
+          "target_topic": "T11829",
+          "outcome_papers": 11
+        },
+        {
+          "tool": "W2169071224",
+          "target_topic": "T11270",
+          "outcome_papers": 4
+        },
+        {
+          "tool": "W1527296550",
+          "target_topic": "T11520",
+          "outcome_papers": 9
+        },
+        {
+          "tool": "W1575104486",
+          "target_topic": "T11513",
+          "outcome_papers": 5
+        },
+        {
+          "tool": "W2099111195",
+          "target_topic": "T10928",
+          "outcome_papers": 6
+        },
+        {
+          "tool": "W3038830718",
+          "target_topic": "T10996",
+          "outcome_papers": 3
+        },
+        {
+          "tool": "W2064975723",
+          "target_topic": "T11106",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W2086891822",
+          "target_topic": "T11270",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W2067265108",
+          "target_topic": "T10046",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W75971611",
+          "target_topic": "T11901",
+          "outcome_papers": 3
+        },
+        {
+          "tool": "W2799137445",
+          "target_topic": "T11513",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W1593038947",
+          "target_topic": "T11261",
+          "outcome_papers": 4
+        },
+        {
+          "tool": "W2072685235",
+          "target_topic": "T11416",
+          "outcome_papers": 3
+        },
+        {
+          "tool": "W1594563152",
+          "target_topic": "T10928",
+          "outcome_papers": 7
+        },
+        {
+          "tool": "W1542004730",
+          "target_topic": "T10248",
+          "outcome_papers": 3
+        },
+        {
+          "tool": "W2010353172",
+          "target_topic": "T11443",
+          "outcome_papers": 3
+        },
+        {
+          "tool": "W1501601053",
+          "target_topic": "T12404",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W2020150158",
+          "target_topic": "T10025",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W2798461040",
+          "target_topic": "T12404",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W1580561995",
+          "target_topic": "T11187",
+          "outcome_papers": 3
+        },
+        {
+          "tool": "W3141151088",
+          "target_topic": "T10339",
+          "outcome_papers": 3
+        },
+        {
+          "tool": "W1968339027",
+          "target_topic": "T11513",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W2801179766",
+          "target_topic": "T11720",
+          "outcome_papers": 6
+        },
+        {
+          "tool": "W2022806724",
+          "target_topic": "T10622",
+          "outcome_papers": 4
+        },
+        {
+          "tool": "W2610195475",
+          "target_topic": "T11245",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W2487893106",
+          "target_topic": "T11937",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W1525296983",
+          "target_topic": "T10248",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W1597292016",
+          "target_topic": "T13080",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W3039948875",
+          "target_topic": "T11245",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W3129186208",
+          "target_topic": "T11245",
+          "outcome_papers": 3
+        },
+        {
+          "tool": "W1490039160",
+          "target_topic": "T11716",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W2003115626",
+          "target_topic": "T10025",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W1484739396",
+          "target_topic": "T11416",
+          "outcome_papers": 3
+        },
+        {
+          "tool": "W2056099894",
+          "target_topic": "T12261",
+          "outcome_papers": 3
+        },
+        {
+          "tool": "W3038165843",
+          "target_topic": "T11937",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W3021722416",
+          "target_topic": "T10688",
+          "outcome_papers": 3
+        },
+        {
+          "tool": "W2099111195",
+          "target_topic": "T11236",
+          "outcome_papers": 3
+        },
+        {
+          "tool": "W2801179766",
+          "target_topic": "T10282",
+          "outcome_papers": 8
+        },
+        {
+          "tool": "W1532154335",
+          "target_topic": "T10514",
+          "outcome_papers": 3
+        },
+        {
+          "tool": "W2057817591",
+          "target_topic": "T11110",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W1532632375",
+          "target_topic": "T10792",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W3016843226",
+          "target_topic": "T10339",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W3091814460",
+          "target_topic": "T11829",
+          "outcome_papers": 9
+        },
+        {
+          "tool": "W2076597612",
+          "target_topic": "T11937",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W3109381375",
+          "target_topic": "T12261",
+          "outcome_papers": 3
+        },
+        {
+          "tool": "W1522382323",
+          "target_topic": "T13080",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W2319466955",
+          "target_topic": "T10248",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W1499500817",
+          "target_topic": "T10545",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W2068184834",
+          "target_topic": "T11191",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W2120062331",
+          "target_topic": "T10688",
+          "outcome_papers": 5
+        },
+        {
+          "tool": "W2751862591",
+          "target_topic": "T12303",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W2056099894",
+          "target_topic": "T10928",
+          "outcome_papers": 3
+        },
+        {
+          "tool": "W3038830718",
+          "target_topic": "T10339",
+          "outcome_papers": 6
+        },
+        {
+          "tool": "W2067265108",
+          "target_topic": "T10288",
+          "outcome_papers": 3
+        },
+        {
+          "tool": "W1483679902",
+          "target_topic": "T11937",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W3016843226",
+          "target_topic": "T10739",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W2103012681",
+          "target_topic": "T10928",
+          "outcome_papers": 3
+        },
+        {
+          "tool": "W2081338783",
+          "target_topic": "T11110",
+          "outcome_papers": 3
+        },
+        {
+          "tool": "W2032316144",
+          "target_topic": "T10339",
+          "outcome_papers": 8
+        },
+        {
+          "tool": "W3016843226",
+          "target_topic": "T10288",
+          "outcome_papers": 5
+        },
+        {
+          "tool": "W1542004730",
+          "target_topic": "T11416",
+          "outcome_papers": 3
+        },
+        {
+          "tool": "W2120062331",
+          "target_topic": "T10928",
+          "outcome_papers": 4
+        },
+        {
+          "tool": "W2006309149",
+          "target_topic": "T12404",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W1527296550",
+          "target_topic": "T11513",
+          "outcome_papers": 4
+        },
+        {
+          "tool": "W2610857016",
+          "target_topic": "T10282",
+          "outcome_papers": 10
+        },
+        {
+          "tool": "W1599833186",
+          "target_topic": "T12037",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W2120062331",
+          "target_topic": "T11187",
+          "outcome_papers": 3
+        },
+        {
+          "tool": "W3015241628",
+          "target_topic": "T11937",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W3015241628",
+          "target_topic": "T10064",
+          "outcome_papers": 3
+        },
+        {
+          "tool": "W1515679419",
+          "target_topic": "T11937",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W2039343706",
+          "target_topic": "T10288",
+          "outcome_papers": 3
+        },
+        {
+          "tool": "W1995713768",
+          "target_topic": "T11520",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W3043060850",
+          "target_topic": "T10339",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W4300475775",
+          "target_topic": "T11829",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W2006309149",
+          "target_topic": "T11329",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W2799137445",
+          "target_topic": "T11236",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W2801179766",
+          "target_topic": "T11270",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W1572115049",
+          "target_topic": "T12536",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W2032316144",
+          "target_topic": "T10360",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W1592958377",
+          "target_topic": "T10627",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W1976677460",
+          "target_topic": "T12037",
+          "outcome_papers": 3
+        },
+        {
+          "tool": "W1594572592",
+          "target_topic": "T12062",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W1492498476",
+          "target_topic": "T11151",
+          "outcome_papers": 5
+        },
+        {
+          "tool": "W1995945562",
+          "target_topic": "T10282",
+          "outcome_papers": 3
+        },
+        {
+          "tool": "W3038165843",
+          "target_topic": "T10339",
+          "outcome_papers": 5
+        },
+        {
+          "tool": "W2169071224",
+          "target_topic": "T10928",
+          "outcome_papers": 4
+        },
+        {
+          "tool": "W2075085615",
+          "target_topic": "T11937",
+          "outcome_papers": 3
+        },
+        {
+          "tool": "W1577627982",
+          "target_topic": "T11513",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W2087309226",
+          "target_topic": "T11270",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W1995713768",
+          "target_topic": "T10064",
+          "outcome_papers": 3
+        },
+        {
+          "tool": "W1584610719",
+          "target_topic": "T11937",
+          "outcome_papers": 3
+        },
+        {
+          "tool": "W2103012681",
+          "target_topic": "T11937",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W1593038947",
+          "target_topic": "T11245",
+          "outcome_papers": 3
+        },
+        {
+          "tool": "W2103012681",
+          "target_topic": "T10996",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W1602596468",
+          "target_topic": "T11937",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W4292049208",
+          "target_topic": "T11937",
+          "outcome_papers": 5
+        },
+        {
+          "tool": "W1575104486",
+          "target_topic": "T12589",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W2798461040",
+          "target_topic": "T10928",
+          "outcome_papers": 13
+        },
+        {
+          "tool": "W3152478022",
+          "target_topic": "T12261",
+          "outcome_papers": 3
+        },
+        {
+          "tool": "W2051089144",
+          "target_topic": "T11110",
+          "outcome_papers": 3
+        },
+        {
+          "tool": "W1533889494",
+          "target_topic": "T11937",
+          "outcome_papers": 4
+        },
+        {
+          "tool": "W1487586009",
+          "target_topic": "T13855",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W1992879334",
+          "target_topic": "T10948",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W2610857016",
+          "target_topic": "T11303",
+          "outcome_papers": 7
+        },
+        {
+          "tool": "W3039948875",
+          "target_topic": "T11937",
+          "outcome_papers": 3
+        },
+        {
+          "tool": "W3038165843",
+          "target_topic": "T10928",
+          "outcome_papers": 7
+        },
+        {
+          "tool": "W2120062331",
+          "target_topic": "T10282",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W2126794261",
+          "target_topic": "T10541",
+          "outcome_papers": 6
+        },
+        {
+          "tool": "W1522020530",
+          "target_topic": "T10928",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W1573927207",
+          "target_topic": "T11187",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W1968339027",
+          "target_topic": "T11829",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W2016342610",
+          "target_topic": "T11110",
+          "outcome_papers": 4
+        },
+        {
+          "tool": "W2120062331",
+          "target_topic": "T11270",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W2574081884",
+          "target_topic": "T10899",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W2482762127",
+          "target_topic": "T11716",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W2610857016",
+          "target_topic": "T11366",
+          "outcome_papers": 2
+        },
+        {
+          "tool": "W1828839365",
+          "target_topic": "T12923",
+          "outcome_papers": 3
+        },
+        {
+          "tool": "W2610857016",
+          "target_topic": "T10928",
+          "outcome_papers": 4
+        },
+        {
+          "tool": "W2801179766",
+          "target_topic": "T10288",
+          "outcome_papers": 16
+        }
+      ]
+    },
+    "A broken records removed": {
+      "H1": {
+        "auc_BASE": 0.9701865613010814,
+        "auc_BASE+SHAPE": 0.9764483618400355,
+        "difference": 0.006261800538954088,
+        "ci95": [
+          0.0041782312637038575,
+          0.0082526075950856
+        ],
+        "positives": 1929,
+        "cells": 7067150,
+        "top": {
+          "100": {
+            "BASE": 2,
+            "BASE+SHAPE": 41,
+            "chance": 0.02729530291560247
+          },
+          "1000": {
+            "BASE": 27,
+            "BASE+SHAPE": 203,
+            "chance": 0.2729530291560247
+          }
+        },
+        "verdict": "detectable on cold cells, small"
+      },
+      "H2": {
+        "auc_BASE": 0.9819282645372652,
+        "auc_BASE+SHAPE": 0.9919498795047803,
+        "difference": 0.01002161496751508,
+        "ci95": [
+          0.007430553903821008,
+          0.013088745991622769
+        ],
+        "positives": 162,
+        "cells": 7067150,
+        "top": {
+          "100": {
+            "BASE": 0,
+            "BASE+SHAPE": 6,
+            "chance": 0.0022922960457893208
+          },
+          "1000": {
+            "BASE": 4,
+            "BASE+SHAPE": 34,
+            "chance": 0.02292296045789321
+          }
+        },
+        "verdict": "detectable on cold cells, small"
+      }
+    },
+    "C mathematics topics": {
+      "H1": {
+        "auc_BASE": 0.8635728367263426,
+        "auc_BASE+SHAPE": 0.9363722535437988,
+        "difference": 0.07279941681745628,
+        "ci95": [
+          0.0575848562638558,
+          0.09151687383118266
+        ],
+        "positives": 260,
+        "cells": 79586,
+        "top": {
+          "100": {
+            "BASE": 5,
+            "BASE+SHAPE": 17,
+            "chance": 0.3266906239790918
+          },
+          "1000": {
+            "BASE": 32,
+            "BASE+SHAPE": 90,
+            "chance": 3.266906239790918
+          }
+        },
+        "verdict": "underpowered"
+      },
+      "H2": {
+        "auc_BASE": 0.9022831552482715,
+        "auc_BASE+SHAPE": 0.9590488162581186,
+        "difference": 0.056765661009847035,
+        "ci95": [
+          0.024768272637725637,
+          0.09015017746614697
+        ],
+        "positives": 36,
+        "cells": 79586,
+        "top": {
+          "100": {
+            "BASE": 1,
+            "BASE+SHAPE": 5,
+            "chance": 0.045234086397105015
+          },
+          "1000": {
+            "BASE": 6,
+            "BASE+SHAPE": 18,
+            "chance": 0.45234086397105017
+          }
+        },
+        "verdict": "underpowered"
+      }
+    }
+  }
+}
