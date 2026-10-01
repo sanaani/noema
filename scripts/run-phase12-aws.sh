@@ -18,7 +18,7 @@ BUCKET=noema-structural-gpu-159976616274-20260917t220221z
 # rest are 24 GB cards that comfortably hold this corpus now that no state runs
 # past 8,192 bytes. GPU capacity is scarce and per availability zone, so the
 # launcher walks types and zones rather than failing on the first refusal.
-INSTANCE_TYPES="m6i.4xlarge m7i.4xlarge m6a.4xlarge r6i.2xlarge"
+INSTANCE_TYPES="${INSTANCE_TYPES:-m6i.4xlarge m7i.4xlarge m6a.4xlarge r6i.2xlarge}"
 AMI=ami-032e2f7bde5ba7967              # Deep Learning base, us-east-2
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 OUTROOT="${OUTROOT:-$REPO/outputs/phase-12-closeness-ladder}"
@@ -40,7 +40,8 @@ launch() {
      "$REPO/scripts/run-phase20.py" "$REPO/scripts/count-phase21.py" \
      "$REPO/scripts/run-phase21.py" "$REPO/scripts/run-phase22.py" \
      "$REPO/scripts/phase22-hits.py" "$REPO/scripts/count-phase23.py" \
-     "$REPO/scripts/run-phase23.py" "$REPO/scripts/run-phase24.py" "$REPO/scripts/run-phase25.py" "$t/scripts/"
+     "$REPO/scripts/run-phase23.py" "$REPO/scripts/run-phase24.py" "$REPO/scripts/run-phase25.py" \
+     "$REPO/scripts/embed-phase26.py" "$REPO/scripts/run-phase26.py" "$t/scripts/"
   cp "$REPO/results/phase-24-curated-backtest/eligible.json" "$t/scripts/phase24-eligible.json"
   # Phase 11's papers, references and snapshot file list
   local data="$REPO/outputs/phase-11-tool-area-grid/data"
@@ -105,7 +106,7 @@ JSON
 
   echo "== user data"
   sed -e "s|@BUCKET@|$BUCKET|g" -e "s|@RUN@|$run|g" \
-      "$REPO/scripts/$(case "${USERDATA:-}" in phase1[345689]|phase2[012]|phase21count|phase22hits|phase23count|phase23|phase24|phase25) echo "$USERDATA" ;; *) echo "phase12${USERDATA:+-$USERDATA}" ;; esac)-user-data.sh.in" > "$out/user-data.sh"
+      "$REPO/scripts/$(case "${USERDATA:-}" in phase1[345689]|phase2[012]|phase21count|phase22hits|phase23count|phase23|phase24|phase25|phase26) echo "$USERDATA" ;; *) echo "phase12${USERDATA:+-$USERDATA}" ;; esac)-user-data.sh.in" > "$out/user-data.sh"
 
   echo "== waiting for the instance profile to propagate"
   sleep 20
