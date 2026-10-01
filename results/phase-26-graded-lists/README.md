@@ -136,3 +136,64 @@ One AWS GPU instance with 64 GB of memory (g6.4xlarge, else g5.4xlarge) via
 the Phase 12 launcher (`USERDATA=phase26`), self-terminating, idle-log
 watchdog, 2-hour power-off; smoke pass first (every 4th paper). Embedding
 about 10 minutes, five builds about 30 minutes: under $2. Teardown verified.
+
+---
+
+## Results
+
+*Appended after the run. Nothing above this line changed.* Run
+`noema-p12-20261001-004012` (`USERDATA=phase26`), one g6.4xlarge (NVIDIA L4),
+44 minutes (embedding 29), about $1, torn down and verified. Numbers from
+`results/phase26.json`. 403,716 papers embedded.
+
+### Verdict
+
+| test | result | verdict |
+|---|---|---|
+| **H1** grade of Phase 25's lists | 128 of 560 met (**4.6 of 20 per area**); base rate 1.1%; lift **20.7** [15.7, 26.4] | **far better than chance** (as predicted) |
+| **H2** embedding vs TF-IDF, filter on | 69 vs 90 met; difference **−21** [−42, −2] | **embedding is worse** (predicted: no difference) |
+
+So the 2021 lists **ship with TF-IDF**, filter on, as fixed in advance.
+
+### All four variants (lists at 2011, graded 2012–2021)
+
+| variant | met of 560 | caught on (≥ 5) | base rate | lift |
+|---|---:|---:|---:|---:|
+| TF-IDF, filter off (Phase 25's) | 128 | 10 | 1.10% | 20.7 |
+| TF-IDF, filter on (**shipped**) | 90 | 8 | 0.88% | 18.4 |
+| embedding, filter off | 93 | 3 | 1.10% | 15.1 |
+| embedding, filter on | 69 | 4 | 0.88% | 14.1 |
+
+- **The filter costs 38 hits** with TF-IDF (24 with the embedding), as
+  expected: textbooks do get cited eventually.
+- The two text models' lists share 103 of 560 pairs.
+- Grade by area (shipped variant) ranges from **16 of 20** (optimization and
+  control) and 9 (numerical analysis) to 0 (quantum algebra, rings and
+  algebras); most areas 1–6.
+- Forecast test at 2011 (Phase 23's, within route, filter off): TF-IDF
+  +0.193; embedding **+0.095 [+0.046, +0.142]**. The embedding still
+  forecasts, at half the strength.
+
+### What this establishes
+
+- **The lists work, in plain numbers.** Hand each area its 20 picks in 2011
+  and on average about **4 or 5 of them** get picked up by that area within
+  ten years, about **20 times** the rate for a surprising pair chosen at
+  random. Most pick-ups are small (1–4 papers); 10 of 560 caught on (≥ 5).
+- **Word counting beats the sentence model here.** The meaning-based
+  embedding, chosen to avoid citation leakage, was worse at every
+  comparison. Exploratory reading: specific shared vocabulary (technical
+  terms, method names) seems to be the signal that a field will pick a work
+  up, and a general-purpose sentence model blurs it.
+
+### What it does not establish
+
+- That word collisions are harmless: they remain in the shipped lists.
+- **Quality of pick-ups.** "Met" means at least one paper cited the work, not
+  that the connection mattered.
+- One embedding model. Others trained on mathematics but not on citations
+  were out of scope.
+- The 2021 lists have no grade of their own: 2022–2025 references are mostly
+  missing. Each area shows its 2011 grade instead.
+- 48 of the shipped entries are OpenAlex ids with no title (OpenAlex no
+  longer serves the record), like Phase 15's broken catch-all.
