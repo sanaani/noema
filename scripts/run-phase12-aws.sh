@@ -41,14 +41,16 @@ launch() {
      "$REPO/scripts/run-phase21.py" "$REPO/scripts/run-phase22.py" \
      "$REPO/scripts/phase22-hits.py" "$REPO/scripts/count-phase23.py" \
      "$REPO/scripts/run-phase23.py" "$REPO/scripts/run-phase24.py" "$REPO/scripts/run-phase25.py" \
-     "$REPO/scripts/embed-phase26.py" "$REPO/scripts/run-phase26.py" "$t/scripts/"
+     "$REPO/scripts/embed-phase26.py" "$REPO/scripts/run-phase26.py" \n     "$REPO/scripts/run-phase27.py" "$REPO/scripts/train-phase27.py" "$t/scripts/"
   cp "$REPO/results/phase-24-curated-backtest/eligible.json" "$t/scripts/phase24-eligible.json"
-  # Phase 11's papers, references and snapshot file list
-  local data="$REPO/outputs/phase-11-tool-area-grid/data"
+  # Phase 11's papers, references and snapshot file list. DATA overrides where they live
+  # (Phase 27 rebuilt them outside the repo); phase27data makes the references, so has none yet.
+  local data="${DATA:-$REPO/outputs/phase-11-tool-area-grid/data}"
   mkdir -p "$t/in"
-  cp "$data/papers.jsonl.gz" "$data/refs.jsonl.gz" "$data/works-files.txt" "$t/in/"
+  cp "$data/papers.jsonl.gz" "$data/works-files.txt" "$t/in/"
+  [ "${USERDATA:-}" = phase27data ] || cp "$data/refs.jsonl.gz" "$t/in/"
   # USERDATA=horizons (the watch-length count) or phase13: from saved author ids
-  if [ -n "${USERDATA:-}" ]; then cp "$data/authors.jsonl.gz" "$t/in/"; fi
+  case "${USERDATA:-}" in ''|phase27|phase27data) ;; *) cp "$data/authors.jsonl.gz" "$t/in/" ;; esac
   # USERDATA=grains-count: the grain count again, from saved topics
   case "${USERDATA:-}" in grains-count|phase15|phase16) cp "$data/topics.jsonl.gz" "$t/in/" ;; esac
   # USERDATA=phase16: the OpenAlex labels for tools and topics
@@ -106,7 +108,7 @@ JSON
 
   echo "== user data"
   sed -e "s|@BUCKET@|$BUCKET|g" -e "s|@RUN@|$run|g" \
-      "$REPO/scripts/$(case "${USERDATA:-}" in phase1[345689]|phase2[012]|phase21count|phase22hits|phase23count|phase23|phase24|phase25|phase26) echo "$USERDATA" ;; *) echo "phase12${USERDATA:+-$USERDATA}" ;; esac)-user-data.sh.in" > "$out/user-data.sh"
+      "$REPO/scripts/$(case "${USERDATA:-}" in phase1[345689]|phase2[012]|phase21count|phase22hits|phase23count|phase23|phase24|phase25|phase26|phase27|phase27data) echo "$USERDATA" ;; *) echo "phase12${USERDATA:+-$USERDATA}" ;; esac)-user-data.sh.in" > "$out/user-data.sh"
 
   echo "== waiting for the instance profile to propagate"
   sleep 20
