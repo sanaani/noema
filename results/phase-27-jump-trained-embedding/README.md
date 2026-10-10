@@ -172,3 +172,126 @@ exploratory in its own section.
 
 Both workers self-terminate, have an idle-log watchdog and are torn down
 with verification. Ceiling: **$10** in total, the approved budget.
+
+---
+
+## Results
+
+*Appended after the run. Nothing above this line changed.* Run
+`noema-p12-20261010-182539` (`USERDATA=phase27`, resumed from run
+`noema-p12-20261010-172904`). Both ran on one g6.4xlarge (NVIDIA L4), torn
+down and verified. Numbers are from `results/phase27.json`.
+
+### Verdict
+
+| test | result | verdict |
+|---|---|---|
+| **H1** trained vs untrained embedding, filter on | 65 vs 69 met; difference **−4** [−18, +10] | **no measurable difference** (predicted: training helps) |
+| **H2** trained vs TF-IDF, filter on | 65 vs 90 met; difference **−25** [−49, −3] | **trained is worse than TF-IDF** (predicted: no difference) |
+
+Training on 1,244 past surprising jumps did not improve the embedding's
+lists, and TF-IDF stays well ahead.
+
+### Data rebuilt, and Phase 26 reproduced
+
+- **arXiv:** 600,987 math-primary papers; Phase 11 had 597,860.
+- **References:** 526,556 papers were found in the OpenAlex snapshot,
+  303,804 of them with references; Phase 11 had 526,506 and 303,714.
+- **Phase 26 reproduced exactly** on the rebuilt data
+  (`results/phase26-reproduced.json`):
+
+| Phase 26 result | Rebuilt data |
+|---|---|
+| TF-IDF, filter on | 90 met |
+| Embedding, filter on | 69 met |
+| H2 difference | −21 [−42, −2] |
+| H1 lift | 20.7 [15.7, 26.4] |
+| Forecast gain at 2011, TF-IDF | +0.193 |
+| Forecast gain at 2011, embedding | +0.095 |
+
+### Training
+
+- **Pairs:** cutoff 2000 gave 49,002 surprising pairs and 918 jumps
+  (2001–2005), so the sizing rule kept cutoff 2000.
+- **By target area:** most pairs went to rings and algebras (125), then
+  algebraic topology (98) and combinatorics (81).
+- **Fine-tuning:** 1,244 pairs, 2 epochs, 3.6 minutes.
+- **The loss barely moved,** from 4.03 to 3.89. Picking at random among the
+  64 candidates (32 positives plus 32 hard negatives) gives ln 64 = 4.16, so
+  the model learned very little. An arriving paper and a random earlier citer
+  of the same work are only loosely related texts.
+
+### All six variants (lists at 2011, graded 2012–2021)
+
+| variant | met of 560 | caught on (≥ 5) | lift |
+|---|---:|---:|---:|
+| TF-IDF, filter off | 128 | 10 | 20.7 |
+| TF-IDF, filter on | 90 | 8 | 18.4 |
+| embedding, filter off | 93 | 3 | 15.1 |
+| embedding, filter on | 69 | 4 | 14.1 |
+| trained, filter off | 103 | 3 | 16.7 |
+| trained, filter on | 65 | 3 | 13.3 |
+
+- **Overlap, filter on:** the trained lists share 344 of 560 pairs with the
+  untrained embedding's and 108 with TF-IDF's. Training moved the lists only
+  a little.
+- **Forecast test at 2011** (Phase 23's, within route, filter off; this
+  run's bootstrap seed):
+
+| text model | forecast gain |
+|---|---|
+| TF-IDF | +0.176 |
+| embedding | +0.098 |
+| trained | +0.097 [+0.050, +0.148] |
+
+- **Filter off,** trained beats the untrained embedding by 10 (103 vs 93).
+  This was not tested and is within the noise that H1 shows.
+
+### What this establishes
+
+- **Dianoia's recipe does not carry over in this form.** Training the
+  sentence model on 1,244 past surprising jumps neither improved its lists
+  nor closed the gap to TF-IDF.
+- **The training signal was weak, not the budget.** The loss barely fell
+  below chance. In Dianoia, the pair was a citing text and the text it
+  cited. Here the cited work has no text of its own, so its "text" is one
+  random earlier citer, and the pairs carry little that a model can learn.
+
+### What it does not establish
+
+- That trained embeddings cannot help. Three untested reasons it might have
+  failed here, each a separate test:
+  - **A better pair:** a work's own abstract, or the mean of its citers.
+  - **More pairs:** a later cutoff with a different split.
+  - **A base model** that matches TF-IDF's word-level signal.
+- That training hurts: H1's interval runs from −18 to +10.
+
+### Deviations
+
+- **Two failed GPU runs, both before any Phase 27 number:**
+  - **First run** (`…-171344`): the checkpoint is stored in float16, which
+    transformers 5 keeps, and T5's attention mask overflowed float16 under
+    bf16. Training now loads float32 weights and trains in float32 (bf16
+    off). Encoding stays fp16, as in Phase 26.
+  - **Second run** (`…-172904`): batch 32 in float32 ran out of the L4's 22
+    GB. Training now uses `CachedMultipleNegativesRankingLoss` (mini-batches
+    of 8), which computes the same batch-32 loss. That run had already
+    written the off-the-shelf embedding, the Phase 26 reproduction and the
+    pairs. The final run reused them by checksum (`RESUME`) instead of
+    recomputing.
+- **Laptop harvest:** it was killed once for memory. The harvest
+  (`run-phase11.py harvest`) now checkpoints every page and resumes; a
+  killed-and-resumed test gave a byte-identical file.
+
+### Cost and teardown
+
+| run | instance | time | cost |
+|---|---|---|---|
+| references | m6i.4xlarge | ~15 min | ~$0.20 |
+| GPU run 1 (failed smoke) | g6.4xlarge | ~8 min | ~$0.20 |
+| GPU run 2 (out of memory) | g6.4xlarge | ~46 min | ~$1.00 |
+| GPU run 3 (final) | g6.4xlarge | ~51 min | ~$1.10 |
+
+**Total: about $2.50** of the approved $10. Every instance, role, instance
+profile, security group and task object was deleted. A check found no Noema
+instance or role left.

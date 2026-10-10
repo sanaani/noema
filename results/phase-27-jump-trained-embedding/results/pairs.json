@@ -1,0 +1,46 @@
+{
+  "cutoff": 2000,
+  "arrivals": [
+    2001,
+    2005
+  ],
+  "sizing": {
+    "2000": {
+      "surprising_pairs": 49002,
+      "jumps": 918,
+      "training_pairs": 1244
+    }
+  },
+  "pairs": 1244,
+  "jumps_used": 918,
+  "by_target_area": {
+    "math.RA": 125,
+    "math.AT": 98,
+    "math.CO": 81,
+    "math.NT": 73,
+    "math.CA": 68,
+    "math.DS": 66,
+    "math.AC": 65,
+    "math.CV": 61,
+    "math.SG": 60,
+    "math.KT": 58,
+    "math.RT": 55,
+    "math.GR": 54,
+    "math.AP": 48,
+    "math.CT": 44,
+    "math.PR": 43,
+    "math.MG": 39,
+    "math.GT": 34,
+    "math.OA": 34,
+    "math.SP": 24,
+    "math.FA": 22,
+    "math.OC": 18,
+    "math.ST": 16,
+    "math.LO": 15,
+    "math.AG": 12,
+    "math.NA": 11,
+    "math.QA": 9,
+    "math.GN": 6,
+    "math.DG": 5
+  }
+}
