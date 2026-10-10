@@ -22,6 +22,8 @@ INSTANCE_TYPES="${INSTANCE_TYPES:-m6i.4xlarge m7i.4xlarge m6a.4xlarge r6i.2xlarg
 AMI=ami-032e2f7bde5ba7967              # Deep Learning base, us-east-2
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 OUTROOT="${OUTROOT:-$REPO/outputs/phase-12-closeness-ladder}"
+# The AWS CLI on Windows cannot open Git Bash paths (/c/...) given as file://; cygpath -m gives C:/...
+winpath() { if command -v cygpath >/dev/null 2>&1; then cygpath -m "$1"; else echo "$1"; fi; }
 
 launch() {
   local run ts
@@ -75,10 +77,10 @@ JSON
   "Resource":["arn:aws:s3:::$BUCKET/results/$run/*"]}]}
 JSON
   aws iam create-role --role-name "$run" \
-    --assume-role-policy-document "file://$out/trust.json" \
+    --assume-role-policy-document "file://$(winpath "$out")/trust.json" \
     --tags Key=Project,Value=noema Key=Purpose,Value=temporary-phase12-cpu >/dev/null
   aws iam put-role-policy --role-name "$run" --policy-name s3-temp \
-    --policy-document "file://$out/policy.json"
+    --policy-document "file://$(winpath "$out")/policy.json"
   # Baked in at role creation, not attached later: by the time a run looks
   # stuck the SSM agent has already backed off and will not pick up a new
   # policy. This is the only way in without an ingress rule.
@@ -126,7 +128,7 @@ JSON
     --block-device-mappings '[{"DeviceName":"/dev/sda1","Ebs":{"VolumeSize":100,"VolumeType":"gp3","Encrypted":true,"DeleteOnTermination":true}}]' \
     --network-interfaces "[{\"DeviceIndex\":0,\"SubnetId\":\"$subnet\",\"Groups\":[\"$sg\"],\"AssociatePublicIpAddress\":true,\"DeleteOnTermination\":true}]" \
     --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$run},{Key=Project,Value=noema},{Key=Purpose,Value=temporary-phase12-cpu}]" \
-    --user-data "file://$out/user-data.sh" \
+    --user-data "file://$(winpath "$out")/user-data.sh" \
     --query 'Instances[0].InstanceId' --output text 2>"$out/launch-error.txt") || id=""
     [ -n "$id" ] && [ "$id" != "None" ] && break
     echo "   $(tail -1 "$out/launch-error.txt" | grep -o 'InsufficientInstanceCapacity\|[A-Za-z]*Error' | head -1)"
