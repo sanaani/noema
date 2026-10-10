@@ -92,12 +92,17 @@ $TRAIN --out out/smoke --smoke
 $P27 analyze --out out/smoke --smoke
 rm -rf out/smoke/*.jsonl.gz out/smoke/*.npy out/smoke/st-train
 echo "SMOKE PASSED $(date -u +%FT%TZ)"
-echo "STAGE embed $(date -u +%FT%TZ)"
-$EMB --out out
-echo "STAGE phase26 $(date -u +%FT%TZ)"
-$P26 --out out --no-lookup
-echo "STAGE pairs $(date -u +%FT%TZ)"
-$P27 pairs --out out
+if [ -f in/emb.npy ]; then  # resumed: these were made and checksummed by an earlier run
+  echo "STAGE reuse embedding, phase26, pairs $(date -u +%FT%TZ)"
+  cp in/emb.npy in/emb.json in/phase26.json in/pairs.jsonl in/pairs.json out/
+else
+  echo "STAGE embed $(date -u +%FT%TZ)"
+  $EMB --out out
+  echo "STAGE phase26 $(date -u +%FT%TZ)"
+  $P26 --out out --no-lookup
+  echo "STAGE pairs $(date -u +%FT%TZ)"
+  $P27 pairs --out out
+fi
 echo "STAGE train $(date -u +%FT%TZ)"
 $TRAIN --out out
 echo "STAGE phase27 $(date -u +%FT%TZ)"

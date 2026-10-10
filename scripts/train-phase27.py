@@ -28,6 +28,7 @@ BATCH = 32
 LR = 2e-5
 WARMUP = 0.1
 MAX_TOKENS = 256
+MINI_BATCH = 8  # gradient caching: the loss of a batch of 32, computed 8 at a time
 LAST = 2021
 ENC_BATCH = 256  # embed-phase26.py's
 CHUNK = 20_000
@@ -46,7 +47,7 @@ def main() -> int:
         SentenceTransformerTrainer,
         SentenceTransformerTrainingArguments,
     )
-    from sentence_transformers.losses import MultipleNegativesRankingLoss
+    from sentence_transformers.losses import CachedMultipleNegativesRankingLoss
     from sentence_transformers.training_args import BatchSamplers
 
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawTextHelpFormatter)
@@ -80,7 +81,11 @@ def main() -> int:
     )
     t0 = time.time()
     trainer = SentenceTransformerTrainer(
-        model=model, args=targs, train_dataset=ds, loss=MultipleNegativesRankingLoss(model)
+        model=model,
+        args=targs,
+        train_dataset=ds,
+        # cached: batch 32 in float32 ran out of the L4's 22 GB (10/10/2026); same loss
+        loss=CachedMultipleNegativesRankingLoss(model, mini_batch_size=MINI_BATCH),
     )
     trainer.train()
     train_min = (time.time() - t0) / 60
