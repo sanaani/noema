@@ -20,6 +20,7 @@ import argparse
 import collections
 import gzip
 import json
+import os
 import re
 import sys
 import time
@@ -88,38 +89,74 @@ def arxiv_year(aid: str) -> int:
 
 
 # ---------------------------------------------------------------- harvest
+def paper_row(meta) -> dict | None:
+    """One arXiv record as a papers.jsonl row, or None if it is not math-primary."""
+    text = lambda t: (meta.findtext(f"a:{t}", "", NS) or "").strip()  # noqa: E731
+    cats = text("categories").split()
+    if not cats or not cats[0].startswith("math.") or cats[0] in EXCLUDED_AREAS:
+        return None
+    aid = text("id")
+    return {
+        "id": aid,
+        "year": arxiv_year(aid),
+        "area": cats[0],
+        "categories": cats,
+        "doi": text("doi").split()[0].lower() if text("doi") else None,
+        "msc": text("msc-class") or None,
+        "title": re.sub(r"\s+", " ", text("title")),
+        "abstract": re.sub(r"\s+", " ", text("abstract")),
+    }
+
+
 def harvest(out: Path, smoke: bool) -> None:
+    """papers.jsonl.gz from arXiv OAI-PMH; resumable.
+
+    Rows go to papers.part.jsonl and, after every page, the next page's URL and
+    the file's length go to harvest-state.json (10/10/2026: a laptop run was
+    killed for memory at page 220). A rerun truncates the part file to the last
+    checkpoint and carries on. If arXiv no longer honours the resumption token,
+    the harvest starts the list again and skips ids it already holds. The
+    finished file holds the same papers as an uninterrupted run's.
+    """
+    part, state_f = out / "papers.part.jsonl", out / "harvest-state.json"
     params = {"verb": "ListRecords", "metadataPrefix": "arXiv", "set": "math"}
     if smoke:
         params.update({"from": SMOKE_DATES[0], "until": SMOKE_DATES[1]})
-    url = OAI + "?" + urllib.parse.urlencode(params)
-    kept = seen = pages = 0
-    with gzip.open(out / "papers.jsonl.gz", "wt") as f:
+    first = OAI + "?" + urllib.parse.urlencode(params)
+    st = json.loads(state_f.read_text()) if state_f.exists() and part.exists() else None
+    if st:
+        with open(part, "r+b") as f:
+            f.truncate(st["bytes"])
+        log(f"harvest resumes after page {st['pages']}: {st['kept']:,} kept")
+    else:
+        part.unlink(missing_ok=True)
+        st = {"url": first, "bytes": 0, "kept": 0, "seen": 0, "pages": 0}
+    have: set[str] | None = None  # ids already written; loaded only after a token expires
+    url = st["url"]
+    with open(part, "ab") as f:
         while url:
-            root = ET.fromstring(get(url))
-            pages += 1
+            try:
+                root = ET.fromstring(get(url))
+            except urllib.error.HTTPError as e:
+                if e.code != 400 or "resumptionToken" not in url:
+                    raise
+                log("resumption token refused; starting the list again, skipping held ids")
+                f.flush()
+                with open(part, encoding="utf-8") as g:
+                    have = {json.loads(line)["id"] for line in g}
+                url = first
+                continue
+            st["pages"] += 1
             for rec in root.iterfind(".//o:record", NS):
                 meta = rec.find(".//a:arXiv", NS)
                 if meta is None:
                     continue
-                seen += 1
-                text = lambda t, m=meta: (m.findtext(f"a:{t}", "", NS) or "").strip()  # noqa: E731
-                cats = text("categories").split()
-                if not cats or not cats[0].startswith("math.") or cats[0] in EXCLUDED_AREAS:
+                st["seen"] += 1
+                row = paper_row(meta)
+                if row is None or (have is not None and row["id"] in have):
                     continue
-                aid = text("id")
-                row = {
-                    "id": aid,
-                    "year": arxiv_year(aid),
-                    "area": cats[0],
-                    "categories": cats,
-                    "doi": text("doi").split()[0].lower() if text("doi") else None,
-                    "msc": text("msc-class") or None,
-                    "title": re.sub(r"\s+", " ", text("title")),
-                    "abstract": re.sub(r"\s+", " ", text("abstract")),
-                }
-                f.write(json.dumps(row) + "\n")
-                kept += 1
+                f.write((json.dumps(row) + "\n").encode())
+                st["kept"] += 1
             tok = root.find(".//o:resumptionToken", NS)
             if tok is not None and (tok.text or "").strip():
                 url = (
@@ -129,15 +166,32 @@ def harvest(out: Path, smoke: bool) -> None:
                         {"verb": "ListRecords", "resumptionToken": tok.text.strip()}
                     )
                 )
-                if pages % 20 == 0:
-                    log(
-                        f"harvest page {pages}: {seen:,} records, {kept:,} kept "
-                        f"(list size {tok.get('completeListSize')})"
-                    )
-                time.sleep(3)
             else:
                 url = None
-    log(f"harvest done: {pages} pages, {seen:,} records, {kept:,} math-primary papers")
+            f.flush()
+            os.fsync(f.fileno())
+            st["url"], st["bytes"] = url, f.tell()
+            tmp = state_f.with_suffix(".tmp")
+            tmp.write_text(json.dumps(st))
+            os.replace(tmp, state_f)
+            if url and st["pages"] % 20 == 0:
+                log(
+                    f"harvest page {st['pages']}: {st['seen']:,} records, {st['kept']:,} kept "
+                    f"(list size {tok.get('completeListSize')})"
+                )
+            if url:
+                time.sleep(3)
+    tmp = out / "papers.jsonl.gz.tmp"
+    with open(part, "rb") as src, gzip.open(tmp, "wb") as dst:
+        while chunk := src.read(1 << 20):
+            dst.write(chunk)
+    os.replace(tmp, out / "papers.jsonl.gz")
+    part.unlink()
+    state_f.unlink()
+    log(
+        f"harvest done: {st['pages']} pages, {st['seen']:,} records, "
+        f"{st['kept']:,} math-primary papers"
+    )
 
 
 # ---------------------------------------------------------------- openalex
