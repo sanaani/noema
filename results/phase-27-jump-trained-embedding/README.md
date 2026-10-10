@@ -6,8 +6,8 @@ nothing above that section changes.
 
 **Approval.** Shaun approved a phase applying Dianoia's recipe (training the
 encoder on far jumps) to Noema, with an AWS budget of $10, on 10/10/2026.
-H1 and H2 below await his approval. The data rebuild may run first, because
-it computes no Phase 27 number.
+He approved H1 and H2 as written on 10/10/2026, before the data rebuild
+finished and before any Phase 27 number existed.
 
 ## Why
 
