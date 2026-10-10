@@ -54,7 +54,8 @@ launch() {
   [ "${USERDATA:-}" = phase27data ] || cp "$data/refs.jsonl.gz" "$t/in/"
   # RESUME=<an earlier phase 27 out dir>: reuse its checksummed embedding, Phase 26 report and pairs
   if [ -n "${RESUME:-}" ]; then
-    cp "$RESUME/emb.npy" "$RESUME/emb.json" "$RESUME/phase26.json" "$RESUME/pairs.jsonl" \n       "$RESUME/pairs.json" "$t/in/"
+    cp "$RESUME/emb.npy" "$RESUME/emb.json" "$RESUME/phase26.json" "$RESUME/pairs.jsonl" \
+       "$RESUME/pairs.json" "$t/in/"
   fi
   # USERDATA=horizons (the watch-length count) or phase13: from saved author ids
   case "${USERDATA:-}" in ''|phase27|phase27data) ;; *) cp "$data/authors.jsonl.gz" "$t/in/" ;; esac
