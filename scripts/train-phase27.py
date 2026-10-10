@@ -61,7 +61,9 @@ def main() -> int:
     device = "cuda" if torch.cuda.is_available() else "cpu"
     log(f"{len(rows):,} training pairs, device {device}")
     torch.manual_seed(SEED)
-    model = SentenceTransformer(BASE, device=device)
+    # float32: the checkpoint is stored in float16, which transformers 5 keeps, and T5's
+    # attention mask overflows float16 under mixed precision (the first GPU smoke, 10/10/2026)
+    model = SentenceTransformer(BASE, device=device, model_kwargs={"dtype": torch.float32})
     model.max_seq_length = MAX_TOKENS
     targs = SentenceTransformerTrainingArguments(
         output_dir=str(out / "st-train"),
@@ -69,7 +71,7 @@ def main() -> int:
         per_device_train_batch_size=4 if args.smoke else BATCH,
         learning_rate=LR,
         warmup_ratio=WARMUP,
-        bf16=device == "cuda",
+        bf16=False,
         seed=SEED,
         logging_steps=10,
         save_strategy="no",
