@@ -41,7 +41,8 @@ launch() {
      "$REPO/scripts/run-phase21.py" "$REPO/scripts/run-phase22.py" \
      "$REPO/scripts/phase22-hits.py" "$REPO/scripts/count-phase23.py" \
      "$REPO/scripts/run-phase23.py" "$REPO/scripts/run-phase24.py" "$REPO/scripts/run-phase25.py" \
-     "$REPO/scripts/embed-phase26.py" "$REPO/scripts/run-phase26.py" \n     "$REPO/scripts/run-phase27.py" "$REPO/scripts/train-phase27.py" "$t/scripts/"
+     "$REPO/scripts/embed-phase26.py" "$REPO/scripts/run-phase26.py" \
+     "$REPO/scripts/run-phase27.py" "$REPO/scripts/train-phase27.py" "$t/scripts/"
   cp "$REPO/results/phase-24-curated-backtest/eligible.json" "$t/scripts/phase24-eligible.json"
   # Phase 11's papers, references and snapshot file list. DATA overrides where they live
   # (Phase 27 rebuilt them outside the repo); phase27data makes the references, so has none yet.
