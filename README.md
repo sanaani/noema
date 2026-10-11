@@ -1,5 +1,31 @@
 # Noema
 
+## Goal
+
+**Predict where an existing mathematical idea will be used next, especially far from where it
+came from.**
+
+- **Idea:** a theorem, lemma, technique or object that already exists.
+- **Transfer:** its first real use in an area that has not used it before.
+- **Far:** the two areas are otherwise unconnected: no shared lemmas, little shared vocabulary.
+- **Success:** given only what existed before a date, the transfers that later happen rank above
+  those that do not, by enough that the top of the list is worth a mathematician's time.
+- **Not the goal:** producing new ideas from nothing (origination), or predicting links in
+  general. Many new ideas are born through a far transfer, so transfer is the mechanism this
+  project studies.
+
+Noema's bet is that the *shape of proofs*, the sequence of goal states a Lean proof passes
+through, shows where an idea can travel before anyone has taken it there. Proof states are the
+method under test, not the goal.
+
+**Status (10/11/2026).** On Mathlib, proof-state similarity finds future far links at about ten
+times chance, too weak for the top of the list to be useful (phases 28–29 and a follow-up). Most
+links it finds join helper facts rather than ideas, and Mathlib records when mathematics was
+formalized, not when the connection was first made. The question stands; the data it is asked of
+is under review.
+
+## The original question
+
 **Does the geometry of a theorem's proof states know which theorems are related?**
 
 A Lean proof passes through a sequence of goal states. Encode every state of
