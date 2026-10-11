@@ -1,0 +1,26 @@
+{
+ "cutoff": 16,
+ "union_texts": 88498,
+ "texts": 340534,
+ "theorems_with_states": 70836,
+ "added_theorems": 45920,
+ "common_texts_dropped": 1,
+ "lemmas": 63645,
+ "heldout_lemmas": 6364,
+ "cross_area_pairs": 175688,
+ "far_pairs": 17860,
+ "far_lemmas": 3890,
+ "train_found": 15185,
+ "train_full": 15185,
+ "heldout_full": 1818,
+ "both_in_corpus": 454,
+ "eligible_overlap": 0,
+ "curve": [
+  482,
+  1000,
+  2000,
+  5000,
+  10000
+ ],
+ "arms": 11
+}

@@ -1,0 +1,7 @@
+H1 [kind_aware] B 0.6966  arm 0.7078  diff +0.0112 [-0.0299, +0.0547]  (2284 positives)
+H1 [plain] B 0.6600  arm 0.6619  diff +0.0019 [-0.0376, +0.0440]  (2284 positives)
+R1 [kind_aware] B 0.6957  arm 0.7192  diff +0.0235 [-0.0132, +0.0595]  (1883 positives)
+R1 [plain] B 0.6590  arm 0.6751  diff +0.0161 [-0.0229, +0.0518]  (1883 positives)
+G1 [kind_aware] B 0.7517  arm 0.7480  diff -0.0036 [-0.0180, +0.0104]  (23583 positives)
+G1 [plain] B 0.7235  arm 0.7013  diff -0.0222 [-0.0390, -0.0064]  (23583 positives)
+H1: inconclusive; G1 cost: False

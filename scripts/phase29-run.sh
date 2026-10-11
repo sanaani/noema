@@ -27,7 +27,7 @@ if [ "$CMD" = pairs ]; then
   CAP=$RUN/noema/out
   if [ ! -s "$P/states-augmented.jsonl.gz" ]; then
     rm -rf "$P/replays" && mkdir -p "$P/replays"
-    tar xzf "$CAP/replays.tar.gz" -C "$P/replays"
+    tar --force-local -xzf "$CAP/replays.tar.gz" -C "$P/replays"
     replay=$(dirname "$(find "$P/replays" -name '*.json' | head -1)")
     gzip -dc "$CAP/initial-goals.jsonl.gz" > "$P/initial-goals.jsonl"
     $PY scripts/add-initial-goal-states.py --replay "$replay" --goals "$P/initial-goals.jsonl" \
@@ -48,6 +48,7 @@ A=$P/analysis
 mkdir -p "$A"
 while read -r arm _; do
   [ -n "$arm" ] || continue
+  [ -s "$RUN/arms/$arm/embeddings.npz" ] || { echo "not fetched yet: $arm"; continue; }
   d=$A/$arm
   mkdir -p "$d"
   if [ ! -s "$d/centroids.npz" ]; then
@@ -72,6 +73,10 @@ while read -r arm _; do
   fi
 done < "$P/pairs/arms.txt"
 
+main="full-s1 full-s2 full-s3 small-s1 small-s2 small-s3"
+for arm in $main; do
+  [ -s "$A/$arm/compare.json" ] || { echo "rerun once $arm is fetched"; exit 0; }
+done
 if [ ! -s "$A/phase29.json" ]; then
   $PY scripts/analyze-phase29.py --b "$B" --small "$A/small-s1" "$A/small-s2" "$A/small-s3" \
     --full "$A/full-s1" "$A/full-s2" "$A/full-s3" --union "$U" --out "$A/phase29.part.json" \

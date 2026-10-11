@@ -1,0 +1,7 @@
+H1 [kind_aware] B 0.6966  arm 0.7457  diff +0.0491 [+0.0325, +0.0645]  (2284 positives)
+H1 [plain] B 0.6600  arm 0.7071  diff +0.0471 [+0.0317, +0.0619]  (2284 positives)
+R1 [kind_aware] B 0.6957  arm 0.7446  diff +0.0489 [+0.0321, +0.0644]  (1883 positives)
+R1 [plain] B 0.6590  arm 0.7064  diff +0.0474 [+0.0317, +0.0626]  (1883 positives)
+G1 [kind_aware] B 0.7517  arm 0.7601  diff +0.0085 [+0.0001, +0.0168]  (23583 positives)
+G1 [plain] B 0.7235  arm 0.7264  diff +0.0029 [-0.0056, +0.0114]  (23583 positives)
+H1: far-pair training helps; G1 cost: False

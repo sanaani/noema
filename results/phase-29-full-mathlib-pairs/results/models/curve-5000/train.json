@@ -1,0 +1,33 @@
+{
+ "arm": "curve-5000",
+ "seed": 20261018,
+ "pairs": 5000,
+ "heldout_pairs": 1818,
+ "epochs": 2,
+ "batch": 64,
+ "lr": 5e-05,
+ "steps": 158,
+ "warmup_steps": 16,
+ "truncated": 5238,
+ "device": "NVIDIA L40S",
+ "torch": "2.11.0+cu130",
+ "curve": [
+  {
+   "epoch": 0,
+   "heldout": 6.788027483841469
+  },
+  {
+   "epoch": 1,
+   "train": 4.414461753036402,
+   "heldout": 3.7265418644609123,
+   "seconds": 47
+  },
+  {
+   "epoch": 2,
+   "train": 3.5685823174971567,
+   "heldout": 3.6670210690333924,
+   "seconds": 93
+  }
+ ],
+ "minutes": 1.6
+}

@@ -132,4 +132,162 @@ teardown is verified.
 
 ## Results
 
-(none yet)
+*Appended 10/11/2026, after the analysis. Nothing above this line was changed.*
+
+**H1: no useful gain from more pairs.** Training on 15,185 far pairs from all
+of 2024 Mathlib did *worse* than training on phase 28's 482: −0.056 on the
+hard links. **H2: phase 28 replicated** with three seeds, at +0.072. Ordinary
+links paid nothing for either (G1).
+
+| test | positives | result | 95% interval | verdict |
+|---|---:|---|---|---|
+| **H1** Full − Small, hard subset, kind-aware | 2,284 | 0.713 − 0.768 = **−0.056** | −0.090 – −0.017 | **no useful gain from more pairs** |
+| H1, plain (reported) | 2,284 | 0.667 − 0.732 = −0.065 | −0.099 – −0.027 | |
+| **H2** Small − B, hard subset, kind-aware | 2,284 | 0.768 − 0.697 = **+0.072** | +0.055 – +0.088 | **replicated** |
+| **G1** Full − B, all eligible, kind-aware | 23,583 | 0.750 − 0.752 = −0.002 | −0.016 – +0.013 | **no cost to ordinary links** |
+| G1, plain (reported) | 23,583 | 0.703 − 0.723 = −0.020 | −0.037 – −0.003 | |
+| Full − B, hard subset (reported) | 2,284 | 0.713 − 0.697 = +0.016 | −0.024 – +0.062 | |
+
+The prediction (+0.01 to +0.04 for H1) was wrong in sign.
+
+### The seeds
+
+Hard-subset AUC, kind-aware, for each seed (`results/phase29.json`):
+
+| | seed 1 | seed 2 | seed 3 |
+|---|---:|---:|---:|
+| Small (482 pairs) | 0.769 | 0.770 | 0.766 |
+| Full (15,185 pairs) | 0.721 | 0.710 | 0.708 |
+| B | 0.697 | | |
+
+Small's three seeds agree within 0.004, so phase 28's gain is not a lucky
+run. Full's three are all below every Small seed.
+
+### The learning curve (reported, not tested)
+
+These are Full's pairs subsampled by seed. Each point is one run with seed
+20261018, and is shown as its difference from B, kind-aware, with a 95%
+interval.
+
+| pairs | hard subset | all eligible |
+|---:|---|---|
+| 482 | +0.049 [+0.033, +0.065] | +0.009 |
+| 1,000 | +0.051 [+0.028, +0.074] | −0.002 |
+| 2,000 | +0.050 [+0.023, +0.079] | −0.009 |
+| 5,000 | +0.024 [−0.012, +0.061] | −0.010 |
+| 10,000 | +0.017 [−0.025, +0.061] | −0.010 |
+| 15,185 (Full, seed 1) | +0.025 [−0.016, +0.067] | +0.003 |
+| *Small (phase 28's 482), seed 1* | *+0.073 [+0.056, +0.089]* | *+0.016* |
+
+The gain is flat from 482 to 2,000 pairs and then fades. At every size,
+pairs drawn from all of Mathlib help less than phase 28's 482.
+
+### Popularity-matched (reported)
+
+The same three seeds, each against B: Small +0.057, +0.057 and +0.056
+(every interval above 0); Full +0.031, +0.021 and +0.020 (every interval
+spans 0).
+
+### Reading
+
+The two pair sets differ in more than size:
+
+- **Phase 28's 482 Small pairs are all between test-corpus theorems.**
+- **Only 454 of Full's 15,185 are**; the rest join theorems the test never
+  scores.
+
+Training that pulls together the very theorems being ranked helps most. 482
+pairs drawn from Full's pool give +0.049, against Small's +0.073. Adding
+thousands more pairs among other theorems moves the map in ways that do not
+help the test corpus, and the gain fades.
+
+This is not a leak. Every training pair is a 2024 fact, and the eligibility
+rule keeps every training pair out of the test. But it does change what
+phase 28 established. The recipe sharpens the map for a chosen set of
+theorems, using their own 2024 rare-lemma links. It has not yet shown a
+general skill learned from Mathlib at large. Phase 29 cannot say which of
+the following explains the fade, because the design does not separate them:
+
+- the pairs being off-corpus;
+- the larger, noisier mix of lemmas;
+- more training steps at a fixed learning rate.
+
+### Checks made before the result was read
+
+- **Capture** (`noema-capture-20261011-014857`; `results/selection.txt`,
+  `results/capture-worker.log`):
+  - It ran on 3,530 files.
+  - 55,336 of the 66,650 requested theorems resolved. The other 11,314 had
+    no source range in Lean, mostly generated declarations; phase 3 lost
+    4.6% the same way.
+  - Proofs: 32,348 with states and 22,988 term-mode, each given its
+    initial goal as its one state, as in phase 3.
+  - The probe projected 4.6 hours, under the 5-hour gate. The replay took
+    2.4.
+- **Pairs** (`results/pairs-manifest.json`):
+  - The pool holds 70,836 theorems with states (45,920 new), and 340,534
+    texts, of which the first 88,498 are the union's, in order.
+  - Under 5% shared vocabulary leaves 17,860 far pairs, through 3,890
+    lemmas. That gives 15,185 training pairs and 1,818 held out; the
+    20,000 cap did not bind.
+  - Zero training pairs are eligible test pairs.
+- **The seeds differ.** Full's three seeds have different training losses,
+  and their vectors agree at cosine 0.987–0.991.
+- **The analysis was checked on known numbers.** Run with phase 28's c16
+  model in all three Small slots, `scripts/analyze-phase29.py` returned
+  phase 28's +0.0620 exactly.
+
+### Deviations
+
+- **Small seed 1 is not bit-identical to phase 28's model.** Phase 3's
+  rule, which drops a text that occurs in more than half of all theorems,
+  was applied over the whole 70,836-theorem pool, and one text crossed it.
+  Phase 28's pool had none. Small therefore pools without that text: seed
+  1 scores 0.769 against phase 28's 0.759, and the three seeds span
+  0.766–0.770.
+- The tests are otherwise as fixed.
+
+### What was run
+
+- **Capture:** one m6i.4xlarge, about 2.4 hours.
+- **Pairs:** `scripts/phase29-run.sh pairs`, which runs
+  `scripts/phase29-pairs.py` on the laptop.
+- **Training:** one g6e.xlarge, 33 minutes (`noema-train-20261011-043417`,
+  `results/gpu-worker.log`).
+  - Every arm started from phase 28's B, which was packaged rather than
+    retrained.
+  - Each arm encoded only the union's 88,498 texts.
+- **Scoring:** `scripts/phase29-run.sh score`.
+  - Per arm: phase 3's analysis, then `scripts/analyze-phase28.py compare`.
+  - Then `scripts/analyze-phase29.py` and the popularity-matched AUC for
+    the six main arms.
+- **Teardown:** both workers were terminated, and their roles, instance
+  profiles, security groups and task objects deleted. The teardown was
+  verified.
+
+### Cost
+
+| | |
+|---|---:|
+| capture | about $1.90 |
+| GPU | about $1.05 |
+| **total** | **about $2.95** |
+
+Of the $10 approved on 10/10/2026, about $6.90 is spent: phase 27 about
+$2.50, phase 28 about $1.45, phase 29 about $2.95.
+
+### What this establishes
+
+- **Phase 28's result is robust to the training run:** +0.072, three seeds
+  within 0.004.
+- **More far pairs from the rest of Mathlib do not help the test corpus,**
+  and past about 2,000 they hurt. The useful pairs are the ones among the
+  theorems being ranked.
+
+### What it does not establish
+
+- **Why off-corpus pairs fade.** A test would hold the step count fixed and
+  vary only where the pairs come from.
+- **Whether training on a corpus's own rare-lemma pairs generalises.** That
+  would mean learning on one sample of Mathlib files and scoring a
+  disjoint sample.

@@ -1,0 +1,9 @@
+H1 [kind_aware] full 0.7129 - small 0.7684 = -0.0555 [-0.0895, -0.0169]
+H1 [plain] full 0.6670 - small 0.7316 = -0.0646 [-0.0993, -0.0267]
+H2 [kind_aware] small 0.7684 - B 0.6966 = +0.0718 [+0.0552, +0.0884]
+H2 [plain] small 0.7316 - B 0.6600 = +0.0716 [+0.0551, +0.0875]
+G1 [kind_aware] full 0.7500 - B 0.7517 = -0.0017 [-0.0157, +0.0133]
+G1 [plain] full 0.7034 - B 0.7235 = -0.0201 [-0.0369, -0.0030]
+full_vs_B_hard [kind_aware] full 0.7129 - B 0.6966 = +0.0163 [-0.0241, +0.0617]
+full_vs_B_hard [plain] full 0.6670 - B 0.6600 = +0.0070 [-0.0306, +0.0498]
+H1: no useful gain from more pairs; H2: replicated; G1 cost: False
