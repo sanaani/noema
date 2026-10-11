@@ -1,0 +1,7 @@
+H1 [kind_aware] B 0.6966  arm 0.7060  diff +0.0094 [+0.0015, +0.0183]  (2284 positives)
+H1 [plain] B 0.6600  arm 0.6679  diff +0.0080 [+0.0002, +0.0170]  (2284 positives)
+R1 [kind_aware] B 0.6957  arm 0.7056  diff +0.0099 [+0.0014, +0.0186]  (1883 positives)
+R1 [plain] B 0.6590  arm 0.6679  diff +0.0090 [-0.0004, +0.0188]  (1883 positives)
+G1 [kind_aware] B 0.7517  arm 0.7508  diff -0.0009 [-0.0036, +0.0017]  (23583 positives)
+G1 [plain] B 0.7235  arm 0.7195  diff -0.0039 [-0.0080, +0.0000]  (23583 positives)
+H1: real but small gain; G1 cost: False

@@ -1,0 +1,32 @@
+{
+ "arm": "c128-equal",
+ "pairs": 35,
+ "heldout_pairs": 942,
+ "epochs": 2,
+ "batch": 64,
+ "lr": 5e-05,
+ "steps": 2,
+ "warmup_steps": 1,
+ "truncated": 1669,
+ "device": "NVIDIA L40S",
+ "torch": "2.11.0+cu130",
+ "curve": [
+  {
+   "epoch": 0,
+   "heldout": 7.001883188883464
+  },
+  {
+   "epoch": 1,
+   "train": 6.091964244842529,
+   "heldout": 6.828052202860515,
+   "seconds": 2
+  },
+  {
+   "epoch": 2,
+   "train": 5.789073467254639,
+   "heldout": 6.630219300587972,
+   "seconds": 3
+  }
+ ],
+ "minutes": 0.1
+}

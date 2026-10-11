@@ -1,0 +1,46 @@
+corpus 24,916 theorems (13,570 new, 10,211 observed), 23,583 eligible positives, 9s
+  walk   2560/24916       8s
+  walk   5120/24916      15s
+  walk   7680/24916      21s
+  walk  10240/24916      28s
+  walk  12800/24916      34s
+  walk  15360/24916      40s
+  walk  17920/24916      46s
+  walk  20480/24916      52s
+  walk  23040/24916      57s
+  walk  24916/24916      61s
+
+subset                    cell                pairs    pos     AUC
+all eligible              all           309,752,428  23583  0.7235
+all eligible              base-base      64,142,991   5200  0.7722
+all eligible              fresh         245,609,437  18383  0.7095
+all eligible              OO             51,878,279   2595  0.7647
+all eligible              OS            149,925,004   9903  0.7166
+all eligible              SS            107,949,145  11085  0.7799
+cross-area only           all           281,137,283  12820  0.6355
+cross-area only           base-base      58,853,471   2562  0.6516
+cross-area only           fresh         222,283,812  10258  0.6315
+cross-area only           OO             47,451,511   1400  0.6656
+cross-area only           OS            136,877,052   5865  0.6456
+cross-area only           SS             96,808,720   5555  0.6950
+vocab<5%                  all            61,132,040   3011  0.6830
+vocab<5%                  base-base      15,989,859    640  0.7251
+vocab<5%                  fresh          45,142,181   2371  0.6726
+vocab<5%                  OO             10,648,711    385  0.6796
+vocab<5%                  OS             33,283,131   1641  0.7091
+vocab<5%                  SS             17,200,198    985  0.7581
+cross-area AND vocab<5%   all            57,594,258   2284  0.6600
+cross-area AND vocab<5%   base-base      15,027,172    401  0.6701
+cross-area AND vocab<5%   fresh          42,567,086   1883  0.6590
+cross-area AND vocab<5%   OO              9,959,419    309  0.6719
+cross-area AND vocab<5%   OS             31,366,843   1233  0.6825
+cross-area AND vocab<5%   SS             16,267,996    742  0.7303
+
+H1: hard subset AUC 0.6600 on 2284 positives; nulls...
+H1: z = 8.38 -> supported
+R1: fresh-pair AUC 0.6590, z = 8.25
+H2: kind-percentile AUC 0.6966 vs plain 0.6600
+H3 [all eligible]: proof 0.7647 statement 0.8142 diff -0.0495 [-0.0705, -0.0267] -> statement better
+H3 [cross-area AND vocab<5%]: proof 0.6719 statement 0.7490 diff -0.0771 [-0.1463, -0.0128] -> statement better
+
+wrote C:\users\shaun\onedrive\documents\noema\outputs\phase-28\analysis\B\phase3.part.json

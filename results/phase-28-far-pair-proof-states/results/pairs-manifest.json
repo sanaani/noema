@@ -1,0 +1,74 @@
+{
+ "seed": 20261018,
+ "per_lemma": 20,
+ "max_pairs": 20000,
+ "heldout_lemmas": 2692,
+ "lemmas": 26922,
+ "common_texts_dropped": 0,
+ "cutoffs": {
+  "4": {
+   "cross_area_pairs": 414,
+   "far_pairs": 39,
+   "lemmas": 29,
+   "train_natural": 35,
+   "heldout": 4,
+   "eligible_overlap": 0,
+   "train_equal": 35
+  },
+  "8": {
+   "cross_area_pairs": 1546,
+   "far_pairs": 153,
+   "lemmas": 95,
+   "train_natural": 139,
+   "heldout": 14,
+   "eligible_overlap": 0,
+   "train_equal": 35
+  },
+  "16": {
+   "cross_area_pairs": 4983,
+   "far_pairs": 527,
+   "lemmas": 258,
+   "train_natural": 482,
+   "heldout": 45,
+   "eligible_overlap": 0,
+   "train_equal": 35
+  },
+  "32": {
+   "cross_area_pairs": 13260,
+   "far_pairs": 1561,
+   "lemmas": 566,
+   "train_natural": 1377,
+   "heldout": 162,
+   "eligible_overlap": 0,
+   "train_equal": 35
+  },
+  "64": {
+   "cross_area_pairs": 34623,
+   "far_pairs": 4410,
+   "lemmas": 996,
+   "train_natural": 3585,
+   "heldout": 494,
+   "eligible_overlap": 0,
+   "train_equal": 35
+  },
+  "128": {
+   "cross_area_pairs": 86999,
+   "far_pairs": 10565,
+   "lemmas": 1470,
+   "train_natural": 7416,
+   "heldout": 942,
+   "eligible_overlap": 0,
+   "train_equal": 35
+  },
+  "200": {
+   "cross_area_pairs": 157620,
+   "far_pairs": 19520,
+   "lemmas": 1774,
+   "train_natural": 10919,
+   "heldout": 1324,
+   "eligible_overlap": 0,
+   "train_equal": 35
+  }
+ },
+ "equal_size": 35
+}

@@ -1,0 +1,267 @@
+{
+  "seed": 20260925,
+  "draws": 5000,
+  "corpus": {
+    "theorems": 24916,
+    "new": 13570,
+    "observed": 10211,
+    "eligible_positives": 23583
+  },
+  "cells": {
+    "all eligible | all": {
+      "pairs": 309752428,
+      "positives": 23583,
+      "auc": 0.7219355224735999
+    },
+    "all eligible | base-base": {
+      "pairs": 64142991,
+      "positives": 5200,
+      "auc": 0.7761384580057429
+    },
+    "all eligible | fresh": {
+      "pairs": 245609437,
+      "positives": 18383,
+      "auc": 0.7064883017346028
+    },
+    "all eligible | OO": {
+      "pairs": 51878279,
+      "positives": 2595,
+      "auc": 0.7635813162360261
+    },
+    "all eligible | OS": {
+      "pairs": 149925004,
+      "positives": 9903,
+      "auc": 0.7196564841268449
+    },
+    "all eligible | SS": {
+      "pairs": 107949145,
+      "positives": 11085,
+      "auc": 0.7785032108799478
+    },
+    "cross-area only | all": {
+      "pairs": 281137283,
+      "positives": 12820,
+      "auc": 0.6370314991312986
+    },
+    "cross-area only | base-base": {
+      "pairs": 58853471,
+      "positives": 2562,
+      "auc": 0.6582604807523681
+    },
+    "cross-area only | fresh": {
+      "pairs": 222283812,
+      "positives": 10258,
+      "auc": 0.631700716406459
+    },
+    "cross-area only | OO": {
+      "pairs": 47451511,
+      "positives": 1400,
+      "auc": 0.666647159002431
+    },
+    "cross-area only | OS": {
+      "pairs": 136877052,
+      "positives": 5865,
+      "auc": 0.6511925269448712
+    },
+    "cross-area only | SS": {
+      "pairs": 96808720,
+      "positives": 5555,
+      "auc": 0.6983280903824347
+    },
+    "vocab<5% | all": {
+      "pairs": 61132040,
+      "positives": 3011,
+      "auc": 0.7015210711541016
+    },
+    "vocab<5% | base-base": {
+      "pairs": 15989859,
+      "positives": 640,
+      "auc": 0.7412607463914435
+    },
+    "vocab<5% | fresh": {
+      "pairs": 45142181,
+      "positives": 2371,
+      "auc": 0.6917658946300611
+    },
+    "vocab<5% | OO": {
+      "pairs": 10648711,
+      "positives": 385,
+      "auc": 0.6835030685671998
+    },
+    "vocab<5% | OS": {
+      "pairs": 33283131,
+      "positives": 1641,
+      "auc": 0.7300796322395908
+    },
+    "vocab<5% | SS": {
+      "pairs": 17200198,
+      "positives": 985,
+      "auc": 0.7773053134041096
+    },
+    "cross-area AND vocab<5% | all": {
+      "pairs": 57594258,
+      "positives": 2284,
+      "auc": 0.6788035414111008
+    },
+    "cross-area AND vocab<5% | base-base": {
+      "pairs": 15027172,
+      "positives": 401,
+      "auc": 0.6887445019113336
+    },
+    "cross-area AND vocab<5% | fresh": {
+      "pairs": 42567086,
+      "positives": 1883,
+      "auc": 0.677780228117399
+    },
+    "cross-area AND vocab<5% | OO": {
+      "pairs": 9959419,
+      "positives": 309,
+      "auc": 0.677438871493758
+    },
+    "cross-area AND vocab<5% | OS": {
+      "pairs": 31366843,
+      "positives": 1233,
+      "auc": 0.7040587839738714
+    },
+    "cross-area AND vocab<5% | SS": {
+      "pairs": 16267996,
+      "positives": 742,
+      "auc": 0.7501227979997958
+    }
+  },
+  "H1": {
+    "positives": 2284,
+    "endpoints": 902,
+    "iid_sd_at_observed_size": 0.006017507555802592,
+    "substitution": {
+      "draws": 5000,
+      "mean": 0.5000378878034818,
+      "sd_raw": 0.03082719909675182,
+      "median_kept": 419.0,
+      "inflation_D": 2.1782551496230083,
+      "sd_corrected": 0.013107666821322358,
+      "z": 13.638251265039733,
+      "p": 0.0
+    },
+    "permutation": {
+      "draws": 5000,
+      "mean": 0.5566652593660624,
+      "sd_raw": 0.02241747991280137,
+      "median_kept": 932.0,
+      "inflation_D": 2.3432797736851683,
+      "sd_corrected": 0.014100703743509888,
+      "z": 8.661857185763145,
+      "p": 0.0
+    },
+    "z_quoted": 8.661857185763145,
+    "auc": 0.6788035414111008,
+    "pairs": 57594258,
+    "top_k": {
+      "100": {
+        "observed": 0,
+        "expected_iid": 0.003965673105815514,
+        "cluster_null_mean": 0.007143822519940913,
+        "cluster_null_p": 1.0
+      },
+      "1000": {
+        "observed": 2,
+        "expected_iid": 0.03965673105815514,
+        "cluster_null_mean": 0.04393917758338892,
+        "cluster_null_p": 0.0078
+      },
+      "10000": {
+        "observed": 2,
+        "expected_iid": 0.39656731058155137,
+        "cluster_null_mean": 0.38743426654038055,
+        "cluster_null_p": 0.0662
+      }
+    },
+    "verdict": "supported"
+  },
+  "R1": {
+    "positives": 1883,
+    "endpoints": 788,
+    "iid_sd_at_observed_size": 0.006664848520807913,
+    "substitution": {
+      "draws": 5000,
+      "mean": 0.5011094090763987,
+      "sd_raw": 0.034062779174666054,
+      "median_kept": 253.0,
+      "inflation_D": 1.8723993986180305,
+      "sd_corrected": 0.012479258362241008,
+      "z": 14.157156932944053,
+      "p": 0.0
+    },
+    "permutation": {
+      "draws": 5000,
+      "mean": 0.5537519209969142,
+      "sd_raw": 0.023788364064732927,
+      "median_kept": 671.0,
+      "inflation_D": 2.164632957718588,
+      "sd_corrected": 0.01442695076634279,
+      "z": 8.596986926013184,
+      "p": 0.0
+    },
+    "z_quoted": 8.596986926013184,
+    "auc": 0.677780228117399,
+    "pairs": 42567086,
+    "contradicts_h1": false
+  },
+  "H2": {
+    "positives": 2284,
+    "endpoints": 902,
+    "iid_sd_at_observed_size": 0.006054304424900804,
+    "substitution": {
+      "draws": 5000,
+      "mean": 0.5001119892789968,
+      "sd_raw": 0.030165778572334205,
+      "median_kept": 419.0,
+      "inflation_D": 2.1468366003944976,
+      "sd_corrected": 0.012997602329307406,
+      "z": 16.56535375738134,
+      "p": 0.0
+    },
+    "permutation": {
+      "draws": 5000,
+      "mean": 0.564712118521328,
+      "sd_raw": 0.022291631858460486,
+      "median_kept": 932.0,
+      "inflation_D": 2.3517084477611983,
+      "sd_corrected": 0.014237958861357224,
+      "z": 10.585067200148059,
+      "p": 0.0
+    },
+    "z_quoted": 10.585067200148059,
+    "auc_kind_percentile": 0.7154218698617377,
+    "auc_plain_angle": 0.6788035414111008
+  },
+  "H3": {
+    "all eligible": {
+      "pairs": 51878279,
+      "positives": 2595,
+      "endpoints": 1138,
+      "auc_proof_states": 0.7635813162360261,
+      "auc_statement": 0.8224316095278071,
+      "difference": -0.05885029329178104,
+      "ci95": [
+        -0.0810519523067612,
+        -0.03431946572724134
+      ],
+      "verdict": "statement better"
+    },
+    "cross-area AND vocab<5%": {
+      "pairs": 9959419,
+      "positives": 309,
+      "endpoints": 189,
+      "auc_proof_states": 0.677438871493758,
+      "auc_statement": 0.7787121816187296,
+      "difference": -0.10127331012497154,
+      "ci95": [
+        -0.16862056156591992,
+        -0.03585321844363246
+      ],
+      "verdict": "statement better"
+    }
+  },
+  "seconds": 153
+}

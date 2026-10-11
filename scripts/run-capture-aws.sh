@@ -30,7 +30,7 @@ BUCKET=noema-structural-gpu-159976616274-20260917t220221z
 INSTANCE_TYPE=m6i.4xlarge
 AMI=ami-00adec9774170bad2                 # Ubuntu 24.04, us-east-2
 PROBE_FILES=18
-MAX_REPLAY_HOURS=3.0
+MAX_REPLAY_HOURS="${MAX_REPLAY_HOURS:-3.0}"  # phase 29 sets 5
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 # CORPUS and OUTROOT default to phase 2; phase 3 overrides both.
 CORPUS="${CORPUS:-$REPO/results/phase-2-dependency-labels/unseeded-corpus-v1}"

@@ -201,4 +201,154 @@ teardown is verified.
 
 ## Results
 
-(none yet)
+*Appended 10/10/2026, after the analysis. Nothing above this line was changed.*
+
+**H1: far-pair training helps.** B was fine-tuned on 482 far pairs from 2024,
+each two theorems from different areas whose proofs both use a lemma used by
+2–16 theorems. On the 2,284 hard links that Mathlib only made by 2026, the
+model's kind-aware AUC rose from B's **0.697 to 0.759: +0.062, 95% interval
++0.042 to +0.080**. Ordinary links did not pay for it (G1). The gain holds
+when each link is compared only with pairs of equal popularity (+0.044).
+
+| | positives | B | B-far (2–16) | difference | 95% interval | verdict |
+|---|---:|---:|---:|---:|---|---|
+| **H1** hard subset, kind-aware | 2,284 | 0.697 | **0.759** | **+0.062** | +0.042 – +0.080 | **far-pair training helps** |
+| H1, plain angle (reported) | 2,284 | 0.660 | 0.720 | +0.060 | +0.038 – +0.080 | |
+| R1 fresh pairs, kind-aware | 1,883 | 0.696 | 0.751 | +0.055 | +0.035 – +0.074 | agrees with H1 |
+| **G1** all eligible, kind-aware | 23,583 | 0.752 | 0.763 | +0.011 | −0.001 – +0.024 | **no cost to near pairs** |
+| G1, plain angle (reported) | 23,583 | 0.724 | 0.723 | −0.000 | −0.015 – +0.015 | |
+| popularity-matched (reported) | 2,284 | 0.633 | 0.677 | +0.044 | +0.022 – +0.063 | |
+
+**H2: supported.** B-far's hard-subset AUC against the cluster null:
+z = **7.24** (permutation design, the smaller of the two). R1: 7.05.
+
+The prediction (+0.01 to +0.05) was low: the gain was +0.062.
+
+### Checks made before the result was read
+
+- **The recapture reproduces phase 3.**
+  - Capture: 13,570 records (5,514 observed, 8,056 synthetic), 168,594
+    states, 334 files, 0 failures.
+  - Union: 24,916 theorems, 10,211 observed, 88,498 texts, 10,211
+    statements.
+  - Label: 10,368 connectors, 26,620 connected pairs, 23,583 eligible
+    positives, 2,284 in the hard subset. Every count equals phase 3's.
+  - The frozen inputs match phase 4's manifest in every field except the
+    gzip digests, which embed the time the file was written.
+- **B reproduces phase 4** inside the pre-registered ±0.01. Retrained with
+  phase 4's recipe, its held-out loss ran 2.886 → 0.31 (phase 4: 2.887 →
+  0.31).
+
+  | B | phase 4 | phase 28 |
+  |---|---:|---:|
+  | hard subset, kind-aware | 0.692 | 0.697 |
+  | hard subset, plain | 0.654 | 0.660 |
+  | all eligible, plain | 0.722 | 0.724 |
+  | z against the cluster null | 8.3 | 8.38 |
+
+- **No training pair is a test pair.** Zero overlap at every cutoff, asserted
+  by `scripts/phase28-pairs.py`.
+- **Gradient caching is exact.** On a toy model, the chunked step's gradients
+  matched one ordinary backward pass, with the same dropout draws, to 6.5e-9.
+- **The training moved the model.** The primary arm's held-out ranking loss
+  fell from 6.85 to 4.56 over its 16 steps (`results/models/c16-natural/train.json`).
+
+### The far pairs
+
+The under-5%-vocabulary rule removed about 90% of the cross-area pairs at
+every cutoff (`results/pairs-manifest.json`):
+
+| cutoff | cross-area pairs | far pairs | training pairs | held out |
+|---:|---:|---:|---:|---:|
+| 4 | 414 | 39 | 35 | 4 |
+| 8 | 1,546 | 153 | 139 | 14 |
+| **16** | **4,983** | **527** | **482** | **45** |
+| 32 | 13,260 | 1,561 | 1,377 | 162 |
+| 64 | 34,623 | 4,410 | 3,585 | 494 |
+| 128 | 86,999 | 10,565 | 7,416 | 942 |
+| 200 | 157,620 | 19,520 | 10,919 | 1,324 |
+
+### The cutoff sweep (reported, not tested)
+
+Every model is one fine-tune of the same B. The differences are kind-aware,
+against B, with 95% intervals.
+
+| cutoff | natural: pairs | natural: hard subset | natural: all eligible | equal (35 pairs): hard subset |
+|---:|---:|---|---|---|
+| 4 | 35 | +0.015 [+0.005, +0.023] | +0.006 | (the same model) |
+| 8 | 139 | +0.040 [+0.026, +0.052] | +0.013 | +0.017 [+0.010, +0.025] |
+| **16** | **482** | **+0.062 [+0.042, +0.080]** | +0.011 | +0.012 [+0.003, +0.020] |
+| 32 | 1,377 | +0.056 [+0.025, +0.084] | **−0.021** [−0.042, −0.002] | +0.019 [+0.010, +0.027] |
+| 64 | 3,585 | −0.045 [−0.086, +0.001] | **−0.026** [−0.041, −0.011] | +0.021 [+0.013, +0.028] |
+| 128 | 7,416 | +0.006 [−0.032, +0.048] | −0.001 | +0.009 [+0.001, +0.019] |
+| 200 | 10,919 | +0.043 [+0.006, +0.083] | +0.018 | +0.009 [+0.002, +0.018] |
+
+How to read it:
+
+- **Up to 16, the gain rises with the cutoff**, and 16 is the best model
+  that costs ordinary links nothing. The line set from 2024 data alone sat at
+  the peak.
+- **At 32 the hard-subset gain holds, but ordinary links start to pay.**
+  That is consistent with lemmas above about 16–30 being routine steps.
+- **Above 32 the natural series is not a trend.** 64 hurts, 128 does
+  nothing, and 200 helps again. Each cutoff was trained once, so swings of
+  ±0.04 between neighbours show how much a single run varies. No boundary
+  above 32 should be read from them.
+- **At a fixed 35 pairs, every cutoff gives a small gain** (+0.009 to
+  +0.021). That is too little data to rank the cutoffs.
+
+### What was run
+
+- **Capture:** one m6i.4xlarge, 22 minutes (`noema-capture-20261010-234351`).
+  - The first attempt failed in its setup stage: a Windows checkout gave the
+    REPL patch CRLF line endings, and `git apply` refused it.
+    `scripts/run-capture-aws.sh` now strips CR from everything it packages.
+- **Rebuild:** `scripts/phase28-rebuild.sh` on the laptop. It writes the
+  union, `selection-modules.json.gz` (phase 2's plus the recapture's
+  `ranges.jsonl`), the label, phase 4's inputs and the far pairs.
+- **Training:** one g6e.xlarge (L40S), 36 minutes in all
+  (`noema-train-20261011-002547`, `results/gpu-worker.log`).
+  - B was trained by `scripts/train-encoders-gpu.py`, unchanged.
+  - Each of the 13 arms was trained by `scripts/train-phase28.py`, and each
+    was uploaded as soon as it finished.
+- **Scoring:** `scripts/phase28-analyze.sh` on the laptop.
+  - Per model: phase 4's `prepare` and phase 3's full analysis.
+  - Then `scripts/analyze-phase28.py compare` against B, and `popularity`
+    for the primary arm.
+- **Deviations:** none from the tests.
+  - `scripts/export-forward-centroids.py` now records a path outside the
+    repo as an absolute path, instead of failing. That changes the
+    provenance string only.
+- **Teardown:** both workers were terminated, and their roles, instance
+  profiles, security groups and task objects deleted. The teardown was
+  verified.
+
+### Cost
+
+| | |
+|---|---:|
+| failed capture | about $0.03 |
+| capture | about $0.30 |
+| GPU | about $1.10 |
+| **total** | **about $1.45** |
+
+Spent so far of the $10: about $2.50 on phase 27 and $1.45 here.
+
+### What this establishes
+
+- On proof states, Dianoia's recipe carries over: a few hundred far pairs,
+  certified by Lean as "the same rare lemma in two areas", move the encoder
+  toward links Mathlib had not yet made. The gain is +0.062 on the hard
+  subset, +0.044 at equal popularity, and the near pairs did not pay for it.
+- The rare line chosen from the 2024 usage distribution (16) was the best
+  cutoff in the sweep.
+
+### What it does not establish
+
+- **Whether it is robust to the training run.** Each arm is a single seed,
+  and the sweep's swings say a single run can move by ±0.04. Phase 29 trains
+  three seeds.
+- **Whether more pairs help.** 482 pairs is small. Phase 29 draws far pairs
+  from all of 2024 Mathlib.
+- **Whether the top of the ranking improves**, which is what a person would
+  read.
