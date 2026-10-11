@@ -25,6 +25,15 @@ from noema.paths import result_path
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def shown(path: Path) -> str:
+    """The path as provenance records it: repo-relative when it can be (outputs/ may
+    be a link to a data disk, which resolves outside the repo)."""
+    try:
+        return str(path.relative_to(ROOT))
+    except ValueError:
+        return str(path)
+
+
 def digest(path, chunk=1 << 22):
     h = hashlib.sha256()
     with open(path, "rb") as handle:
@@ -67,9 +76,9 @@ def main():
         provenance=np.array(
             json.dumps(
                 {
-                    "vectors": str(args.vectors.relative_to(ROOT)),
+                    "vectors": shown(args.vectors),
                     "vectors_sha256": digest(args.vectors),
-                    "index": str(args.index.relative_to(ROOT)),
+                    "index": shown(args.index),
                     "max_state_df": args.max_state_df,
                 }
             )
