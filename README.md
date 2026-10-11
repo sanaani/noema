@@ -2,16 +2,18 @@
 
 ## Goal
 
-**Predict where an existing mathematical idea will be used next, especially far from where it
-came from.**
+**Predict where a great existing mathematical idea will be used next, especially far from where
+it came from.** Connecting ideas is not the point; connecting great ones is.
 
-- **Idea:** a theorem, lemma, technique or object that already exists.
+- **Great idea:** a theorem, technique or object of high impact, judged only from evidence that
+  existed before the prediction date (never by an LLM). Helper facts like `1 ≠ 0` do not count,
+  however often they are shared.
 - **Transfer:** its first real use in an area that has not used it before.
 - **Far:** the two areas are otherwise unconnected: no shared lemmas, little shared vocabulary.
 - **Success:** given only what existed before a date, the transfers that later happen rank above
   those that do not, by enough that the top of the list is worth a mathematician's time.
 - **Not the goal:** producing new ideas from nothing (origination), or predicting links in
-  general. Many new ideas are born through a far transfer, so transfer is the mechanism this
+  general, between ideas of any weight. Many new ideas are born through a far transfer, so transfer is the mechanism this
   project studies.
 
 Noema's bet is that the *shape of proofs*, the sequence of goal states a Lean proof passes
