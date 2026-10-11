@@ -36,6 +36,8 @@ REPO="$(cd "$(dirname "$0")/.." && pwd)"
 CORPUS="${CORPUS:-$REPO/results/phase-2-dependency-labels/unseeded-corpus-v1}"
 OUTROOT="${OUTROOT:-$REPO/outputs/phase-2-dependency-labels}"
 
+winpath() { if command -v cygpath >/dev/null 2>&1; then cygpath -m "$1"; else echo "$1"; fi; }
+
 launch() {
   local run ts
   ts=$(date -u +%Y%m%d-%H%M%S)
@@ -53,6 +55,9 @@ launch() {
      "$out/task/state-object-patches/"
   cp -r "$REPO/src" "$out/task/src"
   find "$out/task/src" -name __pycache__ -type d -exec rm -rf {} + 2>/dev/null || true
+  # A Windows checkout (core.autocrlf) hands these over with CRLF, and git apply
+  # then refuses the REPL patch (10/10/2026). Every packaged file is text.
+  find "$out/task" -type f -exec sed -i 's/\r$//' {} +
   tar czf "$out/task.tar.gz" -C "$out/task" .
   aws s3 cp "$out/task.tar.gz" "s3://$BUCKET/$run-task.tar.gz" --region "$REGION"
 
@@ -69,10 +74,10 @@ JSON
   "Resource":["arn:aws:s3:::$BUCKET/results/$run/*"]}]}
 JSON
   aws iam create-role --role-name "$run" \
-    --assume-role-policy-document "file://$out/trust.json" \
+    --assume-role-policy-document "file://$(winpath "$out")/trust.json" \
     --tags Key=Project,Value=noema Key=Purpose,Value=temporary-state-capture >/dev/null
   aws iam put-role-policy --role-name "$run" --policy-name s3-temp \
-    --policy-document "file://$out/policy.json"
+    --policy-document "file://$(winpath "$out")/policy.json"
   # Baked in at role creation, not attached later: by the time a run looks
   # stuck the SSM agent has already backed off and will not pick up a new
   # policy. This is the only way in without an ingress rule.
@@ -115,7 +120,7 @@ JSON
     --block-device-mappings '[{"DeviceName":"/dev/sda1","Ebs":{"VolumeSize":200,"VolumeType":"gp3","Encrypted":true,"DeleteOnTermination":true}}]' \
     --network-interfaces "[{\"DeviceIndex\":0,\"SubnetId\":\"$subnet\",\"Groups\":[\"$sg\"],\"AssociatePublicIpAddress\":true,\"DeleteOnTermination\":true}]" \
     --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$run},{Key=Project,Value=noema},{Key=Purpose,Value=temporary-state-capture}]" \
-    --user-data "file://$out/user-data.sh" \
+    --user-data "file://$(winpath "$out")/user-data.sh" \
     --query 'Instances[0].InstanceId' --output text)
   echo "$id" > "$out/instance-id"
   echo "$sg"  > "$out/security-group-id"

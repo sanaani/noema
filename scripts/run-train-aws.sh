@@ -26,6 +26,8 @@ INSTANCE_TYPES="g6e.xlarge g6.2xlarge g5.2xlarge g6.xlarge g5.xlarge"
 AMI=ami-032e2f7bde5ba7967              # Deep Learning base, us-east-2
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 OUTROOT="${OUTROOT:-$REPO/outputs/phase-4-trained-encoder}"
+MINUTES="${MINUTES:-180}"  # the worker powers itself off after this long
+winpath() { if command -v cygpath >/dev/null 2>&1; then cygpath -m "$1"; else echo "$1"; fi; }
 
 launch() {
   local inputs=${1:?path to the inputs directory}
@@ -39,6 +41,14 @@ launch() {
   cp "$inputs/texts.json.gz" "$inputs/tactic-heads.jsonl.gz" "$inputs/inputs-manifest.json" \
      "$out/task/noema/in/"
   cp "$REPO/scripts/train-encoders-gpu.py" "$out/task/noema/scripts/"
+  # Phase 28: the far pairs and the fine-tune script; the worker then trains
+  # every arm from this run's B (results/phase-28-far-pair-proof-states).
+  if [ -n "${PAIRS:-}" ]; then
+    mkdir -p "$out/task/noema/pairs"
+    cp "$PAIRS"/*.jsonl "$PAIRS/theorem-texts.json.gz" "$PAIRS/pairs-manifest.json" \
+       "$out/task/noema/pairs/"
+    cp "$REPO/scripts/train-phase28.py" "$out/task/noema/scripts/"
+  fi
   tar czf "$out/task.tar.gz" -C "$out/task" noema
   aws s3 cp "$out/task.tar.gz" "s3://$BUCKET/$run-task.tar.gz" --region "$REGION"
   echo "== IAM role, scoped to this run's keys"
@@ -54,10 +64,10 @@ JSON
   "Resource":["arn:aws:s3:::$BUCKET/results/$run/*"]}]}
 JSON
   aws iam create-role --role-name "$run" \
-    --assume-role-policy-document "file://$out/trust.json" \
+    --assume-role-policy-document "file://$(winpath "$out")/trust.json" \
     --tags Key=Project,Value=noema Key=Purpose,Value=temporary-encoder-training >/dev/null
   aws iam put-role-policy --role-name "$run" --policy-name s3-temp \
-    --policy-document "file://$out/policy.json"
+    --policy-document "file://$(winpath "$out")/policy.json"
   # Baked in at role creation, not attached later: by the time a run looks
   # stuck the SSM agent has already backed off and will not pick up a new
   # policy. This is the only way in without an ingress rule.
@@ -87,7 +97,8 @@ JSON
             --query 'Subnets[].SubnetId' --output text)
 
   echo "== user data"
-  sed -e "s|@BUCKET@|$BUCKET|g" -e "s|@RUN@|$run|g" \
+  sed -e "s|@BUCKET@|$BUCKET|g" -e "s|@RUN@|$run|g" -e "s|@MINUTES@|$MINUTES|g" \
+      -e "s|@TIMER@|$((MINUTES - 5))|g" -e 's/\r$//' \
       "$REPO/scripts/train-user-data.sh.in" > "$out/user-data.sh"
 
   echo "== waiting for the instance profile to propagate"
@@ -105,7 +116,7 @@ JSON
     --block-device-mappings '[{"DeviceName":"/dev/sda1","Ebs":{"VolumeSize":100,"VolumeType":"gp3","Encrypted":true,"DeleteOnTermination":true}}]' \
     --network-interfaces "[{\"DeviceIndex\":0,\"SubnetId\":\"$subnet\",\"Groups\":[\"$sg\"],\"AssociatePublicIpAddress\":true,\"DeleteOnTermination\":true}]" \
     --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$run},{Key=Project,Value=noema},{Key=Purpose,Value=temporary-encoder-training}]" \
-    --user-data "file://$out/user-data.sh" \
+    --user-data "file://$(winpath "$out")/user-data.sh" \
     --query 'Instances[0].InstanceId' --output text 2>"$out/launch-error.txt") || id=""
     [ -n "$id" ] && [ "$id" != "None" ] && break
     echo "   $(tail -1 "$out/launch-error.txt" | grep -o 'InsufficientInstanceCapacity\|[A-Za-z]*Error' | head -1)"
