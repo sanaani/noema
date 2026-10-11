@@ -38,8 +38,15 @@ launch() {
   mkdir -p "$out/task/noema/in" "$out/task/noema/scripts"
 
   echo "== packaging the task"
-  cp "$inputs/texts.json.gz" "$inputs/tactic-heads.jsonl.gz" "$inputs/inputs-manifest.json" \
-     "$out/task/noema/in/"
+  cp "$inputs/texts.json.gz" "$out/task/noema/in/"
+  for f in tactic-heads.jsonl.gz inputs-manifest.json; do
+    if [ -f "$inputs/$f" ]; then cp "$inputs/$f" "$out/task/noema/in/"; fi
+  done
+  # Phase 29: start every arm from an already trained B instead of training one
+  if [ -n "${B_DIR:-}" ]; then
+    mkdir -p "$out/task/noema/b"
+    cp "$B_DIR/b-model.pt" "$B_DIR/b-tokenizer.json" "$out/task/noema/b/"
+  fi
   cp "$REPO/scripts/train-encoders-gpu.py" "$out/task/noema/scripts/"
   # Phase 28: the far pairs and the fine-tune script; the worker then trains
   # every arm from this run's B (results/phase-28-far-pair-proof-states).
@@ -47,6 +54,7 @@ launch() {
     mkdir -p "$out/task/noema/pairs"
     cp "$PAIRS"/*.jsonl "$PAIRS/theorem-texts.json.gz" "$PAIRS/pairs-manifest.json" \
        "$out/task/noema/pairs/"
+    if [ -f "$PAIRS/arms.txt" ]; then cp "$PAIRS/arms.txt" "$out/task/noema/pairs/"; fi  # phase 29
     cp "$REPO/scripts/train-phase28.py" "$out/task/noema/scripts/"
   fi
   tar czf "$out/task.tar.gz" -C "$out/task" noema

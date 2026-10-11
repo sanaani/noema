@@ -152,10 +152,16 @@ def main() -> int:
     ap.add_argument("--arm", required=True, help="e.g. c16-natural")
     ap.add_argument("--out", type=Path, required=True)
     ap.add_argument("--smoke", action="store_true", help="smoke B config, 40 pairs, 1 epoch")
+    # Phase 29: its own pair files, three seeds, and a text list that extends the
+    # union's with the rest of Mathlib; only the union's texts are encoded at the end
+    ap.add_argument("--seed", type=int, default=SEED)
+    ap.add_argument("--pairs-file", help="pairs file in --pairs (default from --arm)")
+    ap.add_argument("--heldout-file", help="held-out file in --pairs (default from --arm)")
+    ap.add_argument("--embed-first", type=int, help="encode only the first N texts")
     args = ap.parse_args()
     out = args.out
     out.mkdir(parents=True, exist_ok=True)
-    cutoff, series = args.arm.split("-")
+    seed = args.seed
 
     cfg = dict(tr.B_CFG)
     if args.smoke:
@@ -167,8 +173,13 @@ def main() -> int:
         texts = json.load(f)
     with gzip.open(args.pairs / "theorem-texts.json.gz", "rt") as f:
         pool = json.load(f)
-    train = read_jsonl(args.pairs / f"pairs-{cutoff}-{series}.jsonl")
-    held = read_jsonl(args.pairs / f"heldout-{cutoff}.jsonl")
+    if args.pairs_file:
+        train = read_jsonl(args.pairs / args.pairs_file)
+        held = read_jsonl(args.pairs / args.heldout_file)
+    else:
+        cutoff, series = args.arm.split("-")
+        train = read_jsonl(args.pairs / f"pairs-{cutoff}-{series}.jsonl")
+        held = read_jsonl(args.pairs / f"heldout-{cutoff}.jsonl")
     held = sorted(held, key=lambda r: r["k"])[:HELDOUT_MAX]
     epochs = EPOCHS
     if args.smoke:
@@ -176,12 +187,21 @@ def main() -> int:
         pool = {k: [t for t in v if t < n] for k, v in pool.items()}
         ok = [p for p in train if pool.get(p["a"]) and pool.get(p["b"])]
         train, held, epochs = ok[:40], ok[40:60], 1
-    ids, _, truncated = tr.tokenize(tok, texts, cfg["max_len"])
-    log(f"{args.arm}: {len(train):,} pairs, {len(held):,} held out, {len(texts):,} texts")
+    n_embed = len(texts) if args.embed_first is None else args.embed_first
+    # tokenize only what this arm reads: its theorems' texts and the texts it encodes
+    need = set(range(n_embed))
+    for p in train + held:
+        need.update(pool[p["a"]])
+        need.update(pool[p["b"]])
+    need = sorted(need)
+    tokens, _, truncated = tr.tokenize(tok, [texts[i] for i in need], cfg["max_len"])
+    ids = dict(zip(need, tokens, strict=True))
+    log(f"{args.arm}: {len(train):,} pairs, {len(held):,} held out, {len(need):,} of "
+        f"{len(texts):,} texts, seed {seed}")  # fmt: skip
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     amp = device.type == "cuda"
-    torch.manual_seed(SEED)
+    torch.manual_seed(seed)
     model = tr.StateEncoder(cfg["vocab"], cfg["d"], cfg["heads"], cfg["layers"], cfg["ff"],
                             cfg["dropout"], cfg["max_len"])  # fmt: skip
     model.load_state_dict(torch.load(args.b_dir / "b-model.pt", map_location="cpu"))
@@ -194,7 +214,7 @@ def main() -> int:
     sched = torch.optim.lr_scheduler.LambdaLR(
         opt, lambda s: (s + 1) / warm if s < warm else max(0.0, (total - s) / max(1, total - warm))
     )
-    rng = np.random.default_rng(SEED)
+    rng = np.random.default_rng(seed)
     curve = [{"epoch": 0, "heldout": arm.heldout_loss(held)}]
     log(f"held-out loss before training {curve[0]['heldout']}")
     t0 = time.time()
@@ -218,16 +238,17 @@ def main() -> int:
 
     log(f"{args.arm}: embedding every text")
     model.eval()
-    vecs = np.zeros((len(texts), cfg["d"]), dtype=np.float32)
-    lengths = np.array([len(x) for x in ids])
+    vecs = np.zeros((n_embed, cfg["d"]), dtype=np.float32)
+    lengths = np.array([len(ids[i]) for i in range(n_embed)])
     by_len = np.argsort(lengths, kind="stable")
     with torch.no_grad():
         for c in np.array_split(by_len, max(1, len(by_len) // 256)):
             vecs[c] = F.normalize(arm.encode(list(c)), dim=1).cpu().numpy()
     if not np.isfinite(vecs).all():
         raise SystemExit(f"{args.arm}: non-finite vectors")
-    np.savez(out / "embeddings.npz", texts=np.array(texts), vectors=vecs)
-    report = {"arm": args.arm, "pairs": len(train), "heldout_pairs": len(held), "epochs": epochs,
+    np.savez(out / "embeddings.npz", texts=np.array(texts[:n_embed]), vectors=vecs)
+    report = {"arm": args.arm, "seed": seed, "pairs": len(train), "heldout_pairs": len(held),
+              "epochs": epochs,
               "batch": BATCH, "lr": LR, "steps": total, "warmup_steps": warm,
               "truncated": truncated, "device": torch.cuda.get_device_name(0) if amp else "cpu",
               "torch": torch.__version__, "curve": curve,

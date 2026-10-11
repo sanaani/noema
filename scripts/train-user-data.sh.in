@@ -63,13 +63,34 @@ tar xzf /tmp/task.tar.gz -C /opt
 nvidia-smi --query-gpu=name,memory.total --format=csv,noheader
 /opt/nvenv/bin/python -c "import torch; assert torch.cuda.is_available(), 'no CUDA'; print('cuda', torch.version.cuda)"
 
-echo "STAGE train $(date -u +%FT%TZ)"
-/opt/nvenv/bin/python /opt/noema/scripts/train-encoders-gpu.py \
-  --inputs /opt/noema/in --out /opt/noema/out
+BDIR=/opt/noema/out
+if [ -f /opt/noema/b/b-model.pt ]; then
+  BDIR=/opt/noema/b  # Phase 29: B was trained in phase 28
+else
+  echo "STAGE train $(date -u +%FT%TZ)"
+  /opt/nvenv/bin/python /opt/noema/scripts/train-encoders-gpu.py \
+    --inputs /opt/noema/in --out /opt/noema/out
+fi
 
+# Phase 29: one line per arm in arms.txt -- name, pairs file, held-out file,
+# seed. Only the union's texts, the first in the list, are encoded.
+if [ -f /opt/noema/pairs/arms.txt ]; then
+  n=$(/opt/nvenv/bin/python -c "import json; print(json.load(open('/opt/noema/pairs/pairs-manifest.json'))['union_texts'])")
+  while read -r arm pf hf seed; do
+    [ -n "$arm" ] || continue
+    echo "STAGE arm $arm $(date -u +%FT%TZ)"
+    /opt/nvenv/bin/python /opt/noema/scripts/train-phase28.py --inputs /opt/noema/in \
+      --b-dir "$BDIR" --pairs /opt/noema/pairs --arm "$arm" --pairs-file "$pf" \
+      --heldout-file "$hf" --seed "$seed" --embed-first "$n" --out "/opt/noema/arms/$arm" \
+      </dev/null
+    tar czf "/tmp/$arm.tar.gz" -C /opt/noema/arms "$arm"
+    /opt/nvenv/bin/aws s3 cp "/tmp/$arm.tar.gz" "s3://$BKT/results/$RNAME/arms/$arm.tar.gz" \
+      --region us-east-2 </dev/null
+    rm -f "/tmp/$arm.tar.gz"
+  done < /opt/noema/pairs/arms.txt
 # Phase 28: one fine-tune per arm from this B, the primary arm first. Each arm
 # is uploaded as soon as it is done, so a lost worker loses at most one arm.
-if [ -d /opt/noema/pairs ]; then
+elif [ -d /opt/noema/pairs ]; then
   ( cd /opt/noema/out && tar czf /tmp/b.tar.gz b-model.pt b-tokenizer.json training-report.json )
   /opt/nvenv/bin/aws s3 cp /tmp/b.tar.gz "s3://$BKT/results/$RNAME/b.tar.gz" --region us-east-2
   for arm in c16-natural c4-natural c8-natural c32-natural c64-natural c128-natural              c200-natural c8-equal c16-equal c32-equal c64-equal c128-equal c200-equal; do
